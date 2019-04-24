@@ -16,6 +16,6 @@
     system: "{{ item.system | default(omit) }}"
   with_items: "{{ users }}"
   when: >
-    (users_per_user_groups == true or
+    (users_per_user_groups or
     item.group|default('justAPlaceHolder') == 'justAPlaceHolder') and
     item.state|default('present') != 'absent'

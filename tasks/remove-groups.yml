@@ -12,6 +12,6 @@
     state: absent
   with_items: "{{ users }}"
   when: >
-    users_per_user_groups == true and
+    users_per_user_groups and
     item.state|default('present') == 'absent' and
     ansible_ssh_user != item.name
