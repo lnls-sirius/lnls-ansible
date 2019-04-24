@@ -9,6 +9,6 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 # @pytest.mark.parametrize('', [
 # ])
-def test_default(host, pkg):
+def test_default(host):
 
     assert True
