@@ -28,11 +28,6 @@ env:
     - MOLECULE_DISTRO: debian:jessie
       BUILD_TYPE: debug
 
-    - MOLECULE_DISTRO: debian:wheezy
-      BUILD_TYPE: default
-    - MOLECULE_DISTRO: debian:wheezy
-      BUILD_TYPE: debug
-
     - MOLECULE_DISTRO: ubuntu:precise
       BUILD_TYPE: default
     - MOLECULE_DISTRO: ubuntu:precise
