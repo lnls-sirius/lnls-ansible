@@ -10,7 +10,18 @@
       paths:
         - '{{ role_path }}/vars'
 
+- name: Define ssh packages
+  set_fact:
+    ssh_packages: "{{ __ssh_packages | list }}"
+  when: ssh_packages is not defined
+
 # Setup/install tasks
+- include_tasks: setup-RedHat.yml
+  when: ansible_os_family == 'RedHat'
+
+- include_tasks: setup-Debian.yml
+  when: ansible_os_family == 'Debian'
+
 - include_tasks: add-groups.yml
 - include_tasks: add-users.yml
 - include_tasks: remove-groups.yml
