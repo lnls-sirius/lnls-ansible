@@ -18,20 +18,16 @@ users_default_password: "$6$f65yHhg479Mkl$4/t3MqK1jn5NfVKb0CDtyr6wKYnaCBQOIAwV8/
 users:
   - name: sirius
     comment: Main Sirius User
-    group: sirius
     state: present
     groups:
       - facs
       - imas
       - digs
   - name: facs
-    group: facs
     state: present
   - name: imas
-    group: imas
     state: present
   - name: digs
-    group: digs
     state: present
 
 users_groups:
