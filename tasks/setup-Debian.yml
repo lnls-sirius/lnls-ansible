@@ -1,0 +1,5 @@
+---
+- name: Ensure ssh packages are installed
+  apt:
+    name: "{{ ssh_packages }}"
+    state: present
