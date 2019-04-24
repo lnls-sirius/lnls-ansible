@@ -23,6 +23,22 @@ users:
       - facs
       - imas
       - digs
+  - name: fernando
+    groups:
+      - imas
+    state: present
+  - name: ximenes
+    groups:
+      - imas
+    state: present
+  - name: liulin
+    state: present
+  - name: ana
+    state: present
+  - name: alexandre
+    state: present
+  - name: murilo
+    state: present
   - name: facs
     state: present
   - name: imas
