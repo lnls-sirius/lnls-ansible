@@ -14,4 +14,4 @@
   when: >
     users_per_user_groups and
     item.state|default('present') == 'absent' and
-    ansible_ssh_user != item.name
+    ansible_user != item.name
