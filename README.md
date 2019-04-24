@@ -3,7 +3,7 @@ LNLS Ansible Role Users
 
 [![Build Status](https://travis-ci.org/lerwys/lnls-ans-role-users.svg?branch=master)](https://travis-ci.org/lerwys/lnls-ans-role-users)
 
-References: https://bitbucket.org/europeanspallationsource/ics-ans-role-users
+References: https://bitbucket.org/europeanspallationsource/ics-ans-role-localusers
 
 This Ansible role enables the Debian NSLS-II repositories.
 
