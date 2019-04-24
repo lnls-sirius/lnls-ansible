@@ -70,9 +70,11 @@ users_ssh_keys: []
 ## Example Playbook
 
 ```yaml
-- hosts: servers
-  roles:
-    - role: lnls-ans-role-users
+---
+- hosts: all
+  tasks:
+  - import_role:
+      name: '{{playbook_dir}}'
 ```
 
 ## Tests
