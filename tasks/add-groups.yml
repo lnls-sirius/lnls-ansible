@@ -19,3 +19,4 @@
     (users_per_user_groups or
     item.group|default('justAPlaceHolder') == 'justAPlaceHolder') and
     item.state|default('present') != 'absent'
+  become: true

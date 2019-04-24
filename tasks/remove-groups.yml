@@ -15,3 +15,4 @@
     users_per_user_groups and
     item.state|default('present') == 'absent' and
     item.name != ansible_env.SUDO_USER | default(ansible_env.USER, true) | default(ansible_user_id, true)
+  become: true

@@ -20,3 +20,4 @@
   when: >
     not ( item.name == ansible_env.SUDO_USER | default(ansible_env.USER, true) | default(ansible_user_id, true) and
     item.state|default('present') == 'absent' )
+  become: true
