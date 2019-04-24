@@ -3,3 +3,8 @@
   apt:
     name: "{{ ssh_packages }}"
     state: present
+  become: true
+  register: apt_result
+  until: apt_result is success
+  retries: 10
+  delay: 2
