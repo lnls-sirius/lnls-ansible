@@ -1,0 +1,22 @@
+---
+- name: Create users
+  user:
+    name: '{{ item.name }}'
+    state: '{{ item.state | default("present") }}'
+    uid: '{{ item.uid | default(omit) }}'
+    group: '{{ item.group | default(item.name) }}'
+    groups: '{{ item.groups | default("") | join(",") }}'
+    shell: '{{ item.shell | default(users_default_shell) }}'
+    comment: '{{ item.comment | default("Unknown User") }}'
+    password: '{{ item.password | default(users_default_password) }}'
+    home: '{{ item.home | default("/home/"+item.name) }}'
+    createhome: '{{ item.createhome | default(users_create_homedirs) }}'
+    system: '{{ item.system | default(omit) }}'
+    generate_ssh_key: '{{ item.gen_ssh_key | default(users_gen_ssh_keys) | default("yes") }}'
+    ssh_key_bits: '{{ item.ssh_key_bits | default(users_ssh_key_bits) | default(2048) }}'
+    ssh_key_file: '{{ item.ssh_key_file | default(users_ssh_key_file) | default(".ssh/id_rsa") }}'
+    append: true
+  with_items: "{{ users }}"
+  when: >
+    not ( item.name == ansible_ssh_user and
+    item.state|default('present') == 'absent' )

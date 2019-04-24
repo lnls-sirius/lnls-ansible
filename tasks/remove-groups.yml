@@ -1,0 +1,17 @@
+---
+- name: Remove group
+  group:
+    name: "{{ item.name }}"
+    state: absent
+  with_items: "{{ users_groups }}"
+  when: item.state|default('present') == "absent"
+
+- name: Remove user groups
+  group:
+    name: "{{ item.name }}"
+    state: absent
+  with_items: "{{ users }}"
+  when: >
+    users_per_user_groups == true and
+    item.state|default('present') == 'absent' and
+    ansible_ssh_user != item.name

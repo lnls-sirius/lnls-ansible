@@ -1,0 +1,51 @@
+---
+# General configurations
+users_default_shell: /bin/bash
+users_create_homedirs: true
+# Create groups for users with the same name as the users group even if
+# principal groups is specified
+users_per_user_groups: true
+# Create SSH keys for each user. This will not everwrite existing keys
+users_gen_ssh_keys: true
+# Number os bits for SSH key
+users_ssh_key_bits: 2048
+# Path for ssh generate key files
+users_ssh_key_file: .ssh/id_rsa
+# Users default encrypted password
+users_default_password: "$6$f65yHhg479Mkl$4/t3MqK1jn5NfVKb0CDtyr6wKYnaCBQOIAwV8/DG.q1hIOBehICwkhAAM3pGfpLeoRwSgLJKyHa6R/u2vtBn//"
+
+# Lists of users to create or delete
+users:
+  - name: sirius
+    comment: Main Sirius User
+    group: sirius
+    state: present
+    groups:
+      - facs
+      - imas
+      - digs
+  - name: facs
+    group: facs
+    state: present
+  - name: imas
+    group: imas
+    state: present
+  - name: digs
+    group: digs
+    state: present
+
+users_groups:
+  - name: sirius
+    system: true
+    state: present
+  - name: facs
+    system: true
+    state: present
+  - name: imas
+    system: true
+    state: present
+  - name: digs
+    system: true
+    state: present
+
+users_ssh_keys: []
