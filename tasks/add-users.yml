@@ -23,17 +23,16 @@
   become: true
   register: users_rc
 
-# Filter users_rc to get a flattened list of names
-- name: Create list of names from created users
+# Filter users_rc to get a dict with list of {names, homes}
+- name: Create dict of names,home from created users
   set_fact:
-    users_rc_names: "{{ users_rc.results
-    | map(attribute='name')
-    | list }}"
+    users_rc_names_homes: "{{ users_rc_names_homes|default({}) | combine( {item.name: item.home} ) }}"
+  with_items: "{{ users_rc.results }}"
 
 # Only create dirs when the corresponding "home" was created previously
 - name: Create custom dirs in homes
   file:
-    path: "{{ item.0.home }}/{{ item.1 }}"
+    path: "{{ users_rc_names_homes[item.0.name] }}/{{ item.1 }}"
     owner: "{{ item.0.name }}"
     group: "{{ item.0.name }}"
     state: directory
@@ -42,4 +41,4 @@
     - "{{ users }}"
     - dirs_in_home
     - skip_missing: true
-  when: item.0.name in users_rc_names
+  when: item.0.name in users_rc_names_homes.keys()
