@@ -24,7 +24,8 @@
   register: users_rc
 
 # Filter users_rc to get a flattened list of names
-- set_fact:
+- name: Create list of names from created users
+  set_fact:
     users_rc_names: "{{ users_rc.results
     | map(attribute='name')
     | list }}"
