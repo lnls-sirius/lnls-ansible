@@ -19,6 +19,7 @@ users:
   - name: sirius
     comment: Main Sirius User
     groups:
+      - sudo
       - facs
       - imas
       - digs
