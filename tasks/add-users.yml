@@ -40,6 +40,6 @@
   become: true
   with_subelements:
     - "{{ users }}"
-    - dirs
+    - dirs_in_home
     - skip_missing: true
   when: item.0.name in users_rc_names

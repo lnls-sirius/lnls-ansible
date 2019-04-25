@@ -22,56 +22,56 @@ users:
       - facs
       - imas
       - digs
-    dirs:
+    dirs_in_home:
       - "repos"
     state: present
   - name: fernando
     comment: Fernand User
     groups:
       - imas
-    dirs:
+    dirs_in_home:
       - "repos"
     state: present
   - name: ximenes
     comment: Ximenes User
     groups:
       - imas
-    dirs:
+    dirs_in_home:
       - "repos"
     state: present
   - name: liulin
     comment: Liu User
-    dirs:
+    dirs_in_home:
       - "repos"
     state: present
   - name: ana
     comment: Ana User
-    dirs:
+    dirs_in_home:
       - "repos"
     state: present
   - name: alexandre
     comment: Alexandre User
-    dirs:
+    dirs_in_home:
       - "repos"
     state: present
   - name: murilo
     comment: Murilo User
-    dirs:
+    dirs_in_home:
       - "repos"
     state: present
   - name: facs
     comment: FACS User
-    dirs:
+    dirs_in_home:
       - "repos"
     state: present
   - name: imas
     comment: IMAS User
-    dirs:
+    dirs_in_home:
       - "repos"
     state: present
   - name: digs
     comment: DIGS User
-    dirs:
+    dirs_in_home:
       - "repos"
     state: present
 
