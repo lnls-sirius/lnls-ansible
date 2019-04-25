@@ -21,3 +21,24 @@
     not ( item.name == ansible_env.SUDO_USER | default(ansible_env.USER, true) | default(ansible_user_id, true) and
     item.state|default('present') == 'absent' )
   become: true
+  register: users_rc
+
+# Filter users_rc to get a flattened list of names
+- set_fact:
+    users_rc_names: "{{ users_rc.results
+    | map(attribute='name')
+    | list }}"
+
+# Only create dirs when the corresponding "home" was created previously
+- name: Create custom dirs in homes
+  file:
+    path: "{{ item.1 }}"
+    owner: "{{ item.0.name }}"
+    group: "{{ item.0.name }}"
+    state: directory
+  become: true
+  with_subelements:
+    - "{{ users }}"
+    - dirs
+    - skip_missing: true
+  when: item.0.name in users_rc_names
