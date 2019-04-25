@@ -64,7 +64,14 @@ users_groups:
     system: yes
     state: present
 
-users_ssh_keys: []
+users_ssh_keys:
+- name: user1
+  keys:
+    - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDcoWQneQ/fbUmZPnTajzAvXC1XOvhD5+61ZPW8obIZ54OpLcNKyOf4TfceapSAFnKidXv+Z9CZ6foXr2/64bgL43ILvSNUhU2ic4Tzy5ARYJ5o84R61La8/nv5eCQTlgQRTqdW8HVR+xFGNUhG44FqHa+yUXpyadKwIVFYuWQAFZ6qxy2Iwzso229zZa3/jS589aBD/Z83HThttXowYywMqjP68MNnzlb5thpQFkamzXfeziXflGf+mMiiHZHr2NPSOGamgCowqmqRK3Lmq0E1+CIAGzWOuRC0YhW41uu8A09AKScWWb10udPQhkolnwRZxOMXyRQmSAhCV0XrcaBv nope@nowheere.it
+    - ssh-rsa AAAA.somestuffgoeshere home@home.com
+- name: user3
+  keys:
+    - ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBBB17LMqtZmwdqXkrlwCMp9fcvRCvi1aU2jd64lmqjQWJoKBSRgRohRCKmcqtBM3nqFHNDnAC2ZBYkEXbRq1F2c= alessio@bradipo
 ```
 
 ## Example Playbook
