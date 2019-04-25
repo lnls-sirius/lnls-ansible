@@ -5,7 +5,7 @@ LNLS Ansible Role Users
 
 References: https://bitbucket.org/europeanspallationsource/ics-ans-role-localusers
 
-This Ansible role enables the Debian NSLS-II repositories.
+This Ansible role configures some defaults users/groups for Sirius Light Source control machines.
 
 ## Requirements
 
