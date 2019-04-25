@@ -24,26 +24,35 @@ users:
       - imas
       - digs
   - name: fernando
+    comment: Fernand User
     groups:
       - imas
     state: present
   - name: ximenes
+    comment: Ximenes User
     groups:
       - imas
     state: present
   - name: liulin
+    comment: Liu User
     state: present
   - name: ana
+    comment: Ana User
     state: present
   - name: alexandre
+    comment: Alexandre User
     state: present
   - name: murilo
+    comment: Murilo User
     state: present
   - name: facs
+    comment: FACS User
     state: present
   - name: imas
+    comment: IMAS User
     state: present
   - name: digs
+    comment: DIGS User
     state: present
 
 users_groups:
