@@ -3,7 +3,7 @@
   become: true
   become_user: root
   remote_user: vagrant
-  gather_facts: false
+  gather_facts: true
   tasks:
     # This should work too / #2372
     # - name: Pushes user key to root's on vagrant boxes
@@ -22,8 +22,27 @@
         host: "{{ ansible_host }}"
       delegate_to: localhost
 
-    - name: Installs python
-      raw: apt-get update && apt-get install -y python
+    - name: Installs python for Debian based distros
+      apt:
+        name: python
+        state: present
+      become: true
+      register: apt_result
+      until: apt_result is success
+      retries: 10
+      delay: 2
+      when: ansible_os_family == 'Debian'
+
+    - name: Installs python for Debian based distros
+      package:
+        name: python
+        state: present
+      become: true
+      register: package_result
+      until: package_result is success
+      retries: 10
+      delay: 2
+      when: ansible_os_family == 'RedHat'
 
     - name: Creates destination directory
       # Workaround for #2372
