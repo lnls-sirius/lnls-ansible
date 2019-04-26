@@ -15,6 +15,11 @@
     ssh_packages: "{{ __ssh_packages | list }}"
   when: ssh_packages is not defined
 
+- name: Define root group
+  set_fact:
+    root_group: "{{ __root_group }}"
+  when: root_group is not defined
+
 # Setup/install tasks
 - include_tasks: setup-RedHat.yml
   when: ansible_os_family == 'RedHat'
