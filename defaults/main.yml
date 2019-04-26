@@ -19,12 +19,12 @@ users:
   - name: sirius
     comment: Main Sirius User
     groups:
-      - sudo
       - facs
       - imas
       - digs
     dirs_in_home:
       - "repos"
+    root: true
     state: present
   - name: fernando
     comment: Fernand User
