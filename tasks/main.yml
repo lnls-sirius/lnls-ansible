@@ -29,5 +29,6 @@
 
 - include_tasks: add-groups.yml
 - include_tasks: add-users.yml
+- include_tasks: grant-root.yml
 - include_tasks: remove-groups.yml
 - include_tasks: ssh-keys.yml

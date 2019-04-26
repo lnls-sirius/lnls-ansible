@@ -1,0 +1,21 @@
+---
+- name: Make sure we have a "{{ root_group }}" group
+  group:
+    name: "{{ root_group }}"
+    state: present
+
+- name: Allow "{{ root_group }}" group to be sudo
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%{{ root_group }}'
+    line: '%{{ root_group }} ALL=(ALL) NOPASSWD: ALL'
+    validate: visudo -cf %s
+
+- name: Add sudoers users to {{ root_group }} group
+  user:
+    name: "{{ item.name }}"
+    groups: "{{ root_group }}"
+    append: yes
+  with_items: "{{ users }}"
+  when: item.root | default(false)
