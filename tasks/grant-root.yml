@@ -16,6 +16,6 @@
   user:
     name: "{{ item.name }}"
     groups: "{{ root_group }}"
-    append: yes
+    append: true
   with_items: "{{ users }}"
   when: item.root | default(false)
