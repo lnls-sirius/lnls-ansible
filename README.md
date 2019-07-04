@@ -84,6 +84,12 @@ users_ssh_keys:
       name: '{{playbook_dir}}'
 ```
 
+## Example Commmand
+
+```bash
+ansible-playbook -i host, -u user -k --ask-become-pass playbook.yml
+```
+
 ## Tests
 
 Tests are performed using Molecule. To run them with python virtualenv, issue:
