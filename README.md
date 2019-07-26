@@ -1,6 +1,8 @@
 LNLS Ansible
 =======================
 
+[![Build Status](https://travis-ci.org/lnls-sirius/lnls-ansible.svg)](https://travis-ci.org/lnls-sirius/lnls-ansible)
+
 This Ansible roles/playbooks for Sirius Light Source control machines.
 
 ## Example Playbook
