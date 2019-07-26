@@ -12,6 +12,7 @@ env:
     - DNS_SERVER2: 8.8.8.8
     - CI_TIME: false
     - CI_TRACE: false
+    - ROLE: lnls-ans-role-users
   matrix:
     - MOLECULE_DISTRO: centos:7
       BUILD_TYPE: default
