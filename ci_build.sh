@@ -26,11 +26,11 @@ esac
 case "${BUILD_TYPE}" in
     default)
         echo "Running default molecule test" >&2
-        ${CI_TIME} cd ${ROLE} && molecule test
+        ${CI_TIME} cd roles/${ROLE} && molecule test
         ;;
     debug)
         echo "Running debug molecule test" >&2
-        ${CI_TIME} cd ${ROLE} && molecule --debug test
+        ${CI_TIME} cd roles/${ROLE} && molecule --debug test
         ;;
     *)
         echo "Invalid build type: ${BUILD_TYPE}" >&2
