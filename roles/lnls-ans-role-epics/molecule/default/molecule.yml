@@ -1,0 +1,49 @@
+---
+dependency:
+  name: galaxy
+lint:
+  name: yamllint
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+  inventory:
+    group_vars:
+      default_group:
+      debian_stretch_based:
+      debian_jessie_based:
+scenario:
+  name: default
+verifier:
+  name: testinfra
+  options:
+    verbose: true
+  lint:
+    name: flake8
+driver:
+  name: docker
+platforms:
+  - name: lnls-ans-role-repository-debian-jessie
+    image: debian:jessie
+    groups:
+      - debian_jessie_based
+      - default_group
+    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
+  - name: lnls-ans-role-repository-debian-stretch
+    image: debian:stretch
+    groups:
+      - debian_stretch_based
+      - default_group
+    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
+  - name: lnls-ans-role-repository-ubuntu-trusty
+    image: ubuntu:trusty
+    groups:
+      - debian_jessie_based
+      - default_group
+    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
+  - name: lnls-ans-role-repository-ubuntu-xenial
+    image: ubuntu:xenial
+    groups:
+      - debian_stretch_based
+      - default_group
+    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]

@@ -1,0 +1,33 @@
+---
+- name: Update apt cache
+  apt:
+    update_cache: true
+    cache_valid_time: 86400
+  become: true
+  register: apt_update_cache_result
+  until: apt_update_cache_result is success
+  retries: 10
+  delay: 2
+
+- name: Ensure EPICS missing packages are installed
+  apt:
+    deb: "{{ item.url }}"
+    state: "{{ item.state }}"
+  with_items:
+    - "{{ epics_missing_packages }}"
+  become: true
+  register: apt_missing_packages_result
+  until: apt_missing_packages_result is success
+  retries: 10
+  delay: 2
+
+- name: Ensure EPICS packages are installed
+  apt:
+    name: "{{ epics_packages }}"
+    state: "{{ epics_packages_state }}"
+    install_recommends: "{{ epics_install_recommends }}"
+  become: true
+  register: apt_packages_result
+  until: apt_packages_result is success
+  retries: 10
+  delay: 2

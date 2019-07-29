@@ -1,0 +1,30 @@
+---
+sudo: required
+language: python
+services:
+  - docker
+
+# Set CI_TIME=true to enable build-step profiling in Travis
+# Set CI_TRACE=true to enable shell script tracing in Travis
+env:
+  global:
+    - DNS_SERVER1=1.1.1.1
+    - DNS_SERVER2=8.8.8.8
+    - CI_TIME=false
+    - CI_TRACE=false
+  matrix:
+    - BUILD_TYPE=default
+    - BUILD_TYPE=debug
+
+before_install:
+  - sudo apt-get -qq update
+
+install:
+  - pip install molecule docker-py
+
+# Hand off to generated script for each BUILD_TYPE
+script:
+  - ./ci_build.sh
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/

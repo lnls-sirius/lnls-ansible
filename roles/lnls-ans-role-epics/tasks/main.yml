@@ -1,0 +1,41 @@
+---
+- name: Resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      skip: true
+      paths:
+        - '{{ role_path }}/vars'
+
+- name: Define EPICS packages
+  set_fact:
+    epics_packages: "{{ __epics_packages | list }}"
+  when: epics_packages is not defined
+
+- name: Define EPICS extra packages
+  set_fact:
+    epics_packages: "{{ epics_packages | list + epics_packages_extra | list }}"
+  when: epics_packages_extra is defined
+
+- name: Define EPICS missing packages
+  set_fact:
+    epics_missing_packages: "{{ __epics_missing_packages | list }}"
+  when: epics_missing_packages is not defined and __epics_missing_packages is defined
+
+- name: Default EPICS missing packages
+  set_fact:
+    epics_missing_packages: []
+  when: epics_missing_packages is not defined
+
+# Setup/install tasks
+- include_tasks: setup-Debian.yml
+  when:
+    - ansible_os_family == 'Debian'
+
+# Install EPICS from source when it's not Debian.
+- include_tasks: install-from-source.yml
+  when:
+    - ansible_os_family != 'Debian'

@@ -1,0 +1,4 @@
+---
+- name: Install EPICS base source
+  fail:
+    msg: "Installing EPICS from source is not current available. Use a supported distribution"
