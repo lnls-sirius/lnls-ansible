@@ -1,5 +1,6 @@
 ---
 __epics_packages:
-  - epics-dev={{ epics_default_version + "*"}}
-  - epics-doc
+  - epics-dev
+  #- epics-doc
+  - epics-perl
   - epics-pcas-dev

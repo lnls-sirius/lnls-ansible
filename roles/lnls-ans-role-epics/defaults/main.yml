@@ -1,7 +1,4 @@
 ---
-# Default EPICS version to install
-epics_default_version: "3.15.6"
-
 # EPICS package state; use 'present' to make sure it's installed, or 'latest' if
 # you want to upgrade or switch versions using a new repo.
 epics_packages_state: present
