@@ -5,15 +5,15 @@ __basic_packages:
 __python_dep_packages:
   # - build-essentials
   # - checkinstall
-  - libreadline-gplv2-dev
-  - libncursesw5-dev
-  - libssl-dev
-  - libsqlite3-dev
-  - tk-dev
-  - libgdbm-dev
-  - libc6-dev
-  - libbz2-dev
+  - libreadline-gplv2-dev=5.2+dfsg-3+b13
+  - libncursesw5-dev=6.1+20181013-2
+  - libssl-dev=1.1.1c-1
+  - libsqlite3-dev=3.27.2-3
+  - tk-dev=8.6.9+1
+  - libgdbm-dev=1.18.1-4
+  - libc6-dev=2.28-10
+  - libbz2-dev=1.0.6-9.1
 
 __python_packages:
-  - python-dev
-  - python-pip
+  - python-dev=2.7.16-1
+  - python-pip=18.1-5

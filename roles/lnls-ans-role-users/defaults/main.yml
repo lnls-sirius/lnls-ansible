@@ -12,82 +12,85 @@ users_ssh_key_bits: 2048
 # Path for ssh generate key files
 users_ssh_key_file: .ssh/id_rsa
 # Users default encrypted password
-users_default_password: "$6$f65yHhg479Mkl$4/t3MqK1jn5NfVKb0CDtyr6wKYnaCBQOIAwV8/DG.q1hIOBehICwkhAAM3pGfpLeoRwSgLJKyHa6R/u2vtBn//"
+users_default_password:
 
 # Lists of users to create or delete
 users:
   - name: sirius
+    password: "$6$f65yHhg479Mkl$4/t3MqK1jn5NfVKb0CDtyr6wKYnaCBQOIAwV8/DG.q1hIOBehICwkhAAM3pGfpLeoRwSgLJKyHa6R/u2vtBn//"
+    # how to generate: ansible all -i localhost, -m debug -a "msg={{ 'mypassword' | password_hash('sha512', 'mysecretsalt') }}"
     comment: Main Sirius User
-    groups:
-      - facs
-      - imas
-      - digs
+    # groups:
+    #   - facs
+    #   - imas
+    #   - digs
     dirs_in_home:
       - "repos"
+      - "iocs-log"
     root: true
     state: present
-  - name: fernando
-    comment: Fernand User
-    groups:
-      - imas
-    dirs_in_home:
-      - "repos"
-    state: present
-  - name: ximenes
-    comment: Ximenes User
-    groups:
-      - imas
-    dirs_in_home:
-      - "repos"
-    state: present
-  - name: liulin
-    comment: Liu User
-    dirs_in_home:
-      - "repos"
-    state: present
-  - name: ana
-    comment: Ana User
-    dirs_in_home:
-      - "repos"
-    state: present
-  - name: alexandre
-    comment: Alexandre User
-    dirs_in_home:
-      - "repos"
-    state: present
-  - name: murilo
-    comment: Murilo User
-    dirs_in_home:
-      - "repos"
-    state: present
-  - name: facs
-    comment: FACS User
-    dirs_in_home:
-      - "repos"
-    state: present
-  - name: imas
-    comment: IMAS User
-    dirs_in_home:
-      - "repos"
-    state: present
-  - name: digs
-    comment: DIGS User
-    dirs_in_home:
-      - "repos"
-    state: present
+  # - name: fernando
+  #   comment: Fernand User
+  #   groups:
+  #     - imas
+  #   dirs_in_home:
+  #     - "repos"
+  #   state: present
+  # - name: ximenes
+  #   comment: Ximenes User
+  #   groups:
+  #     - imas
+  #   dirs_in_home:
+  #     - "repos"
+  #   state: present
+  # - name: liulin
+  #   comment: Liu User
+  #   dirs_in_home:
+  #     - "repos"
+  #   state: present
+  # - name: ana
+  #   comment: Ana User
+  #   dirs_in_home:
+  #     - "repos"
+  #   state: present
+  # - name: alexandre
+  #   comment: Alexandre User
+  #   dirs_in_home:
+  #     - "repos"
+  #   state: present
+  # - name: murilo
+  #   comment: Murilo User
+  #   dirs_in_home:
+  #     - "repos"
+  #   state: present
+  # - name: facs
+  #   comment: FACS User
+  #   dirs_in_home:
+  #     - "repos"
+  #   state: present
+  # - name: imas
+  #   comment: IMAS User
+  #   dirs_in_home:
+  #     - "repos"
+  #   state: present
+  # - name: digs
+  #   comment: DIGS User
+  #   dirs_in_home:
+  #     - "repos"
+  #   state: present
 
 users_groups:
   - name: sirius
     system: true
     state: present
-  - name: facs
-    system: true
-    state: present
-  - name: imas
-    system: true
-    state: present
-  - name: digs
-    system: true
-    state: present
+  # - name: facs
+  #   system: true
+  #   state: present
+  # - name: imas
+  #   system: true
+  #   state: present
+  # - name: digs
+  #   system: true
+  #   state: present
 
 users_ssh_keys: []
