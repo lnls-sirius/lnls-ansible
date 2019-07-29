@@ -1,0 +1,60 @@
+---
+- name: Install GPG packages
+  apt:
+    name:
+      - gnupg
+      - apt-transport-https
+    state: present
+    update_cache: true
+  become: true
+  register: apt_result
+  until: apt_result is success
+  retries: 10
+  delay: 2
+
+- name: Import APT GPG keys by URL
+  apt_key:
+    url: "{{ item.url }}"
+    keyring: "{{ item.keyring }}"
+    state: present
+  when: item.url is defined and item.url|length > 0
+  with_items:
+    - "{{ repository_keys }}"
+  become: true
+  register: gpg_import_url
+  until: gpg_import_url is success
+  retries: 10
+  delay: 2
+
+- name: Import APT GPG keys by keyserver
+  apt_key:
+    keyserver: "{{ item.keyserver }}"
+    id: "{{ item.id }}"
+    state: present
+  when: item.keyserver is defined and item.keyserver|length > 0
+  with_items:
+    - "{{ repository_keys }}"
+  become: true
+  register: gpg_import_key
+  until: gpg_import_key is success
+  retries: 10
+  delay: 2
+
+# Ansible will call my handler only once even is just one new repository
+# was added, which is what we want
+- name: Add default repositories
+  apt_repository:
+    repo: "{{ item.baseurl }}"
+    state: "{{ item.state }}"
+    filename: "{{ item.file }}"
+    update_cache: true
+  with_items:
+    - "{{ repository_apt }}"
+  notify: Delete APT pinning configuration
+  become: true
+
+- name: Force handlers to run at this point
+  meta: flush_handlers
+
+# Configure APT pinning
+- include_tasks: apt-pinning-configure.yml

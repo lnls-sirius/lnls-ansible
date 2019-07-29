@@ -1,0 +1,13 @@
+---
+- name: Ensure APT pinning files are present
+  template:
+    src: "{{ item.filename }}.j2"
+    dest: "{{ item.pathname }}/{{ item.filename }}"
+    owner: root
+    group: root
+    force: true
+    mode: 0644
+  become: true
+  with_items:
+    - "{{ apt_pinning_paths }}"
+  when: apt_deb_repo_enable_pinning

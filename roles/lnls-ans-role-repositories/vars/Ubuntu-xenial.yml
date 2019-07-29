@@ -1,0 +1,68 @@
+---
+# APT repositories
+__repository_keys:
+  - name: Debian NSLS2 key
+    url: https://epicsdeb.bnl.gov/debian/repo-key.pub
+    keyring: /etc/apt/trusted.gpg.d/nsls2-epics-debian.gpg
+
+  - name: Debian Stretch 1 key
+    keyserver: keyserver.ubuntu.com
+    id: EF0F382A1A7B6500
+
+  - name: Debian Stretch 2 key
+    keyserver: keyserver.ubuntu.com
+    id: 7638D0442B90D010
+
+  - name: Debian Stretch 3 key
+    keyserver: keyserver.ubuntu.com
+    id: 9D6D8F6BC857C906
+
+  - name: Debian Stretch 4 key
+    keyserver: keyserver.ubuntu.com
+    id: 8B48AD6246925553
+
+__repository_apt:
+  - name: NSLS2 EPICS debian repository
+    baseurl: "deb https://epicsdeb.bnl.gov/debian stretch/staging main contrib"
+    description: "NSLS-II Debian EPICS repository"
+    file: nsls2-epics-debian
+    state: present
+
+  - name: NSLS2 EPICS debian repository sources
+    baseurl: "deb-src https://epicsdeb.bnl.gov/debian stretch/staging main contrib"
+    description: "NSLS-II Debian EPICS repository"
+    file: nsls2-epics-debian-src
+    state: present
+
+  - name: Debian Stretch repository
+    baseurl: "deb http://deb.debian.org/debian stretch main"
+    description: "Debian Stretch repository"
+    file: debian-stretch-main
+    state: present
+
+  - name: Debian Stretch repository sources
+    baseurl: "deb-src http://deb.debian.org/debian stretch main"
+    description: "Debian Stretch repository"
+    file: debian-stretch-main-src
+    state: present
+
+  - name: Debian Stretch security repository
+    baseurl: "deb http://security.debian.org/debian-security stretch/updates main"
+    description: "Debian Stretch security repository"
+    file: debian-stretch-updates
+    state: present
+
+  - name: Debian Stretch security repository sources
+    baseurl: "deb-src http://security.debian.org/debian-security stretch/updates main"
+    description: "Debian Stretch security repository"
+    file: debian-stretch-updates-src
+    state: present
+
+__apt_pinning_paths:
+  - name: Pinning path for NSLS2 EPICS repository
+    filename: epicsdeb-repo-pref
+    pathname: "/etc/apt/preferences.d"
+
+  - name: Pinning path for Debian Jessie repository
+    filename: stretch-repo-pref
+    pathname: "/etc/apt/preferences.d"

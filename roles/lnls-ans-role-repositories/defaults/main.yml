@@ -1,0 +1,49 @@
+---
+# General configurations
+
+# Set true is you want to pin epics_deb repositories
+apt_deb_repo_enable_pinning: true
+
+# EPICS debian configurations
+
+# Set NSLS2 EPICS main debian pacakges pin priority
+epics_deb_main_conf_pin_prio: 500
+# Set NSLS2 EPICS epics-perl pacakges pin priority.
+# Don't make this package installable as it conflicts
+# with other distributions. Use a negative value
+epics_deb_epics_perl_conf_pin_prio: -10
+
+# Debian Jessie configurations
+
+# Set Debian Jessie security packages pin priority
+debian_jessie_security_conf_pin_prio: 100
+# Set Debian Jessie main packages pin priority
+debian_jessie_main_conf_pin_prio: 100
+# Set Debian Jessie libpcre packages pin priority
+# We need this library >= 500 so apt-get installs it
+# as a dependency to NSLS EPICS pacakges
+debian_jessie_libpcre_conf_pin_prio: 500
+
+# Debian Stretch configurations
+
+# Set Debian Stretch security packages pin priority
+debian_stretch_security_conf_pin_prio: 100
+# Set Debian Stretch main packages pin priority
+debian_stretch_main_conf_pin_prio: 100
+# Set Debian Stretch libpcre packages pin priority
+# We need this library >= 500 so apt-get installs it
+# as a dependency to NSLS EPICS pacakges
+debian_stretch_libpcre_conf_pin_prio: 500
+
+
+# Debian Buster configurations
+# TODO: update!
+
+# Set Debian Buster security packages pin priority
+debian_buster_security_conf_pin_prio: 100
+# Set Debian Buster main packages pin priority
+debian_buster_main_conf_pin_prio: 100
+# Set Debian Buster libpcre packages pin priority
+# We need this library >= 500 so apt-get installs it
+# as a dependency to NSLS EPICS pacakges
+debian_buster_libpcre_conf_pin_prio: 500
