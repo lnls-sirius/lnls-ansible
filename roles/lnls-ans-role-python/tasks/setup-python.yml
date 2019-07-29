@@ -1,0 +1,18 @@
+---
+- name: Install python
+  apt:
+    name: "{{ python_all }}"
+    state: present
+  become: true
+  register: apt_result
+  until: apt_result is success
+  retries: 2
+  delay: 2
+
+- name: Install python symlink
+  file:
+    # TODO: resolve python3 link correctly!
+    src: "/usr/bin/python3"
+    dest: "{{ python_symlink }}"
+    state: link
+  become: true

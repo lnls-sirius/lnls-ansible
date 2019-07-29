@@ -1,0 +1,45 @@
+---
+- name: Resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      skip: true
+      paths:
+        - '{{ role_path }}/vars'
+
+- name: Define basic packages
+  set_fact:
+    basic_packages: "{{ __basic_packages | list }}"
+  when: basic_packages is not defined
+
+- name: Define python dep packages
+  set_fact:
+    python_dep_packages: "{{ __python_dep_packages | list }}"
+  when: python_dep_packages is not defined
+
+- name: Define python packages
+  set_fact:
+    python_packages: "{{ __python_packages | list }}"
+  when: python_packages is not defined
+
+- name: Define python all
+  set_fact:
+    python_all: "{{ python_packages | list + python_dep_packages | list}}"
+  when: python_all is not defined
+
+# Include Tasks
+
+- include_tasks: setup-RedHat.yml
+  when: ansible_os_family == 'RedHat'
+
+- include_tasks: setup-Debian.yml
+  when: ansible_os_family == 'Debian'
+
+- include_tasks: setup-packages.yml
+  when: ansible_os_family == 'Debian'
+
+- include_tasks: setup-python.yml
+  when: ansible_os_family == 'Debian'

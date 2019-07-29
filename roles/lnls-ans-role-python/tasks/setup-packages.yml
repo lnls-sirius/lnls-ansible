@@ -1,0 +1,10 @@
+---
+- name: Install basic packages
+  apt:
+    name: "{{ basic_packages }}"
+    state: present
+  become: true
+  register: apt_result
+  until: apt_result is success
+  retries: 2
+  delay: 2
