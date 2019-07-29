@@ -4,3 +4,5 @@
   tasks:
   - import_role:
       name: lnls-ans-role-users
+  - import_role:
+      name: lnls-ans-role-python
