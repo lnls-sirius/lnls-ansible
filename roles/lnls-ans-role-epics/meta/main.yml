@@ -16,3 +16,6 @@ galaxy_info:
       versions:
         - xenial
         - trusty
+
+dependencies:
+  - lnls-ans-role-repositories
