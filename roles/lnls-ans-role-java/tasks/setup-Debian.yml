@@ -1,0 +1,31 @@
+---
+- name: Update apt cache
+  apt:
+    update_cache: true
+    cache_valid_time: 86400
+  become: true
+  register: apt_update_cache_result
+  until: apt_update_cache_result is success
+  retries: 10
+  delay: 2
+
+# See: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=863199 and
+# https://github.com/geerlingguy/ansible-role-java/issues/64
+- name: Ensure 'man' directory exists
+  file:
+    path: /usr/share/man/man1
+    state: directory
+    recurse: true
+  when:
+    - ansible_distribution == 'Ubuntu'
+    - ansible_distribution_version == '18.04'
+
+- name: Ensure Java is installed
+  apt:
+    name: "{{ java_packages }}"
+    state: present
+  become: true
+  register: apt_get_result
+  until: apt_get_result is success
+  retries: 10
+  delay: 2
