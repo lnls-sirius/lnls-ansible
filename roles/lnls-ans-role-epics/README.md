@@ -42,9 +42,13 @@ A list of extra EPICS packages to install without overriding the default list.
 ## Example Playbook
 
 ```yaml
-- hosts: servers
-  roles:
-    - role: lnls-ans-role-epics-dev
+---
+- hosts: all
+  become: true
+  tasks:
+  - import_role:
+      name: '{{playbook_dir}}'
+
 ```
 
 ## Tests
