@@ -2,4 +2,4 @@
 - name: Converge
   hosts: all
   roles:
-    - role: lnls-ans-role-repository
+    - role: lnls-ans-role-repositories
