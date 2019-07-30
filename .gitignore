@@ -7,3 +7,6 @@ __pycache__
 *.pyc
 *.log
 playbook.retry
+
+# Python virtualenv
+**/env
