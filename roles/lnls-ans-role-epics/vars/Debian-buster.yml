@@ -1,6 +1,5 @@
 ---
 __epics_packages:
   - epics-dev=3.15.6*
-  #- epics-doc
   - epics-perl=3.15.6*
   - epics-pcas-dev=3.15.6*
