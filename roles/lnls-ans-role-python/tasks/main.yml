@@ -27,7 +27,7 @@
 
 - name: Define python all
   set_fact:
-    python_all: "{{ python_packages | list + python_dep_packages | list}}"
+    python_all: "{{ python_packages | list + python_dep_packages | list }}"
   when: python_all is not defined
 
 # Include Tasks
