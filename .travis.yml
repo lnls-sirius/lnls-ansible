@@ -28,18 +28,14 @@ env:
       BUILD_TYPE: debug
       ROLE: lnls-ans-role-users
 
-    - MOLECULE_DISTRO: debian:buster
-      BUILD_TYPE: default
+    # lnls-ans-role-repositories already
+    # has Ubuntu and Debian testing by molecule,
+    # as it runs different tests for each distro.
+    # So, we don't need to create builds for each
+    # one of them.
+    - BUILD_TYPE: default
       ROLE: lnls-ans-role-repositories
-    - MOLECULE_DISTRO: debian:buster
-      BUILD_TYPE: debug
-      ROLE: lnls-ans-role-repositories
-
-    - MOLECULE_DISTRO: debian:stretch
-      BUILD_TYPE: default
-      ROLE: lnls-ans-role-repositories
-    - MOLECULE_DISTRO: debian:stretch
-      BUILD_TYPE: debug
+    - BUILD_TYPE: debug
       ROLE: lnls-ans-role-repositories
 
     - MOLECULE_DISTRO: debian:buster
