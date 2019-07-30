@@ -2,4 +2,4 @@
 - name: Converge
   hosts: all
   roles:
-    - role: lnls-ans-role-epics-dev
+    - role: lnls-ans-role-epics
