@@ -1,0 +1,20 @@
+---
+galaxy_info:
+  author: Lucas Russo
+  description: Top [meta] ansible role containing all Sirius roles
+  company: CNPEM - LNLS
+  license: BSD
+  min_ansible_version: 2.4
+
+  platforms:
+    - name: Debian
+      versions:
+        - stretch
+        - jessie
+        - buster
+    - name: Ubuntu
+      versions:
+        - xenial
+        - trusty
+
+dependencies: []
