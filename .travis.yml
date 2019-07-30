@@ -12,52 +12,63 @@ env:
     - DNS_SERVER2: 8.8.8.8
     - CI_TIME: false
     - CI_TRACE: false
-    - ROLE: lnls-ans-role-users
   matrix:
-    - MOLECULE_DISTRO: centos:7
-      BUILD_TYPE: default
-    - MOLECULE_DISTRO: centos:7
-      BUILD_TYPE: debug
 
-    - MOLECULE_DISTRO: fedora:28
+    - MOLECULE_DISTRO: debian:buster
       BUILD_TYPE: default
-    - MOLECULE_DISTRO: fedora:28
+      ROLE: lnls-ans-role-users
+    - MOLECULE_DISTRO: debian:buster
       BUILD_TYPE: debug
-
-    - MOLECULE_DISTRO: fedora:29
-      BUILD_TYPE: default
-    - MOLECULE_DISTRO: fedora:29
-      BUILD_TYPE: debug
+      ROLE: lnls-ans-role-users
 
     - MOLECULE_DISTRO: debian:stretch
       BUILD_TYPE: default
+      ROLE: lnls-ans-role-users
     - MOLECULE_DISTRO: debian:stretch
       BUILD_TYPE: debug
+      ROLE: lnls-ans-role-users
 
-    - MOLECULE_DISTRO: debian:jessie
+    - MOLECULE_DISTRO: debian:buster
       BUILD_TYPE: default
-    - MOLECULE_DISTRO: debian:jessie
+      ROLE: lnls-ans-role-repositories
+    - MOLECULE_DISTRO: debian:buster
       BUILD_TYPE: debug
+      ROLE: lnls-ans-role-repositories
 
-    - MOLECULE_DISTRO: ubuntu:precise
+    - MOLECULE_DISTRO: debian:stretch
       BUILD_TYPE: default
-    - MOLECULE_DISTRO: ubuntu:precise
+      ROLE: lnls-ans-role-repositories
+    - MOLECULE_DISTRO: debian:stretch
       BUILD_TYPE: debug
+      ROLE: lnls-ans-role-repositories
 
-    - MOLECULE_DISTRO: ubuntu:trusty
+    - MOLECULE_DISTRO: debian:buster
       BUILD_TYPE: default
-    - MOLECULE_DISTRO: ubuntu:trusty
+      ROLE: lnls-ans-role-epics
+    - MOLECULE_DISTRO: debian:buster
       BUILD_TYPE: debug
+      ROLE: lnls-ans-role-epics
 
-    - MOLECULE_DISTRO: ubuntu:xenial
+    - MOLECULE_DISTRO: debian:stretch
       BUILD_TYPE: default
-    - MOLECULE_DISTRO: ubuntu:xenial
+      ROLE: lnls-ans-role-epics
+    - MOLECULE_DISTRO: debian:stretch
       BUILD_TYPE: debug
+      ROLE: lnls-ans-role-epics
 
-    - MOLECULE_DISTRO: ubuntu:bionic
+    - MOLECULE_DISTRO: debian:buster
       BUILD_TYPE: default
-    - MOLECULE_DISTRO: ubuntu:bionic
+      ROLE: lnls-ans-role-python
+    - MOLECULE_DISTRO: debian:buster
       BUILD_TYPE: debug
+      ROLE: lnls-ans-role-python
+
+    - MOLECULE_DISTRO: debian:stretch
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-python
+    - MOLECULE_DISTRO: debian:stretch
+      BUILD_TYPE: debug
+      ROLE: lnls-ans-role-python
 
 before_install:
   - sudo apt-get -qq update
