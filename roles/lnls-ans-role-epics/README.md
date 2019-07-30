@@ -1,8 +1,6 @@
 LNLS Ansible Role EPICS development
 =======================
 
-[![Build Status](https://travis-ci.org/lerwys/lnls-ans-role-epics-dev.svg?branch=master)](https://travis-ci.org/lerwys/lnls-ans-role-epics-dev)
-
 References: https://github.com/geerlingguy/ansible-role-php
 
 This Ansible role install EPICS packages.
