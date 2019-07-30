@@ -13,63 +13,9 @@ This Ansible role configures some defaults users/groups for Sirius Light Source 
 Role Variables
 
 ```yaml
-# General configurations
-users_default_shell: /bin/bash
-users_create_homedirs: true
-# Create groups for users with the same name as the users group even if
-# principal groups is specified
-users_per_user_groups: true
-# Create SSH keys for each user. This will not everwrite existing keys
-users_gen_ssh_keys: true
-# Number os bits for SSH key
-users_ssh_key_bits: 2048
-# Path for ssh generate key files
-users_ssh_key_file: .ssh/id_rsa
-# Users default encrypted password
-users_default_password: "$6$f65yHhg479Mkl$4/t3MqK1jn5NfVKb0CDtyr6wKYnaCBQOIAwV8/DG.q1hIOBehICwkhAAM3pGfpLeoRwSgLJKyHa6R/u2vtBn//"
+# python symlink dest
+python_symlink: /usr/local/bin/python-sirius
 
-# Lists of users to create or delete
-users:
-  - name: sirius
-    comment: Main Sirius User
-    group: sirius
-    state: present
-    groups:
-      - facs
-      - imas
-      - digs
-  - name: facs
-    group: facs
-    state: present
-  - name: imas
-    group: imas
-    state: present
-  - name: digs
-    group: digs
-    state: present
-
-users_groups:
-  - name: sirius
-    system: yes
-    state: present
-  - name: facs
-    system: yes
-    state: present
-  - name: imas
-    system: yes
-    state: present
-  - name: digs
-    system: yes
-    state: present
-
-users_ssh_keys:
-- name: user1
-  keys:
-    - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDcoWQneQ/fbUmZPnTajzAvXC1XOvhD5+61ZPW8obIZ54OpLcNKyOf4TfceapSAFnKidXv+Z9CZ6foXr2/64bgL43ILvSNUhU2ic4Tzy5ARYJ5o84R61La8/nv5eCQTlgQRTqdW8HVR+xFGNUhG44FqHa+yUXpyadKwIVFYuWQAFZ6qxy2Iwzso229zZa3/jS589aBD/Z83HThttXowYywMqjP68MNnzlb5thpQFkamzXfeziXflGf+mMiiHZHr2NPSOGamgCowqmqRK3Lmq0E1+CIAGzWOuRC0YhW41uu8A09AKScWWb10udPQhkolnwRZxOMXyRQmSAhCV0XrcaBv nope@nowheere.it
-    - ssh-rsa AAAA.somestuffgoeshere home@home.com
-- name: user3
-  keys:
-    - ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBBB17LMqtZmwdqXkrlwCMp9fcvRCvi1aU2jd64lmqjQWJoKBSRgRohRCKmcqtBM3nqFHNDnAC2ZBYkEXbRq1F2c= alessio@bradipo
 ```
 
 ## Example Playbook
