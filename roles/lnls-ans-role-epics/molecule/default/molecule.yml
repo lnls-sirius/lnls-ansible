@@ -10,8 +10,6 @@ provisioner:
   inventory:
     group_vars:
       default_group:
-      debian_stretch_based:
-      debian_jessie_based:
 scenario:
   name: default
 verifier:
@@ -23,27 +21,8 @@ verifier:
 driver:
   name: docker
 platforms:
-  - name: lnls-ans-role-epics-debian-jessie
-    image: debian:jessie
+  - name: lnls-ans-role-users-instance
+    image: "${MOLECULE_DISTRO:-debian:stretch}"
     groups:
-      - debian_jessie_based
-      - default_group
-    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
-  - name: lnls-ans-role-epics-debian-stretch
-    image: debian:stretch
-    groups:
-      - debian_stretch_based
-      - default_group
-    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
-  - name: lnls-ans-role-epics-ubuntu-trusty
-    image: ubuntu:trusty
-    groups:
-      - debian_jessie_based
-      - default_group
-    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
-  - name: lnls-ans-role-epics-ubuntu-xenial
-    image: ubuntu:xenial
-    groups:
-      - debian_stretch_based
       - default_group
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
