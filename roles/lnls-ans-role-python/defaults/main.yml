@@ -1,3 +1,6 @@
 ---
 # python symlink dest
 python_symlink: /usr/local/bin/python-sirius
+
+# pip symlink dest
+pip_symlink: /usr/local/bin/pip-sirius

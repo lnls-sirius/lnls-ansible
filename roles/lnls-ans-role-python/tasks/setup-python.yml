@@ -16,3 +16,11 @@
     dest: "{{ python_symlink }}"
     state: link
   become: true
+
+- name: Install pip symlink
+  file:
+    # TODO: resolve pip3 link correctly!
+    src: "/usr/bin/pip3"
+    dest: "{{ pip_symlink }}"
+    state: link
+  become: true
