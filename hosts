@@ -15,6 +15,3 @@ lnls558-linux
 lnls559-linux
 lnls560-linux
 lnls561-linux
-
-[fac:vars]
-ansible_python_interpreter=/usr/bin/python3

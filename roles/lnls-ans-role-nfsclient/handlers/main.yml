@@ -1,0 +1,5 @@
+---
+- name: Restart NFS client systemd service
+  systemd:
+    name: autofs
+    state: reloaded

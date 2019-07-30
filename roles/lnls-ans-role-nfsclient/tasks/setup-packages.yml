@@ -1,0 +1,30 @@
+---
+- name: Install NFS client packages
+  apt:
+    name: "{{ nfs_client_packages }}"
+    state: present
+  become: true
+  register: apt_result
+  until: apt_result is success
+  retries: 10
+  delay: 2
+
+- name: Enable NFS client systemd service
+  systemd:
+    name: autofs
+    state: started
+    enabled: true
+
+- name: Install NFS config files
+  template:
+    src: "{{ item.filename }}.j2"
+    dest: "{{ item.pathname }}/{{ item.filename }}"
+    owner: root
+    group: root
+    force: true
+    mode: 0644
+  become: true
+  with_items:
+    - "{{ nfs_config_files }}"
+  when: apt_result is success
+  notify: Restart NFS client systemd service

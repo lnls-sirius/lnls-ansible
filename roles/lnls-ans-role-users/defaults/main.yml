@@ -25,7 +25,6 @@ users:
     #   - imas
     #   - digs
     dirs_in_home:
-      - "repos"
       - "iocs-log"
     root: true
     state: present

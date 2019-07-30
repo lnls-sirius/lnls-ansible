@@ -1,0 +1,11 @@
+---
+nfs_config_files:
+  - name: Autofs file autofs.conf
+    filename: autofs.conf
+    pathname: "/etc"
+  - name: Autofs file auto.master
+    filename: auto.master
+    pathname: "/etc"
+  - name: Autofs file auto.sirius
+    filename: auto.sirius
+    pathname: "/etc"
