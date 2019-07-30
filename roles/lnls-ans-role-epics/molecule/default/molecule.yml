@@ -23,25 +23,25 @@ verifier:
 driver:
   name: docker
 platforms:
-  - name: lnls-ans-role-repository-debian-jessie
+  - name: lnls-ans-role-epics-debian-jessie
     image: debian:jessie
     groups:
       - debian_jessie_based
       - default_group
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
-  - name: lnls-ans-role-repository-debian-stretch
+  - name: lnls-ans-role-epics-debian-stretch
     image: debian:stretch
     groups:
       - debian_stretch_based
       - default_group
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
-  - name: lnls-ans-role-repository-ubuntu-trusty
+  - name: lnls-ans-role-epics-ubuntu-trusty
     image: ubuntu:trusty
     groups:
       - debian_jessie_based
       - default_group
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
-  - name: lnls-ans-role-repository-ubuntu-xenial
+  - name: lnls-ans-role-epics-ubuntu-xenial
     image: ubuntu:xenial
     groups:
       - debian_stretch_based
