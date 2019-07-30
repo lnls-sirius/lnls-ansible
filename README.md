@@ -10,9 +10,16 @@ This Ansible roles/playbooks for Sirius Light Source control machines.
 ```yaml
 ---
 - hosts: all
+  become: true
   tasks:
   - import_role:
       name: lnls-ans-role-users
+  - import_role:
+      name: lnls-ans-role-repositories
+  - import_role:
+      name: lnls-ans-role-epics
+  - import_role:
+      name: lnls-ans-role-python
 ```
 
 ## Example Commmand
