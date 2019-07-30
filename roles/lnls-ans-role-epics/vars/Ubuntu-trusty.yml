@@ -1,5 +1,4 @@
 ---
 __epics_packages:
   - epics-dev
-  - epics-perl
   - epics-pcas-dev
