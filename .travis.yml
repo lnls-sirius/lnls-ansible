@@ -28,6 +28,20 @@ env:
       BUILD_TYPE: debug
       ROLE: lnls-ans-role-users
 
+    - MOLECULE_DISTRO: debian:buster
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-nfsclient
+    - MOLECULE_DISTRO: debian:buster
+      BUILD_TYPE: debug
+      ROLE: lnls-ans-role-nfsclient
+
+    - MOLECULE_DISTRO: debian:stretch
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-nfsclient
+    - MOLECULE_DISTRO: debian:stretch
+      BUILD_TYPE: debug
+      ROLE: lnls-ans-role-nfsclient
+
     # lnls-ans-role-repositories already
     # has Ubuntu and Debian testing by molecule,
     # as it runs different tests for each distro.
