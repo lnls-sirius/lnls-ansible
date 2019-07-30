@@ -10,6 +10,7 @@ provisioner:
   inventory:
     group_vars:
       default_group:
+      debian_buster_based:
       debian_stretch_based:
       debian_jessie_based:
 scenario:
@@ -35,6 +36,12 @@ platforms:
       - debian_stretch_based
       - default_group
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
+  - name: lnls-ans-role-repository-debian-buster
+    image: debian:buster
+    groups:
+      - debian_buster_based
+      - default_group
+    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
   - name: lnls-ans-role-repository-ubuntu-trusty
     image: ubuntu:trusty
     groups:
@@ -45,5 +52,10 @@ platforms:
     image: ubuntu:xenial
     groups:
       - debian_ubuntu_xenial_based
+      - default_group
+    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
+  - name: lnls-ans-role-repositories-instance-generic
+    image: "${MOLECULE_DISTRO:-debian:stretch}"
+    groups:
       - default_group
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
