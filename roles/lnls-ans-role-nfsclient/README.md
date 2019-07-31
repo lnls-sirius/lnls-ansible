@@ -1,4 +1,4 @@
-LNLS Ansible Role Users
+LNLS Ansible Role for NFS client
 =======================
 
 References: https://bitbucket.org/europeanspallationsource/ics-ans-role-localusers
@@ -10,11 +10,19 @@ This Ansible role configures some defaults users/groups for Sirius Light Source 
 - ansible >= 2.4
 - molecule >= 2.20
 
-Role Variables
+## Role Variables
 
 ```yaml
-# python symlink dest
-python_symlink: /usr/local/bin/python-sirius
+nfs_config_files:
+  - name: Autofs file autofs.conf
+    filename: autofs.conf
+    pathname: "/etc"
+  - name: Autofs file auto.master
+    filename: auto.master
+    pathname: "/etc"
+  - name: Autofs file auto.sirius
+    filename: auto.sirius
+    pathname: "/etc"
 
 ```
 
