@@ -57,6 +57,16 @@
   with_items:
     - "{{ csstudio_ca_datasource_preferences }}"
 
+- name: Copy LNLS splash screen and icons to CS Studio
+  copy:
+    src: "{{ item.file }}"
+    dest: "{{ item.destination }}"
+    owner: root
+    group: root
+    mode: 0755
+  with_items:
+    - "{{ csstudio_icons }}"
+
 - name: Copy the /usr/local/bin/css script
   copy:
     src: cs-studio

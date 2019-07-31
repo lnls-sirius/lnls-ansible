@@ -50,3 +50,13 @@ csstudio_diirt_preferences:
     line: "org.csstudio.diirt.util.core.preferences/diirt.datasource.default={{ diirt_datasource_default }}"
   - regexp: "^org.csstudio.diirt.util.core.preferences/diirt.datasource.delimiter="
     line: "org.csstudio.diirt.util.core.preferences/diirt.datasource.delimiter={{ diirt_datasource_delimeter }}"
+
+csstudio_icons:
+  - file: icon.png
+    destination: "{{ csstudio_directory }}"
+  - file: icon.png
+    destination: "{{ csstudio_directory }}/features/org.csstudio.ess.product.configuration.feature_{{ csstudio_version }}/rootfiles"
+  - file: icon.xpm
+    destination: "{{ csstudio_directory }}"
+  - file: splash.bmp
+    destination: "{{ csstudio_directory }}/configuration/org.eclipse.equinox.launcher/se.ess.ics.csstudio.product_{{ csstudio_version }}"
