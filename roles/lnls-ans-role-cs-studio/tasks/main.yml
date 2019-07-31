@@ -30,10 +30,10 @@
   when:
     - ansible_os_family == 'Debian'
 
-- include_tasks: setup-Debian-Buster.yml
+- include_tasks: setup-Debian-buster.yml
   when:
     - ansible_os_family == 'Debian'
-    - ansible_distribution_release == 'Buster'
+    - ansible_distribution_release == 'buster'
     - csstudio_install_java_from_deb is true
 
 - include_tasks: setup-RedHat.yml
