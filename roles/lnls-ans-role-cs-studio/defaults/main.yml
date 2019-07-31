@@ -16,3 +16,30 @@ csstudio_xulrunner: https://artifactory.esss.lu.se/artifactory/swi-pkg/xulrunner
 csstudio_ca_addr_list: localhost
 # Max array bytes
 csstudio_ca_max_array_bytes: 10000000
+
+# root components defined in beast playbook
+csstudio_beast_root_component: LNLS_Alarms
+csstudio_annunciator_jms_topic: ALARM
+
+# Beast Settings
+beast_rdb_url: jdbc:postgresql://10.128.255.5:5432/lnls_alarms
+beast_rdb_user: lnls_alarm_user
+beast_rdb_password: controle
+beast_jms_url: failover:(tcp://10.128.255.5:61616)
+beast_jms_user: admin
+beast_jms_password: admin
+
+# Archiver Settings
+databrowser_archiver_url: pbraw://10.128.255.5:11998/retrieval
+databrowser_archiver_use_default_archives: "true"
+databrowser_archiver_automatic_history_refresh: "true"
+databrowser_archiver_archive_rescale: NONE
+databrowser_archiver_archives: All|1|pbraw://10.128.255.5:11998/retrieval
+
+# SMTP
+email_smtp_host: 10.128.255.4:25
+
+# DIIRT
+diirt_ca_pure_java: "true"
+diirt_datasource_default: ca
+diirt_datasource_delimeter: \://
