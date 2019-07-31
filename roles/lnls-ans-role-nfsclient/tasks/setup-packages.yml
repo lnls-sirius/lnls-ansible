@@ -15,6 +15,15 @@
     state: started
     enabled: true
   become: true
+  register: systemd_enable
+  ignore_errors: true
+
+- name: Show warning to user if systemd fails
+  pause:
+    seconds: 1
+    echo: false
+    prompt: "Could not enable NFS systemd service. Probably running in Docker? Continuing anyway ..."
+  when: systemd_enable is failed
 
 - name: Install NFS config files
   template:
