@@ -28,6 +28,38 @@ This Ansible roles/playbooks for Sirius Light Source control machines.
 ansible-playbook -i host, -u user -k --ask-become-pass playbook.yml
 ```
 
+## Runing Molecule tests locally
+
+To run all tests
+
+```bash
+make tests
+```
+
+To run a specific test
+
+```bash
+make tests_<ROLE_NAME>
+```
+
+For example, to run tests for lnls-ans-role-users role:
+
+```bash
+make tests_lnls-ans-role-users
+```
+
+Optionally, specify DNS servers for docker molecule images
+
+```bash
+make tests_lnls-ans-role-users DNS_SERVER1=<ip> DNS_SERVER2=<ip>
+```
+
+Optionally, specify the docker distro to run molecule against
+
+```bash
+make tests_lnls-ans-role-users MOLECULE_DISTRO=<distro>
+```
+
 ## License
 
 BSD 2-clause
