@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=LNLS CS-Studio
+Comment=Control System Studio application
+Type=Application
+Encoding=UTF-8
+Exec=cs-studio
+Terminal=false
+StartupNotify=true
+Icon=/opt/cs-studio/icon.png
+Categories=LNLS;
+

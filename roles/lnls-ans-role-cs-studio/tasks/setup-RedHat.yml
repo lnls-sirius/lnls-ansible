@@ -1,0 +1,10 @@
+---
+- name: Ensure CS Studio dependency packages are installed
+  package:
+    name: "{{ cs_studio_dep_packages }}"
+    state: present
+  become: true
+  register: package_result
+  until: package_result is success
+  retries: 10
+  delay: 2

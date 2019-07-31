@@ -1,0 +1,27 @@
+---
+- name: Resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      ignore_errors: true
+      paths:
+        - '{{ role_path }}/vars'
+
+- name: Define CS Studio dependency packages
+  set_fact:
+    cs_studio_dep_packages: "{{ __cs_studio_dep_packages | list | default ([]) }}"
+  when: cs_studio_dep_packages is not defined
+
+# Setup/install tasks
+- include_tasks: setup-Debian.yml
+  when:
+    - ansible_os_family == 'Debian'
+
+- include_tasks: setup-RedHat.yml
+  when:
+    - ansible_os_family == 'RedHat'
+
+- include_tasks: setup-cs-studio.yml

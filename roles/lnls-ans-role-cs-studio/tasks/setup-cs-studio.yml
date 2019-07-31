@@ -1,0 +1,111 @@
+---
+- name: Check CS-Studio current version
+  command: "cat {{ csstudio_version_file }}"
+  register: csstudio_current_version
+  failed_when: false
+  changed_when: false
+  check_mode: false
+
+- name: Current CS-Studio version
+  debug:
+    msg: "CS-Studio current version: {{ csstudio_current_version.stdout }}"
+
+- name: Remove previous backup if it exists
+  file:
+    path: "{{ csstudio_directory }}-{{ csstudio_current_version.stdout }}"
+    state: absent
+  when:
+    - csstudio_current_version.stdout|length > 0
+    - csstudio_current_version.stdout != csstudio_version
+
+- name: Backup current version
+  command: "mv {{ csstudio_directory }} {{ csstudio_directory }}-{{ csstudio_current_version.stdout }}"
+  args:
+    creates: "{{ csstudio_directory }}-{{ csstudio_current_version.stdout }}"
+  when:
+    - csstudio_current_version.stdout|length > 0
+    - csstudio_current_version.stdout != csstudio_version
+
+- name: Install CS-Studio
+  unarchive:
+    src: "{{ csstudio_archive }}"
+    dest: /opt
+    remote_src: true
+    owner: root
+    group: root
+    creates: "{{ csstudio_directory }}"
+
+- name: Customize CSS preference settings
+  lineinfile:
+    state: present
+    path: /opt/cs-studio/configuration/plugin_customization.ini
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  with_items: "{{ csstudio_preferences }}"
+
+- name: Customize channel access address list
+  lineinfile:
+    state: present
+    path: /opt/cs-studio/configuration/diirt/datasources/ca/ca.xml
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+    backrefs: true
+  with_items:
+    - "{{ csstudio_ca_datasource_preferences }}"
+
+- name: Copy the /usr/local/bin/css script
+  copy:
+    src: cs-studio
+    dest: /usr/local/bin/cs-studio
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Add CS-Studio to the desktop menu
+  copy:
+    src: LNLS-CS-Studio.desktop
+    dest: /usr/share/applications
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Install xulrunner
+  unarchive:
+    src: "{{ csstudio_xulrunner }}"
+    dest: /opt
+    remote_src: true
+    owner: root
+    group: root
+
+- name: Create the /ess/xulrunner link for backward compatibility
+  file:
+    src: /opt/xulrunner
+    dest: /ess/xulrunner
+    state: link
+    owner: root
+    group: root
+
+- name: create the CS-Studio fonts directory
+  file:
+    path: "{{ csstudio_fonts_dir }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+# When changing the fonts, don't forget to remove
+# the previous directories!
+- name: Remove old CS-Studio fonts
+  file:
+    path: "/usr/share/fonts/{{ item }}"
+    state: absent
+  with_items:
+    - ess
+
+- name: install CS-Studio fonts
+  unarchive:
+    src: "{{ csstudio_fonts }}"
+    dest: "{{ csstudio_fonts_dir }}"
+    remote_src: true
+    owner: root
+    group: root

@@ -1,0 +1,28 @@
+---
+csstudio_directory: /opt/cs-studio
+csstudio_version_file: "{{ csstudio_directory }}/ess-version.txt"
+csstudio_preferences:
+  - regexp: "^org.csstudio.alarm.beast/root_component="
+    line: "org.csstudio.alarm.beast/root_component={{ csstudio_beast_root_component }}"
+  - regexp: "^org.csstudio.alarm.beast/rdb_url="
+    line: "org.csstudio.alarm.beast/rdb_url={{ beast_rdb_url }}"
+  - regexp: "^org.csstudio.alarm.beast/rdb_user="
+    line: "org.csstudio.alarm.beast/rdb_user={{ beast_rdb_user }}"
+  - regexp: "^org.csstudio.alarm.beast/rdb_password="
+    line: "org.csstudio.alarm.beast/rdb_password={{ beast_rdb_password }}"
+  - regexp: "^org.csstudio.alarm.beast/jms_url="
+    line: "org.csstudio.alarm.beast/jms_url={{ beast_jms_url }}"
+  - regexp: "^org.csstudio.alarm.beast/jms_user="
+    line: "org.csstudio.alarm.beast/jms_user={{ beast_jms_user }}"
+  - regexp: "^org.csstudio.alarm.beast/jms_password="
+    line: "org.csstudio.alarm.beast/jms_password={{ beast_jms_password }}"
+  - regexp: "^org.csstudio.alarm.beast.annunciator/jms_topic="
+    line: "org.csstudio.alarm.beast.annunciator/jms_topic={{ csstudio_annunciator_jms_topic }}"
+  - regexp: "^org.csstudio.alarm.beast.annunciator/jms_url="
+    line: "org.csstudio.alarm.beast.annunciator/jms_url={{ beast_jms_url }}"
+
+csstudio_ca_datasource_preferences:
+  - regexp: '^(\s*addr_list=)'
+    line: '\1"{{ csstudio_ca_addr_list }}"'
+  - regexp: '^(\s*max_array_bytes=)'
+    line: '\1"{{ csstudio_ca_max_array_bytes }}"'
