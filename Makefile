@@ -13,7 +13,8 @@ ROLES = lnls-ans-role-users \
 		lnls-ans-role-repositories \
 		lnls-ans-role-epics \
 		lnls-ans-role-python \
-		lnls-ans-role-java
+		lnls-ans-role-java \
+		lnls-ans-role-cs-studio
 
 # Test variables
 PREFIX_TARGET = test_
