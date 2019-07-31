@@ -17,7 +17,7 @@
 
 - name: Define CS Studio install java debs
   set_fact:
-    csstudio_install_java_from_deb: "{{ __csstudio_install_java_from_deb | list | default ([]) }}"
+    csstudio_install_java_from_deb: "{{ __csstudio_install_java_from_deb | default (false) }}"
   when: csstudio_install_java_from_deb is not defined
 
 - name: Define Java hold pacakges
