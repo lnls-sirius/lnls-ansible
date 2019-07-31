@@ -1,7 +1,10 @@
 # Variables
 DNS_SERVER1 ?= 10.0.0.71
 DNS_SERVER2 ?= 10.0.0.72
+export DNS_SERVER1
+export DNS_SERVER2
 MOLECULE_DISTRO ?= debian:buster
+export MOLECULE_DISTRO
 
 ROLES_DIR = roles
 # Add new roles
