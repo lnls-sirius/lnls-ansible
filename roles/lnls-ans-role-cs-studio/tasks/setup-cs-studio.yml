@@ -99,14 +99,6 @@
     owner: root
     group: root
 
-- name: Create the /ess/xulrunner link for backward compatibility
-  file:
-    src: /opt/xulrunner
-    dest: /ess/xulrunner
-    state: link
-    owner: root
-    group: root
-
 - name: Create the CS-Studio fonts directory
   file:
     path: "{{ csstudio_fonts_dir }}"
