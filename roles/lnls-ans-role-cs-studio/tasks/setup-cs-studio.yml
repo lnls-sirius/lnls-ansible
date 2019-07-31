@@ -47,6 +47,20 @@
     - "{{ csstudio_email_preferences }}"
     - "{{ csstudio_diirt_preferences }}"
 
+- name: Overwrite CSS runtime settings
+  lineinfile:
+    state: present
+    path: /opt/cs-studio/ESS\ CS-Studio.ini
+    line: "{{ item }}"
+    insertbefore: '^--launcher\.library'
+  when:
+    - ansible_os_family == 'Debian'
+    - ansible_distribution_release == 'Buster'
+    - csstudio_install_java_from_deb is true
+  with_items:
+    - -vm
+    - /usr/lib/jvm/java-8-openjdk-amd64/jre/bin
+
 - name: Customize channel access address list
   lineinfile:
     state: present

@@ -4,3 +4,5 @@ __csstudio_dep_packages:
     - bzip2
     # install fonts that have precedence on others to avoid kerning issues
     - fonts-texgyre
+
+__csstudio_install_java_from_deb: false

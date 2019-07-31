@@ -1,0 +1,20 @@
+---
+- name: Install Java packages from specific debian packages
+  apt:
+    deb: "{{ item.url }}"
+    state: "{{ item.state }}"
+  with_items:
+    - "{{ csstudio_deb_java_packages }}"
+  become: true
+  register: apt_missing_packages_result
+  until: apt_missing_packages_result is success
+  retries: 10
+  delay: 2
+
+- name: Ensure Java packages are marked as hold
+  dpkg_selections:
+    name: python
+    selection: hold
+  with_items:
+    - "{{ csstudio_deb_java_hold_packages }}"
+  become: true
