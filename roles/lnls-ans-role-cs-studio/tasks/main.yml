@@ -12,8 +12,8 @@
 
 - name: Define CS Studio dependency packages
   set_fact:
-    cs_studio_dep_packages: "{{ __cs_studio_dep_packages | list | default ([]) }}"
-  when: cs_studio_dep_packages is not defined
+    csstudio_dep_packages: "{{ __csstudio_dep_packages | list | default ([]) }}"
+  when: csstudio_dep_packages is not defined
 
 # Setup/install tasks
 - include_tasks: setup-Debian.yml

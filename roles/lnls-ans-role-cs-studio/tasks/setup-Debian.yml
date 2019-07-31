@@ -11,7 +11,7 @@
 
 - name: Ensure CS Studio dependency packages are installed
   apt:
-    name: "{{ cs_studio_dep_packages }}"
+    name: "{{ csstudio_dep_packages }}"
     state: present
   become: true
   register: apt_result

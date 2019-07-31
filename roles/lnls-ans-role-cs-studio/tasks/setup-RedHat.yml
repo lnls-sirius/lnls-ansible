@@ -1,7 +1,7 @@
 ---
 - name: Ensure CS Studio dependency packages are installed
   package:
-    name: "{{ cs_studio_dep_packages }}"
+    name: "{{ csstudio_dep_packages }}"
     state: present
   become: true
   register: package_result
