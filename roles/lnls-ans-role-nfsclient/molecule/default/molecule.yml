@@ -21,7 +21,7 @@ verifier:
 driver:
   name: docker
 platforms:
-  - name: lnls-ans-role-python-instance
+  - name: lnls-ans-role-nfsclient-instance
     image: "${MOLECULE_DISTRO:-debian:stretch}"
     groups:
       - default_group
