@@ -26,3 +26,27 @@ csstudio_ca_datasource_preferences:
     line: '\1"{{ csstudio_ca_addr_list }}"'
   - regexp: '^(\s*max_array_bytes=)'
     line: '\1"{{ csstudio_ca_max_array_bytes }}"'
+
+csstudio_databrowser_preferences:
+  - regexp: "^org.csstudio.trends.databrowser3/urls="
+    line: "org.csstudio.trends.databrowser3/urls={{ databrowser_archiver_url }}"
+  - regexp: "^org.csstudio.trends.databrowser3/use_default_archives="
+    line: "org.csstudio.trends.databrowser3/use_default_archives={{ databrowser_archiver_use_default_archives }}"
+  - regexp: "^org.csstudio.trends.databrowser3/automatic_history_refresh="
+    line: "org.csstudio.trends.databrowser3/automatic_history_refresh={{ databrowser_archiver_automatic_history_refresh }}"
+  - regexp: "^org.csstudio.trends.databrowser3/archive_rescale="
+    line: "org.csstudio.trends.databrowser3/archive_rescale={{ databrowser_archiver_archive_rescale }}"
+  - regexp: "^org.csstudio.trends.databrowser3/archives="
+    line: "org.csstudio.trends.databrowser3/archives={{ databrowser_archiver_archives }}"
+
+csstudio_email_preferences:
+  - regexp: "^org.csstudio.email/smtp_host="
+    line: "org.csstudio.email/smtp_host={{ email_smtp_host }}"
+
+csstudio_diirt_preferences:
+  - regexp: "^org.csstudio.diirt.util.core.preferences/diirt.ca.pure.java="
+    line: "org.csstudio.diirt.util.core.preferences/diirt.ca.pure.java={{ diirt_ca_pure_java }}"
+  - regexp: "^org.csstudio.diirt.util.core.preferences/diirt.datasource.default="
+    line: "org.csstudio.diirt.util.core.preferences/diirt.datasource.default={{ diirt_datasource_default }}"
+  - regexp: "^org.csstudio.diirt.util.core.preferences/diirt.datasource.delimiter="
+    line: "org.csstudio.diirt.util.core.preferences/diirt.datasource.delimiter={{ diirt_datasource_delimeter }}"

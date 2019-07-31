@@ -41,7 +41,11 @@
     path: /opt/cs-studio/configuration/plugin_customization.ini
     regexp: "{{ item.regexp }}"
     line: "{{ item.line }}"
-  with_items: "{{ csstudio_preferences }}"
+  with_items:
+    - "{{ csstudio_beast_preferences }}"
+    - "{{ csstudio_databrowser_preferences }}"
+    - "{{ csstudio_email_preferences }}"
+    - "{{ csstudio_diirt_preferences }}"
 
 - name: Customize channel access address list
   lineinfile:
