@@ -1,7 +1,7 @@
 ---
 csstudio_directory: /opt/cs-studio
 csstudio_version_file: "{{ csstudio_directory }}/ess-version.txt"
-csstudio_preferences:
+csstudio_beast_preferences:
   - regexp: "^org.csstudio.alarm.beast/root_component="
     line: "org.csstudio.alarm.beast/root_component={{ csstudio_beast_root_component }}"
   - regexp: "^org.csstudio.alarm.beast/rdb_url="
