@@ -57,6 +57,14 @@
   with_items:
     - "{{ csstudio_ca_datasource_preferences }}"
 
+- name: Create the CS-Studio splash screen directory
+  file:
+    path: "{{ csstudio_icons_splash_dir }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
 - name: Copy LNLS splash screen and icons to CS Studio
   copy:
     src: "{{ item.file }}"
@@ -99,7 +107,7 @@
     owner: root
     group: root
 
-- name: create the CS-Studio fonts directory
+- name: Create the CS-Studio fonts directory
   file:
     path: "{{ csstudio_fonts_dir }}"
     state: directory
@@ -116,7 +124,7 @@
   with_items:
     - ess
 
-- name: install CS-Studio fonts
+- name: Install CS-Studio fonts
   unarchive:
     src: "{{ csstudio_fonts }}"
     dest: "{{ csstudio_fonts_dir }}"
