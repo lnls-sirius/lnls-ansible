@@ -17,29 +17,17 @@ env:
     - MOLECULE_DISTRO: debian:buster
       BUILD_TYPE: default
       ROLE: lnls-ans-role-users
-    - MOLECULE_DISTRO: debian:buster
-      BUILD_TYPE: debug
-      ROLE: lnls-ans-role-users
 
     - MOLECULE_DISTRO: debian:stretch
       BUILD_TYPE: default
-      ROLE: lnls-ans-role-users
-    - MOLECULE_DISTRO: debian:stretch
-      BUILD_TYPE: debug
       ROLE: lnls-ans-role-users
 
     - MOLECULE_DISTRO: debian:buster
       BUILD_TYPE: default
       ROLE: lnls-ans-role-nfsclient
-    - MOLECULE_DISTRO: debian:buster
-      BUILD_TYPE: debug
-      ROLE: lnls-ans-role-nfsclient
 
     - MOLECULE_DISTRO: debian:stretch
       BUILD_TYPE: default
-      ROLE: lnls-ans-role-nfsclient
-    - MOLECULE_DISTRO: debian:stretch
-      BUILD_TYPE: debug
       ROLE: lnls-ans-role-nfsclient
 
     # lnls-ans-role-repositories already
@@ -49,63 +37,37 @@ env:
     # one of them.
     - BUILD_TYPE: default
       ROLE: lnls-ans-role-repositories
-    - BUILD_TYPE: debug
-      ROLE: lnls-ans-role-repositories
 
     - MOLECULE_DISTRO: debian:buster
       BUILD_TYPE: default
       ROLE: lnls-ans-role-epics
-    - MOLECULE_DISTRO: debian:buster
-      BUILD_TYPE: debug
-      ROLE: lnls-ans-role-epics
 
     - MOLECULE_DISTRO: debian:stretch
       BUILD_TYPE: default
-      ROLE: lnls-ans-role-epics
-    - MOLECULE_DISTRO: debian:stretch
-      BUILD_TYPE: debug
       ROLE: lnls-ans-role-epics
 
     - MOLECULE_DISTRO: debian:buster
       BUILD_TYPE: default
       ROLE: lnls-ans-role-python
-    - MOLECULE_DISTRO: debian:buster
-      BUILD_TYPE: debug
-      ROLE: lnls-ans-role-python
 
     - MOLECULE_DISTRO: debian:stretch
       BUILD_TYPE: default
-      ROLE: lnls-ans-role-python
-    - MOLECULE_DISTRO: debian:stretch
-      BUILD_TYPE: debug
       ROLE: lnls-ans-role-python
 
     - MOLECULE_DISTRO: debian:buster
       BUILD_TYPE: default
       ROLE: lnls-ans-role-java
-    - MOLECULE_DISTRO: debian:buster
-      BUILD_TYPE: debug
-      ROLE: lnls-ans-role-java
 
     - MOLECULE_DISTRO: debian:stretch
       BUILD_TYPE: default
-      ROLE: lnls-ans-role-java
-    - MOLECULE_DISTRO: debian:stretch
-      BUILD_TYPE: debug
       ROLE: lnls-ans-role-java
 
     - MOLECULE_DISTRO: debian:buster
       BUILD_TYPE: default
       ROLE: lnls-ans-role-cs-studio
-    - MOLECULE_DISTRO: debian:buster
-      BUILD_TYPE: debug
-      ROLE: lnls-ans-role-cs-studio
 
     - MOLECULE_DISTRO: debian:stretch
       BUILD_TYPE: default
-      ROLE: lnls-ans-role-cs-studio
-    - MOLECULE_DISTRO: debian:stretch
-      BUILD_TYPE: debug
       ROLE: lnls-ans-role-cs-studio
 
 before_install:
