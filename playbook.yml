@@ -14,3 +14,5 @@
       name: lnls-ans-role-python
   - import_role:
       name: lnls-ans-role-java
+  - import_role:
+      name: lnls-ans-role-cs-studio
