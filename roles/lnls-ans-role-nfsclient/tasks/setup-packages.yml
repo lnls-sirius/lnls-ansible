@@ -14,6 +14,7 @@
     name: autofs
     state: started
     enabled: true
+  become: true
 
 - name: Install NFS config files
   template:

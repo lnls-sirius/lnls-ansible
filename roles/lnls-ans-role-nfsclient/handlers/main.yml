@@ -3,3 +3,4 @@
   systemd:
     name: autofs
     state: reloaded
+  become: true
