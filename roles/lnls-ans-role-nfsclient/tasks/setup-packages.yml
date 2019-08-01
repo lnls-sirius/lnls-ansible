@@ -37,4 +37,4 @@
   with_items:
     - "{{ nfs_config_files }}"
   when: apt_result is success
-  notify: Restart NFS client systemd service
+  notify: Reload NFS client systemd service
