@@ -16,7 +16,7 @@
     enabled: true
   become: true
   register: systemd_enable
-  ignore_errors: true
+  ignore_errors: "{{ nfs_ignore_systemd_errors }}"
 
 - name: Show warning to user if systemd fails
   pause:
