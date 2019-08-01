@@ -12,7 +12,7 @@
 
 - name: Define CS Studio dependency packages
   set_fact:
-    csstudio_dep_packages: "{{ __csstudio_dep_packages | list | default ([]) }}"
+    csstudio_dep_packages: "{{ __csstudio_dep_packages | default ([]) }}"
   when: csstudio_dep_packages is not defined
 
 - name: Define CS Studio install java debs
@@ -22,12 +22,12 @@
 
 - name: Define Java .deb packages
   set_fact:
-    csstudio_deb_java_packages: "{{ __csstudio_deb_java_packages | list | default ([]) }}"
+    csstudio_deb_java_packages: "{{ __csstudio_deb_java_packages | default ([]) }}"
   when: csstudio_deb_java_packages is not defined
 
 - name: Define Java hold packages
   set_fact:
-    csstudio_deb_java_hold_packages: "{{ __csstudio_deb_java_hold_packages | list | default ([]) }}"
+    csstudio_deb_java_hold_packages: "{{ __csstudio_deb_java_hold_packages | default ([]) }}"
   when: csstudio_deb_java_hold_packages is not defined
 
 # Setup/install tasks
