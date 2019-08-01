@@ -6,17 +6,18 @@ __csstudio_dep_packages:
 
 __csstudio_install_java_from_deb: true
 
+__csstudio_dep_javafx_base_url: http://security.debian.org/debian-security/pool/updates/main/o/openjfx
 __csstudio_deb_java_packages:
-    - deb: libopenjfx-java_8u141-b14-3~deb9u1_all.deb
-      url: http://security.debian.org/debian-security/pool/updates/main/o/openjfx
-    - deb: libopenjfx-jni_8u141-b14-3~deb9u1_amd64.deb
-      url: http://security.debian.org/debian-security/pool/updates/main/o/openjfx
-    - deb: openjdk-8-jre_8u222-b10-1~deb9u1_amd64.deb
-      url: http://security.debian.org/debian-security/pool/updates/main/o/openjfx
-    - deb: openjdk-8-jre-headless_8u222-b10-1~deb9u1_amd64.deb
-      url: http://security.debian.org/debian-security/pool/updates/main/o/openjfx
-    - deb: openjfx_8u141-b14-3~deb9u1_amd64.deb
-      url: http://security.debian.org/debian-security/pool/updates/main/o/openjfx
+    - url: "{{ __csstudio_dep_javafx_base_url }}/libopenjfx-java_8u141-b14-3~deb9u1_all.deb"
+      state: present
+    - url: "{{ __csstudio_dep_javafx_base_url }}/libopenjfx-jni_8u141-b14-3~deb9u1_amd64.deb"
+      state: present
+    - url: "{{ __csstudio_dep_javafx_base_url }}/openjdk-8-jre_8u222-b10-1~deb9u1_amd64.deb"
+      state: present
+    - url: "{{ __csstudio_dep_javafx_base_url }}/openjdk-8-jre-headless_8u222-b10-1~deb9u1_amd64.deb"
+      state: present
+    - url: "{{ __csstudio_dep_javafx_base_url }}/openjfx_8u141-b14-3~deb9u1_amd64.deb"
+      state: present
 
 __csstudio_deb_java_hold_packages:
     - openjfx
