@@ -56,7 +56,7 @@
   when:
     - ansible_os_family == 'Debian'
     - ansible_distribution_release == 'Buster'
-    - csstudio_install_java_from_deb is true
+    - csstudio_install_java_from_deb
   with_items:
     - -vm
     - /usr/lib/jvm/java-8-openjdk-amd64/jre/bin

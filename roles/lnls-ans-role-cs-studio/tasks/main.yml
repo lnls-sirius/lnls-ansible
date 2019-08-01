@@ -34,7 +34,7 @@
   when:
     - ansible_os_family == 'Debian'
     - ansible_distribution_release == 'buster'
-    - csstudio_install_java_from_deb is true
+    - csstudio_install_java_from_deb
 
 - include_tasks: setup-RedHat.yml
   when:
