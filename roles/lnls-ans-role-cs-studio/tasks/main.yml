@@ -20,7 +20,12 @@
     csstudio_install_java_from_deb: "{{ __csstudio_install_java_from_deb | default (false) }}"
   when: csstudio_install_java_from_deb is not defined
 
-- name: Define Java hold pacakges
+- name: Define Java .deb packages
+  set_fact:
+    csstudio_deb_java_packages: "{{ __csstudio_deb_java_packages | list | default ([]) }}"
+  when: csstudio_deb_java_packages is not defined
+
+- name: Define Java hold packages
   set_fact:
     csstudio_deb_java_hold_packages: "{{ __csstudio_deb_java_hold_packages | list | default ([]) }}"
   when: csstudio_deb_java_hold_packages is not defined
