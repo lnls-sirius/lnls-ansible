@@ -1,5 +1,9 @@
 ---
 - name: Converge
   hosts: all
+
+  vars:
+    nfs_ignore_systemd_errors: true
+
   roles:
     - role: lnls-ans-role-nfsclient
