@@ -1,6 +1,6 @@
 ---
 __csstudio_dep_packages:
-    - openjfx
-    - bzip2
-    # install fonts that have precedence on others to avoid kerning issues
-    - urw-fonts
+  - openjfx
+  - bzip2
+  # install fonts that have precedence on others to avoid kerning issues
+  - urw-fonts
