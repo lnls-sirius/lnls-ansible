@@ -1,7 +1,8 @@
 ---
 - name: Restart NFS client systemd service
   block:
-    - systemd:
+    - name: Restart NFS client systemd service task
+      systemd:
         name: autofs
         state: reloaded
   become: true
