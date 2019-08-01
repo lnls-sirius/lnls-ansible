@@ -66,6 +66,30 @@ Optionally, specify the docker distro to run molecule against
 make tests_lnls-ans-role-users MOLECULE_DISTRO=<distro>
 ```
 
+## Troubleshooting
+
+If you use a host system with SELinux enabled you might get an error when using
+Ansible like the following:
+
+```bash
+    "msg": "Aborting, target uses selinux but python bindings (libselinux-python) aren't installed!"
+```
+
+If that happens, it might be because virtualenv does not have access to libselinux
+and it can't be installed via pip.
+
+A workaround might be to manually copy the librar files into the virtualenv
+so that Ansible has access to it.
+
+On a Fedora 29 system, using python3-7, the following fixes the issue:
+
+```bash
+    cp -r /usr/lib64/python3.7/site-packages/selinux env/lib64/python3.7/site-packages/
+    cp -r /usr/lib64/python3.7/site-packages/_selinux.cpython-37m-x86_64-linux-gnu.so env/lib64/python3.7/site-packages/
+```
+
+Be advised, that the python versions might differ and the library names, as well.
+
 ## License
 
 BSD 2-clause
