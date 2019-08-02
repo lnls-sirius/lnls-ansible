@@ -4,3 +4,7 @@ __epics_packages:
   - epics-perl
   - epics-pcas-dev
   - swig
+
+__pip_packages:
+  - pyepics
+  - pcaspy

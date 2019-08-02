@@ -4,3 +4,7 @@ __epics_packages:
   - epics-perl=3.15.6*
   - epics-pcas-dev=3.15.6*
   - swig=3.0.10*
+
+__pip_packages:
+  - pyepics==3.3.1
+  - pcaspy==0.7.1
