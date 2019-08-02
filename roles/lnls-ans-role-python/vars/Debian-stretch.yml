@@ -8,7 +8,7 @@ __python_dep_packages:
   - libssl-dev=1.1.0k-1*
   - libsqlite3-dev=3.16.2-5*
   - tk-dev=8.6.0+9*
-  - libgdbm-dev=3.22.3-3*
+  - libgdbm-dev=1.8.3-14*
   - libc6-dev=2.24-11*
   - libbz2-dev=1.0.6-8.1*
 
