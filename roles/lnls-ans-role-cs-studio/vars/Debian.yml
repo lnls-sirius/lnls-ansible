@@ -5,7 +5,7 @@ __csstudio_dep_packages:
   # install fonts that have precedence on others to avoid kerning issues
   - fonts-texgyre
 
-__csstudio_install_oracle_java: true
+__csstudio_install_oracle_java: false
 
 # APT repositories
 __csstudio_repository_keys:
