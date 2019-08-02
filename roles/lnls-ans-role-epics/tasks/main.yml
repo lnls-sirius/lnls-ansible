@@ -30,6 +30,16 @@
     epics_missing_packages: []
   when: epics_missing_packages is not defined
 
+- name: Define PIP packages
+  set_fact:
+    pip_packages: "{{ __pip_packages | default([]) }}"
+  when: pip_packages is not defined
+
+- name: Define PIP executable
+  set_fact:
+    pip_executable: "{{ __pip_executable | default(omit) }}"
+  when: pip_executable is not defined
+
 # Setup/install tasks
 - include_tasks: setup-Debian.yml
   when:

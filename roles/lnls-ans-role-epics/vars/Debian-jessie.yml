@@ -8,3 +8,5 @@ __epics_packages:
 __pip_packages:
   - pyepics
   - pcaspy
+
+__pip_executable: pip-sirius

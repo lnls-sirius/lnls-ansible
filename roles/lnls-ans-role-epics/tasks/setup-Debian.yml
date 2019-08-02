@@ -31,3 +31,17 @@
   until: apt_packages_result is success
   retries: 10
   delay: 2
+
+- name: Ensure Python EPICS packages are installed
+  pip:
+    name: "{{ pip_packages }}"
+    state: "{{ pip_packages_state }}"
+    executable: "{{ pip_executable | default(omit) }}"
+  environment:
+    EPICS_BASE: /opt/epics/base
+    EPICS_HOST_ARCH: linux-x86_64
+  become: true
+  register: pip_packages_result
+  until: pip_packages_result is success
+  retries: 10
+  delay: 2

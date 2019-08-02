@@ -8,3 +8,5 @@ __epics_packages:
 __pip_packages:
   - pyepics==3.3.1
   - pcaspy==0.7.1
+
+__pip_executable: pip-sirius
