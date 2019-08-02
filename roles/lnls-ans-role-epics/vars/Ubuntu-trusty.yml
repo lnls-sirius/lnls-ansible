@@ -2,3 +2,4 @@
 __epics_packages:
   - epics-dev
   - epics-pcas-dev
+  - swig
