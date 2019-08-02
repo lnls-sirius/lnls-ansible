@@ -1,0 +1,17 @@
+---
+__basic_packages:
+  - git=1:2.11.0*
+
+__python_dep_packages:
+  - libreadline-dev=7.0-3*
+  - libncursesw5-dev=6.0+20161126-1
+  - libssl-dev=1.1.0k-1
+  - libsqlite3-dev=3.16.2-5
+  - tk-dev=8.6.0+9
+  - libgdbm-dev=3.22.3-3
+  - libc6-dev=2.24-11
+  - libbz2-dev=1.0.6-8.1
+
+__python_packages:
+  - python3-dev=3.5.3-1
+  - python3-pip=9.0.1-2
