@@ -7,13 +7,13 @@ __repository_keys:
 
 __repository_apt:
   - name: NSLS2 EPICS debian repository
-    baseurl: "deb https://epicsdeb.bnl.gov/debian stretch/staging main contrib"
+    baseurl: "deb https://epicsdeb.bnl.gov/debian stretch main contrib"
     description: "NSLS-II Debian EPICS repository"
     file: nsls2-epics-debian
     state: present
 
   - name: NSLS2 EPICS debian repository sources
-    baseurl: "deb-src https://epicsdeb.bnl.gov/debian stretch/staging main contrib"
+    baseurl: "deb-src https://epicsdeb.bnl.gov/debian stretch main contrib"
     description: "NSLS-II Debian EPICS repository"
     file: nsls2-epics-debian-src
     state: present
