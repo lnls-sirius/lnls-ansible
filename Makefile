@@ -11,8 +11,8 @@ ROLES_DIR = roles
 ROLES = lnls-ans-role-users \
 		lnls-ans-role-nfsclient \
 		lnls-ans-role-repositories \
-		lnls-ans-role-epics \
 		lnls-ans-role-python \
+		lnls-ans-role-epics \
 		lnls-ans-role-java \
 		lnls-ans-role-cs-studio
 
