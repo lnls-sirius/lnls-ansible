@@ -6,7 +6,7 @@ csstudio_archive: "{{ csstudio_base_url }}/{{ csstudio_repository }}/{{ csstudio
 # When changing the fonts, don't forget to remove
 # the previous directories!
 csstudio_fonts: https://artifactory.esss.lu.se/artifactory/swi-pkg/fonts/cs-studio-fonts-20180222.tgz
-csstudio_fonts_dir: /usr/share/fonts/ess-20180222
+csstudio_fonts_dir: /usr/local/share/fonts/ess-20180222
 # xulrunner downloaded from http://releases.mozilla.org/pub/xulrunner/nightly/2012/05/2012-05-13-03-32-04-mozilla-1.9.2/
 # x86_64 version only available in nightly (not in releases)
 csstudio_xulrunner_version: 1.9.2.29pre
