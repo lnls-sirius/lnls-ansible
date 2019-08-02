@@ -4,6 +4,7 @@ __csstudio_dep_packages:
   - bzip2
   # install fonts that have precedence on others to avoid kerning issues
   - fonts-texgyre
+  - fontconfig
 
 __csstudio_install_oracle_java: false
 
