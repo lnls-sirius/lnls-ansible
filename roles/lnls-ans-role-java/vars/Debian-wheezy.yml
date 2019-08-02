@@ -4,3 +4,5 @@
 #   - openjdk-8-jdk
 __java_packages:
   - openjdk-7-jdk
+  - openjdk-7-jre
+  - openjfx
