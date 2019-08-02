@@ -6,6 +6,7 @@ __epics_packages:
   - swig=3.0.12*
 
 __pip_packages:
+  - setuptools==41.0.1
   - pyepics==3.3.1
   - pcaspy==0.7.1
 

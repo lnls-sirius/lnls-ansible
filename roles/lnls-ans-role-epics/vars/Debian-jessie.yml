@@ -6,6 +6,7 @@ __epics_packages:
   - swig
 
 __pip_packages:
+  - setuptools
   - pyepics
   - pcaspy
 
