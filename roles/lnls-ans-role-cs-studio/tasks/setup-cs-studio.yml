@@ -125,10 +125,11 @@
 # the previous directories!
 - name: Remove old CS-Studio fonts
   file:
-    path: "/usr/share/fonts/{{ item }}"
+    path: "{{ item }}"
     state: absent
   with_items:
-    - ess
+    - "/usr/share/fonts/ess"
+    - "/usr/local/share/fonts/ess"
 
 - name: Install CS-Studio fonts
   unarchive:
