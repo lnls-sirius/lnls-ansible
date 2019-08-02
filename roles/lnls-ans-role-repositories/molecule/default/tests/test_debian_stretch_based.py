@@ -8,7 +8,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 @pytest.mark.parametrize('repo', [
-    'https://epicsdeb.bnl.gov/debian stretch/staging/main',
+    'https://epicsdeb.bnl.gov/debian stretch/main',
 ])
 def test_repos(host, repo):
     cmd = host.run('apt-cache policy | grep http | awk \'{print $2,$3}\' | sort -u')
