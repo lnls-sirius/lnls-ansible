@@ -3,8 +3,8 @@ __epics_packages:
   - epics-dev
   - epics-pcas-dev
   - swig
+  - python3-setuptools
 
 __pip_packages:
-  - setuptools
   - pyepics
   - pcaspy
