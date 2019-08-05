@@ -45,25 +45,25 @@ make tests
 To run a specific test
 
 ```bash
-make tests_<ROLE_NAME>
+make test_<ROLE_NAME>
 ```
 
 For example, to run tests for lnls-ans-role-users role:
 
 ```bash
-make tests_lnls-ans-role-users
+make test_lnls-ans-role-users
 ```
 
 Optionally, specify DNS servers for docker molecule images
 
 ```bash
-make tests_lnls-ans-role-users DNS_SERVER1=<ip> DNS_SERVER2=<ip>
+make test_lnls-ans-role-users DNS_SERVER1=<ip> DNS_SERVER2=<ip>
 ```
 
 Optionally, specify the docker distro to run molecule against
 
 ```bash
-make tests_lnls-ans-role-users MOLECULE_DISTRO=<distro>
+make test_lnls-ans-role-users MOLECULE_DISTRO=<distro>
 ```
 
 ## Troubleshooting
