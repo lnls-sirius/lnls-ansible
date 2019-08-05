@@ -33,7 +33,7 @@
       delay: 2
       when: ansible_os_family == 'Debian'
 
-    - name: Installs python for Debian based distros
+    - name: Installs python for RedHat based distros
       package:
         name: python
         state: present

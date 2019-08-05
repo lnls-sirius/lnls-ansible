@@ -4,8 +4,10 @@
 hosts = {
   "debian.jessie"  => "192.168.33.10",
   "debian.stretch" => "192.168.33.11",
-  "ubuntu.trusty"  => "192.168.33.12",
-  "ubuntu.xenial"  => "192.168.33.13",
+  "debian.buster"  => "192.168.33.12",
+  "ubuntu.trusty"  => "192.168.33.13",
+  "ubuntu.xenial"  => "192.168.33.14",
+  "centos.7"  => "192.168.33.15",
 }
 
 Vagrant.configure("2") do |config|
@@ -15,10 +17,14 @@ Vagrant.configure("2") do |config|
         machine.vm.box = "debian/jessie64"
       elsif name.eql? "debian.stretch" then
         machine.vm.box = "debian/stretch64"
+      elsif name.eql? "debian.buster" then
+        machine.vm.box = "debian/buster64"
       elsif name.eql? "ubuntu.xenial" then
         machine.vm.box = "ubuntu/xenial64"
       elsif name.eql? "ubuntu.trusty" then
         machine.vm.box = "ubuntu/trusty64"
+      elsif name.eql? "centos.7" then
+        machine.vm.box = "centos/7"
       end
       machine.vm.hostname = "%s" % name
       machine.vm.network :private_network, ip: ip
