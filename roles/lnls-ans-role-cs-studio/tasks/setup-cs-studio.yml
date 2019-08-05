@@ -138,9 +138,4 @@
     remote_src: true
     owner: root
     group: root
-  register: cs_studio_fonts
-
-- name: Update font cache
-  command: "fc-cache -v"
-  become: true
-  when: cs_studio_fonts.changed
+  notify: Update font cache
