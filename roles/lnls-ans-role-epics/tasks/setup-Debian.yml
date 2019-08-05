@@ -36,7 +36,7 @@
   pip:
     name: "{{ pip_packages }}"
     state: "{{ pip_packages_state }}"
-    executable: "{{ pip_executable | default(omit) }}"
+    executable: "{{ pip_executable }}"
   environment:
     EPICS_BASE: /opt/epics/base
     EPICS_HOST_ARCH: linux-x86_64

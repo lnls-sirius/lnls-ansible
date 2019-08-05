@@ -3,8 +3,6 @@ __epics_packages:
   - epics-dev
   - epics-perl
   - epics-pcas-dev
-  - swig
-  - python3-setuptools
 
 __pip_packages:
   - pyepics
