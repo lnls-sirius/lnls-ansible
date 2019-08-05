@@ -21,11 +21,15 @@ This Ansible roles/playbooks for Sirius Light Source control machines.
   - import_role:
       name: lnls-ans-role-python
   - import_role:
+      name: lnls-ans-role-qt
+  - import_role:
       name: lnls-ans-role-epics
   - import_role:
       name: lnls-ans-role-java
   - import_role:
       name: lnls-ans-role-cs-studio
+  - import_role:
+      name: lnls-ans-role-sirius-hla
 ```
 
 ## Example Commmand
