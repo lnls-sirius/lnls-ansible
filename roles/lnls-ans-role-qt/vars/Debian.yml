@@ -1,0 +1,5 @@
+---
+__qt_packages:
+  - qt5-default
+  - pyqt5-dev
+  - sip-dev

@@ -1,0 +1,10 @@
+---
+- name: Install qt packages
+  apt:
+    name: "{{ qt_packages }}"
+    state: present
+  become: true
+  register: apt_result
+  until: apt_result is success
+  retries: 5
+  delay: 2
