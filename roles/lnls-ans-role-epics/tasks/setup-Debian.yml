@@ -38,8 +38,8 @@
     state: "{{ pip_packages_state }}"
     executable: "{{ pip_executable }}"
   environment:
-    EPICS_BASE: /opt/epics/base
-    EPICS_HOST_ARCH: linux-x86_64
+    EPICS_BASE: "{{ epics_base_dir }}"
+    EPICS_HOST_ARCH: "{{ epics_host_arch }}"
   become: true
   register: pip_packages_result
   until: pip_packages_result is success
