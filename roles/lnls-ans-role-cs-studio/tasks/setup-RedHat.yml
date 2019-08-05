@@ -6,5 +6,5 @@
   become: true
   register: package_result
   until: package_result is success
-  retries: 10
+  retries: 5
   delay: 2

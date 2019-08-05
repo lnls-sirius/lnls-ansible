@@ -6,7 +6,7 @@
   become: true
   register: apt_update_cache_result
   until: apt_update_cache_result is success
-  retries: 10
+  retries: 5
   delay: 2
 
 - name: Ensure EPICS missing packages are installed
@@ -18,7 +18,7 @@
   become: true
   register: apt_missing_packages_result
   until: apt_missing_packages_result is success
-  retries: 10
+  retries: 5
   delay: 2
 
 - name: Ensure EPICS packages are installed
@@ -29,7 +29,7 @@
   become: true
   register: apt_packages_result
   until: apt_packages_result is success
-  retries: 10
+  retries: 5
   delay: 2
 
 - name: Ensure Python EPICS packages are installed
@@ -43,5 +43,5 @@
   become: true
   register: pip_packages_result
   until: pip_packages_result is success
-  retries: 10
+  retries: 5
   delay: 2

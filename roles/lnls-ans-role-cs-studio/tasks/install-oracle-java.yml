@@ -8,7 +8,7 @@
   become: true
   register: apt_result
   until: apt_result is success
-  retries: 10
+  retries: 5
   delay: 2
 
 - name: Import APT GPG keys by URL
@@ -22,7 +22,7 @@
   become: true
   register: gpg_import_url
   until: gpg_import_url is success
-  retries: 10
+  retries: 5
   delay: 2
 
 - name: Import APT GPG keys by keyserver
@@ -36,7 +36,7 @@
   become: true
   register: gpg_import_key
   until: gpg_import_key is success
-  retries: 10
+  retries: 5
   delay: 2
 
 - name: Add Java 8 repositories
@@ -56,7 +56,7 @@
   become: true
   register: apt_result
   until: apt_result is success
-  retries: 10
+  retries: 5
   delay: 2
 
 - name: Ensure Java packages are marked as hold

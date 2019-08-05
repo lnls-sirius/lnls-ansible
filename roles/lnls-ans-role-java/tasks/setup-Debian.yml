@@ -6,7 +6,7 @@
   become: true
   register: apt_update_cache_result
   until: apt_update_cache_result is success
-  retries: 10
+  retries: 5
   delay: 2
 
 # See: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=863199 and
@@ -27,5 +27,5 @@
   become: true
   register: apt_get_result
   until: apt_get_result is success
-  retries: 10
+  retries: 5
   delay: 2
