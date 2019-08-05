@@ -21,7 +21,7 @@ PREFIX_TARGET = test_
 test_TARGETS = $(addprefix $(PREFIX_TARGET), $(ROLES))
 
 linac-opi:
-	ansible-playbook -i hosts -l linac-opi -u sirius -k --ask-become-pass playbook.yml
+	ansible-playbook -i hosts -l linac-opi -u sirius -k --ask-become-pass playbook-ctrlroom-desktops.yml
 
 tests: tests_stretch tests_buster
 
