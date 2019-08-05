@@ -1,6 +1,11 @@
 ---
-__ssh_packages:
-  - openssh-server
+__basic_packages:
+  - git
 
-# Group needed to be a part of to have root privileges
-__root_group: wheel
+__python_dep_packages: []
+
+__python_packages:
+  - python3-devel
+  - python3-pip
+  - python3-setuptools
+  - swig
