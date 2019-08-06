@@ -1,8 +1,6 @@
 LNLS Ansible Role for NFS server
 ================================
 
-
-
 This Ansible role configures some defaults NFS server for Sirius Light Source control machines.
 
 ## Requirements
@@ -12,6 +10,22 @@ This Ansible role configures some defaults NFS server for Sirius Light Source co
 
 ## Role Variables
 
+```yaml
+---
+nfs_clients_control_room_subnet:
+nfs_clients_cnpem_sirius_subnet:
+fac_workstation_ip:
+
+# Set this to true when using this in a regular,
+# without systemd support.
+nfs_ignore_systemd_errors: false
+
+nfs_config_files:
+  - name: NFS server exports file
+    filename: exports
+    pathname: "/etc"
+
+```
 
 ## Example Playbook
 
