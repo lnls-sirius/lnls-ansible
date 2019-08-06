@@ -1,5 +1,6 @@
 [linac-opi]
-linac-opi2
+linac-opi1
+#linac-opi2
 
 [control_room]
 lnls449-linux
