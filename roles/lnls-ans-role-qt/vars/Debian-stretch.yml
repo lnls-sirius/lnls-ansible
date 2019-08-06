@@ -2,4 +2,5 @@
 __qt_packages:
   - qt5-default=5.7.1*
   - pyqt5-dev=5.7*
+  - pyqt5-dev-tools=5.7*
   - sip-dev=4.18.1*
