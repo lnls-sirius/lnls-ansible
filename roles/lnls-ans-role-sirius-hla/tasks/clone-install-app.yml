@@ -17,7 +17,6 @@
 - name: "Define {{ item.repo_name }} chdir variable"
   set_fact:
     repo_install_chdir: "{{ item.install_chdir | default('') }}"
-  when: repo_install_chdir is not defined
 
 - name: "Install {{ item.repo_name }} via setup.py"
   command: "{{ python_executable }} setup.py install"
