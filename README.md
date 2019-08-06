@@ -70,6 +70,21 @@ Optionally, specify the docker distro to run molecule against
 make test_lnls-ans-role-users MOLECULE_DISTRO=<distro>
 ```
 
+## Installation
+
+To install all roles avaialble at the ansible default directory:
+
+```bash
+    ansible-galaxy install git+https://github.com/lnls-sirius/lnls-ansible,master
+```
+
+If the role is already installed and you want to force an upgrade:
+
+
+```bash
+    ansible-galaxy install -f git+https://github.com/lnls-sirius/lnls-ansible,master
+```
+
 ## Troubleshooting
 
 If you use a host system with SELinux enabled you might get an error when using
