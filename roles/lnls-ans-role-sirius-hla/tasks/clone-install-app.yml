@@ -19,7 +19,7 @@
     repo_install_chdir: "{{ item.install_chdir | default('') }}"
   when: repo_install_chdir is not defined
 
-- name: "Install {{ repo_name }} via setup.py"
+- name: "Install {{ item.repo_name }} via setup.py"
   command: "python-sirius setup.py install"
   args:
     chdir: "{{ item.clone_path }}/{{ item.repo_name }}/{{ repo_install_path }}"
@@ -29,7 +29,7 @@
         (item.install_via_setup | bool) and
         not (make_rc.success | bool)
 
-- name: "Install {{ repo_name }} via custom command"
+- name: "Install {{ item.repo_name }} via custom command"
   command: "{{ item.install_via_custom }}"
   args:
     chdir: "{{ item.clone_path }}/{{ item.repo_name }}/{{ repo_install_path }}"
