@@ -30,6 +30,8 @@ This Ansible roles/playbooks for Sirius Light Source control machines.
       name: lnls-ans-role-cs-studio
   - import_role:
       name: lnls-ans-role-sirius-hla
+  - import_role:
+      name: lnls-ans-role-desktop-apps
 ```
 
 ## Example Commmand
