@@ -1,6 +1,6 @@
 ---
 - name: Clone and Install Applications
-  import_tasks:
+  include_tasks:
     - clone-install-app.yml
   with_items:
     - "{{ sirius_hla_apps }}"
