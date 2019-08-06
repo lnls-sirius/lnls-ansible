@@ -10,6 +10,58 @@ This Ansible role configures some defaults Sirius High Level Applications for Si
 
 ## Role Variables
 
+```yaml
+sirius_hla_apps:
+  - name: Scripts
+    org_url: https://github.com/lnls-sirius
+    repo_name: scripts
+    repo_version: master
+    clone_path: /tmp
+    install_via_makefile: true
+
+  - name: Math Phys
+    org_url: https://github.com/lnls-fac
+    repo_name: mathphys
+    repo_version: master
+    clone_path: /tmp
+    install_via_setup: true
+
+  - name: Development Packages
+    org_url: https://github.com/lnls-sirius
+    repo_name: dev-packages
+    repo_version: master
+    clone_path: /tmp
+    install_chdir: siriuspy
+    install_via_setup: true
+
+  - name: PyDM Package
+    org_url: https://github.com/lnls-sirius
+    repo_name: pydm
+    repo_version: master
+    clone_path: /tmp
+    install_via_setup: true
+
+  - name: High-Level Applications
+    org_url: https://github.com/lnls-sirius
+    repo_name: hla
+    repo_version: master
+    clone_path: /tmp
+    install_chdir: pyqt-apps
+    install_via_makefile: true
+
+  - name: PRU-Serial 485 Application
+    org_url: https://github.com/lnls-sirius
+    repo_name: pru-serial485
+    repo_version: master
+    clone_path: /tmp
+    install_chdir: src
+    install_via_setup: false
+    install_via_makefile: false
+    install_via_custom: ./library_build.sh
+
+  - name: Machine Applications
+```
+
 ## Example Playbook
 
 ```yaml
