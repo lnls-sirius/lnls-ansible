@@ -97,7 +97,7 @@ Tests are performed using Molecule. To run them with python virtualenv, issue:
         cd ../ && \
         virtualenv env --python python3 && \
         source env/bin/activate && \
-        cd lnls-ans-role-users && \
+        cd lnls-ans-role-qt && \
         pip install molecule docker-py && \
         molecule test"
 ```
