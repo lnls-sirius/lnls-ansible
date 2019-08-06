@@ -15,3 +15,15 @@ lnls558-linux
 lnls559-linux
 lnls560-linux
 lnls561-linux
+
+[nfs-servers]
+lnls454-linux
+
+[ioc-as-ap-servers]
+lnls454-linux
+
+[ioc-as-ps-servers]
+lnls560-linux
+
+[ioc-li-ps-servers]
+lnls560-linux

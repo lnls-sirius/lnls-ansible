@@ -1,12 +1,12 @@
 ---
-- name: Install NFS client packages
+- name: Install NFS server packages
   apt:
-    name: "{{ nfs_client_packages }}"
+    name: "{{ nfs_server_packages }}"
     state: present
   become: true
   register: apt_result
   until: apt_result is success
-  retries: 5
+  retries: 10
   delay: 2
 
 - name: Install NFS config files
@@ -21,11 +21,11 @@
   with_items:
     - "{{ nfs_config_files }}"
   when: apt_result is success
-  notify: Reload NFS client systemd service
+  notify: Reload NFS server systemd service
 
-- name: Enable NFS client systemd service
+- name: Enable NFS server systemd service
   systemd:
-    name: autofs
+    name: nfs-kernel-server
     state: started
     enabled: true
   become: true
