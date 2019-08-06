@@ -15,6 +15,19 @@ This Ansible role install EPICS packages.
 Available variables are listed below, along with default values (see defaults/main.yml):
 
 ```yaml
+epics_base_dir: /usr/lib/epics
+```
+
+EPICS base directory
+
+```yaml
+epics_host_arch: linux-x86_64
+```
+
+EPICS host architecture
+
+
+```yaml
     epics_packages_state: present
 ```
 

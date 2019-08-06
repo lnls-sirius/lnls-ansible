@@ -29,18 +29,18 @@
       become: true
       register: apt_result
       until: apt_result is success
-      retries: 10
+      retries: 5
       delay: 2
       when: ansible_os_family == 'Debian'
 
-    - name: Installs python for Debian based distros
+    - name: Installs python for RedHat based distros
       package:
         name: python
         state: present
       become: true
       register: package_result
       until: package_result is success
-      retries: 10
+      retries: 5
       delay: 2
       when: ansible_os_family == 'RedHat'
 

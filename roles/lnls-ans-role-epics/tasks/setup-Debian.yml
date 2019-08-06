@@ -6,7 +6,7 @@
   become: true
   register: apt_update_cache_result
   until: apt_update_cache_result is success
-  retries: 10
+  retries: 5
   delay: 2
 
 - name: Ensure EPICS missing packages are installed
@@ -18,7 +18,7 @@
   become: true
   register: apt_missing_packages_result
   until: apt_missing_packages_result is success
-  retries: 10
+  retries: 5
   delay: 2
 
 - name: Ensure EPICS packages are installed
@@ -29,19 +29,19 @@
   become: true
   register: apt_packages_result
   until: apt_packages_result is success
-  retries: 10
+  retries: 5
   delay: 2
 
 - name: Ensure Python EPICS packages are installed
   pip:
     name: "{{ pip_packages }}"
     state: "{{ pip_packages_state }}"
-    executable: "{{ pip_executable | default(omit) }}"
+    executable: "{{ pip_executable }}"
   environment:
-    EPICS_BASE: /opt/epics/base
-    EPICS_HOST_ARCH: linux-x86_64
+    EPICS_BASE: "{{ epics_base_dir }}"
+    EPICS_HOST_ARCH: "{{ epics_host_arch }}"
   become: true
   register: pip_packages_result
   until: pip_packages_result is success
-  retries: 10
+  retries: 5
   delay: 2

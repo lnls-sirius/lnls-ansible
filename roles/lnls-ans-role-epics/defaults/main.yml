@@ -1,4 +1,10 @@
 ---
+# EPICS base directory
+epics_base_dir: /usr/lib/epics
+
+# Host architecture for EPICS
+epics_host_arch: linux-x86_64
+
 # EPICS package state; use 'present' to make sure it's installed, or 'latest' if
 # you want to upgrade or switch versions using a new repo.
 epics_packages_state: present

@@ -12,9 +12,11 @@ ROLES = lnls-ans-role-users \
 		lnls-ans-role-nfsclient \
 		lnls-ans-role-repositories \
 		lnls-ans-role-python \
+		lnls-ans-role-qt \
 		lnls-ans-role-epics \
 		lnls-ans-role-java \
-		lnls-ans-role-cs-studio
+		lnls-ans-role-cs-studio \
+		lnls-ans-role-sirius-hla
 
 # Test variables
 PREFIX_TARGET = test_

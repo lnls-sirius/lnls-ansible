@@ -6,7 +6,7 @@
   become: true
   register: apt_update_cache_result
   until: apt_update_cache_result is success
-  retries: 10
+  retries: 5
   delay: 2
 
 - name: Ensure CS Studio dependency packages are installed
@@ -16,5 +16,5 @@
   become: true
   register: apt_result
   until: apt_result is success
-  retries: 10
+  retries: 5
   delay: 2

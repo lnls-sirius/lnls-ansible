@@ -21,7 +21,7 @@ verifier:
 driver:
   name: docker
 platforms:
-  - name: lnls-ans-role-users-instance
+  - name: lnls-ans-role-epics-instance
     image: "${MOLECULE_DISTRO:-debian:stretch}"
     groups:
       - default_group

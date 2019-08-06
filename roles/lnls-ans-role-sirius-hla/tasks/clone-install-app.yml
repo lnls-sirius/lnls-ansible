@@ -1,0 +1,39 @@
+---
+- name: "Ensure repository {{ item.repo_name }} is cloned"
+  git:
+    repo: "{{ item.org_url }}/{{ item.repo_name }}"
+    dest: "{{ item.clone_path }}/{{ item.repo_name }}"
+    version: "{{ item.repo_version | default('master') }}"
+
+- name: "Install {{ item.repo_name }} via Makefile"
+  command: make install
+  args:
+    chdir: "{{ item.clone_path }}/{{ item.repo_name }}"
+  become: true
+  when: item.install_via_makefile is defined and
+        (item.install_via_makefile | bool)
+  register: make_rc
+
+- name: "Define {{ item.repo_name }} chdir variable"
+  set_fact:
+    repo_install_chdir: "{{ item.install_chdir | default('') }}"
+  when: repo_install_chdir is not defined
+
+- name: "Install {{ repo_name }} via setup.py"
+  command: "python-sirius setup.py install"
+  args:
+    chdir: "{{ item.clone_path }}/{{ item.repo_name }}/{{ repo_install_path }}"
+  become: true
+  register: setup_rc
+  when: item.install_via_setup is defined and
+        (item.install_via_setup | bool) and
+        make_rc.success is false
+
+- name: "Install {{ repo_name }} via custom command"
+  command: "{{ item.install_via_custom }}"
+  args:
+    chdir: "{{ item.clone_path }}/{{ item.repo_name }}/{{ repo_install_path }}"
+  become: true
+  when: item.install_via_custom is defined and
+        make_rc.success is false and
+        setup_rc.success is false

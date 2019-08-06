@@ -1,7 +1,5 @@
-LNLS Ansible Role Users
+LNLS Ansible Role Python
 =======================
-
-References: https://bitbucket.org/europeanspallationsource/ics-ans-role-localusers
 
 This Ansible role configures some defaults users/groups for Sirius Light Source control machines.
 
@@ -10,7 +8,7 @@ This Ansible role configures some defaults users/groups for Sirius Light Source 
 - ansible >= 2.4
 - molecule >= 2.20
 
-Role Variables
+## Role Variables
 
 ```yaml
 # python symlink dest
