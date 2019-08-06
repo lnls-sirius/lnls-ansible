@@ -11,7 +11,7 @@
     chdir: "{{ item.clone_path }}/{{ item.repo_name }}"
   become: true
   when: item.install_via_makefile is defined and
-        item.install_via_makefile is true
+        (item.install_via_makefile | bool)
   register: make_rc
 
 - name: "Install {{ repo_name }} via setup.py"
@@ -21,7 +21,7 @@
   become: true
   register: setup_rc
   when: item.install_via_setup is defined and
-        item.install_via_setup is true and
+        (item.install_via_setup | bool) and
         make_rc.success is false
 
 - name: "Install {{ repo_name }} via custom command"
