@@ -16,6 +16,15 @@ sirius_hla_apps:
     install_chdir: siriuspy
     install_via_setup: true
 
+
+  - name: Ethernet PRU-Serial 485 Application
+    org_url: https://github.com/lnls-sirius
+    repo_name: eth-bridge-pru-serial485
+    repo_version: master
+    clone_path: /tmp
+    install_chdir: client
+    install_via_setup: true
+
   - name: Machine Applications
     org_url: https://github.com/lnls-sirius
     repo_name: machine-applications
@@ -23,12 +32,6 @@ sirius_hla_apps:
     clone_path: /tmp
     install_via_makefile: true
 
-  - name: Scripts
-    org_url: https://github.com/lnls-sirius
-    repo_name: scripts
-    repo_version: master
-    clone_path: /tmp
-    install_via_makefile: true
 
   - name: PyDM Package
     org_url: https://github.com/lnls-sirius
@@ -45,10 +48,10 @@ sirius_hla_apps:
     install_chdir: pyqt-apps
     install_via_makefile: true
 
-  - name: Ethernet PRU-Serial 485 Application
-    org_url: https://github.com/lnls-sirius
-    repo_name: eth-bridge-pru-serial485
-    repo_version: master
-    clone_path: /tmp
-    install_chdir: client
-    install_via_setup: true
+
+  - name: Scripts
+      org_url: https://github.com/lnls-sirius
+      repo_name: scripts
+      repo_version: master
+      clone_path: /tmp
+      install_via_makefile: true
