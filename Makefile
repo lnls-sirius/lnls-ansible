@@ -24,7 +24,7 @@ PREFIX_TARGET = test_
 test_TARGETS = $(addprefix $(PREFIX_TARGET), $(ROLES))
 
 linac-opi:
-	ansible-playbook -i hosts -l linac-opi -u sirius -k --ask-become-pass playbook-ctrlroom-desktops.yml
+	ansible-playbook -i hosts -l linac-opi -u sirius -k --ask-become-pass playbook-control-room-desktops.yml
 
 nfs-server:
 	ansible-playbook -i hosts -u sirius -k --ask-become-pass playbook-nfs-server.yml
