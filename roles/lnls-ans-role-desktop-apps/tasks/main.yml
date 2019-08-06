@@ -15,6 +15,11 @@
     desktop_packages: "{{ __desktop_packages | list }}"
   when: desktop_packages is not defined
 
+- name: Define default repositorires for APT
+  set_fact:
+    desktop_default_release: "{{ __desktop_default_release | default(omit) }}"
+  when: desktop_default_release is not defined
+
 # Include Tasks
 
 - include_tasks: setup-RedHat.yml
