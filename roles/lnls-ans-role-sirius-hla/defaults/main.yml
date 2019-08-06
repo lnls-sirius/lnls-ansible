@@ -19,6 +19,7 @@ sirius_hla_apps:
     repo_name: dev-packages
     repo_version: master
     clone_path: /tmp
+    install_chdir: siriuspy
     install_via_setup: true
 
   - name: PyDM Package
@@ -33,6 +34,7 @@ sirius_hla_apps:
     repo_name: hla
     repo_version: master
     clone_path: /tmp
+    install_chdir: pyqt-apps
     install_via_makefile: true
 
   - name: PRU-Serial 485 Application
