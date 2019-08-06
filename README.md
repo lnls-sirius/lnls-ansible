@@ -35,27 +35,27 @@ This Ansible roles/playbooks for Sirius Light Source control machines.
 ## Example Commmand
 
 ```bash
-ansible-playbook -i host, -u user -k --ask-become-pass <playbook>.yml
+    ansible-playbook -i host, -u user -k --ask-become-pass <playbook>.yml
 ```
 ## Runing Ansible Playbooks
 
 The easiest way to run playbooks on a set of hosts is to use the Makefile:
 
 ```bash
-make <playbook_name_without_yml_extension>
+    make <playbook_name_without_yml_extension>
 ```
 
 Example, is you want to run the playbook-control-room-desktops.yml playbook
 on the set of predefined hosts (see inside playbook), run:
 
 ```bash
-make playbook-control-room-desktops
+    make playbook-control-room-desktops
 ```
 
 To further limit selected hosts to an additional pattern, run:
 
 ```bash
-make playbook-control-room-desktops HOST_GROUPS=<pattern>
+    make playbook-control-room-desktops HOST_GROUPS=<pattern>
 ```
 
 ## Runing Molecule tests locally
@@ -63,31 +63,31 @@ make playbook-control-room-desktops HOST_GROUPS=<pattern>
 To run all tests
 
 ```bash
-make tests
+    make tests
 ```
 
 To run a specific test
 
 ```bash
-make test_<ROLE_NAME>
+    make test_<ROLE_NAME>
 ```
 
 For example, to run tests for lnls-ans-role-users role:
 
 ```bash
-make test_lnls-ans-role-users
+    make test_lnls-ans-role-users
 ```
 
 Optionally, specify DNS servers for docker molecule images
 
 ```bash
-make test_lnls-ans-role-users DNS_SERVER1=<ip> DNS_SERVER2=<ip>
+    make test_lnls-ans-role-users DNS_SERVER1=<ip> DNS_SERVER2=<ip>
 ```
 
 Optionally, specify the docker distro to run molecule against
 
 ```bash
-make test_lnls-ans-role-users MOLECULE_DISTRO=<distro>
+    make test_lnls-ans-role-users MOLECULE_DISTRO=<distro>
 ```
 
 ## Installation
