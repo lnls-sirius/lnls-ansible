@@ -1,5 +1,5 @@
 ---
-sirius_hla_apps:
+sirius_apps:
 
   - name: Math Phys
     org_url: https://github.com/lnls-fac

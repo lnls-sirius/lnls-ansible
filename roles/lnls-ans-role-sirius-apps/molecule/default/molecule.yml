@@ -21,7 +21,7 @@ verifier:
 driver:
   name: docker
 platforms:
-  - name: lnls-ans-role-sirius-hla-instance
+  - name: lnls-ans-role-sirius-apps-instance
     image: "${MOLECULE_DISTRO:-debian:stretch}"
     groups:
       - default_group

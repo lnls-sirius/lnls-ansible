@@ -1,4 +1,4 @@
-LNLS Ansible Role Sirius HLA
+LNLS Ansible Role Sirius Apps
 =======================
 
 This Ansible role configures some defaults Sirius High Level Applications for Sirius Light Source control machines.
@@ -11,7 +11,7 @@ This Ansible role configures some defaults Sirius High Level Applications for Si
 ## Role Variables
 
 ```yaml
-sirius_hla_apps:
+sirius_apps:
   - name: Scripts
     org_url: https://github.com/lnls-sirius
     repo_name: scripts
@@ -87,7 +87,7 @@ Tests are performed using Molecule. To run them with python virtualenv, issue:
         cd ../ && \
         virtualenv env --python python3 && \
         source env/bin/activate && \
-        cd lnls-ans-role-sirius-hla && \
+        cd lnls-ans-role-sirius-apps && \
         pip install molecule docker-py && \
         molecule test"
 ```
