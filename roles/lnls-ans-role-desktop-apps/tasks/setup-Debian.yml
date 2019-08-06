@@ -1,0 +1,21 @@
+---
+- name: Update apt cache
+  apt:
+    update_cache: true
+    cache_valid_time: 86400
+  become: true
+  register: apt_update_cache_result
+  until: apt_update_cache_result is success
+  retries: 5
+  delay: 2
+
+- name: Ensure Desktop packages are installed
+  apt:
+    name: "{{ desktop_packages }}"
+    state: "{{ desktop_packages_state }}"
+    install_recommends: "{{ desktop_install_recommends }}"
+  become: true
+  register: apt_packages_result
+  until: apt_packages_result is success
+  retries: 5
+  delay: 2

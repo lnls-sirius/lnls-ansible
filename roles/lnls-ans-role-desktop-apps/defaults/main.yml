@@ -1,0 +1,6 @@
+---
+# Desktop packages state
+desktop_packages_state: present
+
+# Desktop install recommends
+desktop_install_recommends: true

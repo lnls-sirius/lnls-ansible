@@ -1,0 +1,7 @@
+---
+__desktop_packages:
+  - rdesktop
+  - vim
+  - remmina
+  - remmina-plugin-rdp
+  - remmina-plugin-secret
