@@ -9,6 +9,7 @@ export MOLECULE_DISTRO
 ROLES_DIR = roles
 # Add new roles
 ROLES = lnls-ans-role-users \
+		lnls-ans-role-nfsserver \
 		lnls-ans-role-nfsclient \
 		lnls-ans-role-repositories \
 		lnls-ans-role-python \
@@ -22,6 +23,9 @@ test_TARGETS = $(addprefix $(PREFIX_TARGET), $(ROLES))
 
 linac-opi:
 	ansible-playbook -i hosts -l linac-opi -u sirius -k --ask-become-pass playbook-ctrlroom-desktops.yml
+
+nfs-server:
+	ansible-playbook -i hosts -u sirius -k --ask-become-pass playbook-nfs-server.yml
 
 tests: tests_stretch tests_buster
 
