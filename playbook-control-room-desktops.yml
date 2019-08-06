@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: linac-opi
   become: true
   tasks:
   - import_role:
