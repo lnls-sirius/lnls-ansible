@@ -17,3 +17,9 @@ __repository_apt:
     description: "NSLS-II Debian EPICS repository"
     file: nsls2-epics-debian-src
     state: present
+
+  - name: Debian Stretch backports
+    baseurl: "deb http://deb.debian.org/debian stretch-backports main"
+    description: "Debian Stretch backports"
+    file: debian-stretch-backports
+    state: present
