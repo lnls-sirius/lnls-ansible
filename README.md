@@ -35,7 +35,27 @@ This Ansible roles/playbooks for Sirius Light Source control machines.
 ## Example Commmand
 
 ```bash
-ansible-playbook -i host, -u user -k --ask-become-pass playbook.yml
+ansible-playbook -i host, -u user -k --ask-become-pass <playbook>.yml
+```
+## Runing Ansible Playbooks
+
+The easiest way to run playbooks on a set of hosts is to use the Makefile:
+
+```bash
+make <playbook_name_without_yml_extension>
+```
+
+Example, is you want to run the playbook-control-room-desktops.yml playbook
+on the set of predefined hosts (see inside playbook), run:
+
+```bash
+make playbook-control-room-desktops
+```
+
+To further limit selected hosts to an additional pattern, run:
+
+```bash
+make playbook-control-room-desktops HOST_GROUPS=<pattern>
 ```
 
 ## Runing Molecule tests locally
