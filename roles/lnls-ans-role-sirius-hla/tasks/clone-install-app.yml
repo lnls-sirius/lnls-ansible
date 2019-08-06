@@ -20,7 +20,7 @@
   when: repo_install_chdir is not defined
 
 - name: "Install {{ item.repo_name }} via setup.py"
-  command: "python-sirius setup.py install"
+  command: "{{ python_executable }} setup.py install"
   args:
     chdir: "{{ item.clone_path }}/{{ item.repo_name }}/{{ repo_install_chdir }}"
   become: true

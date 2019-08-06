@@ -10,6 +10,11 @@
       paths:
         - '{{ role_path }}/vars'
 
+- name: Define Pyhton executable
+  set_fact:
+    python_executable: "{{ __python_executable | default('python') }}"
+  when: python_executable is not defined
+
 # Include Tasks
 - include_tasks: setup-RedHat.yml
   when: ansible_os_family == 'RedHat'
