@@ -1,0 +1,12 @@
+---
+- name: Converge
+  hosts: all
+
+  vars:
+    nfs_clients_control_room_subnet: 127.0.0.1/24
+    nfs_clients_cnpem_sirius_subnet: 127.0.0.1/24
+    fac_workstation_ip: 127.0.0.1
+    nfs_ignore_systemd_errors: true
+
+  roles:
+    - role: lnls-ans-role-nfsserver

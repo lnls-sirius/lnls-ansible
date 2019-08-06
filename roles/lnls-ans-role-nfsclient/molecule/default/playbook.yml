@@ -3,6 +3,8 @@
   hosts: all
 
   vars:
+    nfs_server_control_room: 127.0.0.1
+    nfs_server_control_opi: 127.0.0.1
     nfs_ignore_systemd_errors: true
 
   roles:

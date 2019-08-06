@@ -1,0 +1,3 @@
+---
+# Group needed to be a part of to have root privileges
+__root_group: wheel

@@ -1,0 +1,3 @@
+---
+__nfs_server_packages:
+  - nfs-kernel-server=1:1.3.4-*
