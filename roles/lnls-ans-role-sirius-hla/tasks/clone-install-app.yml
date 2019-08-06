@@ -22,7 +22,7 @@
 - name: "Install {{ item.repo_name }} via setup.py"
   command: "python-sirius setup.py install"
   args:
-    chdir: "{{ item.clone_path }}/{{ item.repo_name }}/{{ repo_install_path }}"
+    chdir: "{{ item.clone_path }}/{{ item.repo_name }}/{{ repo_install_chdir }}"
   become: true
   register: setup_rc
   when: item.install_via_setup is defined and
@@ -32,7 +32,7 @@
 - name: "Install {{ item.repo_name }} via custom command"
   command: "{{ item.install_via_custom }}"
   args:
-    chdir: "{{ item.clone_path }}/{{ item.repo_name }}/{{ repo_install_path }}"
+    chdir: "{{ item.clone_path }}/{{ item.repo_name }}/{{ repo_install_chdir }}"
   become: true
   when: item.install_via_custom is defined and
         (make_rc.skipped | bool) and
