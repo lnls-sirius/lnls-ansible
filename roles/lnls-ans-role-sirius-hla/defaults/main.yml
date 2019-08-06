@@ -50,8 +50,8 @@ sirius_hla_apps:
 
 
   - name: Scripts
-      org_url: https://github.com/lnls-sirius
-      repo_name: scripts
-      repo_version: master
-      clone_path: /tmp
-      install_via_makefile: true
+    org_url: https://github.com/lnls-sirius
+    repo_name: scripts
+    repo_version: master
+    clone_path: /tmp
+    install_via_makefile: true
