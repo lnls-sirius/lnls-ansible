@@ -5,6 +5,7 @@ export DNS_SERVER1
 export DNS_SERVER2
 MOLECULE_DISTRO ?= debian:buster
 export MOLECULE_DISTRO
+HOST_GROUPS ?= linac-opi
 
 ROLES_DIR = roles
 # Add new roles
@@ -19,15 +20,20 @@ ROLES = lnls-ans-role-users \
 		lnls-ans-role-cs-studio \
 		lnls-ans-role-sirius-hla
 
+PLAYBOOKS = playbook-nfs-servers.yml \
+			playbook-control-room-desktops.yml
+
 # Test variables
-PREFIX_TARGET = test_
-test_TARGETS = $(addprefix $(PREFIX_TARGET), $(ROLES))
+TEST_TARGET = test_
+test_TARGETS = $(addprefix $(TEST_TARGET), $(ROLES))
 
-linac-opi:
-	ansible-playbook -i hosts -l linac-opi -u sirius -k --ask-become-pass playbook-control-room-desktops.yml
+# Playbook variables
+playbook_TARGETS = $(basename $(PLAYBOOKS))
 
-nfs-server:
-	ansible-playbook -i hosts -u sirius -k --ask-become-pass playbook-nfs-server.yml
+all: $(playbook_TARGETS)
+
+$(playbook_TARGETS): %: %.yml
+	ansible-playbook -i hosts -l $(HOST_GROUPS) -u sirius -k --ask-become-pass $<
 
 tests: tests_stretch tests_buster
 
@@ -39,7 +45,7 @@ tests_buster:
 
 tests_all_roles: $(test_TARGETS)
 
-$(test_TARGETS): $(PREFIX_TARGET)%:
+$(test_TARGETS): $(TEST_TARGET)%:
 	bash -c "\
 		echo \"Using distro: \" ${MOLECULE_DISTRO} && \
 		echo \"Using DNS server 1: \" ${DNS_SERVER1} && \
