@@ -24,3 +24,14 @@
     dest: "{{ pip_symlink }}"
     state: link
   become: true
+
+- name: Install Python PIP packages
+  pip:
+    name: "{{ pip_packages }}"
+    state: present
+    executable: "{{ pip_executable }}"
+  become: true
+  register: pip_packages_result
+  until: pip_packages_result is success
+  retries: 5
+  delay: 2

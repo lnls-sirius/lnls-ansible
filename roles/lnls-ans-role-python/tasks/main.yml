@@ -25,6 +25,16 @@
     python_packages: "{{ __python_packages | list }}"
   when: python_packages is not defined
 
+- name: Define pip packages
+  set_fact:
+    pip_packages: "{{ __pip_packages | list }}"
+  when: pip_packages is not defined
+
+- name: Define PIP executable
+  set_fact:
+    pip_executable: "{{ __pip_executable | default(omit) }}"
+  when: pip_executable is not defined
+
 - name: Define python all
   set_fact:
     python_all: "{{ python_packages | list + python_dep_packages | list }}"
