@@ -27,7 +27,7 @@
   register: setup_rc
   when: item.install_via_setup is defined and
         (item.install_via_setup | bool) and
-        not (make_rc.success | bool)
+        (make_rc.skipped | bool)
 
 - name: "Install {{ item.repo_name }} via custom command"
   command: "{{ item.install_via_custom }}"
@@ -35,5 +35,5 @@
     chdir: "{{ item.clone_path }}/{{ item.repo_name }}/{{ repo_install_path }}"
   become: true
   when: item.install_via_custom is defined and
-        not (make_rc.success | bool) and
-        not (setup_rc.success | bool)
+        (make_rc.skipped | bool) and
+        (setup_rc.skipped | bool)
