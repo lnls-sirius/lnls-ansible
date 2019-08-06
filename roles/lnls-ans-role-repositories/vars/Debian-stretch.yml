@@ -4,6 +4,9 @@ __repository_keys:
   - name: Debian NSLS2 key
     url: https://epicsdeb.bnl.gov/debian/repo-key.pub
     keyring: /etc/apt/trusted.gpg.d/nsls2-epics-debian.gpg
+  - name: Debian VSCode key
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    keyring: /etc/apt/trusted.gpg.d/vscode-debian.gpg
 
 __repository_apt:
   - name: NSLS2 EPICS debian repository
@@ -22,4 +25,10 @@ __repository_apt:
     baseurl: "deb http://deb.debian.org/debian stretch-backports main"
     description: "Debian Stretch backports"
     file: debian-stretch-backports
+    state: present
+
+  - name: Debian Stretch VScode
+    baseurl: "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+    description: "Debian Stretch VScode"
+    file: debian-stretch-vscode
     state: present
