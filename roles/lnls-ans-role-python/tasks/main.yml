@@ -15,6 +15,11 @@
     basic_packages: "{{ __basic_packages | list }}"
   when: basic_packages is not defined
 
+- name: Define python base variable
+  set_fact:
+    python_base_packages: "{{ __python_base_packages | list }}"
+  when: python_base_packages is not defined
+
 - name: Define python dep packages
   set_fact:
     python_dep_packages: "{{ __python_dep_packages | list }}"
@@ -40,6 +45,23 @@
     python_all: "{{ python_packages | list + python_dep_packages | list }}"
   when: python_all is not defined
 
+- name: Default Python source variables
+  set_fact:
+    python_src_exec: "python{{ python_src_version|regex_replace('(\\d+\\.\\d+)\\..*$', '\\\\1') }}"
+  when: python_src_exec is not defined
+
+- name: Define Python install form source
+  set_fact:
+    python_install_from_src: "{{ __python_install_from_src | default(false) }}"
+  when: python_install_from_src is not defined
+
+- name: Check which python version installed
+  command: "which {{ python_src_exec }}"
+  register: python_check_result
+  failed_when: false
+  changed_when: false
+  check_mode: false
+
 # Include Tasks
 
 - include_tasks: setup-RedHat.yml
@@ -50,6 +72,12 @@
 
 - include_tasks: setup-packages.yml
   when: ansible_os_family == 'Debian'
+
+- include_tasks: install-python-from-source.yml
+  when: python_install_from_src and (python_src_force_install or python_check_result.rc != 0)
+
+- include_tasks: install-python-from-apt.yml
+  when: ansible_os_family == 'Debian' and not python_install_from_src and python_check_result.rc != 0
 
 - include_tasks: setup-python.yml
   when: ansible_os_family == 'Debian'

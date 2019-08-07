@@ -1,4 +1,7 @@
 ---
+# Install from source
+__python_install_from_src: true
+
 __basic_packages:
   - git=1:2.11.0*
 
@@ -11,6 +14,9 @@ __python_dep_packages:
   - libgdbm-dev=1.8.3-14*
   - libc6-dev=2.24-11*
   - libbz2-dev=1.0.6-8.1*
+
+__python_base_packages:
+  - python3-dev=3.5.3-1*
 
 # We may need to install python2 setuptools because of ansible issue:
 # https://github.com/ansible/ansible/issues/47361

@@ -1,0 +1,30 @@
+---
+- name: Run Python configure
+  command: ./configure
+  args:
+    chdir: "{{ python_src_dir_path }}"
+  listen: "Install Python from source"
+
+- name: Run Python make
+  command: make
+  args:
+    chdir: "{{ python_src_dir_path }}"
+  listen: "Install Python from source"
+
+- name: Run Python make install
+  command: make install
+  args:
+    chdir: "{{ python_src_dir_path }}"
+  become: true
+  when:
+    - python_src_make_default
+  listen: "Install Python from source"
+
+- name: Run Python make altinstall
+  command: make altinstall
+  args:
+    chdir: "{{ python_src_dir_path }}"
+  become: true
+  when:
+    - not python_src_make_default
+  listen: "Install Python from source"

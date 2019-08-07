@@ -4,3 +4,21 @@ python_symlink: /usr/local/bin/python-sirius
 
 # pip symlink dest
 pip_symlink: /usr/local/bin/pip-sirius
+
+# Python source variables
+python_src_version: 3.6.8
+
+python_src_download_pkg_name: "Python-{{ python_src_version }}"
+
+python_src_download_url: "https://www.python.org/ftp/python/{{ python_src_version }}/{{ python_src_download_pkg_name }}.tgz"
+
+python_src_dir: /tmp
+
+python_src_dir_path: "{{ python_src_dir }}/{{ python_src_download_pkg_name }}"
+
+# whether or not to make this version of python the default.
+python_src_make_default: true
+
+# If true, the python source for the version will be downloaded and
+# installed again even if it's found on the system.
+python_src_force_install: false

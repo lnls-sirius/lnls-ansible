@@ -1,7 +1,7 @@
 LNLS Ansible Role Python
 =======================
 
-This Ansible role configures some defaults users/groups for Sirius Light Source control machines.
+This Ansible role install python and related packages for Sirius Light Source control machines.
 
 ## Requirements
 
@@ -11,9 +11,30 @@ This Ansible role configures some defaults users/groups for Sirius Light Source 
 ## Role Variables
 
 ```yaml
+---
 # python symlink dest
 python_symlink: /usr/local/bin/python-sirius
 
+# pip symlink dest
+pip_symlink: /usr/local/bin/pip-sirius
+
+# Python source variables
+python_src_version: 3.6.8
+
+python_src_download_pkg_name: "Python-{{ python_src_version }}"
+
+python_src_download_url: "https://www.python.org/ftp/python/{{ python_src_version }}/{{ python_src_download_pkg_name }}.tgz"
+
+python_src_dir: /tmp
+
+python_src_dir_path: "{{ python_src_dir }}/{{ python_src_download_pkg_name }}"
+
+# whether or not to make this version of python the default.
+python_src_make_default: true
+
+# If true, the python source for the version will be downloaded and
+# installed again even if it's found on the system.
+python_src_force_install: false
 ```
 
 ## Example Playbook
@@ -41,7 +62,7 @@ Tests are performed using Molecule. To run them with python virtualenv, issue:
         cd ../ && \
         virtualenv env --python python3 && \
         source env/bin/activate && \
-        cd lnls-ans-role-users && \
+        cd lnls-ans-role-python && \
         pip install molecule docker-py && \
         molecule test"
 ```

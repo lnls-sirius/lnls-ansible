@@ -1,0 +1,13 @@
+---
+- name: Untar Python source package
+  unarchive:
+    src: "{{ python_src_download_url }}"
+    dest: "{{ python_src_dir }}"
+    remote_src: true
+    owner: root
+    group: root
+    creates: "{{ python_src_dir_path }}"
+  notify: "Install Python from source"
+
+- name: Force handlers to run at this point
+  meta: flush_handlers

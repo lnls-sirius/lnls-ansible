@@ -1,11 +1,23 @@
 ---
+# Install from source
+__python_install_from_src: false
+
 __basic_packages:
   - git
 
 __python_dep_packages: []
+
+__python_base_packages:
+  - python3-devel
 
 __python_packages:
   - python3-devel
   - python3-pip
   - python3-setuptools
   - swig
+
+__pip_executable: pip-sirius
+
+__pip_packages:
+  - setuptools==39.0.1
+  - matplotlib==3.0.2
