@@ -1,16 +1,26 @@
 ---
+- name: Check which python version installed
+  command: "which {{ python_exec }}"
+  register: python_check_result
+  changed_when: false
+  check_mode: false
+
+- name: Check which pip version installed
+  command: "which {{ pip_exec }}"
+  register: pip_check_result
+  changed_when: false
+  check_mode: false
+
 - name: Install python symlink
   file:
-    # TODO: resolve python3 link correctly!
-    src: "{{ python_exec }}"
+    src: "{{ python_check_result.stdout }}"
     dest: "{{ python_symlink }}"
     state: link
   become: true
 
 - name: Install pip symlink
   file:
-    # TODO: resolve pip3 link correctly!
-    src: "{{ pip_exec }}"
+    src: "{{ pip_check_result.stdout }}"
     dest: "{{ pip_symlink }}"
     state: link
   become: true
