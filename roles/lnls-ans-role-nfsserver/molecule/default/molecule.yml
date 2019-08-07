@@ -23,7 +23,7 @@ driver:
 platforms:
   - name: lnls-ans-role-nfsserver-instance
     image: "${MOLECULE_DISTRO:-debian:stretch}"
-    command: "${MOLECULE_DOCKER_COMMAND:-""}"
+    command: "${MOLECULE_DOCKER_COMMAND:-''}"
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     capabiolities:
