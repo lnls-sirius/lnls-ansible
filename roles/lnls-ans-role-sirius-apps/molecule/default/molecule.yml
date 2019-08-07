@@ -31,4 +31,3 @@ platforms:
     groups:
       - default_group
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
-
