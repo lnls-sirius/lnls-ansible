@@ -1,8 +1,12 @@
 ---
-__qt_packages:
+__qt_distro_packages:
   - qt5-default=5.7.1*
   - pyqt5-dev=5.7*
   - pyqt5-dev-tools=5.7*
   - sip-dev=4.18.1*
   - python3-pyqt5.qtsvg=5.7*
-  - python3-pyside=1.2.2*
+
+__pip_packages:
+  - PySide==1.2.4*
+
+__pip_executable: pip-sirius

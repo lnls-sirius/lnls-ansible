@@ -1,7 +1,7 @@
 ---
 - name: Install qt packages
   apt:
-    name: "{{ qt_packages }}"
+    name: "{{ qt_distro_packages }}"
     state: present
   become: true
   register: apt_result

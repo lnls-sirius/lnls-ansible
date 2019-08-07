@@ -12,8 +12,18 @@
 
 - name: Define Qt5 packages
   set_fact:
-    qt_packages: "{{ __qt_packages | list }}"
-  when: qt_packages is not defined
+    qt_distro_packages: "{{ __qt_distro_packages | list }}"
+  when: qt_distro_packages is not defined
+
+- name: Define PIP executable
+  set_fact:
+    pip_executable: "{{ __pip_executable | default(omit) }}"
+  when: pip_executable is not defined
+
+- name: Define Pip Qt5 packages
+  set_fact:
+    pip_packages: "{{ __pip_packages | list }}"
+  when: pip_packages is not defined
 
 # Include Tasks
 
@@ -25,3 +35,5 @@
 
 - include_tasks: setup-packages.yml
   when: ansible_os_family == 'Debian'
+
+- include_tasks: setup-pip-packages.yml

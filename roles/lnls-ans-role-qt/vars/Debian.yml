@@ -1,8 +1,12 @@
 ---
-__qt_packages:
+__qt_distro_packages:
   - qt5-default
   - pyqt5-dev
   - pyqt5-dev-tools
   - sip-dev
   - python3-pyqt5.qtsvg
-  - python3-pyside
+
+__pip_packages:
+  - PySide
+
+__pip_executable: pip-sirius
