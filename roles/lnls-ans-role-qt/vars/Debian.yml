@@ -5,3 +5,4 @@ __qt_packages:
   - pyqt5-dev-tools
   - sip-dev
   - python3-pyqt5.qtsvg
+  - python3-pyside
