@@ -88,11 +88,11 @@ env:
 
     - MOLECULE_DISTRO: debian:buster
       BUILD_TYPE: default
-      ROLE: lnls-ans-role-sirius-hla
+      ROLE: lnls-ans-role-sirius-apps
 
     - MOLECULE_DISTRO: debian:stretch
       BUILD_TYPE: default
-      ROLE: lnls-ans-role-sirius-hla
+      ROLE: lnls-ans-role-sirius-apps
 
     - MOLECULE_DISTRO: debian:buster
       BUILD_TYPE: default
