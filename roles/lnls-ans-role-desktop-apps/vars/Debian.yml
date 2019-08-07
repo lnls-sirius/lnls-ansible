@@ -8,3 +8,8 @@ __desktop_packages:
   - remmina-plugin-rdp
   - remmina-plugin-secret
   - code
+  - ca-certificates
+  - gconf2
+  - libasound2
+  - libgtk2.0-0
+  - libxss1
