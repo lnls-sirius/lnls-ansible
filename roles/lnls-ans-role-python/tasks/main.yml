@@ -104,5 +104,10 @@
 - include_tasks: install-python-from-apt.yml
   when: ansible_os_family == 'Debian' and not python_install_from_src and python_check_result.rc != 0
 
+- name: Redfine Python source variables if not from source
+  set_fact:
+    python_exec: "python3"
+  when: not python_install_from_src
+
 - include_tasks: setup-python.yml
   when: ansible_os_family == 'Debian'
