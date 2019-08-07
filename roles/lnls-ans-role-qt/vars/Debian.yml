@@ -5,9 +5,7 @@ __qt_distro_packages:
   - python3-pyqt5.qtsvg
 
 __pip_packages:
-  - PySide
   - PyQt5
-  - pyqt5-tools
   - PyQt5-sip
 
 __pip_executable: pip-sirius
