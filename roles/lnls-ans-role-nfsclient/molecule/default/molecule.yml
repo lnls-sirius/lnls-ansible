@@ -23,6 +23,12 @@ driver:
 platforms:
   - name: lnls-ans-role-nfsclient-instance
     image: "${MOLECULE_DISTRO:-debian:stretch}"
+    command: "${MOLECULE_DOCKER_COMMAND:-""}"
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    capabiolities:
+      - SYS_ADMIN
+    pre_build_image: true
     groups:
       - default_group
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
