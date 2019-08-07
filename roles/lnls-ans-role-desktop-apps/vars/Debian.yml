@@ -1,7 +1,10 @@
 ---
 __desktop_packages:
   - rdesktop
+  - htop
   - vim
+  - ipython3
   - remmina
   - remmina-plugin-rdp
   - remmina-plugin-secret
+  - code
