@@ -4,6 +4,7 @@ __python_install_from_src: true
 
 __basic_packages:
   - git=1:2.11.0*
+  - build-essential=12.3*
 
 __python_dep_packages:
   - libreadline-dev=7.0-3*

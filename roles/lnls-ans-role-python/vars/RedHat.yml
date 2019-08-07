@@ -4,6 +4,7 @@ __python_install_from_src: false
 
 __basic_packages:
   - git
+  - "@Development tools"
 
 __python_dep_packages: []
 
