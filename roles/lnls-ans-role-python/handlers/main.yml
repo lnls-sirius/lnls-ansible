@@ -1,6 +1,6 @@
 ---
 - name: Run Python configure
-  command: ./configure
+  command: ./configure --with-ensurepip=install
   args:
     chdir: "{{ python_src_dir_path }}"
   listen: "Install Python from source"
