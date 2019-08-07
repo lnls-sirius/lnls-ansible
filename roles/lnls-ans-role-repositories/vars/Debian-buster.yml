@@ -5,6 +5,10 @@ __repository_keys:
     url: https://epicsdeb.bnl.gov/debian/repo-key.pub
     keyring: /etc/apt/trusted.gpg.d/nsls2-epics-debian.gpg
 
+  - name: Debian VSCode key
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    keyring: /etc/apt/trusted.gpg.d/vscode-debian.gpg
+
 __repository_apt:
   - name: NSLS2 EPICS debian repository
     baseurl: "deb https://epicsdeb.bnl.gov/debian buster/staging main contrib"
@@ -22,4 +26,10 @@ __repository_apt:
     baseurl: "deb http://deb.debian.org/debian buster-backports main"
     description: "Debian Buster backports"
     file: debian-buster-backports
+    state: present
+
+  - name: Debian Buster VScode
+    baseurl: "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+    description: "Debian Buster VScode"
+    file: debian-buster-vscode
     state: present

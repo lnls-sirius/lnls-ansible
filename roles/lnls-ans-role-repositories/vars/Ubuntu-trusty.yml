@@ -13,6 +13,10 @@ __repository_keys:
     keyserver: keyserver.ubuntu.com
     id: 8B48AD6246925553
 
+  - name: Debian VSCode key
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    keyring: /etc/apt/trusted.gpg.d/vscode-debian.gpg
+
 __repository_apt:
   - name: NSLS2 EPICS debian repository
     baseurl: "deb https://epicsdeb.bnl.gov/debian jessie main contrib"
@@ -48,6 +52,12 @@ __repository_apt:
     baseurl: "deb-src http://security.debian.org/debian-security jessie/updates main"
     description: "Debian Jessie security repository"
     file: debian-jessie-updates-src
+    state: present
+
+  - name: Debian Jessie VScode
+    baseurl: "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+    description: "Debian Jessie VScode"
+    file: debian-jessie-vscode
     state: present
 
 __apt_pinning_paths:
