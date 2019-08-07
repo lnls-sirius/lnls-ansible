@@ -35,6 +35,21 @@
     pip_packages: "{{ __pip_packages | list }}"
   when: pip_packages is not defined
 
+# Combine apps to install
+- name: Create list of dict apps to install
+  set_fact:
+    pre_python_packages: "{{ pre_python_packages | default([]) |
+            list + lookup('vars', item) }}"
+  with_items:
+    - basic_packages
+    - python_dep_packages
+
+- name: Default variable to empty
+  set_fact:
+    pre_python_packages: "[]"
+  when:
+    - pre_python_packages is not defined
+
 - name: Define PIP executable
   set_fact:
     pip_executable: "{{ __pip_executable | default(omit) }}"
@@ -42,7 +57,7 @@
 
 - name: Define python all
   set_fact:
-    python_all: "{{ python_packages | list + python_dep_packages | list }}"
+    python_all: "{{ python_packages | list }}"
   when: python_all is not defined
 
 - name: Default Python source variables

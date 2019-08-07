@@ -1,7 +1,7 @@
 ---
 - name: Install basic packages
   apt:
-    name: "{{ basic_packages }}"
+    name: "{{ pre_python_packages }}"
     state: present
   become: true
   register: apt_result
