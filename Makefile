@@ -18,7 +18,7 @@ ROLES = lnls-ans-role-users \
 		lnls-ans-role-epics \
 		lnls-ans-role-java \
 		lnls-ans-role-cs-studio \
-		lnls-ans-role-sirius-hla \
+		lnls-ans-role-sirius-apps \
 		lnls-ans-role-desktop-apps
 
 PLAYBOOKS = playbook-nfs-servers.yml \
