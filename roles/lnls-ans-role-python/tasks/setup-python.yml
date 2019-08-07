@@ -2,7 +2,7 @@
 - name: Install python symlink
   file:
     # TODO: resolve python3 link correctly!
-    src: "/usr/bin/python3"
+    src: "{{ python_exec }}"
     dest: "{{ python_symlink }}"
     state: link
   become: true
@@ -10,7 +10,7 @@
 - name: Install pip symlink
   file:
     # TODO: resolve pip3 link correctly!
-    src: "/usr/bin/pip3"
+    src: "{{ pip_exec }}"
     dest: "{{ pip_symlink }}"
     state: link
   become: true

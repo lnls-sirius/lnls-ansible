@@ -60,10 +60,20 @@
     python_all: "{{ python_packages | list }}"
   when: python_all is not defined
 
+- name: Define python version
+  set_fact:
+    python_version: "{{ python_src_version | default('3.5') }}"
+  when: python_version is not defined
+
 - name: Default Python source variables
   set_fact:
-    python_src_exec: "python{{ python_src_version|regex_replace('(\\d+\\.\\d+)\\..*$', '\\\\1') }}"
-  when: python_src_exec is not defined
+    python_exec: "python{{ python_version|regex_replace('(\\d+\\.\\d+)\\..*$', '\\1') }}"
+  when: python_exec is not defined
+
+- name: Default Pip source variables
+  set_fact:
+    pip_exec: "pip{{ python_version|regex_replace('(\\d+\\.\\d+)\\..*$', '\\1') }}"
+  when: pip_exec is not defined
 
 - name: Define Python install form source
   set_fact:
@@ -71,7 +81,7 @@
   when: python_install_from_src is not defined
 
 - name: Check which python version installed
-  command: "which {{ python_src_exec }}"
+  command: "which {{ python_exec }}"
   register: python_check_result
   failed_when: false
   changed_when: false
