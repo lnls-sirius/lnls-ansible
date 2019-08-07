@@ -11,13 +11,9 @@ This Ansible role configures some defaults Sirius High Level Applications for Si
 ## Role Variables
 
 ```yaml
-sirius_apps:
-  - name: Scripts
-    org_url: https://github.com/lnls-sirius
-    repo_name: scripts
-    repo_version: master
-    clone_path: /tmp
-    install_via_makefile: true
+---
+# Groups of packages
+sirius_apps_dev_packages:
 
   - name: Math Phys
     org_url: https://github.com/lnls-fac
@@ -34,6 +30,25 @@ sirius_apps:
     install_chdir: siriuspy
     install_via_setup: true
 
+sirius_apps_iocs:
+
+  - name: Ethernet PRU-Serial 485 Application
+    org_url: https://github.com/lnls-sirius
+    repo_name: eth-bridge-pru-serial485
+    repo_version: master
+    clone_path: /tmp
+    install_chdir: client
+    install_via_setup: true
+
+  - name: Machine Applications
+    org_url: https://github.com/lnls-sirius
+    repo_name: machine-applications
+    repo_version: master
+    clone_path: /tmp
+    install_via_makefile: true
+
+sirius_apps_hla:
+
   - name: PyDM Package
     org_url: https://github.com/lnls-sirius
     repo_name: pydm
@@ -49,17 +64,21 @@ sirius_apps:
     install_chdir: pyqt-apps
     install_via_makefile: true
 
-  - name: PRU-Serial 485 Application
+sirius_apps_mgmt:
+
+  - name: Scripts
     org_url: https://github.com/lnls-sirius
-    repo_name: pru-serial485
+    repo_name: scripts
     repo_version: master
     clone_path: /tmp
-    install_chdir: src
-    install_via_setup: false
-    install_via_makefile: false
-    install_via_custom: ./library_build.sh
+    install_via_makefile: true
 
-  - name: Machine Applications
+# Select which categories to install. Defaults to all
+sirius_apps_install_categories:
+  - sirius_apps_dev_packages
+  - sirius_apps_iocs
+  - sirius_apps_hla
+  - sirius_apps_mgmt
 ```
 
 ## Example Playbook

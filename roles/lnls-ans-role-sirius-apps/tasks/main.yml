@@ -15,6 +15,24 @@
     python_executable: "{{ __python_executable | default('python') }}"
   when: python_executable is not defined
 
+# Combine apps to install
+- name: Create list of dict apps to install
+  set_fact:
+    sirius_apps: "{{ sirius_apps | default([]) |
+            list + lookup('vars', item) }}"
+  with_items:
+    - "{{ sirius_apps_install_categories | default([]) | list }}"
+
+- name: Default variable to empty
+  set_fact:
+    sirius_apps: "[]"
+  when:
+    - sirius_apps is not defined
+
+- name: Debug
+  debug:
+    msg: "sirius apps to install: {{ sirius_apps }}"
+
 # Include Tasks
 - include_tasks: setup-RedHat.yml
   when: ansible_os_family == 'RedHat'

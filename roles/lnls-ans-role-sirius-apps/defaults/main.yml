@@ -1,5 +1,6 @@
 ---
-sirius_apps:
+# Groups of packages
+sirius_apps_dev_packages:
 
   - name: Math Phys
     org_url: https://github.com/lnls-fac
@@ -16,6 +17,7 @@ sirius_apps:
     install_chdir: siriuspy
     install_via_setup: true
 
+sirius_apps_iocs:
 
   - name: Ethernet PRU-Serial 485 Application
     org_url: https://github.com/lnls-sirius
@@ -32,6 +34,7 @@ sirius_apps:
     clone_path: /tmp
     install_via_makefile: true
 
+sirius_apps_hla:
 
   - name: PyDM Package
     org_url: https://github.com/lnls-sirius
@@ -48,6 +51,7 @@ sirius_apps:
     install_chdir: pyqt-apps
     install_via_makefile: true
 
+sirius_apps_mgmt:
 
   - name: Scripts
     org_url: https://github.com/lnls-sirius
@@ -55,3 +59,10 @@ sirius_apps:
     repo_version: master
     clone_path: /tmp
     install_via_makefile: true
+
+# Select which categories to install. Defaults to all
+sirius_apps_install_categories:
+  - sirius_apps_dev_packages
+  - sirius_apps_iocs
+  - sirius_apps_hla
+  - sirius_apps_mgmt
