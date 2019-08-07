@@ -1,2 +1,10 @@
 ---
-__qt_distro_packages: []
+__qt_distro_packages:
+
+__pip_packages:
+  - PySide
+  - PyQt5
+  - pyqt5-tools
+  - PyQt5-sip
+
+__pip_executable: pip-sirius
