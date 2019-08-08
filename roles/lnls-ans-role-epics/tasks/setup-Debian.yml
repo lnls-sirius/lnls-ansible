@@ -45,3 +45,16 @@
   until: epics_pip_packages_result is success
   retries: 5
   delay: 2
+
+- name: Ensure EPICS environment is installed
+  template:
+    src: "{{ item.filename }}.j2"
+    dest: "{{ item.pathname }}/{{ item.filename }}"
+    owner: root
+    group: root
+    force: true
+    mode: 0644
+  become: true
+  with_items:
+    - "{{ epics_config_files }}"
+  when: apt_packages_result is success

@@ -18,3 +18,8 @@ epics_install_recommends: true
 
 # Additional EPICS packages
 epics_packages_extra: []
+
+epics_config_files:
+  - name: EPICS environment variables
+    filename: epics.sh
+    pathname: "/etc/profile.d"
