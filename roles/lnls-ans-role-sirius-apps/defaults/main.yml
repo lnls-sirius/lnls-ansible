@@ -62,7 +62,7 @@ sirius_apps_hla:
     install_chdir: pyqt-apps
     install_via_makefile: true
 
-  - name: PyDM Package
+  - name: PyDM timechart Package
     org_url: https://github.com/slaclab
     repo_name: timechart
     repo_version: v1.2.2
