@@ -1,7 +1,10 @@
 ---
 __epics_packages:
   - epics-dev
+  - epics-perl
   - epics-pcas-dev
+  - epics-extensions-dev
+  - edm-dev
 
 __epics_pip_packages:
   - pyepics

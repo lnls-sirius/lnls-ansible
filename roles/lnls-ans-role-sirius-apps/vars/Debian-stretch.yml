@@ -1,7 +1,7 @@
 ---
 __sirius_apps_epics_packages:
-  - epics-extensions-dev
-  - edm-dev
+  - epics-extensions-dev=20130514.5*
+  - edm-dev=1.12.105B*
 
 __sirius_apps_epics_pip_packages: []
 
