@@ -5,7 +5,7 @@ export DNS_SERVER1
 export DNS_SERVER2
 MOLECULE_DISTRO ?= debian:buster
 export MOLECULE_DISTRO
-HOST_GROUPS ?= linac-opi
+HOST_GROUPS ?= linac_opi
 
 ROLES_DIR = roles
 # Add new roles

@@ -1,4 +1,4 @@
-[linac-opi]
+[linac_opi]
 linac-opi1
 #linac-opi2
 
@@ -17,14 +17,14 @@ lnls559-linux
 lnls560-linux
 lnls561-linux
 
-[nfs-servers]
+[nfs_servers]
 lnls454-linux
 
-[ioc-as-ap-servers]
+[ioc_as_ap_servers]
 lnls454-linux
 
-[ioc-as-ps-servers]
+[ioc_as_ps_servers]
 lnls560-linux
 
-[ioc-li-ps-servers]
+[ioc_li_ps_servers]
 lnls560-linux
