@@ -69,6 +69,15 @@ sirius_apps_hla:
     clone_path: /tmp
     install_via_setup: true
 
+sirius_apps_opis:
+
+  - name: OPIs
+    org_url: ssh://sirius@lnls350-linux:/home/fac_files/repo/sirius
+    repo_name: linac-opi
+    repo_version: master
+    clone_path: /tmp
+    install_via_makefile: true
+
 sirius_apps_mgmt:
 
   - name: Scripts
@@ -83,6 +92,7 @@ sirius_apps_install_categories:
   - sirius_apps_dev_packages
   - sirius_apps_iocs
   - sirius_apps_hla
+  - sirius_apps_opis
   - sirius_apps_mgmt
 
 sirius_apps_config_files:
