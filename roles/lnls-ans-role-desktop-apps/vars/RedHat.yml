@@ -2,3 +2,20 @@
 __desktop_packages:
   - freerdp
   - vim
+
+__desktop_pip_packages:
+  - python-nmap
+  - wakeonlan
+  - requests
+  - pyqtgraph
+  - pandas
+  - psutil
+  - termcolor
+  - sh
+  - cairocffi
+  - matplotlib
+  - scipy
+  - jupyter
+  - xlrd
+
+__pip_executable: pip-sirius

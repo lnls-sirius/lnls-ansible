@@ -13,5 +13,30 @@ __desktop_packages:
   - libasound2
   - libgtk2.0-0
   - libxss1
+  - libffi6
+  - libffi-dev
+  - libfreetype6
+  - libfreetype6-dev
+  - nmap
+  - dvipng
+  - sshpass
+  - wait-for-it
+
+__desktop_pip_packages:
+  - python-nmap
+  - wakeonlan
+  - requests
+  - pyqtgraph
+  - pandas
+  - psutil
+  - termcolor
+  - sh
+  - cairocffi
+  - matplotlib
+  - scipy
+  - jupyter
+  - xlrd
+
+__pip_executable: pip-sirius
 
 __desktop_default_release: stretch-backports

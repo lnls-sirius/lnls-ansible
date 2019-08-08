@@ -1,0 +1,11 @@
+---
+- name: Install Python PIP packages
+  pip:
+    name: "{{ desktop_pip_packages }}"
+    state: present
+    executable: "{{ pip_executable }}"
+  become: true
+  register: python_pip_packages_result
+  until: python_pip_packages_result is success
+  retries: 5
+  delay: 2
