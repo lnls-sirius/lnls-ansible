@@ -3,6 +3,8 @@ __epics_packages:
   - epics-dev=3.15.6*
   - epics-perl=3.15.6*
   - epics-pcas-dev=3.15.6*
+  # - epics-extensions-dev=20130514.5*
+  # - edm-dev=1.12.105B*
 
 __epics_pip_packages:
   - pyepics==3.3.1
