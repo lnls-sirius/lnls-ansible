@@ -25,8 +25,7 @@ platforms:
     image: "${MOLECULE_DISTRO:-debian:stretch}"
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    capabilities:
-      - SYS_ADMIN
+    privileged: true
     pre_build_image: true
     groups:
       - default_group
