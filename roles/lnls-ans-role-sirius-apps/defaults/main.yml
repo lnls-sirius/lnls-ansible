@@ -73,3 +73,8 @@ sirius_apps_install_categories:
   - sirius_apps_iocs
   - sirius_apps_hla
   - sirius_apps_mgmt
+
+sirius_apps_config_files:
+  - name: Sirius Apps environment variables
+    filename: sirius_apps.sh
+    pathname: "/etc/profile.d"
