@@ -51,6 +51,13 @@ sirius_apps_hla:
     install_chdir: pyqt-apps
     install_via_makefile: true
 
+  - name: PyDM Package
+    org_url: https://github.com/slaclab
+    repo_name: timechart
+    repo_version: v1.2.2
+    clone_path: /tmp
+    install_via_setup: true
+
 sirius_apps_mgmt:
 
   - name: Scripts
