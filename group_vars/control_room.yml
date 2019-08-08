@@ -4,4 +4,5 @@ sirius_apps_install_categories:
   - sirius_apps_dev_packages
   - sirius_apps_iocs
   - sirius_apps_hla
+  - sirius_apps_opis
   - sirius_apps_mgmt
