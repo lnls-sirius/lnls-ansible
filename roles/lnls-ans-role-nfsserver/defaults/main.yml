@@ -1,7 +1,7 @@
 ---
-nfs_clients_control_room_subnet:
-nfs_clients_cnpem_sirius_subnet:
-fac_workstation_ip:
+nfs_clients_control_room_subnet: ""
+nfs_clients_cnpem_sirius_subnet: ""
+fac_workstation_ip: ""
 
 # Set this to true when using this in a regular,
 # without systemd support.
