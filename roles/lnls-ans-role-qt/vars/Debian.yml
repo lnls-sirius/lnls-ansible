@@ -4,7 +4,7 @@ __qt_distro_packages:
   - sip-dev
   - python3-pyqt5.qtsvg
 
-__pip_packages:
+__qt_pip_packages:
   - PyQt5
   - PyQt5-sip
 

@@ -4,7 +4,7 @@ __qt_distro_packages:
   - sip-dev=4.18.1*
   - python3-pyqt5.qtsvg=5.7*
 
-__pip_packages:
+__qt_pip_packages:
   - PyQt5==5.13.0
   - PyQt5-sip==4.19.18
 

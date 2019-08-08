@@ -1,7 +1,7 @@
 ---
 __qt_distro_packages:
 
-__pip_packages:
+__qt_pip_packages:
   - PySide
   - PyQt5
   - pyqt5-tools

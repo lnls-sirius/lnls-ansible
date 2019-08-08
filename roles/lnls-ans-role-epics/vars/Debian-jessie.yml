@@ -4,7 +4,7 @@ __epics_packages:
   - epics-perl
   - epics-pcas-dev
 
-__pip_packages:
+__epics_pip_packages:
   - pyepics
   - pcaspy
 

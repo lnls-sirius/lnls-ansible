@@ -29,6 +29,6 @@ __python_packages:
 
 __pip_executable: pip-sirius
 
-__pip_packages:
+__python_pip_packages:
   - setuptools==39.0.1
   - matplotlib==3.0.2

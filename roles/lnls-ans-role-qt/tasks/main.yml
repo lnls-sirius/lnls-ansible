@@ -22,8 +22,8 @@
 
 - name: Define Pip Qt5 packages
   set_fact:
-    pip_packages: "{{ __pip_packages | list }}"
-  when: pip_packages is not defined
+    qt_pip_packages: "{{ __qt_pip_packages | list }}"
+  when: qt_pip_packages is not defined
 
 # Include Tasks
 

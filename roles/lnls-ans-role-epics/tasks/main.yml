@@ -32,8 +32,8 @@
 
 - name: Define PIP packages
   set_fact:
-    pip_packages: "{{ __pip_packages | default([]) }}"
-  when: pip_packages is not defined
+    epics_pip_packages: "{{ __epics_pip_packages | default([]) }}"
+  when: epics_pip_packages is not defined
 
 - name: Define PIP executable
   set_fact:

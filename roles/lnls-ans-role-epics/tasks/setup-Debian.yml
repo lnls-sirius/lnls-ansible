@@ -34,14 +34,14 @@
 
 - name: Ensure Python EPICS packages are installed
   pip:
-    name: "{{ pip_packages }}"
-    state: "{{ pip_packages_state }}"
+    name: "{{ epics_pip_packages }}"
+    state: "{{ epics_pip_packages_state }}"
     executable: "{{ pip_executable }}"
   environment:
     EPICS_BASE: "{{ epics_base_dir }}"
     EPICS_HOST_ARCH: "{{ epics_host_arch }}"
   become: true
-  register: pip_packages_result
-  until: pip_packages_result is success
+  register: epics_pip_packages_result
+  until: epics_pip_packages_result is success
   retries: 5
   delay: 2

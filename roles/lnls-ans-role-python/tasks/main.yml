@@ -32,8 +32,8 @@
 
 - name: Define pip packages
   set_fact:
-    pip_packages: "{{ __pip_packages | list }}"
-  when: pip_packages is not defined
+    python_pip_packages: "{{ __python_pip_packages | list }}"
+  when: python_pip_packages is not defined
 
 # Combine apps to install
 - name: Create list of dict apps to install

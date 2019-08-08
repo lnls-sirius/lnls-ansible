@@ -3,6 +3,6 @@ __epics_packages:
   - epics-dev
   - epics-pcas-dev
 
-__pip_packages:
+__epics_pip_packages:
   - pyepics
   - pcaspy
