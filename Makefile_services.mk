@@ -1,4 +1,4 @@
-sirius-ethserisiriusal-bbb-as-dclinks-tbts-service-stop:
+sirius-ethserial-bbb-as-dclinks-tbts-service-stop:
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
 		-l bbb_as_dclinks_tbts \
