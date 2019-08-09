@@ -12,7 +12,7 @@ HOST_GROUPS ?= linac_opi
 ifneq ($(REMOTE_USER),)
 	EXTRA_OPTS = "-u $(REMOTE_USER)"
 else
-	EXTRA_OPTS = ""
+	EXTRA_OPTS =
 endif
 
 ROLES_DIR = roles
@@ -42,10 +42,8 @@ playbook_TARGETS = $(basename $(PLAYBOOKS))
 
 all: $(playbook_TARGETS)
 
-
 $(playbook_TARGETS): %: %.yml
 	ansible-playbook -i hosts -l $(HOST_GROUPS) $(EXTRA_OPTS) -k --ask-become-pass $<
-
 
 -include Makefile_services.mk
 

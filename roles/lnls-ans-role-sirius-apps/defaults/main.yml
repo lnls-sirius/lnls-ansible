@@ -76,7 +76,7 @@ sirius_apps_opis:
     repo_name: linac-opi
     repo_version: master
     clone_path: /tmp
-    install_via_makefile: true
+    install_via_custom: "make install-default"
 
 sirius_apps_mgmt:
 
