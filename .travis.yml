@@ -112,5 +112,11 @@ install:
 script:
   - ./ci_build.sh
 
+# Only execute travis for specific brnch, as our test build spawn multiple
+# jobs and can delay other builds
+branches:
+  only:
+  - travis-build
+
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
