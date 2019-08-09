@@ -1,0 +1,7 @@
+---
+
+- name: "Control {{ ctrl_service_name }} service"
+  systemd:
+    name: "{{ ctrl_service_name }}"
+    state: "{{ ctrl_service_state }}"
+  become: true
