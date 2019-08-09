@@ -9,6 +9,12 @@ BUILD_TYPE ?= default
 export BUILD_TYPE
 HOST_GROUPS ?= linac_opi
 
+ifneq ($(REMOTE_USER),)
+	EXTRA_OPTS = "-u $(REMOTE_USER)"
+else
+	EXTRA_OPTS = ""
+endif
+
 ROLES_DIR = roles
 # Add new roles
 ROLES = lnls-ans-role-users \
@@ -24,7 +30,8 @@ ROLES = lnls-ans-role-users \
 		lnls-ans-role-desktop-apps
 
 PLAYBOOKS = playbook-nfs-servers.yml \
-			playbook-control-room-desktops.yml
+			playbook-control-room-desktops.yml \
+			playbook-ctrl-service.yml
 
 # Test variables
 TEST_TARGET = test_
@@ -35,8 +42,12 @@ playbook_TARGETS = $(basename $(PLAYBOOKS))
 
 all: $(playbook_TARGETS)
 
+
 $(playbook_TARGETS): %: %.yml
-	ansible-playbook -i hosts -l $(HOST_GROUPS) -u sirius -k --ask-become-pass $<
+	ansible-playbook -i hosts -l $(HOST_GROUPS) $(EXTRA_OPTS) -k --ask-become-pass $<
+
+
+-include Makefile_services.mk
 
 tests: tests_stretch tests_buster
 

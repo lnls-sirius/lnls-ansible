@@ -1,5 +1,6 @@
 ---
 - hosts: linac_opi
+  remote_user: sirius
   become: true
   tasks:
   - import_role:

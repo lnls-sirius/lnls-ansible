@@ -10,12 +10,12 @@ lnls454-linux
 lnls455-linux
 
 [fac]
-lnls556-linux
-lnls557-linux
-lnls558-linux
-lnls559-linux
-lnls560-linux
-lnls561-linux
+lnls556-linux  # fac-fernando
+lnls557-linux  # fac-liu
+lnls558-linux  # fac-murilo
+lnls559-linux  # fac-ana
+lnls560-linux  # fac-guilherme
+lnls561-linux  # fac-ximenes
 
 [nfs_servers]
 lnls454-linux
@@ -28,3 +28,132 @@ lnls560-linux
 
 [ioc_li_ps_servers]
 lnls560-linux
+
+
+# === PS BeagleBones ===
+
+
+# == Power Supply Room ==
+
+# -- BO
+
+[bbb_bo_ps_dipoles]
+PA-RaPSE05--CO-PSCtrl-BO    # bbb-bo-dipole-1         -  BO-Fam:PS-B-1
+PA-RaPSF05--CO-PSCtrl-BO    # bbb-bo-dipole-2         -  BO-Fam:PS-B-2
+
+[bbb_bo_ps_quadrupoles]
+PA-RaPSC03--CO-PSCtrl-BO1   # bbb-bo-quadrupole-qf    -  BO-Fam:PS-QF
+PA-RaPSC03--CO-PSCtrl-BO4   # bbb-bo-quadrupole-qd    -  BO-Fam:PS-QD
+
+[bbb_bo_ps_sextupoles]
+PA-RaPSC03--CO-PSCtrl-BO2   # bbb-bo-sextupole-sf     -  BO-Fam:PS-SF
+PA-RaPSC03--CO-PSCtrl-BO3   # bbb-bo-sextupole-sd     -  BO-Fam:PS-SD
+
+# -- SI
+
+[bbb_si_ps_dipoles]
+PA-RaPSD04--CO-PSCtrl-SI1   # bbb-si-dipole-1         -  SI-Fam:PS-B1B2-1
+PA-RaPSD04--CO-PSCtrl-SI2   # bbb-si-dipole-2         -  SI-Fam:PS-B1B2-2
+
+# == Linac Area ==
+
+# -- TB
+
+[bbb_tb_dipoles]
+LA-RaPS02--CO-PSCtrl-TB     # bbb-tb-dipoles          - TB-Fam:PS-B
+
+[bbb_tb_quadrupoles]
+LA-RaCtrl--CO-PSCtrl-TB1    # bbb-tb-quadrupoles      - TB-01:PS-QD1 TB-01:PS-QF1 TB-02:PS-QD2A TB-02:PS-QF2A TB-02:PS-QD2B TB-02:PS-QF2B TB-03:PS-QD3 TB-03:PS-QF3 TB-03:PS-QD4 TB-03:PS-QF4
+
+[bbb_tb_correctors]
+LA-RaCtrl--CO-PSCtrl-TB2    # bbb-tb-correctors       - TB-01:PS-CH-1 TB-01:PS-CV-1 TB-01:PS-CH-2 TB-01:PS-CV-2 TB-02:PS-CH-1 TB-02:PS-CV-1 TB-02:PS-CH-2 TB-02:PS-CV-2 TB-04:PS-CH-1 TB-04:PS-CV-1 TB-04:PS-CH-2 TB-04:PS-CV-2
+
+# -- TB/TS DCLinks
+
+[bbb_as_dclinks_tbts]
+LA-RaCtrl--CO-DCLinkCtrl    # bbb-as-dclinks-tbts     - LA-RaPS06:PS-UDC-AS1 LA-RaPS06:PS-UDC-AS2
+
+# == Instrumentation Area ==
+
+# -- BO correctors
+
+[bbb_bo_ps_correctors]
+IA-01RaCtrl--CO-PSCtrl-BO   # bbb-bo-correctors-ia01  -  BO-01U:PS-CH BO-01U:PS-CV BO-02D:PS-QS
+IA-02RaCtrl--CO-PSCtrl-BO   # bbb-bo-correctors-ia02  -  BO-03U:PS-CH BO-03U:PS-CV BO-05U:PS-CH BO-05U:PS-CV
+IA-04RaCtrl--CO-PSCtrl-BO   # bbb-bo-correctors-ia04  -  BO-07U:PS-CH BO-07U:PS-CV BO-09U:PS-CH BO-09U:PS-CV
+IA-05RaCtrl--CO-PSCtrl-BO   # bbb-bo-correctors-ia05  -  BO-11U:PS-CH BO-11U:PS-CV BO-13U:PS-CH BO-13U:PS-CV
+IA-07RaCtrl--CO-PSCtrl-BO   # bbb-bo-correctors-ia07  -  BO-15U:PS-CH BO-15U:PS-CV BO-17U:PS-CH BO-17U:PS-CV
+IA-08RaCtrl--CO-PSCtrl-BO   # bbb-bo-correctors-ia08  -  BO-19U:PS-CH BO-19U:PS-CV BO-21U:PS-CH BO-21U:PS-CV
+IA-10RaCtrl--CO-PSCtrl-BO   # bbb-bo-correctors-ia10  -  BO-23U:PS-CH BO-23U:PS-CV BO-25U:PS-CH BO-25U:PS-CV
+IA-11RaCtrl--CO-PSCtrl-BO   # bbb-bo-correctors-ia11  -  BO-27U:PS-CH BO-27U:PS-CV BO-29U:PS-CH BO-29U:PS-CV
+IA-13RaCtrl--CO-PSCtrl-BO   # bbb-bo-correctors-ia13  -  BO-31U:PS-CH BO-31U:PS-CV BO-33U:PS-CH BO-33U:PS-CV
+IA-14RaCtrl--CO-PSCtrl-BO   # bbb-bo-correctors-ia14  -  BO-35U:PS-CH BO-35U:PS-CV BO-37U:PS-CH BO-37U:PS-CV
+IA-16RaCtrl--CO-PSCtrl-BO   # bbb-bo-correctors-ia16  -  BO-39U:PS-CH BO-39U:PS-CV BO-41U:PS-CH BO-41U:PS-CV
+IA-17RaCtrl--CO-PSCtrl-BO   # bbb-bo-correctors-ia17  -  BO-43U:PS-CH BO-43U:PS-CV BO-45U:PS-CH BO-45U:PS-CV
+IA-20RaCtrl--CO-PSCtrl-BO   # bbb-bo-correctors-ia20  -  BO-47U:PS-CH BO-47U:PS-CV BO-49D:PS-CH BO-49U:PS-CV
+
+# -- dclinks
+
+[bbb_bo_dclink]
+IA-01RaCtrl--CO-DCLinkCtrl  # bbb-as-dclink-ia01      -  BO-01U:PS-CH BO-01U:PS-CV BO-02D:PS-QS
+IA-02RaCtrl--CO-DCLinkCtrl  # bbb-as-dclink-ia02      -  BO-03U:PS-CH BO-03U:PS-CV BO-05U:PS-CH BO-05U:PS-CV
+IA-04RaCtrl--CO-DCLinkCtrl  # bbb-as-dclink-ia04      -  BO-07U:PS-CH BO-07U:PS-CV BO-09U:PS-CH BO-09U:PS-CV
+IA-05RaCtrl--CO-DCLinkCtrl  # bbb-as-dclink-ia05      -  BO-11U:PS-CH BO-11U:PS-CV BO-13U:PS-CH BO-13U:PS-CV
+IA-07RaCtrl--CO-DCLinkCtrl  # bbb-as-dclink-ia07      -  BO-15U:PS-CH BO-15U:PS-CV BO-17U:PS-CH BO-17U:PS-CV
+IA-08RaCtrl--CO-DCLinkCtrl  # bbb-as-dclink-ia08      -  BO-19U:PS-CH BO-19U:PS-CV BO-21U:PS-CH BO-21U:PS-CV
+IA-10RaCtrl--CO-DCLinkCtrl  # bbb-as-dclink-ia10      -  BO-23U:PS-CH BO-23U:PS-CV BO-25U:PS-CH BO-25U:PS-CV
+IA-11RaCtrl--CO-DCLinkCtrl  # bbb-as-dclink-ia11      -  BO-27U:PS-CH BO-27U:PS-CV BO-29U:PS-CH BO-29U:PS-CV
+IA-13RaCtrl--CO-DCLinkCtrl  # bbb-as-dclink-ia13      -  BO-31U:PS-CH BO-31U:PS-CV BO-33U:PS-CH BO-33U:PS-CV
+IA-14RaCtrl--CO-DCLinkCtrl  # bbb-as-dclink-ia14      -  BO-35U:PS-CH BO-35U:PS-CV BO-37U:PS-CH BO-37U:PS-CV
+IA-16RaCtrl--CO-DCLinkCtrl  # bbb-as-dclink-ia16      -  BO-39U:PS-CH BO-39U:PS-CV BO-41U:PS-CH BO-41U:PS-CV
+IA-17RaCtrl--CO-DCLinkCtrl  # bbb-as-dclink-ia17      -  BO-43U:PS-CH BO-43U:PS-CV BO-45U:PS-CH BO-45U:PS-CV
+IA-20RaCtrl--CO-DCLinkCtrl  # bbb-as-dclink-ia20      -  BO-47U:PS-CH BO-47U:PS-CV BO-49D:PS-CH BO-49U:PS-CV
+
+
+# == Grouping ==
+
+# -- TB
+
+[bbb_tb_ps:children]
+bbb_tb_dipoles
+bbb_tb_quadrupoles
+bbb_tb_correctors
+
+# -- BO
+
+[bbb_bo_ps_fams:children]
+bbb_bo_ps_dipoles
+bbb_bo_ps_quadrupoles
+bbb_bo_ps_sextupoles
+
+[bbb_bo_ps:children]
+bbb_bo_ps_fams
+bbb_bo_ps_correctors
+
+# -- SI
+
+[bbb_si_ps_fams:children]
+bbb_si_ps_dipoles
+
+[bbb_si_ps:children]
+bbb_si_ps_fams
+
+
+# -- All PS
+
+[bbb_ps:children]
+bbb_tb_ps
+bbb_bo_ps
+bbb_si_ps
+
+# -- All DCLink
+
+[bbb_dclink:children]
+bbb_bo_dclink
+bbb_as_dclinks_tbts
+
+# -- All
+
+[bbb:children]
+bbb_ps
+bbb_dclink
