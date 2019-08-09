@@ -23,18 +23,22 @@ env:
       ROLE: lnls-ans-role-users
 
     - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
+      MOLECULE_DOCKER_COMMAND: ""
       BUILD_TYPE: default
       ROLE: lnls-ans-role-nfsclient
 
     - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      MOLECULE_DOCKER_COMMAND: ""
       BUILD_TYPE: default
       ROLE: lnls-ans-role-nfsclient
 
     - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
+      MOLECULE_DOCKER_COMMAND: ""
       BUILD_TYPE: default
       ROLE: lnls-ans-role-nfsserver
 
     - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      MOLECULE_DOCKER_COMMAND: ""
       BUILD_TYPE: default
       ROLE: lnls-ans-role-nfsserver
 
@@ -87,10 +91,12 @@ env:
       ROLE: lnls-ans-role-qt
 
     - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
+      MOLECULE_DOCKER_COMMAND: ""
       BUILD_TYPE: default
       ROLE: lnls-ans-role-sirius-apps
 
     - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      MOLECULE_DOCKER_COMMAND: ""
       BUILD_TYPE: default
       ROLE: lnls-ans-role-sirius-apps
 

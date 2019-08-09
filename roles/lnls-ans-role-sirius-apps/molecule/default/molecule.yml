@@ -23,6 +23,7 @@ driver:
 platforms:
   - name: lnls-ans-role-sirius-apps-instance
     image: "${MOLECULE_DISTRO:-debian:stretch}"
+    command: ${MOLECULE_DOCKER_COMMAND:-'bash -c "while true; do sleep 10000; done"'}
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
