@@ -12,7 +12,7 @@ HOST_GROUPS ?= linac_opi
 ifneq ($(REMOTE_USER),)
 	EXTRA_OPTS = "-u $(REMOTE_USER)"
 else
-	EXTRA_OPTS = ""
+	EXTRA_OPTS =
 endif
 
 ROLES_DIR = roles
