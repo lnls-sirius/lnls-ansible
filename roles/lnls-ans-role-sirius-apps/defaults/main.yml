@@ -72,9 +72,7 @@ sirius_apps_hla:
 sirius_apps_opis:
 
   - name: OPIs
-    org_url: ssh://sirius@lnls350-linux:/home/fac_files/repo/sirius
-    git_accept_hostkey: true
-    git_ssh_opts: "-o StrictHostKeyChecking=no"
+    org_url: https://gitlab.cnpem.br/FACS
     repo_name: linac-opi
     repo_version: master
     clone_path: /tmp
