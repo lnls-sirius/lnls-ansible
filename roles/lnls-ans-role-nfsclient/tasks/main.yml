@@ -19,14 +19,14 @@
   fail:
     msg: nfs_server_control_room variable is not set or empty!
   when: >
-    nfs_server_control_room is not defined or 
+    nfs_server_control_room is not defined or
     nfs_server_control_room | length == 0
 
 - name: Check if NFS control opi variable is set
   fail:
     msg: nfs_server_control_opi variable is not set or empty!
   when: >
-    nfs_server_control_opi is not defined or 
+    nfs_server_control_opi is not defined or
     nfs_server_control_opi | length == 0
 
 # Include Tasks
