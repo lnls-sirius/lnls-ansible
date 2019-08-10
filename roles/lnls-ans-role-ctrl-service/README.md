@@ -1,9 +1,7 @@
-LNLS Ansible Eth-PRUserial485
+LNLS Ansible Role to control services
 =======================
 
-References: https://bitbucket.org/europeanspallationsource/ics-ans-role-localusers
-
-This Ansible role configures some defaults users/groups for Sirius Light Source control machines.
+This Ansible role configures services for Sirius Light Source control machines.
 
 ## Requirements
 
@@ -13,16 +11,7 @@ This Ansible role configures some defaults users/groups for Sirius Light Source 
 ## Role Variables
 
 ```yaml
-nfs_config_files:
-  - name: Autofs file autofs.conf
-    filename: autofs.conf
-    pathname: "/etc"
-  - name: Autofs file auto.master
-    filename: auto.master
-    pathname: "/etc"
-  - name: Autofs file auto.sirius
-    filename: auto.sirius
-    pathname: "/etc"
+ctrl_service_state: started
 
 ```
 
@@ -51,7 +40,7 @@ Tests are performed using Molecule. To run them with python virtualenv, issue:
         cd ../ && \
         virtualenv env --python python3 && \
         source env/bin/activate && \
-        cd lnls-ans-role-nfsclient && \
+        cd lnls-ans-role-ctrl-service && \
         pip install molecule docker-py && \
         molecule test"
 ```

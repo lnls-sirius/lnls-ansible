@@ -1,2 +1,2 @@
 ---
-ethserial_service_state: started
+ctrl_service_state: started
