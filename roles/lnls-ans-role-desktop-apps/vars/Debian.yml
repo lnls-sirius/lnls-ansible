@@ -9,7 +9,7 @@ __desktop_packages:
   - remmina-plugin-secret
   - code
   - tightvncserver
-  - gnome-session
+  - lightdm
   - ca-certificates
   - gconf2
   - libasound2
