@@ -4,3 +4,15 @@ desktop_packages_state: present
 
 # Desktop install recommends
 desktop_install_recommends: true
+
+# VNC user. Must exist on host system
+desktop_vnc_user: sirius
+
+# Set this to true when using this in a regular,
+# without systemd support.
+desktop_vnc_ignore_systemd_errors: false
+
+desktop_vnc_config_files:
+  - name: VNC server systemd service
+    filename: vncserver@.service
+    pathname: "/etc/systemd/system"
