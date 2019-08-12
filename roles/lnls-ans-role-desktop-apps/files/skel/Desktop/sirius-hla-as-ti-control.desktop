@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=TI\nControl
+Icon=/usr/share/icons/gnome/48x48/emblems/emblem-system.png
+Exec=/bin/bash -l -c "sirius-hla-as-ti-control.py"
+StartupNotify=true
+Terminal=false

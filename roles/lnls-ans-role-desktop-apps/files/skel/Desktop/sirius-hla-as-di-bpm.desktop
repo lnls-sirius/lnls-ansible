@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=DI\nBPM
+Icon=/usr/share/icons/gnome/48x48/emblems/emblem-system.png
+Exec=/bin/bash -l -c "printf 'enter BPM: ' && read bpm && sirius-hla-as-di-bpm.py $bpm"
+StartupNotify=true
+Terminal=true

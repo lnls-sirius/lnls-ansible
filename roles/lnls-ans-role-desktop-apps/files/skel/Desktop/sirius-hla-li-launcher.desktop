@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=LI\nLaunch
+Icon=/usr/share/icons/gnome/48x48/emblems/emblem-system.png
+Exec=sirius-hla-li-launcher.sh
+StartupNotify=true
+Terminal=true

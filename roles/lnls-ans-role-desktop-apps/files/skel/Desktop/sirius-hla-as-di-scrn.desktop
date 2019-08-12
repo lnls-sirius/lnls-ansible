@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=DI\nScrn
+Icon=/usr/share/icons/gnome/48x48/emblems/emblem-system.png
+Exec=/bin/bash -l -c "printf 'enter screen: ' && read scrn && sirius-hla-as-di-scrn.py $scrn"
+StartupNotify=true
+Terminal=true
