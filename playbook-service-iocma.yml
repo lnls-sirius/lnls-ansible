@@ -1,0 +1,80 @@
+---
+- hosts: lnls454-linux
+  remote_user: sirius
+  tasks:
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-bo-ma-correctors-ia01.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-bo-ma-correctors-ia02.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-bo-ma-correctors-ia04.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-bo-ma-correctors-ia05.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-bo-ma-correctors-ia07.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-bo-ma-correctors-ia08.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-bo-ma-correctors-ia10.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-bo-ma-correctors-ia11.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-bo-ma-correctors-ia13.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-bo-ma-correctors-ia14.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-bo-ma-correctors-ia16.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-bo-ma-correctors-ia17.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-bo-ma-correctors-ia20.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-bo-ma-dipoles.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-bo-ma-quadrupoles.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-bo-ma-sextupoles.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-tb-ma-correctors.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-tb-ma-dipoles.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-tb-ma-quadrupoles.service
