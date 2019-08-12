@@ -2,6 +2,10 @@
 __sirius_apps_epics_packages:
   - epics-extensions-dev=20130514.5*
   - edm-dev=1.12.105B*
+  - xpra=0.17.6*
+  - winswitch=0.12.21*
+  - xvfb=2:1.19.2*
+  - bc=1.06.95*
 
 __sirius_apps_epics_pip_packages: []
 
