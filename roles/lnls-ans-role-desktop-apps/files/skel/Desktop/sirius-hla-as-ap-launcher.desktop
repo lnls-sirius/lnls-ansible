@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
-Name=LI\nLaunch
+Name=AS\nLaunch
 Icon=/usr/share/icons/gnome/48x48/emblems/emblem-system.png
-Exec=sirius-hla-li-launcher.sh
+Exec=/bin/bash -l -c "sirius-hla-as-ap-launcher.py"
 StartupNotify=true
-Terminal=true
+Terminal=false
