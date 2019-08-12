@@ -1,0 +1,189 @@
+---
+- hosts: lnls560-linux
+  remote_user: sirius
+
+  tasks:
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-spect.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-lensrev.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-ch1.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-ch2.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-ch3.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-ch4.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-ch5.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-ch6.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-ch7.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-cv1.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-cv2.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-cv3.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-cv4.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-cv5.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-cv6.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-cv7.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-qd1.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-qd2.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-qf1.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-qf2.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-qf3.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-lens-01.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-lens-02.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-lens-03.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-lens-04.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-solenoid-01.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-solenoid-02.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-solenoid-03.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-solenoid-04.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-solenoid-05.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-solenoid-06.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-solenoid-07.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-solenoid-08.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-solenoid-09.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-solenoid-10.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-solenoid-11.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-solenoid-12.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-solenoid-13.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-solenoid-14.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-solenoid-15.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-solenoid-16.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-solenoid-17.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-solenoid-18.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-solenoid-19.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-solenoid-20.service
+    - include_role:
+        name: lnls-ans-role-ctrl-service
+      vars:
+        ctrl_service_name: sirius-ioc-li-ps-solenoid-21.service

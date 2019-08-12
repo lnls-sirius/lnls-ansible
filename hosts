@@ -148,7 +148,7 @@ bbb_si_ps
 
 # -- All DCLink
 
-[bbb_dclink:children]
+[bbb_as_dclinks:children]
 bbb_bo_dclink
 bbb_as_dclinks_tbts
 
@@ -156,4 +156,4 @@ bbb_as_dclinks_tbts
 
 [bbb:children]
 bbb_ps
-bbb_dclink
+bbb_as_dclinks
