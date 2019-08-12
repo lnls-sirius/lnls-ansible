@@ -5,6 +5,10 @@ __epics_packages:
   - epics-pcas-dev
   - epics-extensions-dev
   - edm-dev
+  - xpra
+  - winswitch
+  - xvfb
+  - bc
 
 __epics_pip_packages:
   - pyepics

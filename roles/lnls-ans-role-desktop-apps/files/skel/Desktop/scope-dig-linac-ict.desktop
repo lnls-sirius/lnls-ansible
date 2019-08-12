@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=DIG\nLinICT
+Icon=/usr/share/icons/gnome/48x48/devices/audio-card.png
+Exec=/bin/bash -l -c "gvncviewer scope-dig-linac-ict"
+StartupNotify=true
+Terminal=false

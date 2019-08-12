@@ -20,3 +20,20 @@
   until: apt_packages_result is success
   retries: 5
   delay: 2
+
+- name: Check defined users
+  debug:
+    msg: "Defined users: {{ users | default([]) | list }}"
+
+# This depends on the User's role. As the user module will not update the user
+# directory with the /etc/skel contents if it's already created, just copy them
+# manually
+- name: Ensure files are copied to each user's home
+  copy:
+    src: "skel/"
+    dest: "/home/{{ item.name }}"
+    owner: "{{ item.name | default(omit) }}"
+    group: "{{ item.name | default(omit) }}"
+    mode: 0755
+  with_items:
+    - "{{ users }}"

@@ -1,0 +1,17 @@
+[Desktop Entry]
+Type=Application
+Name=CS\nStudio
+Icon=/opt/cs-studio/icon.png
+Exec=/bin/bash -l -c "cs-studio \
+    -consoleLog \
+    -pluginCustomization /home/opis/sirius-screens/cfg/combined_settings.ini \
+    -workspace_prompt ~/.css-workspaces/workspace \
+    -share_link /home/opis/sirius-screens=/displays \
+    --launcher.appendVmargs \
+        -Dorg.eclipse.swt.internal.gtk.cairoGraphics=false \
+        -Dorg.eclipse.swt.internal.gtk.useCairo=false \
+        -Dorg.eclipse.swt.browser.DefaultType=mozilla \
+    --launcher.openFile "/displays/sirius_main_all.opi"
+"
+StartupNotify=true
+Terminal=false
