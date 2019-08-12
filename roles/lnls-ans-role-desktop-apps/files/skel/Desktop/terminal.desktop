@@ -1,5 +1,7 @@
 [Desktop Entry]
-Type=Link
+Type=Application
 Name=Terminal
 Icon=gnome-terminal
-URL=/usr/share/applications/gnome-terminal.desktop
+Exec=/usr/bin/gnome-terminal
+StartupNotify=true
+Terminal=false
