@@ -49,6 +49,7 @@
     owner: "{{ desktop_vnc_user }}"
     group: "{{ desktop_vnc_user }}"
     mode: 0600
+  when: desktop_vnc_passwd_create
   notify: Reload VNC server systemd service
 
 - name: Enable VNC server systemd service
