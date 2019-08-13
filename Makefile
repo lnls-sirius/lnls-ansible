@@ -45,6 +45,7 @@ ROLES_DIR = roles
 ROLES = lnls-ans-role-cs-studio \
 	lnls-ans-role-ctrl-service \
 	lnls-ans-role-desktop-apps \
+	lnls-ans-role-desktop-settings \
 	lnls-ans-role-epics \
 	lnls-ans-role-java \
 	lnls-ans-role-nfsclient \
