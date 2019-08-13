@@ -26,7 +26,7 @@
   when: apt_result is success
   notify: Reload VNC server systemd service
 
-- name: "Create the remote {{ desktop_vnc_user }}/.vnc directory"
+- name: "Create the remote /home{{ desktop_vnc_user }}/.vnc directory"
   file:
     path: "/home/{{ desktop_vnc_user }}/.vnc"
     owner: "{{ desktop_vnc_user }}"
@@ -43,7 +43,7 @@
   when: desktop_vnc_passwd_create
   notify: Reload VNC server systemd service
 
-- name: "Change permissions to 600 for {{ desktop_vnc_user }}/.vnc/passwd"
+- name: "Change permissions to 600 for /home/{{ desktop_vnc_user }}/.vnc/passwd"
   file:
     path: "/home/{{ desktop_vnc_user }}/.vnc/passwd"
     owner: "{{ desktop_vnc_user }}"
