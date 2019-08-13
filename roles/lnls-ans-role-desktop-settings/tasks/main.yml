@@ -1,0 +1,36 @@
+---
+- name: Resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      ignore_errors: true
+      paths:
+        - '{{ role_path }}/vars'
+
+- name: Define Desktop Settings packages
+  set_fact:
+    desktop_settings_packages: "{{ __desktop_settings_packages | list }}"
+  when: desktop_settings_packages is not defined
+
+- name: Define Desktop Settings Pip packages
+  set_fact:
+    desktop_settings_pip_packages: "{{ __desktop_settings_pip_packages | list }}"
+  when: desktop_settings_pip_packages is not defined
+
+- name: Define PIP executable
+  set_fact:
+    pip_executable: "{{ __pip_executable | default(omit) }}"
+  when: pip_executable is not defined
+
+# Include Tasks
+
+- include_tasks: setup-RedHat.yml
+  when: ansible_os_family == 'RedHat'
+
+- include_tasks: setup-Debian.yml
+  when: ansible_os_family == 'Debian'
+
+- include_tasks: setup-settings.yml

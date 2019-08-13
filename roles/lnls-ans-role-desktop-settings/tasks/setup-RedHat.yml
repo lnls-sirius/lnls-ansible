@@ -1,0 +1,5 @@
+---
+- name: Ensure Desktop packages are installed
+  package:
+    name: "{{ desktop_packages }}"
+    state: "{{ desktop_packages_state }}"
