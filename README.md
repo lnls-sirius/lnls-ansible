@@ -68,6 +68,14 @@ In order to do that run the playboob playbook-setup-ssh-keys.yml like:
     ansible-playbook -i hosts -u sirius -k --ask-become-pass playbook-setup-ssh-key.yml
 ```
 
+There is also a make target that automates this. So you can run:
+
+```bash
+    make playbook-setup-ssh-key
+```
+
+If asked for the Ansible Vault password, type any word...
+
 ## Runing Molecule tests locally
 
 To run all tests
