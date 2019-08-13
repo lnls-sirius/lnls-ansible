@@ -58,8 +58,8 @@
     - ansible_distribution_release == 'Buster'
     - csstudio_install_oracle_java
   with_items:
-    - -vm
-    - /usr/lib/jvm/java-8-openjdk-amd64/jre/bin
+    - '-vm'
+    - '/usr/lib/jvm/java-8-openjdk-amd64/jre/bin'
 
 - name: Customize channel access address list
   lineinfile:
