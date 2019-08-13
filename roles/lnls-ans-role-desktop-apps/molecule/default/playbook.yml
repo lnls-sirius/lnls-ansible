@@ -1,5 +1,9 @@
 ---
 - name: Converge
   hosts: all
+
+  vars:
+    desktop_vnc_passwd_create: false
+
   roles:
     - role: lnls-ans-role-desktop-apps

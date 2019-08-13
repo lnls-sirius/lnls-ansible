@@ -4,3 +4,28 @@ desktop_packages_state: present
 
 # Desktop install recommends
 desktop_install_recommends: true
+
+# VNC user. Must exist on host system
+desktop_vnc_user: sirius
+
+# Set this to true when using this in a regular,
+# without systemd support.
+desktop_vnc_ignore_systemd_errors: false
+
+# Create VNC password from encrypted password
+desktop_vnc_passwd_create: true
+
+# Ansible vault password:
+# ansible-vault encrypt_string --vault-id prod@prompt --stdin-name 'pass'
+desktop_vnc_pass: !vault |
+  $ANSIBLE_VAULT;1.2;AES256;prod
+  31356666353163613762393038316462346162346130316434386230316138633239666238363635
+  3562373734396162326364316531323233626464663964320a363330386331313834353230663031
+  33383837303133373334613439643964333861326537613430383866323361373661356130646230
+  3765366166653465390a313634643338396438396665343035333039346164633961613431306635
+  6261
+
+desktop_vnc_config_files:
+  - name: VNC server systemd service
+    filename: vncserver@.service
+    pathname: "/etc/systemd/system"

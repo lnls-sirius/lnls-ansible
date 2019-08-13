@@ -43,7 +43,7 @@ playbook_TARGETS = $(basename $(PLAYBOOKS))
 all: $(playbook_TARGETS)
 
 $(playbook_TARGETS): %: %.yml
-	ansible-playbook -i hosts -l $(HOST_GROUPS) $(EXTRA_OPTS) -k --ask-become-pass $<
+	ansible-playbook -i hosts -l $(HOST_GROUPS) $(EXTRA_OPTS) --ask-vault-pass -k --ask-become-pass $<
 
 -include Makefile_services.mk
 
