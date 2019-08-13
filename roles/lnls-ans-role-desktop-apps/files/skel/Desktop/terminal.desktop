@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Terminal
+Icon=gnome-terminal
+Exec=/usr/bin/gnome-terminal
+StartupNotify=true
+Terminal=false

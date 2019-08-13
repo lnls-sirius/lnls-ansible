@@ -31,7 +31,7 @@ desktop_install_recommends: true
 ## Example Commmand
 
 ```bash
-ansible-playbook -i host, -u user -k --ask-become-pass playbook.yml
+ansible-playbook -i host, -u user --ask-vault-pass -k --ask-become-pass playbook.yml
 ```
 
 ## Tests

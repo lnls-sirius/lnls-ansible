@@ -8,6 +8,8 @@ __desktop_packages:
   - remmina-plugin-rdp
   - remmina-plugin-secret
   - code
+  - tightvncserver
+  - lightdm
   - ca-certificates
   - gconf2
   - libasound2

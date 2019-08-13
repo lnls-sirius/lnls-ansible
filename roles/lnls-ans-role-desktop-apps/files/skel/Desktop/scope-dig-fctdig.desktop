@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=DIG\nFCTDig
+Icon=/usr/share/icons/gnome/48x48/devices/audio-card.png
+Exec=/bin/bash -l -c "gvncviewer scope-dig-fctdig"
+StartupNotify=true
+Terminal=false

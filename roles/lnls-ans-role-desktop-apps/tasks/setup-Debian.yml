@@ -20,3 +20,7 @@
   until: apt_packages_result is success
   retries: 5
   delay: 2
+
+- name: Check defined users
+  debug:
+    msg: "Defined users: {{ users | default([]) | list }}"

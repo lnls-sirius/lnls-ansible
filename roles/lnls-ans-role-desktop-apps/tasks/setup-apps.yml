@@ -1,0 +1,67 @@
+---
+# This depends on the User's role. As the user module will not update the user
+# directory with the /etc/skel contents if it's already created, just copy them
+# manually
+- name: Ensure files are copied to each user's home
+  copy:
+    src: "skel/"
+    dest: "/home/{{ item.name }}"
+    owner: "{{ item.name | default(omit) }}"
+    group: "{{ item.name | default(omit) }}"
+    mode: 0755
+  with_items:
+    - "{{ users }}"
+
+- name: Install VNC server config files
+  template:
+    src: "{{ item.filename }}.j2"
+    dest: "{{ item.pathname }}/{{ item.filename }}"
+    owner: root
+    group: root
+    force: true
+    mode: 0644
+  become: true
+  with_items:
+    - "{{ desktop_vnc_config_files }}"
+  when: apt_result is success
+  notify: Reload VNC server systemd service
+
+- name: "Create the remote {{ desktop_vnc_user }}/.vnc directory"
+  file:
+    path: "/home/{{ desktop_vnc_user }}/.vnc"
+    owner: "{{ desktop_vnc_user }}"
+    group: "{{ desktop_vnc_user }}"
+    mode: 0755
+    state: directory
+  notify: Reload VNC server systemd service
+
+- name: "Set VNC server password for {{ desktop_vnc_user }}"
+  command: "echo {{ desktop_vnc_pass }} | vncpasswd -f > {{ desktop_vnc_user }}/.vnc/passwd"
+  creates: "{{ desktop_vnc_user }}/.vnc/passwd"
+  no_log: true
+  when: desktop_vnc_passwd_create
+  notify: Reload VNC server systemd service
+
+- name: "Change permissions to 600 for {{ desktop_vnc_user }}/.vnc/passwd"
+  file:
+    path: "/home/{{ desktop_vnc_user }}/.vnc/passwd"
+    owner: "{{ desktop_vnc_user }}"
+    group: "{{ desktop_vnc_user }}"
+    mode: 0600
+  notify: Reload VNC server systemd service
+
+- name: Enable VNC server systemd service
+  systemd:
+    name: vncserver@1
+    state: started
+    enabled: true
+  become: true
+  register: systemd_enable
+  ignore_errors: "{{ desktop_vnc_ignore_systemd_errors }}"
+
+- name: Show warning to user if systemd fails
+  pause:
+    seconds: 1
+    echo: false
+    prompt: "Could not enable VNC systemd service. Probably running in Docker? Continuing anyway ..."
+  when: systemd_enable is failed
