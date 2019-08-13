@@ -8,11 +8,19 @@ export MOLECULE_DISTRO
 BUILD_TYPE ?= default
 export BUILD_TYPE
 HOST_GROUPS ?= linac_opi
+REMOTE_USER ?= sirius
 
+EXTRA_OPTS =
 ifneq ($(REMOTE_USER),)
-	EXTRA_OPTS = "-u $(REMOTE_USER)"
+	EXTRA_OPTS += "-u $(REMOTE_USER)"
 else
-	EXTRA_OPTS =
+	EXTRA_OPTS +=
+endif
+
+ifneq ($(HOST_GROUPS),)
+	EXTRA_OPTS += "-l $(HOST_GROUPS)"
+else
+	EXTRA_OPTS +=
 endif
 
 ROLES_DIR = roles
@@ -50,7 +58,7 @@ playbook_TARGETS = $(basename $(PLAYBOOKS))
 all: $(playbook_TARGETS)
 
 $(playbook_TARGETS): %: %.yml
-	ansible-playbook -i hosts -l $(HOST_GROUPS) $(EXTRA_OPTS) --ask-vault-pass -k --ask-become-pass $<
+	ansible-playbook -i hosts $(EXTRA_OPTS) --ask-vault-pass -k --ask-become-pass $<
 
 -include Makefile_services.mk
 
