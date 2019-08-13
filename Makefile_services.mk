@@ -8,7 +8,7 @@ sirius-service-ethserial-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l $(HOST_GROUPS) \
+		-l $(host) \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 sirius-service-ethserial-start:
@@ -16,7 +16,7 @@ sirius-service-ethserial-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l $(HOST_GROUPS) \
+		-l $(host) \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 sirius-service-ethserial-restart:
@@ -24,11 +24,11 @@ sirius-service-ethserial-restart:
 	@echo "Please enter password for fac user (twice)."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l $(HOST_GROUPS) \
+		-l $(host) \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l $(HOST_GROUPS) \
+		-l $(host) \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 
