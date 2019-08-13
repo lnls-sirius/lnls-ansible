@@ -57,6 +57,7 @@
     name: vncserver@1
     state: started
     enabled: true
+    daemon_reload: true
   become: true
   register: systemd_enable
   ignore_errors: "{{ desktop_vnc_ignore_systemd_errors }}"
