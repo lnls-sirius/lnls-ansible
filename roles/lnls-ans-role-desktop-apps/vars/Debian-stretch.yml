@@ -12,7 +12,6 @@ __desktop_packages:
   - gvncviewer=0.6.0*
   - xfce4=4.12.3*
   - xfce4-goodies=4.12.3*
-  - xcursor-themes
   - ca-certificates
   - gconf2
   - libasound2

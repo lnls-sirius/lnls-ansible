@@ -39,4 +39,3 @@
   when: ansible_os_family == 'Debian'
 
 - include_tasks: setup-apps.yml
-- include_tasks: setup-settings.yml
