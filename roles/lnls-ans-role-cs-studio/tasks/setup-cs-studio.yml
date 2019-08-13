@@ -61,6 +61,15 @@
     - '-vm'
     - '/usr/lib/jvm/java-8-openjdk-amd64/jre/bin'
 
+- name: Remove default CSS workspace
+  lineinfile:
+    state: absent
+    path: "/opt/cs-studio/ESS\ CS-Studio.ini"
+    regex: "{{ item }}"
+  with_items:
+    - 'data$'
+    - 'user\.home'
+
 - name: Customize channel access address list
   lineinfile:
     state: present
