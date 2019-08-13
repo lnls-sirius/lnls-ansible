@@ -36,8 +36,11 @@
   notify: Reload VNC server systemd service
 
 - name: "Set VNC server password for {{ desktop_vnc_user }}"
-  command: "echo {{ desktop_vnc_pass }} | vncpasswd -f > /home/{{ desktop_vnc_user }}/.vnc/passwd"
+  shell: |
+    set -o pipefail
+    echo {{ desktop_vnc_pass }} | vncpasswd -f > /home/{{ desktop_vnc_user }}/.vnc/passwd
   args:
+    executable: /bin/bash
     creates: "/home/{{ desktop_vnc_user }}/.vnc/passwd"
   no_log: true
   when: desktop_vnc_passwd_create
