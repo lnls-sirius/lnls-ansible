@@ -1,0 +1,57 @@
+---
+- hosts: all
+  become: true
+  remote_user: sirius
+  gather_facts: true
+  tasks:
+
+    - name: Wait for ssh to be up
+      become: false
+      wait_for:
+        port: 22
+        delay: 5
+        connect_timeout: 5
+        timeout: 360
+        host: "{{ ansible_host }}"
+      delegate_to: localhost
+
+    - name: Installs python for Debian based distros
+      apt:
+        name: python
+        state: present
+      become: true
+      register: apt_result
+      until: apt_result is success
+      retries: 5
+      delay: 2
+      when: ansible_os_family == 'Debian'
+
+    - name: Installs python for RedHat based distros
+      package:
+        name: python
+        state: present
+      become: true
+      register: package_result
+      until: package_result is success
+      retries: 5
+      delay: 2
+      when: ansible_os_family == 'RedHat'
+
+    - name: Pushes user's RSA key to remote host (it's ok if this TASK fails)
+      authorized_key:
+        user: sirius
+        state: present
+        key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}" 
+      register: rsa
+      ignore_errors: true
+
+    - name: Pushes user's DSA key to remote host
+      authorized_key:
+        user: sirius
+        state: present
+        key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_dsa.pub') }}" 
+      when: rsa is failed
+
+    - name: Checks if resolver is working properly
+      command: host -t A ansible.cc
+      changed_when: false

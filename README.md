@@ -60,6 +60,14 @@ To further limit selected hosts to an additional pattern, run:
     make playbook-control-room-desktops HOST_GROUPS=<pattern>
 ```
 
+## Set SSH RSA/DSA key so you don't need to type the password everytime
+
+In order to do that run the playboob playbook-setup-ssh-keys.yml like:
+
+```bash
+    ansible-playbook -i hosts -u sirius -k --ask-become-pass playbook-setup-ssh-key.yml
+```
+
 ## Runing Molecule tests locally
 
 To run all tests
