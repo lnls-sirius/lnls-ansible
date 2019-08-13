@@ -9,8 +9,9 @@ __desktop_packages:
   - remmina-plugin-secret
   - code
   - tightvncserver
-  - lightdm
   - ca-certificates
+  - xfce4
+  - xfce4-goodies
   - gconf2
   - libasound2
   - libgtk2.0-0
