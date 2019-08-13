@@ -50,7 +50,7 @@
 - name: Overwrite CSS runtime settings
   lineinfile:
     state: present
-    path: /opt/cs-studio/ESS\ CS-Studio.ini
+    path: "/opt/cs-studio/ESS\ CS-Studio.ini"
     line: "{{ item }}"
     insertbefore: '^--launcher\.library'
   when:
