@@ -5,6 +5,9 @@ desktop_packages_state: present
 # Desktop install recommends
 desktop_install_recommends: true
 
+# Desktop cursor size
+desktop_cursor_size: 48
+
 # VNC user. Must exist on host system
 desktop_vnc_user: sirius
 

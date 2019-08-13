@@ -1,0 +1,5 @@
+---
+- name: Ensure redglass cursor is installed
+  alternatives:
+    name: x-cursor-theme
+    path: /etc/X11/cursors/redglass.theme
