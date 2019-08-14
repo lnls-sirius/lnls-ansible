@@ -22,7 +22,7 @@ qt_src_download_url: "https://download.qt.io/archive/qt/{{ qt_src_version_reduce
 
 qt_src_dir_path: /tmp/Qt
 
-qt_src_dir_install_path: /usr/local/lib
+qt_src_dir_install_path: /usr/local/lib/Qt
 
 qt_src_designer_symlink: /usr/local/bin/designer
 
