@@ -110,6 +110,14 @@ env:
       BUILD_TYPE: default
       ROLE: lnls-ans-role-desktop-apps
 
+    - MOLECULE_DISTRO: debian:buster
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-desktop-settings
+
+    - MOLECULE_DISTRO: debian:stretch
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-desktop-settings
+
 before_install:
   - sudo apt-get -qq update
 
