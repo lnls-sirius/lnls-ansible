@@ -12,6 +12,12 @@
     mode: '0744'
   notify: "Install Qt from source"
 
+- name: Ensure downloaded script is installed
+  debug:
+    msg: "Qt version installed: {{ qt_check_result.stdout }}"
+  changed_when: qt_check_result.stdout != qt_src_version
+  notify: "Install Qt from source"
+
 - name: Install Qt support installation files
   template:
     src: "{{ item.filename }}.j2"
