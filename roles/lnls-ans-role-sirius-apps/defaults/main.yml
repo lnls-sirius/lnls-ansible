@@ -22,6 +22,7 @@ sirius_apps_dev_packages:
     repo_version: master
     clone_path: /tmp
     install_via_setup: true
+    repo_cvs: git+
 
   - name: Development Packages
     org_url: https://github.com/lnls-sirius
@@ -30,6 +31,7 @@ sirius_apps_dev_packages:
     clone_path: /tmp
     install_chdir: siriuspy
     install_via_setup: true
+    repo_cvs: git+
 
 sirius_apps_iocs:
 
@@ -40,6 +42,7 @@ sirius_apps_iocs:
     clone_path: /tmp
     install_chdir: client
     install_via_setup: true
+    repo_cvs: git+
 
   - name: Machine Applications
     org_url: https://github.com/lnls-sirius
@@ -56,6 +59,7 @@ sirius_apps_hla:
     repo_version: master
     clone_path: /tmp
     install_via_setup: true
+    repo_cvs: git+
 
   - name: High-Level Applications
     org_url: https://github.com/lnls-sirius
@@ -71,6 +75,7 @@ sirius_apps_hla:
     repo_version: v1.2.2
     clone_path: /tmp
     install_via_setup: true
+    repo_cvs: git+
 
 sirius_apps_opis:
 
