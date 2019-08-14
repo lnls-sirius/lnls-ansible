@@ -1,6 +1,6 @@
 ---
 - name: Run Qt installation script
-  command: "./{{ qt_src_remote_script }} --script qt-noninteractive.qs -platform minimal"
+  command: "./{{ qt_src_remote_script }} --script qt-noninteractive.qs --platform minimal"
   become: true
   args:
     chdir: "{{ qt_src_dir_path }}"
