@@ -1,6 +1,7 @@
 ---
 __qt_distro_packages:
   - qt5-default=5.7.1*
+  - qttools5-dev-tools=5.7.1*
   - sip-dev=4.18.1*
   - python3-pyqt5.qtsvg=5.7*
 
