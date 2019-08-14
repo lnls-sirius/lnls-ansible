@@ -23,6 +23,7 @@ sirius_apps_dev_packages:
     clone_path: /tmp
     install_via_setup: true
     repo_cvs: git+
+    force_version: true
 
   - name: Development Packages
     org_url: https://github.com/lnls-sirius
@@ -32,6 +33,7 @@ sirius_apps_dev_packages:
     install_chdir: siriuspy
     install_via_setup: true
     repo_cvs: git+
+    force_version: true
 
 sirius_apps_iocs:
 
@@ -43,6 +45,7 @@ sirius_apps_iocs:
     install_chdir: client
     install_via_setup: true
     repo_cvs: git+
+    force_version: true
 
   - name: Machine Applications
     org_url: https://github.com/lnls-sirius
@@ -50,6 +53,7 @@ sirius_apps_iocs:
     repo_version: master
     clone_path: /tmp
     install_via_makefile: true
+    force_version: true
 
 sirius_apps_hla:
 
@@ -60,6 +64,7 @@ sirius_apps_hla:
     clone_path: /tmp
     install_via_setup: true
     repo_cvs: git+
+    force_version: true
 
   - name: High-Level Applications
     org_url: https://github.com/lnls-sirius
@@ -68,6 +73,7 @@ sirius_apps_hla:
     clone_path: /tmp
     install_chdir: pyqt-apps
     install_via_makefile: true
+    force_version: true
 
   - name: PyDM timechart Package
     org_url: https://github.com/slaclab
@@ -76,6 +82,7 @@ sirius_apps_hla:
     clone_path: /tmp
     install_via_setup: true
     repo_cvs: git+
+    force_version: true
 
 sirius_apps_opis:
 
@@ -85,6 +92,7 @@ sirius_apps_opis:
     repo_version: master
     clone_path: /tmp
     install_via_custom: "make install-default INSTALL_EDM_DIR={{ sirius_apps_li_edm_dir }}"
+    force_version: true
 
 sirius_apps_mgmt:
 
@@ -94,6 +102,7 @@ sirius_apps_mgmt:
     repo_version: master
     clone_path: /tmp
     install_via_makefile: true
+    force_version: true
 
 # Select which categories to install. Defaults to all
 sirius_apps_install_categories:
