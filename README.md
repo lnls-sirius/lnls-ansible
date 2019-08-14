@@ -60,6 +60,80 @@ To further limit selected hosts to an additional pattern, run:
     make playbook-control-room-desktops HOST_GROUPS=<pattern>
 ```
 
+## Set SSH RSA/DSA key so you don't need to type the password everytime
+
+In order to do that run the playboob playbook-setup-ssh-keys.yml like:
+
+```bash
+    ansible-playbook -i hosts -u sirius -k --ask-become-pass playbook-setup-ssh-key.yml
+```
+
+There is also a make target that automates this. So you can run:
+
+```bash
+    make playbook-setup-ssh-key
+```
+
+If asked for the Ansible Vault password, type any word...
+
+## Make variables
+
+The Makefile contains variables that control how options are passed to ansible.
+
+To change the default values do `<VARIABLE_NAME>=<VALUE>`.
+
+The following shows which variables are available:
+
+```bash
+DNS_SERVER1 ?= 10.0.0.71
+DNS_SERVER2 ?= 10.0.0.72
+```
+
+Optional DNS servers to be passed to Molecule. Only used
+when running Molecule tests.
+
+```bash
+MOLECULE_DISTRO ?= debian:buster
+```
+
+Docker image to be used in Molecule tests.
+
+```bash
+BUILD_TYPE ?= default
+```
+
+Molecule build type. Options are "default" or "debug".
+
+```bash
+HOST_GROUPS ?= linac_opi
+```
+
+Ansible host groups. Check "hosts" file to see all possible
+host groups.
+
+
+```bash
+REMOTE_USER ?= sirius
+```
+
+Ansible remote SSH user to log in in remote host.
+
+
+```bash
+ASK_FOR_PASS ?= y
+
+```
+
+Ask for password. Options are "y" or "n". Use "n" when
+ssh keys are on remote host.
+
+```bash
+ASK_FOR_VAULT_PASS ?= y
+```
+
+Ask for vault password. Options are "y" or "n". Use "y" when
+running a playbook that uses a vault encrypted password.
+
 ## Runing Molecule tests locally
 
 To run all tests

@@ -10,3 +10,6 @@ __pycache__
 
 # Python virtualenv
 **/env
+
+# Ansible vault
+*.vault

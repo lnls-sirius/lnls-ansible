@@ -1,0 +1,7 @@
+---
+__desktop_settings_packages:
+  - xcursor-themes
+
+__desktop_settings_pip_packages: []
+
+__pip_executable: pip-sirius

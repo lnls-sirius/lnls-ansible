@@ -1,0 +1,14 @@
+---
+- name: Ensure cursor is updated to whiteglass
+  alternatives:
+    name: x-cursor-theme
+    path: /etc/X11/cursors/whiteglass.theme
+
+- name: Add cursor size to ~/.Xresources
+  lineinfile:
+    state: present
+    path: "/home/{{ desktop_settings_user }}/.Xresources"
+    line: "{{ item }}"
+    insertafter: EOF
+  with_items:
+    - "{{ desktop_settings_xresources_lines | default([]) }}"

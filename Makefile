@@ -8,30 +8,62 @@ export MOLECULE_DISTRO
 BUILD_TYPE ?= default
 export BUILD_TYPE
 HOST_GROUPS ?= linac_opi
+REMOTE_USER ?= sirius
+ASK_FOR_PASS ?= y
+ASK_FOR_VAULT_PASS ?= y
 
+EXTRA_OPTS =
 ifneq ($(REMOTE_USER),)
-	EXTRA_OPTS = "-u $(REMOTE_USER)"
+	EXTRA_OPTS += -u $(REMOTE_USER)
 else
-	EXTRA_OPTS =
+	EXTRA_OPTS +=
+endif
+
+ifneq ($(HOST_GROUPS),)
+	EXTRA_OPTS += -i hosts -l $(HOST_GROUPS)
+else
+	EXTRA_OPTS += -i hosts
+endif
+
+ASK_FOR_VAULT_PASS_FILTER=$(if $(filter y,${ASK_FOR_VAULT_PASS}),true,false)
+ifeq ($(ASK_FOR_VAULT_PASS_FILTER),true)
+	EXTRA_OPTS += --ask-vault-pass
+else
+	EXTRA_OPTS +=
+endif
+
+ASK_FOR_PASS_FILTER=$(if $(filter y,${ASK_FOR_PASS}),true,false)
+ifeq ($(ASK_FOR_PASS_FILTER),true)
+	EXTRA_OPTS += -k --ask-become-pass
+else
+	EXTRA_OPTS +=
 endif
 
 ROLES_DIR = roles
-# Add new roles
-ROLES = lnls-ans-role-users \
-		lnls-ans-role-nfsserver \
-		lnls-ans-role-nfsclient \
-		lnls-ans-role-repositories \
-		lnls-ans-role-python \
-		lnls-ans-role-qt \
-		lnls-ans-role-epics \
-		lnls-ans-role-java \
-		lnls-ans-role-cs-studio \
-		lnls-ans-role-sirius-apps \
-		lnls-ans-role-desktop-apps
 
-PLAYBOOKS = playbook-nfs-servers.yml \
-			playbook-control-room-desktops.yml \
-			playbook-ctrl-service.yml
+# Roles
+ROLES = lnls-ans-role-cs-studio \
+	lnls-ans-role-ctrl-service \
+	lnls-ans-role-desktop-apps \
+	lnls-ans-role-desktop-settings \
+	lnls-ans-role-epics \
+	lnls-ans-role-java \
+	lnls-ans-role-nfsclient \
+	lnls-ans-role-nfsserver \
+	lnls-ans-role-python \
+	lnls-ans-role-qt \
+	lnls-ans-role-repositories \
+	lnls-ans-role-sirius-apps \
+	lnls-ans-role-users
+
+# Playbooks
+PLAYBOOKS = playbook-control-room-desktops.yml \
+	playbook-ctrl-service.yml \
+	playbook-nfs-servers.yml \
+	playbook-service-iocma.yml \
+	playbook-service-iocps-linac.yml \
+	playbook-service-iocps.yml \
+	playbook-setup-ssh-key.yml
 
 # Test variables
 TEST_TARGET = test_
@@ -43,7 +75,7 @@ playbook_TARGETS = $(basename $(PLAYBOOKS))
 all: $(playbook_TARGETS)
 
 $(playbook_TARGETS): %: %.yml
-	ansible-playbook -i hosts -l $(HOST_GROUPS) $(EXTRA_OPTS) --ask-vault-pass -k --ask-become-pass $<
+	ansible-playbook $(EXTRA_OPTS) $<
 
 -include Makefile_services.mk
 

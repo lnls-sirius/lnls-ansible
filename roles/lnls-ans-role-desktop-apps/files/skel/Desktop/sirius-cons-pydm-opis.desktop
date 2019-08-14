@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
-Name=AS\nVacuum
+Name=AS\nCON PyDM
 Icon=/usr/share/icons/gnome/48x48/emblems/emblem-system.png
-Exec=/home/sirius/repos/pydm-opi/launch.sh
+Exec=/home/sirius/cons-opis/pydm-opi/launch.sh
 StartupNotify=true
 Terminal=false
