@@ -5,6 +5,12 @@ python_install_from_src: true
 # Select python version, when installing from source
 python_src_version: 3.6.8
 
+# Always install QT from source, not from package managers
+qt_install_from_src: true
+
+# Select qt version, when installing from source
+qt_src_version: 5.11.3
+
 nfs_server_control_room: 10.128.254.205
 nfs_server_control_opi: 10.128.1.3
 
