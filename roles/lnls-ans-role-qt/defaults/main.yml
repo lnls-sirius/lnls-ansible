@@ -2,3 +2,35 @@
 # PIP package state; use 'present' to make sure it's installed, or 'latest' if
 # you want to upgrade or switch versions using a new repo.
 qt_pip_packages_state: present
+
+# Qt source version when installing from source
+qt_src_version: 5.11.3
+
+# Qt script checksum. Extracted from website
+qt_src_checksum: md5:a9219194938e3e4ebe999a853a379a3f
+
+# Qt version <major>.<minor>
+qt_src_version_reduced: "{{ qt_src_version | regex_replace('(\\d+\\.\\d+)\\..*$', '\\1') }}"
+
+qt_src_version_noninteractive: "{{ qt_src_version | regex_replace('(\\d+)\\.(\\d+)\\.(\\d+)\\..*$', '\\1\\2\\3') }}"
+
+# Qt source script name
+qt_src_remote_script: "qt-opensource-linux-x64-{{ qt_src_version }}.run"
+
+# Qt URL downlaod script
+qt_src_download_url: "https://download.qt.io/archive/qt/{{ qt_src_version_reduced }}/{{ qt_src_version }}/{{ qt_src_remote_script }}"
+
+qt_src_dir_path: /tmp/Qt
+
+qt_src_dir_install_path: /usr/local/lib
+
+qt_src_designer_symlink: /usr/local/bin/designer
+
+qt_src_support_install_files:
+  - name: Qt noninteractive installation file
+    filename: qt-noninteractive.qs
+    pathname: "{{ qt_src_dir_path }}" 
+
+# If true, the QT source for the version will be downloaded and
+# installed again even if it's found on the system.
+qt_src_force_install: false

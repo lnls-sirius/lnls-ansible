@@ -1,4 +1,6 @@
 ---
+__qt_install_from_src: false
+
 __qt_distro_packages:
   - qt5-default
   - qttools5-dev-tools

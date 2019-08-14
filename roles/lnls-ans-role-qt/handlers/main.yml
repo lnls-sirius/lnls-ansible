@@ -1,0 +1,14 @@
+---
+- name: Run Qt installation script
+  command: "./{{ qt_src_remote_script }} --script qt-noninteractive.qs -platform minimal"
+  become: true
+  args:
+    chdir: "{{ qt_src_dir_path }}"
+  listen: "Install Qt from source"
+
+- name: Ensure designer symlink is installed
+  file:
+    src: "{{ qt_src_dir_install_path }}/{{ qt_src_version }}/gcc_64/bin/designer"
+    dest: "{{ qt_src_designer_symlink }}"
+    state: link
+  listen: "Install Qt from source"
