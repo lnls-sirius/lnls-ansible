@@ -10,9 +10,9 @@ qt_src_version: 5.11.3
 qt_src_checksum: md5:a9219194938e3e4ebe999a853a379a3f
 
 # Qt version <major>.<minor>
-qt_src_version_reduced: "{{ qt_src_version | regex_replace('(\\d+\\.\\d+)\\..*$', '\\1') }}"
+qt_src_version_reduced: "{{ qt_src_version | regex_replace('(\\d+\\.\\d+).*$', '\\1') }}"
 
-qt_src_version_noninteractive: "{{ qt_src_version | regex_replace('(\\d+)\\.(\\d+)\\.(\\d+)\\..*$', '\\1\\2\\3') }}"
+qt_src_version_noninteractive: "{{ qt_src_version | regex_replace('(\\d+)\\.(\\d+)\\.(\\d+).*$', '\\1\\2\\3') }}"
 
 # Qt source script name
 qt_src_remote_script: "qt-opensource-linux-x64-{{ qt_src_version }}.run"
