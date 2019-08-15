@@ -29,3 +29,8 @@ qt_src_support_install_files:
 # If true, the QT source for the version will be downloaded and
 # installed again even if it's found on the system.
 qt_src_force_install: false
+
+qt_src_config_files:
+  - name: Qt environment variables
+    filename: qt.sh
+    pathname: "/etc/profile.d"
