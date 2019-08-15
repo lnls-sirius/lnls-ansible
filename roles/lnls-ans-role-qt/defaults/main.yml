@@ -96,7 +96,9 @@ pyqt_apps:
     download_url: "{{ pyqt_sip_src_download_url }}"
     src_dir_path: "{{ pyqt_sip_src_dir_path }}"
     src_dir: "{{ pyqt_sip_src_dir }}"
-    cfg_command: "{{ python_executable }} configure.py --sip-module=PyQt5.sip"
+    cfg_command: >-
+      {{ python_executable }} configure.py
+      --sip-module=PyQt5.sip
     make_build_target: -j4
     make_build_opts: {}
     make_install_target: install
