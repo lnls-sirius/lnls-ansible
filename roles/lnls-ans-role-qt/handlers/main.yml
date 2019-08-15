@@ -1,9 +1,31 @@
 ---
+- name: Get Qt installation path properties
+  stat: 
+    path: "{{ qt_src_dir_install_path }}"
+  register: qt_src_dir_install_path_details
+  listen: "Install Qt from source"
+
+- name: Get Qt binary installation path properties
+  stat: 
+    path: "{{ qt_src_dir_install_path }}/{{ qt_src_version }}"
+  register: qt_src_dir_install_bin_path_details
+  listen: "Install Qt from source"
+
+- name: Ensure Qt installation path is inconsistent
+  file: 
+    path: "{{ qt_src_dir_install_path }}"
+    state: absent
+  when: >-
+    qt_src_dir_install_path_details.stat.exists and
+    not qt_src_dir_install_bin_path_details.stat.exists
+  listen: "Install Qt from source"
+
 - name: Run Qt installation script
   command: "./{{ qt_src_remote_script }} --script qt-noninteractive.qs --platform minimal"
   become: true
   args:
     chdir: "{{ qt_src_dir_path }}"
+    creates: "{{ qt_src_dir_install_path }}"
   listen: "Install Qt from source"
 
 - name: Ensure designer symlink is installed

@@ -1,6 +1,8 @@
 ---
 __qt_install_from_src: false
 
+__pyqt_install_from_src: false
+
 __qt_distro_packages:
   - qt5-default=5.11.3*
   - qttools5-dev-tools=5.11.3*
@@ -10,5 +12,7 @@ __qt_distro_packages:
 __qt_pip_packages:
   - PyQt5==5.13.0
   - PyQt5-sip==4.19.18
+
+__python_executable: python-sirius
 
 __pip_executable: pip-sirius

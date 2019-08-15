@@ -3,6 +3,14 @@
 # you want to upgrade or switch versions using a new repo.
 qt_pip_packages_state: present
 
+#############################
+# Qt variables
+#############################
+
+# If true, Qt source for the version will be downloaded and
+# installed again even if it's found on the system.
+qt_src_force_install: false
+
 # Qt source version when installing from source
 qt_src_version: 5.11.3
 
@@ -19,6 +27,12 @@ qt_src_dir_path: /tmp/Qt
 
 qt_src_dir_install_path: /usr/local/lib/Qt
 
+# Qt binary directory
+qt_src_bin_dir: "{{ qt_src_dir_install_path }}/{{ qt_src_version }}/gcc_64/bin"
+
+# Qt plugin directory
+qt_src_plugin_dir: "{{ qt_src_dir_install_path }}/{{ qt_src_version }}/gcc_64/plugins"
+
 qt_src_designer_symlink: /usr/local/bin/designer
 
 qt_src_support_install_files:
@@ -26,11 +40,79 @@ qt_src_support_install_files:
     filename: qt-noninteractive.qs
     pathname: "{{ qt_src_dir_path }}"
 
-# If true, the QT source for the version will be downloaded and
-# installed again even if it's found on the system.
-qt_src_force_install: false
-
 qt_src_config_files:
   - name: Qt environment variables
     filename: qt.sh
     pathname: "/etc/profile.d"
+
+#############################
+# PyQt SIP variables
+#############################
+
+# PyQt SIP source version when installing from source
+pyqt_sip_src_version: 4.19.13
+
+pyqt_sip_src_dir_name: "sip-{{ pyqt_sip_src_version }}"
+
+# pyQt SIP source script name
+pyqt_sip_src_remote_script: "{{ pyqt_sip_src_dir_name }}.tar.gz"
+
+pyqt_sip_src_download_url: "https://www.riverbankcomputing.com/static/Downloads/sip/{{ pyqt_sip_src_version }}/{{ pyqt_sip_src_remote_script }}"
+
+pyqt_sip_src_dir_path: /tmp/pyQt-sip
+
+pyqt_sip_src_dir: "{{ pyqt_sip_src_dir_path }}/{{ pyqt_sip_src_dir_name }}"
+
+#############################
+# PyQt variables
+#############################
+
+# If true, the pyQt and pyQt Sip source for the version will be downloaded and
+# installed again even if it's found on the system.
+pyqt_src_force_install: false
+
+# pyQt source version when installing from source
+pyqt_src_version: 5.11.3
+
+# pyQt source script name
+pyqt_src_dir_name: "PyQt5_gpl-{{pyqt_src_version }}"
+
+# pyQt source script name
+pyqt_src_remote_script: "{{ pyqt_src_dir_name }}.tar.gz"
+
+# pyQt URL downlaod script
+pyqt_src_download_url: "https://www.riverbankcomputing.com/static/Downloads/PyQt5/{{ pyqt_src_version }}/{{ pyqt_src_remote_script }}"
+
+pyqt_src_dir_path: /tmp/pyQt
+
+pyqt_src_dir: "{{ pyqt_src_dir_path }}/{{ pyqt_src_dir_name }}"
+
+#############################
+# pyQt Apps
+#############################
+
+pyqt_apps:
+  - name: "PyQT SIP"
+    download_url: "{{ pyqt_sip_src_download_url }}"
+    src_dir_path: "{{ pyqt_sip_src_dir_path }}"
+    src_dir: "{{ pyqt_sip_src_dir }}"
+    cfg_command: "{{ python_executable }} configure.py --sip-module=PyQt5.sip"
+    make_build_target: -j4
+    make_build_opts: {}
+    make_install_target: install
+    make_install_opts: {}
+
+  - name: "PyQT"
+    download_url: "{{ pyqt_src_download_url }}"
+    src_dir_path: "{{ pyqt_src_dir_path }}"
+    src_dir: "{{ pyqt_src_dir }}"
+    cfg_command: >- 
+      {{ python_executable }} configure.py 
+        --"qmake={{ qt_src_bin_dir }}/qmake"
+        --"designer-plugindir={{ qt_src_plugin_dir }}/designer"
+        --"qml-plugindir={{ qt_src_plugin_dir }}/PyQt5"
+        --confirm-license
+    make_build_target: -j4
+    make_build_opts: {}
+    make_install_target: install
+    make_install_opts: {}
