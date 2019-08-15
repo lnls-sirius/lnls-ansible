@@ -113,6 +113,7 @@ pyqt_apps:
         --"designer-plugindir={{ qt_src_plugin_dir }}/designer"
         --"qml-plugindir={{ qt_src_plugin_dir }}/PyQt5"
         --confirm-license
+        --assume-shared
     make_build_target: -j4
     make_build_opts: {}
     make_install_target: install
