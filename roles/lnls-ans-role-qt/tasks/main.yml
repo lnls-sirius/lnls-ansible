@@ -58,16 +58,16 @@
 
 - include_tasks: install-qt-from-source.yml
   when: >-
-    qt_install_from_src and 
-    (qt_src_force_install or 
+    qt_install_from_src and
+    (qt_src_force_install or
       qt_check_result.rc != 0 or
       (qt_check_result.rc == 0 and qt_check_result.stdout != qt_src_version))
 
 - include_tasks: install-qt-from-apt.yml
   when: >-
-    ansible_os_family == 'Debian' and not 
-    qt_install_from_src and 
-    (qt_check_result.rc != 0 or 
+    ansible_os_family == 'Debian' and not
+    qt_install_from_src and
+    (qt_check_result.rc != 0 or
       (qt_check_result.rc == 0 and qt_check_result.stdout != qt_src_version))
 
 - include_tasks: setup-pip-packages.yml
