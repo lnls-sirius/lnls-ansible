@@ -111,9 +111,9 @@ pyqt_apps:
     cfg_create_paths: "{{ qt_src_plugin_dir }}/PyQt5"
     cfg_command: >- 
       {{ python_executable }} configure.py 
-        --"qmake={{ qt_src_bin_dir }}/qmake"
-        --"designer-plugindir={{ qt_src_plugin_dir }}/designer"
-        --"qml-plugindir={{ qt_src_plugin_dir }}/PyQt5"
+        --qmake={{ qt_src_bin_dir }}/qmake
+        --designer-plugindir={{ qt_src_plugin_dir }}/designer
+        --qml-plugindir={{ qt_src_plugin_dir }}/PyQt5
         --confirm-license
         --assume-shared
     make_build_target: -j4
