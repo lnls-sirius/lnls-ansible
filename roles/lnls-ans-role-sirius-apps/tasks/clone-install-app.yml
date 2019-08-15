@@ -19,6 +19,7 @@
   make:
     chdir: "{{ item.clone_path }}/{{ item.repo_name }}/{{ repo_install_chdir }}"
     target: "{{ item.make_install_target | default('install') }}"
+    params: "{{ item.make_install_opts | default({}) }}"
   become: true
   when: item.install_via_makefile is defined and
         (item.install_via_makefile | bool) and
