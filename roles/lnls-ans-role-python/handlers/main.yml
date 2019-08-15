@@ -1,29 +1,32 @@
 ---
 - name: Run Python configure
-  command: ./configure --with-ensurepip=install
+  command: "./configure {{ python_src_configure_opts }}"
   args:
     chdir: "{{ python_src_dir_path }}"
   listen: "Install Python from source"
 
 - name: Run Python make
-  command: make
-  args:
+  make:
     chdir: "{{ python_src_dir_path }}"
+    target: "{{ python_src_build_target | default(omit) }}"
+    params: "{{ python_src_make_build_opts | default({}) }}"
   listen: "Install Python from source"
 
 - name: Run Python make install
-  command: make install
-  args:
+  make:
     chdir: "{{ python_src_dir_path }}"
+    target: "{{ python_src_install_target | default(omit) }}"
+    params: "{{ python_src_make_install_opts | default({}) }}"
   become: true
   when:
     - python_src_make_default
   listen: "Install Python from source"
 
 - name: Run Python make altinstall
-  command: make altinstall
-  args:
+  make:
     chdir: "{{ python_src_dir_path }}"
+    target: "{{ python_src_altinstall_target | default(omit) }}"
+    params: "{{ python_src_make_altinstall_opts | default({}) }}"
   become: true
   when:
     - not python_src_make_default
