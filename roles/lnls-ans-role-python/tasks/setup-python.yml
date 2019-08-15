@@ -1,5 +1,5 @@
 ---
-- name: Install python pacakges
+- name: Install python packages
   apt:
     name: "{{ python_all }}"
     state: present

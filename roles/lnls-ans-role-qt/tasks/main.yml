@@ -15,6 +15,11 @@
     qt_distro_packages: "{{ __qt_distro_packages | list }}"
   when: qt_distro_packages is not defined
 
+- name: Define Pyhton executable
+  set_fact:
+    python_executable: "{{ __python_executable | default('python') }}"
+  when: python_executable is not defined
+
 - name: Define PIP executable
   set_fact:
     pip_executable: "{{ __pip_executable | default(omit) }}"
@@ -25,6 +30,44 @@
     qt_pip_packages: "{{ __qt_pip_packages | list }}"
   when: qt_pip_packages is not defined
 
+- name: Define QT install from source
+  set_fact:
+    qt_install_from_src: "{{ __qt_install_from_src | default(false) }}"
+  when: qt_install_from_src is not defined
+
+- name: Define QT version reduced
+  set_fact:
+    qt_src_version_reduced: "{{ qt_src_version | regex_replace('(\\d+\\.\\d+).*$', '\\1') }}"
+
+- name: Define QT version noninteractive
+  set_fact:
+    qt_src_version_noninteractive: "{{ qt_src_version | regex_replace('(\\d+)\\.(\\d+)\\.(\\d+).*$', '\\1\\2\\3') }}"
+
+- name: Check which qt version installed
+  shell: |
+    qmake --version | grep -oP "(?<=Qt version )[0-9]+\.[0-9]+\.[0-9]+"
+  args:
+    executable: /bin/bash
+  register: qt_check_result
+  failed_when: false
+  changed_when: false
+  check_mode: false
+
+- name: Define pyQt install from source
+  set_fact:
+    pyqt_install_from_src: "{{ __pyqt_install_from_src | default(false) }}"
+  when: pyqt_install_from_src is not defined
+
+- name: Check which pyqt version installed
+  shell: |
+    {{ pip_executable }} freeze | grep -oP "(?<=PyQt5==)[0-9]+\.[0-9]+\.[0-9]+"
+  args:
+    executable: /bin/bash
+  register: pyqt_check_result
+  failed_when: false
+  changed_when: false
+  check_mode: false
+
 # Include Tasks
 
 - include_tasks: setup-RedHat.yml
@@ -33,7 +76,29 @@
 - include_tasks: setup-Debian.yml
   when: ansible_os_family == 'Debian'
 
-- include_tasks: setup-packages.yml
-  when: ansible_os_family == 'Debian'
+- include_tasks: install-qt-from-source.yml
+  when: >-
+    qt_install_from_src and
+    (qt_src_force_install or
+      qt_check_result.rc != 0 or
+      (qt_check_result.rc == 0 and qt_check_result.stdout != qt_src_version))
 
-- include_tasks: setup-pip-packages.yml
+- include_tasks: install-qt-from-apt.yml
+  when: >-
+    ansible_os_family == 'Debian' and not
+    qt_install_from_src and
+    (qt_check_result.rc != 0 or
+      (qt_check_result.rc == 0 and qt_check_result.stdout != qt_src_version))
+
+- include_tasks: install-pyqt-from-source.yml
+  when: >-
+    pyqt_install_from_src and
+    (pyqt_src_force_install or
+      pyqt_check_result.rc != 0 or
+      (pyqt_check_result.rc == 0 and pyqt_check_result.stdout != pyqt_src_version))
+
+- include_tasks: install-pyqt-from-pip.yml
+  when: >-
+    not pyqt_install_from_src and
+    (pyqt_check_result.rc != 0 or
+      (pyqt_check_result.rc == 0 and pyqt_check_result.stdout != pyqt_src_version))

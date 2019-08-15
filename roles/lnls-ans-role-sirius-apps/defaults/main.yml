@@ -13,6 +13,9 @@ sirius_apps_epics_install_recommends: true
 # Sirius Linac EDM screens
 sirius_apps_li_edm_dir: /usr/local/share/edm/data
 
+# Sirius designer path
+sirius_apps_designer_dir: /usr/local/share/Qt/designer
+
 # Groups of packages
 sirius_apps_dev_packages:
 
@@ -73,6 +76,9 @@ sirius_apps_hla:
     clone_path: /tmp
     install_chdir: pyqt-apps
     install_via_makefile: true
+    make_install_target: install-all
+    make_install_opts:
+      INSTALL_DESIGNER_DIR: "{{ sirius_apps_designer_dir }}"
     force_version: true
 
   - name: PyDM timechart Package
@@ -91,7 +97,10 @@ sirius_apps_opis:
     repo_name: linac-opi
     repo_version: master
     clone_path: /tmp
-    install_via_custom: "make install-default INSTALL_EDM_DIR={{ sirius_apps_li_edm_dir }}"
+    install_via_makefile: true
+    make_install_target: install-default
+    make_install_opts:
+      INSTALL_EDM_DIR: "{{ sirius_apps_li_edm_dir }}"
     force_version: true
 
 sirius_apps_mgmt:

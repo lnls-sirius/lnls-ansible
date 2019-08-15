@@ -1,0 +1,41 @@
+---
+- name: Create Qt installation directory
+  file:
+    path: "{{ qt_src_dir_path }}"
+    state: directory
+
+- name: Download Qt installation script
+  get_url:
+    url: "{{ qt_src_download_url }}"
+    dest: "{{ qt_src_dir_path }}/{{ qt_src_remote_script }}"
+    checksum: "{{ qt_src_checksum }}"
+    mode: '0744'
+  notify: "Install Qt from source"
+
+- name: Ensure downloaded script is installed
+  debug:
+    msg: "Qt version installed: {{ qt_check_result.stdout }}"
+  changed_when: qt_check_result.stdout != qt_src_version
+  notify: "Install Qt from source"
+
+- name: Install Qt support installation files
+  template:
+    src: "{{ item.filename }}.j2"
+    dest: "{{ item.pathname }}/{{ item.filename }}"
+  with_items:
+    - "{{ qt_src_support_install_files }}"
+
+- name: Force handlers to run at this point
+  meta: flush_handlers
+
+- name: Ensure Qt environment is installed
+  template:
+    src: "{{ item.filename }}.j2"
+    dest: "{{ item.pathname }}/{{ item.filename }}"
+    owner: root
+    group: root
+    force: true
+    mode: 0644
+  become: true
+  with_items:
+    - "{{ qt_src_config_files }}"

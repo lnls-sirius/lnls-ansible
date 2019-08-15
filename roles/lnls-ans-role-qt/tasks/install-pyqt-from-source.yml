@@ -1,0 +1,8 @@
+---
+- name: Download and Install Applications
+  include_tasks: download-install-app.yml
+  with_items:
+    - "{{ pyqt_apps }}"
+  when:
+    - pyqt_apps is defined and
+      pyqt_apps | length > 0
