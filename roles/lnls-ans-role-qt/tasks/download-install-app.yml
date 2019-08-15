@@ -15,11 +15,18 @@
   register: download_item_result
   become: true
 
+- name: "Create {{ item.name }} needed installation paths"
+  file:
+    path: "{{ item.cfg_create_paths }}"
+    state: directory
+  when:
+    - item.cfg_create_paths is defined and
+      item.cfg_create_paths | length > 0
+
 - name: "Configure {{ item.name }}" 
   command: "{{ item.cfg_command }}"
   args:
     chdir: "{{ item.src_dir }}"
-  when: download_item_result.changed
 
 - name: "Build {{ item.name }} via Makefile"
   make:
