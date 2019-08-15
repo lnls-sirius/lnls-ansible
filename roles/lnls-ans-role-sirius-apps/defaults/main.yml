@@ -73,6 +73,7 @@ sirius_apps_hla:
     clone_path: /tmp
     install_chdir: pyqt-apps
     install_via_makefile: true
+    make_install_target: install-all
     force_version: true
 
   - name: PyDM timechart Package
