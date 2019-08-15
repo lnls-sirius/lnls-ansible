@@ -18,7 +18,7 @@
 - name: "Install {{ item.repo_name }} via Makefile"
   make:
     chdir: "{{ item.clone_path }}/{{ item.repo_name }}/{{ repo_install_chdir }}"
-    target: install
+    target: "{{ item.make_install_target | default('install') }}"
   become: true
   when: item.install_via_makefile is defined and
         (item.install_via_makefile | bool) and
