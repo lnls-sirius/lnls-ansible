@@ -24,7 +24,7 @@ qt_src_designer_symlink: /usr/local/bin/designer
 qt_src_support_install_files:
   - name: Qt noninteractive installation file
     filename: qt-noninteractive.qs
-    pathname: "{{ qt_src_dir_path }}" 
+    pathname: "{{ qt_src_dir_path }}"
 
 # If true, the QT source for the version will be downloaded and
 # installed again even if it's found on the system.
