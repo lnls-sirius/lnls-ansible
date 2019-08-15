@@ -97,7 +97,10 @@ sirius_apps_opis:
     repo_name: linac-opi
     repo_version: master
     clone_path: /tmp
-    install_via_custom: "make install-default INSTALL_EDM_DIR={{ sirius_apps_li_edm_dir }}"
+    install_via_makefile: true
+    make_install_target: install-default
+    make_install_opts:
+      INSTALL_EDM_DIR: "{{ sirius_apps_li_edm_dir }}"
     force_version: true
 
 sirius_apps_mgmt:
