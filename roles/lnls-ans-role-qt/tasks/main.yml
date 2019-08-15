@@ -40,7 +40,7 @@
 
 - name: Check which qt version installed
   shell: |
-    qmake --version | grep -oP "(?<=Qt version )[0-9]\.[0-9]\.[0-9]"
+    qmake --version | grep -oP "(?<=Qt version )[0-9]\+\.[0-9]\+\.[0-9]\+"
   args:
     executable: /bin/bash
   register: qt_check_result
