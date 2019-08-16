@@ -81,7 +81,10 @@
 - include_tasks: setup-Debian.yml
   when: ansible_os_family == 'Debian'
 
-- include_tasks: install-qt-from-source.yml
+- name: Install Qt from source
+  block:
+    - include_tasks: remove-qt-from-apt.yml
+    - include_tasks: install-qt-from-source.yml
   when: >-
     qt_install_from_src and
     (qt_src_force_install or
@@ -95,7 +98,10 @@
     (qt_check_result.rc != 0 or
       (qt_check_result.rc == 0 and qt_check_result.stdout != qt_src_version))
 
-- include_tasks: install-pyqt-from-source.yml
+- name: Install PyQt from source
+  block:
+    - include_tasks: remove-pyqt-from-apt.yml
+    - include_tasks: install-pyqt-from-source.yml
   when: >-
     pyqt_install_from_src and
     (pyqt_src_force_install or

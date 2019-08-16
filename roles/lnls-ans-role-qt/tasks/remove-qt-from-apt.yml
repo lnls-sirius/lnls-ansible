@@ -1,0 +1,10 @@
+---
+- name: Ensure no Qt system versions are installed
+  apt:
+    name: "{{ qt_distro_packages | regex_replace('=.*$', '') }}"
+    state: absent
+  become: true
+  register: apt_result
+  until: apt_result is success
+  retries: 5
+  delay: 2
