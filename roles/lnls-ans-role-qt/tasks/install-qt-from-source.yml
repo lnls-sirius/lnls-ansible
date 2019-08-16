@@ -12,7 +12,7 @@
     mode: '0744'
   notify: "Install Qt from source"
 
-- name: Ensure downloaded script is installed
+- name: Check Qt installed installed version
   debug:
     msg: "Qt version installed: {{ qt_check_result.stdout }}"
   changed_when: qt_check_result.stdout != qt_src_version
