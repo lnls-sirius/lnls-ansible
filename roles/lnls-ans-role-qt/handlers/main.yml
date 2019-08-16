@@ -11,7 +11,7 @@
   register: qt_src_dir_install_bin_path_details
   listen: "Install Qt from source"
 
-- name: Ensure Qt installation path is inconsistent
+- name: Ensure Qt installation path is consistent
   file: 
     path: "{{ qt_src_dir_install_path }}"
     state: absent
