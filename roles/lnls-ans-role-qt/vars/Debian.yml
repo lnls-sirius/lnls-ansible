@@ -13,6 +13,9 @@ __qt_distro_packages:
   - qttools5-dev-tools
   - sip-dev
   - python3-pyqt5.qtsvg
+  - libqt5opengl5-dev
+  - qt5-qmake
+  - qtbase5-dev
 
 __qt_pip_packages:
   - PyQt5
