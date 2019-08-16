@@ -1,7 +1,7 @@
 ---
 - name: Ensure no PyQt Pip versions are installed
   pip:
-    name: "{{ qt_pip_packages | regex_replace('==.*$', '') }}"
+    name: "{{ item | regex_replace('==.*$', '') }}"
     state: absent
     executable: "{{ pip_executable }}"
   become: true
@@ -9,3 +9,5 @@
   until: qt_pip_packages_result is success
   retries: 5
   delay: 2
+  with_items:
+    - "{{ qt_pip_packages }}"
