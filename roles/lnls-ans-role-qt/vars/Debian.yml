@@ -3,6 +3,11 @@ __qt_install_from_src: false
 
 __pyqt_install_from_src: false
 
+__pyqt_dep_packages:
+  - liblapack-dev
+  - libdbus-1-3
+  - libglu1-mesa-dev
+
 __qt_distro_packages:
   - qt5-default
   - qttools5-dev-tools

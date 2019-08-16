@@ -53,6 +53,11 @@
   changed_when: false
   check_mode: false
 
+- name: Define PyQt dependency packages
+  set_fact:
+    pyqt_dep_packages: "{{ __pyqt_dep_packages | list }}"
+  when: pyqt_dep_packages is not defined
+
 - name: Define pyQt install from source
   set_fact:
     pyqt_install_from_src: "{{ __pyqt_install_from_src | default(false) }}"
