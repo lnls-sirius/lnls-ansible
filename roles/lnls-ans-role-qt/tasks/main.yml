@@ -100,7 +100,7 @@
 
 - name: Install PyQt from source
   block:
-    - include_tasks: remove-pyqt-from-apt.yml
+    - include_tasks: remove-pyqt-from-pip.yml
     - include_tasks: install-pyqt-from-source.yml
   when: >-
     pyqt_install_from_src and
