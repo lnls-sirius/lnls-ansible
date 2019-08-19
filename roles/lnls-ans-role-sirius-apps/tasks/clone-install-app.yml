@@ -35,6 +35,7 @@
       subdirectory={{ repo_install_chdir }}"
     executable: "{{ pip_executable }}"
     chdir: "{{ item.clone_path }}/{{ item.repo_name }}/{{ repo_install_chdir }}"
+    extra_args: "{{ item.setup_extra_args | default(omit) }}"
   become: true
   when: item.install_via_setup is defined and
         (item.install_via_setup | bool)
