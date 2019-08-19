@@ -25,6 +25,7 @@ sirius_apps_dev_packages:
     repo_version: master
     clone_path: /tmp
     install_via_setup: true
+    setup_extra_args: "--no-deps"
     repo_cvs: git+
     force_version: true
 
@@ -35,6 +36,7 @@ sirius_apps_dev_packages:
     clone_path: /tmp
     install_chdir: siriuspy
     install_via_setup: true
+    setup_extra_args: "--no-deps"
     repo_cvs: git+
     force_version: true
 
@@ -47,6 +49,7 @@ sirius_apps_iocs:
     clone_path: /tmp
     install_chdir: client
     install_via_setup: true
+    setup_extra_args: "--no-deps"
     repo_cvs: git+
     force_version: true
 
@@ -66,6 +69,7 @@ sirius_apps_hla:
     repo_version: master
     clone_path: /tmp
     install_via_setup: true
+    setup_extra_args: "--no-deps"
     repo_cvs: git+
     force_version: true
 
@@ -87,6 +91,7 @@ sirius_apps_hla:
     repo_version: v1.2.2
     clone_path: /tmp
     install_via_setup: true
+    setup_extra_args: "--no-deps"
     repo_cvs: git+
     force_version: true
 
