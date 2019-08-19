@@ -8,4 +8,4 @@ sirius_apps_install_categories:
   - sirius_apps_mgmt
 
 # Desktop cursor size
-desktop_settings_cursor_size: 48
+desktop_settings_cursor_size: 24
