@@ -7,7 +7,7 @@
 - name: Add cursor size to ~/.Xresources
   lineinfile:
     state: present
-    path: "/home/{{ desktop_settings_user }}/.Xresources"
+    path: /etc/X11/Xresources/x11-common
     line: "{{ item }}"
     insertafter: EOF
   with_items:
