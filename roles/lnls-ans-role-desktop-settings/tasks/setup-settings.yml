@@ -2,7 +2,7 @@
 - name: Ensure cursor is updated to whiteglass
   alternatives:
     name: x-cursor-theme
-    path: /etc/X11/cursors/whiteglass.theme
+    path: "{{ desktop_settings_cursor_theme_alternative }}"
 
 - name: Add cursor size to ~/.Xresources
   lineinfile:
