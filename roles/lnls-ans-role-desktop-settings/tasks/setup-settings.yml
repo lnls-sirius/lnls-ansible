@@ -26,11 +26,18 @@
   with_items:
     - "{{ desktop_settings_xresources_lines | default([]) }}"
 
+# Workaround for ansible issue #23530
+# https://github.com/ansible/ansible/issues/23530
+- name:
+  set_fact: 
+    localuser: "{{ ansible_user }}"
+
 - name: Ensure cursor size is set go DConf
   dconf:
     key: "{{ item.key }}"
     value: "{{ item.value | default(omit) }}"
     state: "{{ item.state | default(present) }}"
   become: true
+  become_user: "{{ localuser }}"
   with_items:
     - "{{ desktop_settings_dconf_lines }}"
