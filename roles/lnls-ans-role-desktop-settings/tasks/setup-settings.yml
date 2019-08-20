@@ -1,9 +1,8 @@
 ---
-- name: Ensure Pip Python packages are installed
+- name: Ensure Pip Python (default system python) packages are installed
   pip:
     name: "{{ desktop_settings_pip_packages }}"
     state: "{{ desktop_settings_pip_packages_state }}"
-    executable: "{{ pip_executable }}"
   become: true
   register: desktop_settings_pip_packages_result
   until: desktop_settings_pip_packages_result is success
