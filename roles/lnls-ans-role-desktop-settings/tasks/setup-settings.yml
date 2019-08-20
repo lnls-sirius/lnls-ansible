@@ -14,6 +14,7 @@
   alternatives:
     name: x-cursor-theme
     path: "{{ desktop_settings_cursor_theme_alternative }}"
+  become: true
 
 - name: Add cursor size to Xresources
   lineinfile:
@@ -21,6 +22,7 @@
     path: /etc/X11/Xresources/x11-common
     line: "{{ item }}"
     insertafter: EOF
+  become: true
   with_items:
     - "{{ desktop_settings_xresources_lines | default([]) }}"
 
@@ -29,5 +31,6 @@
     key: "{{ item.key }}"
     value: "{{ item.value | default(omit) }}"
     state: "{{ item.state | default(present) }}"
+  become: true
   with_items:
     - "{{ desktop_settings_dconf_lines }}"
