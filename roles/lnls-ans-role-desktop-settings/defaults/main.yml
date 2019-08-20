@@ -24,5 +24,5 @@ desktop_settings_xresources_lines:
 
 desktop_settings_dconf_lines:
   - key: "/org/gnome/desktop/interface/cursor-size"
-    value: "{{ desktop_settings_cursor_size }}"
+    value: "'{{ desktop_settings_cursor_size }}'"
     state: present
