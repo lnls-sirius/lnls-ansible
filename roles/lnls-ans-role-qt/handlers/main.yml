@@ -1,18 +1,18 @@
 ---
 - name: Get Qt installation path properties
-  stat: 
+  stat:
     path: "{{ qt_src_dir_install_path }}"
   register: qt_src_dir_install_path_details
   listen: "Install Qt from source"
 
 - name: Get Qt binary installation path properties
-  stat: 
+  stat:
     path: "{{ qt_src_dir_install_path }}/{{ qt_src_version }}"
   register: qt_src_dir_install_bin_path_details
   listen: "Install Qt from source"
 
 - name: Ensure Qt installation path is consistent
-  file: 
+  file:
     path: "{{ qt_src_dir_install_path }}"
     state: absent
   when: >-
