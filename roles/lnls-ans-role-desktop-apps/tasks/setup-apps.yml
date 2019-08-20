@@ -9,7 +9,7 @@
 - debug:
     msg: "Desktop path {{ item.path }} checksum: {{ item.checksum }}"
   with_items:
-    - "{{ desktop_folder_details.results }}"
+    - "{{ desktop_folder_details.results.stat }}"
 
 # This depends on the User's role. As the user module will not update the user
 # directory with the /etc/skel contents if it's already created, just copy them
