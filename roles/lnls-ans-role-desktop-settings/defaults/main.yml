@@ -2,6 +2,8 @@
 # Desktop cursor size
 desktop_settings_cursor_size: 48
 
+desktop_settings_cursor_theme: "DMZ-Black!"
+
 desktop_settings_cursor_theme_alternative: /usr/share/icons/DMZ-Black/cursor.theme
 
 # Desktop packages state
