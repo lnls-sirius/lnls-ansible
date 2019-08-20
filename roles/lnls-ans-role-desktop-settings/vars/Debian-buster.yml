@@ -4,6 +4,7 @@ __desktop_settings_packages:
   - dmz-cursor-theme
   - dconf-cli
 
-__desktop_settings_pip_packages: []
+__desktop_settings_pip_packages:
+  - psutil==5.6.3
 
 __pip_executable: pip-sirius
