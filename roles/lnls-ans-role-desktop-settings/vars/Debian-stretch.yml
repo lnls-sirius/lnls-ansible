@@ -2,6 +2,7 @@
 __desktop_settings_packages:
   - xcursor-themes
   - dmz-cursor-theme
+  - dconf-cli
 
 __desktop_settings_pip_packages: []
 
