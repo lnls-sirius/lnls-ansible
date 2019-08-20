@@ -12,3 +12,11 @@
     insertafter: EOF
   with_items:
     - "{{ desktop_settings_xresources_lines | default([]) }}"
+
+- name: Ensure cursor size is set go DConf
+  dconf:
+    key: "{{ item.key }}"
+    value: "{{ item.value | default(omit) }}"
+    state: "{{ item.state | default(present) }}"
+  with_items:
+    - "{{ desktop_settings_dconf_lines }}"

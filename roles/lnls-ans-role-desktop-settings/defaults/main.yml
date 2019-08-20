@@ -16,3 +16,8 @@ desktop_settings_user: sirius
 desktop_settings_xresources_lines:
   - "Xcursor.size: {{ desktop_settings_cursor_size }}"
   - "Xcursor.theme: {{ desktop_settings_cursor_theme }}"
+
+desktop_settings_dconf_lines:
+  - key: "/org/gnome/desktop/interface/cursor-size"
+    value: "{{ desktop_settings_cursor_size }}"
+    state: present
