@@ -136,7 +136,7 @@ sirius_apps_config_files:
     pathname: "/etc/profile.d"
 
 # PyQt comparison threshold for factor resizing
-sirius_apps_pyqt_resolution_threshold:
+sirius_apps_pyqt_resolution_threshold: 2000
 
 # PyQt resize factor big
 sirius_apps_pyqt_resolution_factor_big: 1.5
