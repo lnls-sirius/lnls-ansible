@@ -6,7 +6,8 @@
   with_items:
     - "{{ users }}"
 
-- debug:
+- name: Print Desktop path stat
+  debug:
     msg: "Desktop path stat: {{ item.stat }}"
   with_items:
     - "{{ desktop_folder_details.results }}"
