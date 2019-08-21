@@ -1,4 +1,16 @@
 ---
+- name: Get Desktop folder details
+  stat:
+    path: "/home/{{ item.name }}/Desktop"
+  register: desktop_folder_details
+  with_items:
+    - "{{ users }}"
+
+- debug:
+    msg: "Desktop path {{ item.stat.path }} checksum: {{ item.stat.checksum }}"
+  with_items:
+    - "{{ desktop_folder_details.results }}"
+
 # This depends on the User's role. As the user module will not update the user
 # directory with the /etc/skel contents if it's already created, just copy them
 # manually
