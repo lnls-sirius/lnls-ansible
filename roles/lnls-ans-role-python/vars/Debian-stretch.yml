@@ -7,6 +7,7 @@ __basic_packages:
   - build-essential=12.3*
 
 __python_dep_packages:
+  - libreadline5=5.2+dfsg-3*
   - libreadline-dev=7.0-3*
   - libncursesw5-dev=6.0+20161126-1*
   - libssl-dev=1.1.0k-1*
