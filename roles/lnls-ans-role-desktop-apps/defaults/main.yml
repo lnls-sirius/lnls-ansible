@@ -29,3 +29,16 @@ desktop_vnc_config_files:
   - name: VNC server systemd service
     filename: vncserver@.service
     pathname: "/etc/systemd/system"
+
+desktop_vnc_server_services:
+  - name: vncserver@1
+    enabled: true
+
+  - name: vncserver@2
+    enabled: true
+
+  - name: vncserver@3
+    enabled: true
+
+  - name: vncserver@4
+    enabled: true

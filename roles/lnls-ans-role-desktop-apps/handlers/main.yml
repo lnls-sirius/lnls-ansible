@@ -1,10 +1,12 @@
 ---
-- name: Restart VNC server systemd service
+- name: Restart VNC server systemd services
   block:
-    - name: Restart VNC server systemd service
+    - name: Restart VNC server systemd services
       systemd:
-        name: vncserver@1
+        name: "{{ item.name }}"
         state: restarted
+      with_items:
+        - "{{ desktop_vnc_server_services }}"
   become: true
   ignore_errors: "{{ desktop_vnc_ignore_systemd_errors }}"
   rescue:
