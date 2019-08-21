@@ -39,7 +39,7 @@
   when: apt_result is success
   notify: Restart VNC server systemd services
 
-- name: "Create the remote /home{{ desktop_vnc_user }}/.vnc directory"
+- name: "Create the remote /home/{{ desktop_vnc_user }}/.vnc directory"
   file:
     path: "/home/{{ desktop_vnc_user }}/.vnc"
     owner: "{{ desktop_vnc_user }}"
