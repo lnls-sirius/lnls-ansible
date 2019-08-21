@@ -7,7 +7,7 @@
     - "{{ users }}"
 
 - debug:
-    msg: "Desktop path {{ item.stat.path }} checksum: {{ item.stat.checksum }}"
+    msg: "Desktop path stat: {{ item.stat }}"
   with_items:
     - "{{ desktop_folder_details.results }}"
 
