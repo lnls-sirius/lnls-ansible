@@ -134,12 +134,3 @@ sirius_apps_config_files:
   - name: Sirius Apps Linac EDM variables
     filename: linac_edm.sh
     pathname: "/etc/profile.d"
-
-# PyQt comparison threshold for factor resizing
-sirius_apps_pyqt_resolution_threshold:
-
-# PyQt resize factor big
-sirius_apps_pyqt_resolution_factor_big: 1.5
-
-# PyQt resize factor normal
-sirius_apps_pyqt_resolution_factor_normal: 1.0
