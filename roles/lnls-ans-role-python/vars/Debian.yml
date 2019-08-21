@@ -8,6 +8,7 @@ __basic_packages:
 
 __python_dep_packages:
   - libreadline-dev
+  - libreadline5
   - libncursesw5-dev
   - libssl-dev
   - libsqlite3-dev
