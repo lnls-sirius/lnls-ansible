@@ -1,7 +1,0 @@
----
-nfs_server_control_room: 10.128.254.205
-nfs_server_control_opi: 10.128.1.3
-
-fac_workstation_ip: 10.0.7.55
-nfs_clients_control_room_subnet: 10.128.254.0/24
-nfs_clients_cnpem_sirius_subnet: 10.0.38.0/24

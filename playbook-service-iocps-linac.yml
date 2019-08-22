@@ -1,5 +1,5 @@
 ---
-- hosts: lnls560-linux
+- hosts: ioc_li_ps_servers
   remote_user: sirius
 
   tasks:

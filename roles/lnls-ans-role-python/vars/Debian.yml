@@ -8,6 +8,7 @@ __basic_packages:
 
 __python_dep_packages:
   - libreadline-dev
+  - libreadline5
   - libncursesw5-dev
   - libssl-dev
   - libsqlite3-dev
@@ -28,5 +29,17 @@ __python_packages:
 __pip_executable: pip-sirius
 
 __python_pip_packages:
+  - cairocffi
+  - jupyter
   - setuptools
   - matplotlib
+  - pandas
+  - psutil
+  - pyqtgraph
+  - python-nmap
+  - requests
+  - scipy
+  - sh
+  - termcolor
+  - wakeonlan
+  - xlrd

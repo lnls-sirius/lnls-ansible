@@ -20,6 +20,7 @@ users:
     password: "$6$f65yHhg479Mkl$4/t3MqK1jn5NfVKb0CDtyr6wKYnaCBQOIAwV8/DG.q1hIOBehICwkhAAM3pGfpLeoRwSgLJKyHa6R/u2vtBn//"
     # how to generate: ansible all -i localhost, -m debug -a "msg={{ 'mypassword' | password_hash('sha512', 'mysecretsalt') }}"
     comment: Main Sirius User
+    uid: 1001
     # groups:
     #   - facs
     #   - imas

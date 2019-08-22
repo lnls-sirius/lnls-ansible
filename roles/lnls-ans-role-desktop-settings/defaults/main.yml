@@ -2,14 +2,27 @@
 # Desktop cursor size
 desktop_settings_cursor_size: 48
 
+desktop_settings_cursor_theme: "DMZ-Black!"
+
+desktop_settings_cursor_theme_alternative: /usr/share/icons/DMZ-Black/cursor.theme
+
 # Desktop packages state
 desktop_settings_packages_state: present
 
 # Desktop install recommends
 desktop_settings_install_recommends: true
 
+# Pip packages state
+desktop_settings_pip_packages_state: present
+
 # Desktop User
 desktop_settings_user: sirius
 
 desktop_settings_xresources_lines:
   - "Xcursor.size: {{ desktop_settings_cursor_size }}"
+  - "Xcursor.theme: {{ desktop_settings_cursor_theme }}"
+
+desktop_settings_dconf_lines:
+  - key: "/org/gnome/desktop/interface/cursor-size"
+    value: "'{{ desktop_settings_cursor_size }}'"
+    state: present

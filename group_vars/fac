@@ -2,3 +2,6 @@
 # Select which categories to install
 sirius_apps_install_categories:
   - sirius_apps_dev_packages
+
+# Desktop cursor size
+desktop_settings_cursor_size: 24

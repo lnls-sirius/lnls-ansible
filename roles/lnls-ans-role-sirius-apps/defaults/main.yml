@@ -13,6 +13,9 @@ sirius_apps_epics_install_recommends: true
 # Sirius Linac EDM screens
 sirius_apps_li_edm_dir: /usr/local/share/edm/data
 
+# Sirius designer path
+sirius_apps_designer_dir: /usr/local/share/Qt/designer
+
 # Groups of packages
 sirius_apps_dev_packages:
 
@@ -22,6 +25,9 @@ sirius_apps_dev_packages:
     repo_version: master
     clone_path: /tmp
     install_via_setup: true
+    setup_extra_args: "--no-deps"
+    repo_cvs: git+
+    force_version: true
 
   - name: Development Packages
     org_url: https://github.com/lnls-sirius
@@ -30,6 +36,9 @@ sirius_apps_dev_packages:
     clone_path: /tmp
     install_chdir: siriuspy
     install_via_setup: true
+    setup_extra_args: "--no-deps"
+    repo_cvs: git+
+    force_version: true
 
 sirius_apps_iocs:
 
@@ -40,6 +49,9 @@ sirius_apps_iocs:
     clone_path: /tmp
     install_chdir: client
     install_via_setup: true
+    setup_extra_args: "--no-deps"
+    repo_cvs: git+
+    force_version: true
 
   - name: Machine Applications
     org_url: https://github.com/lnls-sirius
@@ -47,6 +59,7 @@ sirius_apps_iocs:
     repo_version: master
     clone_path: /tmp
     install_via_makefile: true
+    force_version: true
 
 sirius_apps_hla:
 
@@ -56,6 +69,9 @@ sirius_apps_hla:
     repo_version: master
     clone_path: /tmp
     install_via_setup: true
+    setup_extra_args: "--no-deps"
+    repo_cvs: git+
+    force_version: true
 
   - name: High-Level Applications
     org_url: https://github.com/lnls-sirius
@@ -64,6 +80,10 @@ sirius_apps_hla:
     clone_path: /tmp
     install_chdir: pyqt-apps
     install_via_makefile: true
+    make_install_target: install-all
+    make_install_opts:
+      INSTALL_DESIGNER_DIR: "{{ sirius_apps_designer_dir }}"
+    force_version: true
 
   - name: PyDM timechart Package
     org_url: https://github.com/slaclab
@@ -71,6 +91,9 @@ sirius_apps_hla:
     repo_version: v1.2.2
     clone_path: /tmp
     install_via_setup: true
+    setup_extra_args: "--no-deps"
+    repo_cvs: git+
+    force_version: true
 
 sirius_apps_opis:
 
@@ -79,7 +102,11 @@ sirius_apps_opis:
     repo_name: linac-opi
     repo_version: master
     clone_path: /tmp
-    install_via_custom: "make install-default INSTALL_EDM_DIR={{ sirius_apps_li_edm_dir }}"
+    install_via_makefile: true
+    make_install_target: install-default
+    make_install_opts:
+      INSTALL_EDM_DIR: "{{ sirius_apps_li_edm_dir }}"
+    force_version: true
 
 sirius_apps_mgmt:
 
@@ -89,6 +116,7 @@ sirius_apps_mgmt:
     repo_version: master
     clone_path: /tmp
     install_via_makefile: true
+    force_version: true
 
 # Select which categories to install. Defaults to all
 sirius_apps_install_categories:

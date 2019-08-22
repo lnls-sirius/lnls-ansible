@@ -1,4 +1,17 @@
 ---
+- name: Get Desktop folder details
+  stat:
+    path: "/home/{{ item.name }}/Desktop"
+  register: desktop_folder_details
+  with_items:
+    - "{{ users }}"
+
+- name: Print Desktop path stat
+  debug:
+    msg: "Desktop path stat: {{ item.stat }}"
+  with_items:
+    - "{{ desktop_folder_details.results }}"
+
 # This depends on the User's role. As the user module will not update the user
 # directory with the /etc/skel contents if it's already created, just copy them
 # manually
@@ -24,16 +37,16 @@
   with_items:
     - "{{ desktop_vnc_config_files }}"
   when: apt_result is success
-  notify: Restart VNC server systemd service
+  notify: Restart VNC server systemd services
 
-- name: "Create the remote /home{{ desktop_vnc_user }}/.vnc directory"
+- name: "Create the remote /home/{{ desktop_vnc_user }}/.vnc directory"
   file:
     path: "/home/{{ desktop_vnc_user }}/.vnc"
     owner: "{{ desktop_vnc_user }}"
     group: "{{ desktop_vnc_user }}"
     mode: 0755
     state: directory
-  notify: Restart VNC server systemd service
+  notify: Restart VNC server systemd services
 
 - name: "Set VNC server password for {{ desktop_vnc_user }}"
   shell: |
@@ -44,7 +57,7 @@
     creates: "/home/{{ desktop_vnc_user }}/.vnc/passwd"
   no_log: true
   when: desktop_vnc_passwd_create
-  notify: Restart VNC server systemd service
+  notify: Restart VNC server systemd services
 
 - name: "Change permissions to 600 for /home/{{ desktop_vnc_user }}/.vnc/passwd"
   file:
@@ -53,21 +66,25 @@
     group: "{{ desktop_vnc_user }}"
     mode: 0600
   when: desktop_vnc_passwd_create
-  notify: Restart VNC server systemd service
+  notify: Restart VNC server systemd services
 
 - name: Enable VNC server systemd service
   systemd:
-    name: vncserver@1
+    name: "{{ item.name }}"
     state: started
-    enabled: true
-    daemon_reload: true
+    enabled: "{{ item.enabled | default(true) }}"
+    daemon_reload: "{{ item.daemon_reload | default(true) }}"
   become: true
   register: systemd_enable
   ignore_errors: "{{ desktop_vnc_ignore_systemd_errors }}"
+  with_items:
+    - "{{ desktop_vnc_server_services }}"
 
 - name: Show warning to user if systemd fails
   pause:
     seconds: 1
     echo: false
     prompt: "Could not enable VNC systemd service. Probably running in Docker? Continuing anyway ..."
-  when: systemd_enable is failed
+  when: item is failed
+  with_items:
+    - "{{ systemd_enable.results }}"

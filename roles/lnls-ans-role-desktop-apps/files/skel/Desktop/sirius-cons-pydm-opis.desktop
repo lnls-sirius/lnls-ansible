@@ -1,7 +1,8 @@
 [Desktop Entry]
 Type=Application
-Name=AS\nCON PyDM
-Icon=/usr/share/icons/gnome/48x48/emblems/emblem-system.png
-Exec=/home/sirius/cons-opis/pydm-opi/launch.sh
+Name=CONS\nPyDM OPIs
+Path=/home/sirius/cons-opis/pydm-opi
+Icon=/home/sirius/cons-opis/pydm-opi/images/LNLS.png
+Exec=/bin/bash /home/sirius/cons-opis/pydm-opi/launch.sh
 StartupNotify=true
 Terminal=false

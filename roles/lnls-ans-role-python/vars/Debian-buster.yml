@@ -8,6 +8,7 @@ __basic_packages:
 
 __python_dep_packages:
   - libreadline-dev=7.0-5*
+  - libreadline5=5.2*
   - libncursesw5-dev=6.1+20181013-2*
   - libssl-dev=1.1.1c-1*
   - libsqlite3-dev=3.27.2-3*
@@ -30,5 +31,17 @@ __python_packages:
 __pip_executable: pip-sirius
 
 __python_pip_packages:
+  - cairocffi==1.0.2
+  - jupyter==1.0.0
   - setuptools==39.0.1
   - matplotlib==3.0.2
+  - pandas==0.24.1
+  - psutil==5.5.0
+  - pyqtgraph==0.10.0
+  - python-nmap==0.6.1
+  - requests==2.21.0
+  - scipy==1.2.1
+  - sh==1.12.14
+  - termcolor==1.1.0
+  - wakeonlan==1.1.6
+  - xlrd==1.2.0
