@@ -15,6 +15,8 @@ This Ansible roles/playbooks for Sirius Light Source control machines.
   - import_role:
       name: lnls-ans-role-users
   - import_role:
+      name: lnls-ans-role-ntp
+  - import_role:
       name: lnls-ans-role-repositories
   - import_role:
       name: lnls-ans-role-nfsclient
@@ -32,6 +34,8 @@ This Ansible roles/playbooks for Sirius Light Source control machines.
       name: lnls-ans-role-sirius-apps
   - import_role:
       name: lnls-ans-role-desktop-apps
+  - import_role:
+      name: lnls-ans-role-desktop-settings
 ```
 
 ## Example Commmand
