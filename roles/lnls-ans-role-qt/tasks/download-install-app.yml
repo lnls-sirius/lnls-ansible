@@ -23,20 +23,22 @@
     - item.cfg_create_paths is defined and
       item.cfg_create_paths | length > 0
 
-- name: "Configure {{ item.name }}" 
+- name: "Configure {{ item.name }}"
   command: "{{ item.cfg_command }}"
   args:
     chdir: "{{ item.src_dir }}"
+  when:
+    - download_item_result.changed
 
 - name: "Build {{ item.name }} via Makefile"
   make:
     chdir: "{{ item.src_dir }}"
-    target: "{{ item.make_build_target | default(omit) }}" 
+    target: "{{ item.make_build_target | default(omit) }}"
     params: "{{ item.make_build_opts | default({}) }}"
 
 - name: "Install {{ item.name }} via Makefile"
   make:
     chdir: "{{ item.src_dir }}"
-    target: "{{ item.make_install_target | default(omit) }}" 
+    target: "{{ item.make_install_target | default(omit) }}"
     params: "{{ item.make_install_opts | default({}) }}"
   become: true

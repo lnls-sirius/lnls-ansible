@@ -24,11 +24,11 @@ python_src_build_target: -j4
 
 python_src_install_target: install
 
-# python_src_make_install_opts: 
+# python_src_make_install_opts:
 
 python_src_altinstall_target: altinstall
 
-# python_src_make_altinstall_opts: 
+# python_src_make_altinstall_opts:
 
 # whether or not to make this version of python the default.
 python_src_make_default: true

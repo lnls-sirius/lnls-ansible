@@ -109,8 +109,8 @@ pyqt_apps:
     src_dir_path: "{{ pyqt_src_dir_path }}"
     src_dir: "{{ pyqt_src_dir }}"
     cfg_create_paths: "{{ qt_src_plugin_dir }}/PyQt5"
-    cfg_command: >- 
-      {{ python_executable }} configure.py 
+    cfg_command: >-
+      {{ python_executable }} configure.py
         --qmake={{ qt_src_bin_dir }}/qmake
         --designer-plugindir={{ qt_src_plugin_dir }}/designer
         --qml-plugindir={{ qt_src_plugin_dir }}/PyQt5

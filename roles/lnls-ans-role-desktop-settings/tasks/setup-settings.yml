@@ -29,7 +29,7 @@
 # Workaround for ansible issue #23530
 # https://github.com/ansible/ansible/issues/23530
 - name:
-  set_fact: 
+  set_fact:
     localuser: "{{ ansible_user }}"
 
 - name: Ensure cursor size is set go DConf
