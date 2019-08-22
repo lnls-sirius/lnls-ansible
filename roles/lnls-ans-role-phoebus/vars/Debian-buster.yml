@@ -1,0 +1,5 @@
+---
+__phoebus_dep_packages:
+  - openjfx=11.0.2*
+  - unzip=6.0*
+  - openjdk-11-jdk=11.0.4*
