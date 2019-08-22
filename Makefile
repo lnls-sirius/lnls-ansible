@@ -44,6 +44,7 @@ ROLES_DIR = roles
 # Roles
 ROLES = lnls-ans-role-cs-studio \
 	lnls-ans-role-ctrl-service \
+	lnls-ans-role-ntp \
 	lnls-ans-role-desktop-apps \
 	lnls-ans-role-desktop-settings \
 	lnls-ans-role-epics \
