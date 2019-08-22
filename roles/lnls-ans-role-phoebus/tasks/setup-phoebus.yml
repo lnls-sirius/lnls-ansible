@@ -1,0 +1,53 @@
+---
+- name: Install Phoebus
+  unarchive:
+    src: "{{ phoebus_archive }}"
+    dest: /opt
+    remote_src: true
+    owner: root
+    group: root
+    creates: "{{ phoebus_directory }}"
+
+- name: Overwrite Phoebus runtime settings
+  lineinfile:
+    state: present
+    path: "/opt/phoebus-{{ phoebus_version }}/phoebus.sh"
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+    backrefs: true
+  with_items:
+    - "{{ phoebus_runtime_settings_preferences }}"
+  when: >-
+    phoebus_runtime_settings_preferences is defined and 
+    phoebus_runtime_settings_preferences | length > 0
+
+- name: Customize Phoebus preference settings
+  lineinfile:
+    state: present
+    path: "/opt/phoebus-{{ phoebus_version }}/settings.ini"
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  with_items:
+    - "{{ phoebus_ini_settings_preferences }}"
+  when: >-
+    phoebus_ini_settings_preferences is defined and 
+    phoebus_ini_settings_preferences | length > 0
+
+- name: Copy the /usr/local/bin/phoebus script
+  template:
+    src: "{{ item.filename }}.j2"
+    dest: "{{ item.pathname }}/{{ item.filename }}"
+    owner: root
+    group: root
+    mode: 0755
+  become: true
+  with_items:
+    - "{{ phoebus_script_files }}"
+
+- name: Add Phoebus to the desktop menu
+  copy:
+    src: Phoebus.desktop
+    dest: /usr/share/applications
+    owner: root
+    group: root
+    mode: 0644
