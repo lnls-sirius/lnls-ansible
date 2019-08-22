@@ -7,9 +7,8 @@ provisioner:
   name: ansible
   lint:
     name: ansible-lint
-  options:
-    exclude:
-      - molecule/default/.ansible-lint
+    options:
+      x: ["ANSIBLE0016"]
   inventory:
     group_vars:
       default_group:
