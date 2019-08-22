@@ -27,6 +27,8 @@
   command: "{{ item.cfg_command }}"
   args:
     chdir: "{{ item.src_dir }}"
+  when:
+    - download_item_result.changed
 
 - name: "Build {{ item.name }} via Makefile"
   make:
