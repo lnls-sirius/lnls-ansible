@@ -54,10 +54,6 @@
     path: "/opt/cs-studio/ESS\ CS-Studio.ini"
     line: "{{ item }}"
     insertbefore: '^--launcher\.library'
-  when:
-    - ansible_os_family == 'Debian'
-    - ansible_distribution_release == 'Buster'
-    - csstudio_install_oracle_java
   with_items:
     - '-vm'
     - '/usr/lib/jvm/java-8-openjdk-amd64/jre/bin'
