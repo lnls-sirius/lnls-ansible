@@ -4,6 +4,7 @@
 
   vars:
     desktop_vnc_passwd_create: false
+    desktop_vnc_ignore_systemd_errors: true
 
   roles:
     - role: lnls-ans-role-desktop-apps
