@@ -6,4 +6,4 @@
     desktop_vnc_passwd_create: false
 
   roles:
-    - role: lnls-ans-role-desktop-apps
+    - role: lnls-ans-role-desktop-settings
