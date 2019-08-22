@@ -33,7 +33,7 @@ __pip_executable: pip-sirius
 __python_pip_packages:
   - cairocffi==1.0.2
   - jupyter==1.0.0
-  - setuptools==39.0.1
+  - setuptools==41.2.0
   - matplotlib==3.0.2
   - pandas==0.24.1
   - psutil==5.5.0
