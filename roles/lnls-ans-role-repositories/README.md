@@ -21,9 +21,11 @@ The `repository_installroot` variable allows to specify an alternative installro
 ## Example Playbook
 
 ```yaml
-- hosts: servers
-  roles:
-    - role: lnls-ans-role-repository
+---
+- hosts: all
+  tasks:
+  - import_role:
+      name: '{{playbook_dir}}'
 ```
 
 ## Tests
