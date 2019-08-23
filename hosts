@@ -10,12 +10,13 @@ lnls454-linux
 lnls455-linux
 
 [fac]
-lnls556-linux  # fac-fernando
-lnls557-linux  # fac-liu
-lnls558-linux  # fac-murilo
-lnls559-linux  # fac-ana
-lnls560-linux  # fac-guilherme
-lnls561-linux  # fac-ximenes
+# lnls556-linux  # fac-fernando
+# lnls557-linux  # fac-liu
+# lnls558-linux  # fac-murilo
+# lnls559-linux  # fac-ana
+# lnls560-linux  # fac-guilherme
+# lnls561-linux  # fac-ximenes
+lnls210-linux  # fac-alexandre
 
 [nfs_servers]
 lnls454-linux

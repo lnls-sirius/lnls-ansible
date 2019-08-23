@@ -1,5 +1,5 @@
 ---
-- hosts: linac_opi
+- hosts: linac_opi:fac
   remote_user: sirius
   become: true
   tasks:
