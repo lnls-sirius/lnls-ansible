@@ -18,7 +18,7 @@
   with_items:
     - "{{ phoebus_runtime_settings_preferences }}"
   when: >-
-    phoebus_runtime_settings_preferences is defined and 
+    phoebus_runtime_settings_preferences is defined and
     phoebus_runtime_settings_preferences | length > 0
 
 - name: Customize Phoebus preference settings
@@ -30,7 +30,7 @@
   with_items:
     - "{{ phoebus_ini_settings_preferences }}"
   when: >-
-    phoebus_ini_settings_preferences is defined and 
+    phoebus_ini_settings_preferences is defined and
     phoebus_ini_settings_preferences | length > 0
 
 - name: Copy the /usr/local/bin/phoebus script
