@@ -21,3 +21,4 @@ galaxy_info:
 
 dependencies:
   - lnls-ans-role-java
+  - lnls-ans-role-repositories
