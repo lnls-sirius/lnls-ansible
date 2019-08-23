@@ -4,4 +4,4 @@ __phoebus_dep_packages:
   - unzip=6.0*
   - openjdk-11-jdk=11.0.4*
 
-__desktop_default_release: stretch-backports
+__phoebus_default_release: stretch-backports
