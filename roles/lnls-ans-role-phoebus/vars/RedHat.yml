@@ -1,0 +1,4 @@
+---
+__phoebus_dep_packages:
+  - openjfx
+  - unzip

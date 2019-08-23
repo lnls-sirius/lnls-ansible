@@ -51,6 +51,12 @@ csstudio_diirt_preferences:
   - regexp: "^org.csstudio.diirt.util.core.preferences/diirt.datasource.delimiter="
     line: "org.csstudio.diirt.util.core.preferences/diirt.datasource.delimiter={{ diirt_datasource_delimeter }}"
 
+csstudio_phoebus_integration_preferences:
+  - regexp: "^org.csstudio.phoebus.integration/phoebus_home="
+    line: "org.csstudio.phoebus.integration/phoebus_home={{ phoebus_directory }}"
+  - regexp: "^org.csstudio.phoebus.integration/jdk9_home="
+    line: "org.csstudio.phoebus.integration/jdk9_home=/usr"
+
 csstudio_icons_splash_dir: "{{ csstudio_directory }}/configuration/org.eclipse.equinox.launcher/se.ess.ics.csstudio.product_{{ csstudio_version }}"
 csstudio_icons:
   - file: icon.png

@@ -43,6 +43,7 @@ ROLES_DIR = roles
 
 # Roles
 ROLES = lnls-ans-role-cs-studio \
+	lnls-ans-role-phoebus \
 	lnls-ans-role-ctrl-service \
 	lnls-ans-role-ntp \
 	lnls-ans-role-nvidia-driver \

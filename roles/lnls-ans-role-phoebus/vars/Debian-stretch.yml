@@ -1,0 +1,7 @@
+---
+__phoebus_dep_packages:
+  - openjfx=8u141*
+  - unzip=6.0*
+  - openjdk-11-jdk=11.0.4*
+
+__phoebus_default_release: stretch-backports
