@@ -16,7 +16,9 @@ lnls455-linux
 # lnls559-linux  # fac-ana
 # lnls560-linux  # fac-guilherme
 # lnls561-linux  # fac-ximenes
+lnls209-linux  # fac-desktop
 lnls210-linux  # fac-alexandre
+10.0.38.44     # fac-liulin (lnls557-linux)
 
 [nfs_servers]
 lnls454-linux
