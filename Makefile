@@ -104,3 +104,6 @@ $(test_TARGETS): $(TEST_TARGET)%:
 		pip install molecule docker-py && \
 		molecule test \
 	"
+
+fac-hosts:
+	make playbook-control-room-desktops HOST_GROUPS=fac
