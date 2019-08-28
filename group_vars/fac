@@ -55,7 +55,7 @@ users:
     state: present
   - name: fernando
     comment: Fernando H. de Sá
-    password: "$6$f65yHhg479Mkl$4/t3MqK1jn5NfVKb0CDtyr6wKYnaCBQOIAwV8/DG.q1hIOBehICwkhAAM3pGfpLeoRwSgLJKyHa6R/u2vtBn//"
+    password:  "$6$$sbl9v0CFAhjRjKPRXKs1oSVKzs.8W7iUKREdc3ZQNtOl8iKdTTiklZuzIVLQ/Srg49BjMmN.yf9Uh1G13CfGF1"
     uid: 1005
     groups:
       - facs
