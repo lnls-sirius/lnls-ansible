@@ -15,7 +15,7 @@
 - add shutdown role and end of playbooks
 - implement user logout before running roles. advisable?
 - finish makefile targets that manage FAC ioc services
-- check and improve uninstall "evolution" (and other packages) it seems that other dependecy package may all be uninstalled!
+- check and improve uninstall "evolution" (and other packages) it seems that other dependecy packages may also be uninstalled!
 
 = fac hosts =
 - clone repos for development
