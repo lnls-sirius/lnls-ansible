@@ -1,0 +1,5 @@
+---
+__zabbix_packages:
+  - zabbix-agent=1:4.0.3*
+
+__zabbix_default_release: stretch-backports

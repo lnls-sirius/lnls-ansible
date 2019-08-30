@@ -1,0 +1,3 @@
+---
+__zabbix_packages:
+  - zabbix-agent=1:4.0.4*
