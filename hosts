@@ -3,11 +3,11 @@ linac-opi1
 linac-opi2
 
 [control_room]
-lnls449-linux
-lnls451-linux
-lnls452-linux
-lnls454-linux
-lnls455-linux
+#lnls449-linux
+#lnls451-linux
+#lnls452-linux
+#lnls454-linux
+lnls455-linux # (10.0.38.39)
 
 [fac]
 # lnls556-linux  # fac-fernando
@@ -18,7 +18,7 @@ lnls455-linux
 # lnls561-linux  # fac-ximenes
 lnls209-linux  # fac-desktop
 lnls210-linux  # fac-alexandre
-10.0.38.44     # fac-liulin (lnls557-linux)
+lnls557-linux  # fac-liulin (10.0.38.44)
 
 [nfs_servers]
 lnls454-linux
