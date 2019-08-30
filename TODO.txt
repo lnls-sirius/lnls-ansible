@@ -1,0 +1,23 @@
+= control-room and linac-opi hosts =
+- merge linac-opi and control-room playbooks
+- improve "Download Qt installation script". taking too long.
+- install lnls-fac repos (trackcpp, pyaccel, pymodels) in folder wit hwrite permissions.
+- delete evolution package
+- clean /usr/local/bin/sirius-*
+- clean /home/sirius/Desktop/sirius-*
+- add zabbix services role
+- configure gnome settings:
+  a. dark theme
+  b. minimization, maximization and quit actions in window decorations
+  c. add trusted flag to desktop links
+- hostname = debian. fix it?
+- add shutdown role and end of playbooks
+- implement user logout before running roles. advisable?
+- finish makefile targets that manage FAC ioc services
+- check and improve uninstall "evolution" (and other packages)
+
+= fac hosts =
+- clone repos for development
+- distribute per-user unique pair of ssh keys
+- add env variables (g-* aliases, for example)
+- install virtualbox 6.0
