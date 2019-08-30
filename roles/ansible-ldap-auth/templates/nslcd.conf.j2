@@ -1,0 +1,28 @@
+uid {{ ldap_nslcd_user[ansible_distribution].uid }}
+gid {{ ldap_nslcd_user[ansible_distribution].gid }}
+
+uri {{ ldap_uri }}
+
+base passwd {{ ldap_lookups.user.base }}
+scope passwd {{ ldap_lookups.user.scope | default('sub') }}
+filter passwd {{ ldap_nss_user_filter }}
+
+base shadow {{ ldap_lookups.user.base }}
+scope shadow {{ ldap_lookups.user.scope | default('sub') }}
+filter shadow {{ ldap_nss_user_filter }}
+
+{% if ldap_netgroup_base is defined %}
+base netgroup {{ ldap_netgroup_base }}
+scope netgroup {{ ldap_netgroup_scope | default('sub') }}
+filter netgroup {{ ldap_netgroup_filter }}
+
+{% endif %}
+{% if not (ansible_os_family == 'RedHat' and ansible_distribution_major_version == '6') %}
+nss_min_uid {{ ldap_uid_min }}
+{% endif %}
+tls_cacertfile {{ ldap_ca_path[ansible_distribution] }}
+{# seems to be a bug in libldap #}
+{% if ansible_os_family != 'Debian' %}
+tls_ciphers HIGH:TLSv1:!NULL
+{% endif %}
+ssl on
