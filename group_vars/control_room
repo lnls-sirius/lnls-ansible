@@ -9,3 +9,6 @@ sirius_apps_install_categories:
 
 # Desktop cursor size
 desktop_settings_cursor_size: 48
+
+# Import Nvidia Role
+global_import_nvidia_driver_role: true
