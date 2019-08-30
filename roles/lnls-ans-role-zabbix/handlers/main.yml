@@ -3,7 +3,7 @@
   block:
     - name: Restart Zabbix service
       systemd:
-        name: zabbix
+        name: zabbix-agent
         state: restarted
   become: true
   ignore_errors: "{{ zabbix_ignore_systemd_errors }}"
