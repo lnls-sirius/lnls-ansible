@@ -31,6 +31,8 @@ make deploy-linac-opi-desktops
   - import_role:
       name: lnls-ans-role-nfsclient
   - import_role:
+      name: lnls-ans-role-zabbix
+  - import_role:
       name: lnls-ans-role-python
   - import_role:
       name: lnls-ans-role-qt

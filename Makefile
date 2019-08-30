@@ -52,6 +52,7 @@ ROLES = lnls-ans-role-cs-studio \
 	lnls-ans-role-epics \
 	lnls-ans-role-java \
 	lnls-ans-role-nfsclient \
+	lnls-ans-role-zabbix \
 	lnls-ans-role-nfsserver \
 	lnls-ans-role-python \
 	lnls-ans-role-qt \
