@@ -1,8 +1,10 @@
 ---
-- hosts: linac_opi:fac
+- hosts: control_room
   remote_user: sirius
   become: true
   tasks:
+  - import_role:
+      name: lnls-ans-role-nvidia-driver
   - import_role:
       name: lnls-ans-role-users
   - import_role:
