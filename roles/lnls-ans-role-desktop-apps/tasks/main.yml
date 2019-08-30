@@ -39,3 +39,16 @@
   when: ansible_os_family == 'Debian'
 
 - include_tasks: setup-apps.yml
+
+# Uninstall packages
+
+- name: Uninstall evolution
+  apt:
+    name: evolution
+    state: absent
+    install_recommends: true
+  become: true
+  register: apt_packages_result
+  until: apt_packages_result is success
+  retries: 5
+  delay: 2
