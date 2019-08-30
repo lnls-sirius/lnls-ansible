@@ -27,4 +27,3 @@
     echo: false
     prompt: "Could not enable Zabbix Agent systemd service. Probably running in Docker? Continuing anyway ..."
   when: systemd_enable is failed
-
