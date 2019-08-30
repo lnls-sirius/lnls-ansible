@@ -4,4 +4,4 @@
   become: true
 
 - name: Include generic desktop playbook
-  import_playbook: playbook-desktop.yml
+  import_playbook: playbook-desktops.yml
