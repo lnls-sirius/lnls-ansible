@@ -7,7 +7,7 @@ MOLECULE_DISTRO ?= debian:buster
 export MOLECULE_DISTRO
 BUILD_TYPE ?= default
 export BUILD_TYPE
-HOST_GROUPS ?= linac_opi
+HOST_GROUPS ?= control_room:linac_opi
 REMOTE_USER ?= sirius
 ASK_FOR_PASS ?= y
 ASK_FOR_VAULT_PASS ?= y
@@ -61,6 +61,8 @@ ROLES = lnls-ans-role-cs-studio \
 
 # Playbooks
 PLAYBOOKS = playbook-control-room-desktops.yml \
+    playbook-linac-opi-desktops.yml \
+	playbook-fac-desktops.yml \
 	playbook-ctrl-service.yml \
 	playbook-nfs-servers.yml \
 	playbook-service-iocma.yml \
@@ -105,5 +107,13 @@ $(test_TARGETS): $(TEST_TARGET)%:
 		molecule test \
 	"
 
-fac-hosts:
-	make playbook-control-room-desktops HOST_GROUPS=fac
+# targets for dummies (myself & others)
+
+deploy-fac-desktops: playbook-fac-desktops.yml
+	ansible-playbook -u sirius -i hosts -l fac --ask-vault-pass -k --ask-become-pass playbook-fac-desktops.yml
+
+deploy-control-room-desktops: playbook-control-room-desktops.yml
+	ansible-playbook -u sirius -i hosts -l control_room --ask-vault-pass -k --ask-become-pass playbook-control-room-desktops.yml
+
+deploy-linac-opi-desktops: playbook-linac-opi-desktops.yml
+	ansible-playbook -u sirius -i hosts -l linac_opi --ask-vault-pass -k --ask-become-pass playbook-linac-opi-desktops.yml
