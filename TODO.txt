@@ -21,3 +21,4 @@
 - distribute per-user unique pair of ssh keys
 - add env variables (g-* aliases, for example)
 - install virtualbox 6.0
+- install adobe flash firefox plugin
