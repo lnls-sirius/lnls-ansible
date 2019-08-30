@@ -3,5 +3,6 @@
   remote_user: sirius
   become: true
 
-- name: Include generic desktop playbook
-  import_playbook: playbook-desktops.yml
+  tasks:
+    - name: Include generic desktop tasks
+      include_tasks: tasks-desktops.yml
