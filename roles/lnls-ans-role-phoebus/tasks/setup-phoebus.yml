@@ -46,7 +46,7 @@
 
 - name: Add Phoebus to the desktop menu
   copy:
-    src: skel/Desktop/Phoebus.desktop
+    src: skel/Desktop/sirius-phoebus.desktop
     dest: /usr/share/applications
     owner: root
     group: root
