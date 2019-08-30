@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=Terminal
-Icon=gnome-terminal
+Icon=/usr/share/icons/Adwaita/48x48/apps/utilities-terminal.png
 Exec=/usr/bin/gnome-terminal
 StartupNotify=true
 Terminal=false

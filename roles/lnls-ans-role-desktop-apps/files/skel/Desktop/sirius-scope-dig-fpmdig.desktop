@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=DIG\nFPMDig
-Icon=/usr/share/icons/gnome/48x48/devices/audio-card.png
+Icon=/usr/share/icons/Adwaita/48x48/devices/audio-card.png
 Exec=/bin/bash -l -c "gvncviewer scope-dig-fpmdig"
 StartupNotify=true
 Terminal=false
