@@ -5,6 +5,16 @@ LNLS Ansible
 
 This Ansible roles/playbooks for Sirius Light Source control machines.
 
+
+## Simple makefile targets:
+
+```
+make deploy-control-room-desktops
+make deploy-fac-desktops
+make deploy-linac-opi-desktops
+```
+
+
 ## Example Playbook
 
 ```yaml
