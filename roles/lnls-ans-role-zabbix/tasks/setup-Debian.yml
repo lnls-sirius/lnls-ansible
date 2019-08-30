@@ -11,7 +11,7 @@
 
 - name: Ensure Zabbix packages are installed
   apt:
-    name: "{{ zabbix_dep_packages }}"
+    name: "{{ zabbix_packages }}"
     state: present
     default_release: "{{ zabbix_default_release | default(omit) }}"
   become: true

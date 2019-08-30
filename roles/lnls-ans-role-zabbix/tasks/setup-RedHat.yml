@@ -1,7 +1,7 @@
 ---
 - name: Ensure Zabbix packages are installed
   package:
-    name: "{{ zabbix_dep_packages }}"
+    name: "{{ zabbix_packages }}"
     state: present
   become: true
   register: package_result
