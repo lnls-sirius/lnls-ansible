@@ -1,6 +1,5 @@
 = control-room and linac-opi hosts =
 - add deploy of control-system-constants to web server.
-- add zabbix services role
 - merge linac-opi and control-room playbooks
 - hostname = debian. fix it?
 - improve "Download Qt installation script". taking too long.
