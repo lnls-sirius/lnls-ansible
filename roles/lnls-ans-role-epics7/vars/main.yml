@@ -1,0 +1,2 @@
+---
+epics7_base_directory: "/opt/epics/{{ epics7_base_version }}"

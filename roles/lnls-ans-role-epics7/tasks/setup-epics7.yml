@@ -1,0 +1,16 @@
+---
+- name: Unpack EPICS 7
+  unarchive:
+    src: "{{ epics7_base_archive }}"
+    dest: /opt
+    remote_src: true
+    owner: root
+    group: root
+    creates: "{{ epics7_base_directory }}"
+
+- name: Build EPICS 7
+  make:
+    chdir: "{{ epics7_base_directory }}"
+    target: "{{ epics7_base_make_target | default('all') }}"
+    params: "{{ epics7_base_make_opts | default({}) }}"
+  become: true
