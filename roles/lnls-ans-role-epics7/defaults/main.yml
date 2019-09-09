@@ -1,5 +1,6 @@
 ---
 epics7_base_version: 7.0.3
+epics7_base_arch: linux-x86_64
 epics7_base_url: "https://epics.anl.gov/download/base"
 epics7_base_archive: "{{ epics7_base_url }}/base-{{ epics7_base_version }}.tar.gz"
 
@@ -7,7 +8,7 @@ epics7_base_archive: "{{ epics7_base_url }}/base-{{ epics7_base_version }}.tar.g
 # Omit target to run the default make target
 # epics7_base_make_target:
 epics7_base_make_opts:
-  EPICS_HOST_ARCH: linux-x86_64
+  EPICS_HOST_ARCH: "{{ epics7_base_arch }}"
 
 epics7_config_files:
   - name: EPICS 7 environment variables
