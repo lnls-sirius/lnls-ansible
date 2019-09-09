@@ -116,6 +116,7 @@ sirius_apps_mgmt:
     repo_version: master
     clone_path: /tmp
     install_via_makefile: true
+    make_install_target: install-ansible
     force_version: true
 
 # Select which categories to install. Defaults to all
