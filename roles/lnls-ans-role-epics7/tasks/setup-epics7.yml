@@ -2,7 +2,7 @@
 - name: Unpack EPICS 7
   unarchive:
     src: "{{ epics7_base_archive }}"
-    dest: /opt
+    dest: "{{ epics7_base_dest }}"
     remote_src: true
     owner: root
     group: root
