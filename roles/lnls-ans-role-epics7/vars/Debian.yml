@@ -14,7 +14,7 @@ __epics7_dep_packages:
   - libglib2.0-0
   - libglib2.0-dev
   - uuid-dev
-  - libreadline
+  - libreadline7
   - libreadline-dev
   - libusb-1.0-0-dev
   - bzip2

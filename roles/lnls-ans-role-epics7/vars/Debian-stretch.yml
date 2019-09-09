@@ -14,8 +14,8 @@ __epics7_dep_packages:
   - libglib2.0-0=2.50.3*
   - libglib2.0-dev=2.50.3*
   - uuid-dev=2.29.2*
-  - libreadline=7.0*
-  - libreadline7-dev=7.0*
+  - libreadline7=7.0*
+  - libreadline-dev=7.0*
   - libusb-1.0-0-dev=2:1.0.21*
   - bzip2=1.0.6*
   - libbz2-dev=1.0.6*
