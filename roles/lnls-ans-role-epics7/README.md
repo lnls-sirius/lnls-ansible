@@ -11,6 +11,20 @@ This Ansible role configures EPICS 7 for Sirius Light Source control machines.
 ## Role Variables
 
 ```yaml
+---
+epics7_base_version: 7.0.3
+epics7_base_url: "https://epics.anl.gov/download/base"
+epics7_base_archive: "{{ epics7_base_url }}/base-{{ epics7_base_version }}.tar.gz"
+
+# Make options
+epics7_base_make_target: all
+epics7_base_make_opts:
+  EPICS_HOST_ARCH: linux-x86_64
+
+epics7_config_files:
+  - name: EPICS 7 environment variables
+    filename: epics7.sh
+    pathname: "/etc/profile.d"
 ```
 
 ## Example Playbook
