@@ -12,4 +12,3 @@ epics7_config_files:
   - name: EPICS 7 environment variables
     filename: epics7.sh
     pathname: "/etc/profile.d"
-
