@@ -11,6 +11,6 @@
 - name: Build EPICS 7
   make:
     chdir: "{{ epics7_base_directory }}"
-    target: "{{ epics7_base_make_target | default('all') }}"
+    target: "{{ epics7_base_make_target | default(omit) }}"
     params: "{{ epics7_base_make_opts | default({}) }}"
   become: true
