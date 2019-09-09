@@ -16,5 +16,5 @@ epics7_config_files:
     pathname: "/etc/profile.d"
 
   - name: EPICS 7 ldconfig paths
-    filename: epics.conf
+    filename: epics7.conf
     pathname: "/etc/ld.so.conf.d"
