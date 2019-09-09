@@ -50,6 +50,7 @@ ROLES = lnls-ans-role-cs-studio \
 	lnls-ans-role-desktop-apps \
 	lnls-ans-role-desktop-settings \
 	lnls-ans-role-epics \
+	lnls-ans-role-epics7 \
 	lnls-ans-role-java \
 	lnls-ans-role-nfsclient \
 	lnls-ans-role-zabbix \
