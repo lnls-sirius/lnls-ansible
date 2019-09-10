@@ -12,6 +12,8 @@ __desktop_packages:
   - gvncviewer
   - xfce4
   - xfce4-goodies
+  - xdotool
+  - cups
   - ca-certificates
   - gconf2
   - libasound2
