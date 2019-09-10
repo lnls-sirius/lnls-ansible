@@ -1,7 +1,7 @@
 ---
 - import_role:
     name: lnls-ans-role-nvidia-driver
-  when: global_import_nvidia_driver_role | default(false)
+  when: global_import_nvidia_driver_role | default(false) | bool
 - import_role:
     name: lnls-ans-role-users
 - import_role:
