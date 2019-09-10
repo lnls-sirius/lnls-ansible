@@ -1,4 +1,12 @@
 ---
+- name: Ensure EPICS 7 destination path exists
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0755"
+  with_items:
+    - "{{ epics7_base_dest }}"
+
 - name: Unpack EPICS 7
   unarchive:
     src: "{{ epics7_base_archive }}"
