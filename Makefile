@@ -11,6 +11,7 @@ HOST_GROUPS ?= control_room:linac_opi
 REMOTE_USER ?= sirius
 ASK_FOR_PASS ?= y
 ASK_FOR_VAULT_PASS ?= y
+ANSIBLE_EXTRA_VARS ?=
 
 EXTRA_OPTS =
 ifneq ($(REMOTE_USER),)
@@ -38,6 +39,14 @@ ifeq ($(ASK_FOR_PASS_FILTER),true)
 else
 	EXTRA_OPTS +=
 endif
+
+ifeq ($(ANSIBLE_VARS),)
+	EXTRA_OPTS += --extra-vars "$(ANSIBLE_VARS)"
+else
+	EXTRA_OPTS +=
+endif
+
+
 
 ROLES_DIR = roles
 
@@ -111,10 +120,7 @@ $(test_TARGETS): $(TEST_TARGET)%:
 # targets for dummies (myself & others)
 
 deploy-fac-desktops: playbook-fac-desktops.yml
-	ansible-playbook -u sirius -i hosts -l fac --ask-vault-pass -k --ask-become-pass playbook-fac-desktops.yml
+	ansible-playbook -u sirius -i hosts -l fac --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) playbook-fac-desktops.yml
 
 deploy-control-room-desktops: playbook-control-room-desktops.yml
-	ansible-playbook -u sirius -i hosts -l control_room --ask-vault-pass -k --ask-become-pass playbook-control-room-desktops.yml
-
-deploy-linac-opi-desktops: playbook-linac-opi-desktops.yml
-	ansible-playbook -u sirius -i hosts -l linac_opi --ask-vault-pass -k --ask-become-pass playbook-linac-opi-desktops.yml
+	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) playbook-control-room-desktops.yml

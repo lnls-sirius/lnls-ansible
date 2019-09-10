@@ -20,3 +20,6 @@ nfs_clients_cnpem_sirius_subnet: 10.0.38.0/24
 
 # We don't care if vnc fails
 desktop_vnc_ignore_systemd_errors: true
+
+# Tag for FAC repos
+global_deploy_tag: master
