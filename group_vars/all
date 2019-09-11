@@ -23,3 +23,102 @@ desktop_vnc_ignore_systemd_errors: true
 
 # Tag for FAC repos
 global_deploy_tag: master
+
+
+# === system packages versions ===
+
+package_autofs: autofs=5.1.2*
+package_build_essential: build-essential=12.3*
+package_ca_certificates: ca-certificates=20161130*
+package_code: code=1.36.1*
+package_cups: cups=2.2.1*
+package_dconf_cli: 0.26.0*
+package_dmz_cursor_theme: dmz-cursor-theme=0.4.4*
+package_dvipng: dvipng=1.14*
+
+package_epics_dev: epics-dev=3.15.6*
+package_epics_pcas_dev: epics-pcas-dev=3.15.6*
+package_epics_perl: epics-perl=3.15.6*
+package_htop: htop=2.0.2*
+package_ipython3: ipython3=5.1.0*
+package_gconf2: gconf2=3.2.6*
+package_git: git=1:2.11.0*
+package_gvncviewer: gvncviewer=0.6.0*
+package_libasound2: libasound2=1.1.3*
+package_libbz2_dev: libbz2-dev=1.0.6*
+package_libc6_dev: libc6-dev=2.24*
+package_libdbus_1_3: libdbus-1-3=1.10.28*
+package_libffi6: libffi6=3.2.1*
+package_libffi_dev: libffi-dev=3.2.1*
+package_libfreetype6: libfreetype6=2.6.3*
+package_libfreetype6_dev: libfreetype6-dev=2.6.3*
+package_libgdbm_dev: libgdbm-dev=1.8.3*
+package_libglu1_mesa_dev: libglu1-mesa-dev=9.0.0*
+package_libgtk2.0_0: libgtk2.0-0=2.24.31*
+package_libncursesw5_dev: libncursesw5-dev=6.0+20161126*
+package_libqt5opengl5_dev: libqt5opengl5-dev=5.7.1*
+package_libreadline5: libreadline5=5.2*
+package_libreadline_dev: libreadline-dev=7.0*
+package_libsqlite3_dev: libsqlite3-dev=3.16.2*
+package_libssl_dev: libssl-dev=1.1.0k*
+package_libxss1: libxss1=1:1.2.2*
+package_nfs_common: nfs-common=1:1.3.4*
+packahe_nfs_kernel_server: nfs-kernel-server=1:1.3.4*
+package_nmap: nmap=7.40*
+package_ntp: ntp=1:4.2.8*
+package_nvidia_driver: nvidia-driver=390.116*
+package_nvidia_kernel_dkms: nvidia-kernel-dkms=390.116*
+package_openjdk_8_jdk: openjdk-8-jdk=8u222-b10*
+package_openjdk_8_jre: openjdk-8-jre=8u222-b10*
+package_openjdk_11_jdk: openjdk-11-jdk=11.0.4*
+package_openjfx: openjfx=8u141-b14*
+package_psutil: psutil=5.6.3
+package_python3_dev: python3-dev=3.5.3*
+package_python3_pip: python3-pip=9.0.1*
+package_python3_pyqt5.qtsvg: python3-pyqt5.qtsvg=5.7*
+package_python3_tk: python3-tk=3.5.3*
+package_python_pip: python-pip=9.0.1*
+package_python_setuptools: python-setuptools=33.1.1*
+package_qttools5_dev_tools: qttools5-dev-tools=5.7.1*
+package_qtbase5_dev: qtbase5-dev=5.7.1*
+package_qt5_default: qt5-default=5.7.1*
+package_qt5_qmake: qt5-qmake=5.7.1*
+package_rdesktop: rdesktop=1.8.6*
+package_remmina: remmina=1.3.3*
+package_remmina_plugin_rdp: remmina-plugin-rdp=1.3.3*
+package_remmina_plugin_secret: remmina-plugin-secret=1.3.3*
+package_sip_dev: sip-dev=4.18.1*
+package_sshpass: sshpass=1.06*
+package_swig: swig=3.0.10*
+package_tightvncserver: tightvncserver=1:1.3.9*
+package_tk_dev: tk-dev=8.6.0*
+package_unzip: unzip=6.0*
+package_vim: vim=2:8.0.0197*
+package_wait_for_it: wait-for-it=0.0~git20160501*
+package_xdotool: xdotool=1:3.20160805.1*
+package_xfce4: xfce4=4.12.3*
+package_xfce4_goodies: xfce4-goodies=4.12.3*
+package_xcursor_themes: xcursor-themes=1.0.4*
+
+
+# === pip packages ===
+
+
+package_cairocffi: cairocffi==1.0.2
+package_jupyter: jupyter==1.0.0
+package_matplotlib: matplotlib==3.0.2
+package_pandas: pandas==0.24.1
+package_pcaspy: pcaspy==0.7.1
+package_psutil: psutil==5.5.0
+package_pyepics: pyepics==3.3.1
+package_pyqtgraph: pyqtgraph==0.10.0
+package_python_nmap: python-nmap==0.6.1
+package_requests: requests==2.21.0
+package_scipy: scipy==1.2.1
+package_setuptools: setuptools==41.2.0
+package_sh: sh==1.12.14
+package_termcolor: termcolor==1.1.0
+package_wakeonlan: wakeonlan==1.1.6
+package_xlrd: xlrd==1.2.0
+package_PyQt5: PyQt5==5.13.0
+package_PyQt5_sip: PyQt5-sip==4.19.18
