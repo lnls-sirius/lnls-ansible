@@ -27,6 +27,7 @@ users:
   - name: liulin
     comment: Liu Lin
     password: "$6$f65yHhg479Mkl$4/t3MqK1jn5NfVKb0CDtyr6wKYnaCBQOIAwV8/DG.q1hIOBehICwkhAAM3pGfpLeoRwSgLJKyHa6R/u2vtBn//"
+    update_password: always
     uid: 1002
     groups:
       - facs
@@ -37,6 +38,7 @@ users:
   - name: ximenes
     comment: Ximenes R. Resende
     password: "$6$/i6Arf6mIBIQkjvx$girHQItApHK0FYpHbCwR3FjtxTZyLN8e8rATF3Wwp9cFezTVn/D.8Ym7/lqJaTNhfDLtaxzGGgKBO30S4Yf.Z/"
+    update_password: on_create
     uid: 1003
     groups:
       - facs
@@ -48,6 +50,7 @@ users:
   - name: murilo
     comment: Murilo B. Alves
     password: "$6$f65yHhg479Mkl$4/t3MqK1jn5NfVKb0CDtyr6wKYnaCBQOIAwV8/DG.q1hIOBehICwkhAAM3pGfpLeoRwSgLJKyHa6R/u2vtBn//"
+    update_password: on_create
     uid: 1004
     groups:
       - facs
@@ -59,6 +62,7 @@ users:
   - name: fernando
     comment: Fernando H. de Sá
     password:  "$6$$sbl9v0CFAhjRjKPRXKs1oSVKzs.8W7iUKREdc3ZQNtOl8iKdTTiklZuzIVLQ/Srg49BjMmN.yf9Uh1G13CfGF1"
+    update_password: on_create
     uid: 1005
     groups:
       - facs
@@ -70,6 +74,7 @@ users:
   - name: ana
     comment: Ana C. de S. Oliveira
     password: "$6$f65yHhg479Mkl$4/t3MqK1jn5NfVKb0CDtyr6wKYnaCBQOIAwV8/DG.q1hIOBehICwkhAAM3pGfpLeoRwSgLJKyHa6R/u2vtBn//"
+    update_password: on_create
     uid: 1006
     groups:
       - facs
@@ -81,6 +86,7 @@ users:
   - name: alexandre
     comment: Alexandre B. da Cruz
     password: "$6$f65yHhg479Mkl$4/t3MqK1jn5NfVKb0CDtyr6wKYnaCBQOIAwV8/DG.q1hIOBehICwkhAAM3pGfpLeoRwSgLJKyHa6R/u2vtBn//"
+    update_password: on_create
     uid: 1007
     groups:
       - facs
