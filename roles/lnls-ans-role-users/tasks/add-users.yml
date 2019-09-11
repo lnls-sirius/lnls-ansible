@@ -9,6 +9,7 @@
     shell: '{{ item.shell | default(users_default_shell) }}'
     comment: '{{ item.comment | default("Unknown User") }}'
     password: '{{ item.password | default(users_default_password) }}'
+    update_password: '{{ item.update_password | default("on_create") }}'
     home: '{{ item.home | default("/home/"+item.name) }}'
     createhome: '{{ item.createhome | default(users_create_homedirs) }}'
     system: '{{ item.system | default(omit) }}'
