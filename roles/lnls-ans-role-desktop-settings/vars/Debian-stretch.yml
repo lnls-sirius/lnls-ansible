@@ -1,8 +1,8 @@
 ---
 __desktop_settings_packages:
   - xcursor-themes
-  - dmz-cursor-theme
-  - dconf-cli
+  - "{{ package_dmz_cursor_theme }}"
+  - "{{ package_dconf_cli }}"
   - python-pip=9.0.1-2*
 
 __desktop_settings_pip_packages:

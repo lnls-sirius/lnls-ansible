@@ -1,6 +1,6 @@
 ---
 # NTP daemon package name
-ntp_daemon: ntp=1:4.2.8*
+ntp_daemon: "{{ package_ntp }}"
 
 # This is left unversioned as this package is updated
 # periodically to reflect changes made by political bodies
