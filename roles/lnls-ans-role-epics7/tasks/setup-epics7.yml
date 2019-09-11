@@ -35,4 +35,4 @@
   become: true
   with_items:
     - "{{ epics7_config_files }}"
-  when: build_epics_7 is success
+  when: build_epics_7 is success and (epics7_add_to_system_paths | bool)
