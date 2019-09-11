@@ -28,7 +28,7 @@
 
 # Workaround for ansible issue #23530
 # https://github.com/ansible/ansible/issues/23530
-- name: Set localuser for ansible, workaround for \#23530 issue
+- name: Set localuser for ansible, workaround for 23530 github issue
   set_fact:
     localuser: "{{ ansible_user }}"
 
