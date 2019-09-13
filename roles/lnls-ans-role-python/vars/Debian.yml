@@ -23,7 +23,7 @@ __python_base_packages:
 __python_packages:
   - python3-pip
   - python3-tk
-  - python-setuptools
+  # - python-setuptools
   - swig
 
 __pip_executable: pip-sirius

@@ -1,46 +1,46 @@
 ---
 __desktop_packages:
-  - rdesktop=1.8.6*
-  - htop={{ pkg_version_htop }}
-  - vim=2:8.1.0875*
-   - ipython3={{ pkg_version_ipython3 }}
-  - remmina=1.3.3*
-  - remmina-plugin-rdp=1.3.3*
-  - remmina-plugin-secret=1.3.3*
-  - code={{ packahe_code }}
-  - tightvncserver=1:1.3.9*
-  - gvncviewer=0.9.0*
-  - xfce4=4.12.5*
-  - xfce4-goodies=4.12.6*
-  - xdotool=1:3.20160805.1-*
-  - cups={{ pkg_version_cups }}
-  - ca-certificates={{ pkg_version_ca_certificates }}
-  - gconf2
-  - libasound2
-  - libgtk2.0-0
-  - libxss1
-  - libffi6
-  - libffi-dev
-  - libfreetype6
-  - libfreetype6-dev
-  - nmap
-  - dvipng={{ pkg_version_dvipng }}
-  - sshpass
-  - wait-for-it
+  - "rdesktop=1.8.6*"
+  - "htop={{ pkg_version_htop }}"
+  - "vim=2:8.1.0875*"
+  - "ipython3={{ pkg_version_ipython3 }}"
+  - "remmina=1.3.3*"
+  - "remmina-plugin-rdp=1.3.3*"
+  - "remmina-plugin-secret=1.3.3*"
+  - "code={{ packahe_code }}"
+  - "tightvncserver=1:1.3.9*"
+  - "gvncviewer={{ pkg_version_gvncviewer }}*"
+  - "xfce4=4.12.5*"
+  - "xfce4-goodies=4.12.6*"
+  - "xdotool=1:3.20160805.1-*"
+  - "cups={{ pkg_version_cups }}"
+  - "ca-certificates={{ pkg_version_ca_certificates }}"
+  - ""gconf2={{ pkg_version_gconf2 }}""
+  - "libasound2={{ pkg_version_libasound2 }}"
+  - "libgtk2.0-0"
+  - "libxss1"
+  - "libffi6"
+  - "libffi-dev"
+  - "libfreetype6"
+  - "libfreetype6-dev"
+  - "nmap"
+  - "dvipng={{ pkg_version_dvipng }}"
+  - "sshpass"
+  - "wait-for-it"
 
 __desktop_pip_packages:
-  - python-nmap=={{ pkg_version_python_nmap }}
-  - wakeonlan
-  - requests
-  - pyqtgraph=={{ pkg_version_pyqtgraph }}
-  - pandas=={{ pkg_version_pandas }}
-  - psutil=={{ pkg_version_psutil }}
-  - termcolor
-  - sh
-  - cairocffi=={{ pkg_version_cairocffi }}
-  - matplotlib=={{ pkg_version_matplotlib }}
-  - scipy
-  - jupyter=={{ pkg_version_jupyter }}
-  - xlrd
+  - "python-nmap=={{ pkg_version_python_nmap }}"
+  - "wakeonlan=={{ pkg_version_wakeonlan }}"
+  - "requests=={{ pkg_version_requests }}"
+  - "pyqtgraph=={{ pkg_version_pyqtgraph }}"
+  - "pandas=={{ pkg_version_pandas }}"
+  - "psutil=={{ pkg_version_psutil }}"
+  - "termcolor=={{ pkg_version_termcolor }}"
+  - "sh=={{ pkg_version_sh }}"
+  - "cairocffi=={{ pkg_version_cairocffi }}"
+  - "matplotlib=={{ pkg_version_matplotlib }}"
+  - "scipy=={{ pkg_version_scipy }}"
+  - "jupyter=={{ pkg_version_jupyter }}"
+  - "xlrd=={{ pkg_version_xlrd }}"
 
 __pip_executable: pip-sirius

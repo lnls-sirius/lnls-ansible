@@ -18,8 +18,8 @@ __qt_distro_packages:
   - qtbase5-dev=5.7.1*
 
 __qt_pip_packages:
-  - PyQt5==5.13.0
-  - PyQt5-sip==4.19.18
+  - "PyQt5=={{ pkg_version_PyQt5 }}"
+  - "PyQt5-sip=={{ pkg_version_PyQt5_sip }}"
 
 __python_executable: python-sirius
 
