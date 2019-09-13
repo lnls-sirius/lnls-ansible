@@ -1,6 +1,5 @@
 = control-room and linac-opi hosts =
 - add deploy of control-system-constants to web server.
-- merge linac-opi and control-room playbooks
 - hostname = debian. fix it?
 - improve "Download Qt installation script". taking too long.
 - install lnls-fac repos (trackcpp, pyaccel, pymodels) in folder wit hwrite permissions.
@@ -14,7 +13,8 @@
 - implement user logout before running roles. advisable?
 - finish makefile targets that manage FAC ioc services
 - check and improve uninstall "evolution" (and other packages) it seems that other dependecy packages may also be uninstalled!
-- configure printers
+- configure printers (cups only or "apt install task-print-server" ?)
+- add link to "python-sirius-config" (for trackcpp)
 
 = fac hosts =
 - clone repos for development
