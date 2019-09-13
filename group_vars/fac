@@ -39,7 +39,7 @@ users:
   - name: ximenes
     comment: Ximenes R. Resende
     password: "$6$/i6Arf6mIBIQkjvx$girHQItApHK0FYpHbCwR3FjtxTZyLN8e8rATF3Wwp9cFezTVn/D.8Ym7/lqJaTNhfDLtaxzGGgKBO30S4Yf.Z/"
-    update_password: on_create
+    update_password: always
     uid: 1003
     groups:
       - facs
@@ -63,7 +63,7 @@ users:
   - name: fernando
     comment: Fernando H. de Sá
     password:  "$6$$sbl9v0CFAhjRjKPRXKs1oSVKzs.8W7iUKREdc3ZQNtOl8iKdTTiklZuzIVLQ/Srg49BjMmN.yf9Uh1G13CfGF1"
-    update_password: on_create
+    update_password: always
     uid: 1005
     groups:
       - facs
