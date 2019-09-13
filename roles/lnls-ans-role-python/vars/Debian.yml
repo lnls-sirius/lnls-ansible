@@ -1,6 +1,6 @@
 ---
 # Install from source
-__python_install_from_src: false
+__python_install_from_src: true
 
 __basic_packages:
   - git
@@ -29,7 +29,7 @@ __python_packages:
 __pip_executable: pip-sirius
 
 __python_pip_packages:
-  - cairocffi=={{ pkg_version_cairocffi }}
+  - cairocffi
   - jupyter
   - setuptools
   - matplotlib

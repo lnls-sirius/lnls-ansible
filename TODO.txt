@@ -15,6 +15,7 @@
 - check and improve uninstall "evolution" (and other packages) it seems that other dependecy packages may also be uninstalled!
 - configure printers (cups only or "apt install task-print-server" ?)
 - add link to "python-sirius-config" (for trackcpp)
+- specify name of package list according to package/source selection (role python).
 
 = fac hosts =
 - clone repos for development

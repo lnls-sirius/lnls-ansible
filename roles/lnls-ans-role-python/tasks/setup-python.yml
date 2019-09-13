@@ -9,23 +9,23 @@
   retries: 5
   delay: 2
 
-- name: Check which python version installed
+- name: Check which python version is installed
   command: "which {{ python_exec }}"
   register: python_check_result
   changed_when: false
   check_mode: false
 
-- name: Check which pip version installed
+- name: Check which pip version is installed
   command: "which {{ pip_exec }}"
   register: pip_check_result
   changed_when: false
   check_mode: false
 
-# - name: Check which python-config version installed
-#   command: "which {{ python_config_exec }}"
-#   register: python_config_check_result
-#   changed_when: false
-#   check_mode: false
+- name: Check which python-config version is installed
+  command: "which {{ python_config_exec }}"
+  register: python_config_check_result
+  changed_when: false
+  check_mode: false
 
 - name: Install python symlink
   file:
@@ -41,12 +41,12 @@
     state: link
   become: true
 
-# - name: Install python-config symlink
-#   file:
-#     src: "{{ python_config_check_result.stdout }}"
-#     dest: "{{ python_config_symlink }}"
-#     state: link
-#   become: true
+- name: Install python-config symlink
+  file:
+    src: "{{ python_config_check_result.stdout }}"
+    dest: "{{ python_config_symlink }}"
+    state: link
+  become: true
 
 - name: Install Python PIP packages
   pip:
