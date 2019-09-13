@@ -1,4 +1,4 @@
 ---
 __nfs_client_packages:
   - nfs-common=1:1.3.4-*
-  - autofs=5.1.2-*
+  - autofs={{ pkg_version_autofs }}

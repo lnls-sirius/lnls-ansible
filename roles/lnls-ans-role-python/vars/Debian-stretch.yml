@@ -4,7 +4,7 @@ __python_install_from_src: true
 
 __basic_packages:
   - git=1:2.11.0*
-  - "{{ package_build_essential }}"
+  - build-essential={{ pkg_version_build_essential }}
 
 __python_dep_packages:
   - libreadline5=5.2*
@@ -31,14 +31,14 @@ __python_packages:
 __pip_executable: pip-sirius
 
 __python_pip_packages:
-  - cairocffi==1.0.2
-  - jupyter==1.0.0
+  - cairocffi=={{ pkg_version_cairocffi }}
+  - jupyter=={{ pkg_version_jupyter }}
   - setuptools==41.2.0
-  - matplotlib==3.0.2
-  - pandas==0.24.1
-  - psutil==5.5.0
-  - pyqtgraph==0.10.0
-  - python-nmap==0.6.1
+  - matplotlib=={{ pkg_version_matplotlib }}
+  - pandas=={{ pkg_version_pandas }}
+  - psutil=={{ pkg_version_psutil }}
+  - pyqtgraph=={{ pkg_version_pyqtgraph }}
+  - python-nmap=={{ pkg_version_python_nmap }}
   - requests==2.21.0
   - scipy==1.2.1
   - sh==1.12.14

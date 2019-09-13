@@ -25,7 +25,7 @@
     pip_executable: "{{ __pip_executable | default(omit) }}"
   when: pip_executable is not defined
 
-- name: Define Pip Qt5 packages
+- name: Define PIP Qt5 packages
   set_fact:
     qt_pip_packages: "{{ __qt_pip_packages | list }}"
   when: qt_pip_packages is not defined

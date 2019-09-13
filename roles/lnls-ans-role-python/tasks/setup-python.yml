@@ -21,6 +21,12 @@
   changed_when: false
   check_mode: false
 
+# - name: Check which python-config version installed
+#   command: "which {{ python_config_exec }}"
+#   register: python_config_check_result
+#   changed_when: false
+#   check_mode: false
+
 - name: Install python symlink
   file:
     src: "{{ python_check_result.stdout }}"
@@ -28,12 +34,19 @@
     state: link
   become: true
 
-- name: Install pip symlink
+- name: Install PIP symlink
   file:
     src: "{{ pip_check_result.stdout }}"
     dest: "{{ pip_symlink }}"
     state: link
   become: true
+
+# - name: Install python-config symlink
+#   file:
+#     src: "{{ python_config_check_result.stdout }}"
+#     dest: "{{ python_config_symlink }}"
+#     state: link
+#   become: true
 
 - name: Install Python PIP packages
   pip:

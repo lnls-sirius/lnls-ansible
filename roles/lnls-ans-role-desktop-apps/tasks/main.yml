@@ -15,7 +15,7 @@
     desktop_packages: "{{ __desktop_packages | list }}"
   when: desktop_packages is not defined
 
-- name: Define Desktop Pip packages
+- name: Define Desktop PIP packages
   set_fact:
     desktop_pip_packages: "{{ __desktop_pip_packages | list }}"
   when: desktop_pip_packages is not defined
