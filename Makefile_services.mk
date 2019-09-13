@@ -1,3 +1,44 @@
+# === TB PS IOC service ===
+
+
+sirius-service-ioc-tb-eth-stop:
+	@echo "Stopping TB EthPRUserial485 services in Beaglebones"
+	@echo "Please enter password for fac user."
+	ansible-playbook \
+		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
+		-l bbb_tb \
+		-u fac -k --ask-become-pass playbook-ctrl-service.yml
+
+sirius-service-ioc-tb-ps-stop:
+	@echo "Stopping TB PS IOC services"
+	@echo "Please enter password for sirius user."
+	ansible-playbook \
+		--extra-vars "ctrl_service_state=stopped" \
+		-u sirius -k --ask-become-pass playbook-service-ioc-tb-ps.yml
+
+sirius-service-ioc-tb-stop: sirius-service-ioc-tb-ps-stop sirius-service-ioc-tb-eth-stop
+
+
+sirius-service-ioc-tb-eth-start:
+	@echo "Starting TB EthPRUserial485 services in Beaglebones"
+	@echo "Please enter password for fac user."
+	ansible-playbook \
+		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
+		-l bbb_tb \
+		-u fac -k --ask-become-pass playbook-ctrl-service.yml
+
+sirius-service-ioc-tb-ps-start:
+	@echo "Starting TB PS IOC services"
+	@echo "Please enter password for sirius user."
+	ansible-playbook \
+		--extra-vars "ctrl_service_state=started" \
+		-u sirius -k --ask-become-pass playbook-service-ioc-tb-ps.yml
+
+sirius-service-ioc-tb-start: sirius-service-ioc-tb-eth-start sirius-service-ioc-tb-ps-start
+
+
+
+
 # === EthPRUserial485 service ===
 
 
@@ -125,60 +166,33 @@ sirius-service-ethserial-all-restart:
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 
-# === LINAC PS IOC service ===
+# === LI PS IOC service ===
 
 
-sirius-service-iocps-linac-stop:
-	@echo "Stopping Linac PS IOC services"
+sirius-service-ioc-li-ps-stop:
+	@echo "Stopping LI PS IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_state=stopped" \
-		-u sirius -k --ask-become-pass playbook-service-iocps-linac.yml
+		-u sirius -k --ask-become-pass playbook-service-ioc-li-ps.yml
 
-sirius-service-iocps-linac-start:
-	@echo "Starting Linac PS IOC services"
+sirius-service-ioc-li-ps-start:
+	@echo "Starting LI PS IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_state=started" \
-		-u sirius -k --ask-become-pass playbook-service-iocps-linac.yml
+		-u sirius -k --ask-become-pass playbook-service-li-ioc-ps.yml
 
-sirius-service-iocps-linac-restart:
-	@echo "Restarting Linac PS IOC services"
+sirius-service-iocps-li-ps-restart:
+	@echo "Restarting LI PS IOC services"
 	@echo "Please enter password for sirius user (twice)."
 	ansible-playbook \
 		--extra-vars "ctrl_service_state=stopped" \
-		-u sirius -k --ask-become-pass playbook-service-iocps-linac.yml
+		-u sirius -k --ask-become-pass playbook-service-ioc-li-ps.yml
 	ansible-playbook \
 		--extra-vars "ctrl_service_state=started" \
-		-u sirius -k --ask-become-pass playbook-service-iocps-linac.yml
+		-u sirius -k --ask-become-pass playbook-service-ioc-li-ps.yml
 
-
-# === PS IOC service ===
-
-
-sirius-service-iocps-stop:
-	@echo "Stopping PS IOC services"
-	@echo "Please enter password for sirius user."
-	ansible-playbook \
-		--extra-vars "ctrl_service_state=stopped" \
-		-u sirius -k --ask-become-pass playbook-service-iocps.yml
-
-sirius-service-iocps-start:
-	@echo "Starting PS IOC services"
-	@echo "Please enter password for sirius user."
-	ansible-playbook \
-		--extra-vars "ctrl_service_state=started" \
-		-u sirius -k --ask-become-pass playbook-service-iocps.yml
-
-sirius-service-iocps-restart:
-	@echo "Restartin PS IOC services"
-	@echo "Please enter password for sirius user (twice)."
-	ansible-playbook \
-		--extra-vars "ctrl_service_state=stopped" \
-		-u sirius -k --ask-become-pass playbook-service-iocps.yml
-	ansible-playbook \
-		--extra-vars "ctrl_service_state=started" \
-		-u sirius -k --ask-become-pass playbook-service-iocps.yml
 
 
 # === MA IOC service ===
