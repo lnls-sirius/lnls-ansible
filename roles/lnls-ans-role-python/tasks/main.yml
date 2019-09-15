@@ -80,9 +80,6 @@
     python_config_exec: "python{{ python_version|regex_replace('(\\d+\\.\\d+)\\..*$', '\\1') }}-config"
   when: python_config_exec is not defined
 
-- debug:
-    msg: "python_config_exec {{ python_config_exec }}"
-
 - name: Define Python install form source
   set_fact:
     python_install_from_src: "{{ __python_install_from_src | default(false) }}"
