@@ -86,11 +86,16 @@
   when: python_install_from_src is not defined
 
 - name: Check which python version is installed
-  command: "{{ python_exec }} --version|regex_replace('Python \\*(\\d+\\.\\d+\\.\\d+)', '\\1')"
+  command: "{{ python_exec }} --version"
   register: python_version_result
   failed_when: false
   changed_when: false
   check_mode: false
+
+- name: Extract python version number
+  set_fact:
+    python_installed_version: "{{ python_version_result.stdout | default('') | regex_replace('Python (\\d+\\.\\d+\\.\\d+)', '\\1') }}"
+  when: python_installed_version is not defined
 
 # Include Tasks
 
@@ -104,10 +109,16 @@
   when: ansible_os_family == 'Debian'
 
 - include_tasks: install-python-from-source.yml
-  when: python_install_from_src and (python_src_force_install or python_version_result.stdout != python_src_version)
+  when: >-
+    python_install_from_src and
+    (python_src_force_install or
+      python_installed_version != python_src_version)
 
 - include_tasks: install-python-from-apt.yml
-  when: ansible_os_family == 'Debian' and not python_install_from_src and python_version_result.stdout != python_src_version
+  when: >-
+    ansible_os_family == 'Debian' and
+      not python_install_from_src and
+      python_installed_version != python_src_version
 
 - name: Redefine Python source variables if not from source
   set_fact:
