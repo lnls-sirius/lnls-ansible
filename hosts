@@ -3,11 +3,12 @@ linac-opi1
 linac-opi2
 
 [control_room]
-#lnls449-linux
 lnls451-linux
 lnls452-linux
+#lnls455-linux # (10.0.38.39)
+#lnls449-linux
 #lnls454-linux
-lnls455-linux # (10.0.38.39)
+lnls560-linux # fac-guilherme
 
 [fac]
 # lnls556-linux  # fac-fernando
@@ -121,6 +122,11 @@ IA-20RaCtrl--CO-DCLinkCtrl  # bbb-as-dclink-ia20      -  BO-47U:PS-CH BO-47U:PS-
 bbb_tb_dipoles
 bbb_tb_quadrupoles
 bbb_tb_correctors
+
+[bbb_tb:children]
+bbb_tb_ps
+bbb_as_dclinks_tbts
+
 
 # -- BO
 

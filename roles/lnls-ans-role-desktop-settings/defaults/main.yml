@@ -12,7 +12,7 @@ desktop_settings_packages_state: present
 # Desktop install recommends
 desktop_settings_install_recommends: true
 
-# Pip packages state
+# PIP packages state
 desktop_settings_pip_packages_state: present
 
 # Desktop User

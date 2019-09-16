@@ -3,8 +3,8 @@
 __python_install_from_src: true
 
 __basic_packages:
-  - git=1:2.11.0*
-  - build-essential=12.3*
+  - "git={{ pkg_version_git }}"
+  - build-essential={{ pkg_version_build_essential }}
 
 __python_dep_packages:
   - libreadline5=5.2*
@@ -14,8 +14,8 @@ __python_dep_packages:
   - libsqlite3-dev=3.16.2-5*
   - tk-dev=8.6.0+9*
   - libgdbm-dev=1.8.3-14*
-  - libc6-dev=2.24-11*
-  - libbz2-dev=1.0.6*
+  - "libc6-dev={{ pkg_version_libc6_dev }}"
+  - "libbz2-dev={{ pkg_version_libbz2_dev }}"
 
 __python_base_packages:
   - python3-dev=3.5.3-1*
@@ -25,23 +25,23 @@ __python_base_packages:
 __python_packages:
   - python3-pip=9.0.1-2*
   - python3-tk=3.5.3*
-  - python-setuptools=33.1.1-1*
+  - "python-setuptools={{ pkg_version_apt_setuptools }}"
   - swig=3.0.10*
 
 __pip_executable: pip-sirius
 
 __python_pip_packages:
-  - cairocffi==1.0.2
-  - jupyter==1.0.0
-  - setuptools==41.2.0
-  - matplotlib==3.0.2
-  - pandas==0.24.1
-  - psutil==5.5.0
-  - pyqtgraph==0.10.0
-  - python-nmap==0.6.1
-  - requests==2.21.0
-  - scipy==1.2.1
-  - sh==1.12.14
-  - termcolor==1.1.0
-  - wakeonlan==1.1.6
-  - xlrd==1.2.0
+  - "cairocffi=={{ pkg_version_cairocffi }}"
+  - "jupyter=={{ pkg_version_jupyter }}"
+  - "setuptools=={{ pkg_version_setuptools }}"
+  - "matplotlib=={{ pkg_version_matplotlib }}"
+  - "pandas=={{ pkg_version_pandas }}"
+  - "psutil=={{ pkg_version_psutil }}"
+  - "pyqtgraph=={{ pkg_version_pyqtgraph }}"
+  - "python-nmap=={{ pkg_version_python_nmap }}"
+  - "requests=={{ pkg_version_requests }}"
+  - "scipy=={{ pkg_version_scipy }}"
+  - "sh=={{ pkg_version_sh }}"
+  - "termcolor=={{ pkg_version_termcolor }}"
+  - "wakeonlan=={{ pkg_version_wakeonlan }}"
+  - "xlrd=={{ pkg_version_xlrd }}"

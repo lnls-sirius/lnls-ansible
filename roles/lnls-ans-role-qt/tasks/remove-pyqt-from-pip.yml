@@ -1,5 +1,5 @@
 ---
-- name: Ensure no PyQt Pip versions are installed
+- name: Ensure no PyQt PIP versions are installed
   pip:
     name: "{{ item | regex_replace('==.*$', '') }}"
     state: absent

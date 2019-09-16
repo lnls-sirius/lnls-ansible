@@ -18,6 +18,8 @@ def test_repos(host, repo):
     assert repo in cmd.stdout
 
 
+# TODO: use epics version variables here?
+
 @pytest.mark.parametrize('pkg_pin', [
     ('epics-dev', '3.15'),
     ('epics-perl', 'none')

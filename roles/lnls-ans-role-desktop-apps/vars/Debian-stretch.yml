@@ -1,22 +1,22 @@
 ---
 __desktop_packages:
   - rdesktop=1.8.6*
-  - htop=2.0.2*
+  - htop={{ pkg_version_htop }}
   - vim=2:8.0.0197*
-  - ipython3=5.1.0*
+  - ipython3={{ pkg_version_ipython3 }}
   - remmina=1.3.3*
   - remmina-plugin-rdp=1.3.3*
   - remmina-plugin-secret=1.3.3*
-  - code=1.36.1*
+  - code={{ pkg_version_code }}
   - tightvncserver=1:1.3.9*
   - gvncviewer=0.6.0*
   - xfce4=4.12.3*
   - xfce4-goodies=4.12.3*
   - xdotool=1:3.20160805.1-*
-  - cups=2.*
-  - ca-certificates
-  - gconf2
-  - libasound2
+  - cups={{ pkg_version_cups }}
+  - ca-certificates={{ pkg_version_ca_certificates }}
+  - "gconf2={{ pkg_version_gconf2 }}"
+  - "libasound2={{ pkg_version_libasound2 }}"
   - libgtk2.0-0
   - libxss1
   - libffi6
@@ -24,24 +24,24 @@ __desktop_packages:
   - libfreetype6
   - libfreetype6-dev
   - nmap
-  - dvipng
+  - dvipng={{ pkg_version_dvipng }}
   - sshpass
   - wait-for-it
 
 __desktop_pip_packages:
-  - python-nmap
-  - wakeonlan
-  - requests
-  - pyqtgraph
-  - pandas
-  - psutil
-  - termcolor
-  - sh
-  - cairocffi
-  - matplotlib
-  - scipy
-  - jupyter
-  - xlrd
+  - "python-nmap=={{ pkg_version_python_nmap }}"
+  - "wakeonlan=={{ pkg_version_wakeonlan }}"
+  - "requests=={{ pkg_version_requests }}"
+  - "pyqtgraph=={{ pkg_version_pyqtgraph }}"
+  - "pandas=={{ pkg_version_pandas }}"
+  - "psutil=={{ pkg_version_psutil }}"
+  - "termcolor=={{ pkg_version_termcolor }}"
+  - "sh=={{ pkg_version_sh }}"
+  - "cairocffi=={{ pkg_version_cairocffi }}"
+  - "matplotlib=={{ pkg_version_matplotlib }}"
+  - "scipy=={{ pkg_version_scipy }}"
+  - "jupyter=={{ pkg_version_jupyter }}"
+  - "xlrd=={{ pkg_version_xlrd }}"
 
 __pip_executable: pip-sirius
 

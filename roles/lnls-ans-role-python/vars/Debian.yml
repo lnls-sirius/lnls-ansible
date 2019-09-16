@@ -1,6 +1,6 @@
 ---
 # Install from source
-__python_install_from_src: false
+__python_install_from_src: true
 
 __basic_packages:
   - git

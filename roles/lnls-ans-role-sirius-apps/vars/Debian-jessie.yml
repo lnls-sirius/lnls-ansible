@@ -1,8 +1,8 @@
 ---
 __epics_packages:
-  - epics-dev
-  - epics-perl
-  - epics-pcas-dev
+  - epics-dev={{ pkg_version_epics_dev }}
+  - epics-perl={{ pkg_version_epics_perl }}
+  - epics-pcas-dev={{ pkg_version_epics_pcas_dev }}
   - epics-extensions-dev
   - edm-dev
   - xpra
@@ -11,7 +11,7 @@ __epics_packages:
   - bc
 
 __epics_pip_packages:
-  - pyepics
-  - pcaspy
+  - pyepics=={{ pkg_version_pyepics }}
+  - pcaspy=={{ pkg_version_pcaspy }}
 
 __pip_executable: pip-sirius

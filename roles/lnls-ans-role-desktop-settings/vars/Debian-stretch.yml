@@ -1,11 +1,11 @@
 ---
 __desktop_settings_packages:
   - xcursor-themes
-  - dmz-cursor-theme
-  - dconf-cli
+  - dmz-cursor-theme={{ pkg_version_dmz_cursor_theme }}
+  - dconf-cli={{ pkg_version_dconf_cli }}
   - python-pip=9.0.1-2*
 
 __desktop_settings_pip_packages:
-  - psutil==5.6.3
+  - psutil=={{ pkg_version_psutil }}
 
 __pip_executable: pip-sirius

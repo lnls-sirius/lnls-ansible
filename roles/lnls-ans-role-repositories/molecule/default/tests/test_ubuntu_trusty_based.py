@@ -17,6 +17,7 @@ def test_repos(host, repo):
 
     assert repo in cmd.stdout
 
+# TODO: use epics version variables here?
 
 @pytest.mark.parametrize('pkg_pin', [
     ('libpcre3', 'deb8'),
