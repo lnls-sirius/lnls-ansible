@@ -5,8 +5,8 @@ linac-opi2
 [control_room]
 lnls451-linux
 lnls452-linux
-#lnls455-linux # (10.0.38.39)
-#lnls449-linux
+lnls455-linux # (10.0.38.39)
+lnls449-linux
 #lnls454-linux
 
 [fac_control_room]
