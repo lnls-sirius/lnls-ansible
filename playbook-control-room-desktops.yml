@@ -1,5 +1,5 @@
 ---
-- hosts: control_room:linac_opi
+- hosts: control_room:linac_opi:fac_control_room
   remote_user: sirius
   become: true
 
