@@ -8,7 +8,10 @@ lnls452-linux
 #lnls455-linux # (10.0.38.39)
 #lnls449-linux
 #lnls454-linux
+
+[fac_control_room]
 lnls560-linux # fac-guilherme
+lnls209-linux  # fac-desktop
 
 [fac]
 # lnls556-linux  # fac-fernando
@@ -17,7 +20,6 @@ lnls560-linux # fac-guilherme
 # lnls559-linux  # fac-ana
 # lnls560-linux  # fac-guilherme
 # lnls561-linux  # fac-ximenes
-lnls209-linux  # fac-desktop
 lnls210-linux  # fac-alexandre
 lnls557-linux  # fac-liulin (10.0.38.44)
 
