@@ -1,0 +1,10 @@
+---
+- name: Ensure EPICS 7 dependency packages are installed
+  package:
+    name: "{{ epics7_dep_packages }}"
+    state: present
+  become: true
+  register: package_result
+  until: package_result is success
+  retries: 5
+  delay: 2

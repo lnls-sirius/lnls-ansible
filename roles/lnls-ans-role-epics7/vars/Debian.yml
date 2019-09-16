@@ -1,0 +1,30 @@
+---
+__epics7_dep_packages:
+  - bzip2
+  - binutils
+  - git
+  - re2c
+  - automake
+  - autoconf
+  - make
+  - libtool
+  - curl
+  # Build tools
+  - g++
+  - libglib2.0-0
+  - libglib2.0-dev
+  - uuid-dev
+  - libreadline7
+  - libreadline-dev
+  - libusb-1.0-0-dev
+  - bzip2
+  - libbz2-dev
+  - libxml2-dev
+  - perl
+  # Perl dependencies
+  - libextutils-cchecker-perl
+  - libextutils-f77-perl
+  - libextutils-libbuilder-perl
+  - libextutils-pkgconfig-perl
+  - libextutils-xsbuilder-perl
+  - libextutils-xspp-perl

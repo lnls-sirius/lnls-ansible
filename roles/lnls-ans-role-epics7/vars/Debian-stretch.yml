@@ -1,0 +1,30 @@
+---
+__epics7_dep_packages:
+  - bzip2=1.0.6*
+  - binutils=2.28*
+  - git=1:2.11.0*
+  - re2c=0.16-2*
+  - automake=1:1.15*
+  - autoconf=2.69*
+  - make=4.1*
+  - libtool=2.4.6*
+  - curl=7.52.1*
+  # Build tools
+  - g++=4:6.3.0*
+  - libglib2.0-0=2.50.3*
+  - libglib2.0-dev=2.50.3*
+  - uuid-dev=2.29.2*
+  - libreadline7=7.0*
+  - libreadline-dev=7.0*
+  - libusb-1.0-0-dev=2:1.0.21*
+  - bzip2=1.0.6*
+  - libbz2-dev=1.0.6*
+  - libxml2-dev=2.9.4*
+  - perl=5.24.1*
+  # Perl dependencies
+  - libextutils-cchecker-perl=0.10*
+  - libextutils-f77-perl=1.20*
+  - libextutils-libbuilder-perl=0.08*
+  - libextutils-pkgconfig-perl=1.15*
+  - libextutils-xsbuilder-perl=0.28*
+  - libextutils-xspp-perl=0.1800*
