@@ -12,6 +12,9 @@ desktop_settings_packages_state: present
 # Desktop install recommends
 desktop_settings_install_recommends: true
 
+# Ignore systemd-resolved errors
+desktop_settings_ignore_systemd_resolved_errors: true
+
 # PIP packages state
 desktop_settings_pip_packages_state: present
 
