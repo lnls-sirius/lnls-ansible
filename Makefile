@@ -120,8 +120,8 @@ $(test_TARGETS): $(TEST_TARGET)%:
 
 # targets for dummies (myself & others)
 
-deploy-fac-desktops: playbook-fac-desktops.yml
+deploy-fac-desktops: playbook-fac-desktops.yml tasks-desktops.yml
 	ansible-playbook -u sirius -i hosts -l fac --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) playbook-fac-desktops.yml
 
-deploy-control-room-desktops: playbook-control-room-desktops.yml
+deploy-control-room-desktops: playbook-control-room-desktops.yml tasks-desktops.yml
 	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) playbook-control-room-desktops.yml
