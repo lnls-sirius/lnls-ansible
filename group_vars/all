@@ -47,6 +47,11 @@ pkg_version_libasound2: 1.1.3*
 pkg_version_libbz2_dev: 1.0.6*
 pkg_version_libc6_dev: 2.24*
 pkg_version_apt_setuptools: 33.1.1*
+pkg_version_epics_stream_dev: 2.8.8*
+pkg_version_epics_asyn_dev: 4.34*
+pkg_version_epics_calc_dev: 3.7.1*
+pkg_version_epics_autosave_dev: 5.9*
+pkg_version_epics_seq_dev: 2.2.6*
 
 # --- not being used yet...
 pkg_version_libdbus_1_3: libdbus-1-3=1.10.28*
@@ -107,7 +112,7 @@ pkg_version_cairocffi: 1.0.2
 pkg_version_jupyter: 1.0.0
 pkg_version_matplotlib: 3.0.2
 pkg_version_pandas: 0.24.1
-pkg_version_pcaspy: 0.7.1
+pkg_version_pcaspy: 0.7.2
 pkg_version_psutil: 5.5.0
 pkg_version_pyepics: 3.3.1
 pkg_version_pyqtgraph: 0.10.0
