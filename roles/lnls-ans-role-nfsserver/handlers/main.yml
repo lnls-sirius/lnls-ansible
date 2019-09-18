@@ -1,7 +1,7 @@
 ---
-- name: Reload NFS server systemd service
+- name: Restart NFS server systemd service
   block:
-    - name: Reload NFS server systemd service
+    - name: Restart NFS server systemd service
       systemd:
         name: autofs
         state: reloaded

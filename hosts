@@ -1,17 +1,17 @@
 [linac_opi]
-#linac-opi1
-#linac-opi2
+linac-opi1
+linac-opi2
 
 [control_room]
-#lnls451-linux
-#lnls452-linux
-#lnls455-linux # (10.0.38.39)
-#lnls449-linux
-#lnls454-linux
+lnls451-linux
+lnls452-linux
+lnls455-linux # (10.0.38.39)
+lnls449-linux
+lnls454-linux
 
 [fac_control_room]
-#lnls560-linux # fac-guilherme
-#lnls209-linux  # fac-desktop
+lnls560-linux # fac-guilherme
+lnls209-linux  # fac-desktop
 
 [fac]
 # lnls556-linux  # fac-fernando
@@ -24,7 +24,7 @@ lnls210-linux  # fac-alexandre
 lnls557-linux  # fac-liulin (10.0.38.44)
 
 [elp]
-elp-pwrsupply
+#elp-pwrsupply
 
 [nfs_servers]
 lnls454-linux

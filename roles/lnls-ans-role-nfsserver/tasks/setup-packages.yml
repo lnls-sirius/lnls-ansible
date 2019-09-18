@@ -21,7 +21,7 @@
   with_items:
     - "{{ nfs_config_files }}"
   when: apt_result is success
-  notify: Reload NFS server systemd service
+  notify: Restart NFS server systemd service
 
 - name: Enable NFS server systemd service
   systemd:
