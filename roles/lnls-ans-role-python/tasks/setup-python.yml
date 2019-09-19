@@ -58,3 +58,7 @@
   until: python_pip_packages_result is success
   retries: 5
   delay: 2
+
+- name: Install Jupyter NBExtensions
+  shell: "jupyter contrib nbextension install --system"
+  when: python_pip_packages_result is success
