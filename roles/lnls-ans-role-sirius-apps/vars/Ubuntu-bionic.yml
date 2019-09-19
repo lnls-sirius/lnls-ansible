@@ -1,5 +1,7 @@
 ---
 __sirius_apps_epics_packages:
+  - epics-extensions-dev
+  - edm-dev
   - xpra
   - xvfb
   - bc
