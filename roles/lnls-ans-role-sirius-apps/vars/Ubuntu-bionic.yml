@@ -1,7 +1,6 @@
 ---
 __sirius_apps_epics_packages:
   - xpra
-  - winswitch
   - xvfb
   - bc
 
