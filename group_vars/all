@@ -14,6 +14,9 @@ qt_src_version: 5.11.3
 # Always install pyqt from source
 pyqt_install_from_src: true
 
+# Select pyqt version, when installing from source
+pyqt_src_version: 5.11.3
+
 nfs_server_control_room: 10.128.1.3
 nfs_server_control_opi: 10.128.1.3
 
