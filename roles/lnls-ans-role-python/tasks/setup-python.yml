@@ -62,8 +62,8 @@
 - name: Check if NBExtensions is installed
   stat:
     path: /usr/local/share/jupyter/nbextensions/init_cell
-  register: nbextensions_is_installed
+  register: nbextensions_package
 
 - name: Install Jupyter NBExtensions
   command: "jupyter contrib nbextension install --system"
-  when: nbextensions_is_installed.stat.exists == False
+  when: nbextensions_package.stat.exists == False
