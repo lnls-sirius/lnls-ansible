@@ -10,12 +10,12 @@
       paths:
         - '{{ role_path }}/vars'
 
-- name: Define Nvidia repository 
+- name: Define Nvidia repository
   set_fact:
     nvidia_repository_apt: "{{ __nvidia_repository_apt | list }}"
   when: nvidia_repository_apt is not defined
 
-- name: Define Nvidia packages 
+- name: Define Nvidia packages
   set_fact:
     nvidia_packages: "{{ __nvidia_packages | list }}"
   when: nvidia_packages is not defined
