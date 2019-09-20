@@ -66,4 +66,4 @@
 
 - name: Install Jupyter NBExtensions
   command: "jupyter contrib nbextension install --system"
-  when: nbextensions_package.stat.exists == False
+  when: not nbextensions_package.stat.exists
