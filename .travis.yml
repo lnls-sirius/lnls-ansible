@@ -168,7 +168,7 @@ script:
 # jobs and can delay other builds
 branches:
   only:
-  - travis-build
+    - travis-build
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
