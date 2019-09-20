@@ -13,7 +13,7 @@
   tasks:
     - name: "Run {{ role_to_run }} role"
       include_role:
-        name : "{{ role_to_run }}"
+        name: "{{ role_to_run }}"
       vars:
         ctrl_service_name: "{{ item }}"
       with_items:
