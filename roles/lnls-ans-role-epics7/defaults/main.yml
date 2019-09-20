@@ -14,8 +14,8 @@ epics7_add_to_system_paths: false
 epics7_force_remove_system_paths: true
 
 # Make options
-# Omit target to run the default make target
-# epics7_base_make_target:
+epics7_base_make_target: -j4
+
 epics7_base_make_opts:
   EPICS_HOST_ARCH: "{{ epics7_base_arch }}"
 
