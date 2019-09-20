@@ -33,6 +33,7 @@ __pip_executable: pip-sirius
 __python_pip_packages:
   - "cairocffi=={{ pkg_version_cairocffi }}"
   - "jupyter=={{ pkg_version_jupyter }}"
+  - "jupyter-contrib-nbextensions=={{ pkg_version_jupyter_nbextensions }}"
   - "setuptools=={{ pkg_version_setuptools }}"
   - "matplotlib=={{ pkg_version_matplotlib }}"
   - "pandas=={{ pkg_version_pandas }}"
