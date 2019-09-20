@@ -38,4 +38,3 @@
         seconds: 1
         echo: false
         prompt: "Could not start systemd-resolved service. Probably not available. Continuing anyway ..."
-
