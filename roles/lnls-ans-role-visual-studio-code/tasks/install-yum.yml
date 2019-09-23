@@ -1,0 +1,22 @@
+---
+- name: install dependencies (yum)
+  become: yes
+  yum:
+    name: which
+    state: present
+
+- name: install VS Code repo (yum)
+  become: yes
+  yum_repository:
+    name: code
+    description: Visual Studio Code repo
+    file: vscode
+    baseurl: https://packages.microsoft.com/yumrepos/vscode
+    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+    gpgcheck: yes
+
+- name: install VS Code (yum)
+  become: yes
+  yum:
+    name: "{{ visual_studio_code_package }}{{ (visual_studio_code_version | length > 0) | ternary('-' + visual_studio_code_version, '') }}"
+    state: present

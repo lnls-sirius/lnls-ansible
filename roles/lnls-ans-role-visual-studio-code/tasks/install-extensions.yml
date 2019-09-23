@@ -1,0 +1,11 @@
+---
+- name: install extensions
+  become: yes
+  become_user: '{{ item.0.username }}'
+  visual_studio_code_install_extension:
+    executable: '{{ visual_studio_code_exe }}'
+    name: '{{ item.1 }}'
+  with_subelements:
+    - '{{ visual_studio_code_users }}'
+    - visual_studio_code_extensions
+    - skip_missing: yes

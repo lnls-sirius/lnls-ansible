@@ -1,0 +1,27 @@
+---
+galaxy_info:
+  author: John Freeman
+  description: Role for installing the Visual Studio Code IDE.
+  company: GantSign Ltd.
+  license: MIT
+  min_ansible_version: 2.6
+  platforms:
+    - name: EL
+      versions:
+        - 7
+    - name: Ubuntu
+      versions:
+        - xenial
+        - bionic
+    - name: Fedora
+      versions:
+        - 28
+    - name: opensuse
+      versions:
+        - 15.1
+  galaxy_tags:
+    - code
+    - editor
+    - ide
+    - development
+dependencies: []
