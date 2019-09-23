@@ -12,3 +12,11 @@ desktop_settings_cursor_size: 48
 
 # Import Nvidia Role
 global_import_nvidia_driver_role: true
+
+# Visual Studio Extensions
+visual_studio_code_users:
+  - username: sirius
+    visual_studio_code_extensions: "{{ visual_studio_code_extensions }}"
+    visual_studio_code_extensions_absent: []
+    visual_studio_code_settings: "{{ visual_studio_code_settings }}"
+    visual_studio_code_keybindings: "{{ visual_studio_code_keybindings }}"
