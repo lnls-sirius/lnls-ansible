@@ -10,6 +10,8 @@
     - '{{ visual_studio_code_users }}'
     - visual_studio_code_extensions
     - skip_missing: yes
+  loop_control:
+    label: "{{ item.0.username }} => {{ item.1 }}"
 
 - name: create settings directory
   become: yes
@@ -17,8 +19,10 @@
   file:
     path: '~{{ item.username }}/{{ visual_studio_code_config_path }}/User'
     state: directory
-    mode: 'u=rwx,go='
+    mode: 'u=rwx,go=r'
   with_items: '{{ visual_studio_code_users }}'
+  loop_control:
+    label: "{{ item.username }}"
 
 - name: write settings
   become: yes
@@ -26,10 +30,12 @@
   template:
     src: settings.json.j2
     dest: '~{{ item.username }}/{{ visual_studio_code_config_path }}/User/settings.json'
-    force: no
-    mode: 'u=rw,go='
+    force: yes
+    mode: 'u=rw,go=r'
   with_items: '{{ visual_studio_code_users }}'
   when: "item.visual_studio_code_settings is defined and item.visual_studio_code_settings not in ({}, '', None, omit)"
+  loop_control:
+    label: "{{ item.username }}"
 
 - name: write keybindings
   become: yes
@@ -37,7 +43,9 @@
   template:
     src: keybindings.json.j2
     dest: '~{{ item.username }}/{{ visual_studio_code_config_path }}/User/keybindings.json'
-    force: no
-    mode: 'u=rw,go='
+    force: yes
+    mode: 'u=rw,go=r'
   with_items: '{{ visual_studio_code_users }}'
   when: "item.visual_studio_code_keybindings is defined and item.visual_studio_code_keybindings not in ({}, '', None, omit)"
+  loop_control:
+    label: "{{ item.username }}"
