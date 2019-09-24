@@ -32,3 +32,5 @@
     name: lnls-ans-role-desktop-apps
 - import_role:
     name: lnls-ans-role-desktop-settings
+- import_role:
+    name: lnls-ans-role-visual-studio-code

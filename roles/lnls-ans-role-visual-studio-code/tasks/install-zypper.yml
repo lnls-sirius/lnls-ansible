@@ -1,0 +1,27 @@
+---
+- name: install dependencies (zypper)
+  become: yes
+  zypper:
+    name: which
+    state: present
+
+- name: install key (zypper)
+  become: yes
+  rpm_key:
+    state: present
+    key: https://packages.microsoft.com/keys/microsoft.asc
+
+- name: write repo configuration (zypper)
+  become: yes
+  template:
+    src: vscode.repo.j2
+    dest: '/etc/zypp/repos.d/vscode.repo'
+    mode: 'u=rw,go='
+    owner: root
+    group: root
+
+- name: install VS Code (zypper)
+  become: yes
+  zypper:
+    name: "{{ visual_studio_code_package }}{{ (visual_studio_code_version | length > 0) | ternary('=' + visual_studio_code_version, '') }}"
+    state: present
