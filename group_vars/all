@@ -151,43 +151,38 @@ visual_studio_code_extensions:
   - waderyan.gitblame
   - zhoufeng.pyqt-integration
 
-visual_studio_code_settings:  {
-    "editor.fontSize": 12,
-    "markdown.preview.fontSize": 12,
-    "terminal.integrated.fontSize": 12,
-    "debug.console.fontSize": 12,
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
-    "files.trimTrailingWhitespace": true,
-    "workbench.settings.openDefaultSettings": true,
-    "workbench.settings.editor": "json",
-    "workbench.settings.useSplitJSON": true,
-    "window.doubleClickIconToClose": true,
-    "search.showLineNumbers": true,
-    "git.autofetch": true,
-    "git.fetchOnPull": true,
-    "python.linting.pep8Enabled": true,
-    "python.linting.pydocstyleEnabled": true,
-    "python.linting.pylamaEnabled": true,
-    "editor.wordWrap": "wordWrapColumn",
-    "diffEditor.ignoreTrimWhitespace": false,
-    "git.inputValidationSubjectLength": 70,
-    "python.linting.pylintArgs": [
-        "--extension-pkg-whitelist=PyQt5"
-    ],
-    "editor.wrappingIndent": "indent",
-    "workbench.panel.defaultLocation": "right",
-    "editor.wordWrapColumn": 79,
-    "breadcrumbs.enabled": true,
-    "explorer.confirmDelete": false,
-    "window.zoomLevel": 0,
-    "matlab.mlintpath": "/usr/local/MATLAB/R2016b/bin/glnxa64/mlint",
-    "makefileCommandRunner.makefilePath": "/usr/bin/make",
-  }
+visual_studio_code_settings:
+  "editor.fontSize": 12
+  "markdown.preview.fontSize": 12
+  "terminal.integrated.fontSize": 12
+  "debug.console.fontSize": 12
+  "files.insertFinalNewline": true
+  "files.trimFinalNewlines": true
+  "files.trimTrailingWhitespace": true
+  "workbench.settings.openDefaultSettings": true
+  "workbench.settings.editor": "json"
+  "workbench.settings.useSplitJSON": true
+  "window.doubleClickIconToClose": true
+  "search.showLineNumbers": true
+  "git.autofetch": true
+  "git.fetchOnPull": true
+  "python.linting.pep8Enabled": true
+  "python.linting.pydocstyleEnabled": true
+  "python.linting.pylamaEnabled": true
+  "editor.wordWrap": "wordWrapColumn"
+  "diffEditor.ignoreTrimWhitespace": false
+  "git.inputValidationSubjectLength": 70
+  "python.linting.pylintArgs":
+    - "--extension-pkg-whitelist=PyQt5"
+  "editor.wrappingIndent": "indent"
+  "workbench.panel.defaultLocation": "right"
+  "editor.wordWrapColumn": 79
+  "breadcrumbs.enabled": true
+  "explorer.confirmDelete": false
+  "window.zoomLevel": 0
+  "matlab.mlintpath": "/usr/local/MATLAB/R2016b/bin/glnxa64/mlint"
+  "makefileCommandRunner.makefilePath": "/usr/bin/make"
 
-visual_studio_code_keybindings: [
-    {
-      "key": "ctrl+alt+t",
-      "command": "workbench.action.terminal.focus"
-    }
-  ]
+visual_studio_code_keybindings:
+  - "key": "ctrl+alt+t"
+    "command": "workbench.action.terminal.focus"
