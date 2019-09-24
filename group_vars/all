@@ -119,6 +119,7 @@ pkg_version_jupyter_nbextensions: 0.5.1
 pkg_version_six: 1.12.0
 pkg_version_pylama: 7.6.6
 pkg_version_pep8: 1.7.1
+pkg_version_autopep8: 1.4.3
 pkg_version_pydocstyle: 4.0.1
 pkg_version_pylint: 2.3.1
 pkg_version_matplotlib: 3.0.2

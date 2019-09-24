@@ -37,6 +37,7 @@ __python_pip_packages:
   - "six=={{ pkg_version_six }}"
   - "pylama=={{ pkg_version_pylama }}"
   - "pep8=={{ pkg_version_pep8 }}"
+  - "autopep8=={{ pkg_version_autopep8 }}"
   - "pydocstyle=={{ pkg_version_pydocstyle }}"
   - "pylint=={{ pkg_version_pylint }}"
   - "setuptools=={{ pkg_version_setuptools }}"
