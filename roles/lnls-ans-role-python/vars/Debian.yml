@@ -32,6 +32,11 @@ __python_pip_packages:
   - cairocffi
   - jupyter
   - jupyter-contrib-nbextensions
+  - six
+  - pylama
+  - pep8
+  - pydocstyle
+  - pylint
   - setuptools
   - matplotlib
   - pandas
