@@ -49,13 +49,6 @@ sirius_apps_iocs:
 
 sirius_apps_hla:
 
-  - name: PyDM Package
-    org_url: https://github.com/lnls-sirius
-    repo_name: pydm
-    repo_version: master
-    clone_path: /tmp
-    install_via_setup: true
-
   - name: High-Level Applications
     org_url: https://github.com/lnls-sirius
     repo_name: hla
