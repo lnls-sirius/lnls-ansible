@@ -11,7 +11,7 @@ __desktop_packages:
   - gvncviewer
   - xfce4
   - xfce4-goodies
-  - xdotool
+  - wmctrl
   - cups
   - ca-certificates
   - gconf2
