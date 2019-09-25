@@ -20,17 +20,6 @@
     pip_executable: "{{ __pip_executable | default(omit) }}"
   when: pip_executable is not defined
 
-- name: Install PyDM
-  pip:
-    name: "pydm=={{ pkg_version_pydm }}"
-    state: "present"
-    executable: "{{ pip_executable }}"
-  become: true
-  register: pydm_result
-  until: pydm_result is success
-  retries: 5
-  delay: 2
-
 - name: Ensure PyDM environment file is installed
   template:
     src: "{{ item.filename }}.j2"
@@ -42,6 +31,17 @@
   become: true
   with_items:
     - "{{ pydm_config_files }}"
+
+- name: Install PyDM
+  pip:
+    name: "pydm=={{ pkg_version_pydm }}"
+    state: "present"
+    executable: "{{ pip_executable }}"
+  become: true
+  register: pydm_result
+  until: pydm_result is success
+  retries: 5
+  delay: 2
 
 - name: Define Recommended PIP packages
   set_fact:
