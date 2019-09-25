@@ -1,7 +1,9 @@
 ---
 __sirius_apps_epics_packages: []
 
-__sirius_apps_epics_pip_packages: []
+__sirius_apps_epics_pip_packages:
+  - "pydm=={{ pkg_version_pydm }}"
+  - "timechart=={{ pkg_version_timechart }}"
 
 __python_executable: python-sirius
 
