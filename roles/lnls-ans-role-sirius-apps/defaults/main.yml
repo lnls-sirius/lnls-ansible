@@ -66,17 +66,6 @@ sirius_apps_iocs:
 
 sirius_apps_hla:
 
-  # - name: PyDM Package
-  #   org_url: https://github.com/lnls-sirius
-  #   repo_name: pydm
-  #   repo_version: "{{ pkg_version_pydm }}"
-  #   clone_path: /tmp
-  #   install_via_setup: true
-  #   setup_extra_args: "--no-deps"
-  #   setup_state: forcereinstall
-  #   repo_cvs: git+
-  #   force_version: true
-
   - name: High-Level Applications
     org_url: https://github.com/lnls-sirius
     repo_name: hla
@@ -88,17 +77,6 @@ sirius_apps_hla:
     make_install_opts:
       INSTALL_DESIGNER_DIR: "{{ sirius_apps_designer_dir }}"
     force_version: true
-
-  # - name: PyDM timechart Package
-  #   org_url: https://github.com/slaclab
-  #   repo_name: timechart
-  #   repo_version: "{{ pkg_version_timechart }}"
-  #   clone_path: /tmp
-  #   install_via_setup: true
-  #   setup_extra_args: "--no-deps"
-  #   setup_state: forcereinstall
-  #   repo_cvs: git+
-  #   force_version: true
 
 sirius_apps_opis:
 
