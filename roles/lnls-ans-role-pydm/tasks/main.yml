@@ -20,8 +20,7 @@
     pip_executable: "{{ __pip_executable | default(omit) }}"
   when: pip_executable is not defined
 
-# Include Tasks
-- name: Install pydm
+- name: Install PyDM
   pip:
     name: "pydm=={{ pkg_version_pydm }}"
     state: "present"
@@ -31,6 +30,18 @@
   until: pydm_result is success
   retries: 5
   delay: 2
+
+- name: Ensure PyDM environment file is installed
+  template:
+    src: "{{ item.filename }}.j2"
+    dest: "{{ item.pathname }}/{{ item.filename }}"
+    owner: root
+    group: root
+    force: true
+    mode: 0644
+  become: true
+  with_items:
+    - "{{ pydm_config_files }}"
 
 - name: Define Recommended PIP packages
   set_fact:
