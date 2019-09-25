@@ -7,9 +7,7 @@ __sirius_apps_epics_packages:
   - xvfb=2:1.19.2*
   - bc=1.06.95*
 
-__sirius_apps_epics_pip_packages:
-  - "pydm=={{ pkg_version_pydm }}"
-  - "timechart=={{ pkg_version_timechart }}"
+__sirius_apps_epics_pip_packages: []
 
 __python_executable: python-sirius
 

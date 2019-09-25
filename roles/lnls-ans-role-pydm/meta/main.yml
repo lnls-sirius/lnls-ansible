@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Lucas Russo
-  description: Ansible role to install Sirius Apps packages
+  description: Ansible role to install PyDM Package
   company: CNPEM - LNLS
   license: BSD
   min_ansible_version: 2.4
@@ -26,8 +26,6 @@ galaxy_info:
         - bionic
 
 dependencies:
-  - lnls-ans-role-users
   - lnls-ans-role-python
   - lnls-ans-role-epics
   - lnls-ans-role-qt
-  - lnls-ans-role-pydm

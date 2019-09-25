@@ -1,0 +1,8 @@
+---
+# Whether to install recommended packages. Used only for Debian/Ubuntu.
+pydm_recommended_apps_pip_install: True
+
+pydm_apps_config_files:
+  - name: PyDM environment variables
+    filename: pydm_app.sh
+    pathname: "/etc/profile.d"
