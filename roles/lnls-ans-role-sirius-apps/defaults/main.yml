@@ -92,7 +92,7 @@ sirius_apps_hla:
   # - name: PyDM timechart Package
   #   org_url: https://github.com/slaclab
   #   repo_name: timechart
-  #   repo_version: v1.2.2
+  #   repo_version: "{{ pkg_version_timechart }}"
   #   clone_path: /tmp
   #   install_via_setup: true
   #   setup_extra_args: "--no-deps"
