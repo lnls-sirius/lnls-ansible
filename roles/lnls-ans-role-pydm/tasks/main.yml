@@ -20,45 +20,10 @@
     pip_executable: "{{ __pip_executable | default(omit) }}"
   when: pip_executable is not defined
 
-- name: Ensure PyDM environment file is installed
-  template:
-    src: "{{ item.filename }}.j2"
-    dest: "{{ item.pathname }}/{{ item.filename }}"
-    owner: root
-    group: root
-    force: true
-    mode: 0644
-  become: true
-  with_items:
-    - "{{ pydm_config_files }}"
-
-- name: Install PyDM
-  pip:
-    name: "pydm=={{ pkg_version_pydm }}"
-    state: "present"
-    executable: "{{ pip_executable }}"
-  become: true
-  register: pydm_result
-  until: pydm_result is success
-  retries: 5
-  delay: 2
-
 - name: Define Recommended PIP packages
   set_fact:
-    pydm_recommended_apps_pip: "{{ __pydm_recommended_apps_pip | list }}"
-  when: pydm_recommended_apps_pip is not defined and
-        pydm_recommended_apps_pip_install is defined and
-        (pydm_recommended_apps_pip_install | bool)
+    pydm_recommended_apps_pip: "{{ __pydm_recommended_apps_pip | default([]) | list }}"
+  when: pydm_recommended_apps_pip is not defined
 
-- name: Install Recommended PIP packages
-  pip:
-    name: "{{ pydm_recommended_apps_pip }}"
-    state: "present"
-    executable: "{{ pip_executable }}"
-  become: true
-  register: pydm_recommended_apps_result
-  when: pydm_recommended_apps_pip_install is defined and
-        (pydm_recommended_apps_pip_install | bool)
-  until: pydm_recommended_apps_result is success
-  retries: 5
-  delay: 2
+# Setup/install tasks
+- include_tasks: setup-pydm.yml

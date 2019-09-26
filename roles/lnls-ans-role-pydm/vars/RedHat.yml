@@ -1,6 +1,6 @@
 ---
 __pydm_recommended_apps_pip:
-  - "timechart=={{ pkg_version_timechart }}"
+  - "timechart{{ (pkg_version_timechart | length > 0) | ternary('==' + pkg_version_timechart, '') }}"
 
 __python_executable: python-sirius
 
