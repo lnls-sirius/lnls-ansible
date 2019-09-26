@@ -23,7 +23,7 @@ verifier:
 driver:
   name: docker
 platforms:
-  - name: lnls-ans-role-sirius-apps-instance
+  - name: lnls-ans-role-pydm-instance
     image: "${MOLECULE_DISTRO:-debian:stretch}"
     command: ${MOLECULE_DOCKER_COMMAND:-'bash -c "while true; do sleep 10000; done"'}
     volumes:

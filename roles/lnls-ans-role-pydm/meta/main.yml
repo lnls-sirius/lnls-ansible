@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  author: Lucas Russo
+  author: Fernando H. de Sá
   description: Ansible role to install PyDM Package
   company: CNPEM - LNLS
   license: BSD
