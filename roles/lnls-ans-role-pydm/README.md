@@ -12,8 +12,11 @@ This Ansible role configures some defaults PyDM for Sirius Light Source control 
 
 ```yaml
 ---
-# Select whether to install recommended apps.
+    # Select whether to install recommended apps.
     pydm_recommended_apps_pip_install: True
+
+    # Select whether pydm should be present
+    pydm_state: "present"
 ```
 
 ## Example Playbook
