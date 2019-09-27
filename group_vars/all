@@ -31,7 +31,7 @@ desktop_vnc_ignore_systemd_errors: true
 global_deploy_tag: master
 
 
-# === system packages versions ===
+# === apt packages versions ===
 
 pkg_version_autofs: 5.1.2*
 pkg_version_build_essential: 12.3*
@@ -139,6 +139,8 @@ pkg_version_wakeonlan: 1.1.6
 pkg_version_xlrd: 1.2.0
 pkg_version_PyQt5: 5.13.0
 pkg_version_PyQt5_sip: 4.19.18
+pkg_version_pydm: 1.7.3
+pkg_version_timechart: 1.2.2
 
 
 # === Visual Studio Extensions ===
