@@ -1,3 +1,14 @@
+- name: Install PyDM
+  pip:
+    name: "pydm{{ (pkg_version_pydm | length > 0) | ternary('==' + pkg_version_pydm, '') }}"
+    state: "{{ pydm_state }}"
+    executable: "{{ pip_executable }}"
+  become: true
+  register: pydm_result
+  until: pydm_result is success
+  retries: 5
+  delay: 2
+
 - name: Ensure PyDM environment file is installed
   template:
     src: "{{ item.filename }}.j2"
@@ -9,17 +20,6 @@
   become: true
   with_items:
     - "{{ pydm_config_files }}"
-
-- name: Install PyDM
-  pip:
-    name: "pydm{{ (pkg_version_pydm | length > 0) | ternary('==' + pkg_version_pydm, '') }}"
-    state: "{{ pydm_state }}"
-    executable: "{{ pip_executable }}"
-  become: true
-  register: pydm_result
-  until: pydm_result is success
-  retries: 5
-  delay: 2
 
 - name: Install Recommended PIP packages
   pip:
