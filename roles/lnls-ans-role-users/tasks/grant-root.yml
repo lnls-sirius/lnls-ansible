@@ -9,7 +9,7 @@
     dest: /etc/sudoers
     state: present
     regexp: '^%{{ root_group }}'
-    line: '%{{ root_group }} ALL=(ALL) NOPASSWD: ALL'
+    line: '%{{ root_group }} ALL=(ALL:ALL) ALL'
     validate: visudo -cf %s
 
 - name: Add sudoers users to {{ root_group }} group
