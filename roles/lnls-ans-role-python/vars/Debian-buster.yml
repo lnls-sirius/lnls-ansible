@@ -7,15 +7,16 @@ __basic_packages:
   - "build-essential={{ pkg_version_build_essential }}"
 
 __python_dep_packages:
-  - "libreadline5=5.2*"
-  - "libreadline-dev=7.0-5*"
-  - "libncursesw5-dev=6.1+20181013-2*"
-  - "libssl-dev=1.1.1c-1*"
+  - "libreadline5=5.2*""
+  - "libreadline-dev=7.0-5*""
+  - "libncursesw5-dev=6.1*""
+  - "libssl-dev=1.1.1*""
   - "libsqlite3-dev=3.27.2-3*"
   - "tk-dev=8.6.9+1*"
   - "libgdbm-dev=1.18.1-4*"
   - "libc6-dev={{ pkg_version_libc6_dev }}"
   - "libbz2-dev={{ pkg_version_libbz2_dev }}"
+
 
 __python_base_packages:
   - python3-dev=3.7.3-1*

@@ -7,13 +7,13 @@ __basic_packages:
   - build-essential={{ pkg_version_build_essential }}
 
 __python_dep_packages:
-  - libreadline5=5.2*
-  - libreadline-dev=7.0-3*
-  - libncursesw5-dev=6.0+20161126-1*
-  - libssl-dev=1.1.0k-1*
-  - libsqlite3-dev=3.16.2-5*
-  - tk-dev=8.6.0+9*
-  - libgdbm-dev=1.8.3-14*
+  - "libreadline5=5.2*"
+  - "libreadline-dev=7.0-3*"
+  - "libncursesw5-dev=6.0*"
+  - "libssl-dev=1.1.0*"
+  - "libsqlite3-dev=3.16.2*"
+  - "tk-dev=8.6.0*"
+  - "libgdbm-dev=1.8.3*"
   - "libc6-dev={{ pkg_version_libc6_dev }}"
   - "libbz2-dev={{ pkg_version_libbz2_dev }}"
 
