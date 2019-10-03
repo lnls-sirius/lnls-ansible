@@ -7,10 +7,10 @@ __basic_packages:
   - "build-essential={{ pkg_version_build_essential }}"
 
 __python_dep_packages:
-  - "libreadline5=5.2*""
-  - "libreadline-dev=7.0-5*""
-  - "libncursesw5-dev=6.1*""
-  - "libssl-dev=1.1.1*""
+  - "libreadline5=5.2*"
+  - "libreadline-dev=7.0-5*"
+  - "libncursesw5-dev=6.1*"
+  - "libssl-dev=1.1.1*"
   - "libsqlite3-dev=3.27.2-3*"
   - "tk-dev=8.6.9+1*"
   - "libgdbm-dev=1.18.1-4*"
