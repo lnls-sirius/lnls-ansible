@@ -15,6 +15,10 @@
   set_fact:
     repo_install_chdir: "{{ item.install_chdir | default('') }}"
 
+- name: "Define {{ item.repo_name }} egg name variable"
+  set_fact:
+    repo_egg_name: "{{ item.install_chdir | default(item.repo_name) }}"
+
 - name: "Install {{ item.repo_name }} via Makefile"
   make:
     chdir: "{{ item.clone_path }}/{{ item.repo_name }}/{{ repo_install_chdir }}"
@@ -31,7 +35,7 @@
       {{ item.repo_cvs | default('git+') }}\
       {{ item.org_url }}/{{ item.repo_name }}@\
       {{ item.repo_version | default('master') }}#\
-      egg={{ item.repo_name }}&\
+      egg={{ repo_egg_name }}&\
       subdirectory={{ repo_install_chdir }}"
     state: "{{ item.setup_state | default(omit) }}"
     executable: "{{ pip_executable }}"
