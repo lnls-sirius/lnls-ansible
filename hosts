@@ -26,6 +26,9 @@ elp-pwrsupply
 lnls210-linux  # fac-alexandre
 lnls557-linux  # fac-liulin (10.0.38.44)
 
+[rfq]
+10.15.0.189  # lnls627-linux (RF laptop)
+
 [fac_servers]
 lnlsfac-vm  # (vm: 10.128.255.8) (host: 10.128.255.3)
 
