@@ -20,6 +20,6 @@ galaxy_info:
         - bionic
 
 dependencies:
-  - lnls-ans-role-java
-  - lnls-ans-role-python
-  - lnls-ans-role-phoebus
+  # - lnls-ans-role-java
+  # - lnls-ans-role-python
+  # - lnls-ans-role-phoebus
