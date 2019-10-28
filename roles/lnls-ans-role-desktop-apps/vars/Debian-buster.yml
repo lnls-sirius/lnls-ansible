@@ -28,9 +28,11 @@ __desktop_packages:
   - "wait-for-it"
 
 __desktop_pip_packages:
+  - "python-dateutil=={{ pkg_version_python_dateutil }}"
   - "python-nmap=={{ pkg_version_python_nmap }}"
   - "wakeonlan=={{ pkg_version_wakeonlan }}"
   - "requests=={{ pkg_version_requests }}"
+  - "numpy=={{ pkg_version_numpy }}"
   - "pyqtgraph=={{ pkg_version_pyqtgraph }}"
   - "pandas=={{ pkg_version_pandas }}"
   - "psutil=={{ pkg_version_psutil }}"

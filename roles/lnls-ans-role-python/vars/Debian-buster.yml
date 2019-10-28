@@ -32,9 +32,11 @@ __python_packages:
 __pip_executable: pip-sirius
 
 __python_pip_packages:
+  - "python-dateutil=={{ pkg_version_python_dateutil }}"
   - "cairocffi=={{ pkg_version_cairocffi }}"
   - "jupyter=={{ pkg_version_jupyter }}"
   - "jupyter-contrib-nbextensions=={{ pkg_version_jupyter_nbextensions }}"
+  - "numpy=={{ pkg_version_numpy }}"
   - "six=={{ pkg_version_six }}"
   - "pylama=={{ pkg_version_pylama }}"
   - "pep8=={{ pkg_version_pep8 }}"
