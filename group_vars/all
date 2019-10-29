@@ -114,7 +114,7 @@ pkg_version_xcursor_themes: xcursor-themes=1.0.4*
 
 # === pip packages ===
 
-pkg_version_python_dateutil==2.6.1
+pkg_version_python_dateutil: 2.6.1
 pkg_version_cairocffi: 1.0.2
 pkg_version_jupyter: 1.0.0
 pkg_version_jupyter_nbextensions: 0.5.1
