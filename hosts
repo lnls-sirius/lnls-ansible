@@ -14,7 +14,7 @@ lnls560-linux # fac-guilherme
 lnls209-linux  # fac-desktop
 
 [elp]
-elp-pwrsupply
+elp1-linux
 
 [fac]
 # lnls556-linux  # fac-fernando
