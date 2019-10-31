@@ -16,6 +16,7 @@
 - configure printers (cups only or "apt install task-print-server" ?)
 - add link to "python-sirius-config" (for trackcpp)
 - specify name of package list according to package/source selection (role python).
+- create role for python2.7 with numpy and pcaspy (linac PS ioc)
 
 = fac hosts =
 - clone repos for development

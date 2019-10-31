@@ -12,7 +12,7 @@ __qt_distro_packages:
   - "qt5-default=5.7.1*"
   - "qttools5-dev-tools=5.7.1*"
   - "sip-dev=4.18.1*"
-  - "python3-pyqt5.qtsvg=5.7*"
+  - "python3-pyqt5.qtsvg={{ pkg_version_python3_pyqt5_qtsvg }}"
   - "libqt5opengl5-dev={{ pkg_version_libqt5opengl5_dev }}"
   - "qt5-qmake=5.7.1*"
   - "qtbase5-dev=5.7.1*"
