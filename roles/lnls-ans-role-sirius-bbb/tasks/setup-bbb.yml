@@ -1,0 +1,23 @@
+---
+- name: Clone and Install Applications
+  include_tasks: clone-install-app.yml
+  with_items:
+    - "{{ sirius_bbb }}"
+  when:
+    - sirius_bbb is defined and
+      sirius_bbb | length > 0
+
+- name: Ensure Sirius Apps environment is installed
+  template:
+    src: "{{ item.filename }}.j2"
+    dest: "{{ item.pathname }}/{{ item.filename }}"
+    owner: root
+    group: root
+    force: true
+    mode: 0644
+  become: true
+  with_items:
+    - "{{ sirius_bbb_config_files }}"
+  when:
+    - sirius_bbb is defined and
+      sirius_bbb | length > 0
