@@ -1,4 +1,12 @@
 ---
+# Package state; use 'present' to make sure it's installed, or 'latest' if
+# you want to upgrade or switch versions using a new repo.
+sirius_bbb_packages_state: present
+
+# PIP package state; use 'present' to make sure it's installed, or 'latest' if
+# you want to upgrade or switch versions using a new repo.
+sirius_bbb_pip_packages_state: present
+
 # Sirius BBB EDM screens
 sirius_bbb_edm_dir: /usr/local/share/edm/data/bbb
 
