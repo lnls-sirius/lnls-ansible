@@ -1,0 +1,8 @@
+#!/bin/sh
+
+export RESOLUTION_Y=`xrandr | sed -n -e 's/Screen 0:.*current \([0-9]\+\) x \([0-9]\+\).*/\2/p'`
+if [ $RESOLUTION_Y -gt 2000 ]; then
+    run_scaled.sh --opengl=no iGp_display "$@"
+else
+    iGp_display "$@"
+fi

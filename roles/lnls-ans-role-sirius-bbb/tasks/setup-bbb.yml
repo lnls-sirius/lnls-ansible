@@ -42,3 +42,11 @@
     mode: 0755
   with_items:
     - "{{ users }}"
+
+- name: Ensure wrapper BbB launcher script is installed
+  copy:
+    src: "{{ item }}"
+    dest: "{{ sirius_bbb_bin_dir }}"
+    mode: 0755
+  with_items:
+    - sirius-hla-bbb-launcher.sh
