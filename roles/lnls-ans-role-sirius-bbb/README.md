@@ -12,6 +12,52 @@ This Ansible role configures Bunch-by-Bunch Feedback system for Sirius Light Sou
 
 ```yaml
 ---
+# Package state; use 'present' to make sure it's installed, or 'latest' if
+# you want to upgrade or switch versions using a new repo.
+sirius_bbb_packages_state: present
+
+# PIP package state; use 'present' to make sure it's installed, or 'latest' if
+# you want to upgrade or switch versions using a new repo.
+sirius_bbb_pip_packages_state: present
+
+# Whether to install recommended packages. Used only for Debian/Ubuntu.
+sirius_bbb_install_recommends: true
+
+# Repository version
+sirius_bbb_version: master
+
+# Sirius BBB EDM screens
+sirius_bbb_edm_dir: /usr/local/share/edm/data/bbb
+
+# Sirius BBB bin destination directories
+sirius_bbb_bin_dir: /usr/local/bin
+
+# Sirius BBB IGPTOP variable
+sirius_bbb_igp_top_dir: "{{ sirius_bbb_edm_dir }}"
+
+# Groups of packages
+sirius_bbb_opis:
+
+  - name: OPIs
+    org_url: https://gitlab.cnpem.br/DIG
+    repo_name: bbb-igp12-sw
+    repo_version: "{{ sirius_bbb_version | default(master) }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    make_install_target: install
+    make_install_opts:
+      INSTALL_EDM_DIR: "{{ sirius_bbb_edm_dir }}"
+      INSTALL_BIN_DIR: "{{ sirius_bbb_bin_dir }}"
+    force_version: true
+
+# Select which categories to install. Defaults to all
+sirius_bbb_install_categories:
+  - sirius_bbb_opis
+
+sirius_bbb_config_files:
+  - name: Sirius BbB environment variables
+    filename: sirius-bbb.sh
+    pathname: "/etc/profile.d"
 ```
 
 ## Example Playbook
