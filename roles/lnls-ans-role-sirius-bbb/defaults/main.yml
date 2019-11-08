@@ -51,5 +51,5 @@ sirius_bbb_config_files:
     pathname: "/etc/profile.d"
 
   - name: Sirius BbB launcher script
-    filename: sirius_bbb.sh
-    pathname: "{{ sirius_bbb_cfg_dir }}"
+    filename: sirius-hla-bbb-launcher.sh
+    pathname: "{{ sirius_bbb_bin_dir }}"
