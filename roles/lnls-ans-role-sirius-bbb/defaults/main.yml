@@ -19,6 +19,9 @@ sirius_bbb_edm_dir: /usr/local/share/edm/data/bbb
 # Sirius BBB bin destination directories
 sirius_bbb_bin_dir: /usr/local/bin
 
+# Sirius BBB config destination directories
+sirius_bbb_cfg_dir: /usr/local/share/bbb
+
 # Sirius BBB IGPTOP variable
 sirius_bbb_igp_top_dir: "{{ sirius_bbb_edm_dir }}"
 
@@ -35,6 +38,7 @@ sirius_bbb_opis:
     make_install_opts:
       INSTALL_EDM_DIR: "{{ sirius_bbb_edm_dir }}"
       INSTALL_BIN_DIR: "{{ sirius_bbb_bin_dir }}"
+      INSTALL_EDM_CFG_DIR: "{{ sirius_bbb_cfg_dir }}"
     force_version: true
 
 # Select which categories to install. Defaults to all
@@ -45,3 +49,7 @@ sirius_bbb_config_files:
   - name: Sirius BbB environment variables
     filename: sirius_bbb.sh
     pathname: "/etc/profile.d"
+
+  - name: Sirius BbB launcher script
+    filename: sirius_bbb.sh
+    pathname: "{{ sirius_bbb_cfg_dir }}"
