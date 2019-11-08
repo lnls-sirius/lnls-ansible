@@ -56,7 +56,7 @@ sirius_bbb_install_categories:
 
 sirius_bbb_config_files:
   - name: Sirius BbB environment variables
-    filename: sirius-bbb.sh
+    filename: sirius_bbb.sh
     pathname: "/etc/profile.d"
 ```
 
