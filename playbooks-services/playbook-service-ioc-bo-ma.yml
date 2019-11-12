@@ -1,0 +1,32 @@
+---
+- hosts: ioc_bo_ps_srv
+  remote_user: sirius
+
+  vars:
+    role_to_run: lnls-ans-role-ctrl-service
+    services_to_run:
+      - sirius-ioc-bo-ma-dipoles.service
+      - sirius-ioc-bo-ma-quadrupoles.service
+      - sirius-ioc-bo-ma-sextupoles.service
+      - sirius-ioc-bo-ma-correctors-ia01
+      - sirius-ioc-bo-ma-correctors-ia02
+      - sirius-ioc-bo-ma-correctors-ia04
+      - sirius-ioc-bo-ma-correctors-ia05
+      - sirius-ioc-bo-ma-correctors-ia07
+      - sirius-ioc-bo-ma-correctors-ia08
+      - sirius-ioc-bo-ma-correctors-ia10
+      - sirius-ioc-bo-ma-correctors-ia11
+      - sirius-ioc-bo-ma-correctors-ia13
+      - sirius-ioc-bo-ma-correctors-ia14
+      - sirius-ioc-bo-ma-correctors-ia16
+      - sirius-ioc-bo-ma-correctors-ia17
+      - sirius-ioc-bo-ma-correctors-ia20
+
+  tasks:
+    - name: "Run {{ role_to_run }} role"
+      include_role:
+        name: "{{ role_to_run }}"
+      vars:
+        ctrl_service_name: "{{ item }}"
+      with_items:
+        - "{{ services_to_run }}"
