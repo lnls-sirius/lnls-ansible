@@ -1,0 +1,56 @@
+---
+- hosts: ioc_si_ps_corrs_srv
+  remote_user: sirius
+
+  vars:
+    role_to_run: lnls-ans-role-ctrl-service
+    services_to_run:
+      - sirius-ioc-si-ma-correctors-c2m12-ia01.service
+      - sirius-ioc-si-ma-correctors-c2m12-ia02.service
+      - sirius-ioc-si-ma-correctors-c2m12-ia03.service
+      - sirius-ioc-si-ma-correctors-c2m12-ia04.service
+      - sirius-ioc-si-ma-correctors-c2m12-ia05.service
+      - sirius-ioc-si-ma-correctors-c2m12-ia06.service
+      - sirius-ioc-si-ma-correctors-c2m12-ia07.service
+      - sirius-ioc-si-ma-correctors-c2m12-ia08.service
+      - sirius-ioc-si-ma-correctors-c2m12-ia09.service
+      - sirius-ioc-si-ma-correctors-c2m12-ia10.service
+      - sirius-ioc-si-ma-correctors-c2m12-ia11.service
+      - sirius-ioc-si-ma-correctors-c2m12-ia12.service
+      - sirius-ioc-si-ma-correctors-c2m12-ia13.service
+      - sirius-ioc-si-ma-correctors-c2m12-ia14.service
+      - sirius-ioc-si-ma-correctors-c2m12-ia15.service
+      - sirius-ioc-si-ma-correctors-c2m12-ia16.service
+      - sirius-ioc-si-ma-correctors-c2m12-ia17.service
+      - sirius-ioc-si-ma-correctors-c2m12-ia18.service
+      - sirius-ioc-si-ma-correctors-c2m12-ia19.service
+      - sirius-ioc-si-ma-correctors-c2m12-ia20.service
+      - sirius-ioc-si-ma-correctors-c1234-ia01.service
+      - sirius-ioc-si-ma-correctors-c1234-ia02.service
+      - sirius-ioc-si-ma-correctors-c1234-ia03.service
+      - sirius-ioc-si-ma-correctors-c1234-ia04.service
+      - sirius-ioc-si-ma-correctors-c1234-ia05.service
+      - sirius-ioc-si-ma-correctors-c1234-ia06.service
+      - sirius-ioc-si-ma-correctors-c1234-ia07.service
+      - sirius-ioc-si-ma-correctors-c1234-ia08.service
+      - sirius-ioc-si-ma-correctors-c1234-ia09.service
+      - sirius-ioc-si-ma-correctors-c1234-ia10.service
+      - sirius-ioc-si-ma-correctors-c1234-ia11.service
+      - sirius-ioc-si-ma-correctors-c1234-ia12.service
+      - sirius-ioc-si-ma-correctors-c1234-ia13.service
+      - sirius-ioc-si-ma-correctors-c1234-ia14.service
+      - sirius-ioc-si-ma-correctors-c1234-ia15.service
+      - sirius-ioc-si-ma-correctors-c1234-ia16.service
+      - sirius-ioc-si-ma-correctors-c1234-ia17.service
+      - sirius-ioc-si-ma-correctors-c1234-ia18.service
+      - sirius-ioc-si-ma-correctors-c1234-ia19.service
+      - sirius-ioc-si-ma-correctors-c1234-ia20.service
+
+  tasks:
+    - name: "Run {{ role_to_run }} role"
+      include_role:
+        name: "{{ role_to_run }}"
+      vars:
+        ctrl_service_name: "{{ item }}"
+      with_items:
+        - "{{ services_to_run }}"
