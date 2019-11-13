@@ -1,0 +1,44 @@
+---
+- name: Clone and Install Applications
+  include_tasks: clone-install-app.yml
+  with_items:
+    - "{{ sirius_bbb }}"
+  when:
+    - sirius_bbb is defined and
+      sirius_bbb | length > 0
+
+- name: Ensure Sirius Apps environment is installed
+  template:
+    src: "{{ item.filename }}.j2"
+    dest: "{{ item.pathname }}/{{ item.filename }}"
+    owner: root
+    group: root
+    force: true
+    mode: "{{ item.mode | default(0644) }}"
+  become: true
+  with_items:
+    - "{{ sirius_bbb_config_files }}"
+  when:
+    - sirius_bbb is defined and
+      sirius_bbb | length > 0
+
+- name: Add BbB to the desktop menu
+  copy:
+    src: "skel/Desktop/"
+    dest: /usr/share/applications
+    owner: root
+    group: root
+    mode: 0644
+
+# This depends on the User's role. As the user module will not update the user
+# directory with the /etc/skel contents if it's already created, just copy them
+# manually
+- name: Ensure files are copied to each user's home
+  copy:
+    src: "skel/"
+    dest: "/home/{{ item.name }}"
+    owner: "{{ item.name | default(omit) }}"
+    group: "{{ item.name | default(omit) }}"
+    mode: 0755
+  with_items:
+    - "{{ users }}"
