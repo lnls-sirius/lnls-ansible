@@ -13,6 +13,19 @@ desktop_settings_cursor_size: 24
 # Import Nvidia Role
 global_import_nvidia_driver_role: false
 
+# Lists of users to create or delete
+users:
+  - name: sirius
+    password: "$6$f65yHhg479Mkl$4/t3MqK1jn5NfVKb0CDtyr6wKYnaCBQOIAwV8/DG.q1hIOBehICwkhAAM3pGfpLeoRwSgLJKyHa6R/u2vtBn//"
+    # how to generate: ansible all -i localhost, -m debug -a "msg={{ 'mypassword' | password_hash('sha512', 'mysecretsalt') }}"
+    update_password: always
+    comment: Sirius
+    uid: 1001
+    root: true
+    dirs_in_home:
+      - "iocs-log"
+    state: present
+
 # Visual Studio Extensions
 visual_studio_code_users:
   - username: sirius
