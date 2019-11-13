@@ -1,3 +1,33 @@
+# === AS AP IOC services ===
+
+service-ioc-as-ap-stop:
+	@echo "Stopping AS AP IOC services"
+	@echo "Please enter password for sirius user."
+	ansible-playbook \
+		--extra-vars "ctrl_service_state=stopped" \
+		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-as-ap.yml
+
+service-ioc-as-ap-start:
+	@echo "Starting AS AP IOC services"
+	@echo "Please enter password for sirius user."
+	ansible-playbook \
+		--extra-vars "ctrl_service_state=started" \
+		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-as-ap.yml
+
+service-ioc-as-ap-sofb-stop:
+	@echo "Stopping AS AP SOFB IOC services"
+	@echo "Please enter password for sirius user."
+	ansible-playbook \
+		--extra-vars "ctrl_service_state=stopped" \
+		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-as-ap-sofb.yml
+
+service-ioc-as-ap-sofb-start:
+	@echo "Starting AS AP SOFB IOC services"
+	@echo "Please enter password for sirius user."
+	ansible-playbook \
+		--extra-vars "ctrl_service_state=started" \
+		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-as-ap-sofb.yml
+
 
 # === EthPRUserial485 services ===
 
