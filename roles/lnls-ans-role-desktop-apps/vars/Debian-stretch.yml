@@ -26,6 +26,8 @@ __desktop_packages:
   - "dvipng={{ pkg_version_dvipng }}"
   - "sshpass"
   - "wait-for-it"
+  - "libgsl2={{ pkg_version_libgsl2 }}"
+  - "libgsl-dev={{ pkg_version_libgsl_dev }}"
 
 __desktop_pip_packages:
   - "python-nmap=={{ pkg_version_python_nmap }}"

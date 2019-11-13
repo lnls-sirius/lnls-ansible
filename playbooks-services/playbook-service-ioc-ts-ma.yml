@@ -1,14 +1,14 @@
 ---
-- hosts: lnls560-linux
+- hosts: ioc_ts_ps_srv
   remote_user: sirius
 
   vars:
     role_to_run: lnls-ans-role-ctrl-service
     services_to_run:
-      - sirius-ioc-as-ps-dclink-tbts.service
-      - sirius-ioc-tb-ps-correctors.service
-      - sirius-ioc-tb-ps-dipoles.service
-      - sirius-ioc-tb-ps-quadrupoles.service
+      - sirius-ioc-ts-ma-dipoles.service
+      - sirius-ioc-ts-ma-quadrupoles-12.service
+      - sirius-ioc-ts-ma-quadrupoles-34.service
+      - sirius-ioc-ts-ma-correctors.service
 
   tasks:
     - name: "Run {{ role_to_run }} role"
