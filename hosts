@@ -40,6 +40,9 @@ lnls454-linux
 # === FAC IOC servers ===
 
 [ioc_as_ap_srv]
+lnlsfac-vm
+
+[ioc_as_ap_sofb_srv]
 lnls454-linux
 
 [ioc_as_ps_dclinks_srv]

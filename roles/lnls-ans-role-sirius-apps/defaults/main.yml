@@ -64,6 +64,14 @@ sirius_apps_iocs:
     install_via_makefile: true
     force_version: true
 
+  - name: Linac PS IOCs
+    org_url: https://gitlab.cnpem.br/FACS
+    repo_name: linac-ioc-ps
+    repo_version: "{{ global_deploy_tag | default(master) }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
 sirius_apps_hla:
 
   - name: High-Level Applications
