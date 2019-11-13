@@ -1,0 +1,62 @@
+---
+- hosts: ioc_li_ps_srv
+  remote_user: sirius
+
+  vars:
+    role_to_run: lnls-ans-role-ctrl-service
+    services_to_run:
+      - sirius-ioc-li-ps-spect.service
+      - sirius-ioc-li-ps-lensrev.service
+      - sirius-ioc-li-ps-ch1.service
+      - sirius-ioc-li-ps-ch2.service
+      - sirius-ioc-li-ps-ch3.service
+      - sirius-ioc-li-ps-ch4.service
+      - sirius-ioc-li-ps-ch5.service
+      - sirius-ioc-li-ps-ch6.service
+      - sirius-ioc-li-ps-ch7.service
+      - sirius-ioc-li-ps-cv1.service
+      - sirius-ioc-li-ps-cv2.service
+      - sirius-ioc-li-ps-cv3.service
+      - sirius-ioc-li-ps-cv4.service
+      - sirius-ioc-li-ps-cv5.service
+      - sirius-ioc-li-ps-cv6.service
+      - sirius-ioc-li-ps-cv7.service
+      - sirius-ioc-li-ps-qd1.service
+      - sirius-ioc-li-ps-qd2.service
+      - sirius-ioc-li-ps-qf1.service
+      - sirius-ioc-li-ps-qf2.service
+      - sirius-ioc-li-ps-qf3.service
+      - sirius-ioc-li-ps-lens-01.service
+      - sirius-ioc-li-ps-lens-02.service
+      - sirius-ioc-li-ps-lens-03.service
+      - sirius-ioc-li-ps-lens-04.service
+      - sirius-ioc-li-ps-solenoid-01.service
+      - sirius-ioc-li-ps-solenoid-02.service
+      - sirius-ioc-li-ps-solenoid-03.service
+      - sirius-ioc-li-ps-solenoid-04.service
+      - sirius-ioc-li-ps-solenoid-05.service
+      - sirius-ioc-li-ps-solenoid-06.service
+      - sirius-ioc-li-ps-solenoid-07.service
+      - sirius-ioc-li-ps-solenoid-08.service
+      - sirius-ioc-li-ps-solenoid-09.service
+      - sirius-ioc-li-ps-solenoid-10.service
+      - sirius-ioc-li-ps-solenoid-11.service
+      - sirius-ioc-li-ps-solenoid-12.service
+      - sirius-ioc-li-ps-solenoid-13.service
+      - sirius-ioc-li-ps-solenoid-14.service
+      - sirius-ioc-li-ps-solenoid-15.service
+      - sirius-ioc-li-ps-solenoid-16.service
+      - sirius-ioc-li-ps-solenoid-17.service
+      - sirius-ioc-li-ps-solenoid-18.service
+      - sirius-ioc-li-ps-solenoid-19.service
+      - sirius-ioc-li-ps-solenoid-20.service
+      - sirius-ioc-li-ps-solenoid-21.service
+
+  tasks:
+    - name: "Run {{ role_to_run }} role"
+      include_role:
+        name: "{{ role_to_run }}"
+      vars:
+        ctrl_service_name: "{{ item }}"
+      with_items:
+        - "{{ services_to_run }}"

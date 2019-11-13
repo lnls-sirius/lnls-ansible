@@ -35,20 +35,50 @@ lnlsfac-srv1 # 10.0.38.83  # (linac server)
 [nfs_servers]
 lnls454-linux
 
-[ioc_as_ap_servers]
+
+# === FAC IOC servers ===
+
+[ioc_as_ap_srv]
 lnls454-linux
 
-[ioc_as_ps_servers]
-lnls560-linux
+[ioc_as_ps_dclinks_srv]
+lnlsfac-vm
 
-[ioc_li_ps_servers]
-lnls560-linux
+[ioc_li_ps_srv]
+lnlsfac-vm
+
+[ioc_tb_ps_srv]
+lnlsfac-vm
+
+[ioc_bo_ps_srv]
+lnlsfac-vm
+
+[ioc_bo_ps_fams_srv]
+lnlsfac-vm
+
+[ioc_bo_ps_corrs_srv]
+lnlsfac-vm
+
+[ioc_ts_ps_srv]
+lnlsfac-vm
+
+[ioc_si_ps_srv]
+lnlsfac-srv1
+
+[ioc_si_ps_fams_srv]
+lnlsfac-srv1
+
+[ioc_si_ps_corrs_srv]
+lnlsfac-srv1
+
+[ioc_si_ps_trims_srv]
+lnlsfac-srv1
 
 
-# === PS BeagleBones ===
+# === Power Supply BeagleBones ===
 
 
-# == Power Supply Room ==
+# --- Power Supply Room ---
 
 # -- BO
 
@@ -70,7 +100,22 @@ PA-RaPSC03--CO-PSCtrl-BO3   # bbb-bo-sextupole-sd     -  BO-Fam:PS-SD
 PA-RaPSD04--CO-PSCtrl-SI1   # bbb-si-dipole-1         -  SI-Fam:PS-B1B2-1
 PA-RaPSD04--CO-PSCtrl-SI2   # bbb-si-dipole-2         -  SI-Fam:PS-B1B2-2
 
-# == Linac Area ==
+[bbb_si_ps_quadrupoles]
+PA-RaPSA02--CO-PSCtrl-SI1   # bbb-si-quadrupoles-qf            - SI-Fam:PS-QFB SI-Fam:PS-QFP SI-Fam:PS-QFA
+PA-RaPSA02--CO-PSCtrl-SI2   # bbb-si-quadrupoles-qd1           - SI-Fam:PS-QDP2 SI-Fam:PS-QDP1 SI-Fam:PS-QDA
+PA-RaPSA05--CO-PSCtrl-SI1   # bbb-si-quadrupoles-qd2           - SI-Fam:PS-QDB2 SI-Fam:PS-QDB1
+PA-RaPSA05--CO-PSCtrl-SI2   # bbb-si-quadrupoles-q             - SI-Fam:PS-Q4 SI-Fam:PS-Q3 SI-Fam:PS-Q2 SI-Fam:PS-Q1
+
+[bbb_si_ps_sextupoles]
+PA-RaPSB02--CO-PSCtrl-SI1   # bbb-si-sextupoles-sfb0-sdb01     - SI-Fam:PS-SDB1 SI-Fam:PS-SFB0 SI-Fam:PS-SDB0
+PA-RaPSB02--CO-PSCtrl-SI2   # bbb-si-sextupoles-sfa0p0-sda0p0  - SI-Fam:PS-SFP0 SI-Fam:PS-SFA0 SI-Fam:PS-SDP0 SI-Fam:PS-SDA0
+PA-RaPSB06--CO-PSCtrl-SI1   # bbb-si-sextupoles-sda1b12        - SI-Fam:PS-SDB2 SI-Fam:PS-SDA2 SI-Fam:PS-SDA1
+PA-RaPSB06--CO-PSCtrl-SI2   # bbb-si-sextupoles-sfa12-sda3p1   - SI-Fam:PS-SFA1 SI-Fam:PS-SDA3 SI-Fam:PS-SDP1 SI-Fam:PS-SFA2
+PA-RaPSB09--CO-PSCtrl-SI1   # bbb-si-sextupoles-sfb12-sdb3     - SI-Fam:PS-SDB3 SI-Fam:PS-SFB1 SI-Fam:PS-SFB2
+PA-RaPSB09--CO-PSCtrl-SI2   # bbb-si-sextupoles-sfp12-sdp23    - SI-Fam:PS-SFP2 SI-Fam:PS-SFP1 SI-Fam:PS-SDP3 SI-Fam:PS-SDP2
+
+
+# --- Linac Area ---
 
 # -- TB
 
@@ -83,12 +128,26 @@ LA-RaCtrl--CO-PSCtrl-TB1    # bbb-tb-quadrupoles      - TB-01:PS-QD1 TB-01:PS-QF
 [bbb_tb_correctors]
 LA-RaCtrl--CO-PSCtrl-TB2    # bbb-tb-correctors       - TB-01:PS-CH-1 TB-01:PS-CV-1 TB-01:PS-CH-2 TB-01:PS-CV-2 TB-02:PS-CH-1 TB-02:PS-CV-1 TB-02:PS-CH-2 TB-02:PS-CV-2 TB-04:PS-CH-1 TB-04:PS-CV-1 TB-04:PS-CH-2 TB-04:PS-CV-2
 
+# -- TS
+
+[bbb_ts_dipoles]
+LA-RaPS02--CO-PSCtrl-TS     # bbb-ts-dipoles          - TS-Fam:PS-B
+
+[bbb_ts_quadrupoles]
+LA-RaPS02--CO-PSCtrl-TS2    # bbb-ts-quadrupoles-12   - TS-01:PS-QF1B TS-01:PS-QF1A TS-02:PS-QD2 TS-02:PS-QF2
+LA-RaPS04--CO-PSCtrl-TS     # bbb-ts-quadrupoles-34   - TS-04:PS-QD4B TS-04:PS-QD4A TS-04:PS-QF4 TS-03:PS-QF3
+
+[bbb_ts_correctors]
+LA-RaCtrl--CO-PSCtrl-TS     # bbb-ts-correctors       - TS-01:PS-CV-1 TS-01:PS-CH TS-01:PS-CV-2 TS-02:PS-CH 4 TS-02:PS-CV TS-03:PS-CH TS-03:PS-CV TS-04:PS-CV-1 TS-04:PS-CH TS-04:PS-CV-2
+
+
 # -- TB/TS DCLinks
 
 [bbb_as_dclinks_tbts]
 LA-RaCtrl--CO-DCLinkCtrl    # bbb-as-dclinks-tbts     - LA-RaPS06:PS-UDC-AS1 LA-RaPS06:PS-UDC-AS2
 
-# == Instrumentation Area ==
+
+# --- Instrumentation Area ---
 
 # -- BO correctors
 
@@ -107,9 +166,95 @@ IA-16RaCtrl--CO-PSCtrl-BO   # bbb-bo-correctors-ia16  -  BO-39U:PS-CH BO-39U:PS-
 IA-17RaCtrl--CO-PSCtrl-BO   # bbb-bo-correctors-ia17  -  BO-43U:PS-CH BO-43U:PS-CV BO-45U:PS-CH BO-45U:PS-CV
 IA-20RaCtrl--CO-PSCtrl-BO   # bbb-bo-correctors-ia20  -  BO-47U:PS-CH BO-47U:PS-CV BO-49D:PS-CH BO-49U:PS-CV
 
+# -- SI correctors
+
+[bbb_si_ps_correctors]
+IA-01RaCtrl--CO-PSCtrl-SI2  # bbb-si-correctors-c2m12-ia01  -  SI-01C2:PS-CH SI-01C2:PS-CV-1 SI-01C2:PS-CV-2 SI-01M1:PS-CH SI-01M1:PS-CV SI-01M2:PS-CH SI-01M2:PS-CV
+IA-02RaCtrl--CO-PSCtrl-SI2  # bbb-si-correctors-c2m12-ia02  -  SI-02C2:PS-CH SI-02C2:PS-CV-1 SI-02C2:PS-CV-2 SI-02M1:PS-CH SI-02M1:PS-CV SI-02M2:PS-CH SI-02M2:PS-CV
+IA-03RaCtrl--CO-PSCtrl-SI2  # bbb-si-correctors-c2m12-ia03  -  SI-03C2:PS-CH SI-03C2:PS-CV-1 SI-03C2:PS-CV-2 SI-03M1:PS-CH SI-03M1:PS-CV SI-03M2:PS-CH SI-03M2:PS-CV
+IA-04RaCtrl--CO-PSCtrl-SI2  # bbb-si-correctors-c2m12-ia04  -  SI-04C2:PS-CH SI-04C2:PS-CV-1 SI-04C2:PS-CV-2 SI-04M1:PS-CH SI-04M1:PS-CV SI-04M2:PS-CH SI-04M2:PS-CV
+IA-05RaCtrl--CO-PSCtrl-SI2  # bbb-si-correctors-c2m12-ia05  -  SI-05C2:PS-CH SI-05C2:PS-CV-1 SI-05C2:PS-CV-2 SI-05M1:PS-CH SI-05M1:PS-CV SI-05M2:PS-CH SI-05M2:PS-CV
+IA-06RaCtrl--CO-PSCtrl-SI2  # bbb-si-correctors-c2m12-ia06  -  SI-06C2:PS-CH SI-06C2:PS-CV-1 SI-06C2:PS-CV-2 SI-06M1:PS-CH SI-06M1:PS-CV SI-06M2:PS-CH SI-06M2:PS-CV
+IA-07RaCtrl--CO-PSCtrl-SI2  # bbb-si-correctors-c2m12-ia07  -  SI-07C2:PS-CH SI-07C2:PS-CV-1 SI-07C2:PS-CV-2 SI-07M1:PS-CH SI-07M1:PS-CV SI-07M2:PS-CH SI-07M2:PS-CV
+IA-08RaCtrl--CO-PSCtrl-SI2  # bbb-si-correctors-c2m12-ia08  -  SI-08C2:PS-CH SI-08C2:PS-CV-1 SI-08C2:PS-CV-2 SI-08M1:PS-CH SI-08M1:PS-CV SI-08M2:PS-CH SI-08M2:PS-CV
+IA-09RaCtrl--CO-PSCtrl-SI2  # bbb-si-correctors-c2m12-ia09  -  SI-09C2:PS-CH SI-09C2:PS-CV-1 SI-09C2:PS-CV-2 SI-09M1:PS-CH SI-09M1:PS-CV SI-09M2:PS-CH SI-09M2:PS-CV
+IA-10RaCtrl--CO-PSCtrl-SI2  # bbb-si-correctors-c2m12-ia10  -  SI-10C2:PS-CH SI-10C2:PS-CV-1 SI-10C2:PS-CV-2 SI-10M1:PS-CH SI-10M1:PS-CV SI-10M2:PS-CH SI-10M2:PS-CV
+IA-11RaCtrl--CO-PSCtrl-SI2  # bbb-si-correctors-c2m12-ia11  -  SI-11C2:PS-CH SI-11C2:PS-CV-1 SI-11C2:PS-CV-2 SI-11M1:PS-CH SI-11M1:PS-CV SI-11M2:PS-CH SI-11M2:PS-CV
+IA-12RaCtrl--CO-PSCtrl-SI2  # bbb-si-correctors-c2m12-ia12  -  SI-12C2:PS-CH SI-12C2:PS-CV-1 SI-12C2:PS-CV-2 SI-12M1:PS-CH SI-12M1:PS-CV SI-12M2:PS-CH SI-12M2:PS-CV
+IA-13RaCtrl--CO-PSCtrl-SI2  # bbb-si-correctors-c2m12-ia13  -  SI-13C2:PS-CH SI-13C2:PS-CV-1 SI-13C2:PS-CV-2 SI-13M1:PS-CH SI-13M1:PS-CV SI-13M2:PS-CH SI-13M2:PS-CV
+IA-14RaCtrl--CO-PSCtrl-SI2  # bbb-si-correctors-c2m12-ia14  -  SI-14C2:PS-CH SI-14C2:PS-CV-1 SI-14C2:PS-CV-2 SI-14M1:PS-CH SI-14M1:PS-CV SI-14M2:PS-CH SI-14M2:PS-CV
+IA-15RaCtrl--CO-PSCtrl-SI2  # bbb-si-correctors-c2m12-ia15  -  SI-15C2:PS-CH SI-15C2:PS-CV-1 SI-15C2:PS-CV-2 SI-15M1:PS-CH SI-15M1:PS-CV SI-15M2:PS-CH SI-15M2:PS-CV
+IA-16RaCtrl--CO-PSCtrl-SI2  # bbb-si-correctors-c2m12-ia16  -  SI-16C2:PS-CH SI-16C2:PS-CV-1 SI-16C2:PS-CV-2 SI-16M1:PS-CH SI-16M1:PS-CV SI-16M2:PS-CH SI-16M2:PS-CV
+IA-17RaCtrl--CO-PSCtrl-SI2  # bbb-si-correctors-c2m12-ia17  -  SI-17C2:PS-CH SI-17C2:PS-CV-1 SI-17C2:PS-CV-2 SI-17M1:PS-CH SI-17M1:PS-CV SI-17M2:PS-CH SI-17M2:PS-CV
+IA-18RaCtrl--CO-PSCtrl-SI2  # bbb-si-correctors-c2m12-ia18  -  SI-18C2:PS-CH SI-18C2:PS-CV-1 SI-18C2:PS-CV-2 SI-18M1:PS-CH SI-18M1:PS-CV SI-18M2:PS-CH SI-18M2:PS-CV
+IA-19RaCtrl--CO-PSCtrl-SI2  # bbb-si-correctors-c2m12-ia19  -  SI-19C2:PS-CH SI-19C2:PS-CV-1 SI-19C2:PS-CV-2 SI-19M1:PS-CH SI-19M1:PS-CV SI-19M2:PS-CH SI-19M2:PS-CV
+IA-20RaCtrl--CO-PSCtrl-SI2  # bbb-si-correctors-c2m12-ia20  -  SI-20C2:PS-CH SI-20C2:PS-CV-1 SI-20C2:PS-CV-2 SI-20M1:PS-CH SI-20M1:PS-CV SI-20M2:PS-CH SI-20M2:PS-CV
+IA-01RaCtrl--CO-PSCtrl-SI4  # bbb-si-correctors-c134-ia01   -  SI-01C1:PS-CH SI-01C1:PS-CV SI-01C4:PS-CH SI-01C4:PS-CV SI-01C3:PS-CH SI-01C3:PS-CV-1 SI-01C3:PS-CV-2
+IA-02RaCtrl--CO-PSCtrl-SI4  # bbb-si-correctors-c134-ia02   -  SI-02C1:PS-CH SI-02C1:PS-CV SI-02C4:PS-CH SI-02C4:PS-CV SI-02C3:PS-CH SI-02C3:PS-CV-1 SI-02C3:PS-CV-2
+IA-03RaCtrl--CO-PSCtrl-SI4  # bbb-si-correctors-c134-ia03   -  SI-03C1:PS-CH SI-03C1:PS-CV SI-03C4:PS-CH SI-03C4:PS-CV SI-03C3:PS-CH SI-03C3:PS-CV-1 SI-03C3:PS-CV-2
+IA-04RaCtrl--CO-PSCtrl-SI4  # bbb-si-correctors-c134-ia04   -  SI-04C1:PS-CH SI-04C1:PS-CV SI-04C4:PS-CH SI-04C4:PS-CV SI-04C3:PS-CH SI-04C3:PS-CV-1 SI-04C3:PS-CV-2
+IA-05RaCtrl--CO-PSCtrl-SI4  # bbb-si-correctors-c134-ia05   -  SI-05C1:PS-CH SI-05C1:PS-CV SI-05C4:PS-CH SI-05C4:PS-CV SI-05C3:PS-CH SI-05C3:PS-CV-1 SI-05C3:PS-CV-2
+IA-06RaCtrl--CO-PSCtrl-SI4  # bbb-si-correctors-c134-ia06   -  SI-06C1:PS-CH SI-06C1:PS-CV SI-06C4:PS-CH SI-06C4:PS-CV SI-06C3:PS-CH SI-06C3:PS-CV-1 SI-06C3:PS-CV-2
+IA-07RaCtrl--CO-PSCtrl-SI4  # bbb-si-correctors-c134-ia07   -  SI-07C1:PS-CH SI-07C1:PS-CV SI-07C4:PS-CH SI-07C4:PS-CV SI-07C3:PS-CH SI-07C3:PS-CV-1 SI-07C3:PS-CV-2
+IA-08RaCtrl--CO-PSCtrl-SI4  # bbb-si-correctors-c134-ia08   -  SI-08C1:PS-CH SI-08C1:PS-CV SI-08C4:PS-CH SI-08C4:PS-CV SI-08C3:PS-CH SI-08C3:PS-CV-1 SI-08C3:PS-CV-2
+IA-09RaCtrl--CO-PSCtrl-SI4  # bbb-si-correctors-c134-ia09   -  SI-09C1:PS-CH SI-09C1:PS-CV SI-09C4:PS-CH SI-09C4:PS-CV SI-09C3:PS-CH SI-09C3:PS-CV-1 SI-09C3:PS-CV-2
+IA-10RaCtrl--CO-PSCtrl-SI4  # bbb-si-correctors-c134-ia10   -  SI-10C1:PS-CH SI-10C1:PS-CV SI-10C4:PS-CH SI-10C4:PS-CV SI-10C3:PS-CH SI-10C3:PS-CV-1 SI-10C3:PS-CV-2
+IA-11RaCtrl--CO-PSCtrl-SI4  # bbb-si-correctors-c134-ia11   -  SI-11C1:PS-CH SI-11C1:PS-CV SI-11C4:PS-CH SI-11C4:PS-CV SI-11C3:PS-CH SI-11C3:PS-CV-1 SI-11C3:PS-CV-2
+IA-12RaCtrl--CO-PSCtrl-SI4  # bbb-si-correctors-c134-ia12   -  SI-12C1:PS-CH SI-12C1:PS-CV SI-12C4:PS-CH SI-12C4:PS-CV SI-12C3:PS-CH SI-12C3:PS-CV-1 SI-12C3:PS-CV-2
+IA-13RaCtrl--CO-PSCtrl-SI4  # bbb-si-correctors-c134-ia13   -  SI-13C1:PS-CH SI-13C1:PS-CV SI-13C4:PS-CH SI-13C4:PS-CV SI-13C3:PS-CH SI-13C3:PS-CV-1 SI-13C3:PS-CV-2
+IA-14RaCtrl--CO-PSCtrl-SI4  # bbb-si-correctors-c134-ia14   -  SI-14C1:PS-CH SI-14C1:PS-CV SI-14C4:PS-CH SI-14C4:PS-CV SI-14C3:PS-CH SI-14C3:PS-CV-1 SI-14C3:PS-CV-2
+IA-15RaCtrl--CO-PSCtrl-SI4  # bbb-si-correctors-c134-ia15   -  SI-15C1:PS-CH SI-15C1:PS-CV SI-15C4:PS-CH SI-15C4:PS-CV SI-15C3:PS-CH SI-15C3:PS-CV-1 SI-15C3:PS-CV-2
+IA-16RaCtrl--CO-PSCtrl-SI4  # bbb-si-correctors-c134-ia16   -  SI-16C1:PS-CH SI-16C1:PS-CV SI-16C4:PS-CH SI-16C4:PS-CV SI-16C3:PS-CH SI-16C3:PS-CV-1 SI-16C3:PS-CV-2
+IA-17RaCtrl--CO-PSCtrl-SI4  # bbb-si-correctors-c134-ia17   -  SI-17C1:PS-CH SI-17C1:PS-CV SI-17C4:PS-CH SI-17C4:PS-CV SI-17C3:PS-CH SI-17C3:PS-CV-1 SI-17C3:PS-CV-2
+IA-18RaCtrl--CO-PSCtrl-SI4  # bbb-si-correctors-c134-ia18   -  SI-18C1:PS-CH SI-18C1:PS-CV SI-18C4:PS-CH SI-18C4:PS-CV SI-18C3:PS-CH SI-18C3:PS-CV-1 SI-18C3:PS-CV-2
+IA-19RaCtrl--CO-PSCtrl-SI4  # bbb-si-correctors-c134-ia19   -  SI-19C1:PS-CH SI-19C1:PS-CV SI-19C4:PS-CH SI-19C4:PS-CV SI-19C3:PS-CH SI-19C3:PS-CV-1 SI-19C3:PS-CV-2
+IA-20RaCtrl--CO-PSCtrl-SI4  # bbb-si-correctors-c134-ia20   -  SI-20C1:PS-CH SI-20C1:PS-CV SI-20C4:PS-CH SI-20C4:PS-CV SI-20C3:PS-CH SI-20C3:PS-CV-1 SI-20C3:PS-CV-2
+
+[bbb_si_ps_trims_qs]
+IA-01RaCtrl--CO-PSCtrl-SI1  # bbb-si-trims-qs-m12-ia01      -  SI-01M2:PS-QFA SI-01M2:PS-QDA  SI-02M1:PS-QFB  SI-02M1:PS-QDB1 SI-02M1:PS-QDB2 SI-01M1:PS-QS   SI-01M2:PS-QS
+IA-02RaCtrl--CO-PSCtrl-SI1  # bbb-si-trims-qs-m12-ia02      -  SI-02M2:PS-QFB SI-02M2:PS-QDB1 SI-02M2:PS-QDB2 SI-03M1:PS-QFP  SI-03M1:PS-QDP1 SI-03M1:PS-QDP2 SI-02M1:PS-QS SI-02M2:PS-QS
+IA-03RaCtrl--CO-PSCtrl-SI1  # bbb-si-trims-qs-m12-ia03      -  SI-03M2:PS-QFP SI-03M2:PS-QDP1 SI-03M2:PS-QDP2 SI-04M1:PS-QFB  SI-04M1:PS-QDB1 SI-04M1:PS-QDB2 SI-03M1:PS-QS SI-03M2:PS-QS
+IA-04RaCtrl--CO-PSCtrl-SI1  # bbb-si-trims-qs-m12-ia04      -  SI-04M2:PS-QFB SI-04M2:PS-QDB1 SI-04M2:PS-QDB2 SI-05M1:PS-QFA  SI-05M1:PS-QDA  SI-04M1:PS-QS   SI-04M2:PS-QS
+IA-05RaCtrl--CO-PSCtrl-SI1  # bbb-si-trims-qs-m12-ia05      -  SI-05M2:PS-QFA SI-05M2:PS-QDA  SI-06M1:PS-QFB  SI-06M1:PS-QDB1 SI-06M1:PS-QDB2 SI-05M1:PS-QS   SI-05M2:PS-QS
+IA-06RaCtrl--CO-PSCtrl-SI1  # bbb-si-trims-qs-m12-ia06      -  SI-06M2:PS-QFB SI-06M2:PS-QDB1 SI-06M2:PS-QDB2 SI-07M1:PS-QFP  SI-07M1:PS-QDP1 SI-07M1:PS-QDP2 SI-06M1:PS-QS SI-06M2:PS-QS
+IA-07RaCtrl--CO-PSCtrl-SI1  # bbb-si-trims-qs-m12-ia07      -  SI-07M2:PS-QFP SI-07M2:PS-QDP1 SI-07M2:PS-QDP2 SI-08M1:PS-QFB  SI-08M1:PS-QDB1 SI-08M1:PS-QDB2 SI-07M1:PS-QS SI-07M2:PS-QS
+IA-08RaCtrl--CO-PSCtrl-SI1  # bbb-si-trims-qs-m12-ia08      -  SI-08M2:PS-QFB SI-08M2:PS-QDB1 SI-08M2:PS-QDB2 SI-09M1:PS-QFA  SI-09M1:PS-QDA  SI-08M1:PS-QS   SI-08M2:PS-QS
+IA-09RaCtrl--CO-PSCtrl-SI1  # bbb-si-trims-qs-m12-ia09      -  SI-09M2:PS-QFA SI-09M2:PS-QDA  SI-10M1:PS-QFB  SI-10M1:PS-QDB1 SI-10M1:PS-QDB2 SI-09M1:PS-QS   SI-09M2:PS-QS
+IA-10RaCtrl--CO-PSCtrl-SI1  # bbb-si-trims-qs-m12-ia10      -  SI-10M2:PS-QFB SI-10M2:PS-QDB1 SI-10M2:PS-QDB2 SI-11M1:PS-QFP  SI-11M1:PS-QDP1 SI-11M1:PS-QDP2 SI-10M1:PS-QS SI-10M2:PS-QS
+IA-11RaCtrl--CO-PSCtrl-SI1  # bbb-si-trims-qs-m12-ia11      -  SI-11M2:PS-QFP SI-11M2:PS-QDP1 SI-11M2:PS-QDP2 SI-12M1:PS-QFB  SI-12M1:PS-QDB1 SI-12M1:PS-QDB2 SI-11M1:PS-QS SI-11M2:PS-QS
+IA-12RaCtrl--CO-PSCtrl-SI1  # bbb-si-trims-qs-m12-ia12      -  SI-12M2:PS-QFB SI-12M2:PS-QDB1 SI-12M2:PS-QDB2 SI-13M1:PS-QFA  SI-13M1:PS-QDA  SI-12M1:PS-QS   SI-12M2:PS-QS
+IA-13RaCtrl--CO-PSCtrl-SI1  # bbb-si-trims-qs-m12-ia13      -  SI-13M2:PS-QFA SI-13M2:PS-QDA  SI-14M1:PS-QFB  SI-14M1:PS-QDB1 SI-14M1:PS-QDB2 SI-13M1:PS-QS   SI-13M2:PS-QS
+IA-14RaCtrl--CO-PSCtrl-SI1  # bbb-si-trims-qs-m12-ia14      -  SI-14M2:PS-QFB SI-14M2:PS-QDB1 SI-14M2:PS-QDB2 SI-15M1:PS-QFP  SI-15M1:PS-QDP1 SI-15M1:PS-QDP2 SI-14M1:PS-QS SI-14M2:PS-QS
+IA-15RaCtrl--CO-PSCtrl-SI1  # bbb-si-trims-qs-m12-ia15      -  SI-15M2:PS-QFP SI-15M2:PS-QDP1 SI-15M2:PS-QDP2 SI-16M1:PS-QFB  SI-16M1:PS-QDB1 SI-16M1:PS-QDB2 SI-15M1:PS-QS SI-15M2:PS-QS
+IA-16RaCtrl--CO-PSCtrl-SI1  # bbb-si-trims-qs-m12-ia16      -  SI-16M2:PS-QFB SI-16M2:PS-QDB1 SI-16M2:PS-QDB2 SI-17M1:PS-QFA  SI-17M1:PS-QDA  SI-16M1:PS-QS   SI-16M2:PS-QS
+IA-17RaCtrl--CO-PSCtrl-SI1  # bbb-si-trims-qs-m12-ia17      -  SI-17M2:PS-QFA SI-17M2:PS-QDA  SI-18M1:PS-QFB  SI-18M1:PS-QDB1 SI-18M1:PS-QDB2 SI-17M1:PS-QS   SI-17M2:PS-QS
+IA-18RaCtrl--CO-PSCtrl-SI1  # bbb-si-trims-qs-m12-ia18      -  SI-18M2:PS-QFB SI-18M2:PS-QDB1 SI-18M2:PS-QDB2 SI-19M1:PS-QFP  SI-19M1:PS-QDP1 SI-19M1:PS-QDP2 SI-18M1:PS-QS SI-18M2:PS-QS
+IA-19RaCtrl--CO-PSCtrl-SI1  # bbb-si-trims-qs-m12-ia19      -  SI-19M2:PS-QFP SI-19M2:PS-QDP1 SI-19M2:PS-QDP2 SI-20M1:PS-QFB  SI-20M1:PS-QDB1 SI-20M1:PS-QDB2 SI-19M1:PS-QS SI-19M2:PS-QS
+IA-20RaCtrl--CO-PSCtrl-SI1  # bbb-si-trims-qs-m12-ia20      -  SI-20M2:PS-QFB SI-20M2:PS-QDB1 SI-20M2:PS-QDB2 SI-01M1:PS-QFA  SI-01M1:PS-QDA  SI-20M1:PS-QS   SI-20M2:PS-QS
+IA-01RaCtrl--CO-PSCtrl-SI3  # bbb-si-trims-qs-c1234-ia01    -  SI-01C1:PS-Q1 SI-01C1:PS-Q2 SI-01C2:PS-Q3 SI-01C2:PS-Q4 SI-01C4:PS-Q1 SI-01C4:PS-Q2 SI-01C3:PS-Q3 SI-01C3:PS-Q4 SI-01C1:PS-QS SI-01C2:PS-QS SI-01C3:PS-QS
+IA-02RaCtrl--CO-PSCtrl-SI3  # bbb-si-trims-qs-c1234-ia02    -  SI-02C1:PS-Q1 SI-02C1:PS-Q2 SI-02C2:PS-Q3 SI-02C2:PS-Q4 SI-02C4:PS-Q1 SI-02C4:PS-Q2 SI-02C3:PS-Q3 SI-02C3:PS-Q4 SI-02C1:PS-QS SI-02C2:PS-QS SI-02C3:PS-QS
+IA-03RaCtrl--CO-PSCtrl-SI3  # bbb-si-trims-qs-c1234-ia03    -  SI-03C1:PS-Q1 SI-03C1:PS-Q2 SI-03C2:PS-Q3 SI-03C2:PS-Q4 SI-03C4:PS-Q1 SI-03C4:PS-Q2 SI-03C3:PS-Q3 SI-03C3:PS-Q4 SI-03C1:PS-QS SI-03C2:PS-QS SI-03C3:PS-QS
+IA-04RaCtrl--CO-PSCtrl-SI3  # bbb-si-trims-qs-c1234-ia04    -  SI-04C1:PS-Q1 SI-04C1:PS-Q2 SI-04C2:PS-Q3 SI-04C2:PS-Q4 SI-04C4:PS-Q1 SI-04C4:PS-Q2 SI-04C3:PS-Q3 SI-04C3:PS-Q4 SI-04C1:PS-QS SI-04C2:PS-QS SI-04C3:PS-QS
+IA-05RaCtrl--CO-PSCtrl-SI3  # bbb-si-trims-qs-c1234-ia05    -  SI-05C1:PS-Q1 SI-05C1:PS-Q2 SI-05C2:PS-Q3 SI-05C2:PS-Q4 SI-05C4:PS-Q1 SI-05C4:PS-Q2 SI-05C3:PS-Q3 SI-05C3:PS-Q4 SI-05C1:PS-QS SI-05C2:PS-QS SI-05C3:PS-QS
+IA-06RaCtrl--CO-PSCtrl-SI3  # bbb-si-trims-qs-c1234-ia06    -  SI-06C1:PS-Q1 SI-06C1:PS-Q2 SI-06C2:PS-Q3 SI-06C2:PS-Q4 SI-06C4:PS-Q1 SI-06C4:PS-Q2 SI-06C3:PS-Q3 SI-06C3:PS-Q4 SI-06C1:PS-QS SI-06C2:PS-QS SI-06C3:PS-QS
+IA-07RaCtrl--CO-PSCtrl-SI3  # bbb-si-trims-qs-c1234-ia07    -  SI-07C1:PS-Q1 SI-07C1:PS-Q2 SI-07C2:PS-Q3 SI-07C2:PS-Q4 SI-07C4:PS-Q1 SI-07C4:PS-Q2 SI-07C3:PS-Q3 SI-07C3:PS-Q4 SI-07C1:PS-QS SI-07C2:PS-QS SI-07C3:PS-QS
+IA-08RaCtrl--CO-PSCtrl-SI3  # bbb-si-trims-qs-c1234-ia08    -  SI-08C1:PS-Q1 SI-08C1:PS-Q2 SI-08C2:PS-Q3 SI-08C2:PS-Q4 SI-08C4:PS-Q1 SI-08C4:PS-Q2 SI-08C3:PS-Q3 SI-08C3:PS-Q4 SI-08C1:PS-QS SI-08C2:PS-QS SI-08C3:PS-QS
+IA-09RaCtrl--CO-PSCtrl-SI3  # bbb-si-trims-qs-c1234-ia09    -  SI-09C1:PS-Q1 SI-09C1:PS-Q2 SI-09C2:PS-Q3 SI-09C2:PS-Q4 SI-09C4:PS-Q1 SI-09C4:PS-Q2 SI-09C3:PS-Q3 SI-09C3:PS-Q4 SI-09C1:PS-QS SI-09C2:PS-QS SI-09C3:PS-QS
+IA-10RaCtrl--CO-PSCtrl-SI3  # bbb-si-trims-qs-c1234-ia10    -  SI-10C1:PS-Q1 SI-10C1:PS-Q2 SI-10C2:PS-Q3 SI-10C2:PS-Q4 SI-10C4:PS-Q1 SI-10C4:PS-Q2 SI-10C3:PS-Q3 SI-10C3:PS-Q4 SI-10C1:PS-QS SI-10C2:PS-QS SI-10C3:PS-QS
+IA-11RaCtrl--CO-PSCtrl-SI3  # bbb-si-trims-qs-c1234-ia11    -  SI-11C1:PS-Q1 SI-11C1:PS-Q2 SI-11C2:PS-Q3 SI-11C2:PS-Q4 SI-11C4:PS-Q1 SI-11C4:PS-Q2 SI-11C3:PS-Q3 SI-11C3:PS-Q4 SI-11C1:PS-QS SI-11C2:PS-QS SI-11C3:PS-QS
+IA-12RaCtrl--CO-PSCtrl-SI3  # bbb-si-trims-qs-c1234-ia12    -  SI-12C1:PS-Q1 SI-12C1:PS-Q2 SI-12C2:PS-Q3 SI-12C2:PS-Q4 SI-12C4:PS-Q1 SI-12C4:PS-Q2 SI-12C3:PS-Q3 SI-12C3:PS-Q4 SI-12C1:PS-QS SI-12C2:PS-QS SI-12C3:PS-QS
+IA-13RaCtrl--CO-PSCtrl-SI3  # bbb-si-trims-qs-c1234-ia13    -  SI-13C1:PS-Q1 SI-13C1:PS-Q2 SI-13C2:PS-Q3 SI-13C2:PS-Q4 SI-13C4:PS-Q1 SI-13C4:PS-Q2 SI-13C3:PS-Q3 SI-13C3:PS-Q4 SI-13C1:PS-QS SI-13C2:PS-QS SI-13C3:PS-QS
+IA-14RaCtrl--CO-PSCtrl-SI3  # bbb-si-trims-qs-c1234-ia14    -  SI-14C1:PS-Q1 SI-14C1:PS-Q2 SI-14C2:PS-Q3 SI-14C2:PS-Q4 SI-14C4:PS-Q1 SI-14C4:PS-Q2 SI-14C3:PS-Q3 SI-14C3:PS-Q4 SI-14C1:PS-QS SI-14C2:PS-QS SI-14C3:PS-QS
+IA-15RaCtrl--CO-PSCtrl-SI3  # bbb-si-trims-qs-c1234-ia15    -  SI-15C1:PS-Q1 SI-15C1:PS-Q2 SI-15C2:PS-Q3 SI-15C2:PS-Q4 SI-15C4:PS-Q1 SI-15C4:PS-Q2 SI-15C3:PS-Q3 SI-15C3:PS-Q4 SI-15C1:PS-QS SI-15C2:PS-QS SI-15C3:PS-QS
+IA-16RaCtrl--CO-PSCtrl-SI3  # bbb-si-trims-qs-c1234-ia16    -  SI-16C1:PS-Q1 SI-16C1:PS-Q2 SI-16C2:PS-Q3 SI-16C2:PS-Q4 SI-16C4:PS-Q1 SI-16C4:PS-Q2 SI-16C3:PS-Q3 SI-16C3:PS-Q4 SI-16C1:PS-QS SI-16C2:PS-QS SI-16C3:PS-QS
+IA-17RaCtrl--CO-PSCtrl-SI3  # bbb-si-trims-qs-c1234-ia17    -  SI-17C1:PS-Q1 SI-17C1:PS-Q2 SI-17C2:PS-Q3 SI-17C2:PS-Q4 SI-17C4:PS-Q1 SI-17C4:PS-Q2 SI-17C3:PS-Q3 SI-17C3:PS-Q4 SI-17C1:PS-QS SI-17C2:PS-QS SI-17C3:PS-QS
+IA-18RaCtrl--CO-PSCtrl-SI3  # bbb-si-trims-qs-c1234-ia18    -  SI-18C1:PS-Q1 SI-18C1:PS-Q2 SI-18C2:PS-Q3 SI-18C2:PS-Q4 SI-18C4:PS-Q1 SI-18C4:PS-Q2 SI-18C3:PS-Q3 SI-18C3:PS-Q4 SI-18C1:PS-QS SI-18C2:PS-QS SI-18C3:PS-QS
+IA-19RaCtrl--CO-PSCtrl-SI3  # bbb-si-trims-qs-c1234-ia19    -  SI-19C1:PS-Q1 SI-19C1:PS-Q2 SI-19C2:PS-Q3 SI-19C2:PS-Q4 SI-19C4:PS-Q1 SI-19C4:PS-Q2 SI-19C3:PS-Q3 SI-19C3:PS-Q4 SI-19C1:PS-QS SI-19C2:PS-QS SI-19C3:PS-QS
+IA-20RaCtrl--CO-PSCtrl-SI3  # bbb-si-trims-qs-c1234-ia20    -  SI-20C1:PS-Q1 SI-20C1:PS-Q2 SI-20C2:PS-Q3 SI-20C2:PS-Q4 SI-20C4:PS-Q1 SI-20C4:PS-Q2 SI-20C3:PS-Q3 SI-20C3:PS-Q4 SI-20C1:PS-QS SI-20C2:PS-QS SI-20C3:PS-QS
+
 # -- dclinks
 
-[bbb_bo_dclink]
+[bbb_as_dclinks_ia]
 IA-01RaCtrl--CO-DCLinkCtrl  # bbb-as-dclink-ia01      -  BO-01U:PS-CH BO-01U:PS-CV BO-02D:PS-QS
 IA-02RaCtrl--CO-DCLinkCtrl  # bbb-as-dclink-ia02      -  BO-03U:PS-CH BO-03U:PS-CV BO-05U:PS-CH BO-05U:PS-CV
 IA-04RaCtrl--CO-DCLinkCtrl  # bbb-as-dclink-ia04      -  BO-07U:PS-CH BO-07U:PS-CV BO-09U:PS-CH BO-09U:PS-CV
@@ -134,11 +279,6 @@ bbb_tb_dipoles
 bbb_tb_quadrupoles
 bbb_tb_correctors
 
-[bbb_tb:children]
-bbb_tb_ps
-bbb_as_dclinks_tbts
-
-
 # -- BO
 
 [bbb_bo_ps_fams:children]
@@ -150,30 +290,41 @@ bbb_bo_ps_sextupoles
 bbb_bo_ps_fams
 bbb_bo_ps_correctors
 
+# -- TS
+
+[bbb_ts_ps:children]
+bbb_ts_dipoles
+bbb_ts_quadrupoles
+bbb_ts_correctors
+
 # -- SI
 
 [bbb_si_ps_fams:children]
 bbb_si_ps_dipoles
+bbb_si_ps_quadrupoles
+bbb_si_ps_sextupoles
 
 [bbb_si_ps:children]
 bbb_si_ps_fams
-
+bbb_si_ps_correctors
+bbb_si_ps_trims_qs
 
 # -- All PS
 
 [bbb_ps:children]
 bbb_tb_ps
 bbb_bo_ps
+bbb_ts_ps
 bbb_si_ps
 
 # -- All DCLink
 
-[bbb_as_dclinks:children]
-bbb_bo_dclink
+[bbb_dclinks:children]
 bbb_as_dclinks_tbts
+bbb_as_dclinks_ia
 
 # -- All
 
 [bbb:children]
 bbb_ps
-bbb_as_dclinks
+bbb_dclinks
