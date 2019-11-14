@@ -4,18 +4,18 @@ __qt_install_from_src: true
 __pyqt_install_from_src: true
 
 __pyqt_dep_packages:
-  - "liblapack-dev=3.7.0*"
+  - "liblapack-dev={{ pkg_version_liblapack_dev }}"
   - "libdbus-1-3={{ pkg_version_libdbus_1_3 }}"
   - "libglu1-mesa-dev={{ pkg_version_libglu1_mesa_dev }}"
 
 __qt_distro_packages:
-  - "qt5-default=5.7.1*"
-  - "qttools5-dev-tools=5.7.1*"
-  - "sip-dev=4.18.1*"
+  - "qt5-default={{ pkg_version_qt5_default }}"
+  - "qttools5-dev-tools={{ pkg_version_qttools5_dev_tools }}"
+  - "sip-dev={{ pkg_version_sip_dev }}"
   - "python3-pyqt5.qtsvg={{ pkg_version_python3_pyqt5_qtsvg }}"
   - "libqt5opengl5-dev={{ pkg_version_libqt5opengl5_dev }}"
-  - "qt5-qmake=5.7.1*"
-  - "qtbase5-dev=5.7.1*"
+  - "qt5-qmake={{ pkg_version_qt5_qmake }}"
+  - "qtbase5-dev={{ pkg_version_qtbase5_dev }}"
 
 __qt_pip_packages:
   - "PyQt5=={{ pkg_version_PyQt5 }}"

@@ -1,5 +1,5 @@
 ---
 __phoebus_dep_packages:
   - "openjfx={{ pkg_version_openjfx }}"
-  - "unzip=6.0*"
+  - "unzip={{ pkg_version_unzip }}"
   - "openjdk-11-jdk={{ pkg_version_openjdk_11_jdk }}"
