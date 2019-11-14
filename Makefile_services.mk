@@ -363,6 +363,23 @@ service-ioc-as-ps-dclinks-ia-start:
 		--extra-vars "ctrl_service_state=started" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-as-ps-dclinks-ia.yml
 
+# -- AS PM
+
+service-ioc-as-pm-stop:
+	@echo "Stopping AS PM IOC services"
+	@echo "Please enter password for sirius user."
+	ansible-playbook \
+		--extra-vars "ctrl_service_state=stopped" \
+		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-as-pm.yml
+
+service-ioc-as-pm-start:
+	@echo "Starting AS PM IOC services"
+	@echo "Please enter password for sirius user."
+	ansible-playbook \
+		--extra-vars "ctrl_service_state=started" \
+		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-as-pm.yml
+
+
 # -- TB
 
 service-ioc-tb-ps-stop:

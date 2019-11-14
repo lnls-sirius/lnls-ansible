@@ -2,7 +2,7 @@
 - hosts: ioc_as_ps_dclinks_srv
   remote_user: sirius
 
-vars:
+  vars:
     role_to_run: lnls-ans-role-ctrl-service
     services_to_run:
       - sirius-ioc-as-ps-dclink-ia01.service
@@ -26,7 +26,7 @@ vars:
       - sirius-ioc-as-ps-dclink-ia19.service
       - sirius-ioc-as-ps-dclink-ia20.service
 
-tasks:
+  tasks:
     - name: "Run {{ role_to_run }} role"
       include_role:
         name: "{{ role_to_run }}"

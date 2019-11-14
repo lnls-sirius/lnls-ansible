@@ -29,8 +29,9 @@ lnls557-linux  # fac-liulin (10.0.38.44)
 10.15.0.189  # lnls627-linux (RF laptop)
 
 [fac_servers]
-lnlsfac-vm  # (vm: 10.128.255.8) (host: 10.128.255.3)
-lnlsfac-srv1 # 10.0.38.83  # (linac server)
+10.128.255.8 # lnlsfac-vm1  # (vm: 10.128.255.8)  (host: 10.128.255.3)
+lnlsfac-vm2  # (vm: 10.128.255.10) (host: 10.128.255.4)
+lnlsfac-srv1 # (10.128.255.9, 10.0.38.83)  # (linac server)
 
 [nfs_servers]
 lnls454-linux
@@ -39,31 +40,31 @@ lnls454-linux
 # === FAC IOC servers ===
 
 [ioc_as_ap_srv]
-lnlsfac-vm
+10.128.255.8
 
 [ioc_as_ap_sofb_srv]
 lnls454-linux
 
-[ioc_as_ps_dclinks_srv]
-lnlsfac-vm
-
 [ioc_li_ps_srv]
-lnlsfac-vm
+10.128.255.8
+
+[ioc_as_ps_dclinks_srv]
+10.128.255.8
 
 [ioc_tb_ps_srv]
-lnlsfac-vm
+10.128.255.8
 
 [ioc_bo_ps_srv]
-lnlsfac-vm
+10.128.255.8
 
 [ioc_bo_ps_fams_srv]
-lnlsfac-vm
+10.128.255.8
 
 [ioc_bo_ps_corrs_srv]
-lnlsfac-vm
+10.128.255.8
 
 [ioc_ts_ps_srv]
-lnlsfac-vm
+10.128.255.8
 
 [ioc_si_ps_srv]
 lnlsfac-srv1
@@ -77,6 +78,35 @@ lnlsfac-srv1
 [ioc_si_ps_trims_srv]
 lnlsfac-srv1
 
+[ioc_tb_ma_srv]
+10.128.255.8
+
+[ioc_bo_ma_srv]
+10.128.255.8
+
+[ioc_bo_ma_fams_srv]
+10.128.255.8
+
+[ioc_bo_ma_corrs_srv]
+10.128.255.8
+
+[ioc_ts_ma_srv]
+10.128.255.8
+
+[ioc_si_ma_srv]
+lnlsfac-srv1
+
+[ioc_si_ma_fams_srv]
+lnlsfac-srv1
+
+[ioc_si_ma_corrs_srv]
+lnlsfac-vm2
+
+[ioc_si_ma_trims_srv]
+lnlsfac-vm2
+
+[ioc_as_pm_srv]
+lnlsfac-vm2
 
 # === Power Supply BeagleBones ===
 
