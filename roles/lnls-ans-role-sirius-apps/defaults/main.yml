@@ -86,6 +86,14 @@ sirius_apps_hla:
       INSTALL_DESIGNER_DIR: "{{ sirius_apps_designer_dir }}"
     force_version: true
 
+  - name: High-Level Applications CONS
+    org_url: https://github.com/lnls-sirius
+    repo_name: pydm-opi
+    repo_version: "{{ pkg_version_pydm_opi }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
 sirius_apps_opis:
 
   - name: OPIs

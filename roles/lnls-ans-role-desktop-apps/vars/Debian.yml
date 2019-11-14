@@ -26,7 +26,7 @@ __desktop_packages:
   - dvipng
   - sshpass
   - wait-for-it
-  - libgsl2
+  - libgsl23
   - libgsl-dev
 
 __desktop_pip_packages:

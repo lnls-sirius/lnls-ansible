@@ -33,6 +33,8 @@ global_deploy_tag: master
 
 # === apt packages versions ===
 
+pkg_version_pydm_opi: v0.2.0
+
 pkg_version_autofs: 5.1.2*
 pkg_version_build_essential: 12.3*
 pkg_version_ca_certificates: 20161130*
@@ -65,7 +67,7 @@ pkg_version_libfreetype6: 2.6.3*
 pkg_version_libfreetype6_dev: 2.6.3*
 pkg_version_libgdbm_dev: 1.8.3*
 pkg_version_libglu1_mesa_dev: 9.0.0*
-pkg_version_libgtk2_0_0: 2.24.31*
+pkg_version_libgtk2_0_0: 2.24*
 pkg_version_libncursesw5_dev: 6.0+20161126*
 pkg_version_libqt5opengl5_dev: 5.7.1*
 pkg_version_libreadline5: 5.2*
