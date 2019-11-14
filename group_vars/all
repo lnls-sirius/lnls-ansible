@@ -33,6 +33,8 @@ global_deploy_tag: master
 
 # === apt packages versions ===
 
+pkg_version_pydm_opi: v0.2.0
+
 pkg_version_autofs: 5.1.2*
 pkg_version_build_essential: 12.3*
 pkg_version_ca_certificates: 20161130*
