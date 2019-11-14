@@ -1,0 +1,36 @@
+---
+- hosts: ioc_as_ap_srv
+  remote_user: sirius
+
+  vars:
+    role_to_run: lnls-ans-role-ctrl-service
+    services_to_run:
+      - sirius-ioc-tb-ps-diag.service
+      - sirius-ioc-bo-ps-diag.service
+      - sirius-ioc-ts-ps-diag.service
+      - sirius-ioc-as-ti-trig.service
+      - sirius-ioc-li-ti-trig.service
+      - sirius-ioc-tb-ti-trig.service
+      - sirius-ioc-bo-ti-trig.service
+      - sirius-ioc-ts-ti-trig.service
+      - sirius-ioc-si-ti-trig.service
+      - sirius-ioc-li-di-charge.service
+      - sirius-ioc-li-ap-energy.service
+      - sirius-ioc-bo-ap-currinfo.service
+      #- sirius-ioc-si-ap-currinfo.service
+      #- sirius-ioc-si-ap-currinfo-lifetime.service
+      - sirius-ioc-tb-ap-posang.service
+      - sirius-ioc-ts-ap-posang.service
+      - sirius-ioc-bo-ap-tunecorr.service
+      - sirius-ioc-bo-ap-chromcorr.service
+      - sirius-ioc-si-ap-tunecorr.service
+      - sirius-ioc-si-ap-chromcorr.service
+
+  tasks:
+    - name: "Run {{ role_to_run }} role"
+      include_role:
+        name: "{{ role_to_run }}"
+      vars:
+        ctrl_service_name: "{{ item }}"
+      with_items:
+        - "{{ services_to_run }}"
