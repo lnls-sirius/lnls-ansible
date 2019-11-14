@@ -12,7 +12,7 @@ __python_dep_packages:
   - "libncursesw5-dev={{ pkg_version_libncursesw5_dev }}"
   - "libssl-dev={{ pkg_version_libssl_dev }}"
   - "libsqlite3-dev={{ pkg_version_libsqlite3_dev }}"
-  - "tk-dev={{ pkg_version_tk_dev: tk-dev }}"
+  - "tk-dev={{ pkg_version_tk_dev }}"
   - "libgdbm-dev={{ pkg_version_libgdbm_dev }}"
   - "libc6-dev={{ pkg_version_libc6_dev }}"
   - "libbz2-dev={{ pkg_version_libbz2_dev }}"
