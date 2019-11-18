@@ -1,11 +1,11 @@
 ---
 __sirius_apps_epics_packages:
-  - epics-extensions-dev=20130514.5*
-  - edm-dev=1.12.105B*
-  - xpra=0.17.6*
-  - winswitch=0.12.21*
-  - xvfb=2:1.19.2*
-  - bc=1.06.95*
+  - "epics-extensions-dev={{ pkg_version_epics_extensions_dev }}"
+  - "edm-dev={{ pkg_version_edm_dev }}"
+  - "xpra={{ pkg_version_xpra }}"
+  - "winswitch={{ pkg_version_winswitch }}"
+  - "xvfb={{ pkg_version_xvfb }}"
+  - "bc={{ pkg_version_bc }}"
 
 __sirius_apps_epics_pip_packages: []
 

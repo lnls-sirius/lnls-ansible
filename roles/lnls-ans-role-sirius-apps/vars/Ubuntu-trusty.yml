@@ -1,11 +1,11 @@
 ---
 __sirius_apps_epics_packages:
-  - epics-extensions-dev
-  - edm-dev
-  - xpra
-  - winswitch
-  - xvfb
-  - bc
+  - "epics-extensions-dev={{ pkg_version_epics_extensions_dev }}"
+  - "edm-dev={{ pkg_version_edm_dev }}"
+  - "xpra={{ pkg_version_xpra }}"
+  - "winswitch={{ pkg_version_winswitch }}"
+  - "xvfb={{ pkg_version_xvfb }}"
+  - "bc={{ pkg_version_bc }}"
 
 __sirius_apps_epics_pip_packages: []
 

@@ -12,7 +12,7 @@ __python_dep_packages:
   - "libncursesw5-dev={{ pkg_version_libncursesw5_dev }}"
   - "libssl-dev={{ pkg_version_libssl_dev }}"
   - "libsqlite3-dev={{ pkg_version_libsqlite3_dev }}"
-  - "tk-dev=8.6.9+1*"
+  - "tk-dev={{ pkg_version_tk_dev }}"
   - "libgdbm-dev={{ pkg_version_libgdbm_dev }}"
   - "libc6-dev={{ pkg_version_libc6_dev }}"
   - "libbz2-dev={{ pkg_version_libbz2_dev }}"
@@ -27,7 +27,7 @@ __python_packages:
   - "python3-pip={{ pkg_version_python3_pip }}"
   - "python3-tk={{ pkg_version_python3_tk }}"
   - "python-setuptools={{ pkg_version_apt_setuptools }}"
-  - "swig=3.0.12*"
+  - "swig={{ pkg_version_swig }}"
 
 __pip_executable: pip-sirius
 
