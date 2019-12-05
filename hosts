@@ -39,6 +39,9 @@ lnls454-linux
 
 # === FAC IOC servers ===
 
+[ioc_as_ti_srv]
+lnlsfac-vm1
+
 [ioc_as_ap_srv]
 lnlsfac-vm1
 
