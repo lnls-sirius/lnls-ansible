@@ -32,5 +32,5 @@ epics_mca_apps_install_categories:
   - epics_mca_apps_core
 
 epics_mca_apps_octaverc_lines:
-  - "addpath {{ epics_mca_extensions_dir }}/extensions/src/mca/matlab"
-  - "addpath {{ epics_mca_extensions_dir }}/extensions/lib/{{ epics_mca_host_arch }}"
+  - "addpath {{ epics_mca_extensions_dir }}/src/mca/matlab"
+  - "addpath {{ epics_mca_extensions_dir }}/lib/{{ epics_mca_host_arch }}"
