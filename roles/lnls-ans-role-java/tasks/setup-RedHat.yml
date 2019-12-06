@@ -2,4 +2,9 @@
 - name: Ensure Java is installed.
   package:
     name: "{{ java_packages }}"
-  state: present
+    state: present
+  become: true
+  register: package_get_result
+  until: package_get_result is success
+  retries: 5
+  delay: 2
