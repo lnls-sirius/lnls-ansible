@@ -1,0 +1,3 @@
+---
+__octave_packages:
+  - "octave={{ pkg_version_octave }}"
