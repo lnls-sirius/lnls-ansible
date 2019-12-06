@@ -396,6 +396,21 @@ service-ioc-as-pm-start:
 		--extra-vars "ctrl_service_state=started" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-as-pm.yml
 
+# -- AS PU Conv
+service-ioc-as-pu-conv-stop:
+	@echo "Stoping AS PU Conv IOC services"
+	@echo "Please enter password for sirius user."
+	ansible-playbook \
+		--extra-vars "ctrl_service_state=stopped" \
+		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-as-pu-conv.yml
+
+service-ioc-as-pu-conv-start:
+	@echo "Starting AS PU Conv IOC services"
+	@echo "Please enter password for sirius user."
+	ansible-playbook \
+		--extra-vars "ctrl_service_state=started" \
+		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-as-pu-conv.yml
+
 
 # -- TB
 

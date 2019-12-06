@@ -111,6 +111,10 @@ lnlsfac-vm2
 [ioc_as_pm_srv]
 lnlsfac-vm2
 
+[ioc_as_pu_conv_srv]
+lnlsfac-vm2
+
+
 # === Power Supply BeagleBones ===
 
 
