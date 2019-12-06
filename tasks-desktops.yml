@@ -35,6 +35,8 @@
 - import_role:
     name: lnls-ans-role-sirius-bbb
 - import_role:
+    name: lnls-ans-role-octave
+- import_role:
     name: lnls-ans-role-desktop-settings
 - import_role:
     name: lnls-ans-role-visual-studio-code
