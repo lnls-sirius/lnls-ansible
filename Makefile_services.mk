@@ -29,6 +29,23 @@ service-ioc-as-ap-sofb-start:
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-as-ap-sofb.yml
 
 
+# === AS TI IOC services ===
+
+service-ioc-as-ti-stop:
+	@echo "Stopping AS TI IOC services"
+	@echo "Please enter password for sirius user."
+	ansible-playbook \
+		--extra-vars "ctrl_service_state=stopped" \
+		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-as-ti.yml
+
+service-ioc-as-ti-start:
+	@echo "Starting AS TI IOC services"
+	@echo "Please enter password for sirius user."
+	ansible-playbook \
+		--extra-vars "ctrl_service_state=started" \
+		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-as-ti.yml
+
+
 # === EthPRUserial485 services ===
 
 
