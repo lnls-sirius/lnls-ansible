@@ -16,7 +16,7 @@ epics_mca_apps_core:
   - name: EPICS MCA Core
     org_url: https://github.com/lnls-sirius
     repo_name: mca
-    repo_version: "{{ epics_mca_core_tag | default(master) }}"
+    repo_version: "{{ epics_mca_core_tag | default('master') }}"
     clone_path: /tmp
     install_via_makefile: true
     make_install_target: install
