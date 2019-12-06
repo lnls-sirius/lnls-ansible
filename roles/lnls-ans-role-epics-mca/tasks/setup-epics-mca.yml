@@ -7,20 +7,6 @@
     - epics_mca_apps is defined and
       epics_mca_apps | length > 0
 
-  template:
-    src: "{{ item.filename }}.j2"
-    dest: "{{ item.pathname }}/{{ item.filename }}"
-    owner: root
-    group: root
-    force: true
-    mode: 0644
-  become: true
-  with_items:
-    - "{{ epics_mca_apps_config_files }}"
-  when:
-    - epics_mca_apps is defined and
-      epics_mca_apps | length > 0
-
 - name: Ensure EPICA MCA octaverc is installed
   lineinfile:
     state: present
@@ -30,4 +16,3 @@
   become: true
   with_items:
     - "{{ epics_mca_apps_octaverc_lines | default([]) }}"
-
