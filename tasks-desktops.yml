@@ -29,15 +29,15 @@
 - import_role:
     name: lnls-ans-role-phoebus
 - import_role:
-    name: lnls-ans-role-sirius-apps
-- import_role:
-    name: lnls-ans-role-desktop-apps
-- import_role:
     name: lnls-ans-role-sirius-bbb
 - import_role:
     name: lnls-ans-role-octave
 - import_role:
     name: lnls-ans-role-epics-mca
+- import_role:
+    name: lnls-ans-role-sirius-apps
+- import_role:
+    name: lnls-ans-role-desktop-apps
 - import_role:
     name: lnls-ans-role-desktop-settings
 - import_role:
