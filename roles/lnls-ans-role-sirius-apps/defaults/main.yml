@@ -16,6 +16,9 @@ sirius_apps_li_edm_dir: /usr/local/share/edm/data
 # Sirius designer path
 sirius_apps_designer_dir: /usr/local/share/Qt/designer
 
+# Sirius BPM tests path
+sirius_apps_bpm_tests_dir: /usr/local/share/bpm-tests
+
 # Groups of packages
 sirius_apps_dev_packages:
 
@@ -116,6 +119,17 @@ sirius_apps_mgmt:
     clone_path: /tmp
     install_via_makefile: true
     make_install_target: install-ansible
+    force_version: true
+
+  - name: BPM Scripts
+    org_url: https://github.com/lnls-dig
+    repo_name: bpm-tests
+    repo_version: "{{ pkg_version_bpm_scripts | default(master) }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    make_install_target: install
+    make_install_opts:
+      INSTALL_DIR: "{{ sirius_apps_bpm_tests_dir }}"
     force_version: true
 
 # Select which categories to install. Defaults to all
