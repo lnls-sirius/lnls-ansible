@@ -33,7 +33,7 @@ global_deploy_tag: master
 
 # === sirius packages ===
 
-pkg_version_pydm_opi: v0.2.5
+pkg_version_pydm_opi: v0.2.7
 
 
 # === apt packages versions ===
