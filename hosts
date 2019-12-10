@@ -70,16 +70,21 @@ lnlsfac-vm1
 lnlsfac-vm1
 
 [ioc_si_ps_srv]
-lnlsfac-srv1
+lnlsfac-vm2
 
 [ioc_si_ps_fams_srv]
-lnlsfac-srv1
+lnlsfac-vm2
 
 [ioc_si_ps_corrs_srv]
-lnlsfac-srv1
+lnlsfac-vm2
 
 [ioc_si_ps_trims_srv]
 lnlsfac-srv1
+
+[ioc_as_pu_conv_srv]
+lnlsfac-srv1
+
+# --- deprecated ---
 
 [ioc_tb_ma_srv]
 lnlsfac-vm1
@@ -110,6 +115,7 @@ lnlsfac-vm2
 
 [ioc_as_pm_srv]
 lnlsfac-vm2
+
 
 # === Power Supply BeagleBones ===
 
