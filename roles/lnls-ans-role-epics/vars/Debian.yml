@@ -9,3 +9,5 @@ __epics_pip_packages:
   - pcaspy
 
 __pip_executable: pip-sirius
+
+__pip2_executable: pip
