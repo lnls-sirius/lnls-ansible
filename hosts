@@ -58,13 +58,15 @@ lnlsfac-vm1
 lnlsfac-vm1
 
 [ioc_bo_ps_srv]
+lnlsfac-srv1
 lnlsfac-vm1
+lnlsfac-vm2
 
-[ioc_bo_ps_fams_srv]
-lnlsfac-vm1
+[ioc_bo_ps_fams_srv:children]
+ioc_bo_ps_srv
 
-[ioc_bo_ps_corrs_srv]
-lnlsfac-vm1
+[ioc_bo_ps_corrs_srv:children]
+ioc_bo_ps_srv
 
 [ioc_ts_ps_srv]
 lnlsfac-vm1
@@ -76,8 +78,10 @@ lnlsfac-vm2
 
 [ioc_si_ps_fams_srv:children]
 ioc_si_ps_srv
+
 [ioc_si_ps_corrs_srv:children]
 ioc_si_ps_srv
+
 [ioc_si_ps_trims_srv:children]
 ioc_si_ps_srv
 
@@ -92,6 +96,11 @@ ioc_si_ps_corrs_srv_host=lnlsfac-vm2
 [ioc_si_ps_trims_srv:vars]
 ioc_si_ps_trims_srv_host=lnlsfac-srv1
 
+[ioc_bo_ps_fams_srv:vars]
+ioc_bo_ps_fams_srv_host=lnlsfac-vm1
+
+[ioc_bo_ps_corrs_srv:vars]
+ioc_bo_ps_corrs_srv_host=lnlsfac-vm1
 
 [ioc_as_pu_conv_srv]
 lnlsfac-srv1
