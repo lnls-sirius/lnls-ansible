@@ -44,4 +44,3 @@
   become: true
   when: item.install_via_setup is defined and
         (item.install_via_setup | bool)
-
