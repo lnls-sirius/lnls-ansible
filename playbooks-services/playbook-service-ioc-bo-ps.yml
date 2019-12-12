@@ -28,6 +28,9 @@
       - sirius-ioc-bo-ps-correctors-ia17
       - sirius-ioc-bo-ps-correctors-ia20
 
+    services_to_run_diags:
+      - sirius-ioc-bo-ps-diag.service
+
   tasks:
 
     - name: "Run {{ role_to_run }} role for BO fams"
@@ -51,3 +54,14 @@
       when:
         - ansible_host == ioc_bo_ps_corrs_srv_host
         - services_to_run_corrs is defined and services_to_run_corrs | length > 0
+
+    - name: "Run {{ role_to_run }} role for BO diags"
+      include_role:
+        name: "{{ role_to_run }}"
+      vars:
+        ctrl_service_name: "'{{ item }}'"
+      with_items:
+        - "{{ services_to_run_diags }}"
+      when:
+        - ansible_host == ioc_bo_ps_diags_srv_host
+        - services_to_run_diags is defined and services_to_run_diags | length > 0
