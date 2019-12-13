@@ -1,5 +1,5 @@
 ---
-- hosts: ioc_tb_ps_srv
+- hosts: ioc_ps_srv
   remote_user: sirius
 
   vars:
@@ -7,8 +7,7 @@
 
     services_to_run_fams:
       - sirius-ioc-tb-ps-dipoles.service
-      - sirius-ioc-tb-ps-quadrupoles-12.service
-      - sirius-ioc-tb-ps-quadrupoles-34.service
+      - sirius-ioc-tb-ps-quadrupoles.service
 
     services_to_run_corrs:
       - sirius-ioc-tb-ps-correctors.service
@@ -35,7 +34,7 @@
       vars:
         ctrl_service_name: "'{{ item }}'"
       with_items:
-        - "{{ services_to_run_fams }}"
+        - "{{ services_to_run_corrs }}"
       when:
         - ansible_host == ioc_tb_ps_corrs_srv_host
         - services_to_run_corrs is defined and services_to_run_corrs | length > 0
@@ -46,7 +45,7 @@
       vars:
         ctrl_service_name: "'{{ item }}'"
       with_items:
-        - "{{ services_to_run_fams }}"
+        - "{{ services_to_run_diags }}"
       when:
         - ansible_host == ioc_tb_ps_diags_srv_host
         - services_to_run_diags is defined and services_to_run_diags | length > 0

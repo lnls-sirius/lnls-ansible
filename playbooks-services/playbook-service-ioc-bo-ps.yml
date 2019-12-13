@@ -1,5 +1,5 @@
 ---
-- hosts: ioc_bo_ps_srv
+- hosts: ioc_ps_srv
   remote_user: sirius
 
   vars:
