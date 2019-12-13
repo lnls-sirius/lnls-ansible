@@ -129,5 +129,8 @@ deploy-elp-desktops: playbook-elp-desktops.yml tasks-desktops.yml
 deploy-control-room-desktops: playbook-control-room-desktops.yml tasks-desktops.yml
 	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) playbook-control-room-desktops.yml
 
+deploy-control-room-desktops-sirius: playbook-control-room-desktops-sirius.yml tasks-desktops-sirius.yml
+	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) playbook-control-room-desktops-sirius.yml
+
 deploy-rfq-desktops: playbook-rfq-desktops.yml tasks-desktops.yml
 	ansible-playbook -u sirius -i hosts -l rfq --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) playbook-rfq-desktops.yml
