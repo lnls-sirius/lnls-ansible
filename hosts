@@ -39,14 +39,60 @@ lnls454-linux
 
 # === FAC IOC servers ===
 
+# --- groups and vars ---
+
+[ioc_ps_srv]
+lnlsfac-srv1
+lnlsfac-vm1
+lnlsfac-vm2
+
+[ioc_tb_ps_fams_srv:children]
+ioc_ps_srv
+
+[ioc_tb_ps_corrs_srv:children]
+ioc_ps_srv
+
+[ioc_tb_ps_diags_srv:children]
+ioc_ps_srv
+
+[ioc_bo_ps_fams_srv:children]
+ioc_ps_srv
+
+[ioc_bo_ps_corrs_srv:children]
+ioc_ps_srv
+
+[ioc_bo_ps_diags_srv:children]
+ioc_ps_srv
+
+[ioc_ts_ps_fams_srv:children]
+ioc_ps_srv
+
+[ioc_ts_ps_corrs_srv:children]
+ioc_ps_srv
+
+[ioc_ts_ps_diags_srv:children]
+ioc_ps_srv
+
+[ioc_si_ps_fams_srv:children]
+ioc_ps_srv
+
+[ioc_si_ps_corrs_srv:children]
+ioc_ps_srv
+
+[ioc_si_ps_trims_srv:children]
+ioc_ps_srv
+
+[ioc_si_ps_diags_srv:children]
+ioc_ps_srv
+
+
+# --- server host selection ---
+
 [ioc_as_ti_srv]
 lnlsfac-vm1
 
 [ioc_as_ap_srv]
 lnlsfac-vm1
-
-[ioc_as_ap_sofb_srv]
-lnls454-linux
 
 [ioc_li_ps_srv]
 lnlsfac-vm1
@@ -54,34 +100,42 @@ lnlsfac-vm1
 [ioc_as_ps_dclinks_srv]
 lnlsfac-vm1
 
-[ioc_tb_ps_srv]
-lnlsfac-vm1
+[ioc_as_ap_sofb_srv]
+lnls454-linux
 
-[ioc_bo_ps_srv]
-lnlsfac-vm1
-
-[ioc_bo_ps_fams_srv]
-lnlsfac-vm1
-
-[ioc_bo_ps_corrs_srv]
-lnlsfac-vm1
-
-[ioc_ts_ps_srv]
-lnlsfac-vm1
-
-[ioc_si_ps_srv]
+[ioc_as_pu_conv_srv]
 lnlsfac-srv1
-lnlsfac-vm1
-lnlsfac-vm2
 
-[ioc_si_ps_fams_srv:children]
-ioc_si_ps_srv
-[ioc_si_ps_corrs_srv:children]
-ioc_si_ps_srv
-[ioc_si_ps_trims_srv:children]
-ioc_si_ps_srv
 
-# --- server host selection ---
+[ioc_tb_ps_fams_srv:vars]
+ioc_tb_ps_fams_srv_host=lnlsfac-vm1
+
+[ioc_tb_ps_corrs_srv:vars]
+ioc_tb_ps_corrs_srv_host=lnlsfac-vm1
+
+[ioc_tb_ps_diags_srv:vars]
+ioc_tb_ps_diags_srv_host=lnlsfac-vm1
+
+
+[ioc_bo_ps_fams_srv:vars]
+ioc_bo_ps_fams_srv_host=lnlsfac-vm1
+
+[ioc_bo_ps_corrs_srv:vars]
+ioc_bo_ps_corrs_srv_host=lnlsfac-vm1
+
+[ioc_bo_ps_diags_srv:vars]
+ioc_bo_ps_diags_srv_host=lnlsfac-vm1
+
+
+[ioc_ts_ps_fams_srv:vars]
+ioc_ts_ps_fams_srv_host=lnlsfac-vm1
+
+[ioc_ts_ps_corrs_srv:vars]
+ioc_ts_ps_corrs_srv_host=lnlsfac-vm1
+
+[ioc_ts_ps_diags_srv:vars]
+ioc_ts_ps_diags_srv_host=lnlsfac-vm1
+
 
 [ioc_si_ps_fams_srv:vars]
 ioc_si_ps_fams_srv_host=lnlsfac-vm2
@@ -92,9 +146,8 @@ ioc_si_ps_corrs_srv_host=lnlsfac-vm2
 [ioc_si_ps_trims_srv:vars]
 ioc_si_ps_trims_srv_host=lnlsfac-srv1
 
-
-[ioc_as_pu_conv_srv]
-lnlsfac-srv1
+[ioc_si_ps_diags_srv:vars]
+ioc_si_ps_diags_srv_host=lnlsfac-srv1
 
 
 # === Power Supply BeagleBones ===

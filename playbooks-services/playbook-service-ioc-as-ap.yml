@@ -5,9 +5,6 @@
   vars:
     role_to_run: lnls-ans-role-ctrl-service
     services_to_run:
-      - sirius-ioc-tb-ps-diag.service
-      - sirius-ioc-bo-ps-diag.service
-      - sirius-ioc-ts-ps-diag.service
       - sirius-ioc-li-di-charge.service
       - sirius-ioc-li-ap-energy.service
       - sirius-ioc-bo-ap-currinfo.service
