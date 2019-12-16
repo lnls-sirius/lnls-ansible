@@ -1,6 +1,6 @@
 ---
 # Whether to install recommended packages. Used only for Debian/Ubuntu.
-pydm_recommended_apps_pip_install: True
+pydm_recommended_apps_pip_install: true
 
 # Whether pydm should be present or not
 pydm_state: "present"

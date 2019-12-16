@@ -8,8 +8,8 @@
       - sirius-ioc-li-di-charge.service
       - sirius-ioc-li-ap-energy.service
       - sirius-ioc-bo-ap-currinfo.service
-      #- sirius-ioc-si-ap-currinfo.service
-      #- sirius-ioc-si-ap-currinfo-lifetime.service
+      # - sirius-ioc-si-ap-currinfo.service
+      # - sirius-ioc-si-ap-currinfo-lifetime.service
       - sirius-ioc-tb-ap-posang.service
       - sirius-ioc-ts-ap-posang.service
       - sirius-ioc-bo-ap-tunecorr.service
