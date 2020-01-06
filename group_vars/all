@@ -128,6 +128,7 @@ pkg_version_liboctave_dev: 4.0.3*
 
 # === pip packages ===
 
+pkg_version_pip: 19.3.1
 pkg_version_python_dateutil: 2.8.1
 pkg_version_cairocffi: 1.1.0
 pkg_version_jupyter: 1.0.0
