@@ -138,7 +138,7 @@ ioc_ts_ps_diags_srv_host=lnlsfac-vm1
 
 
 [ioc_si_ps_fams_srv:vars]
-ioc_si_ps_fams_srv_host=lnlsfac-vm2
+ioc_si_ps_fams_srv_host=lnlsfac-vm1
 
 [ioc_si_ps_corrs_srv:vars]
 ioc_si_ps_corrs_srv_host=lnlsfac-vm2
