@@ -157,31 +157,31 @@ ioc_si_ps_diags_srv_host=lnlsfac-srv1
 
 # -- BO
 
-[bbb_bo_ps_dipoles]
+[bbb_bo_dipoles]
 PA-RaPSE05--CO-PSCtrl-BO    # bbb-bo-dipole-1         -  BO-Fam:PS-B-1
 PA-RaPSF05--CO-PSCtrl-BO    # bbb-bo-dipole-2         -  BO-Fam:PS-B-2
 
-[bbb_bo_ps_quadrupoles]
+[bbb_bo_quadrupoles]
 PA-RaPSC03--CO-PSCtrl-BO1   # bbb-bo-quadrupole-qf    -  BO-Fam:PS-QF
 PA-RaPSC03--CO-PSCtrl-BO4   # bbb-bo-quadrupole-qd    -  BO-Fam:PS-QD
 
-[bbb_bo_ps_sextupoles]
+[bbb_bo_sextupoles]
 PA-RaPSC03--CO-PSCtrl-BO2   # bbb-bo-sextupole-sf     -  BO-Fam:PS-SF
 PA-RaPSC03--CO-PSCtrl-BO3   # bbb-bo-sextupole-sd     -  BO-Fam:PS-SD
 
+
 # -- SI
 
-[bbb_si_ps_dipoles]
-PA-RaPSD04--CO-PSCtrl-SI1   # bbb-si-dipole-1         -  SI-Fam:PS-B1B2-1
-PA-RaPSD04--CO-PSCtrl-SI2   # bbb-si-dipole-2         -  SI-Fam:PS-B1B2-2
+[bbb_si_dipoles]
+PA-RaPSD04--CO-PSCtrl-SI    # bbb-si-dipole-1         -  SI-Fam:PS-B1B2-1 SI-Fam:PS-B1B2-2
 
-[bbb_si_ps_quadrupoles]
+[bbb_si_quadrupoles]
 PA-RaPSA02--CO-PSCtrl-SI1   # bbb-si-quadrupoles-qf            - SI-Fam:PS-QFB SI-Fam:PS-QFP SI-Fam:PS-QFA
 PA-RaPSA02--CO-PSCtrl-SI2   # bbb-si-quadrupoles-qd1           - SI-Fam:PS-QDP2 SI-Fam:PS-QDP1 SI-Fam:PS-QDA
 PA-RaPSA05--CO-PSCtrl-SI1   # bbb-si-quadrupoles-qd2           - SI-Fam:PS-QDB2 SI-Fam:PS-QDB1
 PA-RaPSA05--CO-PSCtrl-SI2   # bbb-si-quadrupoles-q             - SI-Fam:PS-Q4 SI-Fam:PS-Q3 SI-Fam:PS-Q2 SI-Fam:PS-Q1
 
-[bbb_si_ps_sextupoles]
+[bbb_si_sextupoles]
 PA-RaPSB02--CO-PSCtrl-SI1   # bbb-si-sextupoles-sfb0-sdb01     - SI-Fam:PS-SDB1 SI-Fam:PS-SFB0 SI-Fam:PS-SDB0
 PA-RaPSB02--CO-PSCtrl-SI2   # bbb-si-sextupoles-sfa0p0-sda0p0  - SI-Fam:PS-SFP0 SI-Fam:PS-SFA0 SI-Fam:PS-SDP0 SI-Fam:PS-SDA0
 PA-RaPSB06--CO-PSCtrl-SI1   # bbb-si-sextupoles-sda1b12        - SI-Fam:PS-SDB2 SI-Fam:PS-SDA2 SI-Fam:PS-SDA1
@@ -202,6 +202,7 @@ LA-RaCtrl--CO-PSCtrl-TB1    # bbb-tb-quadrupoles      - TB-01:PS-QD1 TB-01:PS-QF
 
 [bbb_tb_correctors]
 LA-RaCtrl--CO-PSCtrl-TB2    # bbb-tb-correctors       - TB-01:PS-CH-1 TB-01:PS-CV-1 TB-01:PS-CH-2 TB-01:PS-CV-2 TB-02:PS-CH-1 TB-02:PS-CV-1 TB-02:PS-CH-2 TB-02:PS-CV-2 TB-04:PS-CH-1 TB-04:PS-CV-1 TB-04:PS-CH-2 TB-04:PS-CV-2
+
 
 # -- TS
 
@@ -226,7 +227,7 @@ LA-RaCtrl--CO-DCLinkCtrl    # bbb-as-dclinks-tbts     - LA-RaPS06:PS-UDC-AS1 LA-
 
 # -- BO correctors
 
-[bbb_bo_ps_correctors]
+[bbb_bo_correctors]
 IA-01RaCtrl--CO-PSCtrl-BO   # bbb-bo-correctors-ia01  -  BO-01U:PS-CH BO-01U:PS-CV BO-02D:PS-QS
 IA-02RaCtrl--CO-PSCtrl-BO   # bbb-bo-correctors-ia02  -  BO-03U:PS-CH BO-03U:PS-CV BO-05U:PS-CH BO-05U:PS-CV
 IA-04RaCtrl--CO-PSCtrl-BO   # bbb-bo-correctors-ia04  -  BO-07U:PS-CH BO-07U:PS-CV BO-09U:PS-CH BO-09U:PS-CV
@@ -243,7 +244,7 @@ IA-20RaCtrl--CO-PSCtrl-BO   # bbb-bo-correctors-ia20  -  BO-47U:PS-CH BO-47U:PS-
 
 # -- SI correctors
 
-[bbb_si_ps_correctors]
+[bbb_si_correctors]
 IA-01RaCtrl--CO-PSCtrl-SI2  # bbb-si-correctors-c2m12-ia01  -  SI-01C2:PS-CH SI-01C2:PS-CV-1 SI-01C2:PS-CV-2 SI-01M1:PS-CH SI-01M1:PS-CV SI-01M2:PS-CH SI-01M2:PS-CV
 IA-02RaCtrl--CO-PSCtrl-SI2  # bbb-si-correctors-c2m12-ia02  -  SI-02C2:PS-CH SI-02C2:PS-CV-1 SI-02C2:PS-CV-2 SI-02M1:PS-CH SI-02M1:PS-CV SI-02M2:PS-CH SI-02M2:PS-CV
 IA-03RaCtrl--CO-PSCtrl-SI2  # bbb-si-correctors-c2m12-ia03  -  SI-03C2:PS-CH SI-03C2:PS-CV-1 SI-03C2:PS-CV-2 SI-03M1:PS-CH SI-03M1:PS-CV SI-03M2:PS-CH SI-03M2:PS-CV
@@ -285,7 +286,7 @@ IA-18RaCtrl--CO-PSCtrl-SI4  # bbb-si-correctors-c134-ia18   -  SI-18C1:PS-CH SI-
 IA-19RaCtrl--CO-PSCtrl-SI4  # bbb-si-correctors-c134-ia19   -  SI-19C1:PS-CH SI-19C1:PS-CV SI-19C4:PS-CH SI-19C4:PS-CV SI-19C3:PS-CH SI-19C3:PS-CV-1 SI-19C3:PS-CV-2
 IA-20RaCtrl--CO-PSCtrl-SI4  # bbb-si-correctors-c134-ia20   -  SI-20C1:PS-CH SI-20C1:PS-CV SI-20C4:PS-CH SI-20C4:PS-CV SI-20C3:PS-CH SI-20C3:PS-CV-1 SI-20C3:PS-CV-2
 
-[bbb_si_ps_trims_qs]
+[bbb_si_trims_qs]
 IA-01RaCtrl--CO-PSCtrl-SI1  # bbb-si-trims-qs-m12-ia01      -  SI-01M2:PS-QFA SI-01M2:PS-QDA  SI-02M1:PS-QFB  SI-02M1:PS-QDB1 SI-02M1:PS-QDB2 SI-01M1:PS-QS   SI-01M2:PS-QS
 IA-02RaCtrl--CO-PSCtrl-SI1  # bbb-si-trims-qs-m12-ia02      -  SI-02M2:PS-QFB SI-02M2:PS-QDB1 SI-02M2:PS-QDB2 SI-03M1:PS-QFP  SI-03M1:PS-QDP1 SI-03M1:PS-QDP2 SI-02M1:PS-QS SI-02M2:PS-QS
 IA-03RaCtrl--CO-PSCtrl-SI1  # bbb-si-trims-qs-m12-ia03      -  SI-03M2:PS-QFP SI-03M2:PS-QDP1 SI-03M2:PS-QDP2 SI-04M1:PS-QFB  SI-04M1:PS-QDB1 SI-04M1:PS-QDB2 SI-03M1:PS-QS SI-03M2:PS-QS
@@ -349,48 +350,40 @@ IA-20RaCtrl--CO-DCLinkCtrl  # bbb-as-dclink-ia20      -  BO-47U:PS-CH BO-47U:PS-
 
 # -- TB
 
-[bbb_tb_ps:children]
+[bbb_tb:children]
 bbb_tb_dipoles
 bbb_tb_quadrupoles
 bbb_tb_correctors
 
 # -- BO
 
-[bbb_bo_ps_fams:children]
-bbb_bo_ps_dipoles
-bbb_bo_ps_quadrupoles
-bbb_bo_ps_sextupoles
+[bbb_bo_fams:children]
+bbb_bo_dipoles
+bbb_bo_quadrupoles
+bbb_bo_sextupoles
 
-[bbb_bo_ps:children]
-bbb_bo_ps_fams
-bbb_bo_ps_correctors
+[bbb_bo:children]
+bbb_bo_fams
+bbb_bo_correctors
 
 # -- TS
 
-[bbb_ts_ps:children]
+[bbb_ts:children]
 bbb_ts_dipoles
 bbb_ts_quadrupoles
 bbb_ts_correctors
 
 # -- SI
 
-[bbb_si_ps_fams:children]
-bbb_si_ps_dipoles
-bbb_si_ps_quadrupoles
-bbb_si_ps_sextupoles
+[bbb_si_fams:children]
+bbb_si_dipoles
+bbb_si_quadrupoles
+bbb_si_sextupoles
 
-[bbb_si_ps:children]
-bbb_si_ps_fams
-bbb_si_ps_correctors
-bbb_si_ps_trims_qs
-
-# -- All PS
-
-[bbb_ps:children]
-bbb_tb_ps
-bbb_bo_ps
-bbb_ts_ps
-bbb_si_ps
+[bbb_si:children]
+bbb_si_fams
+bbb_si_correctors
+bbb_si_trims_qs
 
 # -- All DCLink
 
@@ -398,8 +391,11 @@ bbb_si_ps
 bbb_as_dclinks_tbts
 bbb_as_dclinks_ia
 
-# -- All
+# -- All PS
 
 [bbb:children]
-bbb_ps
+bbb_tb
+bbb_bo
+bbb_ts
+bbb_si
 bbb_dclinks
