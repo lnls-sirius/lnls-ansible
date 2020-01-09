@@ -106,7 +106,7 @@ service-ethbridge-tb-dipoles-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_tb_ps_dipoles \
+		-l bbb_tb_dipoles \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 service-ethbridge-tb-dipoles-start:
@@ -114,7 +114,7 @@ service-ethbridge-tb-dipoles-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_tb_ps_dipoles \
+		-l bbb_tb_dipoles \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 service-ethbridge-tb-quadrupoles-stop:
@@ -122,7 +122,7 @@ service-ethbridge-tb-quadrupoles-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_tb_ps_quadrupoles \
+		-l bbb_tb_quadrupoles \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 service-ethbridge-tb-quadrupoles-start:
@@ -130,7 +130,7 @@ service-ethbridge-tb-quadrupoles-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_tb_ps_quadrupoles \
+		-l bbb_tb_quadrupoles \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 service-ethbridge-tb-correctors-stop:
@@ -138,7 +138,7 @@ service-ethbridge-tb-correctors-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_tb_ps_correctors \
+		-l bbb_tb_correctors \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 service-ethbridge-tb-correctors-start:
@@ -146,7 +146,7 @@ service-ethbridge-tb-correctors-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_tb_ps_correctors \
+		-l bbb_tb_correctors \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 # --- BO ---
@@ -156,7 +156,7 @@ service-ethbridge-bo-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_bo_ps \
+		-l bbb_bo \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 service-ethbridge-bo-start:
@@ -164,7 +164,7 @@ service-ethbridge-bo-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_bo_ps \
+		-l bbb_bo \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 service-ethbridge-bo-fams-stop:
@@ -172,7 +172,7 @@ service-ethbridge-bo-fams-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_bo_ps_fams \
+		-l bbb_bo_fams \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 service-ethbridge-bo-fams-start:
@@ -180,7 +180,7 @@ service-ethbridge-bo-fams-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_bo_ps_fams \
+		-l bbb_bo_fams \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 service-ethbridge-bo-correctors-stop:
@@ -188,7 +188,7 @@ service-ethbridge-bo-correctors-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_bo_ps_correctors \
+		-l bbb_bo_correctors \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 service-ethbridge-bo-correctors-start:
@@ -196,7 +196,7 @@ service-ethbridge-bo-correctors-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_bo_ps_correctors \
+		-l bbb_bo_correctors \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 # --- TS ---
@@ -206,7 +206,7 @@ service-ethbridge-ts-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_ts_ps \
+		-l bbb_ts \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 service-ethbridge-ts-start:
@@ -214,7 +214,7 @@ service-ethbridge-ts-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_ts_ps \
+		-l bbb_ts \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 service-ethbridge-ts-dipoles-stop:
@@ -222,7 +222,7 @@ service-ethbridge-ts-dipoles-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_ts_ps_dipoles \
+		-l bbb_ts_dipoles \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 service-ethbridge-ts-dipoles-start:
@@ -230,7 +230,7 @@ service-ethbridge-ts-dipoles-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_ts_ps_dipoles \
+		-l bbb_ts_dipoles \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 service-ethbridge-ts-quadrupoles-stop:
@@ -238,7 +238,7 @@ service-ethbridge-ts-quadrupoles-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_ts_ps_quadrupoles \
+		-l bbb_ts_quadrupoles \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 service-ethbridge-ts-quadrupoles-start:
@@ -246,7 +246,7 @@ service-ethbridge-ts-quadrupoles-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_ts_ps_quadrupoles \
+		-l bbb_ts_quadrupoles \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 service-ethbridge-ts-correctors-stop:
@@ -254,7 +254,7 @@ service-ethbridge-ts-correctors-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_ts_ps_correctors \
+		-l bbb_ts_correctors \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 service-ethbridge-ts-correctors-start:
@@ -262,7 +262,7 @@ service-ethbridge-ts-correctors-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_ts_ps_correctors \
+		-l bbb_ts_correctors \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 # --- SI ---
@@ -272,7 +272,7 @@ service-ethbridge-si-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_si_ps \
+		-l bbb_si \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 service-ethbridge-si-stop:
@@ -280,7 +280,7 @@ service-ethbridge-si-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_si_ps \
+		-l bbb_si \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 service-ethbridge-si-fams-stop:
@@ -288,7 +288,7 @@ service-ethbridge-si-fams-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_si_ps_fams \
+		-l bbb_si_fams \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 service-ethbridge-si-fams-start:
@@ -296,7 +296,7 @@ service-ethbridge-si-fams-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_si_ps_fams \
+		-l bbb_si_fams \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 service-ethbridge-si-correctors-stop:
@@ -304,7 +304,7 @@ service-ethbridge-si-correctors-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_si_ps_correctors \
+		-l bbb_si_correctors \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 service-ethbridge-si-correctors-start:
@@ -312,7 +312,7 @@ service-ethbridge-si-correctors-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_si_ps_correctors \
+		-l bbb_si_correctors \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 service-ethbridge-si-trims-qs-stop:
@@ -320,7 +320,7 @@ service-ethbridge-si-trims-qs-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_si_ps_trims_qs \
+		-l bbb_si_trims_qs \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 service-ethbridge-si-trims-qs-start:
@@ -328,7 +328,7 @@ service-ethbridge-si-trims-qs-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_si_ps_trims_qs \
+		-l bbb_si_trims_qs \
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 
@@ -417,7 +417,6 @@ service-ioc-tb-ps-fams-stop:
 	@echo "Stopping TB PS Fams IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "ctrl_service_state=stopped" \
 		--extra-vars "services_to_run_corrs='' services_to_run_diags='' ctrl_service_state=stopped" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-tb-ps.yml
 
@@ -425,15 +424,13 @@ service-ioc-tb-ps-fams-start:
 	@echo "Starting TB PS Fams IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "ctrl_service_state=started" \
-		--extra-vars "services_to_run_corrs='' services_to_run_diags='' ctrl_service_state=stopped" \
+		--extra-vars "services_to_run_corrs='' services_to_run_diags='' ctrl_service_state=started" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-tb-ps.yml
 
 service-ioc-tb-ps-corrs-stop:
 	@echo "Stopping TB PS Corrector IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "ctrl_service_state=stopped" \
 		--extra-vars "services_to_run_fams='' services_to_run_diags='' ctrl_service_state=stopped" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-tb-ps.yml
 
@@ -441,15 +438,13 @@ service-ioc-tb-ps-corrs-start:
 	@echo "Starting TB PS Corrector IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "ctrl_service_state=started" \
-		--extra-vars "services_to_run_fams='' services_to_run_diags='' ctrl_service_state=stopped" \
+		--extra-vars "services_to_run_fams='' services_to_run_diags='' ctrl_service_state=started" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-tb-ps.yml
 
 service-ioc-tb-ps-diags-stop:
 	@echo "Stopping TB PS Diagnostic IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "ctrl_service_state=stopped" \
 		--extra-vars "services_to_run_fams='' services_to_run_corrs='' ctrl_service_state=stopped" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-tb-ps.yml
 
@@ -457,8 +452,7 @@ service-ioc-tb-ps-diags-start:
 	@echo "Starting TB PS Diagnostic IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "ctrl_service_state=started" \
-		--extra-vars "services_to_run_fams='' services_to_run_corrs='' ctrl_service_state=stopped" \
+		--extra-vars "services_to_run_fams='' services_to_run_corrs='' ctrl_service_state=started" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-tb-ps.yml
 
 # -- BO
@@ -481,7 +475,6 @@ service-ioc-bo-ps-fams-stop:
 	@echo "Stopping BO PS Fams IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "ctrl_service_state=stopped" \
 		--extra-vars "services_to_run_corrs='' services_to_run_diags='' ctrl_service_state=stopped" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-bo-ps.yml
 
@@ -541,7 +534,6 @@ service-ioc-ts-ps-fams-stop:
 	@echo "Stopping TS PS Fams IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "ctrl_service_state=stopped" \
 		--extra-vars "services_to_run_corrs='' services_to_run_diags='' ctrl_service_state=stopped" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-ts-ps.yml
 
@@ -549,15 +541,13 @@ service-ioc-ts-ps-fams-start:
 	@echo "Starting TS PS Fams IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "ctrl_service_state=started" \
-		--extra-vars "services_to_run_corrs='' services_to_run_diags='' ctrl_service_state=stopped" \
+		--extra-vars "services_to_run_corrs='' services_to_run_diags='' ctrl_service_state=started" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-ts-ps.yml
 
 service-ioc-ts-ps-corrs-stop:
 	@echo "Stopping TS PS Corrector IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "ctrl_service_state=stopped" \
 		--extra-vars "services_to_run_fams='' services_to_run_diags='' ctrl_service_state=stopped" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-ts-ps.yml
 
@@ -565,15 +555,13 @@ service-ioc-ts-ps-corrs-start:
 	@echo "Starting TS PS Corrector IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "ctrl_service_state=started" \
-		--extra-vars "services_to_run_fams='' services_to_run_diags='' ctrl_service_state=stopped" \
+		--extra-vars "services_to_run_fams='' services_to_run_diags='' ctrl_service_state=started" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-ts-ps.yml
 
 service-ioc-ts-ps-diags-stop:
 	@echo "Stopping TS PS Diagnostic IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "ctrl_service_state=stopped" \
 		--extra-vars "services_to_run_fams='' services_to_run_corrs='' ctrl_service_state=stopped" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-ts-ps.yml
 
@@ -581,8 +569,7 @@ service-ioc-ts-ps-diags-start:
 	@echo "Starting TS PS Diagnostic IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "ctrl_service_state=started" \
-		--extra-vars "services_to_run_fams='' services_to_run_corrs='' ctrl_service_state=stopped" \
+		--extra-vars "services_to_run_fams='' services_to_run_corrs='' ctrl_service_state=started" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-ts-ps.yml
 
 
