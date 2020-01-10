@@ -25,8 +25,17 @@ sirius_apps_dev_packages:
   - name: Math Phys
     org_url: https://github.com/lnls-fac
     repo_name: mathphys
-    repo_version: "{{ global_deploy_tag | default(master) }}"
+    repo_version: "{{ pkg_version_mathphys }}"
     clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
+  - name: Ethernet PRU-Serial 485 Application
+    org_url: https://github.com/lnls-sirius
+    repo_name: eth-bridge-pru-serial485
+    repo_version: "{{ pkg_version_ethbridge_pru_serial }}"
+    clone_path: /tmp
+    install_chdir: client
     install_via_setup: true
     setup_extra_args: "--no-deps"
     setup_state: forcereinstall
@@ -36,7 +45,7 @@ sirius_apps_dev_packages:
   - name: Development Packages
     org_url: https://github.com/lnls-sirius
     repo_name: dev-packages
-    repo_version: "{{ global_deploy_tag | default(master) }}"
+    repo_version: "{{ pkg_version_siriuspy }}"
     clone_path: /tmp
     install_chdir: siriuspy
     install_via_setup: true
@@ -47,22 +56,10 @@ sirius_apps_dev_packages:
 
 sirius_apps_iocs:
 
-  - name: Ethernet PRU-Serial 485 Application
-    org_url: https://github.com/lnls-sirius
-    repo_name: eth-bridge-pru-serial485
-    repo_version: "{{ global_deploy_tag | default(master) }}"
-    clone_path: /tmp
-    install_chdir: client
-    install_via_setup: true
-    setup_extra_args: "--no-deps"
-    setup_state: forcereinstall
-    repo_cvs: git+
-    force_version: true
-
   - name: Machine Applications
     org_url: https://github.com/lnls-sirius
     repo_name: machine-applications
-    repo_version: "{{ global_deploy_tag | default(master) }}"
+    repo_version: "{{ pkg_version_machine_applications }}"
     clone_path: /tmp
     install_via_makefile: true
     force_version: true
@@ -70,7 +67,7 @@ sirius_apps_iocs:
   - name: Linac PS IOCs
     org_url: https://gitlab.cnpem.br/FACS
     repo_name: linac-ioc-ps
-    repo_version: "{{ global_deploy_tag | default(master) }}"
+    repo_version: "{{ pkg_version_linac_ioc_ps }}"
     clone_path: /tmp
     install_via_makefile: true
     force_version: true
@@ -80,7 +77,7 @@ sirius_apps_hla:
   - name: High-Level Applications
     org_url: https://github.com/lnls-sirius
     repo_name: hla
-    repo_version: "{{ global_deploy_tag | default(master) }}"
+    repo_version: "{{ pkg_version_siriushla }}"
     clone_path: /tmp
     install_chdir: pyqt-apps
     install_via_makefile: true
@@ -102,7 +99,7 @@ sirius_apps_opis:
   - name: OPIs
     org_url: https://gitlab.cnpem.br/FACS
     repo_name: linac-opi
-    repo_version: "{{ global_deploy_tag | default(master) }}"
+    repo_version: "{{ pkg_version_linac_opi }}"
     clone_path: /tmp
     install_via_makefile: true
     make_install_target: install-default
@@ -115,7 +112,7 @@ sirius_apps_mgmt:
   - name: Scripts
     org_url: https://github.com/lnls-sirius
     repo_name: scripts
-    repo_version: "{{ global_deploy_tag | default(master) }}"
+    repo_version: "{{ pkg_sirius_scripts }}"
     clone_path: /tmp
     install_via_makefile: true
     make_install_target: install-ansible
