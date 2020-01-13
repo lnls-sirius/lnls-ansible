@@ -15,7 +15,7 @@ qt_src_force_install: false
 qt_src_version: "{{ pkg_version_qt_src }}"
 
 # Qt script checksum. Extracted from website
-qt_src_checksum: md5:9ae8055db5efb21e419dc6b9e77abc61
+qt_src_checksum: md5:21c3b16f851697fa8da8009f73694373
 
 # Qt source script name
 qt_src_remote_script: "qt-opensource-linux-x64-{{ qt_src_version }}.run"
