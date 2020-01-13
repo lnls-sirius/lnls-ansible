@@ -1,5 +1,5 @@
 ---
-__sirius_apps_epics_packages:
+__sirius_apps_packages:
   - "epics-extensions-dev={{ pkg_version_epics_extensions_dev }}"
   - "edm-dev={{ pkg_version_edm_dev }}"
   - "xpra={{ pkg_version_xpra }}"
@@ -7,7 +7,7 @@ __sirius_apps_epics_packages:
   - "xvfb={{ pkg_version_xvfb }}"
   - "bc={{ pkg_version_bc }}"
 
-__sirius_apps_epics_pip_packages: []
+__sirius_apps_pip_packages: []
 
 __python_executable: python-sirius
 

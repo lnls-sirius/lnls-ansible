@@ -1,11 +1,11 @@
 ---
-__sirius_apps_epics_packages:
+__sirius_apps_packages:
   - xpra=2.4.3*
   # - winswitch
   - xvfb=2:1.20.4*
   - bc=1.07.1*
 
-__sirius_apps_epics_pip_packages:
+__sirius_apps_pip_packages:
   - "pyvisa=={{ pkg_version_pyvisa }}"
   - "pyvisa-py=={{ pkg_version_pyvisa_py }}"
 
