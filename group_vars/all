@@ -155,6 +155,7 @@ pkg_version_PyQt5: 5.11.3
 pkg_version_PyQt5_sip: 12.7.0
 pkg_version_pydm: 1.8.0
 pkg_version_timechart: 1.2.2
+pkg_version_qtawesome: 0.6.1
 
 
 # === Visual Studio Extensions ===
