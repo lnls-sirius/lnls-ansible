@@ -5,7 +5,9 @@ __sirius_apps_epics_packages:
   - xvfb=2:1.20.4*
   - bc=1.07.1*
 
-__sirius_apps_epics_pip_packages: []
+__sirius_apps_epics_pip_packages:
+  - "pyvisa=={{ pkg_version_pyvisa }}"
+  - "pyvisa-py=={{ pkg_version_pyvisa_py }}"
 
 __python_executable: python-sirius
 
