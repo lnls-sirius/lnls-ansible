@@ -22,11 +22,10 @@ pyqt_install_from_src: true
 
 python_src_version: 3.6.8
 
-#qt_src_version: 5.11.3
-#pyqt_src_version: 5.11.3
-pkg_version_qt_src: 5.11.3
-pkg_version_pyqt_src: 5.11.3
-pkg_version_pyqt_sip_src: 4.19.13
+pkg_version_qt_src: 5.13.1
+pkg_version_pyqt_src: 5.13.1
+pkg_version_pyqt_sip_src: 4.19.20
+
 
 # === sirius packages ===
 
