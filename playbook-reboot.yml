@@ -1,0 +1,10 @@
+---
+- hosts: all
+  remote_user: fac
+  become: true
+  tasks:
+  - name: Shutdown
+    command: /sbin/shutdown -r +1
+    async: 0
+    poll: 0
+    ignore_errors: yes
