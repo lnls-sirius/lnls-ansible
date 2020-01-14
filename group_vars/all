@@ -1,21 +1,4 @@
 ---
-# Always install from source, not from package managers
-python_install_from_src: true
-
-# Select python version, when installing from source
-python_src_version: 3.6.8
-
-# Always install QT from source, not from package managers
-qt_install_from_src: true
-
-# Select qt version, when installing from source
-qt_src_version: 5.11.3
-
-# Always install pyqt from source
-pyqt_install_from_src: true
-
-# Select pyqt version, when installing from source
-pyqt_src_version: 5.11.3
 
 nfs_server_control_room: 10.128.1.3
 nfs_server_control_opi: 10.128.1.3
@@ -29,6 +12,19 @@ desktop_vnc_ignore_systemd_errors: true
 
 # Tag for FAC repos
 global_deploy_tag: master
+
+
+# === src packages versions ===
+
+python_install_from_src: true
+qt_install_from_src: true
+pyqt_install_from_src: true
+pkg_version_qt_src_checksum: md5:21c3b16f851697fa8da8009f73694373
+python_src_version: 3.6.8
+
+pkg_version_qt_src: 5.13.1
+pkg_version_pyqt_src: 5.13.1
+pkg_version_pyqt_sip_src: 4.19.20
 
 
 # === sirius packages ===
@@ -128,35 +124,37 @@ pkg_version_liboctave_dev: 4.0.3*
 
 # === pip packages ===
 
-pkg_version_python_dateutil: 2.6.1
-pkg_version_cairocffi: 1.0.2
+pkg_version_pip: 19.3.1
+pkg_version_python_dateutil: 2.8.1
+pkg_version_cairocffi: 1.1.0
 pkg_version_jupyter: 1.0.0
 pkg_version_jupyter_nbextensions: 0.5.1
-pkg_version_six: 1.12.0
-pkg_version_numpy: 1.15
+pkg_version_six: 1.13.0
+pkg_version_numpy: 1.18
 pkg_version_pylama: 7.6.6
 pkg_version_pep8: 1.7.1
 pkg_version_autopep8: 1.4.3
 pkg_version_pydocstyle: 4.0.1
 pkg_version_pylint: 2.3.1
-pkg_version_matplotlib: 3.0.2
-pkg_version_pandas: 0.24.1
+pkg_version_matplotlib: 3.1.2
+pkg_version_pandas: 0.25.3
 pkg_version_pcaspy: 0.7.2
-pkg_version_psutil: 5.5.0
-pkg_version_pyepics: 3.3.1
+pkg_version_psutil: 5.6.7
+pkg_version_pyepics: 3.4.0
 pkg_version_pyqtgraph: 0.10.0
 pkg_version_python_nmap: 0.6.1
-pkg_version_requests: 2.21.0
-pkg_version_scipy: 1.2.1
-pkg_version_setuptools: 41.2.0
+pkg_version_requests: 2.22.0
+pkg_version_scipy: 1.4.1
+pkg_version_setuptools: 44.0.0
 pkg_version_sh: 1.12.14
 pkg_version_termcolor: 1.1.0
 pkg_version_wakeonlan: 1.1.6
 pkg_version_xlrd: 1.2.0
-pkg_version_PyQt5: 5.13.0
-pkg_version_PyQt5_sip: 4.19.18
-pkg_version_pydm: 1.7.3
+pkg_version_PyQt5: 5.11.3
+pkg_version_PyQt5_sip: 12.7.0
+pkg_version_pydm: 1.8.0
 pkg_version_timechart: 1.2.2
+pkg_version_qtawesome: 0.6.1
 pkg_version_pyvisa: 1.10.1
 pkg_version_pyvisa_py: 0.3.1
 
