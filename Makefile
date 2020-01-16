@@ -94,6 +94,7 @@ $(playbook_TARGETS): %: %.yml
 	ansible-playbook $(EXTRA_OPTS) $<
 
 -include Makefile_services.mk
+-include Makefile_reboot.mk
 
 tests: tests_stretch tests_buster
 
