@@ -1,11 +1,14 @@
 ---
+
 __sirius_apps_packages:
-  - xpra=2.4.3*
-  # - winswitch
-  - xvfb=2:1.20.4*
-  - bc=1.07.1*
+  - "epics-extensions-dev={{ pkg_version_epics_extensions_dev }}"
+  - "edm-dev={{ pkg_version_edm_dev }}"
+  - "xpra={{ pkg_version_xpra }}"
+  - "xvfb={{ pkg_version_xvfb }}"
+  - "bc={{ pkg_version_bc }}"
 
 __sirius_apps_pip_packages:
+  - "QtAwesome=={{ pkg_version_qtawesome }}"
   - "pyvisa=={{ pkg_version_pyvisa }}"
   - "pyvisa-py=={{ pkg_version_pyvisa_py }}"
 
