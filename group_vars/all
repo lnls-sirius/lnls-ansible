@@ -29,7 +29,7 @@ pkg_version_pyqt_sip_src: 4.19.20
 
 # === sirius packages ===
 
-pkg_version_pydm_opi: v0.2.7
+pkg_version_pydm_opi: v0.3.0
 pkg_version_bpm_scripts: master
 pkg_version_bbb: v0.1.0
 
