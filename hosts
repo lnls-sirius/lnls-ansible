@@ -33,9 +33,6 @@ lnlsfac-vm1  # (vm: 10.128.255.8)  (host: 10.128.255.3)
 lnlsfac-vm2  # (vm: 10.128.255.10) (host: 10.128.255.4)
 lnlsfac-srv1 # (10.128.255.9, 10.0.38.83)  # (linac server)
 
-[nfs_servers]
-lnls454-linux
-
 
 # === FAC IOC servers ===
 
