@@ -1,0 +1,6 @@
+---
+- hosts: web_servers
+  become: true
+  tasks:
+  - import_role:
+      name: lnls-ans-role-servweb

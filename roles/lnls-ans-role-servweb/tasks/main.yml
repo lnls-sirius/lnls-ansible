@@ -1,0 +1,30 @@
+---
+- name: Resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      ignore_errors: true
+      paths:
+        - '{{ role_path }}/vars'
+
+- name: Define sirius packages
+  set_fact:
+    sirius_apps_packages: "{{ __sirius_apps | list }}"
+  when: sirius_apps is not defined
+
+
+- name: Default variable to empty
+  set_fact:
+    sirius_apps: "[]"
+  when:
+    - sirius_apps is not defined
+
+- name: Debug
+  debug:
+    msg: "sirius apps to install: {{ sirius_apps }}"
+
+
+- include_tasks: setup-apps.yml

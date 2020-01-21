@@ -1,0 +1,9 @@
+---
+- name: Clone and Install Applications
+  include_tasks: clone-install-app.yml
+  with_items:
+    - "{{ sirius_apps }}"
+  when:
+    - sirius_apps is defined
+    # - sirius_apps is defined and
+    #   sirius_apps | length > 0

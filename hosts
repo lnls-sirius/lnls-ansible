@@ -36,6 +36,8 @@ lnlsfac-srv1 # (10.128.255.9, 10.0.38.83)  # (linac server)
 [nfs_servers]
 lnls454-linux
 
+[web_servers]
+lnls561-linux
 
 # === FAC IOC servers ===
 
