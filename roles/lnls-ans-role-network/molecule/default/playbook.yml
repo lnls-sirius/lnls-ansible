@@ -1,0 +1,9 @@
+---
+- name: Converge
+  hosts: all
+
+  vars:
+    network_ignore_systemd_errors: true
+
+  roles:
+    - role: lnls-ans-role-network

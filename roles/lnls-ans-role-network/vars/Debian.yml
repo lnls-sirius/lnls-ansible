@@ -1,0 +1,6 @@
+---
+__network_packages:
+  - network-manager
+  - python-dbus
+  - python3-dbus
+  - libnm-glib-dev
