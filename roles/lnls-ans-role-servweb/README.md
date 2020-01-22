@@ -1,7 +1,7 @@
-LNLS Ansible Role Sirius Apps
-=======================
+LNLS Ansible Role Servweb
+=========================
 
-This Ansible role configures some defaults Sirius High Level Applications for Sirius Light Source control machines.
+This Ansible role clone control-system-constantsmachines.
 
 ## Requirements
 
@@ -12,66 +12,7 @@ This Ansible role configures some defaults Sirius High Level Applications for Si
 
 ```yaml
 ---
-# Groups of packages
-sirius_apps_dev_packages:
 
-  - name: Math Phys
-    org_url: https://github.com/lnls-fac
-    repo_name: mathphys
-    repo_version: master
-    clone_path: /tmp
-    install_via_setup: true
-
-  - name: Development Packages
-    org_url: https://github.com/lnls-sirius
-    repo_name: dev-packages
-    repo_version: master
-    clone_path: /tmp
-    install_chdir: siriuspy
-    install_via_setup: true
-
-sirius_apps_iocs:
-
-  - name: Ethernet PRU-Serial 485 Application
-    org_url: https://github.com/lnls-sirius
-    repo_name: eth-bridge-pru-serial485
-    repo_version: master
-    clone_path: /tmp
-    install_chdir: client
-    install_via_setup: true
-
-  - name: Machine Applications
-    org_url: https://github.com/lnls-sirius
-    repo_name: machine-applications
-    repo_version: master
-    clone_path: /tmp
-    install_via_makefile: true
-
-sirius_apps_hla:
-
-  - name: High-Level Applications
-    org_url: https://github.com/lnls-sirius
-    repo_name: hla
-    repo_version: master
-    clone_path: /tmp
-    install_chdir: pyqt-apps
-    install_via_makefile: true
-
-sirius_apps_mgmt:
-
-  - name: Scripts
-    org_url: https://github.com/lnls-sirius
-    repo_name: scripts
-    repo_version: master
-    clone_path: /tmp
-    install_via_makefile: true
-
-# Select which categories to install. Defaults to all
-sirius_apps_install_categories:
-  - sirius_apps_dev_packages
-  - sirius_apps_iocs
-  - sirius_apps_hla
-  - sirius_apps_mgmt
 ```
 
 ## Example Playbook
@@ -99,7 +40,7 @@ Tests are performed using Molecule. To run them with python virtualenv, issue:
         cd ../ && \
         virtualenv env --python python3 && \
         source env/bin/activate && \
-        cd lnls-ans-role-sirius-apps && \
+        cd lnls-ans-role-servweb && \
         pip install molecule docker-py && \
         molecule test"
 ```

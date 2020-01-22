@@ -8,7 +8,3 @@
     ssh_opts: "{{ item.git_ssh_opts | default(omit) }}"
     force: "{{ item.force_version | default(false) }}"
   register: git_result
-
-- name: "Define {{ item.repo_name }} chdir variable"
-  set_fact:
-    repo_install_chdir: "{{ item.install_chdir | default('') }}"

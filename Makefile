@@ -63,7 +63,7 @@ ROLES = lnls-ans-role-cs-studio \
 	lnls-ans-role-java \
 	lnls-ans-role-nfsclient \
 	lnls-ans-role-zabbix \
-	lnls-ans-role-nfsserver \
+	lnls-ans-role-servnfs \
 	lnls-ans-role-python \
 	lnls-ans-role-qt \
 	lnls-ans-role-repositories \
@@ -120,9 +120,6 @@ $(test_TARGETS): $(TEST_TARGET)%:
 	"
 
 # targets for dummies (myself & others)
-
-deploy-servweb: playbook-servweb.yml
-	ansible-playbook -u sirius -i hosts -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) playbook-servweb.yml
 
 deploy-fac-desktops: playbook-fac-desktops.yml tasks-desktops.yml
 	ansible-playbook -u sirius -i hosts -l fac --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) playbook-fac-desktops.yml

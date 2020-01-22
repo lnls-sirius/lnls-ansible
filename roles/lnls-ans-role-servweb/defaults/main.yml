@@ -1,26 +1,10 @@
 ---
-# package state; use 'present' to make sure it's installed, or 'latest' if
-# you want to upgrade or switch versions using a new repo.
-sirius_apps_packages_state: present
 
-# PIP package state; use 'present' to make sure it's installed, or 'latest' if
-# you want to upgrade or switch versions using a new repo.
-sirius_apps_pip_packages_state: present
-
-# Whether to install recommended packages. Used only for Debian/Ubuntu.
-sirius_apps_install_recommends: true
-
-# Sirius Linac EDM screens
-sirius_apps_li_edm_dir: /usr/local/share/edm/data
-
-# Sirius designer path
-sirius_apps_designer_dir: /usr/local/share/Qt/designer
-
-# Groups of packages
-sirius_apps:
+# Groups of repositories
+sirius_repos:
 
   - name: Control system constants
     org_url: https://github.com/lnls-sirius
     repo_name: control-system-constants
-    repo_version: "{{ global_deploy_tag | default(master) }}"
-    clone_path: /tmp
+    repo_version: "{{ pkg_version_ctrl_sys_consts }}"
+    clone_path: /home/nfs-shared/
