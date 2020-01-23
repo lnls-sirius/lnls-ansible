@@ -1,0 +1,10 @@
+---
+- name: Ensure Clone/Install packages are installed
+  package:
+    name: "{{ clone_install_packages }}"
+    state: present
+  become: true
+  register: package_get_result
+  until: package_get_result is success
+  retries: 5
+  delay: 2
