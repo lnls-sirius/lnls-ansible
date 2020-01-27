@@ -1,0 +1,54 @@
+---
+# Ansible user variable, ansible_user, ansible_ssh_user, etc is a mess.
+# Going to use th approach in https://github.com/geerlingguy/drupal-vm/issues/1302
+# to fix that.
+- name: "Ensure repository {{ item.repo_name }} is cloned"
+  git:
+    repo: "{{ item.org_url }}/{{ item.repo_name }}"
+    dest: "{{ item.clone_path }}/{{ item.repo_name }}"
+    version: "{{ item.repo_version | default('master') }}"
+    accept_hostkey: "{{ item.git_accept_hostkey | default(omit) }}"
+    ssh_opts: "{{ item.git_ssh_opts | default(omit) }}"
+    force: "{{ item.force_version | default(false) }}"
+  register: git_result
+  become_user: "{{ ansible_ssh_user | default(ansible_env.SUDO_USER, true) | default(ansible_env.USER, true) | default(ansible_user_id) }}"
+  when: (item.install_via_makefile is defined and
+        item.install_via_makefile | bool) or
+        (item.clone_only is defined and
+         item.clone_only | bool) or
+        (item.install_via_makefile is not defined and
+         item.install_via_setup is not defined)
+
+- name: "Define {{ item.repo_name }} chdir variable"
+  set_fact:
+    repo_install_chdir: "{{ item.install_chdir | default('') }}"
+
+- name: "Define {{ item.repo_name }} egg name variable"
+  set_fact:
+    repo_egg_name: "{{ item.install_chdir | default(item.repo_name) }}"
+
+- name: "Install {{ item.repo_name }} via Makefile"
+  make:
+    chdir: "{{ item.clone_path }}/{{ item.repo_name }}/{{ repo_install_chdir }}"
+    target: "{{ item.make_install_target | default('install') }}"
+    params: "{{ item.make_install_opts | default({}) }}"
+  become: true
+  when: item.install_via_makefile is defined and
+        (item.install_via_makefile | bool) and
+        git_result.changed
+
+- name: "Install {{ item.repo_name }} via setup.py"
+  pip:
+    name: "\
+      {{ item.repo_cvs | default('git+') }}\
+      {{ item.org_url }}/{{ item.repo_name }}@\
+      {{ item.repo_version | default('master') }}#\
+      egg={{ repo_egg_name }}&\
+      subdirectory={{ repo_install_chdir }}"
+    state: "{{ item.setup_state | default(omit) }}"
+    executable: "{{ pip_executable | default(omit) }}"
+    chdir: "{{ item.clone_path }}/{{ item.repo_name }}/{{ repo_install_chdir }}"
+    extra_args: "{{ item.setup_extra_args | default(omit) }}"
+  become: true
+  when: item.install_via_setup is defined and
+        (item.install_via_setup | bool)
