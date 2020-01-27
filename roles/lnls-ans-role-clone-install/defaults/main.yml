@@ -1,0 +1,23 @@
+---
+# Groups of repositories to clone and install.
+# This should be set when calling the role.
+#
+# Check the task/clone-install.yml
+# for all actions available.
+#
+# Example
+#
+#
+#  - name: High-Level Applications
+#    org_url: https://github.com/lnls-sirius
+#    repo_name: hla
+#    repo_version: "{{ global_deploy_tag | default(master) }}"
+#    clone_path: /tmp
+#    install_chdir: pyqt-apps
+#    install_via_makefile: true
+#    make_install_target: install-all
+#    make_install_opts:
+#      INSTALL_DESIGNER_DIR: "{{ sirius_apps_designer_dir }}"
+#    force_version: true
+#
+clone_install_repos: []

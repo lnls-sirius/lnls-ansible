@@ -1,0 +1,6 @@
+---
+__network_packages:
+  # - "network-manager{{ (pkg_network_manager_version | length > 0) | ternary('=' + pkg_network_manager_version, '') }}"
+  - "python-dbus{{ (pkg_python_dbus_version | length > 0) | ternary('=' + pkg_python_dbus_version, '') }}"
+  - "python3-dbus{{ (pkg_python3_dbus_version | length > 0) | ternary('=' + pkg_python3_dbus_version, '') }}"
+  - "libnm-glib-dev{{ (pkg_libnm_glib_dev_version | length > 0) | ternary('=' + pkg_libnm_glib_dev_version, '') }}"
