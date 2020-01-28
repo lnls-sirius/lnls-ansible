@@ -1,7 +1,0 @@
----
-- name: Clone and Install Control System Constants repository
-  include_tasks: clone-repo.yml
-  with_items:
-    - "{{ sirius_repos }}"
-  when:
-    - sirius_repos is defined
