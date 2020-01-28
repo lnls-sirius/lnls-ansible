@@ -1,16 +1,47 @@
-# NFS Server Configuration File
+# /etc/exports: the access control list for filesystems which may be exported
+#		to NFS clients.  See exports(5).
+#
+# Example for NFSv2 and NFSv3:
+# /srv/homes       hostname1(rw,sync,no_subtree_check) hostname2(ro,sync,no_subtree_check)
+#
+# Example for NFSv4:
+# /srv/nfs4        gss/krb5i(rw,sync,fsid=0,crossmnt,no_subtree_check)
+# /srv/nfs4/homes  gss/krb5i(rw,sync,no_subtree_check)
+
+# --- CONS auto backup ---
+/home/con-srv/AutoBackup_TA-TiRack-CO-FWSrv-1 {{ nfs_clients_auto_backup_ta_ti_rack_ip }}(rw,sync,no_root_squash)\
+                                              *(ro,sync,root_squash)
+/home/con-srv/AutoBackup_CA-RaCtrl-CO-Srv-1   {{ nfs_clients_auto_backup_ca_ra_ctrl_ip }}(rw,sync,no_root_squash)\
+                                              *(ro,sync,root_squash)
+/home/con-srv/AutoBackup_LA-RaCtrl-CO-Srv-1   {{ nfs_clients_auto_backup_la_ra_ctrl_ip }}(rw,sync,no_root_squash)\
+                                              *(ro,sync,root_squash)
+
+# --- CONS OPIs ---
+/home/con-srv/cons-opis                       {{ nfs_clients_servers_subnet }}(rw,sync,all_squash,anonuid=1002,anongid=1002)\
+                                              {{ nfs_clients_cons_subnet }}(rw,sync,all_squash,anonuid=1002,anongid=1002)\
+                                              {{ nfs_clients_control_room_subnet }}(rw,sync,all_squash,anonuid=1002,anongid=1002)\
+                                              *(ro,sync,root_squash)
 
 # --- lnls-sirius repos ---
 /home/nfs-shared/repos-lnls-sirius  {{ nfs_clients_control_room_subnet }}(rw,sync,no_subtree_check,no_root_squash,insecure)\
                                     {{ nfs_clients_cnpem_sirius_subnet }}(rw,sync,no_subtree_check,no_root_squash,insecure)
 
 # --- lost and found ---
-/home/nfs-shared/lost-and-found     {{ nfs_clients_control_room_subnet }}(rw,sync,no_subtree_check,no_root_squash,insecure)\
-                                    {{ nfs_clients_cnpem_sirius_subnet }}(rw,sync,no_subtree_check,no_root_squash,insecure)
+/home/nfs-shared/lost-and-found     {{ nfs_clients_control_room_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
+                                    {{ nfs_clients_cnpem_sirius_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)
 
 # --- screens-iocs ---
-/home/nfs-shared/screens-iocs       {{ nfs_clients_control_room_subnet }}(rw,sync,no_subtree_check,no_root_squash,insecure)\
-                                    {{ nfs_clients_cnpem_sirius_subnet }}(rw,sync,no_subtree_check,no_root_squash,insecure)
+/home/nfs-shared/screens-iocs       {{ nfs_clients_control_room_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
+                                    {{ nfs_clients_cnpem_sirius_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)
+
+# --- backups shared with lnls350-linux ---
+/home/nfs-shared/control-system-constants     {{ nfs_clients_control_room_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
+                                              {{ nfs_clients_cnpem_sirius_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)
 
 # --- backups shared with lnls350-linux ---
 /home/nfs-shared/backups            {{ fac_workstation_ip }}(rw,sync,no_subtree_check,no_root_squash,insecure)
+
+# --- backups shared with lnls350-linux ---
+/home/nfs-shared/sirius-epics-screens         {{ nfs_clients_control_room_subnet }}(ro,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
+                                              {{ nfs_clients_cnpem_sirius_subnet }}(ro,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
+                                              *(ro,sync,no_subtree_check,all_squash,insecure)
