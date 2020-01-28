@@ -8,7 +8,7 @@
   check_mode: yes
   become: true
   register: conn_ignore_auto_dns_rc
-  changed_when: false
+  changed_when: "item.ignore_auto_dns == 'true' and conn_ignore_auto_dns_rc.changed"
   with_items:
     - "{{ network_interfaces }}"
 
