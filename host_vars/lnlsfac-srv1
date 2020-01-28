@@ -11,6 +11,15 @@ sirius_apps_install_categories:
 desktop_settings_cursor_size: 48
 
 
+clone_install_repos_servweb:
+
+  - name: Control system constants
+    org_url: https://github.com/lnls-sirius
+    repo_name: control-system-constants
+    repo_version: "{{ pkg_version_ctrl_sys_consts }}"
+    clone_path: /home/nfs-shared
+
+
 clone_install_repos_servnfs:
 
   - name: Control system constants

@@ -36,6 +36,9 @@ lnlsfac-srv1 # (10.128.255.9, 10.0.38.83)  # (linac server)
 [nfs_servers]
 lnlsfac-srv1
 
+[tmp_group]
+lnls449-linux
+
 # === FAC IOC servers ===
 
 # --- groups and vars ---
