@@ -79,15 +79,13 @@ ROLES = \
 
 # Playbooks
 PLAYBOOKS = \
-    playbook-control-room-desktops.retry \
     playbook-control-room-desktops.yml \
     playbook-elp-desktops.yml \
     playbook-fac-desktops.yml \
     playbook-reboot.yml \
-    playbook-setup-ssh-key.yml
+    playbook-setup-ssh-key.yml \
     playbook-control-room-desktops-sirius.yml \
     playbook-ctrl-service.yml \
-    playbook-fac-desktops.retry \
     playbook-nfs-servers.yml \
     playbook-rfq-desktops.yml
 
