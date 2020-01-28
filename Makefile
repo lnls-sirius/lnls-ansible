@@ -51,35 +51,45 @@ endif
 ROLES_DIR = roles
 
 # Roles
-ROLES = lnls-ans-role-cs-studio \
-	lnls-ans-role-phoebus \
-	lnls-ans-role-ctrl-service \
-	lnls-ans-role-ntp \
-	lnls-ans-role-nvidia-driver \
-	lnls-ans-role-desktop-apps \
-	lnls-ans-role-desktop-settings \
-	lnls-ans-role-epics \
-	lnls-ans-role-epics7 \
-	lnls-ans-role-java \
-	lnls-ans-role-nfsclient \
-	lnls-ans-role-zabbix \
-	lnls-ans-role-nfsserver \
-	lnls-ans-role-python \
-	lnls-ans-role-qt \
-	lnls-ans-role-repositories \
-	lnls-ans-role-sirius-apps \
-	lnls-ans-role-users
+ROLES = \
+    lnls-ans-role-cs-studio \
+    lnls-ans-role-ctrl-service \
+    lnls-ans-role-desktop-apps \
+    lnls-ans-role-desktop-settings \
+    lnls-ans-role-epics \
+    lnls-ans-role-epics7 \
+    lnls-ans-role-epics-mca \
+    lnls-ans-role-java \
+    lnls-ans-role-network \
+    lnls-ans-role-nfsclient \
+    lnls-ans-role-nfsserver \
+    lnls-ans-role-ntp \
+    lnls-ans-role-nvidia-driver \
+    lnls-ans-role-octave \
+    lnls-ans-role-phoebus \
+    lnls-ans-role-pydm \
+    lnls-ans-role-python \
+    lnls-ans-role-qt \
+    lnls-ans-role-repositories \
+    lnls-ans-role-sirius-apps \
+    lnls-ans-role-sirius-bbb \
+    lnls-ans-role-users \
+    lnls-ans-role-visual-studio-code \
+    lnls-ans-role-zabbix
 
 # Playbooks
-PLAYBOOKS = playbook-control-room-desktops.yml \
-    playbook-linac-opi-desktops.yml \
-	playbook-fac-desktops.yml \
-	playbook-ctrl-service.yml \
-	playbook-nfs-servers.yml \
-	playbook-service-iocma.yml \
-	playbook-service-iocps-linac.yml \
-	playbook-service-iocps.yml \
-	playbook-setup-ssh-key.yml
+PLAYBOOKS = \
+    playbook-control-room-desktops.retry \
+    playbook-control-room-desktops.yml \
+    playbook-elp-desktops.yml \
+    playbook-fac-desktops.yml \
+    playbook-reboot.yml \
+    playbook-setup-ssh-key.yml
+    playbook-control-room-desktops-sirius.yml \
+    playbook-ctrl-service.yml \
+    playbook-fac-desktops.retry \
+    playbook-nfs-servers.yml \
+    playbook-rfq-desktops.yml
 
 # Test variables
 TEST_TARGET = test_
