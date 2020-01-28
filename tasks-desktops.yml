@@ -11,8 +11,9 @@
 - import_role:
     name: lnls-ans-role-repositories
 - import_role:
-    name: lnls-ans-role-servweb
-  when: global_import_servweb_role | default(false) | bool
+    name: lnls-ans-role-clone-install
+  vars:
+    clone_install_repos: "{{ lookup('vars', 'clone_install_repos_servweb', default=[]) }}"
 - import_role:
     name: lnls-ans-role-nfsclient
 - import_role:
@@ -23,10 +24,6 @@
     name: lnls-ans-role-epics
 - import_role:
     name: lnls-ans-role-epics7
-- import_role:
-    name: lnls-ans-role-clone-install
-  vars:
-    clone_install_repos: "{{ lookup('vars', 'clone_install_repos_servweb', default=[]) }}"
 - import_role:
     name: lnls-ans-role-qt
 - import_role:
