@@ -3,9 +3,14 @@
 nfs_server_control_room: 10.128.255.9
 nfs_server_control_opi: 10.128.255.9
 
-fac_workstation_ip: 10.0.7.55
+nfs_clients_auto_backup_ta_ti_rack_ip: 10.128.255.5
+nfs_clients_auto_backup_ca_ra_ctrl_ip: 10.128.255.4
+nfs_clients_auto_backup_la_ra_ctrl_ip: "10.128.255.3
+nfs_clients_servers_subnet: 10.128.255.0/24
+nfs_clients_cons_subnet: 10.128.124.0/24
 nfs_clients_control_room_subnet: 10.128.254.0/24
 nfs_clients_cnpem_sirius_subnet: 10.0.38.0/24
+fac_workstation_ip: 10.0.7.55
 
 # We don't care if vnc fails
 desktop_vnc_ignore_systemd_errors: true
