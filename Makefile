@@ -84,7 +84,7 @@ PLAYBOOKS = \
     playbook-elp-desktops.yml \
     playbook-fac-desktops.yml \
     playbook-reboot.yml \
-    playbook-setup-ssh-key.yml
+    playbook-setup-ssh-key.yml \
     playbook-control-room-desktops-sirius.yml \
     playbook-ctrl-service.yml \
     playbook-fac-desktops.retry \

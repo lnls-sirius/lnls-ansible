@@ -42,15 +42,6 @@ pkg_sirius_scripts: v0.1.0
 pkg_version_bpm_scripts: master
 pkg_version_bbb: v0.1.0
 
-pkg_version_mathphys: v1.1.0
-pkg_version_ethbridge_pru_serial: v2.4.0
-pkg_version_siriuspy: v1.9.0
-pkg_version_machine_applications: v3.1.0
-pkg_version_siriushla: v0.2.0
-pkg_sirius_scripts: v0.1.0
-pkg_version_linac_ioc_ps: v1.0.0
-pkg_version_linac_opi: v1.0.0
-
 
 # === apt packages versions ===
 
