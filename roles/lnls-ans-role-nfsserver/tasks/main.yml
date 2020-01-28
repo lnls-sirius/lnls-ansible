@@ -45,4 +45,3 @@
   when: ansible_os_family == 'Debian'
 
 - include_tasks: setup-packages.yml
-  when: ansible_os_family == 'Debian'
