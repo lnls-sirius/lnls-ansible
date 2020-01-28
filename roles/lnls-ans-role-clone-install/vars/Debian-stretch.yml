@@ -1,0 +1,4 @@
+---
+__clone_install_packages:
+  - "git={{ pkg_version_git }}"
+  - "make={{ pkg_version_make }}"

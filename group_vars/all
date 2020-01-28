@@ -1,7 +1,7 @@
 ---
 
-nfs_server_control_room: 10.128.1.3
-nfs_server_control_opi: 10.128.1.3
+nfs_server_control_room: 10.128.255.9
+nfs_server_control_opi: 10.128.255.9
 
 fac_workstation_ip: 10.0.7.55
 nfs_clients_control_room_subnet: 10.128.254.0/24
@@ -42,6 +42,15 @@ pkg_sirius_scripts: v0.1.0
 pkg_version_bpm_scripts: master
 pkg_version_bbb: v0.1.0
 
+pkg_version_mathphys: v1.1.0
+pkg_version_ethbridge_pru_serial: v2.4.0
+pkg_version_siriuspy: v1.9.0
+pkg_version_machine_applications: v3.1.0
+pkg_version_siriushla: v0.2.0
+pkg_sirius_scripts: v0.1.0
+pkg_version_linac_ioc_ps: v1.0.0
+pkg_version_linac_opi: v1.0.0
+
 
 # === apt packages versions ===
 
@@ -59,6 +68,7 @@ pkg_version_htop: 2.0.2*
 pkg_version_ipython3: 5.1.0*
 pkg_version_gconf2: 3.2.6*
 pkg_version_git: 1:2.11.0*
+pkg_version_make: 4.1*
 pkg_version_gvncviewer: 0.6.0*
 pkg_version_libasound2: 1.1.3*
 pkg_version_libbz2_dev: 1.0.6*
