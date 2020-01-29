@@ -1,14 +1,4 @@
 ---
-- name: Install NFS client packages
-  apt:
-    name: "{{ nfs_client_packages }}"
-    state: present
-  become: true
-  register: apt_result
-  until: apt_result is success
-  retries: 5
-  delay: 2
-
 - name: Install NFS config files
   template:
     src: "{{ item.filename }}.j2"
