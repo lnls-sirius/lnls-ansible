@@ -49,6 +49,7 @@ lnlsfac-vm1
 lnlsfac-vm2
 lnls451-linux
 lnls449-linux
+lnls454-linux
 
 [ioc_tb_ps_fams_srv:children]
 ioc_ps_srv
@@ -90,7 +91,9 @@ ioc_ps_srv
 ioc_ps_srv
 
 
-# --- server host selection ---
+# === server host selection ===
+
+# --- AS
 
 [ioc_as_ti_srv]
 lnls451-linux
@@ -98,18 +101,21 @@ lnls451-linux
 [ioc_as_ap_srv]
 lnls451-linux
 
-[ioc_li_ps_srv]
-lnls451-linux
-
 [ioc_as_ps_dclinks_srv]
 lnls451-linux
 
 [ioc_as_ap_sofb_srv]
-lnls454-linux
+lnls449-linux
 
 [ioc_as_pu_conv_srv]
 lnlsfac-srv1
 
+# --- LI
+
+[ioc_li_ps_srv]
+lnls451-linux
+
+# --- TB
 
 [ioc_tb_ps_fams_srv:vars]
 ioc_tb_ps_fams_srv_host=lnls451-linux
@@ -120,6 +126,7 @@ ioc_tb_ps_corrs_srv_host=lnls451-linux
 [ioc_tb_ps_diags_srv:vars]
 ioc_tb_ps_diags_srv_host=lnls451-linux
 
+# --- BO
 
 [ioc_bo_ps_fams_srv:vars]
 ioc_bo_ps_fams_srv_host=lnls451-linux
@@ -130,6 +137,7 @@ ioc_bo_ps_corrs_srv_host=lnls451-linux
 [ioc_bo_ps_diags_srv:vars]
 ioc_bo_ps_diags_srv_host=lnls451-linux
 
+# --- TS
 
 [ioc_ts_ps_fams_srv:vars]
 ioc_ts_ps_fams_srv_host=lnls451-linux
@@ -140,18 +148,16 @@ ioc_ts_ps_corrs_srv_host=lnls451-linux
 [ioc_ts_ps_diags_srv:vars]
 ioc_ts_ps_diags_srv_host=lnls451-linux
 
+# --- SI
 
 [ioc_si_ps_fams_srv:vars]
 ioc_si_ps_fams_srv_host=lnls451-linux
 
 [ioc_si_ps_corrs_srv:vars]
-#ioc_si_ps_corrs_srv_host=lnlsfac-vm2
 ioc_si_ps_corrs_srv_host=lnlsfac-srv1
 
 [ioc_si_ps_trims_srv:vars]
-#ioc_si_ps_trims_srv_host=lnlsfac-srv1
-#ioc_si_ps_trims_srv_host=lnlsfac-vm2
-ioc_si_ps_trims_srv_host=lnls449-linux
+ioc_si_ps_trims_srv_host=lnls454-linux
 
 [ioc_si_ps_diags_srv:vars]
 ioc_si_ps_diags_srv_host=lnlsfac-srv1
