@@ -98,6 +98,6 @@ clone_install_repos_sirius_screens:
     install_via_makefile: true
     make_install_target: install
     make_install_opts:
-      OPI_DIR: /home/sirius/nfs-shared/sirius-epics-screens
+      OPI_DIR: "{{ nfsserver_sirius_epics_screens }}"
     make_install_as_user: "sirius"
     force_version: true
