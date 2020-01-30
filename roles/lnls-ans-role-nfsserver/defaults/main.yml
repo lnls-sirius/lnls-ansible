@@ -8,6 +8,9 @@ nfs_clients_control_room_subnet: ""
 nfs_clients_cnpem_sirius_subnet: ""
 fac_workstation_ip: ""
 
+# Sirius EPICS screens location
+nfsserver_sirius_epics_screens: /home/nfs-shared/sirius-epics-screens
+
 # Set this to true when using this in a regular,
 # without systemd support.
 nfs_ignore_systemd_errors: false

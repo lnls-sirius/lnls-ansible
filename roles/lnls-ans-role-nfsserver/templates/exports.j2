@@ -42,6 +42,6 @@
 /home/nfs-shared/backups            {{ fac_workstation_ip }}(rw,sync,no_subtree_check,no_root_squash,insecure)
 
 # --- backups shared with lnls350-linux ---
-/home/nfs-shared/sirius-epics-screens         {{ nfs_clients_control_room_subnet }}(ro,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
+{{ nfsserver_sirius_epics_screens }}          {{ nfs_clients_control_room_subnet }}(ro,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
                                               {{ nfs_clients_cnpem_sirius_subnet }}(ro,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
                                               *(ro,sync,no_subtree_check,all_squash,insecure)
