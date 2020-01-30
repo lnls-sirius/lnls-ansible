@@ -7,6 +7,3 @@
   tasks:
     - name: Include generic desktop tasks
       include_tasks: tasks-desktops.yml
-
-    - name: Include clone-install NFS server tasks
-      include_tasks: clone-install-tasks-nfsserver.yml
