@@ -1,5 +1,6 @@
 ---
 - hosts: nfs-servers
+  remote_user: sirius
   become: true
   tasks:
     - import_role:
