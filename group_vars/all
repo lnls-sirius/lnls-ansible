@@ -37,13 +37,13 @@ pkg_version_pyqt_sip_src: 4.19.20
 pkg_version_ctrl_sys_consts: v1.0.0
 pkg_version_mathphys: v1.1.0
 pkg_version_ethbridge_pru_serial: v2.4.0b
-pkg_version_siriuspy: v1.9.0
-pkg_version_machine_applications: v3.1.0
+pkg_version_siriuspy: v1.10.0
+pkg_version_machine_applications: v3.2.0
 pkg_version_linac_ioc_ps: v1.0.0
-pkg_version_siriushla: v0.3.0
+pkg_version_siriushla: v0.4.0
 pkg_version_pydm_opi: v0.3.0
 pkg_version_linac_opi: v1.0.0
-pkg_sirius_scripts: v0.1.0
+pkg_sirius_scripts: v0.2.1
 pkg_version_bpm_scripts: master
 pkg_version_bbb: v0.1.0
 
