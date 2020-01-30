@@ -16,28 +16,23 @@ lnls209-linux  # fac-desktop
 elp1-linux
 
 [fac]
+lnls560-linux  # fac-guilherme
+lnls210-linux  # fac-alexandre
+lnls557-linux  # fac-liulin (10.0.38.44)
 # lnls556-linux  # fac-fernando
 # lnls557-linux  # fac-liu
 # lnls558-linux  # fac-murilo
 # lnls559-linux  # fac-ana
-lnls560-linux  # fac-guilherme
 # lnls561-linux  # fac-ximenes
-lnls210-linux  # fac-alexandre
-lnls557-linux  # fac-liulin (10.0.38.44)
 
 [rfq]
 10.15.0.189  # lnls627-linux (RF laptop)
 
 [fac_servers]
-lnlsfac-vm1  # (vm: 10.128.255.8)  (host: 10.128.255.3)
-lnlsfac-vm2  # (vm: 10.128.255.10) (host: 10.128.255.4)
 lnlsfac-srv1 # (10.128.255.9, 10.0.38.83)  # (linac server)
 
 [nfs_servers]
 lnlsfac-srv1
-
-[tmp_group]
-lnls449-linux
 
 # === FAC IOC servers ===
 
@@ -45,8 +40,6 @@ lnls449-linux
 
 [ioc_ps_srv]
 lnlsfac-srv1
-lnlsfac-vm1
-lnlsfac-vm2
 lnls451-linux
 lnls449-linux
 lnls454-linux
