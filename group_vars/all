@@ -12,6 +12,9 @@ nfs_clients_control_room_subnet: 10.128.254.0/24
 nfs_clients_cnpem_sirius_subnet: 10.0.38.0/24
 fac_workstation_ip: 10.0.7.55
 
+# Sirius EPICS screens location
+nfsserver_sirius_epics_screens: /home/nfs-shared/sirius-epics-screens
+
 # We don't care if vnc fails
 desktop_vnc_ignore_systemd_errors: true
 
