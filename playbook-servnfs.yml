@@ -2,8 +2,8 @@
 - hosts: nfs-servers
   become: true
   tasks:
-  - import_role:
-      name: lnls-ans-role-nfsserver
+    - import_role:
+        name: lnls-ans-role-nfsserver
 
-  - name: Include clone-install NFS server tasks
-    include_tasks: clone-install-tasks-nfsserver.yml
+    - name: Include clone-install NFS server tasks
+      include_tasks: clone-install-tasks-nfsserver.yml
