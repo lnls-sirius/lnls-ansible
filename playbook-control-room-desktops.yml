@@ -1,6 +1,5 @@
 ---
 - hosts: control_room:linac_opi:fac_control_room:fac_servers
-# - hosts: tmp_group
   remote_user: sirius
   become: true
 
