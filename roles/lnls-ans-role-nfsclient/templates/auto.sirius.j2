@@ -1,5 +1,3 @@
-/home/opis                         -fstype=nfs,ro {{ nfs_server_control_opi }}:/home/sirius
-/home/sirius/cons-opis             -fstype=nfs,ro,v3 {{ nfs_server_control_opi }}:/home/con-srv/cons-opis
-/home/sirius/repos                 -fstype=nfs,ro {{ nfs_server_control_room }}:/home/nfs-shared/repos-lnls-sirius
-/home/sirius/mounts/lost-and-found -fstype=nfs,rw,v3 {{ nfs_server_control_room }}:/home/nfs-shared/lost-and-found
-/home/sirius/mounts/screens-iocs   -fstype=nfs,rw,v3 {{ nfs_server_control_room }}:/home/nfs-shared/screens-iocs
+{% for export in nfsclient_autofs %}
+{{ export }}
+{% endfor %}
