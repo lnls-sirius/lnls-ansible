@@ -15,6 +15,9 @@ desktop_vnc_ignore_systemd_errors: false
 # Create VNC password from encrypted password
 desktop_vnc_passwd_create: true
 
+# Location of Sirius EPICS screens
+desktop_autofs_sirius_epics_screens: ""
+
 # Ansible vault password:
 # ansible-vault encrypt_string --vault-id prod@prompt --stdin-name 'pass'
 desktop_vnc_pass: !vault |

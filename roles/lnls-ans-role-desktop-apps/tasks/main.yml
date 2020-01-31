@@ -30,6 +30,13 @@
     desktop_default_release: "{{ __desktop_default_release | default(omit) }}"
   when: desktop_default_release is not defined
 
+- name: Check if Sirius Screens variable is set
+  fail:
+    msg: desktop_autofs_sirius_epics_screens variable is not set or empty!
+  when: >
+    desktop_autofs_sirius_epics_screens is not defined or
+    desktop_autofs_sirius_epics_screens | length == 0
+
 # Include Tasks
 
 - include_tasks: setup-RedHat.yml
