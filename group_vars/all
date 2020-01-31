@@ -15,6 +15,42 @@ fac_workstation_ip: 10.0.7.55
 # Sirius EPICS screens location
 nfsserver_sirius_epics_screens: /home/nfs-shared/sirius-epics-screens
 
+# NFS server list of directories. The "|" operator will leave the string as is chompf the text back into
+# a single line, joining newlines with spaces, and keeping the last newline
+nfsserver_exports:
+  - |
+    /home/nfs-shared/con-srv/AutoBackup_TA-TiRack-CO-FWSrv-1 {{ nfs_clients_auto_backup_ta_ti_rack_ip }}(rw,sync,no_root_squash)\
+                                                             *(ro,sync,root_squash)
+  - |
+    /home/nfs-shared/con-srv/AutoBackup_CA-RaCtrl-CO-Srv-1   {{ nfs_clients_auto_backup_ca_ra_ctrl_ip }}(rw,sync,no_root_squash)\
+                                                             *(ro,sync,root_squash)
+  - |
+    /home/nfs-shared/con-srv/AutoBackup_LA-RaCtrl-CO-Srv-1   {{ nfs_clients_auto_backup_la_ra_ctrl_ip }}(rw,sync,no_root_squash)\
+                                                             *(ro,sync,root_squash)
+  - |
+    /home/con-srv/cons-opis                       {{ nfs_clients_servers_subnet }}(rw,sync,all_squash,anonuid=1002,anongid=1002)\
+                                                  {{ nfs_clients_cons_subnet }}(rw,sync,all_squash,anonuid=1002,anongid=1002)\
+                                                  {{ nfs_clients_control_room_subnet }}(rw,sync,all_squash,anonuid=1002,anongid=1002)\
+                                                  *(ro,sync,root_squash)
+  - |
+    /home/nfs-shared/repos-lnls-sirius  {{ nfs_clients_control_room_subnet }}(rw,sync,no_subtree_check,no_root_squash,insecure)\
+                                        {{ nfs_clients_cnpem_sirius_subnet }}(rw,sync,no_subtree_check,no_root_squash,insecure)
+  - |
+    /home/nfs-shared/lost-and-found     {{ nfs_clients_control_room_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
+                                        {{ nfs_clients_cnpem_sirius_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)
+  - |
+    /home/nfs-shared/screens-iocs       {{ nfs_clients_control_room_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
+                                        {{ nfs_clients_cnpem_sirius_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)
+  - |
+    /home/nfs-shared/control-system-constants     {{ nfs_clients_control_room_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
+                                                  {{ nfs_clients_cnpem_sirius_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)
+  - |
+    /home/nfs-shared/backups            {{ fac_workstation_ip }}(rw,sync,no_subtree_check,no_root_squash,insecure)
+  - |
+    {{ nfsserver_sirius_epics_screens }}        {{ nfs_clients_control_room_subnet }}(ro,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
+                                                {{ nfs_clients_cnpem_sirius_subnet }}(ro,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
+                                                *(ro,sync,no_subtree_check,all_squash,insecure)
+
 # We don't care if vnc fails
 desktop_vnc_ignore_systemd_errors: true
 
