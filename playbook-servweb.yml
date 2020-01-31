@@ -1,0 +1,11 @@
+---
+- hosts: web_servers
+  remote_user: sirius
+  become: true
+  tasks:
+    - import_role:
+        name: lnls-ans-role-nfsserver
+    - import_role:
+        name: lnls-ans-role-clone-install
+      vars:
+        clone_install_repos: "{{ lookup('vars', 'clone_install_repos_servweb', default=[]) }}"
