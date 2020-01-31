@@ -29,6 +29,7 @@ __python_packages:
 __pip_executable: pip-sirius
 
 __python_pip_packages:
+  - pip
   - cairocffi
   - jupyter
   - jupyter-contrib-nbextensions

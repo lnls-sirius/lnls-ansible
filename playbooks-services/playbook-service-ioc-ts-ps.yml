@@ -1,20 +1,52 @@
 ---
-- hosts: ioc_ts_ps_srv
+- hosts: ioc_ps_srv
   remote_user: sirius
 
   vars:
     role_to_run: lnls-ans-role-ctrl-service
-    services_to_run:
+
+    services_to_run_fams:
       - sirius-ioc-ts-ps-dipoles.service
       - sirius-ioc-ts-ps-quadrupoles-12.service
       - sirius-ioc-ts-ps-quadrupoles-34.service
+
+    services_to_run_corrs:
       - sirius-ioc-ts-ps-correctors.service
 
+    services_to_run_diags:
+      - sirius-ioc-ts-ps-diag.service
+
   tasks:
-    - name: "Run {{ role_to_run }} role"
+
+    - name: "Run {{ role_to_run }} role for TS fams"
       include_role:
         name: "{{ role_to_run }}"
       vars:
-        ctrl_service_name: "{{ item }}"
+        ctrl_service_name: "'{{ item }}'"
       with_items:
-        - "{{ services_to_run }}"
+        - "{{ services_to_run_fams }}"
+      when:
+        - ansible_host == ioc_ts_ps_fams_srv_host
+        - services_to_run_fams is defined and services_to_run_fams | length > 0
+
+    - name: "Run {{ role_to_run }} role for TS corrs"
+      include_role:
+        name: "{{ role_to_run }}"
+      vars:
+        ctrl_service_name: "'{{ item }}'"
+      with_items:
+        - "{{ services_to_run_corrs }}"
+      when:
+        - ansible_host == ioc_ts_ps_corrs_srv_host
+        - services_to_run_corrs is defined and services_to_run_corrs | length > 0
+
+    - name: "Run {{ role_to_run }} role for TS diags"
+      include_role:
+        name: "{{ role_to_run }}"
+      vars:
+        ctrl_service_name: "'{{ item }}'"
+      with_items:
+        - "{{ services_to_run_diags }}"
+      when:
+        - ansible_host == ioc_ts_ps_diags_srv_host
+        - services_to_run_diags is defined and services_to_run_diags | length > 0

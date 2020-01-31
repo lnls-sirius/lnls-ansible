@@ -40,6 +40,12 @@
     pip_executable: "{{ __pip_executable | default(omit) }}"
   when: pip_executable is not defined
 
+- name: Define PIP Python2 executable
+  set_fact:
+    pip2_executable: "{{ __pip2_executable | default(omit) }}"
+  when: pip2_executable is not defined
+
+
 # Setup/install tasks
 - include_tasks: setup-Debian.yml
   when:

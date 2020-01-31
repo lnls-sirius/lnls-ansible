@@ -4,33 +4,33 @@
 
   pre_tasks:
     - name: create test users
-      become: yes
+      become: true
       user:
         name: '{{ item }}'
         state: present
         home: '/home/{{ item }}'
-        createhome: yes
+        createhome: true
       with_items:
         - test_usr
         - test_usr2
         - test_usr3
 
     - name: install gnupg2 (apt)
-      become: yes
+      become: true
       apt:
         name: gnupg2
         state: present
       when: ansible_pkg_mgr == 'apt'
 
     - name: install extension cli dependencies (zypper)
-      become: yes
+      become: true
       zypper:
         name: libX11-xcb1
         state: present
       when: ansible_pkg_mgr == 'zypper'
 
     - name: install extension cli dependencies (apt)
-      become: yes
+      become: true
       apt:
         name: libx11-xcb1
         state: present

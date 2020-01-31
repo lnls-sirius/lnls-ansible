@@ -31,6 +31,7 @@ __python_packages:
 __pip_executable: pip-sirius
 
 __python_pip_packages:
+  - "pip=={{ pkg_version_pip }}"
   - "python-dateutil=={{ pkg_version_python_dateutil }}"
   - "cairocffi=={{ pkg_version_cairocffi }}"
   - "jupyter=={{ pkg_version_jupyter }}"

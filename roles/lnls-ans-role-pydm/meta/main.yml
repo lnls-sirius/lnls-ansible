@@ -26,6 +26,6 @@ galaxy_info:
         - bionic
 
 dependencies:
-  # - lnls-ans-role-python
-  # - lnls-ans-role-epics
-  # - lnls-ans-role-qt
+# - lnls-ans-role-python
+# - lnls-ans-role-epics
+# - lnls-ans-role-qt

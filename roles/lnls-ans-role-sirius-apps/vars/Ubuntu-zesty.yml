@@ -5,8 +5,9 @@ __epics_packages:
   - epics-extensions-dev
   - edm-dev
 
-__epics_pip_packages:
-  - pyepics
-  - pcaspy
+__sirius_apps_epics_pip_packages:
+  - "QtAwesome=={{ pkg_version_qtawesome }}"
+
+__python_executable: python-sirius
 
 __pip_executable: pip-sirius

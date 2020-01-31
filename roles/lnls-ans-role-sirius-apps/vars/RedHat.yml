@@ -1,7 +1,10 @@
 ---
-__sirius_apps_epics_packages: []
+__sirius_apps_packages: []
 
-__sirius_apps_epics_pip_packages: []
+__sirius_apps_pip_packages:
+  - "QtAwesome=={{ pkg_version_qtawesome }}"
+  - "pyvisa=={{ pkg_version_pyvisa }}"
+  - "pyvisa-py=={{ pkg_version_pyvisa_py }}"
 
 __python_executable: python-sirius
 

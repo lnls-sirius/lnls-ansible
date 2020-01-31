@@ -4,7 +4,7 @@
 
   vars:
     # Select whether to install recommended apps.
-    pydm_recommended_apps_pip_install: True
+    pydm_recommended_apps_pip_install: true
 
   roles:
     - role: lnls-ans-role-pydm
