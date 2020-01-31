@@ -1,5 +1,5 @@
 ---
-- hosts: nfs-servers
+- hosts: nfs_servers
   remote_user: sirius
   become: true
   tasks:
