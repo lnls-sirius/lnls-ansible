@@ -138,7 +138,7 @@ deploy-elp-desktops: playbook-elp-desktops.yml tasks-desktops.yml
 deploy-control-room-desktops: playbook-control-room-desktops.yml tasks-desktops.yml
 	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) playbook-control-room-desktops.yml
 
-deploy-control-room-desktops-nfs: playbook-control-room-desktops.yml tasks-desktops.yml playbook-servnfs.yml clone-install-tasks-nfsserver.yml
+deploy-control-room-desktops-nfs: playbook-control-room-desktops.yml tasks-desktops.yml playbook-servnfs.yml
 	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) playbook-control-room-desktops.yml playbook-servnfs.yml
 
 deploy-control-room-desktops-sirius: playbook-control-room-desktops-sirius.yml tasks-desktops-sirius.yml
