@@ -15,7 +15,10 @@ fac_workstation_ip: 10.0.7.55
 # Sirius EPICS screens location
 nfsserver_sirius_epics_screens: /home/nfs-shared/sirius-epics-screens
 
-# NFS server list of directories. The "|" operator will leave the string as is chompf the text back into
+# Sirius EPICS screens location on client
+nfsclient_autofs_sirius_epics_screens: /home/sirus/mounts/sirius-epics-screens
+
+# NFS server list of directories. The "|" operator will leave the string as is chomp the text back into
 # a single line, joining newlines with spaces, and keeping the last newline
 nfsserver_exports:
   - |
@@ -50,6 +53,22 @@ nfsserver_exports:
     {{ nfsserver_sirius_epics_screens }}        {{ nfs_clients_control_room_subnet }}(ro,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
                                                 {{ nfs_clients_cnpem_sirius_subnet }}(ro,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
                                                 *(ro,sync,no_subtree_check,all_squash,insecure)
+
+# NFS autofs client server list of directories. The "|" operator will leave the string as is chomp the text back into
+# a single line, joining newlines with spaces, and keeping the last newline
+nfsclient_autofs:
+  - |
+    /home/opis                         -fstype=nfs,ro {{ nfs_server_control_opi }}:/home/sirius
+  - |
+    {{ nfsclient_autofs_sirius_epics_screens }}   -fstype=nfs,ro {{ nfs_server_control_opi }}:{{ nfsserver_sirius_epics_screens }}
+  - |
+    /home/sirius/cons-opis             -fstype=nfs,ro,v3 {{ nfs_server_control_opi }}:/home/con-srv/cons-opis
+  - |
+    /home/sirius/repos                 -fstype=nfs,ro {{ nfs_server_control_room }}:/home/nfs-shared/repos-lnls-sirius
+  - |
+    /home/sirius/mounts/lost-and-found -fstype=nfs,rw,v3 {{ nfs_server_control_room }}:/home/nfs-shared/lost-and-found
+  - |
+    /home/sirius/mounts/screens-iocs   -fstype=nfs,rw,v3 {{ nfs_server_control_room }}:/home/nfs-shared/screens-iocs
 
 # We don't care if vnc fails
 desktop_vnc_ignore_systemd_errors: true
