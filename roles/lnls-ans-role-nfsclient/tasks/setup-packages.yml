@@ -5,6 +5,7 @@
     state: directory
     owner: "{{ ansible_ssh_user | default(ansible_env.SUDO_USER, true) | default(ansible_env.USER, true) | default(ansible_user_id) }}"
     group: "{{ ansible_ssh_user | default(ansible_env.SUDO_USER, true) | default(ansible_env.USER, true) | default(ansible_user_id) }}"
+  ignore_errors: true
   with_items: "{{ nfsclient_autofs }}"
 
 - name: Install NFS config files
