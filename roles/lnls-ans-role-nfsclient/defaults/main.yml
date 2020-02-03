@@ -1,6 +1,5 @@
 ---
-nfs_server_control_room: ""
-nfs_server_control_opi: ""
+nfsclient_autofs: ""
 
 # Set this to true when using this in a regular,
 # without systemd support.

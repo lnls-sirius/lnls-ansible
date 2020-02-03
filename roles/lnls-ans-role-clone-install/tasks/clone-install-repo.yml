@@ -33,6 +33,7 @@
     target: "{{ item.make_install_target | default('install') }}"
     params: "{{ item.make_install_opts | default({}) }}"
   become: true
+  become_user: "{{ item.make_install_as_user | default(ansible_env.USER, true) | default(ansible_user_id) }}"
   when: item.install_via_makefile is defined and
         (item.install_via_makefile | bool) and
         git_result.changed
