@@ -182,7 +182,7 @@ fac_workstation_ip: 10.0.7.55
 nfsserver_sirius_epics_screens: /home/nfs-shared/sirius-epics-screens
 
 # Sirius EPICS screens location on client
-nfsclient_autofs_sirius_epics_screens: /home/sirus/mounts/sirius-epics-screens
+nfsclient_autofs_sirius_epics_screens: /home/sirius/mounts/sirius-epics-screens
 
 # NFS server list of directories. The "|" operator will leave the string as is chomp the text back into
 # a single line, joining newlines with spaces, and keeping the last newline
