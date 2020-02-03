@@ -1,85 +1,5 @@
 ---
 
-nfs_server_control_room: 10.128.255.9
-nfs_server_control_opi: 10.128.255.9
-
-nfs_clients_auto_backup_ta_ti_rack_ip: 10.128.255.5
-nfs_clients_auto_backup_ca_ra_ctrl_ip: 10.128.255.4
-nfs_clients_auto_backup_la_ra_ctrl_ip: 10.128.255.3
-nfs_clients_servers_subnet: 10.128.255.0/24
-nfs_clients_cons_subnet: 10.128.124.0/24
-nfs_clients_control_room_subnet: 10.128.254.0/24
-nfs_clients_cnpem_sirius_subnet: 10.0.38.0/24
-fac_workstation_ip: 10.0.7.55
-
-# Sirius EPICS screens location
-nfsserver_sirius_epics_screens: /home/nfs-shared/sirius-epics-screens
-
-# Sirius EPICS screens location on client
-nfsclient_autofs_sirius_epics_screens: /home/sirus/mounts/sirius-epics-screens
-
-# NFS server list of directories. The "|" operator will leave the string as is chomp the text back into
-# a single line, joining newlines with spaces, and keeping the last newline
-nfsserver_exports:
-  - |
-    /home/nfs-shared/con-srv/AutoBackup_TA-TiRack-CO-FWSrv-1 {{ nfs_clients_auto_backup_ta_ti_rack_ip }}(rw,sync,no_root_squash)\
-                                                             *(ro,sync,root_squash)
-  - |
-    /home/nfs-shared/con-srv/AutoBackup_CA-RaCtrl-CO-Srv-1   {{ nfs_clients_auto_backup_ca_ra_ctrl_ip }}(rw,sync,no_root_squash)\
-                                                             *(ro,sync,root_squash)
-  - |
-    /home/nfs-shared/con-srv/AutoBackup_LA-RaCtrl-CO-Srv-1   {{ nfs_clients_auto_backup_la_ra_ctrl_ip }}(rw,sync,no_root_squash)\
-                                                             *(ro,sync,root_squash)
-  - |
-    /home/con-srv/cons-opis                       {{ nfs_clients_servers_subnet }}(rw,sync,all_squash,anonuid=1002,anongid=1002)\
-                                                  {{ nfs_clients_cons_subnet }}(rw,sync,all_squash,anonuid=1002,anongid=1002)\
-                                                  {{ nfs_clients_control_room_subnet }}(rw,sync,all_squash,anonuid=1002,anongid=1002)\
-                                                  *(ro,sync,root_squash)
-  - |
-    /home/nfs-shared/repos-lnls-sirius  {{ nfs_clients_control_room_subnet }}(rw,sync,no_subtree_check,no_root_squash,insecure)\
-                                        {{ nfs_clients_cnpem_sirius_subnet }}(rw,sync,no_subtree_check,no_root_squash,insecure)
-  - |
-    /home/nfs-shared/lost-and-found     {{ nfs_clients_control_room_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
-                                        {{ nfs_clients_cnpem_sirius_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)
-  - |
-    /home/nfs-shared/screens-iocs       {{ nfs_clients_control_room_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
-                                        {{ nfs_clients_cnpem_sirius_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)
-  - |
-    /home/nfs-shared/control-system-constants     {{ nfs_clients_control_room_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
-                                                  {{ nfs_clients_cnpem_sirius_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)
-  - |
-    /home/nfs-shared/backups            {{ fac_workstation_ip }}(rw,sync,no_subtree_check,no_root_squash,insecure)
-  - |
-    {{ nfsserver_sirius_epics_screens }}        {{ nfs_clients_control_room_subnet }}(ro,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
-                                                {{ nfs_clients_cnpem_sirius_subnet }}(ro,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
-                                                *(ro,sync,no_subtree_check,all_squash,insecure)
-
-# NFS autofs client server list of directories. The "|" operator will leave the string as is chomp the text back into
-# a single line, joining newlines with spaces, and keeping the last newline
-nfsclient_autofs:
-  - |
-    /home/opis                         -fstype=nfs,ro {{ nfs_server_control_opi }}:/home/sirius
-  - |
-    {{ nfsclient_autofs_sirius_epics_screens }}   -fstype=nfs,ro {{ nfs_server_control_opi }}:{{ nfsserver_sirius_epics_screens }}
-  - |
-    /home/sirius/cons-opis             -fstype=nfs,ro,v3 {{ nfs_server_control_opi }}:/home/con-srv/cons-opis
-  - |
-    /home/sirius/repos                 -fstype=nfs,ro {{ nfs_server_control_room }}:/home/nfs-shared/repos-lnls-sirius
-  - |
-    /home/sirius/mounts/lost-and-found -fstype=nfs,rw,v3 {{ nfs_server_control_room }}:/home/nfs-shared/lost-and-found
-  - |
-    /home/sirius/mounts/screens-iocs   -fstype=nfs,rw,v3 {{ nfs_server_control_room }}:/home/nfs-shared/screens-iocs
-
-# Location os the EPICS screens for CS-studio
-desktop_autofs_sirius_epics_screens: "{{ nfsclient_autofs_sirius_epics_screens }}"
-
-# We don't care if vnc fails
-desktop_vnc_ignore_systemd_errors: true
-
-# Tag for FAC repos
-global_deploy_tag: master
-
-
 # === src packages versions ===
 
 python_install_from_src: true
@@ -235,6 +155,89 @@ pkg_version_timechart: 1.2.2
 pkg_version_qtawesome: 0.6.1
 pkg_version_pyvisa: 1.10.1
 pkg_version_pyvisa_py: 0.3.1
+
+
+# === VNC ===
+
+# We don't care if vnc fails
+desktop_vnc_ignore_systemd_errors: true
+
+
+# === NFS configuration ===
+
+nfs_server_control_room: 10.128.255.9
+nfs_server_control_opi: 10.128.255.9
+
+nfs_clients_auto_backup_ta_ti_rack_ip: 10.128.255.5
+nfs_clients_auto_backup_ca_ra_ctrl_ip: 10.128.255.4
+nfs_clients_auto_backup_la_ra_ctrl_ip: 10.128.255.3
+nfs_clients_servers_subnet: 10.128.255.0/24
+nfs_clients_cons_subnet: 10.128.124.0/24
+nfs_clients_control_room_subnet: 10.128.254.0/24
+nfs_clients_cnpem_sirius_subnet: 10.0.38.0/24
+
+fac_workstation_ip: 10.0.7.55
+
+# Sirius EPICS screens location
+nfsserver_sirius_epics_screens: /home/nfs-shared/sirius-epics-screens
+
+# Sirius EPICS screens location on client
+nfsclient_autofs_sirius_epics_screens: /home/sirus/mounts/sirius-epics-screens
+
+# NFS server list of directories. The "|" operator will leave the string as is chomp the text back into
+# a single line, joining newlines with spaces, and keeping the last newline
+nfsserver_exports:
+  - |
+    /home/nfs-shared/con-srv/AutoBackup_TA-TiRack-CO-FWSrv-1 {{ nfs_clients_auto_backup_ta_ti_rack_ip }}(rw,sync,no_root_squash)\
+                                                             *(ro,sync,root_squash)
+  - |
+    /home/nfs-shared/con-srv/AutoBackup_CA-RaCtrl-CO-Srv-1   {{ nfs_clients_auto_backup_ca_ra_ctrl_ip }}(rw,sync,no_root_squash)\
+                                                             *(ro,sync,root_squash)
+  - |
+    /home/nfs-shared/con-srv/AutoBackup_LA-RaCtrl-CO-Srv-1   {{ nfs_clients_auto_backup_la_ra_ctrl_ip }}(rw,sync,no_root_squash)\
+                                                             *(ro,sync,root_squash)
+  - |
+    /home/con-srv/cons-opis                       {{ nfs_clients_servers_subnet }}(rw,sync,all_squash,anonuid=1002,anongid=1002)\
+                                                  {{ nfs_clients_cons_subnet }}(rw,sync,all_squash,anonuid=1002,anongid=1002)\
+                                                  {{ nfs_clients_control_room_subnet }}(rw,sync,all_squash,anonuid=1002,anongid=1002)\
+                                                  *(ro,sync,root_squash)
+  - |
+    /home/nfs-shared/repos-lnls-sirius  {{ nfs_clients_control_room_subnet }}(rw,sync,no_subtree_check,no_root_squash,insecure)\
+                                        {{ nfs_clients_cnpem_sirius_subnet }}(rw,sync,no_subtree_check,no_root_squash,insecure)
+  - |
+    /home/nfs-shared/lost-and-found     {{ nfs_clients_control_room_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
+                                        {{ nfs_clients_cnpem_sirius_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)
+  - |
+    /home/nfs-shared/screens-iocs       {{ nfs_clients_control_room_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
+                                        {{ nfs_clients_cnpem_sirius_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)
+  - |
+    /home/nfs-shared/control-system-constants     {{ nfs_clients_control_room_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
+                                                  {{ nfs_clients_cnpem_sirius_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)
+  - |
+    /home/nfs-shared/backups            {{ fac_workstation_ip }}(rw,sync,no_subtree_check,no_root_squash,insecure)
+  - |
+    {{ nfsserver_sirius_epics_screens }}        {{ nfs_clients_control_room_subnet }}(ro,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
+                                                {{ nfs_clients_cnpem_sirius_subnet }}(ro,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
+                                                *(ro,sync,no_subtree_check,all_squash,insecure)
+
+# NFS autofs client server list of directories. The "|" operator will leave the string as is chomp the text back into
+# a single line, joining newlines with spaces, and keeping the last newline
+nfsclient_autofs:
+  - |
+    /home/opis                         -fstype=nfs,ro {{ nfs_server_control_opi }}:/home/sirius
+  - |
+    {{ nfsclient_autofs_sirius_epics_screens }}   -fstype=nfs,ro {{ nfs_server_control_opi }}:{{ nfsserver_sirius_epics_screens }}
+  - |
+    /home/sirius/cons-opis             -fstype=nfs,ro,v3 {{ nfs_server_control_opi }}:/home/con-srv/cons-opis
+  - |
+    /home/sirius/repos                 -fstype=nfs,ro {{ nfs_server_control_room }}:/home/nfs-shared/repos-lnls-sirius
+  - |
+    /home/sirius/mounts/lost-and-found -fstype=nfs,rw,v3 {{ nfs_server_control_room }}:/home/nfs-shared/lost-and-found
+  - |
+    /home/sirius/mounts/screens-iocs   -fstype=nfs,rw,v3 {{ nfs_server_control_room }}:/home/nfs-shared/screens-iocs
+
+# Location os the EPICS screens for CS-studio
+desktop_autofs_sirius_epics_screens: "{{ nfsclient_autofs_sirius_epics_screens }}"
 
 
 # === Visual Studio Extensions ===
