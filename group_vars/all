@@ -203,6 +203,7 @@ nfsserver_exports:
                                                   *(ro,sync,root_squash)
   - |
     /home/nfs-shared/repos-lnls-sirius  {{ nfs_clients_control_room_subnet }}(rw,sync,no_subtree_check,no_root_squash,insecure)\
+                                        {{ nfs_clients_servers_subnet }}(ro,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
                                         {{ nfs_clients_cnpem_sirius_subnet }}(rw,sync,no_subtree_check,no_root_squash,insecure)
   - |
     /home/nfs-shared/lost-and-found     {{ nfs_clients_control_room_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
@@ -211,7 +212,8 @@ nfsserver_exports:
     /home/nfs-shared/screens-iocs       {{ nfs_clients_control_room_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
                                         {{ nfs_clients_cnpem_sirius_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)
   - |
-    /home/nfs-shared/control-system-constants     {{ nfs_clients_control_room_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
+    /home/nfs-shared/control-system-constants     {{ nfs_clients_servers_subnet }}(ro,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
+                                                  {{ nfs_clients_control_room_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
                                                   {{ nfs_clients_cnpem_sirius_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)
   - |
     /home/nfs-shared/backups            {{ fac_workstation_ip }}(rw,sync,no_subtree_check,no_root_squash,insecure)
