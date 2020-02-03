@@ -1,0 +1,40 @@
+---
+# epics_mca_core_tag:
+
+# EPICS base path
+epics_mca_base_dir: "{{ epics_base_dir | default('/usr/lib/epics') }}"
+
+# EPICS extensions path
+epics_mca_extensions_dir: "{{ epics_base_dir | default('/usr/lib/epics/extensions') }}"
+
+# EPICS Host Arch
+epics_mca_host_arch: "{{ epics_host_arch | default('linux-x86_64') }}"
+
+# MATLAB installation path
+epics_mca_matlab_install_dir: "{{ epics_mca_extensions_dir }}/src/mca/matlab"
+
+# Groups of packages
+epics_mca_apps_core:
+
+  - name: EPICS MCA Core
+    org_url: https://github.com/lnls-sirius
+    repo_name: mca
+    repo_version: "{{ epics_mca_core_tag | default('master') }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    make_install_target: install
+    make_install_opts:
+      EPICS_HOST_ARCH: "{{ epics_mca_host_arch }}"
+      EPICS_BASE: "{{ epics_mca_base_dir }}"
+      EPICS_EXTENSIONS: "{{ epics_mca_extensions_dir }}"
+      TOOL: octave
+      MATLAB_INSTALL_DIR: "{{ epics_mca_matlab_install_dir }}"
+    force_version: true
+
+# Select which categories to install. Defaults to all
+epics_mca_apps_install_categories:
+  - epics_mca_apps_core
+
+epics_mca_apps_octaverc_lines:
+  - "addpath {{ epics_mca_matlab_install_dir }}"
+  - "addpath {{ epics_mca_extensions_dir }}/lib/{{ epics_mca_host_arch }}"

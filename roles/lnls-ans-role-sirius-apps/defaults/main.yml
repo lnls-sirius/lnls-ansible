@@ -1,14 +1,14 @@
 ---
-# EPICS package state; use 'present' to make sure it's installed, or 'latest' if
+# package state; use 'present' to make sure it's installed, or 'latest' if
 # you want to upgrade or switch versions using a new repo.
-sirius_apps_epics_packages_state: present
+sirius_apps_packages_state: present
 
 # PIP package state; use 'present' to make sure it's installed, or 'latest' if
 # you want to upgrade or switch versions using a new repo.
-sirius_apps_epics_pip_packages_state: present
+sirius_apps_pip_packages_state: present
 
 # Whether to install recommended packages. Used only for Debian/Ubuntu.
-sirius_apps_epics_install_recommends: true
+sirius_apps_install_recommends: true
 
 # Sirius Linac EDM screens
 sirius_apps_li_edm_dir: /usr/local/share/edm/data
@@ -16,14 +16,26 @@ sirius_apps_li_edm_dir: /usr/local/share/edm/data
 # Sirius designer path
 sirius_apps_designer_dir: /usr/local/share/Qt/designer
 
+# Sirius BPM tests path
+sirius_apps_bpm_tests_dir: /usr/local/share/bpm-tests
+
 # Groups of packages
 sirius_apps_dev_packages:
 
   - name: Math Phys
     org_url: https://github.com/lnls-fac
     repo_name: mathphys
-    repo_version: "{{ global_deploy_tag | default(master) }}"
+    repo_version: "{{ pkg_version_mathphys }}"
     clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
+  - name: Ethernet PRU-Serial 485 Application
+    org_url: https://github.com/lnls-sirius
+    repo_name: eth-bridge-pru-serial485
+    repo_version: "{{ pkg_version_ethbridge_pru_serial }}"
+    clone_path: /tmp
+    install_chdir: client
     install_via_setup: true
     setup_extra_args: "--no-deps"
     setup_state: forcereinstall
@@ -33,7 +45,7 @@ sirius_apps_dev_packages:
   - name: Development Packages
     org_url: https://github.com/lnls-sirius
     repo_name: dev-packages
-    repo_version: "{{ global_deploy_tag | default(master) }}"
+    repo_version: "{{ pkg_version_siriuspy }}"
     clone_path: /tmp
     install_chdir: siriuspy
     install_via_setup: true
@@ -44,22 +56,10 @@ sirius_apps_dev_packages:
 
 sirius_apps_iocs:
 
-  - name: Ethernet PRU-Serial 485 Application
-    org_url: https://github.com/lnls-sirius
-    repo_name: eth-bridge-pru-serial485
-    repo_version: "{{ global_deploy_tag | default(master) }}"
-    clone_path: /tmp
-    install_chdir: client
-    install_via_setup: true
-    setup_extra_args: "--no-deps"
-    setup_state: forcereinstall
-    repo_cvs: git+
-    force_version: true
-
   - name: Machine Applications
     org_url: https://github.com/lnls-sirius
     repo_name: machine-applications
-    repo_version: "{{ global_deploy_tag | default(master) }}"
+    repo_version: "{{ pkg_version_machine_applications }}"
     clone_path: /tmp
     install_via_makefile: true
     force_version: true
@@ -67,7 +67,7 @@ sirius_apps_iocs:
   - name: Linac PS IOCs
     org_url: https://gitlab.cnpem.br/FACS
     repo_name: linac-ioc-ps
-    repo_version: "{{ global_deploy_tag | default(master) }}"
+    repo_version: "{{ pkg_version_linac_ioc_ps }}"
     clone_path: /tmp
     install_via_makefile: true
     force_version: true
@@ -77,7 +77,7 @@ sirius_apps_hla:
   - name: High-Level Applications
     org_url: https://github.com/lnls-sirius
     repo_name: hla
-    repo_version: "{{ global_deploy_tag | default(master) }}"
+    repo_version: "{{ pkg_version_siriushla }}"
     clone_path: /tmp
     install_chdir: pyqt-apps
     install_via_makefile: true
@@ -99,7 +99,7 @@ sirius_apps_opis:
   - name: OPIs
     org_url: https://gitlab.cnpem.br/FACS
     repo_name: linac-opi
-    repo_version: "{{ global_deploy_tag | default(master) }}"
+    repo_version: "{{ pkg_version_linac_opi }}"
     clone_path: /tmp
     install_via_makefile: true
     make_install_target: install-default
@@ -112,10 +112,21 @@ sirius_apps_mgmt:
   - name: Scripts
     org_url: https://github.com/lnls-sirius
     repo_name: scripts
-    repo_version: "{{ global_deploy_tag | default(master) }}"
+    repo_version: "{{ pkg_sirius_scripts }}"
     clone_path: /tmp
     install_via_makefile: true
     make_install_target: install-ansible
+    force_version: true
+
+  - name: BPM Scripts
+    org_url: https://github.com/lnls-dig
+    repo_name: bpm-tests
+    repo_version: "{{ pkg_version_bpm_scripts }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    make_install_target: install
+    make_install_opts:
+      INSTALL_DIR: "{{ sirius_apps_bpm_tests_dir }}"
     force_version: true
 
 # Select which categories to install. Defaults to all

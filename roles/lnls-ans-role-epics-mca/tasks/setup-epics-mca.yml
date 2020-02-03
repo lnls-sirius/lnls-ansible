@@ -1,0 +1,18 @@
+---
+- name: Clone and Install EPICS MCA
+  include_tasks: clone-install-app.yml
+  with_items:
+    - "{{ epics_mca_apps }}"
+  when:
+    - epics_mca_apps is defined and
+      epics_mca_apps | length > 0
+
+- name: Ensure EPICA MCA octaverc is installed
+  lineinfile:
+    state: present
+    path: /usr/share/octave/site/m/startup/octaverc
+    line: "{{ item }}"
+    insertafter: EOF
+  become: true
+  with_items:
+    - "{{ epics_mca_apps_octaverc_lines | default([]) }}"

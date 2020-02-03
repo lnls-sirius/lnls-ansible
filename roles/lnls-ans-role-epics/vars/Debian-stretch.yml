@@ -14,3 +14,5 @@ __epics_pip_packages:
   - pcaspy=={{ pkg_version_pcaspy }}
 
 __pip_executable: pip-sirius
+
+__pip2_executable: pip

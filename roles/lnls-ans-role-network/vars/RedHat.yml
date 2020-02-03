@@ -1,0 +1,7 @@
+---
+__network_packages:
+  # - "NetworkManager-glib{{ (pkg_network_manager_glib_version | length > 0) | ternary('=' + pkg_network_manager_glib_version, '') }}"
+  - "libnm-qt-devel.x86_64{{ (pkg_libnm_qt_devel_version  | length > 0) | ternary('=' + pkg_libnm_qt_devel_version, '') }}"
+  - "nm-connection-editor.x86_64{{ (pkg_nm_connection_editor_version  | length > 0) | ternary('=' + pkg_nm_connection_editor_version, '') }}"
+  - "libsemanage-python{{ (pkg_libsemanage_python_version  | length > 0) | ternary('=' + pkg_libsemanage_python_version, '') }}"
+  - "policycoreutils-python{{ (pkg_policycoreutils_python_version  | length > 0) | ternary('=' + pkg_policycoreutils_python_version, '') }}"

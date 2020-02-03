@@ -1,0 +1,30 @@
+---
+- name: Resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      ignore_errors: true
+      paths:
+        - '{{ role_path }}/vars'
+
+- name: Define Clone/Install packages
+  set_fact:
+    clone_install_packages: "{{ __clone_install_packages | default ([]) }}"
+  when: clone_install_packages is not defined
+
+# Include Tasks
+- include_tasks: setup-RedHat.yml
+  when: ansible_os_family == 'RedHat'
+
+- include_tasks: setup-Debian.yml
+  when: ansible_os_family == 'Debian'
+
+- name: Clone and install repositories
+  include_tasks: clone-install-repo.yml
+  with_items:
+    - "{{ clone_install_repos }}"
+  when:
+    - clone_install_repos is defined

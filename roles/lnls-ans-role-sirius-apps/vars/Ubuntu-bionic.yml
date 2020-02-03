@@ -1,12 +1,15 @@
 ---
-__sirius_apps_epics_packages:
+__sirius_apps_packages:
   - epics-extensions-dev
   - edm-dev
   - xpra
   - xvfb
   - bc
 
-__sirius_apps_epics_pip_packages: []
+__sirius_apps_pip_packages:
+  - QtAwesome
+  - pyvisa
+  - pyvisa-py
 
 __python_executable: python-sirius
 
