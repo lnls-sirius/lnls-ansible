@@ -7,11 +7,10 @@
 #
 # Example
 #
-#
 #  - name: High-Level Applications
 #    org_url: https://github.com/lnls-sirius
 #    repo_name: hla
-#    repo_version: "{{ global_deploy_tag | default(master) }}"
+#    repo_version: "{{ pkg_version_hla | default(master) }}"
 #    clone_path: /tmp
 #    install_chdir: pyqt-apps
 #    install_via_makefile: true

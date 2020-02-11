@@ -11,10 +11,6 @@
 - import_role:
     name: lnls-ans-role-repositories
 - import_role:
-    name: lnls-ans-role-clone-install
-  vars:
-    clone_install_repos: "{{ lookup('vars', 'clone_install_repos_servweb', default=[]) }}"
-- import_role:
     name: lnls-ans-role-nfsclient
 - import_role:
     name: lnls-ans-role-zabbix
@@ -40,10 +36,6 @@
     name: lnls-ans-role-octave
 - import_role:
     name: lnls-ans-role-epics-mca
-- import_role:
-    name: lnls-ans-role-clone-install
-  vars:
-    clone_install_repos: "{{ lookup('vars', 'clone_install_repos_servnfs', default=[]) }}"
 - import_role:
     name: lnls-ans-role-sirius-apps
 - import_role:
