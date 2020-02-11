@@ -88,6 +88,40 @@ env:
 
     - MOLECULE_DISTRO: debian:buster
       BUILD_TYPE: default
+      ROLE: lnls-ans-role-epics-mca
+
+    - MOLECULE_DISTRO: debian:stretch
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-epics-mca
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
+      MOLECULE_DOCKER_COMMAND: /lib/systemd/systemd
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-network
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      MOLECULE_DOCKER_COMMAND: /lib/systemd/systemd
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-network
+
+    - MOLECULE_DISTRO: debian:buster
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-octave
+
+    - MOLECULE_DISTRO: debian:stretch
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-octave
+
+    - MOLECULE_DISTRO: debian:buster
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-zabbix
+
+    - MOLECULE_DISTRO: debian:stretch
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-zabbix
+
+    - MOLECULE_DISTRO: debian:buster
+      BUILD_TYPE: default
       ROLE: lnls-ans-role-python
 
     - MOLECULE_DISTRO: debian:stretch

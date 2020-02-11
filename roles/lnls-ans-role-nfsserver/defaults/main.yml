@@ -1,12 +1,7 @@
 ---
-nfs_clients_auto_backup_ta_ti_rack_ip: ""
-nfs_clients_auto_backup_ca_ra_ctrl_ip: ""
-nfs_clients_auto_backup_la_ra_ctrl_ip: ""
-nfs_clients_servers_subnet: ""
-nfs_clients_cons_subnet: ""
-nfs_clients_control_room_subnet: ""
-nfs_clients_cnpem_sirius_subnet: ""
-fac_workstation_ip: ""
+# Define list of paths + permissions to be exported, such as:
+# nfsserver_exports: [ "/home/public *(rw,sync,no_root_squash)" ]
+nfsserver_exports: []
 
 # Set this to true when using this in a regular,
 # without systemd support.
