@@ -1,16 +1,16 @@
 [linac_opi]
-linac-opi1
-linac-opi2
+#linac-opi1
+#linac-opi2
 
 [control_room]
-lnls451-linux
-lnls452-linux
-lnls455-linux # (10.0.38.39)
+#lnls451-linux
+#lnls452-linux
+#lnls455-linux # (10.0.38.39)
 lnls449-linux
-lnls454-linux
+#lnls454-linux
 
 [fac_control_room]
-lnls209-linux  # fac-desktop
+#lnls209-linux  # fac-desktop
 
 [elp]
 elp1-linux
@@ -32,7 +32,7 @@ lnls557-linux  # fac-liulin (10.0.38.44)
 lnlsfac-srv1 # (10.128.255.9, 10.0.38.83)  # (linac server)
 
 [nfs_servers]
-lnlsfac-srv1
+#lnlsfac-srv1
 
 [web_servers]
 lnlsfac-srv1
