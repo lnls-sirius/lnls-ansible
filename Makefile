@@ -147,6 +147,14 @@ deploy-control-room-desktops-nfs: playbook-servnfs.yml playbook-servweb.yml play
 		playbook-servweb.yml \
 		playbook-control-room-desktops.yml
 
+deploy-server-nfs: playbook-servnfs.yml
+	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
+		playbook-servnfs.yml
+
+deploy-server-web: playbook-servweb.yml
+	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
+		playbook-servweb.yml
+
 deploy-control-room-desktops-sirius-nfs: playbook-servnfs.yml playbook-servweb.yml playbook-control-room-desktops-sirius.yml tasks-desktops-sirius.yml
 	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
 		playbook-servnfs.yml \
