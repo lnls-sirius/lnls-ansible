@@ -47,6 +47,24 @@ lnls451-linux
 lnls449-linux
 lnls454-linux
 
+[ioc_li_ps_spect_srv:children]
+ioc_ps_srv
+
+[ioc_li_ps_quads_srv:children]
+ioc_ps_srv
+
+[ioc_li_ps_corrs_srv:children]
+ioc_ps_srv
+
+[ioc_li_ps_lens_srv:children]
+ioc_ps_srv
+
+[ioc_li_ps_solenoids_srv:children]
+ioc_ps_srv
+
+[ioc_li_ps_conv_srv:children]
+ioc_ps_srv
+
 [ioc_tb_ps_fams_srv:children]
 ioc_ps_srv
 
@@ -108,8 +126,23 @@ lnlsfac-srv1
 
 # --- LI
 
-[ioc_li_ps_srv]
-lnls451-linux
+[ioc_li_ps_spect_srv:vars]
+ioc_li_ps_spect_srv_host=lnls451-linux
+
+[ioc_li_ps_quads_srv:vars]
+ioc_li_ps_quads_srv_host=lnls451-linux
+
+[ioc_li_ps_corrs_srv:vars]
+ioc_li_ps_corrs_srv_host=lnls451-linux
+
+[ioc_li_ps_lens_srv:vars]
+ioc_li_ps_lens_srv_host=lnls451-linux
+
+[ioc_li_ps_solenoids_srv:vars]
+ioc_li_ps_solenoids_srv_host=lnls451-linux
+
+[ioc_li_ps_conv_srv:vars]
+ioc_li_ps_conv_srv_host=lnls449-linux
 
 # --- TB
 
