@@ -10,6 +10,10 @@ ntp_area: 'br'
 ntp_servers:
   - "10.128.255.3 iburst minpoll 3 maxpoll 6"
   - "10.128.255.4 iburst minpoll 3 maxpoll 6"
+  - "0{{ '.' + ntp_area if ntp_area else '' }}.pool.ntp.org iburst"
+  - "1{{ '.' + ntp_area if ntp_area else '' }}.pool.ntp.org iburst"
+  - "2{{ '.' + ntp_area if ntp_area else '' }}.pool.ntp.org iburst"
+  - "3{{ '.' + ntp_area if ntp_area else '' }}.pool.ntp.org iburst"
 
 ntp_restrict:
   - "127.0.0.1"
