@@ -163,6 +163,11 @@ pkg_version_pyvisa_py: 0.3.1
 desktop_vnc_ignore_systemd_errors: true
 
 
+# === NTP servers ===
+ntp_servers:
+   - "10.128.255.3 iburst minpoll 3 maxpoll 6"
+   - "10.128.255.4 iburst minpoll 3 maxpoll 6"
+
 # === NFS configuration ===
 
 nfs_server_control_room: 10.128.255.9
