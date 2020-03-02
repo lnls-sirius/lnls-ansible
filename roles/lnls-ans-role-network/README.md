@@ -14,9 +14,9 @@ This Ansible role configures some network parameters for Sirius Light Source con
 ---
 # Package versions for Debia. Leave empty for the latest
 pkg_network_manager_version: ""
-pkg_python_dbus_version: ""
-pkg_python3_dbus_version: ""
-pkg_libnm_glib_dev_version: ""
+pkg_version_python_dbus: ""
+pkg_version_python3_dbus: ""
+pkg_version_libnm_glib_dev: ""
 
 # Package versions for Fedora-like. Leave empty for the latest
 pkg_network_manager_glib_version: ""
