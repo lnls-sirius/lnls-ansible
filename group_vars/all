@@ -18,13 +18,13 @@ pkg_version_pyqt_sip_src: 4.19.20
 pkg_version_ctrl_sys_consts: v1.1.2
 pkg_version_mathphys: v1.1.0
 pkg_version_ethbridge_pru_serial: v2.5.0
-pkg_version_siriuspy: v1.16.0
-pkg_version_machine_applications: v3.6.3
+pkg_version_siriuspy: v1.17.0
+pkg_version_machine_applications: v3.7.3
 pkg_version_linac_ioc_ps: v1.2.0
-pkg_version_siriushla: v0.11.0
+pkg_version_siriushla: v0.12.0
 pkg_version_pydm_opi: v0.4.5
 pkg_version_linac_opi: v1.1.2
-pkg_sirius_scripts: v0.3.3
+pkg_sirius_scripts: v0.4.0
 pkg_version_bpm_scripts: master
 pkg_version_bbb: v0.1.0
 pkg_version_sirius_epics_screens: master
@@ -36,7 +36,6 @@ pkg_version_network_manager: 1.14.6*
 pkg_version_python_dbus: 1.2.4*
 pkg_version_python3_dbus: 1.2.4*
 pkg_version_libnm0: 1.14.6*
-
 pkg_version_autofs: 5.1.2*
 pkg_version_build_essential: 12.3*
 pkg_version_ca_certificates: 20161130*

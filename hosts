@@ -1,13 +1,13 @@
 [linac_opi]
-linac-opi1
-linac-opi2
+#linac-opi1
+#linac-opi2
 
 [control_room]
-lnls451-linux
-lnls452-linux
-lnls455-linux # (10.0.38.39)
-lnls449-linux
-lnls454-linux
+#lnls451-linux
+#lnls452-linux
+#lnls455-linux # (10.0.38.39)
+#lnls449-linux
+#lnls454-linux
 
 [fac_control_room]
 lnls209-linux  # fac-desktop
@@ -29,13 +29,13 @@ lnls557-linux  # fac-liulin (10.0.38.44)
 10.15.0.189  # lnls627-linux (RF laptop)
 
 [fac_servers]
-lnlsfac-srv1 # (10.128.255.9, 10.0.38.83)  # (linac server)
+#lnlsfac-srv1 # (10.128.255.9, 10.0.38.83)  # (linac server)
 
 [nfs_servers]
-lnlsfac-srv1
+#lnlsfac-srv1
 
 [web_servers]
-lnlsfac-srv1
+#lnlsfac-srv1
 
 # === FAC IOC servers ===
 
