@@ -13,17 +13,17 @@ This Ansible role configures some network parameters for Sirius Light Source con
 ```yaml
 ---
 # Package versions for Debia. Leave empty for the latest
-pkg_network_manager_version: ""
+pkg_version_network_manager: ""
 pkg_version_python_dbus: ""
 pkg_version_python3_dbus: ""
 pkg_version_libnm_glib_dev: ""
 
 # Package versions for Fedora-like. Leave empty for the latest
-pkg_network_manager_glib_version: ""
-pkg_libnm_qt_devel_version: ""
-pkg_nm_connection_editor_version: ""
-pkg_libsemanage_python_version: ""
-pkg_policycoreutils_python_version: ""
+pkg_version_network_manager_glib: ""
+pkg_version_libnm_qt_devel: ""
+pkg_version_nm_connection_editor: ""
+pkg_version_libsemanage_python: ""
+pkg_version_policycoreutils_python: ""
 
 # Set this to true when using this in a regular,
 # without systemd support.
