@@ -98,7 +98,10 @@ ioc_ps_srv
 [ioc_si_ps_corrs_srv:children]
 ioc_ps_srv
 
-[ioc_si_ps_trims_srv:children]
+[ioc_si_ps_trims_c1234_srv:children]
+ioc_ps_srv
+
+[ioc_si_ps_trims_m12_srv:children]
 ioc_ps_srv
 
 [ioc_si_ps_diags_srv:children]
@@ -185,8 +188,11 @@ ioc_si_ps_fams_srv_host=lnls451-linux
 [ioc_si_ps_corrs_srv:vars]
 ioc_si_ps_corrs_srv_host=lnlsfac-srv1
 
-[ioc_si_ps_trims_srv:vars]
-ioc_si_ps_trims_srv_host=lnls454-linux
+[ioc_si_ps_trims_c1234_srv:vars]
+ioc_si_ps_trims_c1234_srv_host=lnls454-linux
+
+[ioc_si_ps_trims_m12_srv:vars]
+ioc_si_ps_trims_m12_srv_host=lnls449-linux
 
 [ioc_si_ps_diags_srv:vars]
 ioc_si_ps_diags_srv_host=lnlsfac-srv1
