@@ -10,7 +10,7 @@ lnls454-linux
 lnls455-linux
 
 [fac_control_room]
-lnls209-linux  # fac-desktop
+#lnls209-linux  # fac-desktop
 
 [elp]
 elp1-linux

@@ -22,13 +22,19 @@ pkg_version_siriuspy: v1.18.1
 pkg_version_machine_applications: v3.8.0
 pkg_version_linac_ioc_ps: v1.2.0
 pkg_version_siriushla: v0.13.0
+pkg_sirius_scripts: v0.5.0
+
+pkg_version_trackcpp: master
+pkg_version_lnls: master
+pkg_version_pyaccel: PR-add-makefile
+pkg_version_pymodels: PR-add-makefile
+pkg_version_apsuite: PR-add-makefile
+
 pkg_version_pydm_opi: v0.4.5
 pkg_version_linac_opi: v1.1.2
-pkg_sirius_scripts: v0.5.0
 pkg_version_bpm_scripts: master
 pkg_version_bbb: v0.1.0
 pkg_version_sirius_epics_screens: master
-
 
 # === apt packages versions ===
 
