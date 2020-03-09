@@ -678,54 +678,68 @@ service-ioc-si-ps-fams-stop:
 	@echo "Stopping SI PS Fams IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "services_to_run_corrs='' services_to_run_trims='' services_to_run_diags='' ctrl_service_state=stopped" \
+		--extra-vars "services_to_run_corrs='' services_to_run_trims_c1234='' services_to_run_trims_m12='' services_to_run_diags='' ctrl_service_state=stopped" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-si-ps.yml
 
 service-ioc-si-ps-fams-start:
 	@echo "Starting SI PS Fams IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "services_to_run_corrs='' services_to_run_trims='' services_to_run_diags='' ctrl_service_state=started" \
+		--extra-vars "services_to_run_corrs='' services_to_run_trims_c1234='' services_to_run_trims_m12='' services_to_run_diags='' ctrl_service_state=started" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-si-ps.yml
 
 service-ioc-si-ps-corrs-stop:
 	@echo "Stopping SI PS Corrs IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "services_to_run_fams='' services_to_run_trims='' services_to_run_diags='' ctrl_service_state=stopped" \
+		--extra-vars "services_to_run_fams='' services_to_run_trims_c1234='' services_to_run_trims_m12='' services_to_run_diags='' ctrl_service_state=stopped" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-si-ps.yml
 
 service-ioc-si-ps-corrs-start:
 	@echo "Starting SI PS Corrs IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "services_to_run_fams='' services_to_run_trims='' services_to_run_diags='' ctrl_service_state=started" \
+		--extra-vars "services_to_run_fams='' services_to_run_trims_c1234='' services_to_run_trims_m12='' services_to_run_diags='' ctrl_service_state=started" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-si-ps.yml
 
-service-ioc-si-ps-trims-stop:
-	@echo "Stopping SI PS Trims IOC services"
+service-ioc-si-ps-trims-c1234-stop:
+	@echo "Stopping SI PS Trims C1234 IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "services_to_run_fams='' services_to_run_corrs='' services_to_run_diags='' ctrl_service_state=stopped" \
+		--extra-vars "services_to_run_fams='' services_to_run_corrs='' services_to_run_trims_m12='' services_to_run_diags='' ctrl_service_state=stopped" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-si-ps.yml
 
-service-ioc-si-ps-trims-start:
-	@echo "Starting SI PS Trims IOC services"
+service-ioc-si-ps-trims-c1234-start:
+	@echo "Starting SI PS Trims C1234 IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "services_to_run_fams='' services_to_run_corrs='' services_to_run_diags='' ctrl_service_state=started" \
+		--extra-vars "services_to_run_fams='' services_to_run_corrs='' services_to_run_trims_m12='' services_to_run_diags='' ctrl_service_state=started" \
+		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-si-ps.yml
+
+service-ioc-si-ps-trims-m12-stop:
+	@echo "Stopping SI PS Trims M12 IOC services"
+	@echo "Please enter password for sirius user."
+	ansible-playbook \
+		--extra-vars "services_to_run_fams='' services_to_run_corrs='' services_to_run_trims_c1234='' services_to_run_diags='' ctrl_service_state=stopped" \
+		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-si-ps.yml
+
+service-ioc-si-ps-trims-m12-start:
+	@echo "Starting SI PS Trims M12 IOC services"
+	@echo "Please enter password for sirius user."
+	ansible-playbook \
+		--extra-vars "services_to_run_fams='' services_to_run_corrs='' services_to_run_trims_c1234='' services_to_run_diags='' ctrl_service_state=started" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-si-ps.yml
 
 service-ioc-si-ps-diags-stop:
 	@echo "Stopping SI PS Diagnostic IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "services_to_run_fams='' services_to_run_corrs='' services_to_run_trims='' ctrl_service_state=stopped" \
+		--extra-vars "services_to_run_fams='' services_to_run_corrs='' services_to_run_trims_c1234='' services_to_run_trims_m12='' ctrl_service_state=stopped" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-si-ps.yml
 
 service-ioc-si-ps-diags-start:
 	@echo "Starting SI PS Diagnostic IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "services_to_run_fams='' services_to_run_corrs='' services_to_run_trims='' ctrl_service_state=started" \
+		--extra-vars "services_to_run_fams='' services_to_run_corrs='' services_to_run_trims_c1234='' services_to_run_trims_m12='' ctrl_service_state=started" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-si-ps.yml
