@@ -27,7 +27,7 @@ pkg_version_trackcpp: v3.6.0
 pkg_version_lnls: v1.0.0
 pkg_version_pyaccel: v1.0.0
 pkg_version_pymodels: v1.0.0
-pkg_version_apsuite: v1.0.0
+pkg_version_apsuite: v1.0.1
 
 pkg_version_linac_ioc_ps: v1.2.0
 pkg_version_pydm_opi: v0.4.6
