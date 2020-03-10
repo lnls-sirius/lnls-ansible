@@ -18,7 +18,7 @@ pkg_version_pyqt_sip_src: 4.19.20
 pkg_version_ctrl_sys_consts: v1.1.4
 pkg_version_mathphys: v1.1.0
 pkg_version_ethbridge_pru_serial: v2.5.0
-pkg_version_siriuspy: v1.19.0
+pkg_version_siriuspy: v1.19.1
 pkg_version_machine_applications: v3.8.0
 pkg_version_siriushla: v0.14.0
 pkg_sirius_scripts: v0.5.0
