@@ -48,11 +48,49 @@ sirius_apps_dev_packages:
     repo_version: "{{ pkg_version_siriuspy }}"
     clone_path: /tmp
     install_chdir: siriuspy
-    install_via_setup: true
-    setup_extra_args: "--no-deps"
-    setup_state: forcereinstall
-    repo_cvs: git+
+    install_via_makefile: true
     force_version: true
+
+  - name: TrackC++ Package
+    org_url: https://github.com/lnls-fac
+    repo_name: trackcpp
+    repo_version: "{{ pkg_version_trackcpp }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
+  - name: LNLS Package
+    org_url: https://github.com/lnls-fac
+    repo_name: lnls
+    repo_version: "{{ pkg_version_lnls }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
+  - name: Pyaccel Package
+    org_url: https://github.com/lnls-fac
+    repo_name: pyaccel
+    repo_version: "{{ pkg_version_pyaccel }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
+  - name: Pymodels Package
+    org_url: https://github.com/lnls-fac
+    repo_name: pymodels
+    repo_version: "{{ pkg_version_pymodels }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
+  - name: ApSuite Package
+    org_url: https://github.com/lnls-fac
+    repo_name: apsuite
+    repo_version: "{{ pkg_version_apsuite }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
 
 sirius_apps_iocs:
 
