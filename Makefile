@@ -7,7 +7,7 @@ MOLECULE_DISTRO ?= debian:buster
 export MOLECULE_DISTRO
 BUILD_TYPE ?= default
 export BUILD_TYPE
-HOST_GROUPS ?= control_room:linac_opi
+HOST_GROUPS ?=
 REMOTE_USER ?= sirius
 ASK_FOR_PASS ?= y
 ASK_FOR_VAULT_PASS ?= y
