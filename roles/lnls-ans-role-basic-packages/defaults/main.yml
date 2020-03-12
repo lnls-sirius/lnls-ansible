@@ -1,0 +1,12 @@
+---
+# for software package updates
+install_all_package_updates: true
+
+# list of packages to install
+install_packages: []
+
+# list of packages to remove
+remove_packages: []
+
+# list of packages to update
+update_packages: []
