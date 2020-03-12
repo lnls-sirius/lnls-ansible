@@ -11,7 +11,7 @@ python_src_version: 3.6.8
 pkg_version_qt_src: 5.13.1
 pkg_version_pyqt_src: 5.13.1
 pkg_version_pyqt_sip_src: 4.19.20
-
+pkg_version_phoebus: 4.6.1
 
 # === sirius packages ===
 
