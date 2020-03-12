@@ -40,7 +40,7 @@ else
 	EXTRA_OPTS +=
 endif
 
-ifeq ($(ANSIBLE_VARS),)
+ifneq ($(ANSIBLE_VARS),)
 	EXTRA_OPTS += --extra-vars "$(ANSIBLE_VARS)"
 else
 	EXTRA_OPTS +=
