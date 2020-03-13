@@ -1,6 +1,6 @@
-# Ansible Role: Packages
+# Ansible Role: Update kernel
 
-A simple Ansible role used to install, remove, and update distrobution base repository software packages.
+A simple Ansible role used to update OS kernel.packages.
 
 
 ## Requirements
