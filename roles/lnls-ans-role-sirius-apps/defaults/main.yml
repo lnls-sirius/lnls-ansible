@@ -184,6 +184,6 @@ sirius_apps_config_files:
     filename: linac_edm.sh
     pathname: "/etc/profile.d"
 
-  - name: FAC Apps environment variables
-    filename: fac.sh
+  - name: Sirius scripts environment variables
+    filename: sirius_scripts.sh
     pathname: "/etc/profile.d"
