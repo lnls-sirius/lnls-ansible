@@ -10,8 +10,5 @@
       paths:
         - '{{ role_path }}/vars'
 
-- include_tasks: install-package-updates.yml
-  when: ansible_os_family == 'Debian'
-
-- include_tasks: install-remove-packages.yml
+- include_tasks: update-kernel.yml
   when: ansible_os_family == 'Debian'

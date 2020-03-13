@@ -1,0 +1,6 @@
+---
+- name: Update kernel
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ update_kernel }}"
