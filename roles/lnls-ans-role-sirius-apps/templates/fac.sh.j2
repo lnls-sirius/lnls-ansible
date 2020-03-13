@@ -1,0 +1,58 @@
+
+# Definition of LNLS_GROUP
+# ========================
+export LNLS_SIRIUS=/home/sirius
+
+# Completion for binary trackcpp
+# # ==============================
+complete -W "help dynap_xy dynap_ex dynap_ma dynap_pxa dynap_pya dynap_xyfmap \
+                  dynap_exfmap track_linepass tests" trackcpp
+complete -W "--path --save --help"  trackcpp-da-ma-results.py
+
+# Aliases
+# =======
+
+alias g-root='cd /home'
+
+# --- organizations aliases ----
+alias g-sirius-lnls='cd $LNLS_SIRIUS/repos'
+alias g-fac-lnls='cd $LNLS_FAC/repos'
+alias g-ima-lnls='cd $LNLS_IMA/repos'
+
+# --- lnls-sirius repo aliases ---
+alias g-repos='cd $LNLS_SIRIUS/repos'
+alias g-ansible='cd $LNLS_SIRIUS/repos/lnls-ansible'
+alias g-csconstants='cd $LNLS_SIRIUS/repos/control-system-constants'
+alias g-mathphys='cd $LNLS_SIRIUS/repos/mathphys'
+alias g-siriuspy='cd $LNLS_SIRIUS/repos/dev-packages/siriuspy'
+alias g-machine-applications='cd $LNLS_SIRIUS/repos/machine-applications'
+alias g-pydm='cd $LNLS_SIRIUS/repos/pydm'
+alias g-hla='cd $LNLS_SIRIUS/repos/hla'
+alias g-scripts='cd $LNLS_SIRIUS/repos/scripts'
+alias g-linac-ioc-ps='cd $LNLS_SIRIUS/repos/linac-ioc-ps'
+alias g-linac-opi='cd $LNLS_SIRIUS/repos/linac-opi'
+
+# --- lnls-fac repos ---
+alias g-trackcpp='cd $LNLS_FAC/repos/trackcpp'
+alias g-apsuite='cd $LNLS_FAC/repos/apsuite'
+alias g-pymodels='cd $LNLS_FAC/repos/pymodels'
+alias g-pyaccel='cd $LNLS_FAC/repos/pyaccel'
+
+# --- lnls-sirius development repo aliases ---
+alias g-dev-repos='cd ~/repos-dev'
+alias g-dev-ansible='cd ~/repos-dev/lnls-ansible'
+alias g-dev-csconstants='cd ~/repos-dev/control-system-constants'
+alias g-dev-mathphys='cd ~/repos-dev/mathphys'
+alias g-dev-siriuspy='cd ~/repos-dev/dev-packages/siriuspy'
+alias g-dev-machine-applications='cd ~/repos-dev/machine-applications'
+alias g-dev-pydm='cd ~/repos-dev/pydm'
+alias g-dev-hla='cd ~/repos-dev/hla'
+alias g-dev-scripts='cd ~/repos-dev/scripts'
+alias g-dev-linac-ioc-ps='cd ~/repos-dev/linac-ioc-ps'
+alias g-dev-linac-opi='cd ~/repos-dev/linac-opi'
+
+# --- lnls-fac development repos ---
+alias g-dev-trackcpp='cd ~/repos-dev/trackcpp'
+alias g-dev-apsuite='cd ~/repos-dev/apsuite'
+alias g-dev-pymodels='cd ~/repos-dev/pymodels'
+alias g-dev-pyaccel='cd ~/repos-dev/pyaccel'
