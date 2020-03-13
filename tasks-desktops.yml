@@ -1,15 +1,15 @@
 ---
 - import_role:
+    name: lnls-ans-role-users
+- import_role:
+    name: lnls-ans-role-repositories
+- import_role:
     name: lnls-ans-role-network
 - import_role:
     name: lnls-ans-role-nvidia-driver
   when: global_import_nvidia_driver_role | default(false) | bool
 - import_role:
-    name: lnls-ans-role-users
-- import_role:
     name: lnls-ans-role-ntp
-- import_role:
-    name: lnls-ans-role-repositories
 - import_role:
     name: lnls-ans-role-nfsclient
 - import_role:
