@@ -1,6 +1,6 @@
 # Ansible Role: Update kernel
 
-A simple Ansible role used to update OS kernel.packages.
+A simple Ansible role used to update OS kernel.
 
 
 ## Requirements
