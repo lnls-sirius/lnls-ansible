@@ -4,9 +4,9 @@
 - import_role:
     name: lnls-ans-role-repositories
 - import_role:
-    name: lnls-ans-role-network
+    name: lnls-ans-role-update-kernel
 - import_role:
-     name: lnls-ans-role-basic-packages
+    name: lnls-ans-role-network
 - import_role:
     name: lnls-ans-role-nvidia-driver
   when: global_import_nvidia_driver_role | default(false) | bool
