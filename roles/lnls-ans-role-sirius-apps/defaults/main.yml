@@ -183,3 +183,7 @@ sirius_apps_config_files:
   - name: Sirius Apps Linac EDM variables
     filename: linac_edm.sh
     pathname: "/etc/profile.d"
+
+  - name: Sirius scripts environment variables
+    filename: sirius_scripts.sh
+    pathname: "/etc/profile.d"
