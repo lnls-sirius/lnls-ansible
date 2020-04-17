@@ -26,7 +26,7 @@ pkg_sirius_scripts: v0.5.1
 pkg_version_trackcpp: v4.0.1
 pkg_version_lnls: v1.0.0
 pkg_version_pyaccel: v3.0.0
-pkg_version_pymodels: v1.0.1
+pkg_version_pymodels: v1.0.2
 pkg_version_apsuite: v2.0.2
 
 pkg_version_linac_ioc_ps: v1.2.0
