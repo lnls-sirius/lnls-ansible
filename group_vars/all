@@ -18,7 +18,7 @@ pkg_version_phoebus: 4.6.1
 pkg_version_ctrl_sys_consts: v1.2.1
 pkg_version_mathphys: v2.0.0
 pkg_version_ethbridge_pru_serial: v2.5.0
-pkg_version_siriuspy: v2.1.0
+pkg_version_siriuspy: v2.1.1
 pkg_version_machine_applications: v3.9.2
 pkg_version_siriushla: v0.16.0
 pkg_sirius_scripts: v0.5.1
