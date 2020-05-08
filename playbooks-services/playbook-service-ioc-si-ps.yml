@@ -60,7 +60,7 @@
       - sirius-ioc-si-ps-correctors-c134-ia19.service
       - sirius-ioc-si-ps-correctors-c134-ia20.service
 
-    services_to_run_trims:
+    services_to_run_trims_m12:
       - sirius-ioc-si-ps-trims-qs-m12-ia01.service
       - sirius-ioc-si-ps-trims-qs-m12-ia02.service
       - sirius-ioc-si-ps-trims-qs-m12-ia03.service
@@ -81,6 +81,8 @@
       - sirius-ioc-si-ps-trims-qs-m12-ia18.service
       - sirius-ioc-si-ps-trims-qs-m12-ia19.service
       - sirius-ioc-si-ps-trims-qs-m12-ia20.service
+
+    services_to_run_trims_c1234:
       - sirius-ioc-si-ps-trims-qs-c1234-ia01.service
       - sirius-ioc-si-ps-trims-qs-c1234-ia02.service
       - sirius-ioc-si-ps-trims-qs-c1234-ia03.service
@@ -134,16 +136,27 @@
         - ansible_host == ioc_si_ps_corrs_srv_host
         - services_to_run_corrs is defined and services_to_run_corrs | length > 0
 
-    - name: "Run {{ role_to_run }} role for SI trims"
+    - name: "Run {{ role_to_run }} role for SI trims C1234"
       include_role:
         name: "{{ role_to_run }}"
       vars:
         ctrl_service_name: "'{{ item }}'"
       with_items:
-        - "{{ services_to_run_trims }}"
+        - "{{ services_to_run_trims_c1234 }}"
       when:
-        - ansible_host == ioc_si_ps_trims_srv_host
-        - services_to_run_trims is defined and services_to_run_trims | length > 0
+        - ansible_host == ioc_si_ps_trims_c1234_srv_host
+        - services_to_run_trims_c1234 is defined and services_to_run_trims_c1234 | length > 0
+
+    - name: "Run {{ role_to_run }} role for SI trims M12"
+      include_role:
+        name: "{{ role_to_run }}"
+      vars:
+        ctrl_service_name: "'{{ item }}'"
+      with_items:
+        - "{{ services_to_run_trims_m12 }}"
+      when:
+        - ansible_host == ioc_si_ps_trims_m12_srv_host
+        - services_to_run_trims_m12 is defined and services_to_run_trims_m12 | length > 0
 
     - name: "Run {{ role_to_run }} role for SI diags"
       include_role:
