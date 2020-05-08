@@ -3,11 +3,11 @@ linac-opi1
 linac-opi2
 
 [control_room]
+lnls449-linux
 lnls451-linux
 lnls452-linux
-lnls455-linux # (10.0.38.39)
-lnls449-linux
 lnls454-linux
+lnls455-linux
 
 [fac_control_room]
 lnls209-linux  # fac-desktop
@@ -16,7 +16,7 @@ lnls209-linux  # fac-desktop
 elp1-linux
 
 [fac]
-lnls560-linux  # fac-guilherme
+lnls560-linux  # fac-analuisa
 lnls210-linux  # fac-alexandre
 lnls557-linux  # fac-liulin (10.0.38.44)
 # lnls556-linux  # fac-fernando
@@ -46,6 +46,24 @@ lnlsfac-srv1
 lnls451-linux
 lnls449-linux
 lnls454-linux
+
+[ioc_li_ps_spect_srv:children]
+ioc_ps_srv
+
+[ioc_li_ps_quads_srv:children]
+ioc_ps_srv
+
+[ioc_li_ps_corrs_srv:children]
+ioc_ps_srv
+
+[ioc_li_ps_lens_srv:children]
+ioc_ps_srv
+
+[ioc_li_ps_solenoids_srv:children]
+ioc_ps_srv
+
+[ioc_li_ps_conv_srv:children]
+ioc_ps_srv
 
 [ioc_tb_ps_fams_srv:children]
 ioc_ps_srv
@@ -80,7 +98,10 @@ ioc_ps_srv
 [ioc_si_ps_corrs_srv:children]
 ioc_ps_srv
 
-[ioc_si_ps_trims_srv:children]
+[ioc_si_ps_trims_c1234_srv:children]
+ioc_ps_srv
+
+[ioc_si_ps_trims_m12_srv:children]
 ioc_ps_srv
 
 [ioc_si_ps_diags_srv:children]
@@ -108,8 +129,23 @@ lnlsfac-srv1
 
 # --- LI
 
-[ioc_li_ps_srv]
-lnls451-linux
+[ioc_li_ps_spect_srv:vars]
+ioc_li_ps_spect_srv_host=lnls451-linux
+
+[ioc_li_ps_quads_srv:vars]
+ioc_li_ps_quads_srv_host=lnls451-linux
+
+[ioc_li_ps_corrs_srv:vars]
+ioc_li_ps_corrs_srv_host=lnls451-linux
+
+[ioc_li_ps_lens_srv:vars]
+ioc_li_ps_lens_srv_host=lnls451-linux
+
+[ioc_li_ps_solenoids_srv:vars]
+ioc_li_ps_solenoids_srv_host=lnls451-linux
+
+[ioc_li_ps_conv_srv:vars]
+ioc_li_ps_conv_srv_host=lnls449-linux
 
 # --- TB
 
@@ -152,8 +188,11 @@ ioc_si_ps_fams_srv_host=lnls451-linux
 [ioc_si_ps_corrs_srv:vars]
 ioc_si_ps_corrs_srv_host=lnlsfac-srv1
 
-[ioc_si_ps_trims_srv:vars]
-ioc_si_ps_trims_srv_host=lnls454-linux
+[ioc_si_ps_trims_c1234_srv:vars]
+ioc_si_ps_trims_c1234_srv_host=lnls454-linux
+
+[ioc_si_ps_trims_m12_srv:vars]
+ioc_si_ps_trims_m12_srv_host=lnls449-linux
 
 [ioc_si_ps_diags_srv:vars]
 ioc_si_ps_diags_srv_host=lnlsfac-srv1

@@ -6,6 +6,8 @@ __sirius_apps_packages:
   - "winswitch={{ pkg_version_winswitch }}"
   - "xvfb={{ pkg_version_xvfb }}"
   - "bc={{ pkg_version_bc }}"
+  - "libgsl2={{ pkg_version_libgsl2 }}"
+  - "libgsl-dev={{ pkg_version_libgsl_dev }}"
 
 __sirius_apps_pip_packages:
   - "QtAwesome=={{ pkg_version_qtawesome }}"

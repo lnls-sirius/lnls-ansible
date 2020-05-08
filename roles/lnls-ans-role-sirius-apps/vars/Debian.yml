@@ -6,6 +6,8 @@ __sirius_apps_packages:
   - winswitch
   - xvfb
   - bc
+  - libgsl2
+  - libgsl-dev
 
 __sirius_apps_pip_packages:
   - QtAwesome

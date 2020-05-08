@@ -1,4 +1,5 @@
 ---
 __octave_packages:
-  - "octave={{ pkg_version_octave }}"
-  - "liboctave-dev={{ pkg_version_liboctave_dev }}"
+  - "octave"
+  - "liboctave-dev"
+  - "epstool"

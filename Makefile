@@ -7,7 +7,7 @@ MOLECULE_DISTRO ?= debian:buster
 export MOLECULE_DISTRO
 BUILD_TYPE ?= default
 export BUILD_TYPE
-HOST_GROUPS ?= control_room:linac_opi
+HOST_GROUPS ?=
 REMOTE_USER ?= sirius
 ASK_FOR_PASS ?= y
 ASK_FOR_VAULT_PASS ?= y
@@ -40,7 +40,7 @@ else
 	EXTRA_OPTS +=
 endif
 
-ifeq ($(ANSIBLE_VARS),)
+ifneq ($(ANSIBLE_VARS),)
 	EXTRA_OPTS += --extra-vars "$(ANSIBLE_VARS)"
 else
 	EXTRA_OPTS +=
@@ -146,6 +146,14 @@ deploy-control-room-desktops-nfs: playbook-servnfs.yml playbook-servweb.yml play
 		playbook-servnfs.yml \
 		playbook-servweb.yml \
 		playbook-control-room-desktops.yml
+
+deploy-server-nfs: playbook-servnfs.yml
+	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
+		playbook-servnfs.yml
+
+deploy-server-web: playbook-servweb.yml
+	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
+		playbook-servweb.yml
 
 deploy-control-room-desktops-sirius-nfs: playbook-servnfs.yml playbook-servweb.yml playbook-control-room-desktops-sirius.yml tasks-desktops-sirius.yml
 	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \

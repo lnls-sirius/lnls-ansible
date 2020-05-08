@@ -11,27 +11,37 @@ python_src_version: 3.6.8
 pkg_version_qt_src: 5.13.1
 pkg_version_pyqt_src: 5.13.1
 pkg_version_pyqt_sip_src: 4.19.20
-
+pkg_version_phoebus: 4.6.1
 
 # === sirius packages ===
 
-pkg_version_ctrl_sys_consts: v1.1.1
-pkg_version_mathphys: v1.1.0
+pkg_version_ctrl_sys_consts: v1.2.2
+pkg_version_mathphys: v2.0.0
 pkg_version_ethbridge_pru_serial: v2.5.0
-pkg_version_siriuspy: v1.13.1
-pkg_version_machine_applications: v3.5.0
-pkg_version_linac_ioc_ps: v1.1.1
-pkg_version_siriushla: v0.8.0
+pkg_version_siriuspy: v2.2.0
+pkg_version_machine_applications: v3.9.2
+pkg_version_siriushla: v0.17.0
+pkg_sirius_scripts: v0.5.1
+
+pkg_version_trackcpp: v4.1.0
+pkg_version_lnls: v1.0.0
+pkg_version_pyaccel: v3.1.0
+pkg_version_pymodels: v1.0.4
+pkg_version_apsuite: v2.1.1
+
+pkg_version_linac_ioc_ps: v1.2.0
 pkg_version_pydm_opi: v0.4.6
 pkg_version_linac_opi: v1.1.2
-pkg_sirius_scripts: v0.3.1
 pkg_version_bpm_scripts: master
-pkg_version_bbb: v0.1.0
+pkg_version_bbb: v1.1.0
 pkg_version_sirius_epics_screens: master
-
 
 # === apt packages versions ===
 
+pkg_version_network_manager: 1.14.6*
+pkg_version_python_dbus: 1.2.4*
+pkg_version_python3_dbus: 1.2.4*
+pkg_version_libnm0: 1.14.6*
 pkg_version_autofs: 5.1.2*
 pkg_version_build_essential: 12.3*
 pkg_version_ca_certificates: 20161130*
@@ -118,6 +128,7 @@ pkg_version_bc: 1.06.95*
 pkg_version_wait_for_it: 0.0*
 pkg_version_octave: 4.0.3*
 pkg_version_liboctave_dev: 4.0.3*
+pkg_version_epstool: 3.08*
 
 
 # === pip packages ===
@@ -162,6 +173,11 @@ pkg_version_pyvisa_py: 0.3.1
 # We don't care if vnc fails
 desktop_vnc_ignore_systemd_errors: true
 
+
+# === NTP servers ===
+ntp_servers:
+   - "10.128.255.3 iburst minpoll 3 maxpoll 6"
+   - "10.128.255.4 iburst minpoll 3 maxpoll 6"
 
 # === NFS configuration ===
 
