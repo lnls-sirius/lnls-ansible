@@ -124,6 +124,14 @@ sirius_apps_hla:
       INSTALL_DESIGNER_DIR: "{{ sirius_apps_designer_dir }}"
     force_version: true
 
+  - name: High-Level Applications CONS - Common scripts
+    org_url: https://github.com/lnls-sirius
+    repo_name: cons-common
+    repo_version: "{{ pkg_version_cons_common }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
   - name: High-Level Applications CONS
     org_url: https://github.com/lnls-sirius
     repo_name: pydm-opi
