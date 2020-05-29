@@ -18,6 +18,7 @@
       - sirius-ioc-bo-ap-chromcorr.service
       - sirius-ioc-si-ap-tunecorr.service
       - sirius-ioc-si-ap-chromcorr.service
+      - sirius-ioc-as-ap-machshift.service
 
   tasks:
     - name: "Run {{ role_to_run }} role"
