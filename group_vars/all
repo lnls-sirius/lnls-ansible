@@ -20,7 +20,7 @@ pkg_version_mathphys: v2.0.0
 pkg_version_ethbridge_pru_serial: v2.5.0
 pkg_version_siriuspy: v2.4.1
 pkg_version_machine_applications: v3.12.1
-pkg_version_siriushla: v0.19.0
+pkg_version_siriushla: v0.20.0
 pkg_sirius_scripts: v0.5.1
 
 pkg_version_trackcpp: v4.1.0
