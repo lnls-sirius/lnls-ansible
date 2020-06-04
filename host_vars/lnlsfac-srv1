@@ -94,12 +94,6 @@ clone_install_repos_servnfs:
     repo_version: "{{ pkg_version_siriushla }}"
     clone_path: /home/nfs-shared/repos-lnls-sirius
 
-  - name: High-Level Applications CONS - Common scripts
-    org_url: https://github.com/lnls-sirius
-    repo_name: cons-common
-    repo_version: "{{ pkg_version_cons_common }}"
-    clone_path: /home/nfs-shared/repos-lnls-sirius
-
   - name: High-Level Applications CONS
     org_url: https://github.com/lnls-sirius
     repo_name: pydm-opi
