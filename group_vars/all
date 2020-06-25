@@ -15,22 +15,22 @@ pkg_version_phoebus: 4.6.3
 
 # === sirius packages ===
 
-pkg_version_ctrl_sys_consts: v1.4.0
+pkg_version_ctrl_sys_consts: v1.6.0
 pkg_version_mathphys: v2.0.0
 pkg_version_ethbridge_pru_serial: v2.5.0
-pkg_version_siriuspy: v2.5.0
-pkg_version_machine_applications: v3.12.1
-pkg_version_siriushla: v0.21.0
+pkg_version_siriuspy: v2.6.1
+pkg_version_machine_applications: v3.13.0
+pkg_version_siriushla: v0.24.1
 pkg_sirius_scripts: v0.5.1
 
 pkg_version_trackcpp: v4.1.0
 pkg_version_lnls: v1.0.0
 pkg_version_pyaccel: v3.1.1
-pkg_version_pymodels: v1.0.4
-pkg_version_apsuite: v2.4.0
+pkg_version_pymodels: v1.1.0
+pkg_version_apsuite: v2.5.0
 
 pkg_version_linac_ioc_ps: v1.2.0
-pkg_version_pydm_opi: v0.4.6
+pkg_version_pydm_opi: v1.4.0
 pkg_version_linac_opi: v1.1.2
 pkg_version_bpm_scripts: master
 pkg_version_bbb: v1.1.0
