@@ -28,6 +28,7 @@ __desktop_packages:
   - wait-for-it
   - libgsl23
   - libgsl-dev
+  - texlive-full
 
 __desktop_pip_packages:
   - python-nmap

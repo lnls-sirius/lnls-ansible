@@ -28,6 +28,7 @@ __desktop_packages:
   - "wait-for-it={{ pkg_version_wait_for_it }}"
   - "libgsl2={{ pkg_version_libgsl2 }}"
   - "libgsl-dev={{ pkg_version_libgsl_dev }}"
+  - "texlive-full={{ pkg_version_texlive_full }}"
 
 __desktop_pip_packages:
   - "python-nmap=={{ pkg_version_python_nmap }}"
