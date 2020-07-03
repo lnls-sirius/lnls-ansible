@@ -23,12 +23,14 @@ __desktop_packages:
   - "libfreetype6={{ pkg_version_libfreetype6 }}"
   - "libfreetype6-dev={{ pkg_version_libfreetype6_dev }}"
   - "nmap={{ pkg_version_nmap }}"
-  - "dvipng={{ pkg_version_dvipng }}"
   - "sshpass={{ pkg_version_sshpass }}"
   - "wait-for-it={{ pkg_version_wait_for_it }}"
   - "libgsl2={{ pkg_version_libgsl2 }}"
   - "libgsl-dev={{ pkg_version_libgsl_dev }}"
   - "texlive-full={{ pkg_version_texlive_full }}"
+  - texlive-latex-recommended={{ pkg_version_texlive_latex_recommended }}
+  - dvipng={{ pkg_version_dvipng }}
+  - ghostscript={{ pkg_version_ghostscript }}
 
 __desktop_pip_packages:
   - "python-nmap=={{ pkg_version_python_nmap }}"

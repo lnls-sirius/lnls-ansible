@@ -23,12 +23,13 @@ __desktop_packages:
   - libfreetype6
   - libfreetype6-dev
   - nmap
-  - dvipng
   - sshpass
   - wait-for-it
   - libgsl23
   - libgsl-dev
-  - texlive-full
+  - texlive-latex-recommended
+  - dvipng
+  - ghostscript
 
 __desktop_pip_packages:
   - python-nmap

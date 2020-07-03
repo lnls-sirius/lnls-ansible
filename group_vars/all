@@ -48,7 +48,6 @@ pkg_version_ca_certificates: 20161130*
 pkg_version_cups: 2.2.1*
 pkg_version_dconf_cli: 0.26.0*
 pkg_version_dmz_cursor_theme: 0.4.4*
-pkg_version_dvipng: 1.14*
 pkg_version_epics_dev: 3.15.6*
 pkg_version_epics_pcas_dev: 3.15.6*
 pkg_version_epics_perl: 3.15.6*
@@ -129,7 +128,9 @@ pkg_version_wait_for_it: 0.0*
 pkg_version_octave: 4.0.3*
 pkg_version_liboctave_dev: 4.0.3*
 pkg_version_epstool: 3.08*
-pkg_version_texlive_full: 2016.20170123*
+pkg_version_texlive_latex_recommended: 2016.20170123*
+pkg_version_dvipng: 1.14*
+pkg_version_ghostscript: 9.26*
 
 
 # === pip packages ===
