@@ -167,4 +167,6 @@ deploy-rfq-desktops: playbook-rfq-desktops.yml tasks-desktops.yml
 
 deploy-beagles-si-correctors: playbook-etherbridge-checkout.yml
 	ansible-playbook -u fac -i hosts -l bbb_si_correctors -k --ask-become-pass playbook-etherbridge-checkout.yml
-	# ansible-playbook -u fac -i hosts -l bbb_si_correctors -k --ask-become-pass --extra-vars "eth_bridge_version=master" playbook-etherbridge-checkout.yml
+
+deploy-beagles: playbook-etherbridge-checkout.yml
+	ansible-playbook -u fac -i hosts -l bbb -k --ask-become-pass playbook-etherbridge-checkout.yml
