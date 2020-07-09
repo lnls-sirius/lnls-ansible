@@ -164,3 +164,7 @@ deploy-control-room-desktops-sirius-nfs: playbook-servnfs.yml playbook-servweb.y
 deploy-rfq-desktops: playbook-rfq-desktops.yml tasks-desktops.yml
 	ansible-playbook -u sirius -i hosts -l rfq --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
 		playbook-rfq-desktops.yml
+
+deploy-beagles-si-correctors: playbook-etherbridge-checkout.yml
+	ansible-playbook -u fac -i hosts -l bbb_si_correctors -k --ask-become-pass playbook-etherbridge-checkout.yml
+	# ansible-playbook -u fac -i hosts -l bbb_si_correctors -k --ask-become-pass --extra-vars "eth_bridge_version=master" playbook-etherbridge-checkout.yml
