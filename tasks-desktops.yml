@@ -3,8 +3,10 @@
     name: lnls-ans-role-users
 - import_role:
     name: lnls-ans-role-repositories
+  when: global_repositories_role | default(true) | bool
 - import_role:
     name: lnls-ans-role-network
+  when: global_network_role | default(true) | bool
 - import_role:
     name: lnls-ans-role-nvidia-driver
   when: global_import_nvidia_driver_role | default(false) | bool
@@ -30,6 +32,7 @@
     name: lnls-ans-role-pydm
 - import_role:
     name: lnls-ans-role-phoebus
+  when: global_phoebus_role | default(true) | bool
 - import_role:
     name: lnls-ans-role-sirius-bbb
 - import_role:
@@ -44,3 +47,4 @@
     name: lnls-ans-role-desktop-settings
 - import_role:
     name: lnls-ans-role-visual-studio-code
+  when: global_visual_studio_role | default(true) | bool

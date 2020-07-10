@@ -133,9 +133,13 @@ deploy-fac-desktops: playbook-fac-desktops.yml tasks-desktops.yml
 	ansible-playbook -u sirius -i hosts -l fac --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
 		playbook-fac-desktops.yml
 
-deploy-elp-desktops: playbook-elp-desktops.yml tasks-desktops.yml
+deploy-elp-desktops: playbook-control-room-desktops.yml tasks-desktops.yml
 	ansible-playbook -u sirius -i hosts -l elp --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
-		playbook-elp-desktops.yml
+		playbook-control-room-desktops.yml
+
+deploy-con-desktops: playbook-control-room-desktops.yml tasks-desktops.yml
+	ansible-playbook -u sirius -i hosts -l con --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
+		playbook-control-room-desktops.yml
 
 deploy-control-room-desktops: playbook-control-room-desktops.yml tasks-desktops.yml
 	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
