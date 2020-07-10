@@ -16,7 +16,6 @@
     install_recommends: "{{ desktop_install_recommends }}"
     default_release: "{{ desktop_default_release | default(omit) }}"
     allow_unauthenticated: true
-    force: true
   become: true
   register: apt_packages_result
   until: apt_packages_result is success
