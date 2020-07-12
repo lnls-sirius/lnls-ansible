@@ -3,13 +3,13 @@ linac-opi1
 linac-opi2
 
 [control_room]
+lnls449-linux
 lnls452-linux
+lnls454-linux
 lnls455-linux
 
-[control_room_FBP]
-lnls449-linux
+[control_room_LEGACY]
 lnls451-linux
-lnls454-linux
 
 [fac_control_room]
 lnls209-linux  # fac-desktop
