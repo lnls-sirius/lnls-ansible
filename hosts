@@ -166,11 +166,8 @@ ioc_tb_ps_diags_srv_host=lnls451-linux
 
 # --- BO
 
-[ioc_bo_ps_dips_srv:vars]
-ioc_bo_ps_dips_srv_host=lnls451-linux
-
-[ioc_bo_ps_quads_srv:vars]
-ioc_bo_ps_quads_srv_host=lnls451-linux
+[ioc_bo_ps_fams_srv:vars]
+ioc_bo_ps_fams_srv_host=lnls451-linux
 
 [ioc_bo_ps_corrs_srv:vars]
 ioc_bo_ps_corrs_srv_host=lnls451-linux
