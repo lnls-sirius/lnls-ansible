@@ -152,8 +152,11 @@ ioc_li_ps_conv_srv_host=lnls449-linux
 
 # --- TB
 
-[ioc_tb_ps_fams_srv:vars]
-ioc_tb_ps_fams_srv_host=lnls451-linux
+[ioc_tb_ps_dips_srv:vars]
+ioc_tb_ps_dips_srv_host=lnls451-linux
+
+[ioc_tb_ps_quads_srv:vars]
+ioc_tb_ps_quads_srv_host=lnls451-linux
 
 [ioc_tb_ps_corrs_srv:vars]
 ioc_tb_ps_corrs_srv_host=lnls451-linux
