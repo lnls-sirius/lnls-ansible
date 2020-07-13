@@ -3,7 +3,6 @@
   apt:
     update_cache: true
     cache_valid_time: 86400
-    allow_unauthenticated: true
   become: true
   register: apt_update_cache_result
   until: apt_update_cache_result is success
@@ -14,7 +13,6 @@
   apt:
     deb: "{{ item.url }}"
     state: "{{ item.state }}"
-    allow_unauthenticated: true
   with_items:
     - "{{ epics_missing_packages }}"
   become: true
@@ -28,7 +26,6 @@
     name: "{{ epics_packages }}"
     state: "{{ epics_packages_state }}"
     install_recommends: "{{ epics_install_recommends }}"
-    allow_unauthenticated: true
   become: true
   register: apt_packages_result
   until: apt_packages_result is success
@@ -69,7 +66,6 @@
     dest: "{{ item.pathname }}/{{ item.filename }}"
     owner: root
     group: root
-    force: true
     mode: 0644
   become: true
   with_items:

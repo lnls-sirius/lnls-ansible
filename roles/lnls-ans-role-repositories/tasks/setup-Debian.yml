@@ -6,7 +6,6 @@
       - apt-transport-https
     state: present
     update_cache: true
-    allow_unauthenticated: true
   become: true
   register: apt_result
   until: apt_result is success
@@ -49,7 +48,6 @@
     state: "{{ item.state }}"
     filename: "{{ item.file }}"
     update_cache: true
-    allow_unauthenticated: true
   with_items:
     - "{{ repository_apt }}"
   notify: Delete APT pinning configuration
