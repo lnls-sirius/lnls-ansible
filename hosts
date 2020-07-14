@@ -15,7 +15,10 @@ lnls451-linux
 lnls209-linux  # fac-desktop
 
 [elp]
-elp1-linux
+10.0.38.56  # elp1-linux
+
+[con]
+10.0.38.84  # cons-dev-vm
 
 [fac]
 lnls560-linux  # fac-analuisa

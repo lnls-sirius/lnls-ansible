@@ -1,8 +1,0 @@
----
-- hosts: fac
-  remote_user: sirius
-  become: true
-
-  tasks:
-    - name: Include generic desktop tasks
-      include_tasks: tasks-desktops.yml
