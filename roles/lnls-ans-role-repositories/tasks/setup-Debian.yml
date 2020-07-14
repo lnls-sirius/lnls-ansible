@@ -6,6 +6,15 @@
       - apt-transport-https
     state: present
     update_cache: true
+    # We only need this as we might have expired signatures
+    # that could prevent us from executing this. The next task
+    # should fix this is that's the case, is not, it will fail for
+    # some other reason
+    allow_unauthenticated: true
+  # In some cases, we might have an invalid signature, preventing
+  # us from executing this. Ignore failures here and if something
+  # doesn't work on the next task we deal with it manually
+  failed_when: true
   become: true
   register: apt_result
   until: apt_result is success
