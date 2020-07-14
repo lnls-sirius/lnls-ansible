@@ -1,3 +1,28 @@
 ---
 
+# === sirius packages ===
+
 pkg_version_siriuspy: v2.7.0-LEGACY
+
+
+# Select which categories to install
+sirius_apps_install_categories:
+  - sirius_apps_dev_packages
+  - sirius_apps_iocs
+  - sirius_apps_hla
+  - sirius_apps_opis
+  - sirius_apps_mgmt
+
+# Desktop cursor size
+desktop_settings_cursor_size: 48
+
+# Import Nvidia Role
+global_import_nvidia_driver_role: true
+
+# Visual Studio Extensions
+visual_studio_code_users:
+  - username: sirius
+    visual_studio_code_extensions: "{{ visual_studio_code_extensions }}"
+    visual_studio_code_extensions_absent: []
+    visual_studio_code_settings: "{{ visual_studio_code_settings }}"
+    visual_studio_code_keybindings: "{{ visual_studio_code_keybindings }}"
