@@ -6,12 +6,12 @@ linac-opi2
 lnls449-linux
 lnls452-linux
 lnls454-linux
-lnls455-linux
 
 [control_room_LEGACY]
 lnls451-linux
 
-[fac_control_room]
+[control_room_nvidia_false]
+lnls455-linux
 lnls209-linux  # fac-desktop
 
 [elp]
