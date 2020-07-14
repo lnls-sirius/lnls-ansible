@@ -14,7 +14,7 @@
   # In some cases, we might have an invalid signature, preventing
   # us from executing this. Ignore failures here and if something
   # doesn't work on the next task we deal with it manually
-  failed_when: true
+  failed_when: false
   become: true
   register: apt_result
   until: apt_result is success
