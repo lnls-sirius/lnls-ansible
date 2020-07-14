@@ -5,8 +5,10 @@
   vars:
     role_to_run: lnls-ans-role-ctrl-service
 
-    services_to_run_fams:
+    services_to_run_dipoles:
       - sirius-ioc-tb-ps-dipoles.service
+
+    services_to_run_quadrupoles:
       - sirius-ioc-tb-ps-quadrupoles.service
 
     services_to_run_corrs:
@@ -17,16 +19,27 @@
 
   tasks:
 
-    - name: "Run {{ role_to_run }} role for TB fams"
+    - name: "Run {{ role_to_run }} role for TB dipoles"
       include_role:
         name: "{{ role_to_run }}"
       vars:
         ctrl_service_name: "'{{ item }}'"
       with_items:
-        - "{{ services_to_run_fams }}"
+        - "{{ services_to_run_dipoles }}"
       when:
-        - ansible_host == ioc_tb_ps_fams_srv_host
-        - services_to_run_fams is defined and services_to_run_fams | length > 0
+        - ansible_host == ioc_tb_ps_dips_srv_host
+        - services_to_run_dipoles is defined and services_to_run_dipoles | length > 0
+
+    - name: "Run {{ role_to_run }} role for TB quadrupoles"
+      include_role:
+        name: "{{ role_to_run }}"
+      vars:
+        ctrl_service_name: "'{{ item }}'"
+      with_items:
+        - "{{ services_to_run_quadrupoles }}"
+      when:
+        - ansible_host == ioc_tb_ps_quads_srv_host
+        - services_to_run_quadrupole is defined and services_to_run_quadrupoles | length > 0
 
     - name: "Run {{ role_to_run }} role for TB corrs"
       include_role:
