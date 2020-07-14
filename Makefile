@@ -129,13 +129,21 @@ $(test_TARGETS): $(TEST_TARGET)%:
 
 # targets for dummies (myself & others)
 
-deploy-fac-desktops: playbook-fac-desktops.yml tasks-desktops.yml
+deploy-fac-desktops: playbook-control-room-desktops.yml tasks-desktops.yml
 	ansible-playbook -u sirius -i hosts -l fac --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
-		playbook-fac-desktops.yml
+		playbook-control-room-desktops.yml
 
-deploy-elp-desktops: playbook-elp-desktops.yml tasks-desktops.yml
+deploy-elp-desktops: playbook-control-room-desktops.yml tasks-desktops.yml
 	ansible-playbook -u sirius -i hosts -l elp --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
-		playbook-elp-desktops.yml
+		playbook-control-room-desktops.yml
+
+deploy-con-desktops: playbook-control-room-desktops.yml tasks-desktops.yml
+	ansible-playbook -u sirius -i hosts -l con --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
+		playbook-control-room-desktops.yml
+
+deploy-rfq-desktops: playbook-control-room-desktops.yml tasks-desktops.yml
+	ansible-playbook -u sirius -i hosts -l rfq --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
+		playbook-control-room-desktops.yml
 
 deploy-control-room-desktops: playbook-control-room-desktops.yml tasks-desktops.yml
 	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
@@ -161,6 +169,8 @@ deploy-control-room-desktops-sirius-nfs: playbook-servnfs.yml playbook-servweb.y
 		playbook-servweb.yml \
 		playbook-control-room-desktops-sirius.yml
 
-deploy-rfq-desktops: playbook-rfq-desktops.yml tasks-desktops.yml
-	ansible-playbook -u sirius -i hosts -l rfq --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
-		playbook-rfq-desktops.yml
+deploy-beagles-si-correctors: playbook-etherbridge-checkout.yml
+	ansible-playbook -u fac -i hosts -l bbb_si_correctors -k --ask-become-pass playbook-etherbridge-checkout.yml
+
+deploy-beagles: playbook-etherbridge-checkout.yml
+	ansible-playbook -u fac -i hosts -l bbb -k --ask-become-pass playbook-etherbridge-checkout.yml
