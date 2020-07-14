@@ -20,7 +20,7 @@ global_network_role: false
 global_phoebus_role: false
 
 # Run respositories Role
-global_repositories_role: false
+global_repositories_role: true
 
 # Lists of users to create or delete
 users:
