@@ -22,9 +22,6 @@ global_phoebus_role: false
 # Run respositories Role
 global_repositories_role: false
 
-# Run Visual Studio Role
-global_visual_studio_role: false
-
 # Lists of users to create or delete
 users:
   - name: sirius

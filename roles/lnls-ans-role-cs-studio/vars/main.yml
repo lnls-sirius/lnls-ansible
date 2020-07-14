@@ -53,7 +53,7 @@ csstudio_diirt_preferences:
 
 csstudio_phoebus_integration_preferences:
   - regexp: "^org.csstudio.phoebus.integration/phoebus_home="
-    line: "org.csstudio.phoebus.integration/phoebus_home={{ phoebus_directory }}"
+    line: "org.csstudio.phoebus.integration/phoebus_home=/opt/phoebus-{{ pkg_version_phoebus }}"
   - regexp: "^org.csstudio.phoebus.integration/jdk9_home="
     line: "org.csstudio.phoebus.integration/jdk9_home=/usr"
 
