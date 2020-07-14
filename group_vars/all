@@ -20,7 +20,7 @@ pkg_version_mathphys: v2.0.0
 pkg_version_ethbridge_pru_serial: v2.5.0
 pkg_version_siriuspy: v2.6.1
 pkg_version_machine_applications: v3.13.0
-pkg_version_siriushla: v0.24.1
+pkg_version_siriushla: v0.26.0
 pkg_sirius_scripts: v0.5.1
 
 pkg_version_trackcpp: v4.1.0
@@ -30,7 +30,7 @@ pkg_version_pymodels: v1.1.0
 pkg_version_apsuite: v2.5.0
 
 pkg_version_linac_ioc_ps: v1.2.0
-pkg_version_pydm_opi: v1.4.1
+pkg_version_pydm_opi: v1.4.5
 pkg_version_linac_opi: v1.1.2
 pkg_version_bpm_scripts: master
 pkg_version_bbb: v1.1.0
@@ -150,7 +150,7 @@ pkg_version_pandas: 0.25.3
 pkg_version_pcaspy: 0.7.2
 pkg_version_psutil: 5.6.7
 pkg_version_pyepics: 3.4.0
-pkg_version_pyqtgraph: 0.10.0
+pkg_version_pyqtgraph: 0.11.0
 pkg_version_python_nmap: 0.6.1
 pkg_version_requests: 2.22.0
 pkg_version_scipy: 1.4.1
@@ -161,7 +161,7 @@ pkg_version_wakeonlan: 1.1.6
 pkg_version_xlrd: 1.2.0
 pkg_version_PyQt5: 5.11.3
 pkg_version_PyQt5_sip: 12.7.0
-pkg_version_pydm: 1.8.0
+pkg_version_pydm: 1.10.2
 pkg_version_timechart: 1.2.2
 pkg_version_qtawesome: 0.7.2
 pkg_version_pyvisa: 1.10.1
