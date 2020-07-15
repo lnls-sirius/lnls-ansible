@@ -169,8 +169,8 @@ deploy-control-room-desktops-sirius-nfs: playbook-servnfs.yml playbook-servweb.y
 		playbook-servweb.yml \
 		playbook-control-room-desktops-sirius.yml
 
-deploy-beagles-si-correctors: playbook-etherbridge-checkout.yml
-	ansible-playbook -u fac -i hosts -l bbb_si_correctors -k --ask-become-pass playbook-etherbridge-checkout.yml
+deploy-beagles-si-correctors: playbook-bbb-repos-checkout.yml
+	ansible-playbook -u fac -i hosts -l bbb_si_correctors -k --ask-become-pass playbook-bbb-repos-checkout.yml
 
-deploy-beagles: playbook-etherbridge-checkout.yml
-	ansible-playbook -u fac -i hosts -l bbb -k --ask-become-pass playbook-etherbridge-checkout.yml
+deploy-beagles: playbook-bbb-repos-checkout.yml
+	ansible-playbook -u fac -i hosts -l bbb -k --ask-become-pass playbook-bbb-repos-checkout.yml
