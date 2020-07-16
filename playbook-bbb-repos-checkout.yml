@@ -11,9 +11,10 @@
     - name: Check out pru-serial485
       git:
         repo: 'https://github.com/lnls-sirius/pru-serial485'
-        dest: /root/pru-serial485
+        dest: /root/pru-serial485-ansible
         version: "{{ pkg_version_pru_serial }}"
+        force: true
     - name: Install pru-serial485
       shell:
         cmd: ./library_build.sh
-        chdir: /root/pru-serial485/src/
+        chdir: /root/pru-serial485-ansible/src/
