@@ -332,7 +332,28 @@ service-ethbridge-si-trims-qs-start:
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 
+
+
+
+service-cethbridge-si-correctors-stop:
+	@echo "Stopping CEthPRUserial485 services in Beaglebones [hosts]"
+	@echo "Please enter password for fac user."
+	ansible-playbook \
+		--extra-vars "ctrl_service_name=c-eth-bridge-pru-serial485 ctrl_service_state=stopped" \
+		-l bbb_si_correctors \
+		-u fac -k --ask-become-pass playbook-ctrl-service.yml
+
+service-cethbridge-si-correctors-start:
+	@echo "Starting CEthPRUserial485 services in Beaglebones [hosts]"
+	@echo "Please enter password for fac user."
+	ansible-playbook \
+		--extra-vars "ctrl_service_name=c-eth-bridge-pru-serial485 ctrl_service_state=started" \
+		-l bbb_si_correctors \
+		-u fac -k --ask-become-pass playbook-ctrl-service.yml
+
+
 # === PS IOC services ===
+
 
 # -- LI
 

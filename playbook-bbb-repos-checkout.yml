@@ -8,6 +8,10 @@
         repo: 'https://github.com/lnls-sirius/eth-bridge-pru-serial485'
         dest: /root/eth-bridge-pru-serial485
         version: "{{ pkg_version_ethbridge_pru_serial }}"
+    - name: Install eth-bridge-pru-serial485
+      make:
+        chdir: /root/eth-bridge-pru-serial485/server/
+        target: install
     - name: Check out pru-serial485
       git:
         repo: 'https://github.com/lnls-sirius/pru-serial485'
