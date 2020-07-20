@@ -34,6 +34,12 @@ clone_install_repos_servnfs:
     repo_version: "{{ pkg_version_mathphys }}"
     clone_path: /home/nfs-shared/repos-lnls-sirius
 
+  - name: PRU-Serial 485 Application
+    org_url: https://github.com/lnls-sirius
+    repo_name: pru-serial485
+    repo_version: "{{ pkg_version_pru_serial }}"
+    clone_path: /home/nfs-shared/repos-lnls-sirius
+
   - name: Ethernet PRU-Serial 485 Application
     org_url: https://github.com/lnls-sirius
     repo_name: eth-bridge-pru-serial485
