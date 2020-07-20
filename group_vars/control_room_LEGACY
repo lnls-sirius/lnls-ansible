@@ -2,7 +2,7 @@
 
 # === sirius packages ===
 
-pkg_version_siriuspy: v2.7.0-LEGACY
+pkg_version_siriuspy: v2.8.0-LEGACY
 
 
 # Select which categories to install
