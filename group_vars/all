@@ -15,11 +15,11 @@ pkg_version_phoebus: 4.6.3
 
 # === sirius packages ===
 
-pkg_version_ctrl_sys_consts: v1.9.0
+pkg_version_ctrl_sys_consts: v1.10.0
 pkg_version_pru_serial: v1.5.0
 pkg_version_ethbridge_pru_serial: v2.6.0
 pkg_version_siriuspy: v2.8.0
-pkg_version_machine_applications: v3.13.2
+pkg_version_machine_applications: v3.14.0
 pkg_version_siriushla: v0.27.0
 pkg_sirius_scripts: v0.6.0
 pkg_version_pydm_opi: v1.4.6
