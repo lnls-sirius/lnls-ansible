@@ -34,6 +34,18 @@ clone_install_repos_servnfs:
     repo_version: "{{ pkg_version_mathphys }}"
     clone_path: /home/nfs-shared/repos-lnls-sirius
 
+  - name: PS firmware C28
+    org_url: https://github.com/lnls-sirius
+    repo_name: C28
+    repo_version: "{{ pkg_version_ps_firmware_c28 }}"
+    clone_path: /home/nfs-shared/repos-lnls-sirius
+
+  - name: PS firmware ARM
+    org_url: https://github.com/lnls-sirius
+    repo_name: ARM
+    repo_version: "{{ pkg_version_ps_firmware_arm }}"
+    clone_path: /home/nfs-shared/repos-lnls-sirius
+
   - name: PRU-Serial 485 Application
     org_url: https://github.com/lnls-sirius
     repo_name: pru-serial485
