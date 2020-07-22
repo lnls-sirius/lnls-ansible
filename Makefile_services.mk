@@ -332,7 +332,28 @@ service-ethbridge-si-trims-qs-start:
 		-u fac -k --ask-become-pass playbook-ctrl-service.yml
 
 
+
+
+
+service-cethbridge-si-correctors-stop:
+	@echo "Stopping CEthPRUserial485 services in Beaglebones [hosts]"
+	@echo "Please enter password for fac user."
+	ansible-playbook \
+		--extra-vars "ctrl_service_name=c-eth-bridge-pru-serial485 ctrl_service_state=stopped" \
+		-l bbb_si_correctors \
+		-u fac -k --ask-become-pass playbook-ctrl-service.yml
+
+service-cethbridge-si-correctors-start:
+	@echo "Starting CEthPRUserial485 services in Beaglebones [hosts]"
+	@echo "Please enter password for fac user."
+	ansible-playbook \
+		--extra-vars "ctrl_service_name=c-eth-bridge-pru-serial485 ctrl_service_state=started" \
+		-l bbb_si_correctors \
+		-u fac -k --ask-become-pass playbook-ctrl-service.yml
+
+
 # === PS IOC services ===
+
 
 # -- LI
 
@@ -523,7 +544,7 @@ service-ioc-tb-ps-dipoles-start:
 	@echo "Starting TB PS Dipoles IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "services_to_run_quadrupoles='' services_to_run_corrs='' services_to_run_diags='' ctrl_service_state=stopped" \
+		--extra-vars "services_to_run_quadrupoles='' services_to_run_corrs='' services_to_run_diags='' ctrl_service_state=started" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-tb-ps.yml
 
 service-ioc-tb-ps-quadrupoles-stop:
@@ -537,7 +558,7 @@ service-ioc-tb-ps-quadrupoles-start:
 	@echo "Start TB PS Quadrupoles IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "services_to_run_dipoles='' services_to_run_corrs='' services_to_run_diags='' ctrl_service_state=stopped" \
+		--extra-vars "services_to_run_dipoles='' services_to_run_corrs='' services_to_run_diags='' ctrl_service_state=started" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-tb-ps.yml
 
 service-ioc-tb-ps-corrs-stop:
