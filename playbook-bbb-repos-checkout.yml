@@ -11,12 +11,12 @@
     - name: Check out pru-serial485
       git:
         repo: 'https://github.com/lnls-sirius/pru-serial485'
-        dest: /root/pru-serial485-ansible
+        dest: /root/pru-serial485
         version: "{{ pkg_version_pru_serial }}"
         force: true
     - name: Install pru-serial485
       make:
-        chdir: /root/pru-serial485-ansible/src/
+        chdir: /root/pru-serial485/src/
         target: install
     - name: Install eth-bridge-pru-serial485
       make:
