@@ -39,7 +39,7 @@
         - "{{ services_to_run_quadrupoles }}"
       when:
         - ansible_host == ioc_tb_ps_quads_srv_host
-        - services_to_run_quadrupole is defined and services_to_run_quadrupoles | length > 0
+        - services_to_run_quadrupoles is defined and services_to_run_quadrupoles | length > 0
 
     - name: "Run {{ role_to_run }} role for TB corrs"
       include_role:
