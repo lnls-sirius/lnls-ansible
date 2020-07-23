@@ -17,6 +17,8 @@ pkg_version_phoebus: 4.6.3
 
 pkg_version_ctrl_sys_consts: v1.8.0
 pkg_version_pru_serial: v1.5.0
+pkg_version_ps_firmware_c28: V0.41u2020-07-10
+pkg_version_ps_firmware_arm: V0.41u2020-07-10
 pkg_version_ethbridge_pru_serial: v2.6.0
 pkg_version_siriuspy: v2.7.0
 pkg_version_machine_applications: v3.13.1
