@@ -155,7 +155,7 @@ ioc_ps_srv
 # lnlsfac-srv1:
 # 	FBP: si_ps_corrs, tb_ps_quad, tb_ps_corrs,
 # 	OTH:
-# 	GEN: as_pu_conv, si_ps_diags
+# 	GEN: as_pu_conv, si_ps_diags, si_ap_sofb
 # lnls454-linux
 # 	FBP: si_ps_trims_c1234, bo_ps_corrs, ts_ps_corrs
 # 	GEN:
@@ -173,6 +173,9 @@ lnls451-linux
 
 [ioc_as_ap_sofb_srv]
 lnls449-linux
+
+[ioc_si_ap_sofb_srv]
+lnlsfac-srv1
 
 [ioc_as_pu_conv_srv]
 lnlsfac-srv1
