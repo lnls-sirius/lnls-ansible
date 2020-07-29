@@ -19,15 +19,18 @@ service-ioc-as-ap-sofb-stop:
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_state=stopped" \
-		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-as-ap-sofb.yml
+		-u sirius -k --ask-become-pass \
+		playbooks-services/playbook-service-ioc-as-ap-sofb.yml \
+		playbooks-services/playbook-service-ioc-si-ap-sofb.yml
 
 service-ioc-as-ap-sofb-start:
 	@echo "Starting AS AP SOFB IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_state=started" \
-		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-as-ap-sofb.yml
-
+		-u sirius -k --ask-become-pass \
+		playbooks-services/playbook-service-ioc-as-ap-sofb.yml \
+		playbooks-services/playbook-service-ioc-si-ap-sofb.yml
 
 # === AS TI IOC services ===
 

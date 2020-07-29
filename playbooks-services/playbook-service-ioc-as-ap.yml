@@ -7,7 +7,7 @@
     services_to_run:
       - sirius-ioc-li-ap-energy.service
       - sirius-ioc-li-ap-currinfo.service
-      - sirius-ioc-tb-ap-currinfo.service
+      # - sirius-ioc-tb-ap-currinfo.service
       - sirius-ioc-bo-ap-currinfo.service
       - sirius-ioc-ts-ap-currinfo.service
       - sirius-ioc-si-ap-currinfo.service
