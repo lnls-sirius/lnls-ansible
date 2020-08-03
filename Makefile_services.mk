@@ -48,21 +48,21 @@ service-ioc-as-ti-start:
 		--extra-vars "ctrl_service_state=started" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-as-ti.yml
 
-# === BL AP IOC services ===
+# === SI AP BL IOC services ===
 
-service-ioc-bl-ap-stop:
-	@echo "Stopping BL AP IOC services"
+service-ioc-si-ap-bl-stop:
+	@echo "Stopping SI AP BL IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_state=stopped" \
-		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-bl-ap.yml
+		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-si-ap-bl.yml
 
-service-ioc-bl-ap-start:
-	@echo "Starting BL AP IOC services"
+service-ioc-si-ap-bl-start:
+	@echo "Starting SI AP BL IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_state=started" \
-		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-bl-ap.yml
+		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-si-ap-bl.yml
 
 
 # === EthPRUserial485 services ===

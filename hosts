@@ -174,7 +174,7 @@ lnls451-linux
 [ioc_as_ap_sofb_srv]
 lnls449-linux
 
-[ioc_bl_ap_srv]
+[ioc_si_ap_bl_srv]
 lnls455-linux
 
 [ioc_si_ap_sofb_srv]
