@@ -1,0 +1,19 @@
+---
+  # Temporary while FAP new firmware is in test and IOC for Q1..Q4 is running
+  # in a non-standard host!
+- hosts: ioc_si_ps_quad_q_srv
+  remote_user: sirius
+
+  vars:
+    role_to_run: lnls-ans-role-ctrl-service
+    services_to_run:
+      - sirius-ioc-si-ps-quadrupoles-q.service
+
+  tasks:
+    - name: "Run {{ role_to_run }} role"
+      include_role:
+        name: "{{ role_to_run }}"
+      vars:
+        ctrl_service_name: "{{ item }}"
+      with_items:
+        - "{{ services_to_run }}"
