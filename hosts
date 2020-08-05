@@ -149,7 +149,7 @@ ioc_ps_srv
 # 	OTH: as_ps_dclinks, tb_ps_dips, bo_ps_fams, ts_ps_fams, si_ps_fams
 # 	GEN: as_ti, as_ap, li_ps, tb_ps_diags, bo_ps_diags, ts_ps_diags
 # lnls449-linux:
-# 	FBP: si_ps_trims_m12, ts_ps_corrs
+# 	FBP: si_ps_trims_m12
 # 	OTH:
 # 	GEN: as_ap_sofb, li_ps_conv
 # lnlsfac-srv1:
