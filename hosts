@@ -51,6 +51,8 @@ lnlsfac-srv1
 lnls451-linux
 lnls449-linux
 lnls454-linux
+lnls452-linux
+lnls558-linux
 
 [ioc_li_ps_spect_srv:children]
 ioc_ps_srv
@@ -153,12 +155,17 @@ ioc_ps_srv
 # 	OTH:
 # 	GEN: as_ap_sofb, li_ps_conv
 # lnlsfac-srv1:
-# 	FBP: si_ps_corrs, tb_ps_quad, tb_ps_corrs,
+# 	FBP: si_ps_corrs, si_ap_sofb
 # 	OTH:
-# 	GEN: as_pu_conv, si_ps_diags, si_ap_sofb
+# 	GEN:
 # lnls454-linux
 # 	FBP: si_ps_trims_c1234, bo_ps_corrs, ts_ps_corrs
+#   OTH:
 # 	GEN:
+# lnls452-linux:
+# 	FBP: tb_ps_quad, tb_ps_corrs,
+# 	OTH:
+# 	GEN: as_pu_conv, si_ps_diags
 
 # --- AS
 
@@ -209,10 +216,10 @@ ioc_li_ps_conv_srv_host=lnls449-linux
 ioc_tb_ps_dips_srv_host=lnls451-linux
 
 [ioc_tb_ps_quads_srv:vars]
-ioc_tb_ps_quads_srv_host=lnlsfac-srv1
+ioc_tb_ps_quads_srv_host=lnls452-linux
 
 [ioc_tb_ps_corrs_srv:vars]
-ioc_tb_ps_corrs_srv_host=lnlsfac-srv1
+ioc_tb_ps_corrs_srv_host=lnls452-linux
 
 [ioc_tb_ps_diags_srv:vars]
 ioc_tb_ps_diags_srv_host=lnls451-linux
@@ -256,6 +263,8 @@ ioc_si_ps_trims_m12_srv_host=lnls449-linux
 [ioc_si_ps_diags_srv:vars]
 ioc_si_ps_diags_srv_host=lnlsfac-srv1
 
+[ioc_si_ps_quad_q_srv]
+lnls558-linux
 
 # === Power Supply BeagleBones ===
 

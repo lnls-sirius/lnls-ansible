@@ -10,7 +10,7 @@
       - sirius-ioc-si-ps-quadrupoles-qd1.service
       - sirius-ioc-si-ps-quadrupoles-qd2.service
       - sirius-ioc-si-ps-quadrupoles-qf.service
-      - sirius-ioc-si-ps-quadrupoles-q.service
+      # - sirius-ioc-si-ps-quadrupoles-q.service
       - sirius-ioc-si-ps-sextupoles-sda12b2.service
       - sirius-ioc-si-ps-sextupoles-sfa0p0-sda0p0.service
       - sirius-ioc-si-ps-sextupoles-sfa12-sda3p1.service
