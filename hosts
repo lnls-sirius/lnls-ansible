@@ -188,7 +188,7 @@ lnls455-linux
 lnlsfac-srv1
 
 [ioc_as_pu_conv_srv]
-lnlsfac-srv1
+lnls452-linux
 
 # --- LI
 
@@ -261,7 +261,7 @@ ioc_si_ps_trims_c1234_srv_host=lnls454-linux
 ioc_si_ps_trims_m12_srv_host=lnls449-linux
 
 [ioc_si_ps_diags_srv:vars]
-ioc_si_ps_diags_srv_host=lnlsfac-srv1
+ioc_si_ps_diags_srv_host=lnls452-linux
 
 [ioc_si_ps_quad_q_srv]
 lnls558-linux
