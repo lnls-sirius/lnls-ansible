@@ -127,7 +127,10 @@ $(test_TARGETS): $(TEST_TARGET)%:
 		molecule test \
 	"
 
-# targets for dummies (myself & others)
+
+deploy-ioc-servers: playbook-ioc-servers.yml
+	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
+		playbook-ioc-servers.yml
 
 deploy-fac-desktops: playbook-control-room-desktops.yml tasks-desktops.yml
 	ansible-playbook -u sirius -i hosts -l fac --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
