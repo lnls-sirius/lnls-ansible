@@ -21,10 +21,10 @@ pkg_version_ps_firmware_c28: V0.41u2020-07-10
 pkg_version_ps_firmware_arm: V0.41u2020-07-10
 pkg_version_ethbridge_pru_serial: v2.6.0
 pkg_version_siriuspy: v2.9.0
-pkg_version_machine_applications: v3.15.0
+pkg_version_machine_applications: v3.15.1
 pkg_version_siriushla: v0.29.0
 pkg_sirius_scripts: v0.6.0
-pkg_version_pydm_opi: v1.4.7
+pkg_version_pydm_opi: v1.4.8
 
 pkg_version_mathphys: v2.0.0
 pkg_version_trackcpp: v4.1.0
