@@ -1,0 +1,68 @@
+---
+# package state; use 'present' to make sure it's installed, or 'latest' if
+# you want to upgrade or switch versions using a new repo.
+sirius_apps_packages_state: present
+
+# PIP package state; use 'present' to make sure it's installed, or 'latest' if
+# you want to upgrade or switch versions using a new repo.
+sirius_apps_pip_packages_state: present
+
+# Whether to install recommended packages. Used only for Debian/Ubuntu.
+sirius_apps_install_recommends: true
+
+# Sirius Linac EDM screens
+sirius_apps_li_edm_dir: /usr/local/share/edm/data
+
+# Sirius designer path
+sirius_apps_designer_dir: /usr/local/share/Qt/designer
+
+# Groups of packages
+sirius_apps_hla:
+
+  - name: High-Level Applications
+    org_url: https://github.com/lnls-sirius
+    repo_name: hla
+    repo_version: "{{ pkg_version_siriushla }}"
+    clone_path: /tmp
+    install_chdir: pyqt-apps
+    install_via_makefile: true
+    make_install_target: install-all
+    make_install_opts:
+      INSTALL_DESIGNER_DIR: "{{ sirius_apps_designer_dir }}"
+    force_version: true
+
+  - name: High-Level Applications CONS
+    org_url: https://github.com/lnls-sirius
+    repo_name: pydm-opi
+    repo_version: "{{ pkg_version_pydm_opi }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
+sirius_apps_opis:
+
+  - name: OPIs
+    org_url: https://gitlab.cnpem.br/FACS
+    repo_name: linac-opi
+    repo_version: "{{ pkg_version_linac_opi }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    make_install_target: install-default
+    make_install_opts:
+      INSTALL_EDM_DIR: "{{ sirius_apps_li_edm_dir }}"
+    force_version: true
+
+
+# Select which categories to install. Defaults to all
+sirius_apps_install_categories:
+  - sirius_apps_hla
+  - sirius_apps_opis
+
+sirius_apps_config_files:
+  - name: Sirius HLA environment variables
+    filename: sirius_hla.sh
+    pathname: "/etc/profile.d"
+
+  - name: Sirius Apps Linac EDM variables
+    filename: linac_edm.sh
+    pathname: "/etc/profile.d"

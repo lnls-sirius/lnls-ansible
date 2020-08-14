@@ -1,0 +1,12 @@
+---
+__sirius_apps_packages:
+  - edm-dev
+  - xpra
+  - xvfb
+
+__sirius_apps_pip_packages:
+  - QtAwesome
+
+__python_executable: python-sirius
+
+__pip_executable: pip-sirius

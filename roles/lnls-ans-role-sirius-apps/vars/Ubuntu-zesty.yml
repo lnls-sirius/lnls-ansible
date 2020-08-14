@@ -3,10 +3,8 @@ __epics_packages:
   - epics-dev={{ pkg_version_epics_dev }}
   - epics-pcas-dev={{ pkg_version_epics_pcas_dev }}
   - epics-extensions-dev
-  - edm-dev
 
 __sirius_apps_epics_pip_packages:
-  - "QtAwesome=={{ pkg_version_qtawesome }}"
 
 __python_executable: python-sirius
 

@@ -12,7 +12,7 @@ lnls451-linux
 
 [control_room_nvidia_false]
 lnls455-linux
-#lnls209-linux  # fac-desktop
+lnls209-linux  # fac-desktop
 
 [elp]
 10.0.38.56  # elp1-linux
@@ -37,7 +37,7 @@ lnls557-linux  # fac-liulin (10.0.38.44)
 lnlsfac-srv1 # (10.128.255.9, 10.0.38.83)  # (linac server)
 
 [ioc_servers]
-lnls209-linux
+grace.lnls.br:16122
 
 [nfs_servers]
 lnlsfac-srv1

@@ -5,12 +5,7 @@
     name: lnls-ans-role-users
   when: global_repositories_role | default(true) | bool
 - import_role:
-    name: lnls-ans-role-network
-  when: global_network_role | default(true) | bool
-- import_role:
     name: lnls-ans-role-ntp
-# - import_role:
-#     name: lnls-ans-role-zabbix
 - import_role:
     name: lnls-ans-role-python
 - import_role:
@@ -19,5 +14,3 @@
     name: lnls-ans-role-epics7
 - import_role:
     name: lnls-ans-role-sirius-apps
-# - import_role:
-#     name: lnls-ans-role-desktop-apps

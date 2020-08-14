@@ -1,0 +1,33 @@
+---
+galaxy_info:
+  author: Lucas Russo
+  description: Ansible role to install Sirius Apps packages
+  company: CNPEM - LNLS
+  license: BSD
+  min_ansible_version: 2.4
+
+  platforms:
+    - name: EL
+      versions:
+        - 6
+        - 7
+    - name: Fedora
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - jessie
+        - stretch
+    - name: Ubuntu
+      versions:
+        - precise
+        - trusty
+        - xenial
+        - bionic
+
+dependencies:
+# - lnls-ans-role-users
+# - lnls-ans-role-python
+# - lnls-ans-role-epics
+# - lnls-ans-role-qt
+# - lnls-ans-role-pydm
