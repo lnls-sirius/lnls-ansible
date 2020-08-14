@@ -15,7 +15,7 @@
     qt_distro_packages: "{{ __qt_distro_packages | list }}"
   when: qt_distro_packages is not defined
 
-- name: Define Pyhton executable
+- name: Define Python executable
   set_fact:
     python_executable: "{{ __python_executable | default('python') }}"
   when: python_executable is not defined
