@@ -33,6 +33,8 @@ __python_pip_packages:
   - cairocffi
   - jupyter
   - jupyter-contrib-nbextensions
+  - numpy
+  - bottleneck
   - six
   - pylama
   - pep8
