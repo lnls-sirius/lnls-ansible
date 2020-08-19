@@ -6,9 +6,10 @@ linac-opi2
 lnls449-linux
 lnls452-linux
 lnls454-linux
+lnls451-linux
 
 [control_room_LEGACY]
-lnls451-linux
+lnls561-linux
 
 [control_room_nvidia_false]
 lnls455-linux
