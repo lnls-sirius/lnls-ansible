@@ -748,8 +748,7 @@ service-ioc-si-ps-stop:
 	ansible-playbook \
 		--extra-vars "ctrl_service_state=stopped" \
 		-u sirius -k --ask-become-pass \
-		playbooks-services/playbook-service-ioc-si-ps.yml \
-		playbooks-services/playbook-service-ioc-si-ps-quadrupoles-q.yml
+		playbooks-services/playbook-service-ioc-si-ps.yml
 
 service-ioc-si-ps-start:
 	@echo "Starting SI PS IOC services"
@@ -757,8 +756,7 @@ service-ioc-si-ps-start:
 	ansible-playbook \
 		--extra-vars "ctrl_service_state=started" \
 		-u sirius -k --ask-become-pass \
-		playbooks-services/playbook-service-ioc-si-ps.yml \
-		playbooks-services/playbook-service-ioc-si-ps-quadrupoles-q.yml
+		playbooks-services/playbook-service-ioc-si-ps.yml
 
 service-ioc-si-ps-fams-stop:
 	@echo "Stopping SI PS Fams IOC services"
@@ -766,8 +764,7 @@ service-ioc-si-ps-fams-stop:
 	ansible-playbook \
 		--extra-vars "services_to_run_corrs='' services_to_run_trims_c1234='' services_to_run_trims_m12='' services_to_run_diags='' ctrl_service_state=stopped" \
 		-u sirius -k --ask-become-pass \
-		playbooks-services/playbook-service-ioc-si-ps.yml \
-		playbooks-services/playbook-service-ioc-si-ps-quadrupoles-q.yml
+		playbooks-services/playbook-service-ioc-si-ps.yml
 
 service-ioc-si-ps-fams-start:
 	@echo "Starting SI PS Fams IOC services"
@@ -775,8 +772,7 @@ service-ioc-si-ps-fams-start:
 	ansible-playbook \
 		--extra-vars "services_to_run_corrs='' services_to_run_trims_c1234='' services_to_run_trims_m12='' services_to_run_diags='' ctrl_service_state=started" \
 		-u sirius -k --ask-become-pass \
-		playbooks-services/playbook-service-ioc-si-ps.yml \
-		playbooks-services/playbook-service-ioc-si-ps-quadrupoles-q.yml
+		playbooks-services/playbook-service-ioc-si-ps.yml
 
 service-ioc-si-ps-corrs-stop:
 	@echo "Stopping SI PS Corrs IOC services"
