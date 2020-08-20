@@ -271,8 +271,6 @@ ioc_si_ps_trims_m12_srv_host=lnls449-linux
 [ioc_si_ps_diags_srv:vars]
 ioc_si_ps_diags_srv_host=lnls452-linux
 
-[ioc_si_ps_quad_q_srv]
-lnls561-linux
 
 # === Power Supply BeagleBones ===
 
