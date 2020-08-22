@@ -1,143 +1,143 @@
 ---
 # Desktop cursor size
-desktop_settings_cursor_size: 48
+#desktop_settings_cursor_size: 48
 
 
-clone_install_repos_servweb:
+#clone_install_repos_servweb:
+#
+#  - name: Control system constants
+#    org_url: https://github.com/lnls-sirius
+#    repo_name: control-system-constants
+#    repo_version: "{{ pkg_version_ctrl_sys_consts }}"
+#    clone_path: /home/nfs-shared/repos-lnls-sirius
 
-  - name: Control system constants
-    org_url: https://github.com/lnls-sirius
-    repo_name: control-system-constants
-    repo_version: "{{ pkg_version_ctrl_sys_consts }}"
-    clone_path: /home/nfs-shared/repos-lnls-sirius
 
+#clone_install_repos_servnfs:
+#
+#  - name: Control system constants
+#    org_url: https://github.com/lnls-sirius
+#    repo_name: control-system-constants
+#    repo_version: "{{ pkg_version_ctrl_sys_consts }}"
+#    clone_path: /home/nfs-shared/repos-lnls-sirius
+#
+#  - name: Math Phys
+#    org_url: https://github.com/lnls-fac
+#    repo_name: mathphys
+#    repo_version: "{{ pkg_version_mathphys }}"
+#    clone_path: /home/nfs-shared/repos-lnls-sirius
+#
+#  - name: PS firmware C28
+#    org_url: https://github.com/lnls-sirius
+#    repo_name: C28
+#    repo_version: "{{ pkg_version_ps_firmware_c28 }}"
+#    clone_path: /home/nfs-shared/repos-lnls-sirius
+#
+#  - name: PS firmware ARM
+#    org_url: https://github.com/lnls-sirius
+#    repo_name: ARM
+#    repo_version: "{{ pkg_version_ps_firmware_arm }}"
+#    clone_path: /home/nfs-shared/repos-lnls-sirius
+#
+#  - name: PRU-Serial 485 Application
+#    org_url: https://github.com/lnls-sirius
+#    repo_name: pru-serial485
+#    repo_version: "{{ pkg_version_pru_serial }}"
+#    clone_path: /home/nfs-shared/repos-lnls-sirius
+#
+#  - name: Ethernet PRU-Serial 485 Application
+#    org_url: https://github.com/lnls-sirius
+#    repo_name: eth-bridge-pru-serial485
+#    repo_version: "{{ pkg_version_ethbridge_pru_serial }}"
+#    clone_path: /home/nfs-shared/repos-lnls-sirius
+#
+#  - name: Development Packages
+#    org_url: https://github.com/lnls-sirius
+#    repo_name: dev-packages
+#    repo_version: "{{ pkg_version_siriuspy }}"
+#    clone_path: /home/nfs-shared/repos-lnls-sirius
+#
+#  - name: TrackC++ Package
+#    org_url: https://github.com/lnls-fac
+#    repo_name: trackcpp
+#    repo_version: "{{ pkg_version_trackcpp }}"
+#    clone_path: /home/nfs-shared/repos-lnls-sirius
+#
+#  - name: LNLS Package
+#    org_url: https://github.com/lnls-fac
+#    repo_name: lnls
+#    repo_version: "{{ pkg_version_lnls }}"
+#    clone_path: /home/nfs-shared/repos-lnls-sirius
+#
+#  - name: Pyaccel Package
+#    org_url: https://github.com/lnls-fac
+#    repo_name: pyaccel
+#    repo_version: "{{ pkg_version_pyaccel }}"
+#    clone_path: /home/nfs-shared/repos-lnls-sirius
+#
+#  - name: Pymodels Package
+#    org_url: https://github.com/lnls-fac
+#    repo_name: pymodels
+#    repo_version: "{{ pkg_version_pymodels }}"
+#    clone_path: /home/nfs-shared/repos-lnls-sirius
+#
+#  - name: ApSuite Package
+#    org_url: https://github.com/lnls-fac
+#    repo_name: apsuite
+#    repo_version: "{{ pkg_version_apsuite }}"
+#    clone_path: /home/nfs-shared/repos-lnls-sirius
+#
+#  - name: Machine Applications
+#    org_url: https://github.com/lnls-sirius
+#    repo_name: machine-applications
+#    repo_version: "{{ pkg_version_machine_applications }}"
+#    clone_path: /home/nfs-shared/repos-lnls-sirius
+#
+#  - name: Linac PS IOCs
+#    org_url: https://gitlab.cnpem.br/FACS
+#    repo_name: linac-ioc-ps
+#    repo_version: "{{ pkg_version_linac_ioc_ps }}"
+#    clone_path: /home/nfs-shared/repos-lnls-sirius
+#
+#  - name: High-Level Applications
+#    org_url: https://github.com/lnls-sirius
+#    repo_name: hla
+#    repo_version: "{{ pkg_version_siriushla }}"
+#    clone_path: /home/nfs-shared/repos-lnls-sirius
+#
+#  - name: High-Level Applications CONS
+#    org_url: https://github.com/lnls-sirius
+#    repo_name: pydm-opi
+#    repo_version: "{{ pkg_version_pydm_opi }}"
+#    clone_path: /home/nfs-shared/repos-lnls-sirius
+#
+#  - name: OPIs
+#    org_url: https://gitlab.cnpem.br/FACS
+#    repo_name: linac-opi
+#    repo_version: "{{ pkg_version_linac_opi }}"
+#    clone_path: /home/nfs-shared/repos-lnls-sirius
+#
+#  - name: FAC Scripts
+#    org_url: https://github.com/lnls-sirius
+#    repo_name: scripts
+#    repo_version: "{{ pkg_sirius_scripts }}"
+#    clone_path: /home/nfs-shared/repos-lnls-sirius
+#
+#  - name: BPM Scripts
+#    org_url: https://github.com/lnls-dig
+#    repo_name: bpm-tests
+#    repo_version: "{{ pkg_version_bpm_scripts }}"
+#    clone_path: /home/nfs-shared/repos-lnls-sirius
 
-clone_install_repos_servnfs:
-
-  - name: Control system constants
-    org_url: https://github.com/lnls-sirius
-    repo_name: control-system-constants
-    repo_version: "{{ pkg_version_ctrl_sys_consts }}"
-    clone_path: /home/nfs-shared/repos-lnls-sirius
-
-  - name: Math Phys
-    org_url: https://github.com/lnls-fac
-    repo_name: mathphys
-    repo_version: "{{ pkg_version_mathphys }}"
-    clone_path: /home/nfs-shared/repos-lnls-sirius
-
-  - name: PS firmware C28
-    org_url: https://github.com/lnls-sirius
-    repo_name: C28
-    repo_version: "{{ pkg_version_ps_firmware_c28 }}"
-    clone_path: /home/nfs-shared/repos-lnls-sirius
-
-  - name: PS firmware ARM
-    org_url: https://github.com/lnls-sirius
-    repo_name: ARM
-    repo_version: "{{ pkg_version_ps_firmware_arm }}"
-    clone_path: /home/nfs-shared/repos-lnls-sirius
-
-  - name: PRU-Serial 485 Application
-    org_url: https://github.com/lnls-sirius
-    repo_name: pru-serial485
-    repo_version: "{{ pkg_version_pru_serial }}"
-    clone_path: /home/nfs-shared/repos-lnls-sirius
-
-  - name: Ethernet PRU-Serial 485 Application
-    org_url: https://github.com/lnls-sirius
-    repo_name: eth-bridge-pru-serial485
-    repo_version: "{{ pkg_version_ethbridge_pru_serial }}"
-    clone_path: /home/nfs-shared/repos-lnls-sirius
-
-  - name: Development Packages
-    org_url: https://github.com/lnls-sirius
-    repo_name: dev-packages
-    repo_version: "{{ pkg_version_siriuspy }}"
-    clone_path: /home/nfs-shared/repos-lnls-sirius
-
-  - name: TrackC++ Package
-    org_url: https://github.com/lnls-fac
-    repo_name: trackcpp
-    repo_version: "{{ pkg_version_trackcpp }}"
-    clone_path: /home/nfs-shared/repos-lnls-sirius
-
-  - name: LNLS Package
-    org_url: https://github.com/lnls-fac
-    repo_name: lnls
-    repo_version: "{{ pkg_version_lnls }}"
-    clone_path: /home/nfs-shared/repos-lnls-sirius
-
-  - name: Pyaccel Package
-    org_url: https://github.com/lnls-fac
-    repo_name: pyaccel
-    repo_version: "{{ pkg_version_pyaccel }}"
-    clone_path: /home/nfs-shared/repos-lnls-sirius
-
-  - name: Pymodels Package
-    org_url: https://github.com/lnls-fac
-    repo_name: pymodels
-    repo_version: "{{ pkg_version_pymodels }}"
-    clone_path: /home/nfs-shared/repos-lnls-sirius
-
-  - name: ApSuite Package
-    org_url: https://github.com/lnls-fac
-    repo_name: apsuite
-    repo_version: "{{ pkg_version_apsuite }}"
-    clone_path: /home/nfs-shared/repos-lnls-sirius
-
-  - name: Machine Applications
-    org_url: https://github.com/lnls-sirius
-    repo_name: machine-applications
-    repo_version: "{{ pkg_version_machine_applications }}"
-    clone_path: /home/nfs-shared/repos-lnls-sirius
-
-  - name: Linac PS IOCs
-    org_url: https://gitlab.cnpem.br/FACS
-    repo_name: linac-ioc-ps
-    repo_version: "{{ pkg_version_linac_ioc_ps }}"
-    clone_path: /home/nfs-shared/repos-lnls-sirius
-
-  - name: High-Level Applications
-    org_url: https://github.com/lnls-sirius
-    repo_name: hla
-    repo_version: "{{ pkg_version_siriushla }}"
-    clone_path: /home/nfs-shared/repos-lnls-sirius
-
-  - name: High-Level Applications CONS
-    org_url: https://github.com/lnls-sirius
-    repo_name: pydm-opi
-    repo_version: "{{ pkg_version_pydm_opi }}"
-    clone_path: /home/nfs-shared/repos-lnls-sirius
-
-  - name: OPIs
-    org_url: https://gitlab.cnpem.br/FACS
-    repo_name: linac-opi
-    repo_version: "{{ pkg_version_linac_opi }}"
-    clone_path: /home/nfs-shared/repos-lnls-sirius
-
-  - name: FAC Scripts
-    org_url: https://github.com/lnls-sirius
-    repo_name: scripts
-    repo_version: "{{ pkg_sirius_scripts }}"
-    clone_path: /home/nfs-shared/repos-lnls-sirius
-
-  - name: BPM Scripts
-    org_url: https://github.com/lnls-dig
-    repo_name: bpm-tests
-    repo_version: "{{ pkg_version_bpm_scripts }}"
-    clone_path: /home/nfs-shared/repos-lnls-sirius
-
-clone_install_repos_sirius_screens:
-
-  - name: Sirius EPICS Screens
-    org_url: https://github.com/lnls-sirius
-    repo_name: sirius-epics-screens
-    repo_version: "{{ pkg_version_sirius_epics_screens | default('master') }}"
-    clone_path: /tmp
-    install_via_makefile: true
-    make_install_target: install
-    make_install_opts:
-      OPI_DIR: "{{ nfsserver_sirius_epics_screens }}"
-    make_install_as_user: "sirius"
-    force_version: true
+# clone_install_repos_sirius_screens:
+#
+#   - name: Sirius EPICS Screens
+#     org_url: https://github.com/lnls-sirius
+#     repo_name: sirius-epics-screens
+#     repo_version: "{{ pkg_version_sirius_epics_screens | default('master') }}"
+#     clone_path: /tmp
+#     install_via_makefile: true
+#     make_install_target: install
+#     make_install_opts:
+#       OPI_DIR: "{{ nfsserver_sirius_epics_screens }}"
+#     make_install_as_user: "sirius"
+#     force_version: true
