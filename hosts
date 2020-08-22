@@ -8,9 +8,6 @@ lnls452-linux
 lnls454-linux
 lnls451-linux
 
-[control_room_LEGACY]
-lnls561-linux
-
 [control_room_nvidia_false]
 lnls455-linux
 lnls209-linux  # fac-desktop
@@ -234,7 +231,7 @@ ioc_tb_ps_diags_srv_host=lnls451-linux
 [ioc_bo_ps_fams_srv:vars]
 ioc_bo_ps_fams_srv_host=lnls451-linux
 
-[ioc_bo_ps_fams_srv:vars]
+[ioc_bo_ps_fams2_srv:vars]
 ioc_bo_ps_fams2_srv_host=lnls561-linux
 
 [ioc_bo_ps_corrs_srv:vars]
