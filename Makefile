@@ -152,7 +152,7 @@ deploy: playbook-servers-nfs.yml playbook-servers-web.yml playbook-servers-ioc.y
 	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
 		playbook-servers-nfs.yml \
 		playbook-servers-web.yml \
-		playbooj-servers-ioc.yml \
+		playbook-servers-ioc.yml \
 		playbook-desktops-control-room.yml
 
 deploy-beagles-si-correctors: playbook-bbb-repos-checkout.yml
