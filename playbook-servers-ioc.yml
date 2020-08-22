@@ -5,4 +5,4 @@
 
   tasks:
     - name: Include generic ioc servers tasks
-      include_tasks: tasks-ioc-servers.yml
+      include_tasks: tasks-servers-ioc.yml
