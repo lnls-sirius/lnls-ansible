@@ -38,7 +38,8 @@ lnls557-linux  # fac-liulin (10.0.38.44)
 lnlsfac-srv1 # (10.128.255.9, 10.0.38.83)  # (linac server)
 
 [ioc_servers]
-grace.lnls.br:16122
+#grace.lnls.br:16122
+lnlsfac-srv1
 
 [nfs_servers]
 lnlsfac-srv1
