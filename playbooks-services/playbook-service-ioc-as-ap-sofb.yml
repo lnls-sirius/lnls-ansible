@@ -8,7 +8,7 @@
       - sirius-ioc-tb-ap-sofb.service
       - sirius-ioc-bo-ap-sofb.service
       - sirius-ioc-ts-ap-sofb.service
-      - sirius-ioc-si-ap-sofb.service
+      # - sirius-ioc-si-ap-sofb.service
 
   tasks:
     - name: "Run {{ role_to_run }} role"

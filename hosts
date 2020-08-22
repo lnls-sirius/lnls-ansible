@@ -4,16 +4,22 @@ linac-opi2
 
 [control_room]
 lnls449-linux
-lnls451-linux
 lnls452-linux
 lnls454-linux
-lnls455-linux
+lnls451-linux
 
-[fac_control_room]
+[control_room_LEGACY]
+lnls561-linux
+
+[control_room_nvidia_false]
+lnls455-linux
 lnls209-linux  # fac-desktop
 
 [elp]
-elp1-linux
+10.0.38.56  # elp1-linux
+
+[con]
+10.0.38.84  # cons-dev-vm
 
 [fac]
 lnls560-linux  # fac-analuisa
@@ -46,6 +52,9 @@ lnlsfac-srv1
 lnls451-linux
 lnls449-linux
 lnls454-linux
+lnls452-linux
+lnls558-linux
+lnls561-linux
 
 [ioc_li_ps_spect_srv:children]
 ioc_ps_srv
@@ -65,7 +74,10 @@ ioc_ps_srv
 [ioc_li_ps_conv_srv:children]
 ioc_ps_srv
 
-[ioc_tb_ps_fams_srv:children]
+[ioc_tb_ps_dips_srv:children]
+ioc_ps_srv
+
+[ioc_tb_ps_quads_srv:children]
 ioc_ps_srv
 
 [ioc_tb_ps_corrs_srv:children]
@@ -75,6 +87,9 @@ ioc_ps_srv
 ioc_ps_srv
 
 [ioc_bo_ps_fams_srv:children]
+ioc_ps_srv
+
+[ioc_bo_ps_fams2_srv:children]
 ioc_ps_srv
 
 [ioc_bo_ps_corrs_srv:children]
@@ -110,6 +125,53 @@ ioc_ps_srv
 
 # === server host selection ===
 
+# --- previous config ---
+# lnls451-linux
+# 	FBP: tb_ps_quad, tb_ps_corrs, bo_ps_corrs, ts_ps_corrs
+# 	OTH: as_ps_dclinks, tb_ps_dips, bo_ps_fams, ts_ps_fams, si_ps_fams
+# 	GEN: as_ti, as_ap, li_ps, tb_ps_diags, bo_ps_diags, ts_ps_diags
+# lnls449-linux:
+# 	FBP: si_ps_trims_m12
+# 	OTH:
+# 	GEN: as_ap_sofb, li_ps_conv
+# lnlsfac-srv1:
+# 	FBP: si_ps_corrs
+# 	OTH:
+# 	GEN: as_pu_conv, si_ps_diags
+# lnls454-linux
+# 	FBP: si_ps_trims_c1234
+# 	OTH:
+# 	GEN:
+
+# --- current config 2020-07-11 ---
+# In this proposal, FBP and non-FBP PS IOCs run in separated
+# hosts. This is necessary so that two versions of siriuspy
+# maybe installed, since this is required for two versions
+# of installed UDC firmware.
+#
+# !!! THIS WORKAROUND IS TEMPORARY !!!
+#
+# lnls451-linux
+# 	FBP:
+# 	OTH: as_ps_dclinks, tb_ps_dips, bo_ps_fams, ts_ps_fams, si_ps_fams
+# 	GEN: as_ti, as_ap, li_ps, tb_ps_diags, bo_ps_diags, ts_ps_diags
+# lnls449-linux:
+# 	FBP: si_ps_trims_m12
+# 	OTH:
+# 	GEN: as_ap_sofb, li_ps_conv
+# lnlsfac-srv1:
+# 	FBP: si_ps_corrs, si_ap_sofb
+# 	OTH:
+# 	GEN:
+# lnls454-linux
+# 	FBP: si_ps_trims_c1234, bo_ps_corrs, ts_ps_corrs
+#   OTH:
+# 	GEN:
+# lnls452-linux:
+# 	FBP: tb_ps_quad, tb_ps_corrs,
+# 	OTH:
+# 	GEN: as_pu_conv, si_ps_diags
+
 # --- AS
 
 [ioc_as_ti_srv]
@@ -124,8 +186,14 @@ lnls451-linux
 [ioc_as_ap_sofb_srv]
 lnls449-linux
 
-[ioc_as_pu_conv_srv]
+[ioc_si_ap_bl_srv]
+lnls455-linux
+
+[ioc_si_ap_sofb_srv]
 lnlsfac-srv1
+
+[ioc_as_pu_conv_srv]
+lnls452-linux
 
 # --- LI
 
@@ -149,11 +217,14 @@ ioc_li_ps_conv_srv_host=lnls449-linux
 
 # --- TB
 
-[ioc_tb_ps_fams_srv:vars]
-ioc_tb_ps_fams_srv_host=lnls451-linux
+[ioc_tb_ps_dips_srv:vars]
+ioc_tb_ps_dips_srv_host=lnls451-linux
+
+[ioc_tb_ps_quads_srv:vars]
+ioc_tb_ps_quads_srv_host=lnls452-linux
 
 [ioc_tb_ps_corrs_srv:vars]
-ioc_tb_ps_corrs_srv_host=lnls451-linux
+ioc_tb_ps_corrs_srv_host=lnls452-linux
 
 [ioc_tb_ps_diags_srv:vars]
 ioc_tb_ps_diags_srv_host=lnls451-linux
@@ -163,8 +234,11 @@ ioc_tb_ps_diags_srv_host=lnls451-linux
 [ioc_bo_ps_fams_srv:vars]
 ioc_bo_ps_fams_srv_host=lnls451-linux
 
+[ioc_bo_ps_fams_srv:vars]
+ioc_bo_ps_fams2_srv_host=lnls561-linux
+
 [ioc_bo_ps_corrs_srv:vars]
-ioc_bo_ps_corrs_srv_host=lnls451-linux
+ioc_bo_ps_corrs_srv_host=lnls454-linux
 
 [ioc_bo_ps_diags_srv:vars]
 ioc_bo_ps_diags_srv_host=lnls451-linux
@@ -175,7 +249,7 @@ ioc_bo_ps_diags_srv_host=lnls451-linux
 ioc_ts_ps_fams_srv_host=lnls451-linux
 
 [ioc_ts_ps_corrs_srv:vars]
-ioc_ts_ps_corrs_srv_host=lnls451-linux
+ioc_ts_ps_corrs_srv_host=lnls454-linux
 
 [ioc_ts_ps_diags_srv:vars]
 ioc_ts_ps_diags_srv_host=lnls451-linux
@@ -195,7 +269,7 @@ ioc_si_ps_trims_c1234_srv_host=lnls454-linux
 ioc_si_ps_trims_m12_srv_host=lnls449-linux
 
 [ioc_si_ps_diags_srv:vars]
-ioc_si_ps_diags_srv_host=lnlsfac-srv1
+ioc_si_ps_diags_srv_host=lnls452-linux
 
 
 # === Power Supply BeagleBones ===
@@ -333,6 +407,8 @@ IA-17RaCtrl--CO-PSCtrl-SI4  # bbb-si-correctors-c134-ia17   -  SI-17C1:PS-CH SI-
 IA-18RaCtrl--CO-PSCtrl-SI4  # bbb-si-correctors-c134-ia18   -  SI-18C1:PS-CH SI-18C1:PS-CV SI-18C4:PS-CH SI-18C4:PS-CV SI-18C3:PS-CH SI-18C3:PS-CV-1 SI-18C3:PS-CV-2
 IA-19RaCtrl--CO-PSCtrl-SI4  # bbb-si-correctors-c134-ia19   -  SI-19C1:PS-CH SI-19C1:PS-CV SI-19C4:PS-CH SI-19C4:PS-CV SI-19C3:PS-CH SI-19C3:PS-CV-1 SI-19C3:PS-CV-2
 IA-20RaCtrl--CO-PSCtrl-SI4  # bbb-si-correctors-c134-ia20   -  SI-20C1:PS-CH SI-20C1:PS-CV SI-20C4:PS-CH SI-20C4:PS-CV SI-20C3:PS-CH SI-20C3:PS-CV-1 SI-20C3:PS-CV-2
+IA-09RaID--CO-PSCtrl-SI1    # bbb-si-correctors-ids-ch-ia09 -  SI-09SA:PS-CH-1 SI-09SA:PS-CH-2 SI-09SA:PS-CH-3 SI-09SA:PS-CH-4
+IA-09RaID--CO-PSCtrl-SI2    # bbb-si-correctors-ids-cv-ia09 -  SI-09SA:PS-CV-1 SI-09SA:PS-CV-2 SI-09SA:PS-CV-3 SI-09SA:PS-CV-4
 
 [bbb_si_trims_qs]
 IA-01RaCtrl--CO-PSCtrl-SI1  # bbb-si-trims-qs-m12-ia01      -  SI-01M2:PS-QFA SI-01M2:PS-QDA  SI-02M1:PS-QFB  SI-02M1:PS-QDB1 SI-02M1:PS-QDB2 SI-01M1:PS-QS   SI-01M2:PS-QS

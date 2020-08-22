@@ -7,6 +7,8 @@ __sirius_apps_epics_packages:
   - "xvfb={{ pkg_version_xvfb }}"
   - "bc={{ pkg_version_bc }}"
   - "libgsl2={{ pkg_version_libgsl2 }}"
+  - "libblas-dev={{ pkg_version_libblas_dev }}"
+  - "liblapack-dev={{ pkg_version_liblapack_dev }}"
   - "libgsl-dev={{ pkg_version_libgsl_dev }}"
 
 __sirius_apps_epics_pip_packages:

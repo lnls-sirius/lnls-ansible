@@ -5,9 +5,11 @@
   vars:
     role_to_run: lnls-ans-role-ctrl-service
     services_to_run:
-      - sirius-ioc-li-di-charge.service
       - sirius-ioc-li-ap-energy.service
+      - sirius-ioc-li-ap-currinfo.service
+      # - sirius-ioc-tb-ap-currinfo.service
       - sirius-ioc-bo-ap-currinfo.service
+      - sirius-ioc-ts-ap-currinfo.service
       - sirius-ioc-si-ap-currinfo.service
       - sirius-ioc-si-ap-currinfo-lifetime.service
       - sirius-ioc-tb-ap-posang.service
@@ -16,6 +18,7 @@
       - sirius-ioc-bo-ap-chromcorr.service
       - sirius-ioc-si-ap-tunecorr.service
       - sirius-ioc-si-ap-chromcorr.service
+      - sirius-ioc-as-ap-machshift.service
 
   tasks:
     - name: "Run {{ role_to_run }} role"

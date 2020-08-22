@@ -25,6 +25,7 @@
       - sirius-ioc-as-ps-dclink-ia18.service
       - sirius-ioc-as-ps-dclink-ia19.service
       - sirius-ioc-as-ps-dclink-ia20.service
+      - sirius-ioc-si-ps-dclink-id-ia09.service
 
   tasks:
     - name: "Run {{ role_to_run }} role"

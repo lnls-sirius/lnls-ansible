@@ -66,7 +66,6 @@
     dest: "{{ item.pathname }}/{{ item.filename }}"
     owner: root
     group: root
-    force: true
     mode: 0644
   become: true
   with_items:

@@ -20,6 +20,8 @@
     not qt_src_dir_install_bin_path_details.stat.exists
   listen: "Install Qt from source"
 
+# Try to avoid network connection by setting a http_proxy.
+# This will avoid having to login to proceed with the installation
 - name: Run Qt installation script
   command: "./{{ qt_src_remote_script }} --script qt-noninteractive.qs --platform minimal"
   become: true
@@ -27,6 +29,8 @@
     chdir: "{{ qt_src_dir_path }}"
     creates: "{{ qt_src_dir_install_path }}"
   listen: "Install Qt from source"
+  environment:
+    http_proxy: 0.0.0.0:123
 
 - name: Ensure designer symlink is installed
   file:

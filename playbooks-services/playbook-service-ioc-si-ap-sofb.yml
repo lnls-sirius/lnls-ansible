@@ -1,12 +1,11 @@
 ---
-- hosts: ioc_as_pu_conv_srv
+- hosts: ioc_si_ap_sofb_srv
   remote_user: sirius
 
   vars:
     role_to_run: lnls-ans-role-ctrl-service
     services_to_run:
-      - sirius-ioc-as-pu-conv.service
-      - sirius-ioc-si-id-conv.service
+      - sirius-ioc-si-ap-sofb.service
 
   tasks:
     - name: "Run {{ role_to_run }} role"
