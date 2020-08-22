@@ -1,9 +1,0 @@
----
-- import_role:
-    name: lnls-ans-role-users
-- import_role:
-    name: lnls-ans-role-sirius-apps
-- import_role:
-    name: lnls-ans-role-desktop-apps
-- import_role:
-    name: lnls-ans-role-desktop-hla

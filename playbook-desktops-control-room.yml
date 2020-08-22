@@ -1,5 +1,5 @@
 ---
-- hosts: control_room:linac_opi:control_room_nvidia_false:fac_servers:con:elp
+- hosts: control_room:linac_opi:control_room_nvidia_false:con:elp
   remote_user: sirius
   become: true
 
