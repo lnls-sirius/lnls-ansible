@@ -144,16 +144,16 @@ deploy-desktops-fac: playbook-desktops-control-room.yml tasks-desktops.yml
 	ansible-playbook -u sirius -i hosts -l fac --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
 		playbook-desktops-control-room.yml
 
-deploy-desktops-control-room: playbook-desktops-control-room.yml tasks-desktops.yml
+deploy-desktops: playbook-desktops.yml tasks-desktops.yml
 	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
-		playbook-desktops-control-room.yml
+		playbook-desktops.yml
 
-deploy: playbook-servers-nfs.yml playbook-servers-web.yml playbook-servers-ioc.yml playbook-desktops-control-room.yml tasks-servers-ioc.yml tasks-desktops.yml
+deploy: playbook-servers-nfs.yml playbook-servers-web.yml playbook-servers-ioc.yml playbook-desktops.yml tasks-servers-ioc.yml tasks-desktops.yml
 	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
 		playbook-servers-nfs.yml \
 		playbook-servers-web.yml \
 		playbook-servers-ioc.yml \
-		playbook-desktops-control-room.yml
+		playbook-desktops.yml
 
 deploy-beagles-si-correctors: playbook-bbb-repos-checkout.yml
 	ansible-playbook -u fac -i hosts -l bbb_si_correctors -k --ask-become-pass playbook-bbb-repos-checkout.yml
