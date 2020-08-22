@@ -1,8 +1,0 @@
----
-- hosts: control_room:linac_opi:control_room_nvidia_false:fac_servers:con:elp:control_room_LEGACY
-  remote_user: sirius
-  become: true
-
-  tasks:
-    - name: Include generic desktop tasks
-      include_tasks: tasks-desktops.yml
