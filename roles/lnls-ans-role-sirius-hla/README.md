@@ -1,5 +1,5 @@
-LNLS Ansible Role Sirius Apps
-=======================
+LNLS Ansible Role Sirius HLA Apps
+=================================
 
 This Ansible role configures some defaults Sirius High Level Applications for Sirius Light Source control machines.
 
@@ -13,40 +13,6 @@ This Ansible role configures some defaults Sirius High Level Applications for Si
 ```yaml
 ---
 # Groups of packages
-sirius_apps_dev_packages:
-
-  - name: Math Phys
-    org_url: https://github.com/lnls-fac
-    repo_name: mathphys
-    repo_version: master
-    clone_path: /tmp
-    install_via_setup: true
-
-  - name: Development Packages
-    org_url: https://github.com/lnls-sirius
-    repo_name: dev-packages
-    repo_version: master
-    clone_path: /tmp
-    install_chdir: siriuspy
-    install_via_setup: true
-
-sirius_apps_iocs:
-
-  - name: Ethernet PRU-Serial 485 Application
-    org_url: https://github.com/lnls-sirius
-    repo_name: eth-bridge-pru-serial485
-    repo_version: master
-    clone_path: /tmp
-    install_chdir: client
-    install_via_setup: true
-
-  - name: Machine Applications
-    org_url: https://github.com/lnls-sirius
-    repo_name: machine-applications
-    repo_version: master
-    clone_path: /tmp
-    install_via_makefile: true
-
 sirius_apps_hla:
 
   - name: High-Level Applications
@@ -57,21 +23,23 @@ sirius_apps_hla:
     install_chdir: pyqt-apps
     install_via_makefile: true
 
-sirius_apps_mgmt:
+sirius_apps_opis:
 
-  - name: Scripts
-    org_url: https://github.com/lnls-sirius
-    repo_name: scripts
-    repo_version: master
+  - name: OPIs
+    org_url: https://gitlab.cnpem.br/FACS
+    repo_name: linac-opi
+    repo_version: "{{ pkg_version_linac_opi }}"
     clone_path: /tmp
     install_via_makefile: true
+    make_install_target: install-default
+    make_install_opts:
+      INSTALL_EDM_DIR: "{{ sirius_apps_hla_li_edm_dir }}"
+    force_version: true
 
 # Select which categories to install. Defaults to all
-sirius_apps_install_categories:
-  - sirius_apps_dev_packages
-  - sirius_apps_iocs
+sirius_apps_hla_install_categories:
   - sirius_apps_hla
-  - sirius_apps_mgmt
+  - sirius_apps_opis
 ```
 
 ## Example Playbook
@@ -99,7 +67,7 @@ Tests are performed using Molecule. To run them with python virtualenv, issue:
         cd ../ && \
         virtualenv env --python python3 && \
         source env/bin/activate && \
-        cd lnls-ans-role-sirius-apps && \
+        cd lnls-ans-role-sirius-hla && \
         pip install molecule docker-py && \
         molecule test"
 ```
