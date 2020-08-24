@@ -72,7 +72,7 @@ ROLES = \
     lnls-ans-role-qt \
     lnls-ans-role-repositories \
     lnls-ans-role-sirius-apps \
-	lnls-ans-role-sirius-hla \
+    lnls-ans-role-sirius-hla \
     lnls-ans-role-sirius-bbb \
     lnls-ans-role-users \
     lnls-ans-role-visual-studio-code \
@@ -80,14 +80,14 @@ ROLES = \
 
 # Playbooks
 PLAYBOOKS = \
-	playbook-servers-nfs.yml \
-	playbook-servers-web.yml \
-	playbook-servers-ioc.yml \
+    playbook-servers-nfs.yml \
+    playbook-servers-web.yml \
+    playbook-servers-ioc.yml \
     playbook-desktops.yml \
     playbook-reboot.yml \
     playbook-setup-ssh-key.yml \
     playbook-ctrl-service.yml \
-	playbook-bbb-repos-checkout.yml
+    playbook-bbb-repos-checkout.yml
 
 # Test variables
 TEST_TARGET = test_
