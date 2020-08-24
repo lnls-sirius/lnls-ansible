@@ -5,11 +5,9 @@
   vars:
     # Select which categories to install. Remove
     # OPI categoty as it's a private repo
-    sirius_apps_install_categories:
-      - sirius_apps_dev_packages
-      - sirius_apps_iocs
+    sirius_apps_hla_install_categories:
       - sirius_apps_hla
-      - sirius_apps_mgmt
+      - sirius_apps_opis
 
   roles:
-    - role: lnls-ans-role-sirius-apps
+    - role: lnls-ans-role-sirius-hla

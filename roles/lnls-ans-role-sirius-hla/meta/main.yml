@@ -1,7 +1,7 @@
 ---
 galaxy_info:
-  author: Lucas Russo
-  description: Ansible role to install Sirius Apps packages
+  author: Ximenes Resende
+  description: Ansible role to install Sirius HLA Apps packages
   company: CNPEM - LNLS
   license: BSD
   min_ansible_version: 2.4

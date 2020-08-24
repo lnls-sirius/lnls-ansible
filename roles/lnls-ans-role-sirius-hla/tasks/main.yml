@@ -22,31 +22,31 @@
 
 - name: Define sirius packages
   set_fact:
-    sirius_apps_packages: "{{ __sirius_apps_packages | list }}"
-  when: sirius_apps_packages is not defined
+    sirius_apps_hla_packages: "{{ __sirius_apps_hla_packages | list }}"
+  when: sirius_apps_hla_packages is not defined
 
 - name: Define sirius pip packages
   set_fact:
-    sirius_apps_pip_packages: "{{ __sirius_apps_pip_packages | list }}"
-  when: sirius_apps_pip_packages is not defined
+    sirius_apps_hla_pip_packages: "{{ __sirius_apps_hla_pip_packages | list }}"
+  when: sirius_apps_hla_pip_packages is not defined
 
 # Combine apps to install
 - name: Create list of dict apps to install
   set_fact:
-    sirius_apps: "{{ sirius_apps | default([]) |
+    sirius_apps_hla: "{{ sirius_apps_hla | default([]) |
             list + lookup('vars', item) }}"
   with_items:
-    - "{{ sirius_apps_install_categories | default([]) | list }}"
+    - "{{ sirius_apps_hla_install_categories | default([]) | list }}"
 
 - name: Default variable to empty
   set_fact:
-    sirius_apps: "[]"
+    sirius_apps_hla: "[]"
   when:
-    - sirius_apps is not defined
+    - sirius_apps_hla is not defined
 
 - name: Debug
   debug:
-    msg: "sirius apps to install: {{ sirius_apps }}"
+    msg: "sirius apps to install: {{ sirius_apps_hla }}"
 
 # Include Tasks
 - include_tasks: setup-RedHat.yml

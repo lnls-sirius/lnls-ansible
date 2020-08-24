@@ -2,10 +2,10 @@
 - name: Clone and Install Applications
   include_tasks: clone-install-app.yml
   with_items:
-    - "{{ sirius_apps }}"
+    - "{{ sirius_apps_hla }}"
   when:
-    - sirius_apps is defined and
-      sirius_apps | length > 0
+    - sirius_apps_hla is defined and
+      sirius_apps_hla | length > 0
 
 - name: Ensure Sirius Apps environment is installed
   template:
@@ -17,7 +17,7 @@
     mode: 0644
   become: true
   with_items:
-    - "{{ sirius_apps_config_files }}"
+    - "{{ sirius_apps_hla_config_files }}"
   when:
-    - sirius_apps is defined and
-      sirius_apps | length > 0
+    - sirius_apps_hla is defined and
+      sirius_apps_hla | length > 0
