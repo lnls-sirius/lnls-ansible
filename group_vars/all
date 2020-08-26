@@ -73,7 +73,7 @@ pkg_version_epics_calc_dev: 3.7.1*
 pkg_version_epics_autosave_dev: 5.9*
 pkg_version_epics_seq_dev: 2.2.6*
 pkg_version_wmctrl: 1.07*
-pkg_version_libdbus_1_3: 1.10*
+pkg_version_libdbus_1_3: 1.10.*
 pkg_version_libffi6: 3.2.1*
 pkg_version_libffi_dev: 3.2.1*
 pkg_version_libfreetype6: 2.6.3*
