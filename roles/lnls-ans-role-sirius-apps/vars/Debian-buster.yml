@@ -3,6 +3,7 @@
 __sirius_apps_packages:
   - "epics-extensions-dev={{ pkg_version_epics_extensions_dev }}"
   - "edm-dev={{ pkg_version_edm_dev }}"
+  - "gnome-terminal={{ pkg_version_gnome_terminal }}"
   - "xpra={{ pkg_version_xpra }}"
   - "xvfb={{ pkg_version_xvfb }}"
   - "bc={{ pkg_version_bc }}"

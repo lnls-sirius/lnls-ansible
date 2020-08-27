@@ -2,6 +2,7 @@
 __sirius_apps_packages:
   - epics-extensions-dev
   - edm-dev
+  - gnome-terminal
   - xpra
   - winswitch
   - xvfb
