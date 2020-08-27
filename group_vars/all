@@ -11,8 +11,7 @@ pyqt_install_from_src: false
 pkg_version_qt_src: 5.13.1
 pkg_version_qt_src_checksum: md5:21c3b16f851697fa8da8009f73694373
 pkg_version_pyqt_src: 5.13.1
-pkg_version_pyqt_sip_src: 4.19.20
-
+pkg_version_pyqt_sip_src: 4.19.24
 pkg_version_phoebus: 4.6.3
 
 

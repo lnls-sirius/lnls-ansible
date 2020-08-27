@@ -1,10 +1,7 @@
 ---
 __sirius_apps_packages:
   - "epics-extensions-dev={{ pkg_version_epics_extensions_dev }}"
-  - "edm-dev={{ pkg_version_edm_dev }}"
-  - "xpra={{ pkg_version_xpra }}"
   - "winswitch={{ pkg_version_winswitch }}"
-  - "xvfb={{ pkg_version_xvfb }}"
   - "bc={{ pkg_version_bc }}"
   - "libgsl2={{ pkg_version_libgsl2 }}"
   - "libblas-dev={{ pkg_version_libblas_dev }}"
@@ -12,7 +9,6 @@ __sirius_apps_packages:
   - "libgsl-dev={{ pkg_version_libgsl_dev }}"
 
 __sirius_apps_pip_packages:
-  - "QtAwesome=={{ pkg_version_qtawesome }}"
   - "pyvisa=={{ pkg_version_pyvisa }}"
   - "pyvisa-py=={{ pkg_version_pyvisa_py }}"
 
