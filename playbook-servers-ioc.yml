@@ -1,0 +1,8 @@
+---
+- hosts: ioc_servers
+  remote_user: sirius
+  become: true
+
+  tasks:
+    - name: Include generic ioc servers tasks
+      include_tasks: tasks-servers-ioc.yml

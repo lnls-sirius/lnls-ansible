@@ -10,7 +10,7 @@
       paths:
         - '{{ role_path }}/vars'
 
-- name: Define Pyhton executable
+- name: Define Python executable
   set_fact:
     python_executable: "{{ __python_executable | default('python') }}"
   when: python_executable is not defined
