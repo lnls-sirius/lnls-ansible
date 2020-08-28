@@ -16,7 +16,7 @@ __python_dep_packages:
   - "libgdbm-dev={{ pkg_version_libgdbm_dev }}"
   - "libc6-dev={{ pkg_version_libc6_dev }}"
   - "libbz2-dev={{ pkg_version_libbz2_dev }}"
-
+  
 
 __python_base_packages:
   - "python3-dev={{ pkg_version_python3_dev }}"
@@ -26,7 +26,7 @@ __python_base_packages:
 __python_packages:
   - "python3-pip={{ pkg_version_python3_pip }}"
   - "python3-tk={{ pkg_version_python3_tk }}"
-  - "python-setuptools={{ pkg_version_apt_setuptools }}"
+  - "python-setuptools={{ pkg_version_python_setuptools }}"
   - "swig={{ pkg_version_swig }}"
 
 __pip_executable: pip-sirius

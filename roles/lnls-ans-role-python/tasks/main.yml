@@ -137,3 +137,13 @@
 
 - include_tasks: setup-python.yml
   when: ansible_os_family == 'Debian'
+
+- name: Update ldconfig
+  shell: ldconfig
+  changed_when: False
+
+- name: Create symbolic link to include/numpy
+  file:
+    src: "/usr/local/lib/python3.6/site-packages/numpy/core/include/numpy"
+    dest: "/usr/include/numpy"
+    state: link

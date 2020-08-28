@@ -11,7 +11,6 @@ __desktop_packages:
   - "gvncviewer={{ pkg_version_gvncviewer }}*"
   - "xfce4={{ pkg_version_xfce4 }}"
   - "xfce4-goodies={{ pkg_version_xfce4_goodies }}"
-  - "wmctrl={{ pkg_version_wmctrl }}"
   - "cups={{ pkg_version_cups }}"
   - "ca-certificates={{ pkg_version_ca_certificates }}"
   - "gconf2={{ pkg_version_gconf2 }}"
