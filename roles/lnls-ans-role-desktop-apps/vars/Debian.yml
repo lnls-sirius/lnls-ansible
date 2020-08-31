@@ -24,7 +24,9 @@ __desktop_packages:
   - nmap
   - sshpass
   - wait-for-it
-  - libgsl23
+  - libgslcblas0
+  - libblas-dev
+  - liblapack-dev
   - libgsl-dev
   - texlive-latex-recommended
   - dvipng
