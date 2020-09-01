@@ -12,7 +12,7 @@ global_role_visual_studio_code: false
 
 # === apt packages versions ===
 
-pk_version_zabbix_agent: 1:4.0.4*
+pkg_version_zabbix_agent: 1:4.0.4*
 pkg_version_network_manager: 1.14.6*
 pkg_version_python_dbus: 1.2.8*
 pkg_version_python3_dbus: 1.2.8*

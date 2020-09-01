@@ -55,7 +55,7 @@
     name: lnls-ans-role-desktop-apps
 - import_role:
     name: lnls-ans-role-desktop-settings
-  when: global_role_cs_desktop_settings | default(true) | bool
+  when: global_role_desktop_settings | default(true) | bool
 - import_role:
     name: lnls-ans-role-visual-studio-code
   when: global_role_visual_studio | default(true) | bool

@@ -1,5 +1,5 @@
 ---
 __zabbix_packages:
-  - "zabbix-agent={{ pk_version_zabbix_agent }}"
+  - "zabbix-agent={{ pkg_version_zabbix_agent }}"
 
 __zabbix_default_release: buster-backports
