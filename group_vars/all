@@ -6,20 +6,24 @@ srvfile_base_url: "http://10.0.38.42/download"
 
 # === src packages versions ===
 
+# --- python ---
 python_install_from_src: true
 python_src_version: 3.6.8
 
+# --- Qt ---
 qt_install_from_src: false
 pyqt_install_from_src: false
-
 pkg_version_qt_src: 5.13.1
 pkg_version_qt_src_checksum: md5:21c3b16f851697fa8da8009f73694373
 pkg_version_pyqt_src: 5.13.1
 pkg_version_pyqt_sip_src: 4.19.24
+
+# --- CS-Studio ---
 pkg_version_phoebus: 4.6.3
 pkg_version_csstudio: 4.6.1.25
 pkg_version_csstudio_xulrunner: 1.9.2.29pre
 pkg_version_csstudio_fonts: 20180222
+
 
 # === sirius packages ===
 
@@ -58,6 +62,7 @@ desktop_vnc_ignore_systemd_errors: true
 ntp_servers:
    - "10.128.255.3 iburst minpoll 3 maxpoll 6"
    - "10.128.255.4 iburst minpoll 3 maxpoll 6"
+
 
 # === NFS configuration ===
 
