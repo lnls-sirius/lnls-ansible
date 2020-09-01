@@ -1,4 +1,8 @@
 ---
+
+- name: Include distribution-dependent variables
+  include_vars: 
+    file: "group_vars/{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml"
 - import_role:
     name: lnls-ans-role-repositories
 - import_role:
