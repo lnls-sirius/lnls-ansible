@@ -6,7 +6,7 @@
     name: lnls-ans-role-repositories
 - import_role:
     name: lnls-ans-role-users
-  when: global_repositories_role | default(true) | bool
+  when: global_role_users | default(true) | bool
 - import_role:
     name: lnls-ans-role-ntp
 - import_role:

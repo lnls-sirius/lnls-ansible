@@ -1,5 +1,15 @@
 ---
 
+global_role_java: false
+global_role_cs_studio: false
+global_role_phoebus: false
+global_role_sirius_bbb: false
+global_role_octave: false
+global_role_epics_mca: false
+global_role_sirius_bbb: false
+global_role_desktop_settings: false
+global_role_visual_studio_code: false
+
 # === apt packages versions ===
 
 pk_version_zabbix_agent: 1:4.0.4*

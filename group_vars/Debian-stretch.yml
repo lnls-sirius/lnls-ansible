@@ -1,5 +1,15 @@
 ---
 
+global_role_java: true
+global_role_cs_studio: true
+global_role_phoebus: false  # download link temporarily broken? 2020-09-01
+global_role_sirius_bbb: true
+global_role_octave: true
+global_role_epics_mca: true
+global_role_sirius_bbb: true
+global_role_desktop_settings: true
+global_role_sirius_visual_studio_code: true
+
   # === apt packages versions ===
 
 pk_version_zabbix_agent: 1:4.0.3*

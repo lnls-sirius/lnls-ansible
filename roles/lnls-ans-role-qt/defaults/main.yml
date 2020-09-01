@@ -21,7 +21,8 @@ qt_src_checksum: "{{ pkg_version_qt_src_checksum }}"
 qt_src_remote_script: "qt-opensource-linux-x64-{{ qt_src_version }}.run"
 
 # Qt URL downlaod script
-qt_src_download_url: "https://download.qt.io/archive/qt/{{ qt_src_version_reduced }}/{{ qt_src_version }}/{{ qt_src_remote_script }}"
+# qt_src_download_url: "https://download.qt.io/archive/qt/{{ qt_src_version_reduced }}/{{ qt_src_version }}/{{ qt_src_remote_script }}"
+qt_src_download_url: "{{ srvfile_base_url }}/{{ srvfile_repository }}/{{ qt_src_version }}/{{ qt_src_remote_script }}"
 
 qt_src_dir_path: /tmp/Qt
 
