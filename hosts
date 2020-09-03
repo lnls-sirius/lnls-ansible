@@ -55,6 +55,7 @@ lnls454-linux
 lnls452-linux
 lnls558-linux
 lnls561-linux
+fac-testes-la.abtlus.org.br
 
 [ioc_li_ps_spect_srv:children]
 ioc_ps_srv
@@ -153,8 +154,8 @@ ioc_ps_srv
 #
 # lnls451-linux
 # 	FBP:
-# 	OTH: as_ps_dclinks, tb_ps_dips, bo_ps_fams, ts_ps_fams, si_ps_fams
-# 	GEN: as_ti, as_ap, li_ps, tb_ps_diags, bo_ps_diags, ts_ps_diags
+# 	OTH: as_ps_dclinks, bo_ps_fams, si_ps_fams
+# 	GEN: as_ti, as_ap, li_ps, bo_ps_diags
 # lnls449-linux:
 # 	FBP: si_ps_trims_m12
 # 	OTH:
@@ -164,17 +165,21 @@ ioc_ps_srv
 # 	OTH:
 # 	GEN:
 # lnls454-linux
-# 	FBP: si_ps_trims_c1234, bo_ps_corrs, ts_ps_corrs
+# 	FBP: si_ps_trims_c1234, bo_ps_corrs
 #   OTH:
 # 	GEN:
 # lnls452-linux:
-# 	FBP: tb_ps_quad, tb_ps_corrs,
+# 	FBP: 
 # 	OTH:
 # 	GEN: as_pu_conv, si_ps_diags
 # lnls455-linux:
 # 	FBP: 
 # 	OTH:
 # 	GEN: si_ap_bl
+# fac-testes-la.abtlus.org.br:
+# 	FBP: tb_ps_quad, tb_ps_corrs, ts_ps_corrs
+# 	OTH: tb_ps_dips, ts_ps_fams
+# 	GEN: tb_ps_diags, ts_ps_diags
 
 
 # --- AS
@@ -223,16 +228,16 @@ ioc_li_ps_conv_srv_host=lnls449-linux
 # --- TB
 
 [ioc_tb_ps_dips_srv:vars]
-ioc_tb_ps_dips_srv_host=lnls451-linux
+ioc_tb_ps_dips_srv_host=fac-testes-la.abtlus.org.br
 
 [ioc_tb_ps_quads_srv:vars]
-ioc_tb_ps_quads_srv_host=lnls452-linux
+ioc_tb_ps_quads_srv_host=fac-testes-la.abtlus.org.br
 
 [ioc_tb_ps_corrs_srv:vars]
-ioc_tb_ps_corrs_srv_host=lnls452-linux
+ioc_tb_ps_corrs_srv_host=fac-testes-la.abtlus.org.br
 
 [ioc_tb_ps_diags_srv:vars]
-ioc_tb_ps_diags_srv_host=lnls451-linux
+ioc_tb_ps_diags_srv_host=fac-testes-la.abtlus.org.br
 
 # --- BO
 
@@ -251,13 +256,13 @@ ioc_bo_ps_diags_srv_host=lnls451-linux
 # --- TS
 
 [ioc_ts_ps_fams_srv:vars]
-ioc_ts_ps_fams_srv_host=lnls451-linux
+ioc_ts_ps_fams_srv_host=fac-testes-la.abtlus.org.br
 
 [ioc_ts_ps_corrs_srv:vars]
-ioc_ts_ps_corrs_srv_host=lnls454-linux
+ioc_ts_ps_corrs_srv_host=fac-testes-la.abtlus.org.br
 
 [ioc_ts_ps_diags_srv:vars]
-ioc_ts_ps_diags_srv_host=lnls451-linux
+ioc_ts_ps_diags_srv_host=fac-testes-la.abtlus.org.br
 
 # --- SI
 
