@@ -171,6 +171,11 @@ ioc_ps_srv
 # 	FBP: tb_ps_quad, tb_ps_corrs,
 # 	OTH:
 # 	GEN: as_pu_conv, si_ps_diags
+# lnls455-linux:
+# 	FBP: 
+# 	OTH:
+# 	GEN: si_ap_bl
+
 
 # --- AS
 
