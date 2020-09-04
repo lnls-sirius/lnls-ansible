@@ -1,23 +1,20 @@
 ---
 dependency:
   name: galaxy
-lint:
-  name: yamllint
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
+  flake8
 provisioner:
   name: ansible
-  lint:
-    name: ansible-lint
   inventory:
     group_vars:
       default_group:
-scenario:
-  name: default
 verifier:
   name: testinfra
   options:
     verbose: true
-  lint:
-    name: flake8
 driver:
   name: docker
 platforms:
