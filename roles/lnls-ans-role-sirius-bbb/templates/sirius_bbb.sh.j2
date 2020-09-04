@@ -1,0 +1,14 @@
+# EPICS IPs
+# ==================================
+
+# EDM BBB
+# ===
+
+export BBB_EDM_FOLDER="{{ sirius_bbb_edm_dir }}"
+export IGPTOP="{{ sirius_bbb_igp_top_dir }}"
+
+# Add current working directory to environment file
+BBB_EDM_CURRENT=.
+
+export EDMDATAFILES=${EDMDATAFILES:+$EDMDATAFILES:}${BBB_EDM_FOLDER}
+export EDMDATAFILES=${EDMDATAFILES:+$EDMDATAFILES:}${BBB_EDM_CURRENT}

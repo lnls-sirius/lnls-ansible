@@ -1,8 +1,10 @@
 [Desktop Entry]
 Type=Application
-Name=CONS\nPyDM OPIs
-Path=/home/sirius/cons-opis/pydm-opi
-Icon=/home/sirius/cons-opis/pydm-opi/images/LNLS.png
-Exec=/bin/bash /home/sirius/cons-opis/pydm-opi/launch.sh
+Encoding=UTF-8
+Comment=CONS PyDM Operator Displays
+Name=CONS PyDM OPIs
+Exec=sirius-hla-as-ap-conlauncher.py
+Icon=lnls-logo.png
 StartupNotify=true
 Terminal=false
+Categories=PyDM;Qt;Utility;

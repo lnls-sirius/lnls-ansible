@@ -15,27 +15,6 @@
     nfs_server_packages: "{{ __nfs_server_packages | default ([]) }}"
   when: nfs_server_packages is not defined
 
-- name: Check if NFS control room subnet variable is set
-  fail:
-    msg: nfs_clients_control_room_subnet variable is not set or empty!
-  when: >
-    nfs_clients_control_room_subnet is not defined or
-    nfs_clients_control_room_subnet | length == 0
-
-- name: Check if NFS control room subnet variable is set
-  fail:
-    msg: nfs_clients_cnpem_sirius_subnet variable is not set or empty!
-  when: >
-    nfs_clients_cnpem_sirius_subnet is not defined or
-    nfs_clients_cnpem_sirius_subnet | length == 0
-
-- name: Check if NFS control room subnet variable is set
-  fail:
-    msg: fac_workstation_ip variable is not set or empty!
-  when: >
-    fac_workstation_ip is not defined or
-    fac_workstation_ip | length == 0
-
 # Include Tasks
 
 - include_tasks: setup-RedHat.yml
@@ -45,4 +24,3 @@
   when: ansible_os_family == 'Debian'
 
 - include_tasks: setup-packages.yml
-  when: ansible_os_family == 'Debian'

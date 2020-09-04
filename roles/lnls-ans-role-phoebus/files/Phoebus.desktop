@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Phoebus
-Comment=Phoebus application
-Type=Application
-Encoding=UTF-8
-Exec=phoebus -resource %f
-Terminal=false
-StartupNotify=true

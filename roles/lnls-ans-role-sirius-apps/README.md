@@ -1,5 +1,5 @@
 LNLS Ansible Role Sirius Apps
-=======================
+=============================
 
 This Ansible role configures some defaults Sirius High Level Applications for Sirius Light Source control machines.
 
@@ -47,23 +47,6 @@ sirius_apps_iocs:
     clone_path: /tmp
     install_via_makefile: true
 
-sirius_apps_hla:
-
-  - name: PyDM Package
-    org_url: https://github.com/lnls-sirius
-    repo_name: pydm
-    repo_version: master
-    clone_path: /tmp
-    install_via_setup: true
-
-  - name: High-Level Applications
-    org_url: https://github.com/lnls-sirius
-    repo_name: hla
-    repo_version: master
-    clone_path: /tmp
-    install_chdir: pyqt-apps
-    install_via_makefile: true
-
 sirius_apps_mgmt:
 
   - name: Scripts
@@ -77,7 +60,6 @@ sirius_apps_mgmt:
 sirius_apps_install_categories:
   - sirius_apps_dev_packages
   - sirius_apps_iocs
-  - sirius_apps_hla
   - sirius_apps_mgmt
 ```
 

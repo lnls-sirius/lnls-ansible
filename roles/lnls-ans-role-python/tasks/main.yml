@@ -70,22 +70,32 @@
     python_exec: "python{{ python_version|regex_replace('(\\d+\\.\\d+)\\..*$', '\\1') }}"
   when: python_exec is not defined
 
-- name: Default Pip source variables
+- name: Default PIP source variables
   set_fact:
     pip_exec: "pip{{ python_version|regex_replace('(\\d+\\.\\d+)\\..*$', '\\1') }}"
   when: pip_exec is not defined
+
+- name: Default Python config source variables
+  set_fact:
+    python_config_exec: "python{{ python_version|regex_replace('(\\d+\\.\\d+)\\..*$', '\\1') }}-config"
+  when: python_config_exec is not defined
 
 - name: Define Python install form source
   set_fact:
     python_install_from_src: "{{ __python_install_from_src | default(false) }}"
   when: python_install_from_src is not defined
 
-- name: Check which python version installed
-  command: "which {{ python_exec }}"
-  register: python_check_result
+- name: Check which python version is installed
+  command: "{{ python_exec }} --version"
+  register: python_version_result
   failed_when: false
   changed_when: false
   check_mode: false
+
+- name: Extract python version number
+  set_fact:
+    python_installed_version: "{{ python_version_result.stdout | default('') | regex_replace('Python (\\d+\\.\\d+\\.\\d+)', '\\1') }}"
+  when: python_installed_version is not defined
 
 # Include Tasks
 
@@ -99,19 +109,30 @@
   when: ansible_os_family == 'Debian'
 
 - include_tasks: install-python-from-source.yml
-  when: python_install_from_src and (python_src_force_install or python_check_result.rc != 0)
+  when: >-
+    python_install_from_src and
+    (python_src_force_install or
+      python_installed_version != python_src_version)
 
 - include_tasks: install-python-from-apt.yml
-  when: ansible_os_family == 'Debian' and not python_install_from_src and python_check_result.rc != 0
+  when: >-
+    ansible_os_family == 'Debian' and
+      not python_install_from_src and
+      python_installed_version != python_src_version
 
-- name: Redfine Python source variables if not from source
+- name: Redefine Python source variables if not from source
   set_fact:
     python_exec: "python3"
   when: not python_install_from_src
 
-- name: Redfine Pip source variables if not from source
+- name: Redefine PIP source variables if not from source
   set_fact:
     pip_exec: "pip3"
+  when: not python_install_from_src
+
+- name: Redefine Python-config source variables if not from source
+  set_fact:
+    python_config_exec: "python3-config"
   when: not python_install_from_src
 
 - include_tasks: setup-python.yml

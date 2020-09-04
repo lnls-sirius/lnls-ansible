@@ -2,11 +2,14 @@
 # python symlink dest
 python_symlink: /usr/local/bin/python-sirius
 
+# python-config symlink
+python_config_symlink: /usr/local/bin/python-sirius-config
+
 # pip symlink dest
 pip_symlink: /usr/local/bin/pip-sirius
 
 # Python source variables
-python_src_version: 3.6.8
+python_src_version: "{{ python_src_version }}"
 
 python_src_download_pkg_name: "Python-{{ python_src_version }}"
 

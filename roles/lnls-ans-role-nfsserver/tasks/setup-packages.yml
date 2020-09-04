@@ -1,13 +1,11 @@
 ---
-- name: Install NFS server packages
-  apt:
-    name: "{{ nfs_server_packages }}"
-    state: present
-  become: true
-  register: apt_result
-  until: apt_result is success
-  retries: 10
-  delay: 2
+- name: Ensure directories to export exist
+  file:
+    path: "{{ item.strip().split()[0] }}"
+    state: directory
+    owner: "{{ ansible_ssh_user | default(ansible_env.SUDO_USER, true) | default(ansible_env.USER, true) | default(ansible_user_id) }}"
+    group: "{{ ansible_ssh_user | default(ansible_env.SUDO_USER, true) | default(ansible_env.USER, true) | default(ansible_user_id) }}"
+  with_items: "{{ nfsserver_exports }}"
 
 - name: Install NFS config files
   template:
@@ -21,7 +19,7 @@
   with_items:
     - "{{ nfs_config_files }}"
   when: apt_result is success
-  notify: Reload NFS server systemd service
+  notify: Restart NFS server systemd service
 
 - name: Enable NFS server systemd service
   systemd:

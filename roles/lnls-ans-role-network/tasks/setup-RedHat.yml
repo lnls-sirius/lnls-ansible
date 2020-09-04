@@ -1,0 +1,10 @@
+---
+- name: Ensure Network packages are installed
+  package:
+    name: "{{ network_packages }}"
+    state: present
+  become: true
+  register: package_get_result
+  until: package_get_result is success
+  retries: 5
+  delay: 2

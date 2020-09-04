@@ -1,0 +1,8 @@
+---
+clone_install_repos_servweb:
+
+  - name: Control system constants
+    org_url: https://github.com/lnls-sirius
+    repo_name: control-system-constants
+    repo_version: "{{ pkg_version_ctrl_sys_consts }}"
+    clone_path: /home/nfs-shared/repos-lnls-sirius

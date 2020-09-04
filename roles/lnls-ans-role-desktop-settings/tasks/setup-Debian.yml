@@ -20,3 +20,21 @@
   until: apt_packages_result is success
   retries: 5
   delay: 2
+
+- name: Ensure systemd-resolved is used if available
+  block:
+    - name: Ensure systemd-resolved is used if available
+      systemd:
+        name: "{{ item }}"
+        state: started
+        enabled: true
+      with_items:
+        - "systemd-resolved"
+  become: true
+  ignore_errors: "{{ desktop_settings_ignore_systemd_resolved_errors }}"
+  rescue:
+    - name: Show warning to user if systemd-resolved fails
+      pause:
+        seconds: 1
+        echo: false
+        prompt: "Could not start systemd-resolved service. Probably not available. Continuing anyway ..."

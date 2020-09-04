@@ -1,7 +1,7 @@
 ---
 __phoebus_dep_packages:
-  - openjfx=8u141*
-  - unzip=6.0*
-  - openjdk-11-jdk=11.0.4*
+  - "openjfx={{ pkg_version_openjfx }}"
+  - "unzip={{ pkg_version_unzip }}"
+  - "openjdk-11-jdk={{ pkg_version_openjdk_11_jdk }}"
 
-__desktop_default_release: stretch-backports
+__phoebus_default_release: stretch-backports

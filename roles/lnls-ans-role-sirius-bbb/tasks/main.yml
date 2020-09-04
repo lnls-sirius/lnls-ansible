@@ -1,0 +1,58 @@
+---
+- name: Resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      ignore_errors: true
+      paths:
+        - '{{ role_path }}/vars'
+
+- name: Define Python executable
+  set_fact:
+    python_executable: "{{ __python_executable | default('python') }}"
+  when: python_executable is not defined
+
+- name: Define PIP executable
+  set_fact:
+    pip_executable: "{{ __pip_executable | default(omit) }}"
+  when: pip_executable is not defined
+
+- name: Define general packages
+  set_fact:
+    sirius_bbb_packages: "{{ __sirius_bbb_packages | list }}"
+  when: sirius_bbb_packages is not defined
+
+- name: Define general pip packages
+  set_fact:
+    sirius_bbb_pip_packages: "{{ __sirius_bbb_pip_packages | list }}"
+  when: sirius_bbb_pip_packages is not defined
+
+# Combine apps to install
+- name: Create list of dict apps to install
+  set_fact:
+    sirius_bbb: "{{ sirius_bbb | default([]) |
+            list + lookup('vars', item) }}"
+  with_items:
+    - "{{ sirius_bbb_install_categories | default([]) | list }}"
+
+- name: Default variable to empty
+  set_fact:
+    sirius_bbb: "[]"
+  when:
+    - sirius_bbb is not defined
+
+- name: Debug
+  debug:
+    msg: "Sirius BbB apps to install: {{ sirius_bbb }}"
+
+# Include Tasks
+- include_tasks: setup-RedHat.yml
+  when: ansible_os_family == 'RedHat'
+
+- include_tasks: setup-Debian.yml
+  when: ansible_os_family == 'Debian'
+
+- include_tasks: setup-bbb.yml

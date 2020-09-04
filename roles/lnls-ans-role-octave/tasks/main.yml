@@ -1,0 +1,30 @@
+---
+- name: Resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      ignore_errors: true
+      paths:
+        - '{{ role_path }}/vars'
+
+- name: Define Octave packages
+  set_fact:
+    octave_packages: "{{ __octave_packages | list }}"
+  when: octave_packages is not defined
+
+- name: Define Octave extra packages
+  set_fact:
+    octave_packages: "{{ octave_packages | list + octave_packages_extra | list }}"
+  when: octave_packages_extra is defined
+
+# Setup/install tasks
+- include_tasks: setup-Debian.yml
+  when:
+    - ansible_os_family == 'Debian'
+
+- include_tasks: setup-RedHat.yml
+  when:
+    - ansible_os_family == 'RedHat'

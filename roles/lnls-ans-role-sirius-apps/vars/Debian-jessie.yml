@@ -1,17 +1,17 @@
 ---
-__epics_packages:
-  - epics-dev
-  - epics-perl
-  - epics-pcas-dev
-  - epics-extensions-dev
-  - edm-dev
-  - xpra
-  - winswitch
-  - xvfb
-  - bc
+__sirius_apps_packages:
+  - "epics-extensions-dev={{ pkg_version_epics_extensions_dev }}"
+  - "winswitch={{ pkg_version_winswitch }}"
+  - "bc={{ pkg_version_bc }}"
+  - "libgsl2={{ pkg_version_libgsl2 }}"
+  - "libblas-dev={{ pkg_version_libblas_dev }}"
+  - "liblapack-dev={{ pkg_version_liblapack_dev }}"
+  - "libgsl-dev={{ pkg_version_libgsl_dev }}"
 
-__epics_pip_packages:
-  - pyepics
-  - pcaspy
+__sirius_apps_pip_packages:
+  - "pyvisa=={{ pkg_version_pyvisa }}"
+  - "pyvisa-py=={{ pkg_version_pyvisa_py }}"
+
+__python_executable: python-sirius
 
 __pip_executable: pip-sirius

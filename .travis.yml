@@ -35,6 +35,16 @@ env:
     - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
       MOLECULE_DOCKER_COMMAND: /lib/systemd/systemd
       BUILD_TYPE: default
+      ROLE: lnls-ans-role-zabbix
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      MOLECULE_DOCKER_COMMAND: /lib/systemd/systemd
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-zabbix
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
+      MOLECULE_DOCKER_COMMAND: /lib/systemd/systemd
+      BUILD_TYPE: default
       ROLE: lnls-ans-role-nfsserver
 
     - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
@@ -70,11 +80,61 @@ env:
 
     - MOLECULE_DISTRO: debian:buster
       BUILD_TYPE: default
+      ROLE: lnls-ans-role-epics7
+
+    - MOLECULE_DISTRO: debian:stretch
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-epics7
+
+    - MOLECULE_DISTRO: debian:buster
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-epics-mca
+
+    - MOLECULE_DISTRO: debian:stretch
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-epics-mca
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
+      MOLECULE_DOCKER_COMMAND: /lib/systemd/systemd
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-network
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      MOLECULE_DOCKER_COMMAND: /lib/systemd/systemd
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-network
+
+    - MOLECULE_DISTRO: debian:buster
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-octave
+
+    - MOLECULE_DISTRO: debian:stretch
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-octave
+
+    - MOLECULE_DISTRO: debian:buster
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-zabbix
+
+    - MOLECULE_DISTRO: debian:stretch
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-zabbix
+
+    - MOLECULE_DISTRO: debian:buster
+      BUILD_TYPE: default
       ROLE: lnls-ans-role-python
 
     - MOLECULE_DISTRO: debian:stretch
       BUILD_TYPE: default
       ROLE: lnls-ans-role-python
+
+    - MOLECULE_DISTRO: debian:buster
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-pydm
+
+    - MOLECULE_DISTRO: debian:stretch
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-pydm
 
     - MOLECULE_DISTRO: debian:buster
       BUILD_TYPE: default
@@ -121,6 +181,16 @@ env:
     - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
       MOLECULE_DOCKER_COMMAND: /lib/systemd/systemd
       BUILD_TYPE: default
+      ROLE: lnls-ans-role-sirius-hla
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      MOLECULE_DOCKER_COMMAND: /lib/systemd/systemd
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-sirius-hla
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
+      MOLECULE_DOCKER_COMMAND: /lib/systemd/systemd
+      BUILD_TYPE: default
       ROLE: lnls-ans-role-desktop-apps
 
     - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
@@ -135,6 +205,14 @@ env:
     - MOLECULE_DISTRO: debian:stretch
       BUILD_TYPE: default
       ROLE: lnls-ans-role-desktop-settings
+
+    - MOLECULE_DISTRO: debian:buster
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-visual-studio-code
+
+    - MOLECULE_DISTRO: debian:stretch
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-visual-studio-code
 
 before_install:
   - sudo apt-get -qq update
@@ -150,7 +228,7 @@ script:
 # jobs and can delay other builds
 branches:
   only:
-  - travis-build
+    - travis-build
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

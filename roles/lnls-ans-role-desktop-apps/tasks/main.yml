@@ -15,7 +15,7 @@
     desktop_packages: "{{ __desktop_packages | list }}"
   when: desktop_packages is not defined
 
-- name: Define Desktop Pip packages
+- name: Define Desktop PIP packages
   set_fact:
     desktop_pip_packages: "{{ __desktop_pip_packages | list }}"
   when: desktop_pip_packages is not defined
@@ -30,6 +30,13 @@
     desktop_default_release: "{{ __desktop_default_release | default(omit) }}"
   when: desktop_default_release is not defined
 
+- name: Check if Sirius Screens variable is set
+  fail:
+    msg: desktop_autofs_sirius_epics_screens variable is not set or empty!
+  when: >
+    desktop_autofs_sirius_epics_screens is not defined or
+    desktop_autofs_sirius_epics_screens | length == 0
+
 # Include Tasks
 
 - include_tasks: setup-RedHat.yml
@@ -39,3 +46,16 @@
   when: ansible_os_family == 'Debian'
 
 - include_tasks: setup-apps.yml
+
+# Uninstall packages
+
+- name: Uninstall evolution
+  apt:
+    name: evolution
+    state: absent
+    install_recommends: true
+  become: true
+  register: apt_packages_result
+  until: apt_packages_result is success
+  retries: 5
+  delay: 2

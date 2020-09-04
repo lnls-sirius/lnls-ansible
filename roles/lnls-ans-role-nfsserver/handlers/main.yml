@@ -1,10 +1,10 @@
 ---
-- name: Reload NFS server systemd service
+- name: Restart NFS server systemd service
   block:
-    - name: Reload NFS server systemd service
+    - name: Restart NFS server systemd service
       systemd:
-        name: autofs
-        state: reloaded
+        name: nfs-kernel-server
+        state: restarted
   become: true
   ignore_errors: "{{ nfs_ignore_systemd_errors }}"
   rescue:

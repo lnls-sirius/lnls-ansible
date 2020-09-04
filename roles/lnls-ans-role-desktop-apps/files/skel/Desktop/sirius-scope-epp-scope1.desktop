@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=EPP\nScope1
+Icon=/usr/share/icons/Adwaita/48x48/devices/audio-card.png
+Exec=/bin/bash -l -c "gvncviewer scope-epp-scope1"
+StartupNotify=true
+Terminal=false

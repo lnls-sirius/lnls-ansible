@@ -1,0 +1,32 @@
+---
+- name: Resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      ignore_errors: true
+      paths:
+        - '{{ role_path }}/vars'
+
+- name: Define Zabbix dependency packages
+  set_fact:
+    zabbix_packages: "{{ __zabbix_packages | default ([]) }}"
+  when: zabbix_packages is not defined
+
+- name: Define default repositorires for APT
+  set_fact:
+    zabbix_default_release: "{{ __zabbix_default_release | default(omit) }}"
+  when: zabbix_default_release is not defined
+
+# Setup/install tasks
+- include_tasks: setup-Debian.yml
+  when:
+    - ansible_os_family == 'Debian'
+
+- include_tasks: setup-RedHat.yml
+  when:
+    - ansible_os_family == 'RedHat'
+
+- include_tasks: setup-zabbix.yml

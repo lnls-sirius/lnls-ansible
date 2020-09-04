@@ -15,7 +15,7 @@
     qt_distro_packages: "{{ __qt_distro_packages | list }}"
   when: qt_distro_packages is not defined
 
-- name: Define Pyhton executable
+- name: Define Python executable
   set_fact:
     python_executable: "{{ __python_executable | default('python') }}"
   when: python_executable is not defined
@@ -25,7 +25,7 @@
     pip_executable: "{{ __pip_executable | default(omit) }}"
   when: pip_executable is not defined
 
-- name: Define Pip Qt5 packages
+- name: Define PIP Qt5 packages
   set_fact:
     qt_pip_packages: "{{ __qt_pip_packages | list }}"
   when: qt_pip_packages is not defined
@@ -43,7 +43,7 @@
   set_fact:
     qt_src_version_noninteractive: "{{ qt_src_version | regex_replace('(\\d+)\\.(\\d+)\\.(\\d+).*$', '\\1\\2\\3') }}"
 
-- name: Check which qt version installed
+- name: Check which qt version is installed
   shell: |
     set -o pipefail
     qmake --version | grep -oP "(?<=Qt version )[0-9]+\.[0-9]+\.[0-9]+"
@@ -64,7 +64,7 @@
     pyqt_install_from_src: "{{ __pyqt_install_from_src | default(false) }}"
   when: pyqt_install_from_src is not defined
 
-- name: Check which pyqt version installed
+- name: Check which pyqt version is installed
   shell: |
     set -o pipefail
     {{ pip_executable }} freeze | grep -oP "(?<=PyQt5==)[0-9]+\.[0-9]+\.[0-9]+"

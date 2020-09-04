@@ -1,0 +1,13 @@
+---
+__epics_packages:
+  - epics-dev
+  - epics-perl
+  - epics-pcas-dev
+
+__epics_pip_packages:
+  - pyepics
+  - pcaspy
+
+__pip_executable: pip-sirius
+
+__pip2_executable: pip

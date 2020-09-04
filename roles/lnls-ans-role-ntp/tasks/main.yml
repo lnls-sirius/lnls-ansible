@@ -18,7 +18,7 @@
 - name: Ensure tzdata package is installed (Linux).
   package:
     name: "{{ ntp_tzdata_package }}"
-    state: present
+    state: latest
   when: ansible_system == "Linux"
 
 - include_tasks: clock-rhel-6.yml

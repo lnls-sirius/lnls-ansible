@@ -1,0 +1,17 @@
+---
+zabbix_server_ips:
+  - 10.128.255.3
+  - 10.128.255.4
+
+zabbix_server_active_ips:
+  - 10.128.255.3
+  - 10.128.255.4
+
+zabbix_config_file_preferences:
+  - path: /etc/zabbix/zabbix_agentd.conf
+    regexp: "^Server="
+    line: "Server={{ zabbix_server_ips | join(', ') }}"
+
+  - path: /etc/zabbix/zabbix_agentd.conf
+    regexp: "^ServerActive="
+    line: "ServerActive={{ zabbix_server_active_ips | join(', ') }}"

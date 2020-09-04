@@ -1,0 +1,29 @@
+---
+epics7_base_version: 7.0.3
+epics7_base_arch: linux-x86_64
+epics7_base_url: "https://epics.anl.gov/download/base"
+epics7_base_archive: "{{ epics7_base_url }}/base-{{ epics7_base_version }}.tar.gz"
+
+# Add EPICS 7 to system wide PATH variable and ldconfig (/etc/ld.so.conf.d).
+# This can cause trouble if you have older version of EPICS, in the sense that
+# the system can link to EPICS 7 libraries and use EPICS 7 binaries depending
+# on the precedence.
+epics7_add_to_system_paths: false
+
+# Force removal of EPICS 7 system path files.
+epics7_force_remove_system_paths: true
+
+# Make options
+epics7_base_make_target: -j4
+
+epics7_base_make_opts:
+  EPICS_HOST_ARCH: "{{ epics7_base_arch }}"
+
+epics7_config_files:
+  - name: EPICS 7 environment variables
+    filename: epics7.sh
+    pathname: "/etc/profile.d"
+
+  - name: EPICS 7 ldconfig paths
+    filename: epics7.conf
+    pathname: "/etc/ld.so.conf.d"

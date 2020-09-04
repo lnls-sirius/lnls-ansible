@@ -41,7 +41,7 @@
       authorized_key:
         user: sirius
         state: present
-        key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}" 
+        key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
       register: rsa
       ignore_errors: true
 
@@ -49,7 +49,7 @@
       authorized_key:
         user: sirius
         state: present
-        key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_dsa.pub') }}" 
+        key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_dsa.pub') }}"
       when: rsa is failed
 
     - name: Checks if resolver is working properly

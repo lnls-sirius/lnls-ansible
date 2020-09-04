@@ -4,14 +4,16 @@ After=syslog.target network.target
 
 [Service]
 Type=forking
+Restart=on-failure
 User={{ desktop_vnc_user }}
 Group={{ desktop_vnc_user }}
 WorkingDirectory=/home/{{ desktop_vnc_user }}
 
 PIDFile=/home/{{ desktop_vnc_user }}/.vnc/%H:%i.pid
 ExecStartPre=-/usr/bin/vncserver -kill :%i > /dev/null 2>&1
-ExecStart=/usr/bin/vncserver -depth 24 -geometry 1280x800 :%i
+ExecStart=/usr/bin/vncserver -depth 24 -geometry 1920x1080 :%i
 ExecStop=/usr/bin/vncserver -kill :%i
+ExecStopPost=/bin/rm -f /tmp/.X%i-lock /tmp/.X11-unix/X%i
 
 [Install]
 WantedBy=multi-user.target

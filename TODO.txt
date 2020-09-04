@@ -1,0 +1,24 @@
+= control-room and linac-opi hosts =
+- hostname = debian. fix it?
+- improve "Download Qt installation script". taking too long.
+- install lnls-fac repos (trackcpp, pyaccel, pymodels) in folder wit write permissions.
+- clean /usr/local/bin/sirius-*
+- clean /home/sirius/Desktop/sirius-*
+- configure gnome settings:
+  a. dark theme
+  b. minimization, maximization and quit actions in window decorations
+  c. add trusted flag to desktop links
+- add shutdown role and end of playbooks
+- implement user logout before running roles. advisable?
+- finish makefile targets that manage FAC ioc services
+- check and improve uninstall "evolution" (and other packages) it seems that other dependecy packages may also be uninstalled!
+- configure printers (cups only or "apt install task-print-server" ?)
+- add link to "python-sirius-config" (for trackcpp)
+- specify name of package list according to package/source selection (role python).
+
+= fac hosts =
+- clone repos for development
+- distribute per-user unique pair of ssh keys
+- add env variables (g-* aliases, for example)
+- install virtualbox 6.0
+- install adobe flash firefox plugin

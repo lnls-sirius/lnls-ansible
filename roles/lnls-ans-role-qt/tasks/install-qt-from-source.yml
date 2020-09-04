@@ -14,7 +14,7 @@
 
 - name: Check Qt installed installed version
   debug:
-    msg: "Qt version installed: {{ qt_check_result.stdout }}"
+    msg: "Qt version is installed: {{ qt_check_result.stdout }}"
   changed_when: qt_check_result.stdout != qt_src_version
   notify: "Install Qt from source"
 

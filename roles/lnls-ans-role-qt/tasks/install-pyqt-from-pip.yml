@@ -1,5 +1,5 @@
 ---
-- name: Ensure Pip Python packages are installed
+- name: Ensure PIP Python packages are installed
   pip:
     name: "{{ qt_pip_packages }}"
     state: "{{ qt_pip_packages_state }}"

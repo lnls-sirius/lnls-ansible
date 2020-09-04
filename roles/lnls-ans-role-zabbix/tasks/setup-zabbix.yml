@@ -1,0 +1,29 @@
+---
+- name: Customize Zabbix preference settings
+  lineinfile:
+    state: present
+    path: "{{ item.path }}"
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  with_items:
+    - "{{ zabbix_config_file_preferences }}"
+  when: >-
+    zabbix_config_file_preferences is defined and
+    zabbix_config_file_preferences | length > 0
+  notify: Restart Zabbix service
+
+- name: Enable Zabbix systemd service
+  systemd:
+    name: zabbix-agent
+    state: started
+    enabled: true
+  become: true
+  register: systemd_enable
+  ignore_errors: "{{ zabbix_ignore_systemd_errors }}"
+
+- name: Show warning to user if systemd fails
+  pause:
+    seconds: 1
+    echo: false
+    prompt: "Could not enable Zabbix Agent systemd service. Probably running in Docker? Continuing anyway ..."
+  when: systemd_enable is failed

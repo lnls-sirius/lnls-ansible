@@ -1,0 +1,17 @@
+---
+- hosts: nfs_servers
+  remote_user: sirius
+  become: true
+  tasks:
+    - import_role:
+        name: lnls-ans-role-users
+    - import_role:
+        name: lnls-ans-role-nfsserver
+    - import_role:
+        name: lnls-ans-role-clone-install
+      vars:
+        clone_install_repos: "{{ lookup('vars', 'clone_install_repos_servnfs', default=[]) }}"
+    - import_role:
+        name: lnls-ans-role-clone-install
+      vars:
+        clone_install_repos: "{{ lookup('vars', 'clone_install_repos_sirius_screens', default=[]) }}"

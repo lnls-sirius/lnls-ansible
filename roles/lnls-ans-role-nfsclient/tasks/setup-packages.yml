@@ -1,13 +1,12 @@
 ---
-- name: Install NFS client packages
-  apt:
-    name: "{{ nfs_client_packages }}"
-    state: present
-  become: true
-  register: apt_result
-  until: apt_result is success
-  retries: 5
-  delay: 2
+- name: Ensure directories to mount exist
+  file:
+    path: "{{ item.strip().split()[0] }}"
+    state: directory
+    owner: "{{ ansible_ssh_user | default(ansible_env.SUDO_USER, true) | default(ansible_env.USER, true) | default(ansible_user_id) }}"
+    group: "{{ ansible_ssh_user | default(ansible_env.SUDO_USER, true) | default(ansible_env.USER, true) | default(ansible_user_id) }}"
+  ignore_errors: true
+  with_items: "{{ nfsclient_autofs }}"
 
 - name: Install NFS config files
   template:
@@ -21,7 +20,7 @@
   with_items:
     - "{{ nfs_config_files }}"
   when: apt_result is success
-  notify: Reload NFS client systemd service
+  notify: Restart NFS client systemd service
 
 - name: Enable NFS client systemd service
   systemd:

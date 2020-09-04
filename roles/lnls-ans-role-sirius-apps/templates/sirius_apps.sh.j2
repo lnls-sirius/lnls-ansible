@@ -2,30 +2,16 @@
 # ==================================
 
 IP_IOCS_LI="\
-10.128.1.11:5064 10.128.1.11:5066 10.128.1.11:5068 10.128.1.11:5070 \
 10.128.1.12:5064 10.128.1.12:5070 \
 10.128.1.13:5064 10.128.1.13:5068 10.128.1.13:5070 \
-10.128.1.14:5064 10.128.1.14:5068 10.128.1.14:5070 \
-10.128.1.15:5064 10.128.1.15:5068 10.128.1.15:5070 \
-10.128.1.18:5064 10.128.1.18:5068 10.128.1.18:5070 \
-10.128.1.19:5064 10.128.1.19:5068 10.128.1.19:5070 \
 10.128.1.50:5064 10.128.1.50:5067 10.128.1.50:5069 10.128.1.50:5071 \
-10.128.1.51:5064 10.128.1.51:5067 10.128.1.51:5069 10.128.1.51:5071 \
-10.128.1.54:5064 \
+10.128.1.51:5064 10.128.1.51:5067 10.128.1.51:5069 10.128.1.51:5071 10.128.1.54:5064 \
 10.128.1.55:5064 \
 "
 
 export EPICS_CA_ADDR_LIST="${EPICS_CA_ADDR_LIST} ${IP_IOCS_LI}"
 export EPICS_PV_ADDR_LIST="${EPICS_PV_ADDR_LIST} ${IP_IOCS_LI}"
 export EPICS_PVA_ADDR_LIST="${EPICS_PVA_ADDR_LIST} ${IP_IOCS_LI}"
-
-# EDM
-# ===
-
-export EDMPVOBJECTS=/etc/edm
-export EDMOBJECTS=/etc/edm
-export EDMHELPFILES=/usr/share/edm/helpFiles
-export EDMDATAFILES=/usr/share/edm/data:/usr/local/share/edm/data
 
 # EPICS Support Application Machines
 # ==================================
@@ -37,17 +23,9 @@ export SIRIUS_URL_RBAC=https://rbac:8445
 export SIRIUS_URL_NS=http://naming-service-wildfly:8089
 export SIRIUS_URL_CCDB=http://ccdb:8083
 export SIRIUS_URL_CABLES=http://cable:8086
-export SIRIUS_URL_CONSTS=http://sirius-consts.lnls.br/control-system-constants
-export SIRIUS_URL_CONFIGDB=http://sirius-configdb.lnls.br/config-db
+export SIRIUS_URL_CONSTS=http://10.128.255.4/control-system-constants
+export SIRIUS_URL_CONSTS_2=http://10.128.255.3/control-system-constants
+export SIRIUS_URL_CONFIGDB=http://10.128.255.4/config-db
+export SIRIUS_URL_CONFIGDB_2=http://10.128.255.3/config-db
 export SIRIUS_URL_LOGBOOK=http://sirius-logbook.lnls.br/Olog
-
-# PyQt
-# ====
-export PYQTDESIGNERPATH=$PYQTDESIGNERPATH:{{ sirius_apps_designer_dir }}
-
-# PyDM
-# ====
-export PYDM_DESIGNER_ONLINE=True
-export PYDM_DEFAULT_PROTOCOL="ca://"
-export PYDM_EPICS_LIB="PYEPICS"  # PYEPICS, PYCA, CAPROTO
-export LC_NUMERIC=en_US.UTF-8
+export SIRIUS_URL_ARCHIVER=https://10.0.38.42
