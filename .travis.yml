@@ -218,7 +218,7 @@ before_install:
   - sudo apt-get -qq update
 
 install:
-  - pip install molecule docker-py
+  - pip install molecule testinfra yamllint ansible-lint flake8 docker-py
 
 # Hand off to generated script for each BUILD_TYPE
 script:
