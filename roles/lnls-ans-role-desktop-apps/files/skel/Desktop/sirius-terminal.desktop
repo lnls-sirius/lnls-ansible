@@ -2,6 +2,6 @@
 Type=Application
 Name=Terminal
 Icon=/usr/share/icons/Adwaita/48x48/apps/utilities-terminal.png
-Exec=/usr/bin/gnome-terminal
+Exec=/usr/bin/gnome-terminal -e "bash -l"
 StartupNotify=true
 Terminal=false
