@@ -44,7 +44,7 @@ python_src_force_install: false
 - hosts: all
   tasks:
   - import_role:
-      name: '{{playbook_dir}}'
+      name: "{{ playbook_dir }}"
 ```
 
 ## Example Commmand

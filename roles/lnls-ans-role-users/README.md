@@ -79,7 +79,7 @@ users_ssh_keys:
 - hosts: all
   tasks:
   - import_role:
-      name: '{{playbook_dir}}'
+      name: "{{ playbook_dir }}"
 ```
 
 ## Example Commmand

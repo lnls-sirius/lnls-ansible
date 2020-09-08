@@ -19,7 +19,7 @@ Ansible role to install Octave.
 - hosts: all
   tasks:
   - import_role:
-      name: '{{playbook_dir}}'
+      name: "{{ playbook_dir }}"
 ```
 
 ## Example Commmand

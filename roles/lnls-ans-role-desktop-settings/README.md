@@ -28,7 +28,7 @@ desktop_settings_install_recommends: true
 - hosts: all
   tasks:
   - import_role:
-      name: '{{playbook_dir}}'
+      name: "{{ playbook_dir }}"
 ```
 
 ## Example Commmand

@@ -49,7 +49,7 @@ sirius_apps_hla_install_categories:
 - hosts: all
   tasks:
   - import_role:
-      name: '{{playbook_dir}}'
+      name: "{{ playbook_dir }}"
 ```
 
 ## Example Commmand
