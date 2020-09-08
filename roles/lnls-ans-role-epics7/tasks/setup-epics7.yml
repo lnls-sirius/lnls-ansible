@@ -18,7 +18,7 @@
     owner: root
     group: root
     creates: "{{ epics7_base_directory }}"
-    mode: preserve
+    mode: 0755
   become: true
 
 - name: Build EPICS 7
