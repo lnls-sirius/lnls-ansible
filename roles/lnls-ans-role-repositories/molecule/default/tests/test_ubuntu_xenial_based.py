@@ -20,7 +20,8 @@ def test_repos(host, repo):
 
 # TODO: use epics version variables here?
 @pytest.mark.parametrize('pkg_pin', [
-    ('epics-dev', '3.15')
+    ('epics-dev', '3.15'),
+    ('epics-perl', 'none')
 ])
 def test_pkg_pin(host, pkg_pin):
     cmd = host.run('apt-cache policy %s | grep "Candidate:" | sed -e \'s/Candidate://g\''.format(pkg_pin[0]))
