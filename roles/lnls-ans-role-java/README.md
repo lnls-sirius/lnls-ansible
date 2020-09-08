@@ -33,7 +33,7 @@ Set the default Java home
   become: true
   tasks:
   - import_role:
-      name: '{{playbook_dir}}'
+      name: "{{ playbook_dir }}"
 
 ```
 

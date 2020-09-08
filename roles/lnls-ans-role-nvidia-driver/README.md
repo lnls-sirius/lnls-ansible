@@ -17,7 +17,7 @@ This Ansible role configures the Nvidia driver for Sirius Light Source control m
 - hosts: all
   tasks:
   - import_role:
-      name: '{{playbook_dir}}'
+      name: "{{ playbook_dir }}"
 ```
 
 ## Example Commmand

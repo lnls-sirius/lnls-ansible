@@ -25,7 +25,7 @@ The `repository_installroot` variable allows to specify an alternative installro
 - hosts: all
   tasks:
   - import_role:
-      name: '{{playbook_dir}}'
+      name: "{{ playbook_dir }}"
 ```
 
 ## Tests

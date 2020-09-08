@@ -60,7 +60,7 @@ A list of extra EPICS packages to install without overriding the default list.
   become: true
   tasks:
   - import_role:
-      name: '{{playbook_dir}}'
+      name: "{{ playbook_dir }}"
 
 ```
 

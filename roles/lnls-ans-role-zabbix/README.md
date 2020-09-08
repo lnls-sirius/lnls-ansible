@@ -23,7 +23,7 @@ zabbix_ignore_systemd_errors: false
 - hosts: all
   tasks:
   - import_role:
-      name: '{{playbook_dir}}'
+      name: "{{ playbook_dir }}"
 ```
 
 ## Example Commmand

@@ -39,7 +39,7 @@ csstudio_ca_max_array_bytes: 10000000
 - hosts: all
   tasks:
   - import_role:
-      name: '{{playbook_dir}}'
+      name: "{{ playbook_dir }}"
 ```
 
 ## Example Commmand
