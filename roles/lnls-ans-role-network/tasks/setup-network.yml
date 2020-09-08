@@ -5,14 +5,14 @@
     path: "/etc/NetworkManager/system-connections/{{ item.name }}"
     line: "ignore-auto-dns={{ item.ignore_auto_dns }}"
     state: present
-  check_mode: yes
+  check_mode: true
   become: true
   register: conn_ignore_auto_dns_rc
   changed_when: "item.ignore_auto_dns == 'true' and conn_ignore_auto_dns_rc.changed"
   with_items:
     - "{{ network_interfaces }}"
 
- # Filter conn_ignore_auto_dns to get a list of {interface_names, value to be changed, ignore_auto_dns value}
+# Filter conn_ignore_auto_dns to get a list of {interface_names, value to be changed, ignore_auto_dns value}
 - name: Create dict of names,ignore_auto_dns from checked files
   set_fact:
     conn_ignore_auto_dns: "{{ conn_ignore_auto_dns|default([]) + [ {'name': item.item.name, 'to_be_changed': item.changed, 'value': item.item.ignore_auto_dns} ] }}"
