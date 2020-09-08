@@ -17,7 +17,7 @@ def is_extension_installed(module, executable, name):
             msg='Error querying installed extensions [%s]: %s' % (name,
                                                                   out + err))
     lowername = name.lower()
-        match = next((x for x in out.splitlines() if x.lower() == lowername), None)
+    match = next((x for x in out.splitlines() if x.lower() == lowername), None)
     return match is not None
 
 
