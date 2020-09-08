@@ -5,7 +5,7 @@
     state: directory
     owner: root
     group: root
-    mode: "0755"
+    mode: 0755
   become: true
   with_items:
     - "{{ epics7_base_dest }}"
@@ -18,6 +18,7 @@
     owner: root
     group: root
     creates: "{{ epics7_base_directory }}"
+    mode: preserve
   become: true
 
 - name: Build EPICS 7
