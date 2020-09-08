@@ -1,2 +1,3 @@
 ---
-__epics_mca_packages: []
+__epics_mca_packages:
+  - "git={{ pkg_version_git }}"
