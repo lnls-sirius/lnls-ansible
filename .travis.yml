@@ -130,6 +130,14 @@ env:
 
     - MOLECULE_DISTRO: debian:buster
       BUILD_TYPE: default
+      ROLE: lnls-ans-role-pydm
+
+    - MOLECULE_DISTRO: debian:stretch
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-pydm
+
+    - MOLECULE_DISTRO: debian:buster
+      BUILD_TYPE: default
       ROLE: lnls-ans-role-java
 
     - MOLECULE_DISTRO: debian:stretch
@@ -169,6 +177,16 @@ env:
       MOLECULE_DOCKER_COMMAND: /lib/systemd/systemd
       BUILD_TYPE: default
       ROLE: lnls-ans-role-sirius-apps
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
+      MOLECULE_DOCKER_COMMAND: /lib/systemd/systemd
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-sirius-hla
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      MOLECULE_DOCKER_COMMAND: /lib/systemd/systemd
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-sirius-hla
 
     - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
       MOLECULE_DOCKER_COMMAND: /lib/systemd/systemd
