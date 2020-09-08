@@ -5,6 +5,7 @@ __epics_packages:
   - epics-pcas-dev
 
 __epics_pip_packages:
+  - setuptools
   - pyepics
   - pcaspy
 

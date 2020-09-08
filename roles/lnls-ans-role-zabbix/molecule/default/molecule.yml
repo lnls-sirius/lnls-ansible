@@ -22,6 +22,11 @@ driver:
 platforms:
   - name: lnls-ans-role-zabbix-instance
     image: "${MOLECULE_DISTRO:-debian:stretch}"
+    command: ${MOLECULE_DOCKER_COMMAND:-'bash -c "while true; do sleep 10000; done"'}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
     groups:
       - default_group
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]

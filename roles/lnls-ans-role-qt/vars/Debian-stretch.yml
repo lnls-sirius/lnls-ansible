@@ -7,6 +7,10 @@ __pyqt_dep_packages:
   - "liblapack-dev={{ pkg_version_liblapack_dev }}"
   - "libdbus-1-3={{ pkg_version_libdbus_1_3 }}"
   - "libglu1-mesa-dev={{ pkg_version_libglu1_mesa_dev }}"
+  - "libffi6={{ pkg_version_libffi6 }}"
+  - "libffi-dev={{ pkg_version_libffi_dev }}"
+  - "libfreetype6={{ pkg_version_libfreetype6 }}"
+  - "libfreetype6-dev={{ pkg_version_libfreetype6_dev }}"
 
 __qt_distro_packages:
   - "qt5-default={{ pkg_version_qt5_default }}"

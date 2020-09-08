@@ -20,6 +20,7 @@ galaxy_info:
         - bionic
 
 dependencies:
+  - lnls-ans-role-repositories
 # - lnls-ans-role-users
 # - lnls-ans-role-java
 # - lnls-ans-role-repositories
