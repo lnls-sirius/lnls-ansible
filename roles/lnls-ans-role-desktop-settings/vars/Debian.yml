@@ -1,5 +1,6 @@
 ---
 __desktop_settings_packages:
+  - x11-common
   - xcursor-themes
   - dmz-cursor-theme
   - dconf-cli
