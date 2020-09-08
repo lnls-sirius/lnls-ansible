@@ -18,6 +18,9 @@ provisioner:
   options:
     extra-vars:
       ansible_python_interpreter: /usr/bin/python3
+  inventory:
+    links:
+      group_vars: ../../../../group_vars/
 verifier:
   name: testinfra
   directory: ../default/tests

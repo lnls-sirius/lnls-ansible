@@ -13,5 +13,8 @@ platforms:
     image: ubuntu:18.04
 provisioner:
   name: ansible
+  inventory:
+    links:
+      group_vars: ../../../../group_vars/
 verifier:
   name: testinfra

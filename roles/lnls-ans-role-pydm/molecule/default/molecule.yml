@@ -9,6 +9,9 @@ lint: |
 provisioner:
   name: ansible
   inventory:
+  inventory:
+    links:
+      group_vars: ../../../../group_vars/
     group_vars:
       default_group:
 verifier:
