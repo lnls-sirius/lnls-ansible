@@ -7,6 +7,10 @@ __pyqt_dep_packages:
   - liblapack-dev
   - libdbus-1-3
   - libglu1-mesa-dev
+  - libffi6
+  - libffi-dev
+  - libfreetype6
+  - libfreetype6-dev
 
 __qt_distro_packages:
   - qt5-default
