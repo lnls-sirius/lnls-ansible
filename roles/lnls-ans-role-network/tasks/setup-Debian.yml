@@ -18,4 +18,3 @@
   until: apt_result is success
   retries: 5
   delay: 2
-

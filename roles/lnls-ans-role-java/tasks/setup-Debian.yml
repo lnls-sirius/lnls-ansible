@@ -16,6 +16,7 @@
     path: /usr/share/man/man1
     state: directory
     recurse: true
+    mode: 0755
   when:
     - ansible_distribution == 'Ubuntu'
     - ansible_distribution_version == '18.04'

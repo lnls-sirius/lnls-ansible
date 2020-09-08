@@ -122,6 +122,7 @@ pkg_version_unzip: 6.0*
 pkg_version_openjdk_8_jdk: 8u222-b10*
 pkg_version_openjdk_8_jre: 8u222-b10*
 pkg_version_xcursor_themes: 1.0.4*
+pkg_version_x11_common: 1:7.7*
 pkg_version_epics_extensions_dev: 20130514.5*
 pkg_version_edm_dev: 1.12.105B*
 pkg_version_gnome_terminal: 3.22.2*
