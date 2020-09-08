@@ -1,5 +1,5 @@
 ---
-epics7_base_version: 7.0.3
+epics7_base_version: 7.0.4.1
 epics7_base_arch: linux-x86_64
 epics7_base_url: "https://epics.anl.gov/download/base"
 epics7_base_archive: "{{ epics7_base_url }}/base-{{ epics7_base_version }}.tar.gz"
