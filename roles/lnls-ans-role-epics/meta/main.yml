@@ -19,4 +19,4 @@ galaxy_info:
 
 dependencies:
   - lnls-ans-role-repositories
-# - lnls-ans-role-python
+  - lnls-ans-role-python
