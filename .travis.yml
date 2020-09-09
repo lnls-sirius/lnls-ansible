@@ -114,14 +114,6 @@ env:
 
     - MOLECULE_DISTRO: debian:buster
       BUILD_TYPE: default
-      ROLE: lnls-ans-role-zabbix
-
-    - MOLECULE_DISTRO: debian:stretch
-      BUILD_TYPE: default
-      ROLE: lnls-ans-role-zabbix
-
-    - MOLECULE_DISTRO: debian:buster
-      BUILD_TYPE: default
       ROLE: lnls-ans-role-python
 
     - MOLECULE_DISTRO: debian:stretch
