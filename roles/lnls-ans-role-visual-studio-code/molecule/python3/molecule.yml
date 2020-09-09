@@ -9,7 +9,7 @@ lint: |
   ansible-lint
   flake8
 platforms:
-  - name: ansible-role-visual-studio-code-python3
+  - name: lnls-ans-role-visual-studio-code-python3
     image: ubuntu:18.04
 provisioner:
   name: ansible
