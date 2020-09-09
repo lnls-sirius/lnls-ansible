@@ -15,7 +15,10 @@
 # Filter conn_ignore_auto_dns to get a list of {interface_names, value to be changed, ignore_auto_dns value}
 - name: Create dict of names,ignore_auto_dns from checked files
   set_fact:
-    conn_ignore_auto_dns: "{{ conn_ignore_auto_dns|default([]) + [ {'name': item.item.name, 'to_be_changed': item.changed, 'value': item.item.ignore_auto_dns} ] }}"
+    conn_ignore_auto_dns: "{{ conn_ignore_auto_dns|default([]) +
+        [ {'name': item.item.name,
+           'to_be_changed': item.changed,
+           'value': item.item.ignore_auto_dns} ] }}"
   with_items: "{{ conn_ignore_auto_dns_rc.results }}"
 
 - name: Disable auto DNS for ipv4
