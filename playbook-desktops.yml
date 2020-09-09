@@ -3,6 +3,32 @@
   remote_user: sirius
   become: true
 
-  tasks:
-    - name: Include generic desktop tasks
-      include_tasks: tasks-desktops.yml
+  roles:
+    - role: lnls-ans-role-repositories
+    - role: lnls-ans-role-users
+      when: global_repositories_role | default(true) | bool
+      #    - role: lnls-ans-role-network
+      #      when: global_network_role | default(true) | bool
+      #    - role: lnls-ans-role-nvidia-driver
+      #      when: global_import_nvidia_driver_role | default(false) | bool
+      #    - role: lnls-ans-role-ntp
+      #    - role: lnls-ans-role-nfsclient
+      #    - role: lnls-ans-role-zabbix
+    - role: lnls-ans-role-python
+    - role: lnls-ans-role-epics
+      #    - role: lnls-ans-role-epics7
+      #    - role: lnls-ans-role-qt
+      #    - role: lnls-ans-role-java
+      #    - role: lnls-ans-role-cs-studio
+      #    - role: lnls-ans-role-pydm
+      #    - role: lnls-ans-role-phoebus
+      #      when: global_phoebus_role | default(true) | bool
+      #    - role: lnls-ans-role-sirius-bbb
+      #    - role: lnls-ans-role-octave
+      #    - role: lnls-ans-role-epics-mca
+      #    - role: lnls-ans-role-sirius-apps
+      #    - role: lnls-ans-role-sirius-hla
+      #    - role: lnls-ans-role-desktop-apps
+      #    - role: lnls-ans-role-desktop-settings
+      #    - role: lnls-ans-role-visual-studio-code
+      #      when: global_visual_studio_role | default(true) | bool
