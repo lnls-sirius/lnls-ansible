@@ -72,7 +72,6 @@ pkg_version_libglib2.0_dev: 2.50.3*
 pkg_version_uuid_dev: 2.29.2*
 pkg_version_libreadline7: 7.0*
 pkg_version_libusb_1.0_0_dev: 2:1.0.21*
-pkg_version_bzip2: 1.0.6*
 pkg_version_libbz2_dev: 1.0.6*
 pkg_version_libxml2_dev: 2.9.4*
 pkg_version_perl: 5.24.1*
@@ -84,7 +83,6 @@ pkg_version_libextutils_xsbuilder_perl: 0.28*
 pkg_version_libextutils_xspp_perl: 0.1800*
 pkg_version_gvncviewer: 0.6.0*
 pkg_version_libasound2: 1.1.3*
-pkg_version_libbz2_dev: 1.0.6*
 pkg_version_libc6_dev: 2.24*
 pkg_version_apt_setuptools: 33.1.1*
 pkg_version_epics_stream_dev: 2.8.8*
