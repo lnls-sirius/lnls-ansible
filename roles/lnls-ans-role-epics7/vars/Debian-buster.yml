@@ -10,7 +10,7 @@ __epics7_dep_packages:
   - "libtool={{ pkg_version_libtool }}"
   - "curl={{ pkg_version_curl }}"
   # Build tools
-  - "g++={{ pkg_version_g++ }}"
+  - "g++={{ pkg_version_gplusplus }}"
   - "libglib2.0_0={{ pkg_version_libglib2.0_0 }}"
   - "libglib2.0-dev={{ pkg_version_libglib2.0_dev }}"
   - "uuid-dev={{ pkg_version_uuid_dev }}"

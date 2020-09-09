@@ -7,4 +7,4 @@ __epics_mca_packages:
   - "autoconf={{ pkg_version_autoconf }}"
   - "make={{ pkg_version_make }}"
   - "libtool={{ pkg_version_libtool }}"
-  - "g++={{ pkg_version_g++ }}"
+  - "g++={{ pkg_version_gplusplus }}"
