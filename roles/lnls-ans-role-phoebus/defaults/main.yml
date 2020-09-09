@@ -1,5 +1,5 @@
 ---
-phoebus_version: "{{ pkg_version_phoebus | default('4.6.1') }}"
+phoebus_version: 4.6.3
 phoebus_repository: nightly
 phoebus_base_url: "https://controlssoftware.sns.ornl.gov/css_phoebus"
 phoebus_archive: "{{ phoebus_base_url }}/{{ phoebus_repository }}/phoebus-linux.zip"

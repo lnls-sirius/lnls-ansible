@@ -11,7 +11,8 @@ python_src_version: 3.6.8
 pkg_version_qt_src: 5.13.1
 pkg_version_pyqt_src: 5.13.1
 pkg_version_pyqt_sip_src: 4.19.24
-pkg_version_phoebus: 4.6.3
+# Overrides the defaults version on Phoebus role
+phoebus_version: 4.6.3
 
 # === sirius packages ===
 
