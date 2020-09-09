@@ -4,7 +4,6 @@ __sirius_apps_hla_packages:
   - "xpra={{ pkg_version_xpra }}"
   - "xvfb={{ pkg_version_xvfb }}"
   - "wmctrl={{ pkg_version_wmctrl }}"
-  - "gnome-terminal={{ pkg_version_gnome_terminal }}"
 
 __sirius_apps_hla_pip_packages:
   - "QtAwesome=={{ pkg_version_qtawesome }}"

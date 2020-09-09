@@ -31,6 +31,7 @@ __desktop_packages:
   - "texlive-latex-recommended={{ pkg_version_texlive_latex_recommended }}"
   - "dvipng={{ pkg_version_dvipng }}"
   - "ghostscript={{ pkg_version_ghostscript }}"
+  - "gnome-terminal={{ pkg_version_gnome_terminal }}"
 
 __desktop_pip_packages:
   - "python-nmap=={{ pkg_version_python_nmap }}"
