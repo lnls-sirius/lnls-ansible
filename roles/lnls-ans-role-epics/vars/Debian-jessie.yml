@@ -1,7 +1,6 @@
 ---
 __epics_packages:
   - epics-dev={{ pkg_version_epics_dev }}
-  - epics-perl={{ pkg_version_epics_perl }}
   - epics-pcas-dev={{ pkg_version_epics_pcas_dev }}
 
 __epics_pip_packages:
