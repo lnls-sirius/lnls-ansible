@@ -9,7 +9,7 @@ lint: |
   ansible-lint
   flake8
 platforms:
-  - name: ansible-role-visual-studio-code-centos
+  - name: lnls-ans-role-visual-studio-code-centos
     image: centos:7
     dockerfile: ../default/Dockerfile.j2
 provisioner:

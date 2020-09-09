@@ -9,7 +9,7 @@ lint: |
   ansible-lint
   flake8
 platforms:
-  - name: ansible-role-visual-studio-code-ubuntu-min
+  - name: lnls-ans-role-visual-studio-code-ubuntu-min
     image: ubuntu:16.04
     dockerfile: ../default/Dockerfile.j2
 provisioner:
