@@ -8,7 +8,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 @pytest.mark.parametrize('repo', [
-    'https://epicsdeb.bnl.gov/debian stretch/staging/main',
+    'https://epicsdeb.bnl.gov/debian stretch/main',
     'http://deb.debian.org/debian stretch/main',
     'http://security.debian.org/debian-security stretch/updates/main'
 ])
