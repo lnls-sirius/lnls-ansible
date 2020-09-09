@@ -1,3 +1,10 @@
 ---
 __epics_mca_packages:
+  - bzip2
+  - binutils
   - git
+  - automake
+  - autoconf
+  - make
+  - libtool
+  - g++
