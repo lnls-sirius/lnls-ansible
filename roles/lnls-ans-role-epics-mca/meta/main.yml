@@ -23,4 +23,4 @@ galaxy_info:
 
 dependencies:
   - lnls-ans-role-epics
-#  - lnls-ans-role-octave
+  - lnls-ans-role-octave
