@@ -16,7 +16,7 @@ __epics7_dep_packages:
   - "uuid-dev={{ pkg_version_uuid_dev }}"
   - "libreadline7={{ pkg_version_libreadline7 }}"
   - "libreadline-dev={{ pkg_version_libreadline_dev }}"
-  - "libusb-1.0-0-dev={{ pkg_version_libusb_1.0_0_dev }}"
+  - "libusb-1.0-0-dev={{ pkg_version_libusb_1_0_0_dev }}"
   - "bzip2={{ pkg_version_bzip2 }}"
   - "libbz2-dev={{ pkg_version_libbz2_dev }}"
   - "libxml2-dev={{ pkg_version_libxml2_dev }}"

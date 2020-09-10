@@ -72,7 +72,7 @@ pkg_version_libglib2_0_0: 2.50.3*
 pkg_version_libglib2_0_dev: 2.50.3*
 pkg_version_uuid_dev: 2.29.2*
 pkg_version_libreadline7: 7.0*
-pkg_version_libusb_1.0_0_dev: 2:1.0.21*
+pkg_version_libusb_1_0_0_dev: 2:1.0.21*
 pkg_version_libbz2_dev: 1.0.6*
 pkg_version_libxml2_dev: 2.9.4*
 pkg_version_perl: 5.24.1*
