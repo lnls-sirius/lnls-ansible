@@ -20,33 +20,7 @@
     creates: "{{ epics7_base_directory }}"
     mode: 0755
   become: true
+  notify: "Install EPICS7 from source"
 
-- name: Build EPICS 7
-  make:
-    chdir: "{{ epics7_base_directory }}"
-    target: "{{ epics7_base_make_target | default(omit) }}"
-    params: "{{ epics7_base_make_opts | default({}) }}"
-  become: true
-  register: build_epics_7
-
-- name: Ensure EPICS 7 environment is installed
-  template:
-    src: "{{ item.filename }}.j2"
-    dest: "{{ item.pathname }}/{{ item.filename }}"
-    owner: root
-    group: root
-    force: true
-    mode: 0644
-  become: true
-  with_items:
-    - "{{ epics7_config_files }}"
-  when: build_epics_7 is success and (epics7_add_to_system_paths | bool)
-
-- name: Ensure EPICS 7 environment is removed
-  file:
-    path: "{{ item.pathname }}/{{ item.filename }}"
-    state: absent
-  become: true
-  with_items:
-    - "{{ epics7_config_files }}"
-  when: epics7_force_remove_system_paths | bool
+- name: Force handlers to run at this point
+  meta: flush_handlers
