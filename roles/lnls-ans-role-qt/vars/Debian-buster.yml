@@ -13,6 +13,7 @@ __qt_dep_packages:
   - "libffi-dev={{ pkg_version_libffi_dev }}"
   - "libfreetype6={{ pkg_version_libfreetype6 }}"
   - "libfreetype6-dev={{ pkg_version_libfreetype6_dev }}"
+  - "libfontconfig1={{ pkg_version_libfontconfig1 }}"
 
 __qt_distro_packages:
   - "qt5-default={{ pkg_version_qt5_default }}"

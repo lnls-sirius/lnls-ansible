@@ -13,6 +13,7 @@ __qt_dep_packages:
   - libffi-dev
   - libfreetype6
   - libfreetype6-dev
+  - libfontconfig1
 
 __qt_distro_packages:
   - qt5-default
