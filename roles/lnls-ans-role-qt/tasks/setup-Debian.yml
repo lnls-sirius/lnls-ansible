@@ -9,9 +9,9 @@
   retries: 5
   delay: 2
 
-- name: Install PyQt dependency packages
+- name: Install pendency packages
   apt:
-    name: "{{ pyqt_dep_packages }}"
+    name: "{{ dep_packages }}"
     state: present
   become: true
   register: apt_result

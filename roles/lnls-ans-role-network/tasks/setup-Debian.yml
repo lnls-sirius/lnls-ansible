@@ -13,6 +13,7 @@
   apt:
     name: "{{ network_packages }}"
     state: present
+    default_release: "{{ network_default_release | default(omit) }}"
   become: true
   register: apt_result
   until: apt_result is success

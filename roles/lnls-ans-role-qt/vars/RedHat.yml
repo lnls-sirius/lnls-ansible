@@ -1,4 +1,12 @@
 ---
+__qt_install_from_src: false
+
+__pyqt_install_from_src: false
+
+__pyqt_dep_packages:
+
+__qt_dep_packages:
+
 __qt_distro_packages:
 
 __qt_pip_packages:
@@ -6,5 +14,7 @@ __qt_pip_packages:
   - PyQt5
   - pyqt5-tools
   - PyQt5-sip
+
+__python_executable: python-sirius
 
 __pip_executable: pip-sirius

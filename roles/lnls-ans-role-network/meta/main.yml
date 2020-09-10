@@ -25,4 +25,5 @@ galaxy_info:
         - xenial
         - bionic
 
-dependencies: []
+dependencies:
+  - lnls-ans-role-repositories

@@ -21,6 +21,6 @@ galaxy_info:
 
 dependencies:
   - lnls-ans-role-repositories
-# - lnls-ans-role-java
+  - lnls-ans-role-java
+  - lnls-ans-role-phoebus
 # - lnls-ans-role-python
-# - lnls-ans-role-phoebus
