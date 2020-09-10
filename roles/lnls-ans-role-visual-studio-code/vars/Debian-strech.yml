@@ -1,0 +1,3 @@
+---
+__visual_studio_packages:
+  - "libxcb-dri3-0={{ pkg_version_libxcb_dri3_0 }}"

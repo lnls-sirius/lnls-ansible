@@ -160,6 +160,7 @@ pkg_version_epstool: 3.08*
 pkg_version_texlive_latex_recommended: 2016.20170123*
 pkg_version_dvipng: 1.14*
 pkg_version_ghostscript: 9.26*
+pkg_version_libxcb_dri3_0: 1.14*
 
 
 # === pip packages ===
