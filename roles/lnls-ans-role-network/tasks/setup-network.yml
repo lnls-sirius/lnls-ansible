@@ -24,6 +24,12 @@
     - item is not failed | bool
   with_items: "{{ conn_ignore_auto_dns_rc.results }}"
 
+- name: Create empty dict of names,ignore_auto_dns if not yet defined
+  set_fact:
+    conn_ignore_auto_dns: []
+  when:
+    - conn_ignore_auto_dns is not defined
+
 - name: Disable auto DNS for ipv4
   command: nmcli con mod {{ item.name }} ipv4.ignore-auto-dns {{ item.value }}
   become: true
