@@ -26,6 +26,6 @@ galaxy_info:
         - bionic
 
 dependencies:
-# - lnls-ans-role-users
-# - lnls-ans-role-epics
+  - lnls-ans-role-users
+  - lnls-ans-role-epics
 # - lnls-ans-role-sirius-apps
