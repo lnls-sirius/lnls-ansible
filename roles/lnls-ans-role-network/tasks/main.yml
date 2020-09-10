@@ -15,6 +15,11 @@
     network_packages: "{{ __network_packages | default ([]) }}"
   when: network_packages is not defined
 
+- name: Define default repositorires for APT
+  set_fact:
+    network_default_release: "{{ __network_default_release | default(omit) }}"
+  when: network_default_release is not defined
+
 # Include Tasks
 - include_tasks: setup-RedHat.yml
   when: ansible_os_family == 'RedHat'
