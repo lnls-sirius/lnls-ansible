@@ -68,8 +68,8 @@ pkg_version_autoconf: 2.69*
 pkg_version_libtool: 2.4.6*
 pkg_version_gplusplus: 4:6.3.0*
 pkg_version_curl: 7.52.1*
-pkg_version_libglib2.0_0: 2.50.3*
-pkg_version_libglib2.0_dev: 2.50.3*
+pkg_version_libglib2_0_0: 2.50.3*
+pkg_version_libglib2_0_dev: 2.50.3*
 pkg_version_uuid_dev: 2.29.2*
 pkg_version_libreadline7: 7.0*
 pkg_version_libusb_1.0_0_dev: 2:1.0.21*
