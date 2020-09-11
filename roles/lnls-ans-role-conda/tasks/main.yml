@@ -1,0 +1,36 @@
+---
+- name: Resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      ignore_errors: true
+      paths:
+        - '{{ role_path }}/vars'
+
+- name: Define Repository keys
+  set_fact:
+    repository_keys: "{{ __repository_keys | list }}"
+  when: repository_keys is not defined
+
+- name: Define Repository keys
+  set_fact:
+    repository_apt: "{{ __repository_apt | list }}"
+  when: repository_apt is not defined
+
+- name: Define APT pinning paths
+  set_fact:
+    apt_pinning_paths: "{{ __apt_pinning_paths | default([]) }}"
+  when: apt_pinning_paths is not defined
+
+# Setup
+- include_tasks: setup-Debian.yml
+  when:
+    - ansible_os_family == 'Debian'
+
+# Install EPICS from source when it's not Debian.
+- include_tasks: install-from-source.yml
+  when:
+    - ansible_os_family != 'Debian'

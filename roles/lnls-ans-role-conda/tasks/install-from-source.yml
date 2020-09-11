@@ -1,0 +1,4 @@
+---
+- name: Install repositories from shell
+  fail:
+    msg: "Installing repositories from shell is not current available. Use a supported distribution"

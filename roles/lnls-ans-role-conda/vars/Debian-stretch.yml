@@ -1,0 +1,38 @@
+---
+# APT repositories
+__repository_keys:
+  - name: Debian NSLS2 key
+    url: https://epicsdeb.bnl.gov/debian/repo-key.pub
+    keyring: /etc/apt/trusted.gpg.d/nsls2-epics-debian.gpg
+
+  - name: Debian VSCode key
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    keyring: /etc/apt/trusted.gpg.d/vscode-debian.gpg
+
+__repository_apt:
+  - name: NSLS2 EPICS debian repository
+    # expiration date: 2022-07-07
+    baseurl: "deb https://epicsdeb.bnl.gov/debian stretch main contrib"
+    description: "NSLS-II Debian EPICS repository"
+    file: nsls2-epics-debian
+    state: present
+
+
+  - name: NSLS2 EPICS debian repository sources
+    # expiration date: 2022-07-07
+    baseurl: "deb-src https://epicsdeb.bnl.gov/debian stretch main contrib"
+    description: "NSLS-II Debian EPICS repository"
+    file: nsls2-epics-debian-src
+    state: present
+
+  - name: Debian Stretch backports
+    baseurl: "deb http://deb.debian.org/debian stretch-backports main"
+    description: "Debian Stretch backports"
+    file: debian-stretch-backports
+    state: present
+
+  - name: Debian Stretch VScode
+    baseurl: "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+    description: "Debian Stretch VScode"
+    file: debian-stretch-vscode
+    state: present
