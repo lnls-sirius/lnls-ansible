@@ -1,60 +1,59 @@
 ---
 dependency:
   name: galaxy
-lint:
-  name: yamllint
 provisioner:
   name: ansible
-  lint:
-    name: ansible-lint
+  lint: |
+    set -e
+    yamllint .
+    ansible-lint
+    flake8
   inventory:
+    links:
+      group_vars: ../../../../group_vars/
     group_vars:
       default_group:
       debian_buster_based:
       debian_stretch_based:
       debian_jessie_based:
-scenario:
-  name: default
 verifier:
   name: testinfra
   options:
     verbose: true
-  lint:
-    name: flake8
 driver:
   name: docker
 platforms:
-  - name: lnls-ans-role-repository-debian-jessie
+  - name: lnls-ans-role-conda-debian-jessie
     image: debian:jessie
     groups:
       - debian_jessie_based
       - default_group
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
-  - name: lnls-ans-role-repository-debian-stretch
+  - name: lnls-ans-role-conda-debian-stretch
     image: debian:stretch
     groups:
       - debian_stretch_based
       - default_group
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
-  - name: lnls-ans-role-repository-debian-buster
+  - name: lnls-ans-role-conda-debian-buster
     image: debian:buster
     groups:
       - debian_buster_based
       - default_group
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
-  - name: lnls-ans-role-repository-ubuntu-trusty
+  - name: lnls-ans-role-conda-ubuntu-trusty
     image: ubuntu:trusty
     groups:
       - debian_ubuntu_trusty_based
       - default_group
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
-  - name: lnls-ans-role-repository-ubuntu-xenial
+  - name: lnls-ans-role-conda-ubuntu-xenial
     image: ubuntu:xenial
     groups:
       - debian_ubuntu_xenial_based
       - default_group
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
-  - name: lnls-ans-role-repositories-instance-generic
+  - name: lnls-ans-role-conda-instance-generic
     image: "${MOLECULE_DISTRO:-debian:stretch}"
     groups:
       - default_group
