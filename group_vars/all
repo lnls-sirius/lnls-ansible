@@ -13,6 +13,9 @@ pkg_version_pyqt_src: 5.13.1
 pkg_version_pyqt_sip_src: 4.19.24
 # Overrides the defaults version on Phoebus role
 phoebus_version: 4.6.3
+# Overrides the defaults version on EPICS7 role
+epics7_base_version: 7.0.4.1
+epics7_base_version_name: R7.0.4.1
 
 # === sirius packages ===
 
