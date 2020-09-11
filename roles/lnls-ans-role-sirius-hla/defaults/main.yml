@@ -1,4 +1,11 @@
 ---
+# Package versions for Debian. Leave empty for the latest
+pkg_version_edm_dev: ""
+pkg_version_xpra: ""
+pkg_version_xvfb: ""
+pkg_version_gnome_terminal: ""
+pkg_version_qtawesome: ""
+
 # package state; use 'present' to make sure it's installed, or 'latest' if
 # you want to upgrade or switch versions using a new repo.
 sirius_apps_hla_packages_state: present

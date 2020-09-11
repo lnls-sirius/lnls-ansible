@@ -1,4 +1,7 @@
 ---
+# Package versions for Debian. Leave empty for the latest
+pkg_version_nfs_kernel_server: ""
+
 # Define list of paths + permissions to be exported, such as:
 # nfsserver_exports: [ "/home/public *(rw,sync,no_root_squash)" ]
 nfsserver_exports: []

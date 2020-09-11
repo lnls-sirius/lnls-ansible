@@ -1,4 +1,7 @@
 ---
+# Package versions for Debian. Leave empty for the latest
+pkg_version_libreadline_dev: ""
+
 epics7_base_version: 7.0.3
 epics7_base_arch: linux-x86_64
 epics7_base_url: "https://epics.anl.gov/download/base"

@@ -1,4 +1,15 @@
 ---
+# Package versions for Debian. Leave empty for the latest
+pkg_version_epics_extensions_dev: ""
+pkg_version_winswitch: ""
+pkg_version_bc: ""
+pkg_version_libgsl2: ""
+pkg_version_libblas_dev: ""
+pkg_version_liblapack_dev: ""
+pkg_version_libgsl_dev: ""
+pkg_version_pyvisa: ""
+pkg_version_pyvisa_py: ""
+
 # package state; use 'present' to make sure it's installed, or 'latest' if
 # you want to upgrade or switch versions using a new repo.
 sirius_apps_packages_state: present

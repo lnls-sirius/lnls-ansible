@@ -1,4 +1,9 @@
 ---
+# Package versions for Debian. Leave empty for the latest
+pkg_version_openjfx: ""
+pkg_version_unzip: ""
+pkg_version_openjdk_11_jdk: ""
+
 phoebus_version: 4.6.1
 phoebus_repository: nightly
 phoebus_base_url: "https://controlssoftware.sns.ornl.gov/css_phoebus"

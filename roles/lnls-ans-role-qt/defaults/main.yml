@@ -1,4 +1,18 @@
 ---
+# Package versions for Debian. Leave empty for the latest
+pkg_version_liblapack_dev: ""
+pkg_version_libdbus_1_3: ""
+pkg_version_libglu1_mesa_dev: ""
+pkg_version_qt5_default: ""
+pkg_version_qttools5_dev_tools: ""
+pkg_version_sip_dev: ""
+pkg_version_python3_pyqt5_qtsvg: ""
+pkg_version_libqt5opengl5_dev: ""
+pkg_version_qt5_qmake: ""
+pkg_version_qtbase5_dev: ""
+pkg_version_PyQt5: ""
+pkg_version_PyQt5_sip: ""
+
 # PIP package state; use 'present' to make sure it's installed, or 'latest' if
 # you want to upgrade or switch versions using a new repo.
 qt_pip_packages_state: present
