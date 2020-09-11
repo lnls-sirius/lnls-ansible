@@ -1,7 +1,7 @@
 ---
 galaxy_info:
-  author: Ximenes Resende
-  description: Ansible role to install Sirius HLA Apps packages
+  author: Claudio Carneiro
+  description: Ansible role to install Sirius HLA CONS Apps packages
   company: CNPEM - LNLS
   license: BSD
   min_ansible_version: 2.4

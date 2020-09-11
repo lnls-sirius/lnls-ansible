@@ -10,43 +10,15 @@
       paths:
         - '{{ role_path }}/vars'
 
-- name: Define Python executable
-  set_fact:
-    python_executable: "{{ __python_executable | default('python') }}"
-  when: python_executable is not defined
-
-- name: Define PIP executable
-  set_fact:
-    pip_executable: "{{ __pip_executable | default(omit) }}"
-  when: pip_executable is not defined
-
-- name: Define sirius packages
-  set_fact:
-    sirius_apps_hla_packages: "{{ __sirius_apps_hla_packages | list }}"
-  when: sirius_apps_hla_packages is not defined
-
-- name: Define sirius pip packages
-  set_fact:
-    sirius_apps_hla_pip_packages: "{{ __sirius_apps_hla_pip_packages | list }}"
-  when: sirius_apps_hla_pip_packages is not defined
-
-# Combine apps to install
-- name: Create list of dict apps to install
-  set_fact:
-    sirius_apps_hla: "{{ sirius_apps_hla | default([]) |
-            list + lookup('vars', item) }}"
-  with_items:
-    - "{{ sirius_apps_hla_install_categories | default([]) | list }}"
-
 - name: Default variable to empty
   set_fact:
-    sirius_apps_hla: "[]"
+    sirius_apps_hlacons: "[]"
   when:
-    - sirius_apps_hla is not defined
+    - sirius_apps_hlacons is not defined
 
 - name: Debug
   debug:
-    msg: "sirius apps to install: {{ sirius_apps_hla }}"
+    msg: "sirius apps to install: {{ sirius_apps_hlacons }}"
 
 # Include Tasks
 - include_tasks: setup-RedHat.yml
