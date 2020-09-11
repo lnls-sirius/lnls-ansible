@@ -5,8 +5,8 @@ This Ansible role install python and related packages for Sirius Light Source co
 
 ## Requirements
 
-- ansible >= 2.4
-- molecule >= 2.20
+- ansible >= 2.6
+- molecule >= 3.0
 
 ## Role Variables
 

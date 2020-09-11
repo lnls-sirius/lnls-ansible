@@ -5,8 +5,8 @@ This Ansible role clone and install repositores.
 
 ## Requirements
 
-- ansible >= 2.4
-- molecule >= 2.20
+- ansible >= 2.6
+- molecule >= 3.0
 
 ## Role Variables
 

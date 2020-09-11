@@ -5,8 +5,8 @@ This Ansible role configures some defaults Sirius High Level Applications for Si
 
 ## Requirements
 
-- ansible >= 2.4
-- molecule >= 2.20
+- ansible >= 2.6
+- molecule >= 3.0
 
 ## Role Variables
 
