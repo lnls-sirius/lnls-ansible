@@ -64,7 +64,8 @@ Tests are performed using Molecule. To run them with python virtualenv, issue:
         virtualenv env --python python3 && \
         source env/bin/activate && \
         cd lnls-ans-role-network && \
-        pip install molecule docker-py && \
+        pip install molecule testinfra
+            yamllint ansible-lint flake8 docker-py && \
         molecule test"
 ```
 
