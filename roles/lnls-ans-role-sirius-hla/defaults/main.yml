@@ -23,7 +23,7 @@ sirius_apps_hla_designer_dir: /usr/local/share/Qt/designer
 #  - name: High-Level Applications
 #    org_url: https://github.com/lnls-sirius
 #    repo_name: hla
-#    repo_version: "{{ pkg_version_siriushla }}"
+#    repo_version: master
 #    clone_path: /tmp
 #    install_chdir: pyqt-apps
 #    install_via_makefile: true
@@ -36,7 +36,7 @@ sirius_apps_hla_designer_dir: /usr/local/share/Qt/designer
 #   - name: OPIs
 #     org_url: https://gitlab.cnpem.br/FACS
 #     repo_name: linac-opi
-#     repo_version: "{{ pkg_version_linac_opi }}"
+#     repo_version: master
 #     clone_path: /tmp
 #     install_via_makefile: true
 #     make_install_target: install-default
