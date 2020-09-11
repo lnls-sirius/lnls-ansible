@@ -170,6 +170,182 @@ pkg_version_pyvisa: 1.10.1
 pkg_version_pyvisa_py: 0.3.1
 
 
+# === sirius apps packages ===
+
+# Sirius BPM tests path
+sirius_apps_bpm_tests_dir: /usr/local/share/bpm-tests
+
+# Groups of packages
+sirius_apps_dev_packages:
+
+  - name: Math Phys
+    org_url: https://github.com/lnls-fac
+    repo_name: mathphys
+    repo_version: "{{ pkg_version_mathphys }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
+  - name: Ethernet PRU-Serial 485 Application
+    org_url: https://github.com/lnls-sirius
+    repo_name: eth-bridge-pru-serial485
+    repo_version: "{{ pkg_version_ethbridge_pru_serial }}"
+    clone_path: /tmp
+    install_chdir: client
+    install_via_setup: true
+    setup_extra_args: "--no-deps"
+    setup_state: forcereinstall
+    repo_cvs: git+
+    force_version: true
+
+  - name: Development Packages
+    org_url: https://github.com/lnls-sirius
+    repo_name: dev-packages
+    repo_version: "{{ pkg_version_siriuspy }}"
+    clone_path: /tmp
+    install_chdir: siriuspy
+    install_via_makefile: true
+    force_version: true
+
+  - name: TrackC++ Package
+    org_url: https://github.com/lnls-fac
+    repo_name: trackcpp
+    repo_version: "{{ pkg_version_trackcpp }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
+  - name: LNLS Package
+    org_url: https://github.com/lnls-fac
+    repo_name: lnls
+    repo_version: "{{ pkg_version_lnls }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
+  - name: Pyaccel Package
+    org_url: https://github.com/lnls-fac
+    repo_name: pyaccel
+    repo_version: "{{ pkg_version_pyaccel }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
+  - name: Pymodels Package
+    org_url: https://github.com/lnls-fac
+    repo_name: pymodels
+    repo_version: "{{ pkg_version_pymodels }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
+  - name: ApSuite Package
+    org_url: https://github.com/lnls-fac
+    repo_name: apsuite
+    repo_version: "{{ pkg_version_apsuite }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
+
+sirius_apps_iocs:
+
+  - name: Machine Applications
+    org_url: https://github.com/lnls-sirius
+    repo_name: machine-applications
+    repo_version: "{{ pkg_version_machine_applications }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
+  - name: Linac PS IOCs
+    org_url: https://gitlab.cnpem.br/FACS
+    repo_name: linac-ioc-ps
+    repo_version: "{{ pkg_version_linac_ioc_ps }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
+sirius_apps_mgmt:
+
+  - name: Scripts
+    org_url: https://github.com/lnls-sirius
+    repo_name: scripts
+    repo_version: "{{ pkg_sirius_scripts }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    make_install_target: install-ansible
+    force_version: true
+
+  - name: BPM Scripts
+    org_url: https://github.com/lnls-dig
+    repo_name: bpm-tests
+    repo_version: "{{ pkg_version_bpm_scripts }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    make_install_target: install
+    make_install_opts:
+      INSTALL_DIR: "{{ sirius_apps_bpm_tests_dir }}"
+    force_version: true
+
+# Select which categories to install. Defaults to all
+sirius_apps_install_categories:
+  - sirius_apps_dev_packages
+  - sirius_apps_iocs
+  - sirius_apps_mgmt
+
+
+# === sirius apps HLA packages ===
+
+# Sirius Linac EDM screens
+sirius_apps_hla_li_edm_dir: /usr/local/share/edm/data
+
+# Sirius designer path
+sirius_apps_hla_designer_dir: /usr/local/share/Qt/designer
+
+# Groups of packages
+sirius_apps_hla_apps:
+
+  - name: High-Level Applications
+    org_url: https://github.com/lnls-sirius
+    repo_name: hla
+    repo_version: "{{ pkg_version_siriushla }}"
+    clone_path: /tmp
+    install_chdir: pyqt-apps
+    install_via_makefile: true
+    make_install_target: install-all
+    make_install_opts:
+      INSTALL_DESIGNER_DIR: "{{ sirius_apps_hla_designer_dir }}"
+    force_version: true
+
+  - name: High-Level Applications CONS
+    org_url: https://github.com/lnls-sirius
+    repo_name: pydm-opi
+    repo_version: "{{ pkg_version_pydm_opi }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
+sirius_apps_hla_opis:
+
+  - name: OPIs
+    org_url: https://gitlab.cnpem.br/FACS
+    repo_name: linac-opi
+    repo_version: "{{ pkg_version_linac_opi }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    make_install_target: install-default
+    make_install_opts:
+      INSTALL_EDM_DIR: "{{ sirius_apps_hla_li_edm_dir }}"
+    force_version: true
+
+
+# Select which categories to install
+sirius_apps_hla_install_categories:
+  - sirius_apps_hla_apps
+  - sirius_apps_hla_opis
+
+
 # === VNC ===
 
 # We don't care if vnc fails
