@@ -8,12 +8,10 @@
     ssh_opts: "{{ item.git_ssh_opts | default(omit) }}"
     force: "{{ item.force_version | default(false) }}"
 
-- name: "Install app at 'cons' Conda env"
-  executable: /bin/bash
-  shell: >
-      source /opt/conda/etc/profile.d/conda.sh &&
-      conda activate cons &&
-      cd "{{ item.clone_path }}/{{ item.repo_name }}" &&
-      pip install .
-
-          
+- name: "Install app at cons Conda env"
+  shell:
+      executable: /bin/bash
+      cmd: >
+          source /opt/conda/etc/profile.d/conda.sh &&
+          conda activate cons &&
+          cd "{{ item.clone_path }}/{{ item.repo_name }}" && pip install .

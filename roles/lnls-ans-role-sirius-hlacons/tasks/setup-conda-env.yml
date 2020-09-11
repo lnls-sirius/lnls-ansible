@@ -12,10 +12,11 @@
 - name: Conda dependencies
   shell:
       executable: /bin/bash
-      cmd: >
-          source /opt/conda/etc/profile.d/conda.sh &&
-          conda activate cons &&
-          conda install -y
-            qt==5.12.9
-            pyqt==5.12.3
-            pydm==1.10.
+      cmd: "source /opt/conda/etc/profile.d/conda.sh && conda activate cons && conda install -y {{ item.name }}=={{ item.version }}" 
+  with_items:
+    - "{{ sirius_apps_hlacons_conda_modules }}"
+  when:
+    - sirius_apps_hlacons_conda_modules is defined and
+      sirius_apps_hlacons_conda_modules | length > 0
+
+

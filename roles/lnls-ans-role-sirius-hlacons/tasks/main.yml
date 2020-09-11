@@ -6,16 +6,9 @@
         - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
         - '{{ ansible_distribution }}.yml'
         - '{{ ansible_os_family }}.yml'
-      ignore_errors: true
+      skipt: 'yes'
       paths:
         - '{{ role_path }}/vars'
-
-# Install repositories
-- name: Default variable to empty
-  set_fact:
-    sirius_apps_hlacons: "[]"
-  when:
-    - sirius_apps_hlacons is not defined
 
 - name: Debug
   debug:

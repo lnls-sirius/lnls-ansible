@@ -1,4 +1,14 @@
 ---
+sirius_apps_hlacons_conda_modules:
+   - name: qt
+     version: 5.12.9
+
+   - name: pyqt
+     version: 5.12.3
+
+   - name: pydm
+     version: 1.10.2
+
 # Groups of packages
 sirius_apps_hlacons:
 
