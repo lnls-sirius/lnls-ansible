@@ -4,22 +4,22 @@ __qt_install_from_src: false
 __pyqt_install_from_src: false
 
 __pyqt_dep_packages:
-  - "liblapack-dev={{ pkg_version_liblapack_dev }}"
-  - "libdbus-1-3={{ pkg_version_libdbus_1_3 }}"
-  - "libglu1-mesa-dev={{ pkg_version_libglu1_mesa_dev }}"
+  - "liblapack-dev{{ (pkg_version_liblapack_dev | length > 0) | ternary('=' + pkg_version_liblapack_dev, '') }}"
+  - "libdbus-1-3{{ (pkg_version_libdbus_1_3 | length > 0) | ternary('=' + pkg_version_libdbus_1_3, '') }}"
+  - "libglu1-mesa-dev{{ (pkg_version_libglu1_mesa_dev | length > 0) | ternary('=' + pkg_version_libglu1_mesa_dev, '') }}"
 
 __qt_distro_packages:
-  - "qt5-default={{ pkg_version_qt5_default }}"
-  - "qttools5-dev-tools={{ pkg_version_qttools5_dev_tools }}"
-  - "sip-dev={{ pkg_version_sip_dev }}"
-  - "python3-pyqt5.qtsvg={{ pkg_version_python3_pyqt5_qtsvg }}"
-  - "libqt5opengl5-dev={{ pkg_version_libqt5opengl5_dev }}"
-  - "qt5-qmake={{ pkg_version_qt5_qmake }}"
-  - "qtbase5-dev={{ pkg_version_qtbase5_dev }}"
+  - "qt5-default{{ (pkg_version_qt5_default | length > 0) | ternary('=' + pkg_version_qt5_default, '') }}"
+  - "qttools5-dev-tools{{ (pkg_version_qttools5_dev_tools | length > 0) | ternary('=' + pkg_version_qttools5_dev_tools, '') }}"
+  - "sip-dev{{ (pkg_version_sip_dev | length > 0) | ternary('=' + pkg_version_sip_dev, '') }}"
+  - "python3-pyqt5.qtsvg{{ (pkg_version_python3_pyqt5_qtsvg | length > 0) | ternary('=' + pkg_version_python3_pyqt5_qtsvg, '') }}"
+  - "libqt5opengl5-dev{{ (pkg_version_libqt5opengl5_dev | length > 0) | ternary('=' + pkg_version_libqt5opengl5_dev, '') }}"
+  - "qt5-qmake{{ (pkg_version_qt5_qmake | length > 0) | ternary('=' + pkg_version_qt5_qmake, '') }}"
+  - "qtbase5-dev{{ (pkg_version_qtbase5_dev | length > 0) | ternary('=' + pkg_version_qtbase5_dev, '') }}"
 
 __qt_pip_packages:
-  - "PyQt5=={{ pkg_version_PyQt5 }}"
-  - "PyQt5-sip=={{ pkg_version_PyQt5_sip }}"
+  - "PyQt5={{ (pkg_version_PyQt5 | length > 0) | ternary('=' + pkg_version_PyQt5, '') }}"
+  - "PyQt5-sip={{ (pkg_version_PyQt5_sip | length > 0) | ternary('=' + pkg_version_PyQt5_sip, '') }}"
 
 __python_executable: python-sirius
 

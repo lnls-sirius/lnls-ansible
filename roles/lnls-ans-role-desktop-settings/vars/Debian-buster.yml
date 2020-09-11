@@ -1,11 +1,11 @@
 ---
 __desktop_settings_packages:
-  - "xcursor-themes={{ pkg_version_xcursor_themes }}"
-  - "dmz-cursor-theme={{ pkg_version_dmz_cursor_theme }}"
-  - "dconf-cli={{ pkg_version_dconf_cli }}"
-  - "python-pip={{ pkg_version_python_pip }}"
+  - "xcursor-themes{{ (pkg_version_xcursor_themes | length > 0) | ternary('=' + pkg_version_xcursor_themes, '') }}"
+  - "dmz-cursor-theme{{ (pkg_version_dmz_cursor_theme | length > 0) | ternary('=' + pkg_version_dmz_cursor_theme, '') }}"
+  - "dconf-cli{{ (pkg_version_dconf_cli | length > 0) | ternary('=' + pkg_version_dconf_cli, '') }}"
+  - "python-pip{{ (pkg_version_python_pip | length > 0) | ternary('=' + pkg_version_python_pip, '') }}"
 
 __desktop_settings_pip_packages:
-  - "psutil=={{ pkg_version_psutil }}"
+  - "psutil={{ (pkg_version_psutil | length > 0) | ternary('=' + pkg_version_psutil, '') }}"
 
 __pip_executable: pip-sirius

@@ -1,12 +1,12 @@
 ---
 __sirius_apps_hla_packages:
-  - "edm-dev={{ pkg_version_edm_dev }}"
-  - "xpra={{ pkg_version_xpra }}"
-  - "xvfb={{ pkg_version_xvfb }}"
-  - "gnome-terminal={{ pkg_version_gnome_terminal }}"
+  - "edm-dev{{ (pkg_version_edm_dev | length > 0) | ternary('=' + pkg_version_edm_dev, '') }}"
+  - "xpra{{ (pkg_version_xpra | length > 0) | ternary('=' + pkg_version_xpra, '') }}"
+  - "xvfb{{ (pkg_version_xvfb | length > 0) | ternary('=' + pkg_version_xvfb, '') }}"
+  - "gnome-terminal{{ (pkg_version_gnome_terminal | length > 0) | ternary('=' + pkg_version_gnome_terminal, '') }}"
 
 __sirius_apps_hla_pip_packages:
-  - "QtAwesome=={{ pkg_version_qtawesome }}"
+  - "QtAwesome={{ (pkg_version_qtawesome | length > 0) | ternary('=' + pkg_version_qtawesome, '') }}"
 
 __python_executable: python-sirius
 
