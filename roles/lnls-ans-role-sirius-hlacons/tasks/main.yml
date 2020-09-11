@@ -1,0 +1,19 @@
+---
+- name: Resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      skipt: 'yes'
+      paths:
+        - '{{ role_path }}/vars'
+
+- name: Debug
+  debug:
+    msg: "sirius apps to install: {{ sirius_apps_hlacons }}"
+
+# Include Tasks
+- include_tasks: setup-conda-env.yml
+- include_tasks: setup-apps.yml
