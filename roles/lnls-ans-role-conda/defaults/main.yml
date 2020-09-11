@@ -1,17 +1,7 @@
 ---
 # General configurations
 
-# Set true is you want to pin epics_deb repositories
-apt_deb_repo_enable_pinning: true
-
-# EPICS debian configurations
-
-# Set NSLS2 EPICS main debian pacakges pin priority
-epics_deb_main_conf_pin_prio: 500
-# Set NSLS2 EPICS epics-perl pacakges pin priority.
-# Don't make this package installable as it conflicts
-# with other distributions. Use a negative value
-epics_deb_epics_perl_conf_pin_prio: -10
+apt_deb_repo_enable_pinning: false
 
 # Debian Jessie configurations
 

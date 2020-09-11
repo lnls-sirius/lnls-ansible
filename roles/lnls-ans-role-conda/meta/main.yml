@@ -1,7 +1,7 @@
 ---
 galaxy_info:
-  author: Lucas Russo
-  description: Ansible role to install epics packages
+  author: Claudio Carneiro
+  description: Ansible role to install Conda
   company: CNPEM - LNLS
   license: BSD
   min_ansible_version: 2.4
