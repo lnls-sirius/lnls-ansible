@@ -10,37 +10,6 @@ This Ansible role configures some defaults Sirius High Level Applications for Si
 
 ## Role Variables
 
-```yaml
----
-# Groups of packages
-sirius_apps_hla:
-
-  - name: High-Level Applications
-    org_url: https://github.com/lnls-sirius
-    repo_name: hla
-    repo_version: master
-    clone_path: /tmp
-    install_chdir: pyqt-apps
-    install_via_makefile: true
-
-sirius_apps_opis:
-
-  - name: OPIs
-    org_url: https://gitlab.cnpem.br/FACS
-    repo_name: linac-opi
-    repo_version: "{{ pkg_version_linac_opi }}"
-    clone_path: /tmp
-    install_via_makefile: true
-    make_install_target: install-default
-    make_install_opts:
-      INSTALL_EDM_DIR: "{{ sirius_apps_hla_li_edm_dir }}"
-    force_version: true
-
-# Select which categories to install. Defaults to all
-sirius_apps_hla_install_categories:
-  - sirius_apps_hla
-  - sirius_apps_opis
-```
 
 ## Example Playbook
 

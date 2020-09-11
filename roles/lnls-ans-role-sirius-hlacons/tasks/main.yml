@@ -10,6 +10,7 @@
       paths:
         - '{{ role_path }}/vars'
 
+# Install repositories
 - name: Default variable to empty
   set_fact:
     sirius_apps_hlacons: "[]"
@@ -21,10 +22,5 @@
     msg: "sirius apps to install: {{ sirius_apps_hlacons }}"
 
 # Include Tasks
-- include_tasks: setup-RedHat.yml
-  when: ansible_os_family == 'RedHat'
-
-- include_tasks: setup-Debian.yml
-  when: ansible_os_family == 'Debian'
-
+- include_tasks: setup-conda-env.yml
 - include_tasks: setup-apps.yml

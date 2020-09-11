@@ -2,6 +2,13 @@
 # Groups of packages
 sirius_apps_hlacons:
 
+  - name: High-Level Applications CONS - Common
+    org_url: https://github.com/lnls-sirius
+    repo_name: cons-common
+    repo_version: "{{ pkg_version_cons_common }}"
+    clone_path: /tmp
+    force_version: true
+
   - name: High-Level Applications CONS
     org_url: https://github.com/lnls-sirius
     repo_name: pydm-opi

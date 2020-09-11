@@ -1,0 +1,21 @@
+---
+- name: Conda create environment "cons" with Python 3.6.10
+  shell:
+      executable: /bin/bash
+      cmd: "source /opt/conda/etc/profile.d/conda.sh && conda create python=3.6.10 -y -p /opt/conda/envs/cons"
+
+- name: conda-forge channel to Conda environment "cons" 
+  shell:
+      executable: /bin/bash
+      cmd: "source /opt/conda/etc/profile.d/conda.sh && conda activate cons && conda config --add channels conda-forge && conda config --set channel_priority strict"
+
+- name: Conda dependencies
+  shell:
+      executable: /bin/bash
+      cmd: >
+          source /opt/conda/etc/profile.d/conda.sh &&
+          conda activate cons &&
+          conda install -y
+            qt==5.12.9
+            pyqt==5.12.3
+            pydm==1.10.
