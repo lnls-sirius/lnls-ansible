@@ -1,29 +1,14 @@
 ---
 # APT repositories
 __repository_keys:
-  - name: Debian NSLS2 key
-    url: https://epicsdeb.bnl.gov/debian/repo-key.pub
-    keyring: /etc/apt/trusted.gpg.d/nsls2-epics-debian.gpg
-
-  - name: Debian VSCode key
-    url: https://packages.microsoft.com/keys/microsoft.asc
-    keyring: /etc/apt/trusted.gpg.d/vscode-debian.gpg
+  - name: Conda key
+    url: https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc
+    keyring: /etc/apt/trusted.gpg.d/conda-archive-keyring.gpg
 
 __repository_apt:
-  - name: NSLS2 EPICS debian repository
-    baseurl: "deb https://epicsdeb.bnl.gov/debian jessie main contrib"
-    description: "NSLS-II Debian EPICS repository"
-    file: nsls2-epics-debian
+  - name: Debian Jessie Conda
+    baseurl: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/conda-archive-keyring.gpg] https://repo.anaconda.com/pkgs/misc/debrepo/conda stable main"
+    description: "Debian Jessie Conda - Repository"
+    file: conda
     state: present
 
-  - name: NSLS2 EPICS debian repository sources
-    baseurl: "deb-src https://epicsdeb.bnl.gov/debian jessie main contrib"
-    description: "NSLS-II Debian EPICS repository"
-    file: nsls2-epics-debian-src
-    state: present
-
-  - name: Debian Jessie VScode
-    baseurl: "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-    description: "Debian Jessie VScode"
-    file: debian-jessie-vscode
-    state: present
