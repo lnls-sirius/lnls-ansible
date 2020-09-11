@@ -67,3 +67,15 @@
 
 # Configure APT pinning
 - include_tasks: apt-pinning-configure.yml
+
+# Install packages
+- name: Install packages
+  apt:
+    name:
+      - "{{ item.file }}"
+    state: present
+    update_cache: true
+    allow_unauthenticated: true
+  with_items:
+    - "{{ repository_apt }}"
+  become: true

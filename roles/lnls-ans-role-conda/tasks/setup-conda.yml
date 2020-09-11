@@ -1,0 +1,16 @@
+---
+- name: Conda Update
+  shell:
+      executable: /bin/bash
+      cmd: "source /opt/conda/etc/profile.d/conda.sh && conda update -y -n base -c defaults conda"
+
+- name: Conda create environment "cons" with Python 3.6.10
+  shell:
+      executable: /bin/bash
+      cmd: "source /opt/conda/etc/profile.d/conda.sh && conda create python=3.6.10 -y -p /opt/conda/envs/cons"
+
+- name: conda-forge channel to Conda environment "cons" 
+  shell:
+      executable: /bin/bash
+      cmd: source /opt/conda/etc/profile.d/conda.sh && conda activate cons && conda config --add channels conda-forge && conda config --set channel_priority strict
+
