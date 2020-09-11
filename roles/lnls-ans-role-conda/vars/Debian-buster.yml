@@ -1,11 +1,11 @@
 ---
 # APT repositories
-__repository_keys:
+__conda_keys:
   - name: Conda key
     url: https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc
     keyring: /etc/apt/trusted.gpg.d/conda-archive-keyring.gpg
 
-__repository_apt:
+__conda_apt:
   - name: Debian Buster Conda
     baseurl: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/conda-archive-keyring.gpg] https://repo.anaconda.com/pkgs/misc/debrepo/conda stable main"
     description: "Debian Buster Conda - Repository"

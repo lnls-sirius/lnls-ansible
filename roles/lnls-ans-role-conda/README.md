@@ -3,12 +3,12 @@ LNLS Ansible Role Repository
 
 References: https://bitbucket.org/europeanspallationsource/ics-ans-role-repository
 
-This Ansible role enables the Debian NSLS-II repositories.
+This Ansible role installs Conda
 
 ## Requirements
 
-- ansible >= 2.4
-- molecule >= 2.20
+- ansible >= 2.6
+- molecule >= 3.0
 
 ## Role Variables
 
@@ -16,7 +16,7 @@ This Ansible role enables the Debian NSLS-II repositories.
 repository_installroot: "/"
 ```
 
-The `repository_installroot` variable allows to specify an alternative installroot, e.g. /export/nfsroots/debian9/rootfs
+The `conda_installroot` variable allows to specify an alternative installroot, e.g. /export/nfsroots/debian9/rootfs
 
 ## Example Playbook
 
@@ -37,7 +37,7 @@ Tests are performed using Molecule. To run them with python virtualenv, issue:
         cd ../ && \
         virtualenv env --python python3 && \
         source env/bin/activate && \
-        cd lnls-ans-role-repositories && \
+        cd lnls-ans-role-conda && \
         pip install molecule docker-py && \
         molecule test"
 ```

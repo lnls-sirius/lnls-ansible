@@ -12,13 +12,13 @@
 
 - name: Define Repository keys
   set_fact:
-    repository_keys: "{{ __repository_keys | list }}"
-  when: repository_keys is not defined
+    conda_keys: "{{ __conda_keys | list }}"
+  when: conda_keys is not defined
 
 - name: Define Repository keys
   set_fact:
-    repository_apt: "{{ __repository_apt | list }}"
-  when: repository_apt is not defined
+    conda_apt: "{{ __conda_apt | list }}"
+  when: conda_apt is not defined
 
 - name: Define APT pinning paths
   set_fact:

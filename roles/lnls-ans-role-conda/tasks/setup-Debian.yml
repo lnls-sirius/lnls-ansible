@@ -28,7 +28,7 @@
     state: present
   when: item.url is defined and item.url|length > 0
   with_items:
-    - "{{ repository_keys }}"
+    - "{{ conda_keys }}"
   become: true
   register: gpg_import_url
   until: gpg_import_url is success
@@ -42,7 +42,7 @@
     state: present
   when: item.keyserver is defined and item.keyserver|length > 0
   with_items:
-    - "{{ repository_keys }}"
+    - "{{ conda_keys }}"
   become: true
   register: gpg_import_key
   until: gpg_import_key is success
@@ -58,7 +58,7 @@
     filename: "{{ item.file }}"
     update_cache: true
   with_items:
-    - "{{ repository_apt }}"
+    - "{{ conda_apt }}"
   notify: Delete APT pinning configuration
   become: true
 
@@ -77,5 +77,5 @@
     update_cache: true
     allow_unauthenticated: true
   with_items:
-    - "{{ repository_apt }}"
+    - "{{ conda_apt }}"
   become: true
