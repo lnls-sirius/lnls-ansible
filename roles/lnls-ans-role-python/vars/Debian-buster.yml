@@ -16,7 +16,6 @@ __python_dep_packages:
   - "libgdbm-dev={{ pkg_version_libgdbm_dev }}"
   - "libc6-dev={{ pkg_version_libc6_dev }}"
   - "libbz2-dev={{ pkg_version_libbz2_dev }}"
-  
 
 __python_base_packages:
   - "python3-dev={{ pkg_version_python3_dev }}"
