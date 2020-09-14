@@ -1,4 +1,11 @@
 ---
+# Package versions for Debian. Leave empty for the latest
+pkg_version_xcursor_themes: ""
+pkg_version_dmz_cursor_theme: ""
+pkg_version_dconf_cli: ""
+pkg_version_python_pip: ""
+pkg_version_psutil: ""
+
 # Desktop cursor size
 desktop_settings_cursor_size: 48
 

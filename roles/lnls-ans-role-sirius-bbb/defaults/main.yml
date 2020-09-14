@@ -11,7 +11,7 @@ sirius_bbb_pip_packages_state: present
 sirius_bbb_install_recommends: true
 
 # Repository version
-sirius_bbb_version: "{{ pkg_version_bbb }}"
+sirius_bbb_version: master
 
 # Sirius BBB EDM screens
 sirius_bbb_edm_dir: /usr/local/share/edm/data/bbb
