@@ -2,7 +2,8 @@
 # Package versions for Debian. Leave empty for the latest
 pkg_version_libreadline_dev: ""
 
-epics7_base_version: 7.0.3
+epics7_base_version: 7.0.4.1
+epics7_base_version_name: R7.0.4.1
 epics7_base_arch: linux-x86_64
 epics7_base_url: "https://epics.anl.gov/download/base"
 epics7_base_archive: "{{ epics7_base_url }}/base-{{ epics7_base_version }}.tar.gz"
@@ -17,7 +18,7 @@ epics7_add_to_system_paths: false
 epics7_force_remove_system_paths: true
 
 # Make options
-epics7_base_make_target: -j4
+epics7_base_make_target: -j8
 
 epics7_base_make_opts:
   EPICS_HOST_ARCH: "{{ epics7_base_arch }}"

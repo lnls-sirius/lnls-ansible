@@ -22,12 +22,13 @@
       template:
         src: "{{ molecule_scenario_directory + '/' + (item.dockerfile | default( 'Dockerfile.j2')) }}"
         dest: "{{ molecule_ephemeral_directory }}/Dockerfile_{{ item.image | regex_replace('[^a-zA-Z0-9_]', '_') }}"
+        mode: preserve
       with_items: "{{ molecule_yml.platforms }}"
       when: not item.pre_build_image | default(false)
       register: platforms
 
     - name: Discover local Docker images
-      docker_image_facts:
+      docker_image_info:
         name: "molecule_local/{{ item.item.name }}"
         docker_host: "{{ item.item.docker_host | default(lookup('env', 'DOCKER_HOST') or 'unix://var/run/docker.sock') }}"
       with_items: "{{ platforms.results }}"
@@ -53,7 +54,7 @@
         name: "{{ item }}"
         docker_host: "{{ item.docker_host | default(lookup('env', 'DOCKER_HOST') or 'unix://var/run/docker.sock') }}"
         state: present
-      with_items: "{{ molecule_yml.platforms | molecule_get_docker_networks }}"
+      with_items: "{{ molecule_yml.platforms | molecule_get_docker_networks('present', molecule_labels) }}"
 
     - name: Determine the CMD directives
       set_fact:

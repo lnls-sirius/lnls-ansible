@@ -1,0 +1,5 @@
+---
+__visual_studio_packages:
+  - "libxcb-dri3-0={{ pkg_version_libxcb_dri3_0 }}"
+  - "libdrm2={{ pkg_version_libdrm2 }}"
+  - "libgbm1={{ pkg_version_libgbm1 }}"

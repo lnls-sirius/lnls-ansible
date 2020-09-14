@@ -1,0 +1,5 @@
+---
+__visual_studio_packages:
+  - libxcb-dri3
+  - libdrm
+  - mesa-libgbm
