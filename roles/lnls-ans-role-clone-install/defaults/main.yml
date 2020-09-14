@@ -1,4 +1,8 @@
 ---
+# Package versions for Debian. Leave empty for the latest
+pkg_version_git: ""
+pkg_version_make: ""
+
 # Groups of repositories to clone and install.
 # This should be set when calling the role.
 #

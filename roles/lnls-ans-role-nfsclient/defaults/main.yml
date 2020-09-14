@@ -2,6 +2,7 @@
 # Package versions for Debian. Leave empty for the latest
 pkg_version_nfs_common: ""
 pkg_version_autofs: ""
+
 nfsclient_autofs: ""
 
 # Set this to true when using this in a regular,

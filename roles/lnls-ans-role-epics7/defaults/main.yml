@@ -1,6 +1,31 @@
 ---
 # Package versions for Debian. Leave empty for the latest
+pkg_version_bzip2: ""
+pkg_version_binutils: ""
+pkg_version_git: ""
+pkg_version_re2c: ""
+pkg_version_automake: ""
+pkg_version_autoconf: ""
+pkg_version_make: ""
+pkg_version_libtool: ""
+pkg_version_curl: ""
+pkg_version_gplusplus: ""
+pkg_version_libglib2_0_0: ""
+pkg_version_libglib2_0_dev: ""
+pkg_version_uuid_dev: ""
+pkg_version_libreadline7: ""
 pkg_version_libreadline_dev: ""
+pkg_version_libusb_1_0_0_dev: ""
+pkg_version_bzip2: ""
+pkg_version_libbz2_dev: ""
+pkg_version_libxml2_dev: ""
+pkg_version_perl: ""
+pkg_version_libextutils_cchecker_perl: ""
+pkg_version_libextutils_f77_perl: ""
+pkg_version_libextutils_libbuilder_perl: ""
+pkg_version_libextutils_pkgconfig_perl: ""
+pkg_version_libextutils_xsbuilder_perl: ""
+pkg_version_libextutils_xspp_perl: ""
 
 epics7_base_version: 7.0.4.1
 epics7_base_version_name: R7.0.4.1
