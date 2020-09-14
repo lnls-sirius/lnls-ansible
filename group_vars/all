@@ -85,7 +85,6 @@ sirius_apps_bpm_tests_dir: /usr/local/share/bpm-tests
 
 # Groups of packages
 sirius_apps_dev_packages:
-
   - name: Math Phys
     org_url: https://github.com/lnls-fac
     repo_name: mathphys
@@ -157,7 +156,6 @@ sirius_apps_dev_packages:
 
 
 sirius_apps_iocs:
-
   - name: Machine Applications
     org_url: https://github.com/lnls-sirius
     repo_name: machine-applications
@@ -175,7 +173,6 @@ sirius_apps_iocs:
     force_version: true
 
 sirius_apps_mgmt:
-
   - name: Scripts
     org_url: https://github.com/lnls-sirius
     repo_name: scripts
@@ -213,7 +210,6 @@ sirius_apps_hla_designer_dir: /usr/local/share/Qt/designer
 
 # Groups of packages
 sirius_apps_hla_apps:
-
   - name: High-Level Applications
     org_url: https://github.com/lnls-sirius
     repo_name: hla
@@ -235,7 +231,6 @@ sirius_apps_hla_apps:
     force_version: true
 
 sirius_apps_hla_opis:
-
   - name: OPIs
     org_url: https://gitlab.cnpem.br/FACS
     repo_name: linac-opi
