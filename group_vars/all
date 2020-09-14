@@ -7,7 +7,7 @@ srvfile_base_url: "http://10.0.38.42/download"
 # === src packages versions ===
 
 # --- python ---
-python_install_from_src: "true"
+python_install_from_src: true
 python_src_version: "3.6.8"
 
 python_src_base_url: "{{ srvfile_base_url }}/{{ srvfile_repository }}"
@@ -15,8 +15,8 @@ python_src_download_pkg_name: "Python-{{ python_src_version }}"
 python_src_download_url: "{{ python_src_base_url }}/{{ python_src_download_pkg_name }}.tgz"
 
 # --- Qt ---
-qt_install_from_src: "false"
-pyqt_install_from_src: "false"
+qt_install_from_src: false
+pyqt_install_from_src: false
 qt_src_checksum: "md5:21c3b16f851697fa8da8009f73694373"
 qt_src_version: "5.13.1"
 pyqt_src_version: "5.13.1"
