@@ -11,4 +11,4 @@ __epics_pip_packages:
 
 __pip_executable: pip-sirius
 
-__pip2_executable: pip
+__pip2_executable: pip2
