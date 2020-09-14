@@ -135,22 +135,22 @@ deploy-servers-web: playbook-servers-web.yml
 	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
 		playbook-servers-web.yml
 
-deploy-servers-ioc: playbook-servers-ioc.yml tasks-servers-ioc.yml
+deploy-servers-ioc: playbook-servers-ioc.yml
 	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
 		playbook-servers-ioc.yml
 
-deploy-desktops: playbook-desktops.yml tasks-desktops.yml
+deploy-desktops: playbook-desktops.yml
 	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
 		playbook-desktops.yml
 
-deploy: playbook-servers-nfs.yml playbook-servers-web.yml playbook-servers-ioc.yml playbook-desktops.yml tasks-servers-ioc.yml tasks-desktops.yml
+deploy: playbook-servers-nfs.yml playbook-servers-web.yml playbook-servers-ioc.yml playbook-desktops.yml
 	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
 		playbook-servers-nfs.yml \
 		playbook-servers-web.yml \
 		playbook-servers-ioc.yml \
 		playbook-desktops.yml
 
-deploy-desktops-fac: playbook-desktops-control-room.yml tasks-desktops.yml
+deploy-desktops-fac: playbook-desktops-control-room.yml
 	ansible-playbook -u sirius -i hosts -l fac --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
 		playbook-desktops.yml
 
