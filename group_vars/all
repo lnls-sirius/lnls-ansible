@@ -85,7 +85,6 @@ pkg_version_libextutils_xsbuilder_perl: 0.28*
 pkg_version_libextutils_xspp_perl: 0.1800*
 pkg_version_gvncviewer: 0.6.0*
 pkg_version_libasound2: 1.1.3*
-pkg_version_libbz2_dev: 1.0.6*
 pkg_version_libc6_dev: 2.24*
 pkg_version_apt_setuptools: 33.1.1*
 pkg_version_wmctrl: 1.07*
