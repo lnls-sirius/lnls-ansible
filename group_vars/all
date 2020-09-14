@@ -33,9 +33,13 @@ csstudio_fonts: "{{ csstudio_base_url }}/cs-studio-fonts-{{ csstudio_fonts_versi
 csstudio_fonts_dir: "/usr/local/share/fonts/ess-{{ csstudio_fonts_version }}"
 csstudio_xulrunner: "{{ csstudio_base_url }}/xulrunner-{{ csstudio_xulrunner_version }}.en-US.linux-x86_64.tar.bz2"
 
+# --- EPICS 7 ---
 # Overrides the defaults version on EPICS7 role
 epics7_base_version: "7.0.4.1"
 epics7_base_version_name: "R7.0.4.1"
+
+epics7_base_url: "{{ srvfile_base_url }}/{{ srvfile_repository }}"
+epics7_base_archive: "{{ epics7_base_url }}/base-{{ epics7_base_version }}.tar.gz"
 
 # === sirius packages ===
 

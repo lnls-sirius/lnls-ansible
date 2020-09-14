@@ -29,8 +29,7 @@ pkg_version_libextutils_xspp_perl: ""
 epics7_base_version: 7.0.4.1
 epics7_base_version_name: R7.0.4.1
 epics7_base_arch: linux-x86_64
-# epics7_base_url: "https://epics.anl.gov/download/base"
-epics7_base_url: "{{ srvfile_base_url }}/{{ srvfile_repository }}"
+epics7_base_url: "https://epics.anl.gov/download/base"
 epics7_base_archive: "{{ epics7_base_url }}/base-{{ epics7_base_version }}.tar.gz"
 
 # Add EPICS 7 to system wide PATH variable and ldconfig (/etc/ld.so.conf.d).
