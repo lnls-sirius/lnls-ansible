@@ -150,7 +150,7 @@ deploy: playbook-servers-nfs.yml playbook-servers-web.yml playbook-servers-ioc.y
 		playbook-servers-ioc.yml \
 		playbook-desktops.yml
 
-deploy-desktops-fac: playbook-desktops-control-room.yml
+deploy-desktops-fac: playbook-desktops.yml
 	ansible-playbook -u sirius -i hosts -l fac --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
 		playbook-desktops.yml
 
