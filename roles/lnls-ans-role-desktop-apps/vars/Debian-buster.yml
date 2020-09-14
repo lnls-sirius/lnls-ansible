@@ -8,7 +8,7 @@ __desktop_packages:
   - "remmina-plugin-rdp{{ (pkg_version_remmina_plugin_rdp | length > 0) | ternary('=' + pkg_version_remmina_plugin_rdp, '') }}"
   - "remmina-plugin-secret{{ (pkg_version_remmina_plugin_secret | length > 0) | ternary('=' + pkg_version_remmina_plugin_secret, '') }}"
   - "tightvncserver{{ (pkg_version_tightvncserver | length > 0) | ternary('=' + pkg_version_tightvncserver, '') }}"
-  - "gvncviewer={{ pkg_version_gvncviewer }}*"
+  - "gvncviewer{{ (pkg_version_gvncviewer | length > 0) | ternary('=' + pkg_version_gvncviewer, '') }}"
   - "xfce4{{ (pkg_version_xfce4 | length > 0) | ternary('=' + pkg_version_xfce4, '') }}"
   - "xfce4-goodies{{ (pkg_version_xfce4_goodies | length > 0) | ternary('=' + pkg_version_xfce4_goodies, '') }}"
   - "wmctrl{{ (pkg_version_wmctrl | length > 0) | ternary('=' + pkg_version_wmctrl, '') }}"

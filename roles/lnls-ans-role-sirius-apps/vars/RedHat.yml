@@ -2,8 +2,8 @@
 __sirius_apps_packages: []
 
 __sirius_apps_pip_packages:
-  - "pyvisa={{ (pkg_version_pyvisa | length > 0) | ternary('=' + pkg_version_pyvisa, '') }}"
-  - "pyvisa-py={{ (pkg_version_pyvisa_py | length > 0) | ternary('=' + pkg_version_pyvisa_py, '') }}"
+  - "pyvisa{{ (pkg_version_pyvisa | length > 0) | ternary('==' + pkg_version_pyvisa, '') }}"
+  - "pyvisa-py{{ (pkg_version_pyvisa_py | length > 0) | ternary('==' + pkg_version_pyvisa_py, '') }}"
 
 __python_executable: python-sirius
 
