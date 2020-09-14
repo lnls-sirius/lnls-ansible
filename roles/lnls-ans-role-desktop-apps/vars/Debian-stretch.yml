@@ -32,19 +32,19 @@ __desktop_packages:
   - "ghostscript{{ (pkg_version_ghostscript | length > 0) | ternary('=' + pkg_version_ghostscript, '') }}"
 
 __desktop_pip_packages:
-  - "python-nmap={{ (pkg_version_python_nmap | length > 0) | ternary('=' + pkg_version_python_nmap, '') }}"
-  - "wakeonlan={{ (pkg_version_wakeonlan | length > 0) | ternary('=' + pkg_version_wakeonlan, '') }}"
-  - "requests={{ (pkg_version_requests | length > 0) | ternary('=' + pkg_version_requests, '') }}"
-  - "pyqtgraph={{ (pkg_version_pyqtgraph | length > 0) | ternary('=' + pkg_version_pyqtgraph, '') }}"
-  - "pandas={{ (pkg_version_pandas | length > 0) | ternary('=' + pkg_version_pandas, '') }}"
-  - "psutil={{ (pkg_version_psutil | length > 0) | ternary('=' + pkg_version_psutil, '') }}"
-  - "termcolor={{ (pkg_version_termcolor | length > 0) | ternary('=' + pkg_version_termcolor, '') }}"
-  - "sh={{ (pkg_version_sh | length > 0) | ternary('=' + pkg_version_sh, '') }}"
-  - "cairocffi={{ (pkg_version_cairocffi | length > 0) | ternary('=' + pkg_version_cairocffi, '') }}"
-  - "matplotlib={{ (pkg_version_matplotlib | length > 0) | ternary('=' + pkg_version_matplotlib, '') }}"
-  - "scipy={{ (pkg_version_scipy | length > 0) | ternary('=' + pkg_version_scipy, '') }}"
-  - "jupyter={{ (pkg_version_jupyter | length > 0) | ternary('=' + pkg_version_jupyter, '') }}"
-  - "xlrd={{ (pkg_version_xlrd | length > 0) | ternary('=' + pkg_version_xlrd, '') }}"
+  - "python-nmap{{ (pkg_version_python_nmap | length > 0) | ternary('==' + pkg_version_python_nmap, '') }}"
+  - "wakeonlan{{ (pkg_version_wakeonlan | length > 0) | ternary('==' + pkg_version_wakeonlan, '') }}"
+  - "requests{{ (pkg_version_requests | length > 0) | ternary('==' + pkg_version_requests, '') }}"
+  - "pyqtgraph{{ (pkg_version_pyqtgraph | length > 0) | ternary('==' + pkg_version_pyqtgraph, '') }}"
+  - "pandas{{ (pkg_version_pandas | length > 0) | ternary('==' + pkg_version_pandas, '') }}"
+  - "psutil{{ (pkg_version_psutil | length > 0) | ternary('==' + pkg_version_psutil, '') }}"
+  - "termcolor{{ (pkg_version_termcolor | length > 0) | ternary('==' + pkg_version_termcolor, '') }}"
+  - "sh{{ (pkg_version_sh | length > 0) | ternary('==' + pkg_version_sh, '') }}"
+  - "cairocffi{{ (pkg_version_cairocffi | length > 0) | ternary('==' + pkg_version_cairocffi, '') }}"
+  - "matplotlib{{ (pkg_version_matplotlib | length > 0) | ternary('==' + pkg_version_matplotlib, '') }}"
+  - "scipy{{ (pkg_version_scipy | length > 0) | ternary('==' + pkg_version_scipy, '') }}"
+  - "jupyter{{ (pkg_version_jupyter | length > 0) | ternary('==' + pkg_version_jupyter, '') }}"
+  - "xlrd{{ (pkg_version_xlrd | length > 0) | ternary('==' + pkg_version_xlrd, '') }}"
 
 __pip_executable: pip-sirius
 

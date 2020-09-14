@@ -6,6 +6,6 @@ __desktop_settings_packages:
   - "python-pip{{ (pkg_version_python_pip | length > 0) | ternary('=' + pkg_version_python_pip, '') }}"
 
 __desktop_settings_pip_packages:
-  - "psutil={{ (pkg_version_psutil | length > 0) | ternary('=' + pkg_version_psutil, '') }}"
+  - "psutil{{ (pkg_version_psutil | length > 0) | ternary('==' + pkg_version_psutil, '') }}"
 
 __pip_executable: pip-sirius

@@ -25,8 +25,8 @@ __qt_distro_packages:
   - "qtbase5-dev{{ (pkg_version_qtbase5_dev | length > 0) | ternary('=' + pkg_version_qtbase5_dev, '') }}"
 
 __qt_pip_packages:
-  - "PyQt5={{ (pkg_version_PyQt5 | length > 0) | ternary('=' + pkg_version_PyQt5, '') }}"
-  - "PyQt5-sip={{ (pkg_version_PyQt5_sip | length > 0) | ternary('=' + pkg_version_PyQt5_sip, '') }}"
+  - "PyQt5{{ (pkg_version_PyQt5 | length > 0) | ternary('==' + pkg_version_PyQt5, '') }}"
+  - "PyQt5-sip{{ (pkg_version_PyQt5_sip | length > 0) | ternary('==' + pkg_version_PyQt5_sip, '') }}"
 
 __python_executable: python-sirius
 
