@@ -22,6 +22,9 @@ pyqt_sip_src_version: "4.19.24"
 # Overrides the defaults version on Phoebus role
 phoebus_version: "4.6.3"
 
+phoebus_base_url: "{{ srvfile_base_url }}/{{ srvfile_repository }}"
+phoebus_archive: "{{ phoebus_base_url }}/phoebus-{{ phoebus_version }}-linux.zip"
+
 # Overrides the defaults version on CS-Studio role
 csstudio_xulrunner_version: "1.9.2.29pre"
 csstudio_fonts_version: "20180222"
