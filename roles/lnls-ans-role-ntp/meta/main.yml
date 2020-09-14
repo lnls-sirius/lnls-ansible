@@ -1,10 +1,13 @@
 ---
+dependencies: []
+
 galaxy_info:
+  role_name: ntp
   author: geerlingguy
   description: NTP installation and configuration for Linux.
   company: "Midwestern Mac, LLC"
   license: "license (BSD, MIT)"
-  min_ansible_version: 2.4
+  min_ansible_version: 2.6
   platforms:
     - name: EL
       versions:
@@ -33,5 +36,6 @@ galaxy_info:
     - date
     - time
     - timezone
-
-dependencies: []
+    - chrony
+    - chronyd
+    - synchronization

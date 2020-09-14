@@ -7,49 +7,228 @@ srvfile_base_url: "http://10.0.38.42/download"
 # === src packages versions ===
 
 # --- python ---
-python_install_from_src: true
-python_src_version: 3.6.8
+python_install_from_src: "true"
+python_src_version: "3.6.8"
 
 # --- Qt ---
-qt_install_from_src: false
-pyqt_install_from_src: false
-pkg_version_qt_src: 5.13.1
-pkg_version_qt_src_checksum: md5:21c3b16f851697fa8da8009f73694373
-pkg_version_pyqt_src: 5.13.1
-pkg_version_pyqt_sip_src: 4.19.24
+qt_install_from_src: "false"
+pyqt_install_from_src: "false"
+qt_src_checksum: "md5:21c3b16f851697fa8da8009f73694373"
+qt_src_version: "5.13.1"
+pyqt_src_version: "5.13.1"
+pyqt_sip_src_version: "4.19.24"
 
 # --- CS-Studio ---
-pkg_version_phoebus: 4.6.3
+# Overrides the defaults version on Phoebus role
+phoebus_version: "4.6.3"
 pkg_version_csstudio: 4.6.1.25
 pkg_version_csstudio_xulrunner: 1.9.2.29pre
 pkg_version_csstudio_fonts: 20180222
 
+# Overrides the defaults version on EPICS7 role
+epics7_base_version: "7.0.4.1"
+epics7_base_version_name: "R7.0.4.1"
 
 # === sirius packages ===
 
-pkg_version_ctrl_sys_consts: v1.13.0
-pkg_version_pru_serial: v1.5.0
-pkg_version_ps_firmware_c28: V0.41u2020-07-10
-pkg_version_ps_firmware_arm: V0.41u2020-07-10
-pkg_version_ethbridge_pru_serial: v2.6.0
-pkg_version_siriuspy: v2.10.0
-pkg_version_machine_applications: v3.16.0
-pkg_version_siriushla: v0.30.0
-pkg_sirius_scripts: v0.6.0
-pkg_version_pydm_opi: v1.5.5
+pkg_version_ctrl_sys_consts: "v1.13.0"
+pkg_version_pru_serial: "v1.5.0"
+pkg_version_ps_firmware_c28: "V0.41u2020-07-10"
+pkg_version_ps_firmware_arm: "V0.41u2020-07-10"
+pkg_version_ethbridge_pru_serial: "v2.6.0"
+pkg_version_siriuspy: "v2.10.0"
+pkg_version_machine_applications: "v3.16.0"
+pkg_version_siriushla: "v0.30.0"
+pkg_sirius_scripts: "v0.6.0"
+pkg_version_pydm_opi: "v1.5.5"
 
-pkg_version_mathphys: v2.0.0
-pkg_version_trackcpp: v4.1.0
-pkg_version_lnls: v1.0.0
-pkg_version_pyaccel: v3.1.1
-pkg_version_pymodels: v1.2.0
-pkg_version_apsuite: v2.8.0
+pkg_version_mathphys: "v2.0.0"
+pkg_version_trackcpp: "v4.1.0"
+pkg_version_lnls: "v1.0.0"
+pkg_version_pyaccel: "v3.1.1"
+pkg_version_pymodels: "v1.2.0"
+pkg_version_apsuite: "v2.8.0"
 
-pkg_version_linac_ioc_ps: v1.2.0
-pkg_version_linac_opi: v1.1.3
-pkg_version_bpm_scripts: master
-pkg_version_bbb: v1.1.0
-pkg_version_sirius_epics_screens: master
+pkg_version_linac_ioc_ps: "v1.2.0"
+pkg_version_linac_opi: "v1.1.3"
+pkg_version_bpm_scripts: "master"
+sirius_bbb_version: "v1.1.0"
+pkg_version_sirius_epics_screens: "master"
+
+# === sirius apps packages ===
+
+# Sirius BPM tests path
+sirius_apps_bpm_tests_dir: /usr/local/share/bpm-tests
+
+# Groups of packages
+sirius_apps_dev_packages:
+
+  - name: Math Phys
+    org_url: https://github.com/lnls-fac
+    repo_name: mathphys
+    repo_version: "{{ pkg_version_mathphys }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
+  - name: Ethernet PRU-Serial 485 Application
+    org_url: https://github.com/lnls-sirius
+    repo_name: eth-bridge-pru-serial485
+    repo_version: "{{ pkg_version_ethbridge_pru_serial }}"
+    clone_path: /tmp
+    install_chdir: client
+    install_via_setup: true
+    setup_extra_args: "--no-deps"
+    setup_state: forcereinstall
+    repo_cvs: git+
+    force_version: true
+
+  - name: Development Packages
+    org_url: https://github.com/lnls-sirius
+    repo_name: dev-packages
+    repo_version: "{{ pkg_version_siriuspy }}"
+    clone_path: /tmp
+    install_chdir: siriuspy
+    install_via_makefile: true
+    force_version: true
+
+  - name: TrackC++ Package
+    org_url: https://github.com/lnls-fac
+    repo_name: trackcpp
+    repo_version: "{{ pkg_version_trackcpp }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
+  - name: LNLS Package
+    org_url: https://github.com/lnls-fac
+    repo_name: lnls
+    repo_version: "{{ pkg_version_lnls }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
+  - name: Pyaccel Package
+    org_url: https://github.com/lnls-fac
+    repo_name: pyaccel
+    repo_version: "{{ pkg_version_pyaccel }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
+  - name: Pymodels Package
+    org_url: https://github.com/lnls-fac
+    repo_name: pymodels
+    repo_version: "{{ pkg_version_pymodels }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
+  - name: ApSuite Package
+    org_url: https://github.com/lnls-fac
+    repo_name: apsuite
+    repo_version: "{{ pkg_version_apsuite }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
+
+sirius_apps_iocs:
+
+  - name: Machine Applications
+    org_url: https://github.com/lnls-sirius
+    repo_name: machine-applications
+    repo_version: "{{ pkg_version_machine_applications }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
+  - name: Linac PS IOCs
+    org_url: https://gitlab.cnpem.br/FACS
+    repo_name: linac-ioc-ps
+    repo_version: "{{ pkg_version_linac_ioc_ps }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
+sirius_apps_mgmt:
+
+  - name: Scripts
+    org_url: https://github.com/lnls-sirius
+    repo_name: scripts
+    repo_version: "{{ pkg_sirius_scripts }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    make_install_target: install-ansible
+    force_version: true
+
+  - name: BPM Scripts
+    org_url: https://github.com/lnls-dig
+    repo_name: bpm-tests
+    repo_version: "{{ pkg_version_bpm_scripts }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    make_install_target: install
+    make_install_opts:
+      INSTALL_DIR: "{{ sirius_apps_bpm_tests_dir }}"
+    force_version: true
+
+# Select which categories to install. Defaults to all
+sirius_apps_install_categories:
+  - sirius_apps_dev_packages
+  - sirius_apps_iocs
+  - sirius_apps_mgmt
+
+
+# === sirius apps HLA packages ===
+
+# Sirius Linac EDM screens
+sirius_apps_hla_li_edm_dir: /usr/local/share/edm/data
+
+# Sirius designer path
+sirius_apps_hla_designer_dir: /usr/local/share/Qt/designer
+
+# Groups of packages
+sirius_apps_hla_apps:
+
+  - name: High-Level Applications
+    org_url: https://github.com/lnls-sirius
+    repo_name: hla
+    repo_version: "{{ pkg_version_siriushla }}"
+    clone_path: /tmp
+    install_chdir: pyqt-apps
+    install_via_makefile: true
+    make_install_target: install-all
+    make_install_opts:
+      INSTALL_DESIGNER_DIR: "{{ sirius_apps_hla_designer_dir }}"
+    force_version: true
+
+  - name: High-Level Applications CONS
+    org_url: https://github.com/lnls-sirius
+    repo_name: pydm-opi
+    repo_version: "{{ pkg_version_pydm_opi }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    force_version: true
+
+sirius_apps_hla_opis:
+
+  - name: OPIs
+    org_url: https://gitlab.cnpem.br/FACS
+    repo_name: linac-opi
+    repo_version: "{{ pkg_version_linac_opi }}"
+    clone_path: /tmp
+    install_via_makefile: true
+    make_install_target: install-default
+    make_install_opts:
+      INSTALL_EDM_DIR: "{{ sirius_apps_hla_li_edm_dir }}"
+    force_version: true
+
+
+# Select which categories to install
+sirius_apps_hla_install_categories:
+  - sirius_apps_hla_apps
+  - sirius_apps_hla_opis
 
 
 # === VNC ===

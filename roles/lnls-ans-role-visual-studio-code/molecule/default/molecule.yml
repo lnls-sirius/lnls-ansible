@@ -1,26 +1,20 @@
 ---
 dependency:
   name: galaxy
-
 driver:
   name: docker
-
-lint:
-  name: yamllint
-
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
+  flake8
 platforms:
-  - name: ansible-role-visual-studio-code-ubuntu-max
+  - name: lnls-ans-role-visual-studio-code-ubuntu-max
     image: ubuntu:18.04
-
 provisioner:
   name: ansible
-  lint:
-    name: ansible-lint
-
-scenario:
-  name: default
-
+  inventory:
+    links:
+      group_vars: ../../../../group_vars/
 verifier:
   name: testinfra
-  lint:
-    name: flake8

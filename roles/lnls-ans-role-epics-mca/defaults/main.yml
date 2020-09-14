@@ -1,4 +1,14 @@
 ---
+# Package versions for Debian. Leave empty for the latest
+pkg_version_bzip2: ""
+pkg_version_binutils: ""
+pkg_version_git: ""
+pkg_version_automake: ""
+pkg_version_autoconf: ""
+pkg_version_make: ""
+pkg_version_libtool: ""
+pkg_version_gplusplus: ""
+
 # epics_mca_core_tag:
 
 # EPICS base path
