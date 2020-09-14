@@ -1,25 +1,24 @@
 [linac_opi]
-#linac-opi1
-#linac-opi2
+linac-opi1
+linac-opi2
 
 [control_room]
-#lnls449-linux
-#lnls452-linux
-#lnls454-linux
-#lnls451-linux
+lnls449-linux
+lnls452-linux
+lnls454-linux
+lnls451-linux
 
 [control_room_nvidia_false]
-#lnls455-linux
-#lnls209-linux  # fac-desktop
+lnls455-linux
+lnls209-linux  # fac-desktop
 
 [elp]
-#10.0.38.56  # elp1-linux
+10.0.38.56  # elp1-linux
 
 [con]
-#10.0.38.84  # cons-dev-vm
-fac-testes.abtlus.org.br
-fac-testes-debian10.abtlus.org.br
-#fac-testes-la.abtlus.org.br
+10.0.38.84  # cons-dev-vm
+#fac-testes.abtlus.org.br
+#fac-testes-debian10.abtlus.org.br
 
 [fac]
 lnls560-linux  # fac-analuisa
@@ -36,13 +35,14 @@ lnls557-linux  # fac-liulin (10.0.38.44)
 
 [ioc_servers]
 #grace.lnls.br:16122
-#lnlsfac-srv1
+lnlsfac-srv1
+fac-testes-la.abtlus.org.br
 
 [nfs_servers]
-#lnlsfac-srv1
+lnlsfac-srv1
 
 [web_servers]
-#lnlsfac-srv1
+lnlsfac-srv1
 
 # === FAC IOC servers ===
 
