@@ -1,4 +1,4 @@
-LNLS Ansible Role Repository
+LNLS Ansible Role Conda
 =======================
 
 References: https://bitbucket.org/europeanspallationsource/ics-ans-role-repository
