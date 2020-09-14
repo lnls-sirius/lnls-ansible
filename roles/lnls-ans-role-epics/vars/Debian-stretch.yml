@@ -1,13 +1,7 @@
 ---
 __epics_packages:
   - epics-dev={{ pkg_version_epics_dev }}
-  - epics-perl={{ pkg_version_epics_perl }}
   - epics-pcas-dev={{ pkg_version_epics_pcas_dev }}
-  - epics-stream-dev={{ pkg_version_epics_stream_dev }}
-  - epics-asyn-dev={{ pkg_version_epics_asyn_dev }}
-  - epics-calc-dev={{ pkg_version_epics_calc_dev }}
-  - epics-autosave-dev={{ pkg_version_epics_autosave_dev }}
-  - epics-seq-dev={{ pkg_version_epics_seq_dev }}
 
 __epics_pip_packages:
   - setuptools=={{ pkg_version_setuptools }}

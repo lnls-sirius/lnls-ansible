@@ -13,6 +13,9 @@ pkg_version_pyqt_src: 5.13.1
 pkg_version_pyqt_sip_src: 4.19.24
 # Overrides the defaults version on Phoebus role
 phoebus_version: 4.6.3
+# Overrides the defaults version on EPICS7 role
+epics7_base_version: 7.0.4.1
+epics7_base_version_name: R7.0.4.1
 
 # === sirius packages ===
 
@@ -53,7 +56,6 @@ pkg_version_dconf_cli: 0.26.0*
 pkg_version_dmz_cursor_theme: 0.4.4*
 pkg_version_epics_dev: 3.15.6*
 pkg_version_epics_pcas_dev: 3.15.6*
-pkg_version_epics_perl: 3.15.6*
 pkg_version_htop: 2.0.2*
 pkg_version_ipython3: 5.1.0*
 pkg_version_gconf2: 3.2.6*
@@ -85,11 +87,6 @@ pkg_version_gvncviewer: 0.6.0*
 pkg_version_libasound2: 1.1.3*
 pkg_version_libc6_dev: 2.24*
 pkg_version_apt_setuptools: 33.1.1*
-pkg_version_epics_stream_dev: 2.8.8*
-pkg_version_epics_asyn_dev: 4.34*
-pkg_version_epics_calc_dev: 3.7.1*
-pkg_version_epics_autosave_dev: 5.9*
-pkg_version_epics_seq_dev: 2.2.6*
 pkg_version_wmctrl: 1.07*
 pkg_version_libdbus_1_3: 1.10.*
 pkg_version_libffi6: 3.2.1*
