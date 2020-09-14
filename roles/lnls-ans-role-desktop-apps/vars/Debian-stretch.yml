@@ -25,7 +25,6 @@ __desktop_packages:
   - "nmap{{ (pkg_version_nmap | length > 0) | ternary('=' + pkg_version_nmap, '') }}"
   - "sshpass{{ (pkg_version_sshpass | length > 0) | ternary('=' + pkg_version_sshpass, '') }}"
   - "wait-for-it{{ (pkg_version_wait_for_it | length > 0) | ternary('=' + pkg_version_wait_for_it, '') }}"
-  - "libgslcblas0{{ (pkg_version_libgslcblas0 | length > 0) | ternary('=' + pkg_version_libgslcblas0, '') }}"
   - "libblas-dev{{ (pkg_version_libblas_dev | length > 0) | ternary('=' + pkg_version_libblas_dev, '') }}"
   - "liblapack-dev{{ (pkg_version_liblapack_dev | length > 0) | ternary('=' + pkg_version_liblapack_dev, '') }}"
   - "libgsl-dev{{ (pkg_version_libgsl_dev | length > 0) | ternary('=' + pkg_version_libgsl_dev, '') }}"

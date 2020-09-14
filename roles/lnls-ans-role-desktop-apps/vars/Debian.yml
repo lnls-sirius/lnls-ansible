@@ -24,7 +24,6 @@ __desktop_packages:
   - nmap
   - sshpass
   - wait-for-it
-  - libgslcblas0
   - libblas-dev
   - liblapack-dev
   - libgsl-dev
