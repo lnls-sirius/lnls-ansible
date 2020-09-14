@@ -50,3 +50,4 @@ __desktop_pip_packages:
 
 __pip_executable: pip-sirius
 
+__desktop_default_release: stretch-backports
