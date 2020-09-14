@@ -2,6 +2,7 @@
 __epics_packages:
   - epics-dev
   - epics-pcas-dev
+  - python-pip
 
 __epics_pip_packages:
   - setuptools
