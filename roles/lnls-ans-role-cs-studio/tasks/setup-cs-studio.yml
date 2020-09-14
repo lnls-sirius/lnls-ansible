@@ -33,6 +33,7 @@
     remote_src: true
     owner: root
     group: root
+    mode: 0755
     creates: "{{ csstudio_directory }}"
 
 - name: Customize CSS preference settings
@@ -118,6 +119,7 @@
     remote_src: true
     owner: root
     group: root
+    mode: 0755
 
 - name: Create the CS-Studio fonts directory
   file:
@@ -144,4 +146,5 @@
     remote_src: true
     owner: root
     group: root
+    mode: 0755
   notify: Update font cache

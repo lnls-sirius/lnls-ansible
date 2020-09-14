@@ -6,6 +6,7 @@
     remote_src: true
     owner: root
     group: root
+    mode: 0755
     creates: "{{ phoebus_directory }}"
 
 - name: Overwrite Phoebus runtime settings

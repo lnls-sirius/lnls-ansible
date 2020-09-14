@@ -37,7 +37,7 @@
       when: ansible_pkg_mgr == 'apt'
 
   roles:
-    - role: ansible-role-visual-studio-code
+    - role: lnls-ans-role-visual-studio-code
       visual_studio_code_users:
         - username: test_usr
           visual_studio_code_extensions:

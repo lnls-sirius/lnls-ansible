@@ -3,6 +3,12 @@
   remote_user: sirius
   become: true
 
-  tasks:
-    - name: Include generic ioc servers tasks
-      include_tasks: tasks-servers-ioc.yml
+  roles:
+    - role: lnls-ans-role-repositories
+    - role: lnls-ans-role-users
+      when: global_repositories_role | default(true) | bool
+    - role: lnls-ans-role-ntp
+    - role: lnls-ans-role-python
+    - role: lnls-ans-role-epics
+    - role: lnls-ans-role-epics7
+    - role: lnls-ans-role-sirius-apps
