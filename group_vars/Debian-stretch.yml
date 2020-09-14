@@ -6,7 +6,6 @@ global_role_phoebus: true
 global_role_sirius_bbb: true
 global_role_octave: true
 global_role_epics_mca: true
-global_role_sirius_bbb: true
 global_role_desktop_settings: true
 global_role_visual_studio_code: true
 
