@@ -10,6 +10,10 @@ srvfile_base_url: "http://10.0.38.42/download"
 python_install_from_src: "true"
 python_src_version: "3.6.8"
 
+python_src_base_url: "{{ srvfile_base_url }}/{{ srvfile_repository }}"
+python_src_download_pkg_name: "Python-{{ python_src_version }}"
+python_src_download_url: "{{ python_src_base_url }}/{{ python_src_download_pkg_name }}.tgz"
+
 # --- Qt ---
 qt_install_from_src: "false"
 pyqt_install_from_src: "false"
