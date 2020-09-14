@@ -1,10 +1,10 @@
 ---
 __epics_mca_packages:
-  - "bzip2={{ pkg_version_bzip2 }}"
-  - "binutils={{ pkg_version_binutils }}"
-  - "git={{ pkg_version_git }}"
-  - "automake={{ pkg_version_automake }}"
-  - "autoconf={{ pkg_version_autoconf }}"
-  - "make={{ pkg_version_make }}"
-  - "libtool={{ pkg_version_libtool }}"
-  - "g++={{ pkg_version_gplusplus }}"
+  - "bzip2{{ (pkg_version_bzip2 | length > 0) | ternary('=' + pkg_version_bzip2, '') }}"
+  - "binutils{{ (pkg_version_binutils | length > 0) | ternary('=' + pkg_version_binutils, '') }}"
+  - "git{{ (pkg_version_git | length > 0) | ternary('=' + pkg_version_git, '') }}"
+  - "automake{{ (pkg_version_automake | length > 0) | ternary('=' + pkg_version_automake, '') }}"
+  - "autoconf{{ (pkg_version_autoconf | length > 0) | ternary('=' + pkg_version_autoconf, '') }}"
+  - "make{{ (pkg_version_make | length > 0) | ternary('=' + pkg_version_make, '') }}"
+  - "libtool{{ (pkg_version_libtool | length > 0) | ternary('=' + pkg_version_libtool, '') }}"
+  - "g++{{ (pkg_version_gplusplus | length > 0) | ternary('=' + pkg_version_gplusplus, '') }}"

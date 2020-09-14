@@ -1,4 +1,7 @@
 ---
+# Package versions for Debian. Leave empty for the latest
+pkg_version_ntp: ""
+
 ntp_enabled: true
 ntp_timezone: America/Sao_Paulo
 
