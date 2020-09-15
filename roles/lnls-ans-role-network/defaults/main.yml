@@ -4,6 +4,7 @@ pkg_version_network_manager: ""
 pkg_version_python_dbus: ""
 pkg_version_python3_dbus: ""
 pkg_version_libnm_glib_dev: ""
+pkg_version_libnm0: ""
 
 # Package versions for Fedora-like. Leave empty for the latest
 pkg_version_network_manager_glib: ""
