@@ -1,5 +1,13 @@
 ---
 - name: Converge
   hosts: all
+
+  pre_tasks:
+    - name: Include molecule overrides
+      include_vars: "{{ lookup('first_found', possible_var_files) }}"
+      vars:
+        possible_var_files:
+          - "../../../../group_vars/molecule_overrides.yml"
+
   roles:
     - role: lnls-ans-role-epics7
