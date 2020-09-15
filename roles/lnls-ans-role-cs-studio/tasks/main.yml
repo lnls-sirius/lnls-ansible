@@ -40,6 +40,14 @@
     csstudio_deb_java_hold_packages: "{{ __csstudio_deb_java_hold_packages | default ([]) }}"
   when: csstudio_deb_java_hold_packages is not defined
 
+- name: Debug
+  debug:
+    msg: "csstudio_base_url: {{ csstudio_base_url }}"
+
+- name: Debug
+  debug:
+    msg: "pkg_version_ntp: {{ pkg_version_ntp }}"
+
 # Setup/install tasks
 - include_tasks: setup-Debian.yml
   when:

@@ -9,5 +9,14 @@
         possible_var_files:
           - "../../../../group_vars/molecule_overrides.yml"
 
+    - name: Include distribution-dependent variables
+      include_vars: "{{ lookup('first_found', possible_var_files) }}"
+      vars:
+        possible_var_files:
+          - "../../../../group_vars/{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml"
+          - "../../../../group_vars/{{ ansible_distribution }}.yml"
+          - "../../../../group_vars/{{ ansible_os_family }}.yml"
+          - "../../../../group_vars/all"
+
   roles:
     - role: lnls-ans-role-epics7
