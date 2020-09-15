@@ -13,6 +13,11 @@ provisioner:
       group_vars: ../../../../group_vars/
     group_vars:
       default_group:
+  options:
+    extra-vars:
+      csstudio_repository: production
+      csstudio_base_url: "https://artifactory.esss.lu.se/artifactory/CS-Studio/{{ csstudio_repository }}"
+      csstudio_archive: "{{ csstudio_base_url }}/cs-studio-ess-{{ csstudio_version }}-linux.gtk.x86_64.tar.gz"
 verifier:
   name: testinfra
   options:
