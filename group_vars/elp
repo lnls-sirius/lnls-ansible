@@ -6,8 +6,9 @@ sirius_apps_install_categories:
   - sirius_apps_mgmt
 
 sirius_apps_hla_install_categories:
-  - sirius_apps_hla
-  - sirius_apps_opis
+  - sirius_apps_hla_apps
+  - sirius_apps_hla_opis
+
 
 # Desktop cursor size
 desktop_settings_cursor_size: 24
@@ -19,10 +20,10 @@ global_import_nvidia_driver_role: false
 global_network_role: false
 
 # Run phoebus Role
-global_phoebus_role: false
+global_role_phoebus: false
 
 # Run respositories Role
-global_repositories_role: false
+global_role_users: false
 
 # Run Visual Studio Role
 global_visual_studio_role: false

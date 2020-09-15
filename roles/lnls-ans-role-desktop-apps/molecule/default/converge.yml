@@ -6,5 +6,21 @@
     desktop_vnc_passwd_create: false
     desktop_vnc_ignore_systemd_errors: true
 
+  pre_tasks:
+    - name: Include molecule overrides
+      include_vars: "{{ lookup('first_found', possible_var_files) }}"
+      vars:
+        possible_var_files:
+          - "../../../../group_vars/molecule_overrides.yml"
+
+    - name: Include distribution-dependent variables
+      include_vars: "{{ lookup('first_found', possible_var_files) }}"
+      vars:
+        possible_var_files:
+          - "../../../../group_vars/{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml"
+          - "../../../../group_vars/{{ ansible_distribution }}.yml"
+          - "../../../../group_vars/{{ ansible_os_family }}.yml"
+          - "../../../../group_vars/all"
+
   roles:
     - role: lnls-ans-role-desktop-apps
