@@ -1,10 +1,5 @@
 ---
 - name: Converge
   hosts: all
-
-  vars:
-    phoebus_base_url: "https://controlssoftware.sns.ornl.gov/css_phoebus"
-    phoebus_archive: "{{ phoebus_base_url }}/phoebus-{{ phoebus_version }}-linux.zip"
-
   roles:
     - role: lnls-ans-role-phoebus

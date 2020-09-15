@@ -1,10 +1,5 @@
 ---
 - name: Converge
   hosts: all
-
-  vars:
-    csstudio_base_url: "https://artifactory.esss.lu.se/artifactory/CS-Studio"
-    csstudio_archive: "{{ csstudio_base_url }}/cs-studio-ess-{{ csstudio_version }}-linux.gtk.x86_64.tar.gz"
-
   roles:
     - role: lnls-ans-role-cs-studio
