@@ -4,7 +4,7 @@ __python_install_from_src: true
 
 __basic_packages:
   - "git{{ (pkg_version_git | length > 0) | ternary('=' + pkg_version_git, '') }}"
-  - build-essential={{ pkg_version_build_essential }}
+  - "build-essential{{ (pkg_version_build_essential | length > 0) | ternary('=' + pkg_version_build_essential, '') }}"
 
 __python_dep_packages:
   - "libreadline5{{ (pkg_version_libreadline5 | length > 0) | ternary('=' + pkg_version_libreadline5, '') }}"

@@ -1,5 +1,10 @@
 ---
 - name: Converge
   hosts: all
+
+  vars:
+    qt_src_remote_script: "qt-opensource-linux-x64-{{ qt_src_version }}.run"
+    qt_src_download_url: "https://download.qt.io/archive/qt/{{ qt_src_version_reduced }}/{{ qt_src_version }}/{{ qt_src_remote_script }}"
+
   roles:
     - role: lnls-ans-role-qt

@@ -65,19 +65,24 @@
     python_version: "{{ python_src_version | default('3.5') }}"
   when: python_version is not defined
 
+- name: Default Python short version
+  set_fact:
+    python_version_short: "{{ python_version|regex_replace('(\\d+\\.\\d+)\\..*$', '\\1') }}"
+  when: python_version_short is not defined
+
 - name: Default Python source variables
   set_fact:
-    python_exec: "python{{ python_version|regex_replace('(\\d+\\.\\d+)\\..*$', '\\1') }}"
+    python_exec: "python{{ python_version_short }}"
   when: python_exec is not defined
 
 - name: Default PIP source variables
   set_fact:
-    pip_exec: "pip{{ python_version|regex_replace('(\\d+\\.\\d+)\\..*$', '\\1') }}"
+    pip_exec: "pip{{ python_version_short }}"
   when: pip_exec is not defined
 
 - name: Default Python config source variables
   set_fact:
-    python_config_exec: "python{{ python_version|regex_replace('(\\d+\\.\\d+)\\..*$', '\\1') }}-config"
+    python_config_exec: "python{{ python_version_short }}-config"
   when: python_config_exec is not defined
 
 - name: Define Python install form source
@@ -137,3 +142,13 @@
 
 - include_tasks: setup-python.yml
   when: ansible_os_family == 'Debian'
+
+- name: Update ldconfig
+  shell: ldconfig
+  changed_when: false
+
+- name: Create symbolic link to include/numpy
+  file:
+    src: "/usr/local/lib/python{{ python_version_short }}/site-packages/numpy/core/include/numpy"
+    dest: "/usr/include/numpy"
+    state: link
