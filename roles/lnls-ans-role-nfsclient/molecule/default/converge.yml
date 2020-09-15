@@ -7,5 +7,12 @@
     nfs_server_control_opi: 127.0.0.1
     nfs_ignore_systemd_errors: true
 
+  pre_tasks:
+    - name: Include molecule overrides
+      include_vars: "{{ lookup('first_found', possible_var_files) }}"
+      vars:
+        possible_var_files:
+          - "../../../../group_vars/molecule_overrides.yml"
+
   roles:
     - role: lnls-ans-role-nfsclient
