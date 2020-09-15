@@ -24,4 +24,4 @@ epics7_base_archive: "{{ epics7_base_url }}/base-{{ epics7_base_version }}.tar.g
 # === Phoebus ===
 
 phoebus_base_url: "https://controlssoftware.sns.ornl.gov/css_phoebus"
-phoebus_archive: "{{ phoebus_base_url }}/phoebus-{{ phoebus_version }}-linux.zip"
+phoebus_archive: "{{ phoebus_base_url }}/phoebus-linux.zip"
