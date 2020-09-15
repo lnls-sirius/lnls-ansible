@@ -13,6 +13,10 @@ provisioner:
       group_vars: ../../../../group_vars/
     group_vars:
       default_group:
+  options:
+    extra-vars:
+      epics7_base_url: "https://epics.anl.gov/download/base"
+      epics7_base_archive: "{{ epics7_base_url }}/base-{{ epics7_base_version }}.tar.gz"
 verifier:
   name: testinfra
   options:
