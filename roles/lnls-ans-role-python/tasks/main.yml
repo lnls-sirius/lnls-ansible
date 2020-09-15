@@ -144,7 +144,7 @@
   when: ansible_os_family == 'Debian'
 
 - name: Update ldconfig
-  shell: ldconfig
+  command: ldconfig
   changed_when: false
 
 - name: Create symbolic link to include/numpy
