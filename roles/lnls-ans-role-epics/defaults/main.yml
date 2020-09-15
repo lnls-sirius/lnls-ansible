@@ -1,5 +1,6 @@
 ---
 # Package versions for Debian. Leave empty for the latest
+pkg_version_python_pip: ""
 pkg_version_epics_dev: ""
 pkg_version_epics_pcas_dev: ""
 pkg_version_setuptools: ""
