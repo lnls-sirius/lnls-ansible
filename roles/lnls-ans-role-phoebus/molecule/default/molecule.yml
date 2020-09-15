@@ -13,10 +13,6 @@ provisioner:
       group_vars: ../../../../group_vars/
     group_vars:
       default_group:
-  options:
-    extra-vars:
-      phoebus_base_url: "https://controlssoftware.sns.ornl.gov/css_phoebus"
-      phoebus_archive: "{{ phoebus_base_url }}/phoebus-{{ phoebus_version }}-linux.zip"
 verifier:
   name: testinfra
   options:

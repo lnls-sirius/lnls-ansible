@@ -2,5 +2,9 @@
 - name: Converge
   hosts: all
 
+  vars:
+    python_src_download_pkg_name: "Python-{{ python_src_version }}"
+    python_src_download_url: "https://www.python.org/ftp/python/{{ python_src_version }}/{{ python_src_download_pkg_name }}.tgz"
+
   roles:
     - role: lnls-ans-role-python
