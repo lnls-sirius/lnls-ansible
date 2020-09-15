@@ -25,12 +25,13 @@ make deploy-linac-opi-desktops
 
   pre_tasks:
     - name: Include distribution-dependent variables
-      include_vars: "{{ lookup('first_found', possible_var_files, errors='ignore') }}"
+      include_vars: "{{ item }}"
       vars:
         possible_var_files:
           - "group_vars/{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml"
           - "group_vars/{{ ansible_distribution }}.yml"
           - "group_vars/{{ ansible_os_family }}.yml"
+      loop: "{{ q('first_found', possible_var_files, errors='ignore') }}"
 
   roles:
     - role: lnls-ans-role-repositories
