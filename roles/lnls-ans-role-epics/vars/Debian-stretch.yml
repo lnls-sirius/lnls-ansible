@@ -5,9 +5,9 @@ __epics_packages:
   - "python-pip{{ (pkg_version_python_pip | length > 0) | ternary('=' + pkg_version_python_pip, '') }}"
 
 __epics_pip_packages:
-  - "setuptools={{ (pkg_version_setuptools | length > 0) | ternary('==' + pkg_version_setuptools, '') }}"
-  - "pyepics={{ (pkg_version_pyepics | length > 0) | ternary('==' + pkg_version_pyepics, '') }}"
-  - "pcaspy={{ (pkg_version_pcaspy | length > 0) | ternary('==' + pkg_version_pcaspy, '') }}"
+  - "setuptools{{ (pkg_version_setuptools | length > 0) | ternary('==' + pkg_version_setuptools, '') }}"
+  - "pyepics{{ (pkg_version_pyepics | length > 0) | ternary('==' + pkg_version_pyepics, '') }}"
+  - "pcaspy{{ (pkg_version_pcaspy | length > 0) | ternary('==' + pkg_version_pcaspy, '') }}"
 
 __pip_executable: pip-sirius
 
