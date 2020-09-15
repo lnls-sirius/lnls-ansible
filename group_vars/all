@@ -15,16 +15,17 @@ python_src_download_pkg_name: "Python-{{ python_src_version }}"
 python_src_download_url: "{{ python_src_base_url }}/{{ python_src_download_pkg_name }}.tgz"
 
 # --- Qt ---
-qt_install_from_src: false
-pyqt_install_from_src: false
+qt_install_from_src: true
+pyqt_install_from_src: true
 qt_src_checksum: "md5:21c3b16f851697fa8da8009f73694373"
 qt_src_version: "5.13.1"
 pyqt_src_version: "5.13.1"
 pyqt_sip_src_version: "4.19.24"
 
 qt_src_base_url: "{{ srvfile_base_url }}/{{ srvfile_repository }}"
+
 qt_src_remote_script: "qt-opensource-linux-x64-{{ qt_src_version }}.run"
-qt_src_download_url: "{{ qt_src_base_url }}/{{ qt_src_version }}/{{ qt_src_remote_script }}"
+qt_src_download_url: "{{ qt_src_base_url }}/{{ qt_src_remote_script }}"
 
 # --- CS-Studio ---
 # Overrides the defaults version on Phoebus role

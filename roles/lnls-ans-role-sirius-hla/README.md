@@ -38,8 +38,9 @@ sirius_apps_opis:
 
 # Select which categories to install. Defaults to all
 sirius_apps_hla_install_categories:
-  - sirius_apps_hla
-  - sirius_apps_opis
+  - sirius_apps_hla_apps
+  - sirius_apps_hla_opis
+
 ```
 
 ## Example Playbook
