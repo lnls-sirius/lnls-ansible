@@ -47,4 +47,4 @@
     - role: lnls-ans-role-desktop-settings
       when: global_role_desktop_settings | default(true) | bool
     - role: lnls-ans-role-visual-studio-code
-      when: global_role_visual_studio | default(true) | bool
+      when: global_role_visual_studio | default(false) | bool
