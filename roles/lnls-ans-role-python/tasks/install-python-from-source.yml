@@ -7,6 +7,7 @@
     owner: root
     group: root
     creates: "{{ python_src_dir_path }}"
+    mode: 0755
   notify: "Install Python from source"
 
 - name: Force handlers to run at this point

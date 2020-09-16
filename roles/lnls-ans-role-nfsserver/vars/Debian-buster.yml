@@ -1,3 +1,3 @@
 ---
 __nfs_server_packages:
-  - "nfs-kernel-server={{ pkg_version_nfs_kernel_server }}"
+  - "nfs-kernel-server{{ (pkg_version_nfs_kernel_server | length > 0) | ternary('=' + pkg_version_nfs_kernel_server, '') }}"

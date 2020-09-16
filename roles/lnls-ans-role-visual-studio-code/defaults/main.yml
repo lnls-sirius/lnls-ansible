@@ -1,4 +1,7 @@
 ---
+pkg_version_libgtk2_0_0: ""
+pkg_version_libxss1: ""
+
 # Visual Studio Code version number (defaults to the latest version)
 visual_studio_code_version: ''
 

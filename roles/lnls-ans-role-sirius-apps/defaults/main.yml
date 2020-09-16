@@ -1,4 +1,16 @@
 ---
+# Package versions for Debian. Leave empty for the latest
+pkg_version_epics_extensions_dev: ""
+pkg_version_winswitch: ""
+pkg_version_bc: ""
+pkg_version_libgsl2: ""
+pkg_version_libblas_dev: ""
+pkg_version_liblapack_dev: ""
+pkg_version_libgsl_dev: ""
+pkg_version_pyvisa: ""
+pkg_version_pyvisa_py: ""
+pkg_version_rsync: ""
+
 # package state; use 'present' to make sure it's installed, or 'latest' if
 # you want to upgrade or switch versions using a new repo.
 sirius_apps_packages_state: present
@@ -14,123 +26,38 @@ sirius_apps_install_recommends: true
 sirius_apps_bpm_tests_dir: /usr/local/share/bpm-tests
 
 # Groups of packages
-sirius_apps_dev_packages:
+# Example
+#
+# sirius_apps_packages_group_1:
+#   - name: Math Phys
+#     org_url: https://github.com/lnls-fac
+#     repo_name: mathphys
+#     repo_version: master
+#     clone_path: /tmp
+#     install_via_makefile: true
+#     force_version: true
+#
+# sirius_apps_packages_group_2:
+#   - name: Machine Applications
+#     org_url: https://github.com/lnls-sirius
+#     repo_name: machine-applications
+#     repo_version: master
+#     clone_path: /tmp
+#     install_via_makefile: true
+#     force_version: true
+#
+# sirius_apps_install_categories:
+#   - sirius_apps_packages_group_1
+#   - sirius_apps_packages_group_2
+#
+sirius_apps_packages_group_1: []
 
-  - name: Math Phys
-    org_url: https://github.com/lnls-fac
-    repo_name: mathphys
-    repo_version: "{{ pkg_version_mathphys }}"
-    clone_path: /tmp
-    install_via_makefile: true
-    force_version: true
+sirius_apps_packages_group_2: []
 
-  - name: Ethernet PRU-Serial 485 Application
-    org_url: https://github.com/lnls-sirius
-    repo_name: eth-bridge-pru-serial485
-    repo_version: "{{ pkg_version_ethbridge_pru_serial }}"
-    clone_path: /tmp
-    install_chdir: client
-    install_via_setup: true
-    setup_extra_args: "--no-deps"
-    setup_state: forcereinstall
-    repo_cvs: git+
-    force_version: true
-
-  - name: Development Packages
-    org_url: https://github.com/lnls-sirius
-    repo_name: dev-packages
-    repo_version: "{{ pkg_version_siriuspy }}"
-    clone_path: /tmp
-    install_chdir: siriuspy
-    install_via_makefile: true
-    force_version: true
-
-  - name: TrackC++ Package
-    org_url: https://github.com/lnls-fac
-    repo_name: trackcpp
-    repo_version: "{{ pkg_version_trackcpp }}"
-    clone_path: /tmp
-    install_via_makefile: true
-    force_version: true
-
-  - name: LNLS Package
-    org_url: https://github.com/lnls-fac
-    repo_name: lnls
-    repo_version: "{{ pkg_version_lnls }}"
-    clone_path: /tmp
-    install_via_makefile: true
-    force_version: true
-
-  - name: Pyaccel Package
-    org_url: https://github.com/lnls-fac
-    repo_name: pyaccel
-    repo_version: "{{ pkg_version_pyaccel }}"
-    clone_path: /tmp
-    install_via_makefile: true
-    force_version: true
-
-  - name: Pymodels Package
-    org_url: https://github.com/lnls-fac
-    repo_name: pymodels
-    repo_version: "{{ pkg_version_pymodels }}"
-    clone_path: /tmp
-    install_via_makefile: true
-    force_version: true
-
-  - name: ApSuite Package
-    org_url: https://github.com/lnls-fac
-    repo_name: apsuite
-    repo_version: "{{ pkg_version_apsuite }}"
-    clone_path: /tmp
-    install_via_makefile: true
-    force_version: true
-
-
-sirius_apps_iocs:
-
-  - name: Machine Applications
-    org_url: https://github.com/lnls-sirius
-    repo_name: machine-applications
-    repo_version: "{{ pkg_version_machine_applications }}"
-    clone_path: /tmp
-    install_via_makefile: true
-    force_version: true
-
-  - name: Linac PS IOCs
-    org_url: https://gitlab.cnpem.br/FACS
-    repo_name: linac-ioc-ps
-    repo_version: "{{ pkg_version_linac_ioc_ps }}"
-    clone_path: /tmp
-    install_via_makefile: true
-    force_version: true
-
-sirius_apps_mgmt:
-
-  - name: Scripts
-    org_url: https://github.com/lnls-sirius
-    repo_name: scripts
-    repo_version: "{{ pkg_sirius_scripts }}"
-    clone_path: /tmp
-    install_via_makefile: true
-    make_install_target: install-ansible
-    force_version: true
-
-  - name: BPM Scripts
-    org_url: https://github.com/lnls-dig
-    repo_name: bpm-tests
-    repo_version: "{{ pkg_version_bpm_scripts }}"
-    clone_path: /tmp
-    install_via_makefile: true
-    make_install_target: install
-    make_install_opts:
-      INSTALL_DIR: "{{ sirius_apps_bpm_tests_dir }}"
-    force_version: true
-
-# Select which categories to install. Defaults to all
+# Select which categories to install
 sirius_apps_install_categories:
-  - sirius_apps_dev_packages
-  - sirius_apps_iocs
-  - sirius_apps_mgmt
+  - sirius_apps_packages_group_1
+  - sirius_apps_packages_group_2
 
 sirius_apps_config_files:
   - name: Sirius Apps environment variables

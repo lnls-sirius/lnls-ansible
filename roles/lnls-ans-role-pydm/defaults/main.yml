@@ -1,4 +1,7 @@
 ---
+# Package versions for Debian. Leave empty for the latest
+pkg_version_timechart: ""
+
 # Whether to install recommended packages. Used only for Debian/Ubuntu.
 pydm_recommended_apps_pip_install: true
 

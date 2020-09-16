@@ -7,8 +7,8 @@ This Ansible role install Java packages.
 
 ## Requirements
 
-- ansible >= 2.4
-- molecule >= 2.20
+- ansible >= 2.6
+- molecule >= 3.0
 
 ## Role Variables
 
@@ -33,7 +33,7 @@ Set the default Java home
   become: true
   tasks:
   - import_role:
-      name: '{{playbook_dir}}'
+      name: "{{ playbook_dir }}"
 
 ```
 
@@ -47,7 +47,8 @@ Tests are performed using Molecule. To run them with python virtualenv, issue:
         virtualenv env --python python3 && \
         source env/bin/activate && \
         cd lnls-ans-role-epics && \
-        pip install molecule docker-py && \
+        pip install molecule testinfra
+            yamllint ansible-lint flake8 docker-py && \
         molecule test"
 ```
 

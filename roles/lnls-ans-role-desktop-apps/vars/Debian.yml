@@ -11,7 +11,6 @@ __desktop_packages:
   - gvncviewer
   - xfce4
   - xfce4-goodies
-  - wmctrl
   - cups
   - ca-certificates
   - gconf2
@@ -25,7 +24,8 @@ __desktop_packages:
   - nmap
   - sshpass
   - wait-for-it
-  - libgsl23
+  - libblas-dev
+  - liblapack-dev
   - libgsl-dev
   - texlive-latex-recommended
   - dvipng

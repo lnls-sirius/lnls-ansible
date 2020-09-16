@@ -1,4 +1,8 @@
 ---
+# Package versions for Debian. Leave empty for the latest
+pkg_version_git: ""
+pkg_version_make: ""
+
 # Groups of repositories to clone and install.
 # This should be set when calling the role.
 #
@@ -10,13 +14,13 @@
 #  - name: High-Level Applications
 #    org_url: https://github.com/lnls-sirius
 #    repo_name: hla
-#    repo_version: "{{ pkg_version_hla | default(master) }}"
+#    repo_version: master
 #    clone_path: /tmp
 #    install_chdir: pyqt-apps
 #    install_via_makefile: true
 #    make_install_target: install-all
 #    make_install_opts:
-#      INSTALL_DESIGNER_DIR: "{{ sirius_apps_hla_designer_dir }}"
+#      INSTALL_DESIGNER_DIR: "/usr/local/share/Qt/designer"
 #    force_version: true
 #
 clone_install_repos: []

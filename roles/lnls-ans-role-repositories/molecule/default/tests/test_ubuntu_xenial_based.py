@@ -8,7 +8,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 @pytest.mark.parametrize('repo', [
-    'https://epicsdeb.bnl.gov/debian stretch/staging/main',
+    'https://epicsdeb.bnl.gov/debian stretch/main',
     'http://deb.debian.org/debian stretch/main',
     'http://security.debian.org/debian-security stretch/updates/main'
 ])
@@ -24,6 +24,6 @@ def test_repos(host, repo):
     ('epics-perl', 'none')
 ])
 def test_pkg_pin(host, pkg_pin):
-    cmd = host.run('apt-cache policy %s | grep "Candidate:" | sed -e \'s/Candidate://g\''.format(pkg_pin[0]))
+    cmd = host.run('apt-cache policy {0} | grep "Candidate:" | sed -e \'s/Candidate://g\''.format(pkg_pin[0]))
 
     assert pkg_pin[1] in cmd.stdout

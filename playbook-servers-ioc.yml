@@ -3,6 +3,22 @@
   remote_user: sirius
   become: true
 
-  tasks:
-    - name: Include generic ioc servers tasks
-      include_tasks: tasks-servers-ioc.yml
+  pre_tasks:
+    - name: Include distribution-dependent variables
+      include_vars: "{{ item }}"
+      vars:
+        possible_var_files:
+          - "group_vars/{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml"
+          - "group_vars/{{ ansible_distribution }}.yml"
+          - "group_vars/{{ ansible_os_family }}.yml"
+      loop: "{{ q('first_found', possible_var_files, errors='ignore') }}"
+
+  roles:
+    - role: lnls-ans-role-repositories
+    - role: lnls-ans-role-users
+      when: global_repositories_role | default(true) | bool
+    - role: lnls-ans-role-ntp
+    - role: lnls-ans-role-python
+    - role: lnls-ans-role-epics
+    - role: lnls-ans-role-epics7
+    - role: lnls-ans-role-sirius-apps

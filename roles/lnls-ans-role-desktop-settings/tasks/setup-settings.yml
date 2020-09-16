@@ -30,7 +30,8 @@
 # https://github.com/ansible/ansible/issues/23530
 - name: Set localuser for ansible, workaround for 23530 github issue
   set_fact:
-    localuser: "{{ ansible_user }}"
+    localuser: "{{ ansible_ssh_user | default(ansible_env.SUDO_USER, true) |
+        default(ansible_env.USER, true) | default(ansible_user_id) }}"
 
 - name: Ensure cursor size is set go DConf
   dconf:

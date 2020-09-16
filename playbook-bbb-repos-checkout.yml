@@ -2,6 +2,17 @@
 - hosts: bbb
   remote_user: fac
   become: true
+
+  pre_tasks:
+    - name: Include distribution-dependent variables
+      include_vars: "{{ item }}"
+      vars:
+        possible_var_files:
+          - "group_vars/{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml"
+          - "group_vars/{{ ansible_distribution }}.yml"
+          - "group_vars/{{ ansible_os_family }}.yml"
+      loop: "{{ q('first_found', possible_var_files, errors='ignore') }}"
+
   tasks:
     - name: Check out eth-bridge-pru-serial485
       git:
