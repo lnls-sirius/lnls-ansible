@@ -2,6 +2,9 @@
 # Package versions for Debian. Leave empty for the latest
 pkg_version_timechart: ""
 
+# PyDM version
+pkg_version_pydm: ""
+
 # Whether to install recommended packages. Used only for Debian/Ubuntu.
 pydm_recommended_apps_pip_install: true
 
