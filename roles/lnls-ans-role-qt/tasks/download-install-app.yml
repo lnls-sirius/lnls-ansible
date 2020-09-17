@@ -30,8 +30,10 @@
   command: "{{ item.cfg_command }}"
   args:
     chdir: "{{ item.src_dir }}"
-  when:
-    - download_item_result.changed
+  when: >-
+    download_item_result.changed or
+      (item.cfg_force is defined and
+      item.cfg_force | bool)
 
 - name: "Build {{ item.name }} via Makefile"
   make:
