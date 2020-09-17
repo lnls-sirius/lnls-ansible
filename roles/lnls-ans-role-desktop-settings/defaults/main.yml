@@ -1,5 +1,6 @@
 ---
 # Package versions for Debian. Leave empty for the latest
+pkg_version_x11_common: ""
 pkg_version_xcursor_themes: ""
 pkg_version_dmz_cursor_theme: ""
 pkg_version_dconf_cli: ""
