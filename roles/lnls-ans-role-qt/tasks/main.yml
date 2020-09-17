@@ -30,16 +30,16 @@
     qt_pip_packages: "{{ __qt_pip_packages | list }}"
   when: qt_pip_packages is not defined
 
-- name: Define QT install from source
+- name: Define Qt install from source
   set_fact:
     qt_install_from_src: "{{ __qt_install_from_src | default(false) }}"
   when: qt_install_from_src is not defined
 
-- name: Define QT version reduced
+- name: Define Qt version reduced
   set_fact:
     qt_src_version_reduced: "{{ qt_src_version | regex_replace('(\\d+\\.\\d+).*$', '\\1') }}"
 
-- name: Define QT version noninteractive
+- name: Define Qt version noninteractive
   set_fact:
     qt_src_version_noninteractive: "{{ qt_src_version | regex_replace('(\\d+)\\.(\\d+)\\.(\\d+).*$', '\\1\\2\\3') }}"
 

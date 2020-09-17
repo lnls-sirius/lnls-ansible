@@ -111,7 +111,7 @@ pyqt_src_dir: "{{ pyqt_src_dir_path }}/{{ pyqt_src_dir_name }}"
 #############################
 
 pyqt_apps:
-  - name: "PyQT SIP"
+  - name: "PyQt SIP"
     download_url: "{{ pyqt_sip_src_download_url }}"
     src_dir_path: "{{ pyqt_sip_src_dir_path }}"
     src_dir: "{{ pyqt_sip_src_dir }}"
@@ -123,7 +123,7 @@ pyqt_apps:
     make_install_target: install
     make_install_opts: {}
 
-  - name: "PyQT"
+  - name: "PyQt"
     download_url: "{{ pyqt_src_download_url }}"
     src_dir_path: "{{ pyqt_src_dir_path }}"
     src_dir: "{{ pyqt_src_dir }}"

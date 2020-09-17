@@ -1,4 +1,4 @@
-LNLS Ansible Role QT
+LNLS Ansible Role Qt
 =======================
 
 This Ansible role configures some defaults Qt configurations for Sirius Light Source control machines.
