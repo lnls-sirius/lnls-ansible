@@ -11,7 +11,7 @@ sirius_bbb_pip_packages_state: present
 sirius_bbb_install_recommends: true
 
 # Repository version
-pkg_version_sirius_bbb: master
+sirius_bbb_version: master
 
 # Sirius BBB EDM screens
 sirius_bbb_edm_dir: /usr/local/share/edm/data/bbb
@@ -31,7 +31,7 @@ sirius_bbb_opis:
   - name: OPIs
     org_url: https://gitlab.cnpem.br/DIG
     repo_name: bbb-igp12-sw
-    repo_version: "{{ pkg_version_sirius_bbb | default(master) }}"
+    repo_version: "{{ sirius_bbb_version | default(master) }}"
     clone_path: /tmp
     install_via_makefile: true
     make_install_target: install
