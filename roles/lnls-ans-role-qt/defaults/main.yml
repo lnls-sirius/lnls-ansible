@@ -118,6 +118,7 @@ pyqt_apps:
     cfg_command: >-
       {{ python_executable }} configure.py
       --sip-module=PyQt5.sip
+    cfg_force: true
     make_build_target: -j4
     make_build_opts: {}
     make_install_target: install
@@ -135,6 +136,7 @@ pyqt_apps:
         --qml-plugindir={{ qt_src_plugin_dir }}/PyQt5
         --confirm-license
         --assume-shared
+    cfg_force: false
     make_build_target: -j4
     make_build_opts: {}
     make_install_target: install
