@@ -15,6 +15,7 @@ __qt_dep_packages:
   - "libfreetype6-dev{{ (pkg_version_libfreetype6_dev | length > 0) | ternary('=' + pkg_version_libfreetype6_dev, '') }}"
   - "libfontconfig1{{ (pkg_version_libfontconfig1 | length > 0) | ternary('=' + pkg_version_libfontconfig1, '') }}"
   - "libxkbcommon-dev{{ (pkg_version_libxkbcommon_dev | length > 0) | ternary('=' + pkg_version_libxkbcommon_dev, '') }}"
+  - "libxkbcommon-x11-dev{{ (pkg_version_libxkbcommon_x11_dev | length > 0) | ternary('=' + pkg_version_libxkbcommon_x11_dev, '') }}"
 
 __qt_distro_packages:
   - "qt5-default{{ (pkg_version_qt5_default | length > 0) | ternary('=' + pkg_version_qt5_default, '') }}"

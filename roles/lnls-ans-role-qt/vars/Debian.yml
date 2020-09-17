@@ -15,6 +15,7 @@ __qt_dep_packages:
   - libfreetype6-dev
   - libfontconfig1
   - libxkbcommon-dev
+  - libxkbcommon-x11-dev
 
 __qt_distro_packages:
   - qt5-default
