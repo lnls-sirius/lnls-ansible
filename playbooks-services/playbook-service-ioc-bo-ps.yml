@@ -6,6 +6,8 @@
     role_to_run: lnls-ans-role-ctrl-service
 
     services_to_run_fams:
+      - sirius-ioc-bo-ps-dipole-1-dclink.service
+      - sirius-ioc-bo-ps-dipole-2-dclink.service
       - sirius-ioc-bo-ps-dipole-1.service
       - sirius-ioc-bo-ps-dipole-2.service
       - sirius-ioc-bo-ps-quadrupole-qd.service
