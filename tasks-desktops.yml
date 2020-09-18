@@ -28,8 +28,12 @@
     name: lnls-ans-role-java
 - import_role:
     name: lnls-ans-role-cs-studio
-- import_role:
-    name: lnls-ans-role-conda
+#- import_role:
+#    name: lnls-ans-role-conda
+#  when: global_conda_role | default(false) | bool
+#- import_role:
+#    name: lnls-ans-role-sirius-hlacons
+#  when: global_lnlscon_role | default(false) | bool
 - import_role:
     name: lnls-ans-role-pydm
 - import_role:

@@ -15,21 +15,13 @@
     conda_keys: "{{ __conda_keys | list }}"
   when: conda_keys is not defined
 
-- name: Define Repository keys
+- name: Define packages
   set_fact:
     conda_apt: "{{ __conda_apt | list }}"
   when: conda_apt is not defined
 
-- name: Define APT pinning paths
-  set_fact:
-    apt_pinning_paths: "{{ __apt_pinning_paths | default([]) }}"
-  when: apt_pinning_paths is not defined
-
 # Setup
 - include_tasks: setup-Debian.yml
   when:
-    - ansible_os_family == 'Debian'
-
-# Setup Conda
-- include_tasks: setup-conda.yml
+    - ansible_os_family == 'Debian' or ansible_os_family == 'Ubuntu'
 

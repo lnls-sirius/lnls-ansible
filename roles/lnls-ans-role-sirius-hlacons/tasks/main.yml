@@ -1,19 +1,53 @@
 ---
-- name: Resolve platform specific vars
-  include_vars: '{{ item }}'
-  with_first_found:
-    - files:
-        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
-        - '{{ ansible_distribution }}.yml'
-        - '{{ ansible_os_family }}.yml'
-      skipt: 'yes'
-      paths:
-        - '{{ role_path }}/vars'
+- name: Create cons environment
+  conda:
+    name: python
+    version: "3.8"
+    environment: /opt/conda/envs/cons
+    state: present
+    executable: /opt/conda/bin/conda
 
-- name: Debug
-  debug:
-    msg: "sirius apps to install: {{ sirius_apps_hlacons }}"
+- name: Install conda dependencies
+  conda:
+    name:
+      - "{{ item.name }}=={{ item.version }}"
+    channels: conda-forge
+    environment: /opt/conda/envs/cons
+    state: present
+    executable: /opt/conda/bin/conda
+  with_items:
+    - "{{ sirius_apps_hlacons_conda_packages }}"
 
-# Include Tasks
-- include_tasks: setup-conda-env.yml
-- include_tasks: setup-apps.yml
+
+## This is not working as excepted when using molecule,
+# shell module is not indepotent and pip is not doing a good job
+# when installing inside conda!
+
+#- name: Clone and install applications inside cons conda environment
+#  shell:
+#    executable: /bin/bash
+#    cmd: |
+#      set -e
+#      source /opt/conda/etc/profile.d/conda.sh
+#      conda activate cons
+#      pip install {{ item.name }}=={{ item.version }}
+#      exit 0
+#  with_items:
+#    - "{{ sirius_apps_hlacons_pip_packages }}"
+#
+#
+#
+
+- name: Check for setuptools
+  pip:
+    name: "setuptools"
+    state: present
+
+- name: Clone and install pip packages within cons conda environment
+  pip:
+    name: "{{ item.name }}=={{ item.version }}"
+    state: present
+    executable: "/opt/conda/envs/cons/bin/pip"
+  with_items:
+    - "{{ sirius_apps_hlacons_pip_packages }}"
+

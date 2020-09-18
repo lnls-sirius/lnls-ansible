@@ -1,35 +1,37 @@
 ---
 dependency:
   name: galaxy
-lint:
-  name: yamllint
 provisioner:
   name: ansible
-  lint:
-    name: ansible-lint
-    options:
-      x: ["ANSIBLE0016"]
+  lint: |
+    set -e
+    yamllint .
+    ansible-lint
+    flake8
   inventory:
+    links:
+      group_vars: ../../../../group_vars/
     group_vars:
       default_group:
-scenario:
-  name: default
+      debian_buster_based:
+      debian_stretch_based:
 verifier:
   name: testinfra
   options:
     verbose: true
-  lint:
-    name: flake8
 driver:
   name: docker
 platforms:
-  - name: lnls-ans-role-sirius-hlacons-instance
-    image: "${MOLECULE_DISTRO:-debian:stretch}"
-    command: ${MOLECULE_DOCKER_COMMAND:-'bash -c "while true; do sleep 10000; done"'}
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    privileged: true
-    pre_build_image: true
+  - name: lnls-ans-role-hlacons-debian-stretch
+    image: debian:stretch
     groups:
+      - debian_stretch_based
       - default_group
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
+  - name: lnls-ans-role-hlacons-debian-buster
+    image: debian:buster
+    groups:
+      - debian_buster_based
+      - default_group
+    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
+

@@ -18,7 +18,7 @@ This Ansible role configures some defaults Sirius High Level Applications for Si
 - hosts: all
   tasks:
   - import_role:
-      name: '{{playbook_dir}}'
+      name: '{{ playbook_dir }}'
 ```
 
 ## Example Commmand

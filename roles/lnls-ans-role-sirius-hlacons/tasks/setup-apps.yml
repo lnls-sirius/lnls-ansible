@@ -1,9 +1,0 @@
----
-- name: Clone and Install Applications inside cons Conda env
-  include_tasks: clone-install-app.yml
-  with_items:
-    - "{{ sirius_apps_hlacons }}"
-  when:
-    - sirius_apps_hlacons is defined and
-      sirius_apps_hlacons | length > 0
-
