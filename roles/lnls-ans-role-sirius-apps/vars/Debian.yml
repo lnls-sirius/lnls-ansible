@@ -9,6 +9,10 @@ __sirius_apps_packages:
   - liblapack-dev
   - libgsl-dev
 
+__sirius_apps_pip_packages: 
+  - pyvisa
+  - pyvisa-py
+
 __python_executable: python-sirius
 
 __pip_executable: pip-sirius

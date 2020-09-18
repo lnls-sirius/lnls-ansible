@@ -1,6 +1,10 @@
 ---
 __sirius_apps_packages: []
 
+__sirius_apps_pip_packages:
+  - "pyvisa=={{ pkg_version_pyvisa }}"
+  - "pyvisa-py=={{ pkg_version_pyvisa_py }}"
+
 __python_executable: python-sirius
 
 __pip_executable: pip-sirius
