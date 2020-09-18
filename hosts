@@ -145,22 +145,16 @@ ioc_ps_srv
 # 	OTH:
 # 	GEN:
 
-# --- current config 2020-07-11 ---
-# In this proposal, FBP and non-FBP PS IOCs run in separated
-# hosts. This is necessary so that two versions of siriuspy
-# maybe installed, since this is required for two versions
-# of installed UDC firmware.
-#
-# !!! THIS WORKAROUND IS TEMPORARY !!!
+# --- current config 2020-09-18 ---
 #
 # lnls451-linux
 # 	FBP:
 # 	OTH: as_ps_dclinks, bo_ps_fams, si_ps_fams
-# 	GEN: as_ti, as_ap, li_ps, bo_ps_diags
+# 	GEN: as_ti, as_ap, bo_ps_diags
 # lnls449-linux:
 # 	FBP: si_ps_trims_m12
 # 	OTH:
-# 	GEN: as_ap_sofb, li_ps_conv
+# 	GEN: as_ap_sofb
 # lnlsfac-srv1:
 # 	FBP: si_ps_corrs, si_ap_sofb
 # 	OTH:
@@ -180,7 +174,7 @@ ioc_ps_srv
 # fac-testes-la.abtlus.org.br:
 # 	FBP: tb_ps_quad, tb_ps_corrs, ts_ps_corrs
 # 	OTH: tb_ps_dips, ts_ps_fams
-# 	GEN: tb_ps_diags, ts_ps_diags
+# 	GEN: tb_ps_diags, ts_ps_diags, li_ps, li_ps_conv
 
 
 # --- AS
