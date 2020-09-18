@@ -25,7 +25,7 @@ The `conda_installroot` variable allows to specify an alternative installroot, e
 - hosts: all
   tasks:
   - import_role:
-      name: '{{playbook_dir}}'
+      name: '{{ playbook_dir }}'
 ```
 
 ## Tests

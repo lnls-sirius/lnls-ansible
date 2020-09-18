@@ -1,6 +1,0 @@
----
-- name: Conda Update
-  shell:
-      executable: /bin/bash
-      cmd: "source /opt/conda/etc/profile.d/conda.sh && conda update -y -n base -c defaults conda"
-

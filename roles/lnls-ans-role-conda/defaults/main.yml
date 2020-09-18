@@ -1,5 +1,2 @@
 ---
-# General configurations
-
-apt_deb_repo_enable_pinning: false
 
