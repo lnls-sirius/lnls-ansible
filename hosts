@@ -127,24 +127,6 @@ ioc_ps_srv
 
 # === server host selection ===
 
-# --- previous config ---
-# lnls451-linux
-# 	FBP: tb_ps_quad, tb_ps_corrs, bo_ps_corrs, ts_ps_corrs
-# 	OTH: as_ps_dclinks, tb_ps_dips, bo_ps_fams, ts_ps_fams, si_ps_fams
-# 	GEN: as_ti, as_ap, li_ps, tb_ps_diags, bo_ps_diags, ts_ps_diags
-# lnls449-linux:
-# 	FBP: si_ps_trims_m12
-# 	OTH:
-# 	GEN: as_ap_sofb, li_ps_conv
-# lnlsfac-srv1:
-# 	FBP: si_ps_corrs
-# 	OTH:
-# 	GEN: as_pu_conv, si_ps_diags
-# lnls454-linux
-# 	FBP: si_ps_trims_c1234
-# 	OTH:
-# 	GEN:
-
 # --- current config 2020-09-18 ---
 #
 # lnls451-linux
