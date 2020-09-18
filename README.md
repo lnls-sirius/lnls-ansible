@@ -2,6 +2,7 @@ LNLS Ansible
 =======================
 
 [![Build Status](https://travis-ci.org/lnls-sirius/lnls-ansible.svg)](https://travis-ci.org/lnls-sirius/lnls-ansible)
+[![Ansible Lint](https://github.com/lnls-sirius/lnls-ansible/workflows/Ansible%20Lint/badge.svg)](https://github.com/lnls-sirius/lnls-ansible/actions?query=workflow%3A%22Ansible+Lint%22)
 
 This Ansible roles/playbooks for Sirius Light Source control machines.
 
