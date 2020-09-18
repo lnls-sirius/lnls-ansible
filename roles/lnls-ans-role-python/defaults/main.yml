@@ -64,7 +64,7 @@ python_src_dir_path: "{{ python_src_dir }}/{{ python_src_download_pkg_name }}"
 
 python_src_configure_opts: --enable-shared --with-ensurepip=install
 
-python_src_build_target: -j4
+python_src_build_target: "-j{{ ansible_processor_vcpus | default(8) }}"
 
 # python_src_make_build_opts:
 

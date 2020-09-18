@@ -42,7 +42,7 @@ epics7_add_to_system_paths: false
 epics7_force_remove_system_paths: true
 
 # Make options
-epics7_base_make_target: -j8
+epics7_base_make_target: "-j{{ ansible_processor_vcpus | default(8) }}"
 
 epics7_base_make_opts:
   EPICS_HOST_ARCH: "{{ epics7_base_arch }}"
