@@ -1,19 +1,52 @@
 ---
-- name: Resolve platform specific vars
-  include_vars: '{{ item }}'
-  with_first_found:
-    - files:
-        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
-        - '{{ ansible_distribution }}.yml'
-        - '{{ ansible_os_family }}.yml'
-      skipt: 'yes'
-      paths:
-        - '{{ role_path }}/vars'
+- name: Remove previous cons environment
+  conda:
+    name: python
+    environment: cons
+    state: absent
+    executable: /opt/conda/bin/conda
 
-- name: Debug
-  debug:
-    msg: "sirius apps to install: {{ sirius_apps_hlacons }}"
+- name: Remove environment folder
+  file:
+    path: /opt/conda/envs/cons
+    state: absent
 
-# Include Tasks
-- include_tasks: setup-conda-env.yml
-- include_tasks: setup-apps.yml
+- name: Update conda
+  conda:
+    name: conda
+    state: latest
+    environment: cons
+    executable: /opt/conda/bin/conda
+
+- name: Create cons environment
+  conda:
+    name: python
+    version: "3.8"
+    environment: cons
+    state: present
+    executable: /opt/conda/bin/conda
+
+- name: Install conda dependencies
+  conda:
+    name:
+      - "{{ item.name }}=={{ item.version }}"
+    channels: conda-forge
+    environment: cons
+    state: present
+    executable: /opt/conda/bin/conda
+  with_items:
+    - "{{ sirius_apps_hlacons_conda_packages }}"
+
+- name: Clone and install applications inside cons conda environment
+  shell:
+      executable: /bin/bash
+      cmd: |
+          set -e
+          source /opt/conda/etc/profile.d/conda.sh
+          conda activate cons
+          pip --version
+          python --version
+          pip install {{ item.name }}=={{ item.version }}
+          exit 0
+  with_items:
+    - "{{ sirius_apps_hlacons_pip_packages }}"

@@ -1,28 +1,15 @@
 ---
-sirius_apps_hlacons_conda_modules:
-   - name: qt
-     version: 5.12.9
+sirius_apps_hlacons_conda_packages:
+  - name: qt
+    version: 5.12.9
 
-   - name: pyqt
-     version: 5.12.3
+  - name: pyqt
+    version: 5.12.3
 
-   - name: pydm
-     version: 1.10.2
+  - name: pydm
+    version: 1.10.4
 
-# Groups of packages
-sirius_apps_hlacons:
-
-  - name: High-Level Applications CONS - Common
-    org_url: https://github.com/lnls-sirius
-    repo_name: cons-common
-    repo_version: "{{ pkg_version_cons_common }}"
-    clone_path: /tmp
-    force_version: true
-
-  - name: High-Level Applications CONS
-    org_url: https://github.com/lnls-sirius
-    repo_name: pydm-opi
-    repo_version: "{{ pkg_version_pydm_opi }}"
-    clone_path: /tmp
-    force_version: true
-
+sirius_apps_hlacons_pip_packages:
+  - desc: High-Level Applications CONS - Common
+    name: siriushlacon
+    version: 2.0.2
