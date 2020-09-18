@@ -24,7 +24,6 @@ pkg_version_siriuspy: v2.10.0
 pkg_version_machine_applications: v3.16.0
 pkg_version_siriushla: v0.30.0
 pkg_sirius_scripts: v0.6.0
-pkg_version_cons_common: v0.0.8
 pkg_version_pydm_opi: v1.5.7
 
 pkg_version_mathphys: v2.0.0
