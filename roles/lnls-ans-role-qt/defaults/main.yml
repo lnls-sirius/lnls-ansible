@@ -121,7 +121,7 @@ pyqt_apps:
       {{ python_executable }} configure.py
       --sip-module=PyQt5.sip
     cfg_force: true
-    make_build_target: -j4
+    make_build_target: "-j{{ ansible_processor_vcpus | default(8) }}"
     make_build_opts: {}
     make_install_target: install
     make_install_opts: {}
@@ -139,7 +139,7 @@ pyqt_apps:
         --confirm-license
         --assume-shared
     cfg_force: false
-    make_build_target: -j4
+    make_build_target: "-j{{ ansible_processor_vcpus | default(8) }}"
     make_build_opts: {}
     make_install_target: install
     make_install_opts: {}
