@@ -2,7 +2,7 @@
 __sirius_apps_packages:
   # Still not available
   # - "epics-extensions-dev{{ (pkg_version_epics_extensions_dev | length > 0) | ternary('=' + pkg_version_epics_extensions_dev, '') }}"
-  - "winswitch{{ (pkg_version_winswitch | length > 0) | ternary('=' + pkg_version_winswitch, '') }}"
+  # - "winswitch{{ (pkg_version_winswitch | length > 0) | ternary('=' + pkg_version_winswitch, '') }}"
   - "bc{{ (pkg_version_bc | length > 0) | ternary('=' + pkg_version_bc, '') }}"
   - "libblas-dev{{ (pkg_version_libblas_dev | length > 0) | ternary('=' + pkg_version_libblas_dev, '') }}"
   - "liblapack-dev{{ (pkg_version_liblapack_dev | length > 0) | ternary('=' + pkg_version_liblapack_dev, '') }}"
