@@ -1,28 +1,9 @@
 ---
-- name: Remove previous cons environment
-  conda:
-    name: python
-    environment: cons
-    state: absent
-    executable: /opt/conda/bin/conda
-
-- name: Remove environment folder
-  file:
-    path: /opt/conda/envs/cons
-    state: absent
-
-- name: Update conda
-  conda:
-    name: conda
-    state: latest
-    environment: cons
-    executable: /opt/conda/bin/conda
-
 - name: Create cons environment
   conda:
     name: python
     version: "3.8"
-    environment: cons
+    environment: /opt/conda/envs/cons
     state: present
     executable: /opt/conda/bin/conda
 
@@ -31,22 +12,42 @@
     name:
       - "{{ item.name }}=={{ item.version }}"
     channels: conda-forge
-    environment: cons
+    environment: /opt/conda/envs/cons
     state: present
     executable: /opt/conda/bin/conda
   with_items:
     - "{{ sirius_apps_hlacons_conda_packages }}"
 
-- name: Clone and install applications inside cons conda environment
-  shell:
-      executable: /bin/bash
-      cmd: |
-          set -e
-          source /opt/conda/etc/profile.d/conda.sh
-          conda activate cons
-          pip --version
-          python --version
-          pip install {{ item.name }}=={{ item.version }}
-          exit 0
+
+## This is not working as excepted when using molecule,
+# shell module is not indepotent and pip is not doing a good job
+# when installing inside conda!
+
+#- name: Clone and install applications inside cons conda environment
+#  shell:
+#    executable: /bin/bash
+#    cmd: |
+#      set -e
+#      source /opt/conda/etc/profile.d/conda.sh
+#      conda activate cons
+#      pip install {{ item.name }}=={{ item.version }}
+#      exit 0
+#  with_items:
+#    - "{{ sirius_apps_hlacons_pip_packages }}"
+#
+#
+#
+
+- name: Check for setuptools
+  pip:
+    name: "setuptools"
+    state: present
+
+- name: Clone and install pip packages within cons conda environment
+  pip:
+    name: "{{ item.name }}=={{ item.version }}"
+    state: present
+    executable: "/opt/conda/envs/cons/bin/pip"
   with_items:
     - "{{ sirius_apps_hlacons_pip_packages }}"
+
