@@ -91,9 +91,6 @@ ioc_ps_srv
 [ioc_bo_ps_fams_srv:children]
 ioc_ps_srv
 
-[ioc_bo_ps_fams2_srv:children]
-ioc_ps_srv
-
 [ioc_bo_ps_corrs_srv:children]
 ioc_ps_srv
 
@@ -185,22 +182,22 @@ lnls452-linux
 # --- LI
 
 [ioc_li_ps_spect_srv:vars]
-ioc_li_ps_spect_srv_host=lnls451-linux
+ioc_li_ps_spect_srv_host=fac-testes-la.abtlus.org.br
 
 [ioc_li_ps_quads_srv:vars]
-ioc_li_ps_quads_srv_host=lnls451-linux
+ioc_li_ps_quads_srv_host=fac-testes-la.abtlus.org.br
 
 [ioc_li_ps_corrs_srv:vars]
-ioc_li_ps_corrs_srv_host=lnls451-linux
+ioc_li_ps_corrs_srv_host=fac-testes-la.abtlus.org.br
 
 [ioc_li_ps_lens_srv:vars]
-ioc_li_ps_lens_srv_host=lnls451-linux
+ioc_li_ps_lens_srv_host=fac-testes-la.abtlus.org.br
 
 [ioc_li_ps_solenoids_srv:vars]
-ioc_li_ps_solenoids_srv_host=lnls451-linux
+ioc_li_ps_solenoids_srv_host=fac-testes-la.abtlus.org.br
 
 [ioc_li_ps_conv_srv:vars]
-ioc_li_ps_conv_srv_host=lnls449-linux
+ioc_li_ps_conv_srv_host=fac-testes-la.abtlus.org.br
 
 # --- TB
 
@@ -220,9 +217,6 @@ ioc_tb_ps_diags_srv_host=fac-testes-la.abtlus.org.br
 
 [ioc_bo_ps_fams_srv:vars]
 ioc_bo_ps_fams_srv_host=lnls451-linux
-
-[ioc_bo_ps_fams2_srv:vars]
-ioc_bo_ps_fams2_srv_host=lnls561-linux
 
 [ioc_bo_ps_corrs_srv:vars]
 ioc_bo_ps_corrs_srv_host=lnls454-linux
