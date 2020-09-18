@@ -8,3 +8,4 @@
     async: 0
     poll: 0
     ignore_errors: yes
+    changed_when: false
