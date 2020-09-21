@@ -1,53 +1,42 @@
 ---
+- name: Define conda executable
+  set_fact:
+    sirius_apps_conda_executable: "{{ conda_executable | default('/opt/conda/bin/conda') }}"
+
 - name: Create cons environment
   conda:
     name: python
     version: "3.8"
-    environment: /opt/conda/envs/cons
+    environment: "{{ sirius_apps_hlacons_conda_environment_path }}"
     state: present
-    executable: /opt/conda/bin/conda
+    executable: "{{ sirius_apps_conda_executable }}"
 
 - name: Install conda dependencies
   conda:
     name:
       - "{{ item.name }}=={{ item.version }}"
     channels: conda-forge
-    environment: /opt/conda/envs/cons
+    environment: "{{ sirius_apps_hlacons_conda_environment_path }}"
     state: present
-    executable: /opt/conda/bin/conda
+    executable: "{{ sirius_apps_conda_executable }}"
   with_items:
     - "{{ sirius_apps_hlacons_conda_packages }}"
 
-
-## This is not working as excepted when using molecule,
-# shell module is not indepotent and pip is not doing a good job
-# when installing inside conda!
-
-#- name: Clone and install applications inside cons conda environment
-#  shell:
-#    executable: /bin/bash
-#    cmd: |
-#      set -e
-#      source /opt/conda/etc/profile.d/conda.sh
-#      conda activate cons
-#      pip install {{ item.name }}=={{ item.version }}
-#      exit 0
-#  with_items:
-#    - "{{ sirius_apps_hlacons_pip_packages }}"
-#
-#
-#
-
-- name: Check for setuptools
-  pip:
-    name: "setuptools"
-    state: present
-
-- name: Clone and install pip packages within cons conda environment
-  pip:
-    name: "{{ item.name }}=={{ item.version }}"
-    state: present
-    executable: "/opt/conda/envs/cons/bin/pip"
+- name: Clone and install applications inside cons conda environment
+  shell:
+    executable: /bin/bash
+    cmd: |
+      set -e
+      {{ sirius_apps_conda_executable }} run -p {{ sirius_apps_hlacons_conda_environment_path }}  pip install {{ item.name }}=={{ item.version }}
+      exit 0
   with_items:
     - "{{ sirius_apps_hlacons_pip_packages }}"
+
+- name: Create siriushlacon shell executables
+  template:
+    src: siriushlacon.j2
+    dest: "/usr/bin/{{ item }}.sh"
+    mode: 0552
+  with_items:
+      - "{{ sirius_apps_hlacons_executables }}"
 
