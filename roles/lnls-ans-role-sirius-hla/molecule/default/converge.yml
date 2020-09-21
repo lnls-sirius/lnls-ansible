@@ -6,8 +6,7 @@
     # Select which categories to install. Remove
     # OPI categoty as it's a private repo
     sirius_apps_hla_install_categories:
-      - sirius_apps_hla
-      - sirius_apps_opis
+      - sirius_apps_hla_apps
 
   pre_tasks:
     - name: Include molecule overrides

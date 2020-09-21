@@ -1,4 +1,4 @@
-LNLS Ansible Role QT
+LNLS Ansible Role Qt
 =======================
 
 This Ansible role configures some defaults Qt configurations for Sirius Light Source control machines.
@@ -36,7 +36,7 @@ Tests are performed using Molecule. To run them with python virtualenv, issue:
         virtualenv env --python python3 && \
         source env/bin/activate && \
         cd lnls-ans-role-users && \
-        pip install molecule testinfra
+        pip install molecule testinfra \
             yamllint ansible-lint flake8 docker-py && \
         molecule test"
 ```

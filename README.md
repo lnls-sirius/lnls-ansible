@@ -2,6 +2,7 @@ LNLS Ansible
 =======================
 
 [![Build Status](https://travis-ci.org/lnls-sirius/lnls-ansible.svg)](https://travis-ci.org/lnls-sirius/lnls-ansible)
+[![Ansible Lint](https://github.com/lnls-sirius/lnls-ansible/workflows/Ansible%20Lint/badge.svg)](https://github.com/lnls-sirius/lnls-ansible/actions?query=workflow%3A%22Ansible+Lint%22)
 
 This Ansible roles/playbooks for Sirius Light Source control machines.
 
@@ -25,12 +26,13 @@ make deploy-linac-opi-desktops
 
   pre_tasks:
     - name: Include distribution-dependent variables
-      include_vars: "{{ lookup('first_found', possible_var_files, errors='ignore') }}"
+      include_vars: "{{ item }}"
       vars:
         possible_var_files:
           - "group_vars/{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml"
           - "group_vars/{{ ansible_distribution }}.yml"
           - "group_vars/{{ ansible_os_family }}.yml"
+      loop: "{{ q('first_found', possible_var_files, errors='ignore') }}"
 
   roles:
     - role: lnls-ans-role-repositories

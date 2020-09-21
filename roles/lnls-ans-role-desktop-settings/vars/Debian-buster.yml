@@ -1,5 +1,6 @@
 ---
 __desktop_settings_packages:
+  - "x11-common{{ (pkg_version_x11_common | length > 0) | ternary('=' + pkg_version_x11_common, '') }}"
   - "xcursor-themes{{ (pkg_version_xcursor_themes | length > 0) | ternary('=' + pkg_version_xcursor_themes, '') }}"
   - "dmz-cursor-theme{{ (pkg_version_dmz_cursor_theme | length > 0) | ternary('=' + pkg_version_dmz_cursor_theme, '') }}"
   - "dconf-cli{{ (pkg_version_dconf_cli | length > 0) | ternary('=' + pkg_version_dconf_cli, '') }}"

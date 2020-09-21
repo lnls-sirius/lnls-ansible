@@ -1,6 +1,8 @@
 ---
-sudo: required
 language: python
+os: linux
+dist: xenial
+
 services:
   - docker
 
@@ -12,8 +14,7 @@ env:
     - DNS_SERVER2: 8.8.8.8
     - CI_TIME: false
     - CI_TRACE: false
-  matrix:
-
+  jobs:
     - MOLECULE_DISTRO: debian:buster
       BUILD_TYPE: default
       ROLE: lnls-ans-role-users

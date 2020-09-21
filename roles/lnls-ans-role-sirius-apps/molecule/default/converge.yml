@@ -3,8 +3,18 @@
   hosts: all
 
   vars:
-    # Select which categories to install. Remove
-    # OPI categoty as it's a private repo
+
+    # Remove LINAC IOC PS as it's a private repo
+    sirius_apps_iocs:
+      - name: Machine Applications
+        org_url: https://github.com/lnls-sirius
+        repo_name: machine-applications
+        repo_version: "{{ pkg_version_machine_applications }}"
+        clone_path: /tmp
+        install_via_makefile: true
+        force_version: true
+
+    # Select which categories to install.
     sirius_apps_install_categories:
       - sirius_apps_dev_packages
       - sirius_apps_iocs

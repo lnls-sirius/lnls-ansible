@@ -91,9 +91,6 @@ ioc_ps_srv
 [ioc_bo_ps_fams_srv:children]
 ioc_ps_srv
 
-[ioc_bo_ps_fams2_srv:children]
-ioc_ps_srv
-
 [ioc_bo_ps_corrs_srv:children]
 ioc_ps_srv
 
@@ -127,40 +124,16 @@ ioc_ps_srv
 
 # === server host selection ===
 
-# --- previous config ---
-# lnls451-linux
-# 	FBP: tb_ps_quad, tb_ps_corrs, bo_ps_corrs, ts_ps_corrs
-# 	OTH: as_ps_dclinks, tb_ps_dips, bo_ps_fams, ts_ps_fams, si_ps_fams
-# 	GEN: as_ti, as_ap, li_ps, tb_ps_diags, bo_ps_diags, ts_ps_diags
-# lnls449-linux:
-# 	FBP: si_ps_trims_m12
-# 	OTH:
-# 	GEN: as_ap_sofb, li_ps_conv
-# lnlsfac-srv1:
-# 	FBP: si_ps_corrs
-# 	OTH:
-# 	GEN: as_pu_conv, si_ps_diags
-# lnls454-linux
-# 	FBP: si_ps_trims_c1234
-# 	OTH:
-# 	GEN:
-
-# --- current config 2020-07-11 ---
-# In this proposal, FBP and non-FBP PS IOCs run in separated
-# hosts. This is necessary so that two versions of siriuspy
-# maybe installed, since this is required for two versions
-# of installed UDC firmware.
-#
-# !!! THIS WORKAROUND IS TEMPORARY !!!
+# --- current config 2020-09-18 ---
 #
 # lnls451-linux
 # 	FBP:
 # 	OTH: as_ps_dclinks, bo_ps_fams, si_ps_fams
-# 	GEN: as_ti, as_ap, li_ps, bo_ps_diags
+# 	GEN: as_ti, as_ap, bo_ps_diags
 # lnls449-linux:
 # 	FBP: si_ps_trims_m12
 # 	OTH:
-# 	GEN: as_ap_sofb, li_ps_conv
+# 	GEN: as_ap_sofb
 # lnlsfac-srv1:
 # 	FBP: si_ps_corrs, si_ap_sofb
 # 	OTH:
@@ -180,7 +153,7 @@ ioc_ps_srv
 # fac-testes-la.abtlus.org.br:
 # 	FBP: tb_ps_quad, tb_ps_corrs, ts_ps_corrs
 # 	OTH: tb_ps_dips, ts_ps_fams
-# 	GEN: tb_ps_diags, ts_ps_diags
+# 	GEN: tb_ps_diags, ts_ps_diags, li_ps, li_ps_conv
 
 
 # --- AS
@@ -209,22 +182,22 @@ lnls452-linux
 # --- LI
 
 [ioc_li_ps_spect_srv:vars]
-ioc_li_ps_spect_srv_host=lnls451-linux
+ioc_li_ps_spect_srv_host=fac-testes-la.abtlus.org.br
 
 [ioc_li_ps_quads_srv:vars]
-ioc_li_ps_quads_srv_host=lnls451-linux
+ioc_li_ps_quads_srv_host=fac-testes-la.abtlus.org.br
 
 [ioc_li_ps_corrs_srv:vars]
-ioc_li_ps_corrs_srv_host=lnls451-linux
+ioc_li_ps_corrs_srv_host=fac-testes-la.abtlus.org.br
 
 [ioc_li_ps_lens_srv:vars]
-ioc_li_ps_lens_srv_host=lnls451-linux
+ioc_li_ps_lens_srv_host=fac-testes-la.abtlus.org.br
 
 [ioc_li_ps_solenoids_srv:vars]
-ioc_li_ps_solenoids_srv_host=lnls451-linux
+ioc_li_ps_solenoids_srv_host=fac-testes-la.abtlus.org.br
 
 [ioc_li_ps_conv_srv:vars]
-ioc_li_ps_conv_srv_host=lnls449-linux
+ioc_li_ps_conv_srv_host=fac-testes-la.abtlus.org.br
 
 # --- TB
 
@@ -244,9 +217,6 @@ ioc_tb_ps_diags_srv_host=fac-testes-la.abtlus.org.br
 
 [ioc_bo_ps_fams_srv:vars]
 ioc_bo_ps_fams_srv_host=lnls451-linux
-
-[ioc_bo_ps_fams2_srv:vars]
-ioc_bo_ps_fams2_srv_host=lnls561-linux
 
 [ioc_bo_ps_corrs_srv:vars]
 ioc_bo_ps_corrs_srv_host=lnls454-linux

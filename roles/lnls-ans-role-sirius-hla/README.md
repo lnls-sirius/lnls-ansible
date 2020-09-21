@@ -38,8 +38,9 @@ sirius_apps_opis:
 
 # Select which categories to install. Defaults to all
 sirius_apps_hla_install_categories:
-  - sirius_apps_hla
-  - sirius_apps_opis
+  - sirius_apps_hla_apps
+  - sirius_apps_hla_opis
+
 ```
 
 ## Example Playbook
@@ -68,7 +69,7 @@ Tests are performed using Molecule. To run them with python virtualenv, issue:
         virtualenv env --python python3 && \
         source env/bin/activate && \
         cd lnls-ans-role-sirius-hla && \
-        pip install molecule testinfra
+        pip install molecule testinfra \
             yamllint ansible-lint flake8 docker-py && \
         molecule test"
 ```
