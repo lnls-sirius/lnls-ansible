@@ -71,7 +71,7 @@ qt_src_config_files:
 #############################
 
 # PyQt SIP source version when installing from source
-pyqt_sip_src_version: 4.19.24
+pyqt_sip_src_version: 4.19.19
 
 pyqt_sip_src_dir_name: "sip-{{ pyqt_sip_src_version }}"
 
