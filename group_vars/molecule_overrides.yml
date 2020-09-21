@@ -21,8 +21,8 @@ pyqt_src_download_url: "https://files.kde.org/krita/build/dependencies/{{ pyqt_s
 # === CS Studio ===
 
 csstudio_repository: production
-csstudio_base_url: "https://artifactory.esss.lu.se/artifactory/CS-Studio/{{ csstudio_repository }}"
-csstudio_archive: "{{ csstudio_base_url }}/cs-studio-ess-{{ csstudio_version }}-linux.gtk.x86_64.tar.gz"
+csstudio_base_url: "https://artifactory.esss.lu.se/artifactory/CS-Studio"
+csstudio_archive: "{{ csstudio_base_url }}/{{ csstudio_repository }}/{{ csstudio_version }}/cs-studio-ess-{{ csstudio_version }}-linux.gtk.x86_64.tar.gz"
 
 # === EPICS 7 ===
 
