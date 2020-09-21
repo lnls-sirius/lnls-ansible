@@ -1,2 +1,2 @@
 #!/bin/bash
-{{ sirius_apps_conda_executable }} run -p {{ sirius_apps_hlacons_conda_environment_path }} {{ item }}
+$(source {{ sirius_apps_conda_profile }} && conda activate {{ sirius_apps_hlacons_conda_environment_path }} && {{ item }}.py )
