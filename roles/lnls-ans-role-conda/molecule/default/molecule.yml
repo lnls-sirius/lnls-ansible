@@ -15,7 +15,6 @@ provisioner:
       default_group:
       debian_buster_based:
       debian_stretch_based:
-      debian_jessie_based:
 verifier:
   name: testinfra
   options:
@@ -29,15 +28,6 @@ platforms:
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     groups:
-      - default_group
-    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
-  - name: lnls-ans-role-conda-debian-jessie
-    image: debian:jessie
-    command: ${MOLECULE_DOCKER_COMMAND:-'bash -c "sleep infinity"'}
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    groups:
-      - debian_jessie_based
       - default_group
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
   - name: lnls-ans-role-conda-debian-stretch
@@ -56,24 +46,6 @@ platforms:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     groups:
       - debian_buster_based
-      - default_group
-    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
-  - name: lnls-ans-role-conda-ubuntu-trusty
-    image: ubuntu:trusty
-    command: ${MOLECULE_DOCKER_COMMAND:-'bash -c "sleep infinity"'}
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    groups:
-      - debian_ubuntu_trusty_based
-      - default_group
-    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
-  - name: lnls-ans-role-conda-ubuntu-xenial
-    image: ubuntu:xenial
-    command: ${MOLECULE_DOCKER_COMMAND:-'bash -c "sleep infinity"'}
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    groups:
-      - debian_ubuntu_xenial_based
       - default_group
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
   - name: lnls-ans-role-conda-instance-generic

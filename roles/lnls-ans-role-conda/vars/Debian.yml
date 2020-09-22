@@ -11,6 +11,7 @@ __conda_apt_repositories:
     file: conda
     state: present
 
+__conda_apt_packages_state: present
 __conda_apt_packages:
   - conda
 
