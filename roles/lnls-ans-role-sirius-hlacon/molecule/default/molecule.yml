@@ -1,0 +1,51 @@
+---
+dependency:
+  name: galaxy
+provisioner:
+  name: ansible
+  lint: |
+    set -e
+    yamllint .
+    ansible-lint
+    flake8
+  inventory:
+    links:
+      group_vars: ../../../../group_vars/
+    group_vars:
+      default_group:
+      debian_buster_based:
+      debian_stretch_based:
+verifier:
+  name: testinfra
+  options:
+    verbose: true
+driver:
+  name: docker
+platforms:
+  - name: lnls-ans-role-hlacon-debian-stretch
+    image: debian:stretch
+    groups:
+      - debian_stretch_based
+      - default_group
+    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
+  - name: lnls-ans-role-hlacon-debian-buster
+    image: debian:buster
+    groups:
+      - debian_buster_based
+      - default_group
+    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
+scenario:
+  name: default
+  test_sequence:
+    - lint
+    - destroy
+    - dependency
+    - syntax
+    - create
+    - prepare
+    - converge
+    # - idempotence
+    - side_effect
+    - verify
+    - destroy
+

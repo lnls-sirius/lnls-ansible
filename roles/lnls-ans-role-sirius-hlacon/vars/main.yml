@@ -1,0 +1,36 @@
+---
+sirius_apps_hlacon_conda_packages:
+  - name: qt
+    version: 5.12.9
+
+  - name: pyqt
+    version: 5.12.3
+
+  - name: pydm
+    version: 1.10.4
+
+sirius_apps_hlacon_pip_packages:
+  - desc: High-Level Applications CONS - Common
+    name: siriushlacon
+    version: 2.0.2
+
+sirius_apps_hlacon_executables:
+  - sirius-hla-as-ap-bbb-monitor
+  - sirius-hla-as-ap-conlauncher
+  - sirius-hla-as-ap-countingpru
+  - sirius-hla-as-ap-mbtemp
+  - sirius-hla-as-ap-pctrl
+  - sirius-hla-as-ps-regatron-individual
+  - sirius-hla-as-ps-regatron
+  - sirius-hla-as-pu-spixconv
+  - sirius-hla-as-va-agilent4uhv-device
+  - sirius-hla-as-va-agilent4uhv
+  - sirius-hla-as-va-mks937b
+  - sirius-hla-bo-va-agilent4uhv-overview
+  - sirius-hla-bo-va-mks937b-overview
+  - sirius-hla-si-va-agilent4uhv-overview
+  - sirius-hla-si-va-mks937b-overview
+  - sirius-hla-tb-va-agilent4uhv-overview
+  - sirius-hla-tb-va-mks937b-overview
+  - sirius-hla-ts-va-agilent4uhv-overview
+  - sirius-hla-ts-va-mks937b-overview

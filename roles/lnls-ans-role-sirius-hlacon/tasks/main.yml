@@ -1,0 +1,46 @@
+---
+- name: Define conda executable path
+  set_fact:
+    sirius_apps_conda_executable: "{{ conda_executable | default('/opt/conda/bin/conda') }}"
+
+- name: Define conda profile path
+  set_fact:
+    sirius_apps_conda_profile: "{{ conda_profile | default('/opt/conda/etc/profile.d/conda.sh') }}"
+
+- name: Create cons environment
+  conda:
+    name: python
+    version: "3.8"
+    environment: "{{ sirius_apps_hlacon_conda_environment_path }}"
+    state: present
+    executable: "{{ sirius_apps_conda_executable }}"
+
+- name: Install conda dependencies
+  conda:
+    name:
+      - "{{ item.name }}=={{ item.version }}"
+    channels: conda-forge
+    environment: "{{ sirius_apps_hlacon_conda_environment_path }}"
+    state: present
+    executable: "{{ sirius_apps_conda_executable }}"
+  with_items:
+    - "{{ sirius_apps_hlacon_conda_packages }}"
+
+- name: Clone and install applications inside cons conda environment
+  shell:
+    executable: /bin/bash
+    cmd: |
+      set -e
+      {{ sirius_apps_conda_executable }} run -p {{ sirius_apps_hlacon_conda_environment_path }}  pip install {{ item.name }}=={{ item.version }}
+      exit 0
+  with_items:
+    - "{{ sirius_apps_hlacon_pip_packages }}"
+
+- name: Create siriushlacon shell executables
+  template:
+    src: siriushlacon.j2
+    dest: "/usr/bin/{{ item }}.sh"
+    mode: 0555
+  with_items:
+      - "{{ sirius_apps_hlacon_executables }}"
+
