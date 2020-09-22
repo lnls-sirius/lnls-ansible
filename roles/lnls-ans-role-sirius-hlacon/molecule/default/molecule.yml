@@ -24,16 +24,25 @@ driver:
 platforms:
   - name: lnls-ans-role-hlacon-debian-stretch
     image: debian:stretch
+    command: ${MOLECULE_DOCKER_COMMAND:-'bash -c "sleep infinity"'}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     groups:
       - debian_stretch_based
       - default_group
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
   - name: lnls-ans-role-hlacon-debian-buster
     image: debian:buster
+    command: ${MOLECULE_DOCKER_COMMAND:-'bash -c "sleep infinity"'}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     groups:
       - debian_buster_based
       - default_group
+    privileged: true
+    pre_build_image: true
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
+
 scenario:
   name: default
   test_sequence:
