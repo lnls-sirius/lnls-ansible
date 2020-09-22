@@ -12,8 +12,5 @@ __conda_apt_repositories:
     state: present
 
 __conda_apt_packages:
-  - name: Conda - Debian Repository
-    description: "Debian Conda - Package"
-    package: conda
-    state: present
+  - conda
 

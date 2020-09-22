@@ -31,8 +31,8 @@
 
 - name: Conda packages
   yum:
-    name: "{{ item.package }}"
-    state: "{{ item.state }}"
+    name: "{{ item }}"
+    state: present
     update_cache: yes
   with_items: "{{ conda_yum_packages }}"
 

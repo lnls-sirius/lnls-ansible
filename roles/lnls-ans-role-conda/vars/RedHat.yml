@@ -11,9 +11,6 @@ __conda_yum_repositories:
   - gpgkey: https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc
 
 __conda_yum_packages:
-  - name: Conda - Debian Repository
-    description: "Conda - Package"
-    package: conda
-    state: present
+  - conda
 
 

@@ -76,11 +76,9 @@
 
 - name: Install packages
   apt:
-    name:
-      - "{{ item.package }}"
+    name: "{{ item }}"
     state: present
     update_cache: true
-    allow_unauthenticated: true
   with_items:
     - "{{ conda_apt_packages }}"
   become: true
