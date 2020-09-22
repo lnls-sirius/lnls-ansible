@@ -23,5 +23,5 @@
 # Setup
 - include_tasks: setup-Debian.yml
   when:
-    - ansible_os_family == 'Debian' or ansible_os_family == 'Ubuntu'
+    - ansible_os_family == 'Debian'
 
