@@ -10,18 +10,11 @@
       paths:
         - '{{ role_path }}/vars'
 
-- name: Define Repository keys
-  set_fact:
-    conda_keys: "{{ __conda_keys | list }}"
-  when: conda_keys is not defined
-
-- name: Define packages
-  set_fact:
-    conda_apt: "{{ __conda_apt | list }}"
-  when: conda_apt is not defined
-
 # Setup
 - include_tasks: setup-Debian.yml
   when:
-    - ansible_os_family == 'Debian' or ansible_os_family == 'Ubuntu'
+    - ansible_os_family == 'Debian'
 
+- include_tasks: setup-RedHat.yml
+  when:
+    - ansible_os_family == 'RedHat'

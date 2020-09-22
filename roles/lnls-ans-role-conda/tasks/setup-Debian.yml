@@ -1,4 +1,19 @@
 ---
+- name: Define Repository keys
+  set_fact:
+    conda_apt_keys: "{{ __conda_apt_keys | list }}"
+  when: conda_apt_keys is not defined
+
+- name: Define apt repositories
+  set_fact:
+    conda_apt_repositories: "{{ __conda_apt_repositories | list }}"
+  when: conda_apt_repositories is not defined
+
+- name: Define apt packages
+  set_fact:
+    conda_apt_packages: "{{ __conda_apt_packages | list }}"
+  when: conda_apt_packages is not defined
+
 - name: Install dependency packages
   apt:
     name:
@@ -28,7 +43,7 @@
     state: present
   when: item.url is defined and item.url|length > 0
   with_items:
-    - "{{ conda_keys }}"
+    - "{{ conda_apt_keys }}"
   become: true
   register: gpg_import_url
   until: gpg_import_url is success
@@ -42,7 +57,7 @@
     state: present
   when: item.keyserver is defined and item.keyserver|length > 0
   with_items:
-    - "{{ conda_keys }}"
+    - "{{ conda_apt_keys }}"
   become: true
   register: gpg_import_key
   until: gpg_import_key is success
@@ -56,7 +71,7 @@
     filename: "{{ item.file }}"
     update_cache: true
   with_items:
-    - "{{ conda_apt }}"
+    - "{{ conda_apt_repositories }}"
   become: true
 
 - name: Install packages
@@ -67,5 +82,5 @@
     update_cache: true
     allow_unauthenticated: true
   with_items:
-    - "{{ conda_apt }}"
+    - "{{ conda_apt_packages }}"
   become: true

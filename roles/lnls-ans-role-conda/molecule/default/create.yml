@@ -22,6 +22,7 @@
       template:
         src: "{{ molecule_scenario_directory + '/' + (item.dockerfile | default( 'Dockerfile.j2')) }}"
         dest: "{{ molecule_ephemeral_directory }}/Dockerfile_{{ item.image | regex_replace('[^a-zA-Z0-9_]', '_') }}"
+        mode: preserve
       with_items: "{{ molecule_yml.platforms }}"
       when: not item.pre_build_image | default(false)
       register: platforms
