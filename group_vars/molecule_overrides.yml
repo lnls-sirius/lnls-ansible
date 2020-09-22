@@ -23,6 +23,9 @@ pyqt_src_download_url: "https://files.kde.org/krita/build/dependencies/{{ pyqt_s
 csstudio_repository: production
 csstudio_base_url: "https://artifactory.esss.lu.se/artifactory/CS-Studio"
 csstudio_archive: "{{ csstudio_base_url }}/{{ csstudio_repository }}/{{ csstudio_version }}/cs-studio-ess-{{ csstudio_version }}-linux.gtk.x86_64.tar.gz"
+csstudio_fonts: https://artifactory.esss.lu.se/artifactory/swi-pkg/fonts/cs-studio-fonts-20180222.tgz
+csstudio_fonts_dir: /usr/local/share/fonts/ess-20180222
+csstudio_xulrunner: "https://artifactory.esss.lu.se/artifactory/swi-pkg/xulrunner/xulrunner-{{ csstudio_xulrunner_version }}.en-US.linux-x86_64.tar.bz2"
 
 # === EPICS 7 ===
 
