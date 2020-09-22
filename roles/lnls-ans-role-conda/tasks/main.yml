@@ -1,0 +1,27 @@
+---
+- name: Resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      ignore_errors: true
+      paths:
+        - '{{ role_path }}/vars'
+
+- name: Define Repository keys
+  set_fact:
+    conda_keys: "{{ __conda_keys | list }}"
+  when: conda_keys is not defined
+
+- name: Define packages
+  set_fact:
+    conda_apt: "{{ __conda_apt | list }}"
+  when: conda_apt is not defined
+
+# Setup
+- include_tasks: setup-Debian.yml
+  when:
+    - ansible_os_family == 'Debian' or ansible_os_family == 'Ubuntu'
+
