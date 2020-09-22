@@ -25,36 +25,54 @@ driver:
 platforms:
   - name: lnls-ans-role-conda-debian-jessie
     image: debian:jessie
+    command: ${MOLECULE_DOCKER_COMMAND:-'bash -c "sleep infinity"'}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     groups:
       - debian_jessie_based
       - default_group
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
   - name: lnls-ans-role-conda-debian-stretch
     image: debian:stretch
+    command: ${MOLECULE_DOCKER_COMMAND:-'bash -c "sleep infinity"'}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     groups:
       - debian_stretch_based
       - default_group
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
   - name: lnls-ans-role-conda-debian-buster
     image: debian:buster
+    command: ${MOLECULE_DOCKER_COMMAND:-'bash -c "sleep infinity"'}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     groups:
       - debian_buster_based
       - default_group
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
   - name: lnls-ans-role-conda-ubuntu-trusty
     image: ubuntu:trusty
+    command: ${MOLECULE_DOCKER_COMMAND:-'bash -c "sleep infinity"'}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     groups:
       - debian_ubuntu_trusty_based
       - default_group
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
   - name: lnls-ans-role-conda-ubuntu-xenial
     image: ubuntu:xenial
+    command: ${MOLECULE_DOCKER_COMMAND:-'bash -c "sleep infinity"'}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     groups:
       - debian_ubuntu_xenial_based
       - default_group
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
   - name: lnls-ans-role-conda-instance-generic
     image: "${MOLECULE_DISTRO:-debian:stretch}"
+    command: ${MOLECULE_DOCKER_COMMAND:-'bash -c "sleep infinity"'}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     groups:
       - default_group
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
