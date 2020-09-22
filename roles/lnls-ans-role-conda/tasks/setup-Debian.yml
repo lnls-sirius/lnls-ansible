@@ -49,7 +49,16 @@
   retries: 5
   delay: 2
 
-# Install packages
+- name: Add repositories
+  apt_repository:
+    repo: "{{ item.baseurl }}"
+    state: "{{ item.state }}"
+    filename: "{{ item.file }}"
+    update_cache: true
+  with_items:
+    - "{{ conda_apt }}"
+  become: true
+
 - name: Install packages
   apt:
     name:
