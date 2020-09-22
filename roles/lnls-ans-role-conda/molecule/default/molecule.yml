@@ -23,6 +23,14 @@ verifier:
 driver:
   name: docker
 platforms:
+  - name: lnls-ans-role-conda-centos7
+    image: centos:7
+    command: ${MOLECULE_DOCKER_COMMAND:-'bash -c "sleep infinity"'}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    groups:
+      - default_group
+    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
   - name: lnls-ans-role-conda-debian-jessie
     image: debian:jessie
     command: ${MOLECULE_DOCKER_COMMAND:-'bash -c "sleep infinity"'}
