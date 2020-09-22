@@ -1,7 +1,11 @@
 ---
-- name: Define conda executable
+- name: Define conda executable path
   set_fact:
     sirius_apps_conda_executable: "{{ conda_executable | default('/opt/conda/bin/conda') }}"
+
+- name: Define conda profile path
+  set_fact:
+    sirius_apps_conda_profile: "{{ conda_profile | default('/opt/conda/etc/profile.d/conda.sh') }}"
 
 - name: Create cons environment
   conda:
@@ -36,7 +40,7 @@
   template:
     src: siriushlacon.j2
     dest: "/usr/bin/{{ item }}.sh"
-    mode: 0552
+    mode: 0555
   with_items:
       - "{{ sirius_apps_hlacons_executables }}"
 
