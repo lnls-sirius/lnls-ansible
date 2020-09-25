@@ -266,6 +266,8 @@ sirius_apps_hla_install_categories:
 
 # === Sirius HLA CON packages ===
 
+sirus_apps_hlacon_remove_from_system: false
+
 sirius_apps_hlacon_conda_packages:
   - "qt{{ (pkg_version_hlacon_conda_qt | length > 0) | ternary('==' + pkg_version_hlacon_conda_qt, '') }}"
   - "pyqt{{ (pkg_version_hlacon_conda_pyqt | length > 0) | ternary('==' + pkg_version_hlacon_conda_pyqt, '') }}"
