@@ -7,13 +7,13 @@
   with_items:
     - "{{ sirius_apps_hlacon_pip_packages | default([]) | list }}"
 
-- name: Default HLACAN packages to remove variable to empty
+- name: Default HLACON packages to remove variable to empty
   set_fact:
     sirius_apps_hlacon_pip_packages_to_remove: []
   when:
     - sirius_apps_hlacon_pip_packages_to_remove is not defined
 
-- name: HLACAN PIP packages to be removed
+- name: HLACON PIP packages to be removed
   debug:
     msg: "sirius_apps_hlacon_pip_packages_to_remove:
       {{ sirius_apps_hlacon_pip_packages_to_remove }}"
