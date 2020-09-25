@@ -1,0 +1,87 @@
+---
+- name: Define Repository keys
+  set_fact:
+    conda_apt_keys: "{{ __conda_apt_keys | list }}"
+  when: conda_apt_keys is not defined
+
+- name: Define apt repositories
+  set_fact:
+    conda_apt_repositories: "{{ __conda_apt_repositories | list }}"
+  when: conda_apt_repositories is not defined
+
+- name: Define apt packages
+  set_fact:
+    conda_apt_packages: "{{ __conda_apt_packages | list }}"
+  when: conda_apt_packages is not defined
+
+- name: Define apt packages state
+  set_fact:
+    conda_apt_packages_state: "{{ __conda_apt_packages_state | default('present') }}"
+  when: conda_apt_packages_state is not defined
+
+- name: Install dependency packages
+  apt:
+    name:
+      - gnupg
+      - apt-transport-https
+    state: present
+    update_cache: true
+    # We only need this as we might have expired signatures
+    # that could prevent us from executing this. The next task
+    # should fix this is that's the case, is not, it will fail for
+    # some other reason
+    allow_unauthenticated: true
+  # In some cases, we might have an invalid signature, preventing
+  # us from executing this. Ignore failures here and if something
+  # doesn't work on the next task we deal with it manually
+  failed_when: false
+  become: true
+  register: apt_result
+  until: apt_result is success
+  retries: 5
+  delay: 2
+
+- name: Import APT GPG keys by URL
+  apt_key:
+    url: "{{ item.url }}"
+    keyring: "{{ item.keyring }}"
+    state: present
+  when: item.url is defined and item.url|length > 0
+  with_items:
+    - "{{ conda_apt_keys }}"
+  become: true
+  register: gpg_import_url
+  until: gpg_import_url is success
+  retries: 5
+  delay: 2
+
+- name: Import APT GPG keys by keyserver
+  apt_key:
+    keyserver: "{{ item.keyserver }}"
+    id: "{{ item.id }}"
+    state: present
+  when: item.keyserver is defined and item.keyserver|length > 0
+  with_items:
+    - "{{ conda_apt_keys }}"
+  become: true
+  register: gpg_import_key
+  until: gpg_import_key is success
+  retries: 5
+  delay: 2
+
+- name: Add repositories
+  apt_repository:
+    repo: "{{ item.baseurl }}"
+    state: "{{ item.state }}"
+    filename: "{{ item.file }}"
+    update_cache: true
+  with_items:
+    - "{{ conda_apt_repositories }}"
+  become: true
+
+- name: Install packages
+  apt:
+    name: "{{ conda_apt_packages }}"
+    state: "{{ conda_apt_packages_state }}"
+    update_cache: true
+  become: true

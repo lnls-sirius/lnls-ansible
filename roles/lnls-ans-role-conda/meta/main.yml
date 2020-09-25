@@ -1,0 +1,20 @@
+---
+galaxy_info:
+  author: Claudio Carneiro
+  description: Ansible role to install Conda
+  company: CNPEM - LNLS
+  license: BSD
+  min_ansible_version: 2.6
+
+  platforms:
+    - name: Debian
+      versions:
+        - stretch
+        - jessie
+        - buster
+    - name: Ubuntu
+      versions:
+        - xenial
+        - trusty
+
+dependencies: []
