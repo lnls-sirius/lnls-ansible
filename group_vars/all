@@ -88,6 +88,11 @@ pkg_version_bpm_scripts: "master"
 sirius_bbb_version: "v1.1.0"
 pkg_version_sirius_epics_screens: "master"
 
+pkg_version_hlacon_conda_qt: "5.12.9"
+pkg_version_hlacon_conda_pyqt: "5.12.3"
+pkg_version_hlacon_conda_pydm: "1.10.4"
+pkg_version_hlacon_conda_siriushlacon: "2.0.2"
+
 # === sirius apps packages ===
 
 # Sirius BPM tests path
@@ -258,6 +263,37 @@ sirius_apps_hla_install_categories:
   - sirius_apps_hla_apps
   - sirius_apps_hla_opis
 
+
+# === Sirius HLA CON packages ===
+
+sirius_apps_hlacon_conda_packages:
+  - "qt{{ (pkg_version_hlacon_conda_qt | length > 0) | ternary('==' + pkg_version_hlacon_conda_qt, '') }}"
+  - "pyqt{{ (pkg_version_hlacon_conda_pyqt | length > 0) | ternary('==' + pkg_version_hlacon_conda_pyqt, '') }}"
+  - "pydm{{ (pkg_version_hlacon_conda_pydm | length > 0) | ternary('==' + pkg_version_hlacon_conda_pydm, '') }}"
+
+sirius_apps_hlacon_pip_packages:
+  - "siriushlacon{{ (pkg_version_hlacon_conda_siriushlacon | length > 0) | ternary('==' + pkg_version_hlacon_conda_siriushlacon, '') }}"
+
+sirius_apps_hlacon_executables:
+  - sirius-hla-as-ap-bbb-monitor
+  - sirius-hla-as-ap-conlauncher
+  - sirius-hla-as-ap-countingpru
+  - sirius-hla-as-ap-mbtemp
+  - sirius-hla-as-ap-pctrl
+  - sirius-hla-as-ps-regatron-individual
+  - sirius-hla-as-ps-regatron
+  - sirius-hla-as-pu-spixconv
+  - sirius-hla-as-va-agilent4uhv-device
+  - sirius-hla-as-va-agilent4uhv
+  - sirius-hla-as-va-mks937b
+  - sirius-hla-bo-va-agilent4uhv-overview
+  - sirius-hla-bo-va-mks937b-overview
+  - sirius-hla-si-va-agilent4uhv-overview
+  - sirius-hla-si-va-mks937b-overview
+  - sirius-hla-tb-va-agilent4uhv-overview
+  - sirius-hla-tb-va-mks937b-overview
+  - sirius-hla-ts-va-agilent4uhv-overview
+  - sirius-hla-ts-va-mks937b-overview
 
 # === VNC ===
 
