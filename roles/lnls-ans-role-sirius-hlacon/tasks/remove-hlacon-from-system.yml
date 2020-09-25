@@ -1,7 +1,26 @@
 ---
+- name: Create list of HLACON Pip packages to be removed
+  set_fact:
+    sirius_apps_hlacon_pip_packages_to_remove: "{{
+      sirius_apps_hlacon_pip_packages_to_remove | default([]) |
+            list + [ item | regex_replace('==.*$', '') ] }}"
+  with_items:
+    - "{{ sirius_apps_hlacon_pip_packages | default([]) | list }}"
+
+- name: Default HLACAN packages to remove variable to empty
+  set_fact:
+    sirius_apps_hlacon_pip_packages_to_remove: []
+  when:
+    - sirius_apps_hlacon_pip_packages_to_remove is not defined
+
+- name: HLACAN PIP packages to be removed
+  debug:
+    msg: "sirius_apps_hlacon_pip_packages_to_remove:
+      {{ sirius_apps_hlacon_pip_packages_to_remove }}"
+
 - name: Ensure no HLACON PIP versions are installed
   pip:
-    name: "{{ item | regex_replace('==.*$', '') }}"
+    name: "{{ sirius_apps_hlacon_pip_packages_to_remove }}"
     state: absent
     executable: "{{ pip_executable | default(omit) }}"
   become: true
@@ -9,5 +28,3 @@
   until: hlacon_pip_packages_result is success
   retries: 5
   delay: 2
-  with_items:
-    - "{{ sirius_apps_hlacon_pip_packages }}"
