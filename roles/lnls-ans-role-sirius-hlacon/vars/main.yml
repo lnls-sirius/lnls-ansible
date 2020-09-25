@@ -1,4 +1,13 @@
 ---
+__sirius_apps_hlacon_pip_dep_packages:
+  - "setuptools{{ (pkg_version_setuptools | length > 0) | ternary('==' + pkg_version_setuptools, '') }}"
+
+__sirius_apps_hlacon_pip_dep_packages_state: present
+
+__python_executable: python-sirius
+
+__pip_executable: pip-sirius
+
 __conda_executable: /opt/conda/bin/conda
 
 __conda_profile: /opt/conda/etc/profile.d/conda.sh

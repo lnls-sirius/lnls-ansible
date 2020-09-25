@@ -1,4 +1,9 @@
 ---
+# Package versions for PIP. Leave empty for the latest
+pkg_version_setuptools: ""
+
+sirius_apps_hlacon_conda_python_version: "3.8"
+
 sirius_apps_hlacon_conda_environment_path: /opt/conda/envs/cons
 
 sirius_apps_hlacon_conda_packages:

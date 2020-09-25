@@ -1,4 +1,14 @@
 ---
+- name: Define Python executable
+  set_fact:
+    python_executable: "{{ __python_executable | default('python') }}"
+  when: python_executable is not defined
+
+- name: Define PIP executable
+  set_fact:
+    pip_executable: "{{ __pip_executable | default(omit) }}"
+  when: pip_executable is not defined
+
 - name: Define conda executable path
   set_fact:
     conda_executable: "{{ __conda_executable | default('/opt/conda/bin/conda') }}"
@@ -9,10 +19,20 @@
     conda_profile: "{{ __conda_profile | default('/opt/conda/etc/profile.d/conda.sh') }}"
   when: conda_profile is not defined
 
+- name: Define conda PIP packages
+  set_fact:
+    sirius_apps_hlacon_pip_dep_packages: "{{ __sirius_apps_hlacon_pip_dep_packages | default([]) }}"
+  when: sirius_apps_hlacon_pip_dep_packages is not defined
+
+- name: Define conda PIP packages state
+  set_fact:
+    sirius_apps_hlacon_pip_dep_packages_state: "{{ __sirius_apps_hlacon_pip_dep_packages_state | default(present) }}"
+  when: sirius_apps_hlacon_pip_dep_packages_state is not defined
+
 - name: Create cons environment
   conda:
     name: python
-    version: "3.8"
+    version: "{{ sirius_apps_hlacon_conda_python_version }}"
     environment: "{{ sirius_apps_hlacon_conda_environment_path }}"
     state: present
     executable: "{{ conda_executable }}"
@@ -28,10 +48,12 @@
   with_items:
     - "{{ sirius_apps_hlacon_conda_packages }}"
 
-- name: Install setuptools
+- name: Install conda dependency PIP packages
   pip:
-    name: "setuptools"
-    state: present
+    name: "{{ sirius_apps_hlacon_pip_dep_packages }}"
+    state: "{{ sirius_apps_hlacon_pip_dep_packages_state }}"
+    executable: "{{ pip_executable | default(omit) }}"
+  become: true
 
 - name: Clone and install pip packages within cons conda environment
   pip:
