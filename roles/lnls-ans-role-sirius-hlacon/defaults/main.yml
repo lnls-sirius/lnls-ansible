@@ -10,14 +10,9 @@ sirius_apps_hlacon_conda_environment_path: /opt/conda/envs/cons
 # Example
 #
 # sirius_apps_hlacon_conda_packages:
-#   - name: qt
-#     version: 5.12.9
-#
-#   - name: pyqt
-#     version: 5.12.3
-#
-#   - name: pydm
-#     version: 1.10.4
+#   - qt==5.12.9
+#   - pyqt==5.12.3
+#   - pydm==1.10.4
 
 sirius_apps_hlacon_conda_packages: []
 
@@ -25,9 +20,7 @@ sirius_apps_hlacon_conda_packages: []
 # Example
 #
 # sirius_apps_hlacon_pip_packages:
-#   - desc: High-Level Applications CONS - Common
-#     name: siriushlacon
-#     version: 2.0.2
+#   - siriushlacon==2.0.2
 
 sirius_apps_hlacon_pip_packages: []
 

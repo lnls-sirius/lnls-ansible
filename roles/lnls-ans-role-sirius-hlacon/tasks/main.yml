@@ -39,14 +39,11 @@
 
 - name: Install conda dependencies
   conda:
-    name:
-      - "{{ item.name }}=={{ item.version }}"
+    name: "{{ sirius_apps_hlacon_conda_packages }}"
     channels: conda-forge
     environment: "{{ sirius_apps_hlacon_conda_environment_path }}"
     state: present
     executable: "{{ conda_executable }}"
-  with_items:
-    - "{{ sirius_apps_hlacon_conda_packages }}"
 
 - name: Install conda dependency PIP packages
   pip:
@@ -57,11 +54,9 @@
 
 - name: Clone and install pip packages within cons conda environment
   pip:
-    name: "{{ item.name }}=={{ item.version }}"
+    name: "{{ sirius_apps_hlacon_pip_packages }}"
     state: present
     executable: "{{ sirius_apps_hlacon_conda_environment_path }}/bin/pip"
-  with_items:
-    - "{{ sirius_apps_hlacon_pip_packages }}"
 
 - name: Create siriushlacon shell executables
   template:
