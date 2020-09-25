@@ -12,7 +12,6 @@ __conda_yum_repositories:
     gpgkey: https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc
 
 __conda_yum_packages_sate: present
+
 __conda_yum_packages:
   - conda
-
-
