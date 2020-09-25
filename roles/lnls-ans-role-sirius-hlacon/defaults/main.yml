@@ -1,6 +1,5 @@
 ---
 sirius_apps_hlacon_conda_environment_path: /opt/conda/envs/cons
-sirius_apps_hlacon_conda_shell_python_packages: False
 
 sirius_apps_hlacon_conda_packages:
   - name: qt
