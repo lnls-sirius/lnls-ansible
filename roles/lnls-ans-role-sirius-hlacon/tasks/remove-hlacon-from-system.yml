@@ -1,0 +1,13 @@
+---
+- name: Ensure no HLACON PIP versions are installed
+  pip:
+    name: "{{ item | regex_replace('==.*$', '') }}"
+    state: absent
+    executable: "{{ pip_executable | default(omit) }}"
+  become: true
+  register: hlacon_pip_packages_result
+  until: hlacon_pip_packages_result is success
+  retries: 5
+  delay: 2
+  with_items:
+    - "{{ sirius_apps_hlacon_pip_packages }}"
