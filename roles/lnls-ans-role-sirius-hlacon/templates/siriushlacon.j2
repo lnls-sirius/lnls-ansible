@@ -1,2 +1,2 @@
 #!/bin/bash
-$(source {{ conda_profile }} && conda activate {{ sirius_apps_hlacon_conda_environment_path }} && {{ item }}.py )&
+bash -c "source {{ sirius_apps_conda_profile }} && conda activate {{ sirius_apps_hlacon_conda_environment_path }} && {{ item }}.py "${@}""
