@@ -1,11 +1,13 @@
 ---
 - name: Define conda executable path
   set_fact:
-    sirius_apps_conda_executable: "{{ conda_executable | default('/opt/conda/bin/conda') }}"
+    conda_executable: "{{ __conda_executable | default('/opt/conda/bin/conda') }}"
+  when: conda_executable is not defined
 
 - name: Define conda profile path
   set_fact:
-    sirius_apps_conda_profile: "{{ conda_profile | default('/opt/conda/etc/profile.d/conda.sh') }}"
+    conda_profile: "{{ __conda_profile | default('/opt/conda/etc/profile.d/conda.sh') }}"
+  when: conda_profile is not defined
 
 - name: Create cons environment
   conda:
@@ -13,7 +15,7 @@
     version: "3.8"
     environment: "{{ sirius_apps_hlacon_conda_environment_path }}"
     state: present
-    executable: "{{ sirius_apps_conda_executable }}"
+    executable: "{{ conda_executable }}"
 
 - name: Install conda dependencies
   conda:
@@ -22,7 +24,7 @@
     channels: conda-forge
     environment: "{{ sirius_apps_hlacon_conda_environment_path }}"
     state: present
-    executable: "{{ sirius_apps_conda_executable }}"
+    executable: "{{ conda_executable }}"
   with_items:
     - "{{ sirius_apps_hlacon_conda_packages }}"
 
