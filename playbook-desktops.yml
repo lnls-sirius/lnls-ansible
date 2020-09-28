@@ -41,6 +41,8 @@
       when: global_role_octave | default(true) | bool
     - role: lnls-ans-role-epics-mca
       when: global_role_epics_mca | default(true) | bool
+    - role: lnls-ans-role-conda
+    - role: lnls-ans-role-sirius-hlacon
     - role: lnls-ans-role-sirius-apps
     - role: lnls-ans-role-sirius-hla
     - role: lnls-ans-role-desktop-apps
