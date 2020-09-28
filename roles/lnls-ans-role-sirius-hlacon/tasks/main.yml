@@ -29,39 +29,9 @@
     sirius_apps_hlacon_pip_dep_packages_state: "{{ __sirius_apps_hlacon_pip_dep_packages_state | default(present) }}"
   when: sirius_apps_hlacon_pip_dep_packages_state is not defined
 
-- name: Create cons environment
-  conda:
-    name: python
-    version: "{{ sirius_apps_hlacon_conda_python_version }}"
-    environment: "{{ sirius_apps_hlacon_conda_environment_path }}"
-    state: present
-    executable: "{{ conda_executable }}"
+# Remove HLACON package from system if requested
+- include_tasks: remove-hlacon-from-system.yml
+  when: >-
+    sirus_apps_hlacon_remove_from_system | default(false) | bool
 
-- name: Install conda dependencies
-  conda:
-    name: "{{ sirius_apps_hlacon_conda_packages }}"
-    channels: conda-forge
-    environment: "{{ sirius_apps_hlacon_conda_environment_path }}"
-    state: present
-    executable: "{{ conda_executable }}"
-
-- name: Install conda dependency PIP packages
-  pip:
-    name: "{{ sirius_apps_hlacon_pip_dep_packages }}"
-    state: "{{ sirius_apps_hlacon_pip_dep_packages_state }}"
-    executable: "{{ pip_executable | default(omit) }}"
-  become: true
-
-- name: Clone and install pip packages within cons conda environment
-  pip:
-    name: "{{ sirius_apps_hlacon_pip_packages }}"
-    state: present
-    executable: "{{ sirius_apps_hlacon_conda_environment_path }}/bin/pip"
-
-- name: Create siriushlacon shell executables
-  template:
-    src: siriushlacon.j2
-    dest: "/usr/bin/{{ item }}"
-    mode: 0755
-  with_items:
-      - "{{ sirius_apps_hlacon_executables }}"
+- include_tasks: install-hlacon-in-conda.yml
