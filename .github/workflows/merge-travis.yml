@@ -1,4 +1,4 @@
-name: Merge Upstream
+name: Update Travis Test Branch
 on:
   schedule:
     # scheduled for every night at midnight
