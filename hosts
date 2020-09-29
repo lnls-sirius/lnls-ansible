@@ -225,13 +225,13 @@ ioc_tb_ps_diags_srv_host=fac-testes-la.abtlus.org.br
 # --- BO
 
 [ioc_bo_ps_fams_srv:vars]
-ioc_bo_ps_fams_srv_host=lnls451-linux
+ioc_bo_ps_fams_srv_host=fac-testes-la.abtlus.org.br
 
 [ioc_bo_ps_corrs_srv:vars]
-ioc_bo_ps_corrs_srv_host=lnls454-linux
+ioc_bo_ps_corrs_srv_host=fac-testes-la.abtlus.org.br
 
 [ioc_bo_ps_diags_srv:vars]
-ioc_bo_ps_diags_srv_host=lnls451-linux
+ioc_bo_ps_diags_srv_host=fac-testes-la.abtlus.org.br
 
 # --- TS
 
