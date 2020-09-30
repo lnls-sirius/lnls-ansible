@@ -1,0 +1,30 @@
+name: Update Travis Test Branch
+on:
+  schedule:
+    # scheduled for every night at midnight
+    - cron: '0 0 * * *'
+
+jobs:
+  merge-upstream:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Setup git name/email.
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Merge master branch into travis-build for triggering CI.
+        run: |
+          git branch --all
+          git config --list
+          git checkout travis-build
+          git merge --strategy-option theirs --no-ff origin/master
+          git push origin travis-build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

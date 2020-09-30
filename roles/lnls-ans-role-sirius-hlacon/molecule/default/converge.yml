@@ -1,0 +1,12 @@
+---
+- name: Converge
+  hosts: all
+
+  vars:
+    # Select which categories to install. Remove
+    # OPI categoty as it's a private repo
+    sirius_apps_hlacon_install_categories:
+      - sirius_apps_hlacon
+
+  roles:
+    - role: lnls-ans-role-sirius-hlacon

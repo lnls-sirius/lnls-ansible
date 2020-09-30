@@ -76,6 +76,9 @@ ioc_ps_srv
 [ioc_li_ps_conv_srv:children]
 ioc_ps_srv
 
+[ioc_li_ps_diags_srv:children]
+ioc_ps_srv
+
 [ioc_tb_ps_dips_srv:children]
 ioc_ps_srv
 
@@ -143,17 +146,17 @@ ioc_ps_srv
 #   OTH:
 # 	GEN:
 # lnls452-linux:
-# 	FBP: 
+# 	FBP:
 # 	OTH:
 # 	GEN: as_pu_conv, si_ps_diags
 # lnls455-linux:
-# 	FBP: 
+# 	FBP:
 # 	OTH:
-# 	GEN: si_ap_bl
+# 	GEN: si_ap_bl, as_ap_diag
 # fac-testes-la.abtlus.org.br:
 # 	FBP: tb_ps_quad, tb_ps_corrs, ts_ps_corrs
 # 	OTH: tb_ps_dips, ts_ps_fams
-# 	GEN: tb_ps_diags, ts_ps_diags, li_ps, li_ps_conv
+# 	GEN: tb_ps_diags, ts_ps_diags, li_ps, li_ps_conv, li_ps_diags
 
 
 # --- AS
@@ -171,6 +174,9 @@ lnls451-linux
 lnls449-linux
 
 [ioc_si_ap_bl_srv]
+lnls455-linux
+
+[ioc_as_ap_diag_srv]
 lnls455-linux
 
 [ioc_si_ap_sofb_srv]
@@ -198,6 +204,9 @@ ioc_li_ps_solenoids_srv_host=fac-testes-la.abtlus.org.br
 
 [ioc_li_ps_conv_srv:vars]
 ioc_li_ps_conv_srv_host=fac-testes-la.abtlus.org.br
+
+[ioc_li_ps_diags_srv:vars]
+ioc_li_ps_diags_srv_host=fac-testes-la.abtlus.org.br
 
 # --- TB
 

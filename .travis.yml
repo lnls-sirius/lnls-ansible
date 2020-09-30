@@ -209,6 +209,14 @@ env:
       BUILD_TYPE: default
       ROLE: lnls-ans-role-visual-studio-code
 
+    - MOLECULE_DISTRO: debian:stretch
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-conda
+
+    - MOLECULE_DISTRO: debian:stretch
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-sirius-hlacon
+
 before_install:
   - sudo apt-get -qq update
 

@@ -32,6 +32,20 @@ service-ioc-as-ap-sofb-start:
 		playbooks-services/playbook-service-ioc-as-ap-sofb.yml \
 		playbooks-services/playbook-service-ioc-si-ap-sofb.yml
 
+service-ioc-as-ap-diag-stop:
+	@echo "Stopping AS AP Diag IOC services"
+	@echo "Please enter password for sirius user."
+	ansible-playbook \
+		--extra-vars "ctrl_service_state=stopped" \
+		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-as-ap-diag.yml
+
+service-ioc-as-ap-diag-start:
+	@echo "Starting AS AP Diag IOC services"
+	@echo "Please enter password for sirius user."
+	ansible-playbook \
+		--extra-vars "ctrl_service_state=started" \
+		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-as-ap-diag.yml
+
 # === AS TI IOC services ===
 
 service-ioc-as-ti-stop:
@@ -394,84 +408,98 @@ service-ioc-li-ps-spect-stop:
 	@echo "Stopping LI PS Spectrometer IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "services_to_run_quads='' services_to_run_corrs='' services_to_run_lens='' services_to_run_solenoids='' services_to_run_conv='' ctrl_service_state=stopped" \
+		--extra-vars "services_to_run_quads='' services_to_run_corrs='' services_to_run_lens='' services_to_run_solenoids='' services_to_run_conv='' services_to_run_diags='' ctrl_service_state=stopped" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-li-ps.yml
 
 service-ioc-li-ps-spect-start:
 	@echo "Starting LI PS Spectrometer IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "services_to_run_quads='' services_to_run_corrs='' services_to_run_lens='' services_to_run_solenoids='' services_to_run_conv='' ctrl_service_state=started" \
+		--extra-vars "services_to_run_quads='' services_to_run_corrs='' services_to_run_lens='' services_to_run_solenoids='' services_to_run_conv='' services_to_run_diags='' ctrl_service_state=started" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-li-ps.yml
 
 service-ioc-li-ps-quads-stop:
 	@echo "Stopping LI PS Quads IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "services_to_run_spect='' services_to_run_corrs='' services_to_run_lens='' services_to_run_solenoids='' services_to_run_conv='' ctrl_service_state=stopped" \
+		--extra-vars "services_to_run_spect='' services_to_run_corrs='' services_to_run_lens='' services_to_run_solenoids='' services_to_run_conv='' services_to_run_diags='' ctrl_service_state=stopped" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-li-ps.yml
 
 service-ioc-li-ps-quads-start:
 	@echo "Starting LI PS Quads IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "services_to_run_spect='' services_to_run_corrs='' services_to_run_lens='' services_to_run_solenoids='' services_to_run_conv='' ctrl_service_state=started" \
+		--extra-vars "services_to_run_spect='' services_to_run_corrs='' services_to_run_lens='' services_to_run_solenoids='' services_to_run_conv='' services_to_run_diags='' ctrl_service_state=started" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-li-ps.yml
 
 service-ioc-li-ps-corrs-stop:
 	@echo "Stopping LI PS Corrs IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "services_to_run_spect='' services_to_run_quads='' services_to_run_lens='' services_to_run_solenoids='' services_to_run_conv='' ctrl_service_state=stopped" \
+		--extra-vars "services_to_run_spect='' services_to_run_quads='' services_to_run_lens='' services_to_run_solenoids='' services_to_run_conv='' services_to_run_diags='' ctrl_service_state=stopped" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-li-ps.yml
 
 service-ioc-li-ps-corrs-start:
 	@echo "Starting LI PS Corrs IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "services_to_run_spect='' services_to_run_quads='' services_to_run_lens='' services_to_run_solenoids='' services_to_run_conv='' ctrl_service_state=started" \
+		--extra-vars "services_to_run_spect='' services_to_run_quads='' services_to_run_lens='' services_to_run_solenoids='' services_to_run_conv='' services_to_run_diags='' ctrl_service_state=started" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-li-ps.yml
 
 service-ioc-li-ps-lens-stop:
 	@echo "Stopping LI PS Lens IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "services_to_run_spect='' services_to_run_quads='' services_to_run_corrs='' services_to_run_solenoids='' services_to_run_conv='' ctrl_service_state=stopped" \
+		--extra-vars "services_to_run_spect='' services_to_run_quads='' services_to_run_corrs='' services_to_run_solenoids='' services_to_run_conv='' services_to_run_diags='' ctrl_service_state=stopped" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-li-ps.yml
 
 service-ioc-li-ps-lens-start:
 	@echo "Starting LI PS Lens IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "services_to_run_spect='' services_to_run_quads='' services_to_run_corrs='' services_to_run_solenoids='' services_to_run_conv='' ctrl_service_state=started" \
+		--extra-vars "services_to_run_spect='' services_to_run_quads='' services_to_run_corrs='' services_to_run_solenoids='' services_to_run_conv='' services_to_run_diags='' ctrl_service_state=started" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-li-ps.yml
 
 service-ioc-li-ps-solenoids-stop:
 	@echo "Stopping LI PS Solenoids IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "services_to_run_spect='' services_to_run_quads='' services_to_run_corrs='' services_to_run_lens='' services_to_run_conv='' ctrl_service_state=stopped" \
+		--extra-vars "services_to_run_spect='' services_to_run_quads='' services_to_run_corrs='' services_to_run_lens='' services_to_run_conv='' services_to_run_diags='' ctrl_service_state=stopped" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-li-ps.yml
 
 service-ioc-li-ps-solenoids-start:
 	@echo "Starting LI PS Solenoids IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "services_to_run_spect='' services_to_run_quads='' services_to_run_corrs='' services_to_run_lens='' services_to_run_conv='' ctrl_service_state=started" \
+		--extra-vars "services_to_run_spect='' services_to_run_quads='' services_to_run_corrs='' services_to_run_lens='' services_to_run_conv='' services_to_run_diags='' ctrl_service_state=started" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-li-ps.yml
 
 service-ioc-li-ps-conv-stop:
 	@echo "Stopping LI PS Conv IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "services_to_run_spect='' services_to_run_quads='' services_to_run_corrs='' services_to_run_lens='' services_to_run_solenoids='' ctrl_service_state=stopped" \
+		--extra-vars "services_to_run_spect='' services_to_run_quads='' services_to_run_corrs='' services_to_run_lens='' services_to_run_solenoids='' services_to_run_diags='' ctrl_service_state=stopped" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-li-ps.yml
 
 service-ioc-li-ps-conv-start:
 	@echo "Starting LI PS Conv IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
-		--extra-vars "services_to_run_spect='' services_to_run_quads='' services_to_run_corrs='' services_to_run_lens='' services_to_run_solenoids='' ctrl_service_state=started" \
+		--extra-vars "services_to_run_spect='' services_to_run_quads='' services_to_run_corrs='' services_to_run_lens='' services_to_run_solenoids='' services_to_run_diags='' ctrl_service_state=started" \
+		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-li-ps.yml
+
+service-ioc-li-ps-diags-stop:
+	@echo "Stopping LI PS Diagnostic IOC services"
+	@echo "Please enter password for sirius user."
+	ansible-playbook \
+		--extra-vars "services_to_run_spect='' services_to_run_quads='' services_to_run_corrs='' services_to_run_lens='' services_to_run_solenoids='' services_to_run_conv='' ctrl_service_state=stopped" \
+		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-li-ps.yml
+
+service-ioc-li-ps-diags-start:
+	@echo "Starting LI PS Diagnostic IOC services"
+	@echo "Please enter password for sirius user."
+	ansible-playbook \
+		--extra-vars "services_to_run_spect='' services_to_run_quads='' services_to_run_corrs='' services_to_run_lens='' services_to_run_solenoids='' services_to_run_conv='' ctrl_service_state=started" \
 		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-li-ps.yml
 
 

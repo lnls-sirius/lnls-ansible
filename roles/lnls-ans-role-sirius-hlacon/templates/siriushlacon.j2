@@ -1,0 +1,4 @@
+#!/bin/bash
+set -x
+cmdArgs=$@
+bash -c "source {{ conda_profile }} && conda activate {{ sirius_apps_hlacon_conda_environment_path }} && {{ item }}.py ${cmdArgs}"
