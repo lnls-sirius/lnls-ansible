@@ -75,7 +75,7 @@ pkg_version_siriushla: "v0.33.0"
 pkg_sirius_scripts: "v0.7.0"
 pkg_version_pydm_opi: "v1.5.7"
 
-pkg_version_mathphys: "v2.0.0"
+pkg_version_mathphys: "v2.1.0"
 pkg_version_trackcpp: "v4.1.0"
 pkg_version_lnls: "v1.0.0"
 pkg_version_pyaccel: "v3.2.0"
