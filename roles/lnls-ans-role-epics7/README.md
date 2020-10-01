@@ -5,7 +5,7 @@ This Ansible role configures EPICS 7 for Sirius Light Source control machines.
 
 ## Requirements
 
-- ansible >= 2.6
+- ansible >= 2.9
 - molecule >= 3.0
 
 ## Role Variables
