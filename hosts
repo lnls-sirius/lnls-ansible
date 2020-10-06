@@ -127,12 +127,12 @@ ioc_ps_srv
 
 # === server host selection ===
 
-# --- current config 2020-09-18 ---
+# --- current config 2020-09-29 ---
 #
 # lnls451-linux
 # 	FBP:
-# 	OTH: as_ps_dclinks, bo_ps_fams, si_ps_fams
-# 	GEN: as_ti, as_ap, bo_ps_diags
+# 	OTH: as_ps_dclinks, si_ps_fams
+# 	GEN: as_ti, as_ap
 # lnls449-linux:
 # 	FBP: si_ps_trims_m12
 # 	OTH:
@@ -142,7 +142,7 @@ ioc_ps_srv
 # 	OTH:
 # 	GEN:
 # lnls454-linux
-# 	FBP: si_ps_trims_c1234, bo_ps_corrs
+# 	FBP: si_ps_trims_c1234
 #   OTH:
 # 	GEN:
 # lnls452-linux:
@@ -154,9 +154,9 @@ ioc_ps_srv
 # 	OTH:
 # 	GEN: si_ap_bl, as_ap_diag
 # fac-testes-la.abtlus.org.br:
-# 	FBP: tb_ps_quad, tb_ps_corrs, ts_ps_corrs
-# 	OTH: tb_ps_dips, ts_ps_fams
-# 	GEN: tb_ps_diags, ts_ps_diags, li_ps, li_ps_conv, li_ps_diags
+# 	FBP: tb_ps_quad, tb_ps_corrs, ts_ps_corrs, bo_ps_corrs
+# 	OTH: tb_ps_dips, ts_ps_fams, bo_ps_fams
+# 	GEN: tb_ps_diags, ts_ps_diags, li_ps, li_ps_conv, li_ps_diags, bo_ps_diags
 
 
 # --- AS
@@ -225,13 +225,13 @@ ioc_tb_ps_diags_srv_host=fac-testes-la.abtlus.org.br
 # --- BO
 
 [ioc_bo_ps_fams_srv:vars]
-ioc_bo_ps_fams_srv_host=lnls451-linux
+ioc_bo_ps_fams_srv_host=fac-testes-la.abtlus.org.br
 
 [ioc_bo_ps_corrs_srv:vars]
-ioc_bo_ps_corrs_srv_host=lnls454-linux
+ioc_bo_ps_corrs_srv_host=fac-testes-la.abtlus.org.br
 
 [ioc_bo_ps_diags_srv:vars]
-ioc_bo_ps_diags_srv_host=lnls451-linux
+ioc_bo_ps_diags_srv_host=fac-testes-la.abtlus.org.br
 
 # --- TS
 
