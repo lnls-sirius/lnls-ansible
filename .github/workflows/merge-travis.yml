@@ -1,8 +1,8 @@
 name: Update Travis Test Branch
 on:
   schedule:
-    # scheduled for every night at midnight
-    - cron: '0 0 * * *'
+    # scheduled for every night at 03:00am (UTC) or 00:00am (GMT-3)
+    - cron: '0 3 * * *'
 
 jobs:
   merge-upstream:
