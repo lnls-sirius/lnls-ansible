@@ -101,7 +101,6 @@
 
 - name: Create symbolic link to lnls-ansible
   file:
-    src: "/home/sirius/repos/lnls-ansible"
-    dest: "/home/sirius/lnls-ansible"
+    src: "{{ desktop_settings_lnls_ansible_src }}"
+    dest: "{{ desktop_settings_lnls_ansible_dest }}"
     state: link
-  become: true
