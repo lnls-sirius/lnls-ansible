@@ -98,3 +98,10 @@
   when: item is failed
   with_items:
     - "{{ systemd_enable.results }}"
+
+- name: Create symbolic link to lnls-ansible
+  file:
+    src: "/home/sirius/repos/lnls-ansible"
+    dest: "/home/sirius/lnls-ansible"
+    state: link
+  become: true
