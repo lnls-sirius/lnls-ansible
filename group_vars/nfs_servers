@@ -67,7 +67,7 @@ clone_install_repos_servnfs:
     repo_version: "{{ pkg_version_pymodels }}"
     clone_path: /home/nfs-shared/repos-lnls-sirius
 
-  - name: ApSuite Package
+  - name: APSuite Package
     org_url: https://github.com/lnls-fac
     repo_name: apsuite
     repo_version: "{{ pkg_version_apsuite }}"
@@ -113,6 +113,12 @@ clone_install_repos_servnfs:
     org_url: https://github.com/lnls-dig
     repo_name: bpm-tests
     repo_version: "{{ pkg_version_bpm_scripts }}"
+    clone_path: /home/nfs-shared/repos-lnls-sirius
+
+  - name: LNLS Ansible
+    org_url: https://github.com/lnls-sirius
+    repo_name: lnls-ansible
+    repo_version: "{{ pkg_version_lnls_ansible }}"
     clone_path: /home/nfs-shared/repos-lnls-sirius
 
 clone_install_repos_sirius_screens:
