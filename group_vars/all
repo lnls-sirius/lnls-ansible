@@ -64,16 +64,17 @@ epics7_base_archive: "{{ epics7_base_url }}/base-{{ epics7_base_version }}.tar.g
 
 # === sirius packages ===
 
-pkg_version_ctrl_sys_consts: "v1.15.0"
+pkg_version_ctrl_sys_consts: "v1.16.0"
 pkg_version_pru_serial: "64bytes"
 pkg_version_ps_firmware_c28: "firmware_update"
 pkg_version_ps_firmware_arm: "firmware_update"
 pkg_version_ethbridge_pru_serial: "v2.6.0"
-pkg_version_siriuspy: "v2.14.0"
+pkg_version_siriuspy: "v2.15.0"
 pkg_version_machine_applications: "v3.18.0"
-pkg_version_siriushla: "v0.34.0"
+pkg_version_siriushla: "v0.35.0"
 pkg_sirius_scripts: "v0.7.0"
 pkg_version_pydm_opi: "v1.5.7"
+pkg_version_lnls_ansible: "master"
 
 pkg_version_mathphys: "v2.1.0"
 pkg_version_trackcpp: "v4.1.0"
@@ -91,7 +92,7 @@ pkg_version_sirius_epics_screens: "master"
 pkg_version_hlacon_conda_qt: "5.12.9"
 pkg_version_hlacon_conda_pyqt: "5.12.3"
 pkg_version_hlacon_conda_pydm: "1.10.4"
-pkg_version_hlacon_conda_siriushlacon: "2.0.7"
+pkg_version_hlacon_conda_siriushlacon: "2.0.12"
 
 # === sirius apps packages ===
 
@@ -300,6 +301,11 @@ ntp_servers:
    - "10.128.255.3 iburst minpoll 3 maxpoll 6"
    - "10.128.255.4 iburst minpoll 3 maxpoll 6"
 
+
+# === Desktop-settings ===
+
+desktop_settings_lnls_ansible_src: /home/sirius/repos/lnls-ansible
+desktop_settings_lnls_ansible_dest: /home/sirius/lnls-ansible
 
 # === NFS configuration ===
 
