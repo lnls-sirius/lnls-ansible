@@ -7,7 +7,7 @@ This Ansible role configures some defaults users/groups for Sirius Light Source 
 
 ## Requirements
 
-- ansible >= 2.6
+- ansible >= 2.9
 - molecule >= 3.0
 
 ## Role Variables

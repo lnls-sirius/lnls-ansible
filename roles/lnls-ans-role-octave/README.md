@@ -7,7 +7,7 @@ Ansible role to install Octave.
 
 ## Requirements
 
-- ansible >= 2.6
+- ansible >= 2.9
 - molecule >= 3.0
 
 ## Role Variables
