@@ -7,7 +7,7 @@ This Ansible role install EPICS packages.
 
 ## Requirements
 
-- ansible >= 2.6
+- ansible >= 2.9
 - molecule >= 3.0
 
 ## Role Variables
