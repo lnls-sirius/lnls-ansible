@@ -169,7 +169,7 @@ ioc_ps_srv
 
 # lnls455-linux
 # =============
-# 	si_ap_bl          : Beamline image IOC
+#   si_ap_bl          : Beamline image IOC
 #                       - sirius-ioc-si-ap-manaca.service
 #   as_ap_diag        : Diagnostics
 #                       - sirius-ioc-as-pu-diag.service
@@ -178,7 +178,7 @@ ioc_ps_srv
 
 # fac-testes-la.abtlus.org.br (VM)
 # ================================
-# 	tb_ps_quad        : TB quadrupole power supply IOCs
+#   tb_ps_quad        : TB quadrupole power supply IOCs
 #   tb_ps_corrs       : TB corrector power supply IOCs
 #   ts_ps_corrs       : TS corrector power supply IOCs
 #   bo_ps_corrs       : BO corrector power supply IOCs
