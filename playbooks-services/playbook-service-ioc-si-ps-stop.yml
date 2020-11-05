@@ -1,0 +1,171 @@
+---
+- hosts: ioc_ps_srv
+  remote_user: sirius
+
+  vars:
+    role_to_run: lnls-ans-role-ctrl-service
+
+    services_to_run_fams:
+      - sirius-ioc-si-ps-sextupoles-sda12b2.service
+      - sirius-ioc-si-ps-sextupoles-sfa0p0-sda0p0.service
+      - sirius-ioc-si-ps-sextupoles-sfa12-sda3p1.service
+      - sirius-ioc-si-ps-sextupoles-sfb0-sdb01.service
+      - sirius-ioc-si-ps-sextupoles-sfb12-sdb3.service
+      - sirius-ioc-si-ps-sextupoles-sfp12-sdp23.service
+      - sirius-ioc-si-ps-quadrupoles-qd1.service
+      - sirius-ioc-si-ps-quadrupoles-qd2.service
+      - sirius-ioc-si-ps-quadrupoles-qf.service
+      - sirius-ioc-si-ps-quadrupoles-q.service
+      - sirius-ioc-si-ps-dipoles.service
+
+    services_to_run_corrs:
+      - sirius-ioc-si-ps-correctors-c2m12-ia01.service
+      - sirius-ioc-si-ps-correctors-c2m12-ia02.service
+      - sirius-ioc-si-ps-correctors-c2m12-ia03.service
+      - sirius-ioc-si-ps-correctors-c2m12-ia04.service
+      - sirius-ioc-si-ps-correctors-c2m12-ia05.service
+      - sirius-ioc-si-ps-correctors-c2m12-ia06.service
+      - sirius-ioc-si-ps-correctors-c2m12-ia07.service
+      - sirius-ioc-si-ps-correctors-c2m12-ia08.service
+      - sirius-ioc-si-ps-correctors-c2m12-ia09.service
+      - sirius-ioc-si-ps-correctors-c2m12-ia10.service
+      - sirius-ioc-si-ps-correctors-c2m12-ia11.service
+      - sirius-ioc-si-ps-correctors-c2m12-ia12.service
+      - sirius-ioc-si-ps-correctors-c2m12-ia13.service
+      - sirius-ioc-si-ps-correctors-c2m12-ia14.service
+      - sirius-ioc-si-ps-correctors-c2m12-ia15.service
+      - sirius-ioc-si-ps-correctors-c2m12-ia16.service
+      - sirius-ioc-si-ps-correctors-c2m12-ia17.service
+      - sirius-ioc-si-ps-correctors-c2m12-ia18.service
+      - sirius-ioc-si-ps-correctors-c2m12-ia19.service
+      - sirius-ioc-si-ps-correctors-c2m12-ia20.service
+      - sirius-ioc-si-ps-correctors-c134-ia01.service
+      - sirius-ioc-si-ps-correctors-c134-ia02.service
+      - sirius-ioc-si-ps-correctors-c134-ia03.service
+      - sirius-ioc-si-ps-correctors-c134-ia04.service
+      - sirius-ioc-si-ps-correctors-c134-ia05.service
+      - sirius-ioc-si-ps-correctors-c134-ia06.service
+      - sirius-ioc-si-ps-correctors-c134-ia07.service
+      - sirius-ioc-si-ps-correctors-c134-ia08.service
+      - sirius-ioc-si-ps-correctors-c134-ia09.service
+      - sirius-ioc-si-ps-correctors-c134-ia10.service
+      - sirius-ioc-si-ps-correctors-c134-ia11.service
+      - sirius-ioc-si-ps-correctors-c134-ia12.service
+      - sirius-ioc-si-ps-correctors-c134-ia13.service
+      - sirius-ioc-si-ps-correctors-c134-ia14.service
+      - sirius-ioc-si-ps-correctors-c134-ia15.service
+      - sirius-ioc-si-ps-correctors-c134-ia16.service
+      - sirius-ioc-si-ps-correctors-c134-ia17.service
+      - sirius-ioc-si-ps-correctors-c134-ia18.service
+      - sirius-ioc-si-ps-correctors-c134-ia19.service
+      - sirius-ioc-si-ps-correctors-c134-ia20.service
+      - sirius-ioc-si-ps-correctors-id-ia09.service
+
+    services_to_run_trims_m12:
+      - sirius-ioc-si-ps-trims-qs-m12-ia01.service
+      - sirius-ioc-si-ps-trims-qs-m12-ia02.service
+      - sirius-ioc-si-ps-trims-qs-m12-ia03.service
+      - sirius-ioc-si-ps-trims-qs-m12-ia04.service
+      - sirius-ioc-si-ps-trims-qs-m12-ia05.service
+      - sirius-ioc-si-ps-trims-qs-m12-ia06.service
+      - sirius-ioc-si-ps-trims-qs-m12-ia07.service
+      - sirius-ioc-si-ps-trims-qs-m12-ia08.service
+      - sirius-ioc-si-ps-trims-qs-m12-ia09.service
+      - sirius-ioc-si-ps-trims-qs-m12-ia10.service
+      - sirius-ioc-si-ps-trims-qs-m12-ia11.service
+      - sirius-ioc-si-ps-trims-qs-m12-ia12.service
+      - sirius-ioc-si-ps-trims-qs-m12-ia13.service
+      - sirius-ioc-si-ps-trims-qs-m12-ia14.service
+      - sirius-ioc-si-ps-trims-qs-m12-ia15.service
+      - sirius-ioc-si-ps-trims-qs-m12-ia16.service
+      - sirius-ioc-si-ps-trims-qs-m12-ia17.service
+      - sirius-ioc-si-ps-trims-qs-m12-ia18.service
+      - sirius-ioc-si-ps-trims-qs-m12-ia19.service
+      - sirius-ioc-si-ps-trims-qs-m12-ia20.service
+
+    services_to_run_trims_c1234:
+      - sirius-ioc-si-ps-trims-qs-c1234-ia01.service
+      - sirius-ioc-si-ps-trims-qs-c1234-ia02.service
+      - sirius-ioc-si-ps-trims-qs-c1234-ia03.service
+      - sirius-ioc-si-ps-trims-qs-c1234-ia04.service
+      - sirius-ioc-si-ps-trims-qs-c1234-ia05.service
+      - sirius-ioc-si-ps-trims-qs-c1234-ia06.service
+      - sirius-ioc-si-ps-trims-qs-c1234-ia07.service
+      - sirius-ioc-si-ps-trims-qs-c1234-ia08.service
+      - sirius-ioc-si-ps-trims-qs-c1234-ia09.service
+      - sirius-ioc-si-ps-trims-qs-c1234-ia10.service
+      - sirius-ioc-si-ps-trims-qs-c1234-ia11.service
+      - sirius-ioc-si-ps-trims-qs-c1234-ia12.service
+      - sirius-ioc-si-ps-trims-qs-c1234-ia13.service
+      - sirius-ioc-si-ps-trims-qs-c1234-ia14.service
+      - sirius-ioc-si-ps-trims-qs-c1234-ia15.service
+      - sirius-ioc-si-ps-trims-qs-c1234-ia16.service
+      - sirius-ioc-si-ps-trims-qs-c1234-ia17.service
+      - sirius-ioc-si-ps-trims-qs-c1234-ia18.service
+      - sirius-ioc-si-ps-trims-qs-c1234-ia19.service
+      - sirius-ioc-si-ps-trims-qs-c1234-ia20.service
+
+    services_to_run_diags:
+      - sirius-ioc-si-ps-diag-fam.service
+      - sirius-ioc-si-ps-diag-ch.service
+      - sirius-ioc-si-ps-diag-cv.service
+      - sirius-ioc-si-ps-diag-qs.service
+      - sirius-ioc-si-ps-diag-trim-q1234.service
+      - sirius-ioc-si-ps-diag-trim-qfqd.service
+
+  tasks:
+
+    - name: "Run {{ role_to_run }} role for SI diags"
+      include_role:
+        name: "{{ role_to_run }}"
+      vars:
+        ctrl_service_name: "'{{ item }}'"
+      with_items:
+        - "{{ services_to_run_diags }}"
+      when:
+        - ansible_host == ioc_si_ps_diags_srv_host
+        - services_to_run_diags is defined and services_to_run_diags | length > 0
+        
+    - name: "Run {{ role_to_run }} role for SI corrs"
+      include_role:
+        name: "{{ role_to_run }}"
+      vars:
+        ctrl_service_name: "'{{ item }}'"
+      with_items:
+        - "{{ services_to_run_corrs }}"
+      when:
+        - ansible_host == ioc_si_ps_corrs_srv_host
+        - services_to_run_corrs is defined and services_to_run_corrs | length > 0
+
+    - name: "Run {{ role_to_run }} role for SI trims C1234"
+      include_role:
+        name: "{{ role_to_run }}"
+      vars:
+        ctrl_service_name: "'{{ item }}'"
+      with_items:
+        - "{{ services_to_run_trims_c1234 }}"
+      when:
+        - ansible_host == ioc_si_ps_trims_c1234_srv_host
+        - services_to_run_trims_c1234 is defined and services_to_run_trims_c1234 | length > 0
+
+    - name: "Run {{ role_to_run }} role for SI trims M12"
+      include_role:
+        name: "{{ role_to_run }}"
+      vars:
+        ctrl_service_name: "'{{ item }}'"
+      with_items:
+        - "{{ services_to_run_trims_m12 }}"
+      when:
+        - ansible_host == ioc_si_ps_trims_m12_srv_host
+        - services_to_run_trims_m12 is defined and services_to_run_trims_m12 | length > 0
+
+    - name: "Run {{ role_to_run }} role for SI fams"
+      include_role:
+        name: "{{ role_to_run }}"
+      vars:
+        ctrl_service_name: "'{{ item }}'"
+      with_items:
+        - "{{ services_to_run_fams }}"
+      when:
+        - ansible_host == ioc_si_ps_fams_srv_host
+        - services_to_run_fams is defined and services_to_run_fams | length > 0
