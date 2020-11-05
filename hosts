@@ -155,7 +155,7 @@ ioc_ps_srv
 
 # lnlsfac-srv1
 # ============
-# 	si_ps_corrs       : SI corrector power supply IOCs
+#   si_ps_corrs       : SI corrector power supply IOCs
 #   si_ap_sofb        : SI SOFB IOC
 
 # lnls454-linux
