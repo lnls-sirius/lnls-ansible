@@ -127,36 +127,70 @@ ioc_ps_srv
 
 # === server host selection ===
 
-# --- current config 2020-09-29 ---
-#
+# --- current config 2020-11-05 ---
+
 # lnls451-linux
-# 	FBP:
-# 	OTH: as_ps_dclinks, si_ps_fams
-# 	GEN: as_ti, as_ap
-# lnls449-linux:
-# 	FBP: si_ps_trims_m12
-# 	OTH:
-# 	GEN: as_ap_sofb
-# lnlsfac-srv1:
-# 	FBP: si_ps_corrs, si_ap_sofb
-# 	OTH:
-# 	GEN:
+# =============
+#     as_ps_dclinks   : power supply dclinks for TB, BO, TS and SI
+#     si_ps_fams      : SI dipole, quadrupole and sextupole power supplies
+#     as_ti           : high level timing for all accelerators
+#     as_ap           : - sirius-ioc-li-ap-energy.service
+#                       - sirius-ioc-li-ap-currinfo.service
+#                       - sirius-ioc-bo-ap-currinfo.service
+#                       - sirius-ioc-ts-ap-currinfo.service
+#                       - sirius-ioc-si-ap-currinfo.service
+#                       - sirius-ioc-si-ap-currinfo-lifetime.service
+#                       - sirius-ioc-tb-ap-posang.service
+#                       - sirius-ioc-ts-ap-posang.service
+#                       - sirius-ioc-bo-ap-tunecorr.service
+#                       - sirius-ioc-bo-ap-chromcorr.service
+#                       - sirius-ioc-si-ap-tunecorr.service
+#                       - sirius-ioc-si-ap-chromcorr.service
+#                       - sirius-ioc-as-ap-machshift.service
+
+# lnls449-linux
+# =============
+# 	si_ps_trims_m12   : SI trims from sectors M1 and M2
+# 	as_ap_sofb        : TB, TS and BO SOFB IOCs
+
+# lnlsfac-srv1
+# ============
+#   si_ps_corrs       : SI corrector power supply IOCs
+#   si_ap_sofb        : SI SOFB IOC
+
 # lnls454-linux
-# 	FBP: si_ps_trims_c1234
-#   OTH:
-# 	GEN:
-# lnls452-linux:
-# 	FBP:
-# 	OTH:
-# 	GEN: as_pu_conv, si_ps_diags
-# lnls455-linux:
-# 	FBP:
-# 	OTH:
-# 	GEN: si_ap_bl, as_ap_diag
-# fac-testes-la.abtlus.org.br:
-# 	FBP: tb_ps_quad, tb_ps_corrs, ts_ps_corrs, bo_ps_corrs
-# 	OTH: tb_ps_dips, ts_ps_fams, bo_ps_fams
-# 	GEN: tb_ps_diags, ts_ps_diags, li_ps, li_ps_conv, li_ps_diags, bo_ps_diags
+# =============
+# 	si_ps_trims_c1234 : SI trims from sectors C1-C4
+
+# lnls452-linux
+# =============
+#   as_pu_conv        :  pulsed power supply conversion IOC
+#   si_ps_diags       :  SI power supply diagnostics IOC
+
+# lnls455-linux
+# =============
+#   si_ap_bl          : Beamline image IOC
+#                       - sirius-ioc-si-ap-manaca.service
+#   as_ap_diag        : Diagnostics
+#                       - sirius-ioc-as-pu-diag.service
+#                       - sirius-ioc-as-rf-diag.service
+#                       - sirius-ioc-li-ap-diag.service
+
+# fac-testes-la.abtlus.org.br (VM)
+# ================================
+#   tb_ps_quad        : TB quadrupole power supply IOCs
+#   tb_ps_corrs       : TB corrector power supply IOCs
+#   ts_ps_corrs       : TS corrector power supply IOCs
+#   bo_ps_corrs       : BO corrector power supply IOCs
+#   tb_ps_dips        : TB dipole power supply IOC
+#   ts_ps_fams        : TS dipole and quadrupole power supply IOCs
+#   bo_ps_fams        : BO dipole, quad and sext power supply IOCs
+#   tb_ps_diags       : TB power supply diagnostics IOCs
+#   ts_ps_diags       : TS power supply diagnostics IOCs
+#   li_ps             : LI power supply IOCs
+#   li_ps_conv        : LI power supply conversion IOC
+#   li_ps_diags       : LI power supply diagnostics IOCs
+#   bo_ps_diags       : BO power supply diagnostics IOCs
 
 
 # --- AS
