@@ -56,7 +56,7 @@
       when:
         - ansible_host == ioc_bo_ps_corrs_srv_host
         - services_to_run_corrs is defined and services_to_run_corrs | length > 0
-        
+
     - name: "Run {{ role_to_run }} role for BO fams"
       include_role:
         name: "{{ role_to_run }}"
