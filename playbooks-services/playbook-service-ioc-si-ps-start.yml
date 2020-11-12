@@ -59,7 +59,6 @@
       - sirius-ioc-si-ps-correctors-c134-ia18.service
       - sirius-ioc-si-ps-correctors-c134-ia19.service
       - sirius-ioc-si-ps-correctors-c134-ia20.service
-      - sirius-ioc-si-ps-correctors-id-ia09.service
 
     services_to_run_trims_m12:
       - sirius-ioc-si-ps-trims-qs-m12-ia01.service
