@@ -36,7 +36,9 @@ lnls557-linux  # fac-liulin (10.0.38.44)
 [ioc_servers]
 #grace.lnls.br:16122
 lnlsfac-srv1
-fac-testes-la.abtlus.org.br
+lnlsfac-srv2
+fac-testes-LA.abtlus.org.br
+fac-testes-CA.abtlus.org.br
 
 [nfs_servers]
 lnlsfac-srv1
