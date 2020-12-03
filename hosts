@@ -39,10 +39,10 @@ lnlsfac-srv1
 fac-testes-la.abtlus.org.br
 
 [nfs_servers]
-lnlsfac-srv1
+#lnlsfac-srv1
 
 [web_servers]
-lnlsfac-srv1
+#lnlsfac-srv1
 
 # === FAC IOC servers ===
 
