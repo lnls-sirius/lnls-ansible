@@ -131,7 +131,7 @@ ioc_ps_srv
 
 # === server host selection ===
 
-# --- current config 2020-11-05 ---
+# --- current config 2020-12-09 ---
 
 # lnlsfac-srv1
 # ============
@@ -141,10 +141,9 @@ ioc_ps_srv
 # lnlsfac-srv2
 # ============
 #   si_ps_fams        : SI dipole, quadrupole and sextupole power supplies
+# 	si_ps_trims_m12   : SI trims from sectors M1 and M2
 # 	si_ps_trims_c1234 : SI trims from sectors C1-C4
-#   as_ps_dclinks     : power supply dclinks for TB, BO, TS and SI
-#   as_pu_conv        :  pulsed power supply conversion IOC
-#   si_ps_diags       :  SI power supply diagnostics IOC
+#   si_ps_diags       : SI power supply diagnostics IOC
 
 # fac-testes-LA.abtlus.org.br (VM)
 # ================================
@@ -164,7 +163,8 @@ ioc_ps_srv
 
 # fac-testes-CA.abtlus.org.br (VM)
 # ================================
-# 	si_ps_trims_m12   : SI trims from sectors M1 and M2
+#   as_ps_dclinks     : power supply dclinks for TB, BO, TS and SI
+#   as_pu_conv        :  pulsed power supply conversion IOC
 # 	as_ap_sofb        : TB, TS and BO SOFB IOCs
 #   as_ap_diag        : Diagnostics
 #                       - sirius-ioc-as-pu-diag.service
@@ -211,7 +211,7 @@ fac-testes-CA.abtlus.org.br
 fac-testes-CA.abtlus.org.br
 
 [ioc_as_ps_dclinks_srv]
-lnlsfac-srv2
+fac-testes-CA.abtlus.org.br
 
 [ioc_as_ap_sofb_srv]
 fac-testes-CA.abtlus.org.br
@@ -220,13 +220,13 @@ fac-testes-CA.abtlus.org.br
 fac-testes-CA.abtlus.org.br
 
 [ioc_as_ap_diag_srv]
-lnlsfac-srv2
+fac-testes-CA.abtlus.org.br
 
 [ioc_si_ap_sofb_srv]
 lnlsfac-srv1
 
 [ioc_as_pu_conv_srv]
-lnlsfac-srv2
+fac-testes-CA.abtlus.org.br
 
 # --- LI
 
@@ -299,7 +299,7 @@ ioc_si_ps_corrs_srv_host=lnlsfac-srv1
 ioc_si_ps_trims_c1234_srv_host=lnlsfac-srv2
 
 [ioc_si_ps_trims_m12_srv:vars]
-ioc_si_ps_trims_m12_srv_host=fac-testes-CA.abtlus.org.br
+ioc_si_ps_trims_m12_srv_host=lnlsfac-srv2
 
 [ioc_si_ps_diags_srv:vars]
 ioc_si_ps_diags_srv_host=lnlsfac-srv2
