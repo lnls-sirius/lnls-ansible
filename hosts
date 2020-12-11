@@ -140,8 +140,8 @@ ioc_ps_srv
 
 # lnlsfac-srv2
 # ============
+#   as_ps_dclinks     : power supply dclinks for TB, BO, TS and SI
 #   si_ps_fams        : SI dipole, quadrupole and sextupole power supplies
-# 	si_ps_trims_m12   : SI trims from sectors M1 and M2
 # 	si_ps_trims_c1234 : SI trims from sectors C1-C4
 #   si_ps_diags       : SI power supply diagnostics IOC
 
@@ -163,26 +163,26 @@ ioc_ps_srv
 
 # fac-testes-CA.abtlus.org.br (VM)
 # ================================
-#   as_ps_dclinks     : power supply dclinks for TB, BO, TS and SI
-#   as_pu_conv        :  pulsed power supply conversion IOC
+#   as_pu_conv        : pulsed power supply conversion IOC
 # 	as_ap_sofb        : TB, TS and BO SOFB IOCs
 #   as_ap_diag        : Diagnostics
 #                       - sirius-ioc-as-pu-diag.service
 #                       - sirius-ioc-as-rf-diag.service
 #                       - sirius-ioc-li-ap-diag.service
+# 	si_ps_trims_m12   : SI trims from sectors M1 and M2
 #   si_ap_bl          : Beamline image IOC
 #                       - sirius-ioc-si-ap-manaca.service
 #   as_ti             : high level timing for all accelerators
 #   as_ap             : - sirius-ioc-li-ap-energy.service
-#                       - sirius-ioc-li-ap-currinfo.service
+# NOK!                  - sirius-ioc-li-ap-currinfo.service
 #                       - sirius-ioc-bo-ap-currinfo.service
-#                       - sirius-ioc-ts-ap-currinfo.service
+# NOK!                  - sirius-ioc-ts-ap-currinfo.service
 #                       - sirius-ioc-si-ap-currinfo.service
 #                       - sirius-ioc-si-ap-currinfo-lifetime.service
-#                       - sirius-ioc-tb-ap-posang.service
+# NOK!                  - sirius-ioc-tb-ap-posang.service
 #                       - sirius-ioc-ts-ap-posang.service
-#                       - sirius-ioc-bo-ap-tunecorr.service
-#                       - sirius-ioc-bo-ap-chromcorr.service
+# NOK!                  - sirius-ioc-bo-ap-tunecorr.service
+# NOK!                  - sirius-ioc-bo-ap-chromcorr.service
 #                       - sirius-ioc-si-ap-tunecorr.service
 #                       - sirius-ioc-si-ap-chromcorr.service
 #                       - sirius-ioc-as-ap-machshift.service
@@ -211,7 +211,7 @@ fac-testes-CA.abtlus.org.br
 fac-testes-CA.abtlus.org.br
 
 [ioc_as_ps_dclinks_srv]
-fac-testes-CA.abtlus.org.br
+lnlsfac-srv2
 
 [ioc_as_ap_sofb_srv]
 fac-testes-CA.abtlus.org.br
@@ -299,7 +299,7 @@ ioc_si_ps_corrs_srv_host=lnlsfac-srv1
 ioc_si_ps_trims_c1234_srv_host=lnlsfac-srv2
 
 [ioc_si_ps_trims_m12_srv:vars]
-ioc_si_ps_trims_m12_srv_host=lnlsfac-srv2
+ioc_si_ps_trims_m12_srv_host=fac-testes-CA.abtlus.org.br
 
 [ioc_si_ps_diags_srv:vars]
 ioc_si_ps_diags_srv_host=lnlsfac-srv2
