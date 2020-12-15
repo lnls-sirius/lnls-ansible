@@ -4,9 +4,9 @@ linac-opi2
 
 [control_room]
 lnls449-linux
+lnls451-linux
 lnls452-linux
 lnls454-linux
-lnls451-linux
 
 [control_room_nvidia_false]
 lnls455-linux
@@ -52,13 +52,15 @@ lnlsfac-srv1
 
 [ioc_ps_srv]
 lnlsfac-srv1
-lnls451-linux
-lnls449-linux
-lnls454-linux
-lnls452-linux
-lnls558-linux
-lnls561-linux
-fac-testes-la.abtlus.org.br
+lnlsfac-srv2
+fac-testes-LA.abtlus.org.br
+fac-testes-CA.abtlus.org.br
+#lnls451-linux
+#lnls449-linux
+#lnls454-linux
+#lnls452-linux
+#lnls558-linux
+#lnls561-linux
 
 [ioc_li_ps_spect_srv:children]
 ioc_ps_srv
@@ -129,56 +131,21 @@ ioc_ps_srv
 
 # === server host selection ===
 
-# --- current config 2020-11-05 ---
-
-# lnls451-linux
-# =============
-#     as_ps_dclinks   : power supply dclinks for TB, BO, TS and SI
-#     si_ps_fams      : SI dipole, quadrupole and sextupole power supplies
-#     as_ti           : high level timing for all accelerators
-#     as_ap           : - sirius-ioc-li-ap-energy.service
-#                       - sirius-ioc-li-ap-currinfo.service
-#                       - sirius-ioc-bo-ap-currinfo.service
-#                       - sirius-ioc-ts-ap-currinfo.service
-#                       - sirius-ioc-si-ap-currinfo.service
-#                       - sirius-ioc-si-ap-currinfo-lifetime.service
-#                       - sirius-ioc-tb-ap-posang.service
-#                       - sirius-ioc-ts-ap-posang.service
-#                       - sirius-ioc-bo-ap-tunecorr.service
-#                       - sirius-ioc-bo-ap-chromcorr.service
-#                       - sirius-ioc-si-ap-tunecorr.service
-#                       - sirius-ioc-si-ap-chromcorr.service
-#                       - sirius-ioc-as-ap-machshift.service
-
-# lnls449-linux
-# =============
-# 	si_ps_trims_m12   : SI trims from sectors M1 and M2
-# 	as_ap_sofb        : TB, TS and BO SOFB IOCs
+# --- current config 2020-12-09 ---
 
 # lnlsfac-srv1
 # ============
 #   si_ps_corrs       : SI corrector power supply IOCs
 #   si_ap_sofb        : SI SOFB IOC
 
-# lnls454-linux
-# =============
+# lnlsfac-srv2
+# ============
+#   as_ps_dclinks     : power supply dclinks for TB, BO, TS and SI
+#   si_ps_fams        : SI dipole, quadrupole and sextupole power supplies
 # 	si_ps_trims_c1234 : SI trims from sectors C1-C4
+#   si_ps_diags       : SI power supply diagnostics IOC
 
-# lnls452-linux
-# =============
-#   as_pu_conv        :  pulsed power supply conversion IOC
-#   si_ps_diags       :  SI power supply diagnostics IOC
-
-# lnls455-linux
-# =============
-#   si_ap_bl          : Beamline image IOC
-#                       - sirius-ioc-si-ap-manaca.service
-#   as_ap_diag        : Diagnostics
-#                       - sirius-ioc-as-pu-diag.service
-#                       - sirius-ioc-as-rf-diag.service
-#                       - sirius-ioc-li-ap-diag.service
-
-# fac-testes-la.abtlus.org.br (VM)
+# fac-testes-LA.abtlus.org.br (VM)
 # ================================
 #   tb_ps_quad        : TB quadrupole power supply IOCs
 #   tb_ps_corrs       : TB corrector power supply IOCs
@@ -194,108 +161,148 @@ ioc_ps_srv
 #   li_ps_diags       : LI power supply diagnostics IOCs
 #   bo_ps_diags       : BO power supply diagnostics IOCs
 
+# fac-testes-CA.abtlus.org.br (VM)
+# ================================
+#   as_pu_conv        : pulsed power supply conversion IOC
+# 	as_ap_sofb        : TB, TS and BO SOFB IOCs
+#   as_ap_diag        : Diagnostics
+#                       - sirius-ioc-as-pu-diag.service
+#                       - sirius-ioc-as-rf-diag.service
+#                       - sirius-ioc-li-ap-diag.service
+# 	si_ps_trims_m12   : SI trims from sectors M1 and M2
+#   si_ap_bl          : Beamline image IOC
+#                       - sirius-ioc-si-ap-manaca.service
+#   as_ti             : high level timing for all accelerators
+#   as_ap             : - sirius-ioc-li-ap-energy.service
+# NOK!                  - sirius-ioc-li-ap-currinfo.service
+#                       - sirius-ioc-bo-ap-currinfo.service
+# NOK!                  - sirius-ioc-ts-ap-currinfo.service
+#                       - sirius-ioc-si-ap-currinfo.service
+#                       - sirius-ioc-si-ap-currinfo-lifetime.service
+# NOK!                  - sirius-ioc-tb-ap-posang.service
+#                       - sirius-ioc-ts-ap-posang.service
+# NOK!                  - sirius-ioc-bo-ap-tunecorr.service
+# NOK!                  - sirius-ioc-bo-ap-chromcorr.service
+#                       - sirius-ioc-si-ap-tunecorr.service
+#                       - sirius-ioc-si-ap-chromcorr.service
+#                       - sirius-ioc-as-ap-machshift.service
+
+# lnls449-linux
+# =============
+
+# lnls454-linux
+# =============
+
+# lnls451-linux
+# =============
+
+# lnls452-linux
+# =============
+
+# lnls455-linux
+# =============
 
 # --- AS
 
 [ioc_as_ti_srv]
-lnls451-linux
+fac-testes-CA.abtlus.org.br
 
 [ioc_as_ap_srv]
-lnls451-linux
+fac-testes-CA.abtlus.org.br
 
 [ioc_as_ps_dclinks_srv]
-lnls451-linux
+lnlsfac-srv2
 
 [ioc_as_ap_sofb_srv]
-lnls449-linux
+fac-testes-CA.abtlus.org.br
 
 [ioc_si_ap_bl_srv]
-lnls455-linux
+fac-testes-CA.abtlus.org.br
 
 [ioc_as_ap_diag_srv]
-lnls455-linux
+fac-testes-CA.abtlus.org.br
 
 [ioc_si_ap_sofb_srv]
 lnlsfac-srv1
 
 [ioc_as_pu_conv_srv]
-lnls452-linux
+fac-testes-CA.abtlus.org.br
 
 # --- LI
 
 [ioc_li_ps_spect_srv:vars]
-ioc_li_ps_spect_srv_host=fac-testes-la.abtlus.org.br
+ioc_li_ps_spect_srv_host=fac-testes-LA.abtlus.org.br
 
 [ioc_li_ps_quads_srv:vars]
-ioc_li_ps_quads_srv_host=fac-testes-la.abtlus.org.br
+ioc_li_ps_quads_srv_host=fac-testes-LA.abtlus.org.br
 
 [ioc_li_ps_corrs_srv:vars]
-ioc_li_ps_corrs_srv_host=fac-testes-la.abtlus.org.br
+ioc_li_ps_corrs_srv_host=fac-testes-LA.abtlus.org.br
 
 [ioc_li_ps_lens_srv:vars]
-ioc_li_ps_lens_srv_host=fac-testes-la.abtlus.org.br
+ioc_li_ps_lens_srv_host=fac-testes-LA.abtlus.org.br
 
 [ioc_li_ps_solenoids_srv:vars]
-ioc_li_ps_solenoids_srv_host=fac-testes-la.abtlus.org.br
+ioc_li_ps_solenoids_srv_host=fac-testes-LA.abtlus.org.br
 
 [ioc_li_ps_conv_srv:vars]
-ioc_li_ps_conv_srv_host=fac-testes-la.abtlus.org.br
+ioc_li_ps_conv_srv_host=fac-testes-LA.abtlus.org.br
 
 [ioc_li_ps_diags_srv:vars]
-ioc_li_ps_diags_srv_host=fac-testes-la.abtlus.org.br
+ioc_li_ps_diags_srv_host=fac-testes-LA.abtlus.org.br
 
 # --- TB
 
 [ioc_tb_ps_dips_srv:vars]
-ioc_tb_ps_dips_srv_host=fac-testes-la.abtlus.org.br
+ioc_tb_ps_dips_srv_host=fac-testes-LA.abtlus.org.br
 
 [ioc_tb_ps_quads_srv:vars]
-ioc_tb_ps_quads_srv_host=fac-testes-la.abtlus.org.br
+ioc_tb_ps_quads_srv_host=fac-testes-LA.abtlus.org.br
 
 [ioc_tb_ps_corrs_srv:vars]
-ioc_tb_ps_corrs_srv_host=fac-testes-la.abtlus.org.br
+ioc_tb_ps_corrs_srv_host=fac-testes-LA.abtlus.org.br
 
 [ioc_tb_ps_diags_srv:vars]
-ioc_tb_ps_diags_srv_host=fac-testes-la.abtlus.org.br
+ioc_tb_ps_diags_srv_host=fac-testes-LA.abtlus.org.br
 
 # --- BO
 
 [ioc_bo_ps_fams_srv:vars]
-ioc_bo_ps_fams_srv_host=fac-testes-la.abtlus.org.br
+ioc_bo_ps_fams_srv_host=fac-testes-LA.abtlus.org.br
 
 [ioc_bo_ps_corrs_srv:vars]
-ioc_bo_ps_corrs_srv_host=fac-testes-la.abtlus.org.br
+ioc_bo_ps_corrs_srv_host=fac-testes-LA.abtlus.org.br
 
 [ioc_bo_ps_diags_srv:vars]
-ioc_bo_ps_diags_srv_host=fac-testes-la.abtlus.org.br
+ioc_bo_ps_diags_srv_host=fac-testes-LA.abtlus.org.br
 
 # --- TS
 
 [ioc_ts_ps_fams_srv:vars]
-ioc_ts_ps_fams_srv_host=fac-testes-la.abtlus.org.br
+ioc_ts_ps_fams_srv_host=fac-testes-LA.abtlus.org.br
 
 [ioc_ts_ps_corrs_srv:vars]
-ioc_ts_ps_corrs_srv_host=fac-testes-la.abtlus.org.br
+ioc_ts_ps_corrs_srv_host=fac-testes-LA.abtlus.org.br
 
 [ioc_ts_ps_diags_srv:vars]
-ioc_ts_ps_diags_srv_host=fac-testes-la.abtlus.org.br
+ioc_ts_ps_diags_srv_host=fac-testes-LA.abtlus.org.br
 
 # --- SI
 
 [ioc_si_ps_fams_srv:vars]
-ioc_si_ps_fams_srv_host=lnls451-linux
+ioc_si_ps_fams_srv_host=lnlsfac-srv2
 
 [ioc_si_ps_corrs_srv:vars]
 ioc_si_ps_corrs_srv_host=lnlsfac-srv1
 
 [ioc_si_ps_trims_c1234_srv:vars]
-ioc_si_ps_trims_c1234_srv_host=lnls454-linux
+ioc_si_ps_trims_c1234_srv_host=lnlsfac-srv2
 
 [ioc_si_ps_trims_m12_srv:vars]
-ioc_si_ps_trims_m12_srv_host=lnls449-linux
+ioc_si_ps_trims_m12_srv_host=fac-testes-CA.abtlus.org.br
 
 [ioc_si_ps_diags_srv:vars]
-ioc_si_ps_diags_srv_host=lnls452-linux
+ioc_si_ps_diags_srv_host=lnlsfac-srv2
 
 
 # === Power Supply BeagleBones ===
