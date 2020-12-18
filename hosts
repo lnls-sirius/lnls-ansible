@@ -10,7 +10,7 @@ lnls454-linux
 
 [control_room_nvidia_false]
 lnls455-linux
-lnls209-linux  # fac-desktop
+#lnls209-linux  # fac-desktop
 
 [elp]
 10.0.38.56  # elp1-linux
@@ -131,7 +131,7 @@ ioc_ps_srv
 
 # === server host selection ===
 
-# --- current config 2020-12-09 ---
+# --- current config 2020-12-16 ---
 
 # lnlsfac-srv1
 # ============
@@ -144,6 +144,12 @@ ioc_ps_srv
 #   si_ps_fams        : SI dipole, quadrupole and sextupole power supplies
 # 	si_ps_trims_c1234 : SI trims from sectors C1-C4
 #   si_ps_diags       : SI power supply diagnostics IOC
+#   as_ap1            : - sirius-ioc-li-ap-energy.service
+# NOK?                  - sirius-ioc-li-ap-currinfo.service
+#                       - sirius-ioc-bo-ap-currinfo.service
+# NOK?                  - sirius-ioc-ts-ap-currinfo.service
+#                       - sirius-ioc-si-ap-currinfo.service
+#                       - sirius-ioc-si-ap-currinfo-lifetime.service
 
 # fac-testes-LA.abtlus.org.br (VM)
 # ================================
@@ -173,41 +179,23 @@ ioc_ps_srv
 #   si_ap_bl          : Beamline image IOC
 #                       - sirius-ioc-si-ap-manaca.service
 #   as_ti             : high level timing for all accelerators
-#   as_ap             : - sirius-ioc-li-ap-energy.service
-# NOK!                  - sirius-ioc-li-ap-currinfo.service
-#                       - sirius-ioc-bo-ap-currinfo.service
-# NOK!                  - sirius-ioc-ts-ap-currinfo.service
-#                       - sirius-ioc-si-ap-currinfo.service
-#                       - sirius-ioc-si-ap-currinfo-lifetime.service
-# NOK!                  - sirius-ioc-tb-ap-posang.service
+#   as_ap2            : - sirius-ioc-tb-ap-posang.service
 #                       - sirius-ioc-ts-ap-posang.service
-# NOK!                  - sirius-ioc-bo-ap-tunecorr.service
-# NOK!                  - sirius-ioc-bo-ap-chromcorr.service
+#                       - sirius-ioc-bo-ap-tunecorr.service
+#                       - sirius-ioc-bo-ap-chromcorr.service
 #                       - sirius-ioc-si-ap-tunecorr.service
 #                       - sirius-ioc-si-ap-chromcorr.service
 #                       - sirius-ioc-as-ap-machshift.service
-
-# lnls449-linux
-# =============
-
-# lnls454-linux
-# =============
-
-# lnls451-linux
-# =============
-
-# lnls452-linux
-# =============
-
-# lnls455-linux
-# =============
 
 # --- AS
 
 [ioc_as_ti_srv]
 fac-testes-CA.abtlus.org.br
 
-[ioc_as_ap_srv]
+[ioc_as_ap1_srv]
+lnlsfac-srv2
+
+[ioc_as_ap2_srv]
 fac-testes-CA.abtlus.org.br
 
 [ioc_as_ps_dclinks_srv]
@@ -323,7 +311,6 @@ PA-RaPSC03--CO-PSCtrl-BO4   # bbb-bo-quadrupole-qd    -  BO-Fam:PS-QD
 [bbb_bo_sextupoles]
 PA-RaPSC03--CO-PSCtrl-BO2   # bbb-bo-sextupole-sf     -  BO-Fam:PS-SF
 PA-RaPSC03--CO-PSCtrl-BO3   # bbb-bo-sextupole-sd     -  BO-Fam:PS-SD
-
 
 # -- SI
 

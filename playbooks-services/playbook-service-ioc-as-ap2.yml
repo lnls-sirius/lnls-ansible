@@ -1,17 +1,17 @@
 ---
-- hosts: ioc_as_ap_srv
+- hosts: ioc_as_ap2_srv
   remote_user: sirius
 
   vars:
     role_to_run: lnls-ans-role-ctrl-service
     services_to_run:
-      - sirius-ioc-li-ap-energy.service
-      - sirius-ioc-li-ap-currinfo.service
-      # - sirius-ioc-tb-ap-currinfo.service
-      - sirius-ioc-bo-ap-currinfo.service
-      - sirius-ioc-ts-ap-currinfo.service
-      - sirius-ioc-si-ap-currinfo.service
-      - sirius-ioc-si-ap-currinfo-lifetime.service
+      #- sirius-ioc-li-ap-energy.service
+      #- sirius-ioc-li-ap-currinfo.service
+      ## - sirius-ioc-tb-ap-currinfo.service
+      #- sirius-ioc-bo-ap-currinfo.service
+      #- sirius-ioc-ts-ap-currinfo.service
+      #- sirius-ioc-si-ap-currinfo.service
+      #- sirius-ioc-si-ap-currinfo-lifetime.service
       - sirius-ioc-tb-ap-posang.service
       - sirius-ioc-ts-ap-posang.service
       - sirius-ioc-bo-ap-tunecorr.service
