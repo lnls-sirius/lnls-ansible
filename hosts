@@ -10,7 +10,7 @@ lnls454-linux
 
 [control_room_nvidia_false]
 lnls455-linux
-lnls209-linux  # fac-desktop
+#lnls209-linux  # fac-desktop
 
 [elp]
 10.0.38.56  # elp1-linux
