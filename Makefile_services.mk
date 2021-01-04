@@ -1,32 +1,46 @@
 # === AS AP IOC services ===
 
-service-ioc-as-ap1-stop:
-	@echo "Stopping AS AP1 IOC services"
+service-ioc-as-ap-1-stop:
+	@echo "Stopping AS AP-1 IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_state=stopped" \
-		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-as-ap1.yml
+		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-as-ap-1.yml
 
-service-ioc-as-ap1-start:
-	@echo "Starting AS AP1 IOC services"
+service-ioc-as-ap-1-start:
+	@echo "Starting AS AP-1 IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_state=started" \
-		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-as-ap1.yml
+		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-as-ap-1.yml
 
-service-ioc-as-ap2-stop:
-	@echo "Stopping AS AP2 IOC services"
+service-ioc-as-ap-2-stop:
+	@echo "Stopping AS AP-2 IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_state=stopped" \
-		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-as-ap2.yml
+		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-as-ap-2.yml
 
-service-ioc-as-ap2-start:
-	@echo "Starting AS AP2 IOC services"
+service-ioc-as-ap-2-start:
+	@echo "Starting AS AP-2 IOC services"
 	@echo "Please enter password for sirius user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_state=started" \
-		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-as-ap2.yml
+		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-as-ap-2.yml
+
+service-ioc-as-ap-3-stop:
+	@echo "Stopping AS AP-3 IOC services"
+	@echo "Please enter password for sirius user."
+	ansible-playbook \
+		--extra-vars "ctrl_service_state=stopped" \
+		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-as-ap-3.yml
+
+service-ioc-as-ap-3-start:
+	@echo "Starting AS AP-3 IOC services"
+	@echo "Please enter password for sirius user."
+	ansible-playbook \
+		--extra-vars "ctrl_service_state=started" \
+		-u sirius -k --ask-become-pass playbooks-services/playbook-service-ioc-as-ap-3.yml
 
 service-ioc-as-ap-sofb-stop:
 	@echo "Stopping AS AP SOFB IOC services"

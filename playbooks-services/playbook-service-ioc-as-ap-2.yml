@@ -1,5 +1,5 @@
 ---
-- hosts: ioc_as_ap2_srv
+- hosts: ioc_as_ap_2_srv
   remote_user: sirius
 
   vars:
