@@ -72,6 +72,7 @@ pkg_version_ethbridge_pru_serial: "v2.6.0"
 pkg_version_siriuspy: "v2.18.1"
 pkg_version_machine_applications: "v3.19.0"
 pkg_version_siriushla: "v0.39.1"
+pkg_version_siriushlafac: "v0.2.0"
 pkg_sirius_scripts: "v0.7.0"
 pkg_version_pydm_opi: "v1.5.7"
 pkg_version_lnls_ansible: "master"
@@ -236,6 +237,14 @@ sirius_apps_hla_apps:
     make_install_target: install-all
     make_install_opts:
       INSTALL_DESIGNER_DIR: "{{ sirius_apps_hla_designer_dir }}"
+    force_version: true
+
+  - name: FAC High-Level Applications
+    org_url: https://github.com/lnls-fac
+    repo_name: hlafac
+    repo_version: "{{ pkg_version_siriushlafac }}"
+    clone_path: /tmp
+    install_via_makefile: true
     force_version: true
 
 sirius_apps_hla_opis:
