@@ -33,7 +33,7 @@ network_interfaces:
   - name: TIC
     ignore_auto_dns: "true"
 
-  - name: CONS
+  - name: GCO
     ignore_auto_dns: "false"
 
 ```

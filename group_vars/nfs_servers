@@ -97,7 +97,7 @@ clone_install_repos_servnfs:
     repo_version: "{{ pkg_version_siriushlafac }}"
     clone_path: /home/nfs-shared/repos-lnls-sirius
 
-  - name: High-Level Applications CONS
+  - name: High-Level Applications GCO
     org_url: https://github.com/lnls-sirius
     repo_name: pydm-opi
     repo_version: "{{ pkg_version_pydm_opi }}"
