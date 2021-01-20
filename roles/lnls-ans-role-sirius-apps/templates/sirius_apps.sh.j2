@@ -9,9 +9,58 @@ IP_IOCS_LI="\
 10.128.1.55:5064 \
 "
 
-export EPICS_CA_ADDR_LIST="${EPICS_CA_ADDR_LIST} ${IP_IOCS_LI}"
-export EPICS_PV_ADDR_LIST="${EPICS_PV_ADDR_LIST} ${IP_IOCS_LI}"
-export EPICS_PVA_ADDR_LIST="${EPICS_PVA_ADDR_LIST} ${IP_IOCS_LI}"
+# Undulators CLP device names below are in this order:
+# Ipê (SI-11SP:ID-APU58)
+# Cateretê (SI-07SP:ID-APU22)
+# Manacá (SI-09SA:ID-APU22)
+# Ema (SI-08SB:ID-APU22)
+# Carnaúba (SI-06SB:ID-APU22)
+
+IP_CLP_KYMA_UNDU="\
+1995-ccu.abtlus.org.br  \
+1991a-ccu.abtlus.org.br \
+1991b-ccu.abtlus.org.br \
+1991d-ccu.abtlus.org.br \
+1991c-ccu.abtlus.org.br \
+"
+
+IP_RAD_THERMO='\
+bbb-thermo1.abtlus.org.br \
+bbb-thermo2.abtlus.org.br \
+bbb-thermo3.abtlus.org.br \
+bbb-thermo4.abtlus.org.br \
+bbb-thermo5.abtlus.org.br \
+bbb-thermo6.abtlus.org.br \
+bbb-thermo7.abtlus.org.br \
+bbb-thermo8.abtlus.org.br \
+bbb-thermo9.abtlus.org.br \
+bbb-thermo10.abtlus.org.br \
+bbb-thermo11.abtlus.org.br \
+bbb-thermo12.abtlus.org.br \
+bbb-thermo13.abtlus.org.br \
+bbb-thermo14.abtlus.org.br \
+bbb-thermo15.abtlus.org.br \
+bbb-thermo16.abtlus.org.br \
+"
+
+export EPICS_CA_ADDR_LIST="\
+${EPICS_CA_ADDR_LIST} \
+${IP_IOCS_LI} \
+${IP_CLP_KYMA_UNDU} \
+${IP_RAD_THERMO} \
+"
+export EPICS_PV_ADDR_LIST="\
+${EPICS_CA_ADDR_LIST} \
+${IP_IOCS_LI} \
+${IP_CLP_KYMA_UNDU} \
+${IP_RAD_THERMO} \
+"
+export EPICS_PVA_ADDR_LIST="\
+${EPICS_CA_ADDR_LIST} \
+${IP_IOCS_LI} \
+${IP_CLP_KYMA_UNDU} \
+${IP_RAD_THERMO} \
+"
 
 # EPICS Support Application Machines
 # ==================================
