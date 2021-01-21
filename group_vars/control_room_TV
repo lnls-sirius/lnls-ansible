@@ -11,13 +11,10 @@ sirius_apps_hla_install_categories:
 
 
 # Desktop cursor size
-desktop_settings_cursor_size: 24
+desktop_settings_cursor_size: 120
 
 # Import Nvidia Role
 global_import_nvidia_driver_role: false
-
-# Run network Role
-global_network_role: false
 
 # Visual Studio Extensions
 visual_studio_code_users:
@@ -26,3 +23,13 @@ visual_studio_code_users:
     visual_studio_code_extensions_absent: []
     visual_studio_code_settings: "{{ visual_studio_code_settings }}"
     visual_studio_code_keybindings: "{{ visual_studio_code_keybindings }}"
+#  - username: fernando
+#    visual_studio_code_extensions: "{{ visual_studio_code_extensions }}"
+#    visual_studio_code_extensions_absent: []
+#    visual_studio_code_settings: "{{ visual_studio_code_settings }}"
+#    visual_studio_code_keybindings: "{{ visual_studio_code_keybindings }}"
+#  - username: ximenes
+#    visual_studio_code_extensions: "{{ visual_studio_code_extensions }}"
+#    visual_studio_code_extensions_absent: []
+#    visual_studio_code_settings: "{{ visual_studio_code_settings }}"
+#    visual_studio_code_keybindings: "{{ visual_studio_code_keybindings }}"

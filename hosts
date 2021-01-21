@@ -5,15 +5,15 @@ linac-opi2
 [control_room]
 lnls449-linux
 lnls451-linux
-lnls452-linux
 lnls454-linux
 
 [control_room_nvidia_false]
-lnls455-linux
-
-[control_room_2]
 optiplex-7070-sc-1.abtlus.org.br
 optiplex-7070-sc-2.abtlus.org.br
+
+[control_room_TV]
+lnls452-linux
+lnls455-linux
 
 [elp]
 10.0.38.56  # elp1-linux
