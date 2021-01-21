@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
-Name=DIG\nFPMDig
+Name=TS-PU-Osc-InjSI
 Icon=/usr/share/icons/Adwaita/48x48/devices/audio-card.png
-Exec=/bin/bash -l -c "gvncviewer scope-dig-fpmdig"
+Exec=/bin/bash -l -c "gvncviewer keysigh-48bj10q"
 StartupNotify=true
 Terminal=false

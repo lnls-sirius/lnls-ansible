@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=TS-PU-Osc-EjeBO
+Icon=/usr/share/icons/Adwaita/48x48/devices/audio-card.png
+Exec=/bin/bash -l -c "gvncviewer keysigh-0dpsjoq"
+StartupNotify=true
+Terminal=false

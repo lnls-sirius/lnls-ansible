@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
-Name=DIG\nLinICT
+Name=LI-DI-Osc-ICT
 Icon=/usr/share/icons/Adwaita/48x48/devices/audio-card.png
-Exec=/bin/bash -l -c "gvncviewer scope-dig-linac-ict"
+Exec=/bin/bash -l -c "gvncviewer li-di-ictosc"
 StartupNotify=true
 Terminal=false
