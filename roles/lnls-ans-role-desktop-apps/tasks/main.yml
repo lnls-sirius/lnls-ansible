@@ -47,6 +47,8 @@
 
 - include_tasks: setup-apps.yml
 
+- include_tasks: setup-pip-packages.yml
+
 # Uninstall packages
 
 - name: Uninstall evolution
