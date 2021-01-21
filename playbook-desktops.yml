@@ -1,5 +1,5 @@
 ---
-- hosts: control_room:control_room_TV:linac_opi:control_room_nvidia_false:con:elp
+- hosts: control_room:control_room_tv:linac_opi:control_room_nvidia_false:con:elp
   remote_user: sirius
   become: true
 
