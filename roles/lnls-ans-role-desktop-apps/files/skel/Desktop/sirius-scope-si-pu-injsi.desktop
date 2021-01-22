@@ -2,6 +2,6 @@
 Type=Application
 Name=SI-PU-Osc-InjSI
 Icon=/usr/share/icons/Adwaita/48x48/devices/audio-card.png
-Exec=/bin/bash -l -c "gvncviewer keysigh-5javqgi"
+Exec=/bin/bash -l -c "gvncviewer SI-PU-Osc-InjSI"
 StartupNotify=true
 Terminal=false
