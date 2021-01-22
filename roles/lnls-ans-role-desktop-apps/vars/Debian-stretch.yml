@@ -47,6 +47,7 @@ __desktop_pip_packages:
   - "scipy{{ (pkg_version_scipy | length > 0) | ternary('==' + pkg_version_scipy, '') }}"
   - "jupyter{{ (pkg_version_jupyter | length > 0) | ternary('==' + pkg_version_jupyter, '') }}"
   - "xlrd{{ (pkg_version_xlrd | length > 0) | ternary('==' + pkg_version_xlrd, '') }}"
+  - "ipython{{ (pkg_version_ipython_pip | length > 0) | ternary('==' + pkg_version_ipython_pip, '') }}"
 
 __pip_executable: pip-sirius
 
