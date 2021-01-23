@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
-Name=DIG\nFCTDig
+Name=TS-DI-Osc-ICT
 Icon=/usr/share/icons/Adwaita/48x48/devices/audio-card.png
-Exec=/bin/bash -l -c "gvncviewer scope-dig-fctdig"
+Exec=/bin/bash -l -c "gvncviewer as-di-fctdig"
 StartupNotify=true
 Terminal=false
