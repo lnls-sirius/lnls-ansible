@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=AS-DI-Osc-FPM
+Icon=/usr/share/icons/Adwaita/48x48/devices/audio-card.png
+Exec=/bin/bash -l -c "gvncviewer as-di-fpmdig"
+StartupNotify=true
+Terminal=false
