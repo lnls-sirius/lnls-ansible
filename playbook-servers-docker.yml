@@ -15,3 +15,16 @@
 
   roles:
     - role: geerlingguy.docker
+
+  tasks:
+    - name: Create docker certs.d/ for the internal registry
+      file:
+        path: "/etc/docker/certs.d/{{ docker_registry_server }}/"
+        state: directory
+        mode: "0755"
+
+    - name: Copy self signed crt to the client machine
+      ansible.posix.synchronize:
+        src: "{{ docker_registry_ssl_crt_path }}"
+        dest: "/etc/docker/certs.d/{{ docker_registry_server }}/ca.crt"
+      delegate_to: "{{ docker_registry_server }}"
