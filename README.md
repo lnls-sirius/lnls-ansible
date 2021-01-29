@@ -217,6 +217,10 @@ If the role is already installed and you want to force an upgrade:
 ```bash
     ansible-galaxy install -f git+https://github.com/lnls-sirius/lnls-ansible,master
 ```
+### Dependencies
+```bash
+ansible-galaxy install -r requirements.yml
+```
 
 ## Troubleshooting
 
