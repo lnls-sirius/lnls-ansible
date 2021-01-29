@@ -36,6 +36,16 @@ lnls557-linux  # fac-liulin (10.0.38.44)
 [rfq]
 10.15.0.189  # lnls627-linux (RF laptop)
 
+[docker_servers]
+#CA-RaTim-CO-IOCSrv
+#IA-14RaDiag03-CO-IOCSrv
+#IA-16RaBbB-CO-IOCSrv
+#IA-18RaDiag04-CO-IOCSrv
+#IA-20RaDiag01-CO-IOCSrv-1
+#IA-20RaDiag01-CO-IOCSrv-2
+#IA-20RaDiag02-CO-IOCSrv-1
+#IA-20RaDiag02-CO-IOCSrv-2
+
 [gluster_servers]
 #CA-RaTim-CO-IOCSrv
 #IA-14RaDiag03-CO-IOCSrv
