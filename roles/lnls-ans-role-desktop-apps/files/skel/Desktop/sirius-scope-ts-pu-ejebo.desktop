@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
-Name=EPP\nScope1
+Name=TS-PU-Osc-EjeBO
 Icon=/usr/share/icons/Adwaita/48x48/devices/audio-card.png
-Exec=/bin/bash -l -c "gvncviewer scope-epp-scope1"
+Exec=/bin/bash -l -c "gvncviewer TS-PU-Osc-EjeBO"
 StartupNotify=true
 Terminal=false
