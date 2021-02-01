@@ -14,7 +14,13 @@
       loop: "{{ q('first_found', possible_var_files, errors='ignore') }}"
 
   roles:
-    - role: geerlingguy.docker
+    - { role: geerlingguy.repo-epel, when: ansible_os_family == 'RedHat' }
+    - { role: geerlingguy.pip }
+    - { role: geerlingguy.docker }
+
+  vars:
+    pip_install_packages:
+      - name: docker
 
   tasks:
     - name: Create docker certs.d/ for the internal registry
@@ -24,7 +30,35 @@
         mode: "0755"
 
     - name: Copy self signed crt to the client machine
-      ansible.posix.synchronize:
-        src: "{{ docker_registry_ssl_crt_path }}"
+      copy:
+        src: "/etc/docker/certs.d/{{ docker_registry_server }}/ca.crt"
         dest: "/etc/docker/certs.d/{{ docker_registry_server }}/ca.crt"
-      delegate_to: "{{ docker_registry_server }}"
+
+    - name: "Adding existing user {{ ansible_ssh_user }} to group sudo"
+      user:
+        name: "{{ ansible_ssh_user }}"
+        groups: docker
+        append: yes
+
+    - name: "Define swarm join token"
+      set_fact:
+        docker_swarm_join_token: "{{ lookup('env','SWARM_JOIN_TOKEN') }}"
+        when: docker_swarm_join_token is not defined
+
+    - debug:
+        msg: "Swarm join token {{ docker_swarm_join_token }} ."
+
+    - name: "Join swarm"
+      community.general.docker_swarm:
+        state: join
+        join_token: "{{ docker_swarm_join_token }}"
+        remote_addrs: [ "{{ docker_swarm_join_node }}" ]
+      when: (docker_swarm_join_token is defined) and (docker_swarm_join_token != "") and (docker_swarm_join_node is defined)
+
+    - name: Get info on Docker Swarm and filtered list of registered nodes
+      community.general.docker_swarm_info:
+      register: docker_swarm_info
+
+    - name: "Swarm status:"
+      debug:
+        var: docker_swarm_info
