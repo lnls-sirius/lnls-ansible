@@ -44,7 +44,7 @@ lnls557-linux  # fac-liulin (10.0.38.44)
 #IA-20RaDiag01-CO-IOCSrv-1
 #IA-20RaDiag01-CO-IOCSrv-2
 #IA-20RaDiag02-CO-IOCSrv-1
-#IA-20RaDiag02-CO-IOCSrv-2
+IA-20RaDiag02-CO-IOCSrv-2
 
 [gluster_servers]
 #CA-RaTim-CO-IOCSrv
@@ -54,7 +54,7 @@ lnls557-linux  # fac-liulin (10.0.38.44)
 #IA-20RaDiag01-CO-IOCSrv-1
 #IA-20RaDiag01-CO-IOCSrv-2
 #IA-20RaDiag02-CO-IOCSrv-1
-#IA-20RaDiag02-CO-IOCSrv-2
+IA-20RaDiag02-CO-IOCSrv-2
 
 [ioc_servers]
 #grace.lnls.br:16122

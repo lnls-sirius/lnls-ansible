@@ -14,4 +14,4 @@
       loop: "{{ q('first_found', possible_var_files, errors='ignore') }}"
 
   roles:
-    - role: geerlingguy.gluster
+    - role: geerlingguy.glusterfs

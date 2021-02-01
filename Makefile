@@ -159,3 +159,9 @@ deploy-beagles-si-correctors: playbook-bbb-repos-checkout.yml
 
 deploy-beagles: playbook-bbb-repos-checkout.yml
 	ansible-playbook -u fac -i hosts -l bbb -k --ask-become-pass playbook-bbb-repos-checkout.yml
+
+deploy-server-gluster-update: playbook-servers-gluster.yml
+	ansible-playbook -u server -i hosts  -k --ask-become-pass playbook-servers-gluster.yml
+
+deploy-server-docker-update: playbook-servers-docker.yml
+	ansible-playbook -u server -i hosts  -k --ask-become-pass playbook-servers-docker.yml
