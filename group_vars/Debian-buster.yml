@@ -1,5 +1,9 @@
 ---
+# === Docker ===
+docker_version: "5:19.03.14~3-0~debian-buster"
+docker_package: "{{ docker_package_base }}={{ docker_version }}"
 
+# ----
 global_role_java: false
 global_role_cs_studio: false
 global_role_phoebus: false

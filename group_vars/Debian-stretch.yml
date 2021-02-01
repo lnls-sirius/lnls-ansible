@@ -1,6 +1,8 @@
 ---
+# === Docker
+docker_version: "5:19.03.14~3-0~debian-stretch"
+docker_package: "{{ docker_package_base }}={{ docker_version }}"
 
-global_role_java: true
 global_role_cs_studio: true
 global_role_phoebus: true
 global_role_sirius_bbb: true
