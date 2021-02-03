@@ -2,6 +2,8 @@
 - hosts: docker_servers
   remote_user: server
   become: true
+  become_method: su
+  become_user: root
 
   pre_tasks:
     - name: Include distribution-dependent variables
