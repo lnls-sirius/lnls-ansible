@@ -16,7 +16,7 @@
       loop: "{{ q('first_found', possible_var_files, errors='ignore') }}"
     
   roles:
-    - { role: lnls-ans-role-ntp }
+    - { role: lnls-ans-role-ntp, when: ansible_os_family == "Debian" }
 
   tasks:
 
@@ -25,6 +25,9 @@
         name: "{{ ansible_ssh_user }}"
         groups: sudo
         append: yes
+      when:
+        - ansible_os_family == 'Debian'
+        - ansible_os_family == 'RedHat'
 
     - name: sudo
       apt:
@@ -45,21 +48,30 @@
 
     - name: "Download Neovim"
       get_url:
-       url: https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-       dest: /opt/nvim/nvim.appimage
-       mode: '0555'
+        url: https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+        dest: /opt/nvim/nvim.appimage
+        mode: '0555'
       when: not stat_result.stat.exists
 
     - name: "Create symbolic link"
       file:
-       src: "/opt/nvim/nvim.appimage"
-       dest: "/usr/local/bin/nvim"
-       state: link
+        src: "/opt/nvim/nvim.appimage"
+        dest: "/usr/local/bin/nvim"
+        state: link
 
-    - name: tzdata
+    - name: "Update tzdata"
       apt:
         name: tzdata
         state: latest
         update_cache: yes
+      when:
+        - ansible_os_family == 'Debian'
+
+    - name: "Update tzdata"
+      yum:
+        name: httpd
+        state: latest
+      when:
+        - ansible_os_family == 'RedHat'
 
 
