@@ -56,7 +56,7 @@
         state: join
         join_token: "{{ docker_swarm_join_token }}"
         remote_addrs: [ "{{ docker_swarm_join_node }}" ]
-      when: (docker_swarm_join_token is defined) and (docker_swarm_join_token != "") and (docker_swarm_join_node is defined)
+      when: docker_swarm_join_token is defined and docker_swarm_join_token and docker_swarm_join_node is defined
 
     - name: Get info on Docker Swarm and filtered list of registered nodes
       community.general.docker_swarm_info:
