@@ -35,6 +35,7 @@
       copy:
         src: "/etc/docker/certs.d/{{ docker_registry_server }}/ca.crt"
         dest: "/etc/docker/certs.d/{{ docker_registry_server }}/ca.crt"
+        mode: 0644
 
     - name: "Adding existing user {{ ansible_ssh_user }} to group sudo"
       user:
