@@ -2,3 +2,9 @@
 collections:
   - name: ansible.posix
   - name: community.general
+
+dependencies:
+  - name: geerlingguy.docker
+  - name: geerlingguy.pip
+  - name: geerlingguy.repo-epel
+
