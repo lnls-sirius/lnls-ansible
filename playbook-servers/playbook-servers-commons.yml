@@ -14,7 +14,7 @@
           - "group_vars/{{ ansible_distribution }}.yml"
           - "group_vars/{{ ansible_os_family }}.yml"
       loop: "{{ q('first_found', possible_var_files, errors='ignore') }}"
-    
+
   roles:
     - { role: lnls-ans-role-ntp, when: ansible_os_family == "Debian" }
 
