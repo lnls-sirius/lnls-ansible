@@ -78,7 +78,6 @@ pkg_version_machine_applications: "v3.19.0"
 pkg_version_siriushla: "v0.40.0"
 pkg_version_siriushlafac: "v0.3.0"
 pkg_sirius_scripts: "v0.7.0"
-pkg_version_pydm_opi: "v1.5.7"
 pkg_version_lnls_ansible: "master"
 
 pkg_version_mathphys: "v2.1.0"
@@ -272,7 +271,7 @@ sirius_apps_hla_install_categories:
 
 # === Sirius HLA CON packages ===
 
-sirus_apps_hlacon_remove_from_system: false
+sirus_apps_hlacon_remove_from_system: true
 
 sirius_apps_hlacon_conda_packages:
   - "qt{{ (pkg_version_hlacon_conda_qt | length > 0) | ternary('==' + pkg_version_hlacon_conda_qt, '') }}"
