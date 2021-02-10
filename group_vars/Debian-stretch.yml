@@ -9,6 +9,11 @@ global_role_epics_mca: true
 global_role_desktop_settings: true
 global_role_visual_studio_code: true
 
+# === Docker
+
+docker_version: "5:19.03.14~3-0~debian-stretch"
+docker_package: "{{ docker_package_base }}={{ docker_version }}"
+
 # === apt packages versions ===
 
 pkg_version_zabbix_agent: "1:4.0.3*"

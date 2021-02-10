@@ -13,3 +13,8 @@ __pycache__
 
 # Ansible vault
 *.vault
+
+# Ansible Galaxy Roles
+roles/geerlingguy.docker/
+roles/geerlingguy.pip/
+roles/geerlingguy.repo-epel/
