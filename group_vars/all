@@ -5,7 +5,7 @@ docker_registry_ssl_crt_path: "/home/digs/Repos/docker-registry-composed/foreign
 docker_registry_server: "dockerregistry.lnls-sirius.com.br"
 
 srvfile_repository: lnls-ansible
-srvfile_base_url: "http://10.0.38.42/download"
+srvfile_base_url: "http://10.128.255.5/download"
 
 
 # === src packages versions ===
