@@ -38,6 +38,7 @@
     name: "{{ ntp_tzdata_package }}"
     state: latest
   when: ansible_system == "Linux"
+  tags: ['skip_ansible_lint']
 
 - include_tasks: clock-rhel-6.yml
   when:
