@@ -9,7 +9,7 @@ docker_registry_server: "dockerregistry.lnls-sirius.com.br"
 docker_swarm_join_node: "10.128.255.5"
 
 srvfile_repository: lnls-ansible
-srvfile_base_url: "http://10.0.38.42/download"
+srvfile_base_url: "http://10.128.255.5/download"
 
 # === src packages versions ===
 
