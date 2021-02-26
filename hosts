@@ -170,7 +170,7 @@ ioc_ps_srv
 # =================
 #   as_ps_dclinks     : power supply dclinks for TB, BO, TS and SI (21)
 #   si_ps_fams        : SI dipole, quadrupole and sextupole power supplies (11)
-# 	si_ps_trims_c1234 : SI trims from sectors C1-C4 (20)
+#   si_ps_trims_c1234 : SI trims from sectors C1-C4 (20)
 #   si_ps_diags       : SI power supply diagnostics IOC (6)
 #   as_ap_1           : - sirius-ioc-li-ap-energy.service (1)
 #                       - sirius-ioc-bo-ap-currinfo.service (1)
@@ -196,12 +196,12 @@ ioc_ps_srv
 # fac-testes-CA.abtlus.org.br (VM) (47)
 # =====================================
 #   as_pu_conv        : pulsed power supply conversion IOC (1)
-# 	as_ap_sofb        : TB, TS and BO SOFB IOCs (3)
+#   as_ap_sofb        : TB, TS and BO SOFB IOCs (3)
 #   as_ap_diag        : Diagnostics (3)
 #                       - sirius-ioc-as-pu-diag.service
 #                       - sirius-ioc-as-rf-diag.service
 #                       - sirius-ioc-li-ap-diag.service
-# 	si_ps_trims_m12   : SI trims from sectors M1 and M2 (20)
+#   si_ps_trims_m12   : SI trims from sectors M1 and M2 (20)
 #   si_ap_bl          : Beamline image IOC (1)
 #                       - sirius-ioc-si-ap-manaca.service
 #   as_ti             : high level timing for all accelerators (12)
