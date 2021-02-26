@@ -8,7 +8,7 @@ sirius_apps_hlacon_conda_environment_path: /opt/conda/envs/cons
 
 # Specify if we want to remove HLACON packages from system python
 # or not
-sirus_apps_hlacon_remove_from_system: false
+sirus_apps_hlacon_remove_from_system: true
 
 # Conda packages to install
 # Example
