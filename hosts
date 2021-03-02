@@ -60,8 +60,8 @@ IA-20RaDiag02-CO-IOCSrv-2
 #grace.lnls.br:16122
 lnlsfac-srv1
 lnlsfac-srv2
-fac-testes-LA.abtlus.org.br
-fac-testes-CA.abtlus.org.br
+#fac-testes-LA.abtlus.org.br
+#fac-testes-CA.abtlus.org.br
 
 [docker_image]
 127.0.0.1
