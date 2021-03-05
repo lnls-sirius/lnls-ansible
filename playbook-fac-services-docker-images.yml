@@ -1,0 +1,8 @@
+---
+- hosts: docker_node
+  remote_user: sirius
+  become: true
+
+  roles:
+    - role: lnls-ans-role-fac-docker-images
+    
