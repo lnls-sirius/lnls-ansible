@@ -1,4 +1,5 @@
 # Variables
+
 DNS_SERVER1 ?= 10.0.0.71
 DNS_SERVER2 ?= 10.0.0.72
 export DNS_SERVER1
@@ -11,7 +12,8 @@ HOST_GROUPS ?=
 REMOTE_USER ?= sirius
 ASK_FOR_PASS ?= y
 ASK_FOR_VAULT_PASS ?= y
-ANSIBLE_EXTRA_VARS ?=
+TIMESTAMP_TAG ?= $(shell date '+%Y-%m-%d_%H-%M-%S')
+ANSIBLE_EXTRA_VARS ?= --extra-vars "deploy_tag=$(TIMESTAMP_TAG)"
 
 EXTRA_OPTS =
 ifneq ($(REMOTE_USER),)
@@ -149,6 +151,10 @@ deploy: playbook-servers-nfs.yml playbook-servers-web.yml playbook-servers-ioc.y
 		playbook-servers-web.yml \
 		playbook-servers-ioc.yml \
 		playbook-desktops.yml
+
+deploy-fac-iocs-image: playbook-fac-services-docker-images.yml
+	ansible-playbook -u sirius -i hosts -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
+		playbook-fac-services-docker-images.yml
 
 deploy-desktops-fac: playbook-desktops.yml
 	ansible-playbook -u sirius -i hosts -l fac --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \

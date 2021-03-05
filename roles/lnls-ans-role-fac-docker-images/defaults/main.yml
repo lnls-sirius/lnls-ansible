@@ -1,0 +1,22 @@
+---
+# Package versions for Debian. Leave empty for the latest
+docker_macapp_version: master
+deploy_tag: latest
+
+# Groups of packages
+docker_mac_apps_repos:
+
+  - name: Docker Machine Applications
+    org_url: https://github.com/lnls-sirius
+    repo_name: docker-machine-applications
+    repo_version: "{{ docker_macapp_version | default('master') }}"
+    clone_path: /home/sirius/repos-dev/
+    install_via_makefile: true
+    make_install_target: deploy
+    make_install_opts:
+      FAC_IOCS_TAG: "{{ deploy_tag }}"
+    force_version: true
+
+# Select which categories to install. Defaults to all
+docker_machine_apps_install_categories:
+  - docker_mac_apps_repos

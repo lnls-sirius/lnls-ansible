@@ -1,0 +1,22 @@
+---
+galaxy_info:
+  author: Ximenes Resende
+  description: Ansible role to install EPICS base and extra packages
+  company: CNPEM - LNLS
+  license: BSD
+  min_ansible_version: 2.9
+
+  platforms:
+    - name: Debian
+      versions:
+        - buster
+        - stretch
+        - jessie
+    - name: Ubuntu
+      versions:
+        - xenial
+        - trusty
+  galaxy_tags:
+    - development
+    - epics
+    - system

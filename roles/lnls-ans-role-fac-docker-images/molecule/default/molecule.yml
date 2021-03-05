@@ -1,0 +1,27 @@
+---
+dependency:
+  name: galaxy
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
+  flake8
+provisioner:
+  name: ansible
+  inventory:
+    links:
+      group_vars: ../../../../group_vars/
+    group_vars:
+      default_group:
+verifier:
+  name: testinfra
+  options:
+    verbose: true
+driver:
+  name: docker
+platforms:
+  - name: lnls-ans-role-epics-mca-instance
+    image: "${MOLECULE_DISTRO:-debian:stretch}"
+    groups:
+      - default_group
+    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]

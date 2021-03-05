@@ -1,0 +1,8 @@
+---
+- name: Clone and Install Docker Machine Application Repo
+  include_tasks: clone-install-app.yml
+  with_items:
+    - "{{ docker_machine_apps }}"
+  when:
+    - docker_machine_apps is defined and
+      docker_machine_apps | length > 0
