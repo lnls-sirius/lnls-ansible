@@ -138,7 +138,7 @@ pkg_version_libgbm1: "18.3.6*"
 
 # === pip packages ===
 
-pkg_version_pip: "19.3.1"
+pkg_version_pip: "20.1.1"
 pkg_version_python_dateutil: "2.8.1"
 pkg_version_cairocffi: "1.1.0"
 pkg_version_jupyter: "1.0.0"
