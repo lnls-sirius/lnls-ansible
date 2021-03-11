@@ -133,7 +133,7 @@ deploy-tag-create:
 	date '+%Y-%m-%d_%H-%M-%S' > /tmp/_ANSIBLE_DEPLOY_TAG_
 
 deploy-tag-ansible:
-	git tag; \
+	git tag deploy_$(TIMESTAMP_TAG); \
 	git push --tags
 	
 deploy-servers-nfs: playbook-servers-nfs.yml
