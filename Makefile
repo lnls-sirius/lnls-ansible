@@ -132,6 +132,9 @@ $(test_TARGETS): $(TEST_TARGET)%:
 deploy-tag-create:
 	date '+%Y-%m-%d_%H-%M-%S' > /tmp/_ANSIBLE_DEPLOY_TAG_
 
+deploy-tag-show:
+	echo deploy_$(TIMESTAMP_TAG)
+
 deploy-tag-ansible:
 	git tag deploy_$(TIMESTAMP_TAG); \
 	git push --tags

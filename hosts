@@ -82,8 +82,8 @@ lnlsfac-srv1
 [ioc_ps_srv]
 lnlsfac-srv1
 lnlsfac-srv2
-fac-testes-LA.abtlus.org.br
-fac-testes-CA.abtlus.org.br
+#fac-testes-LA.abtlus.org.br
+#fac-testes-CA.abtlus.org.br
 #lnls451-linux
 #lnls449-linux
 #lnls454-linux
