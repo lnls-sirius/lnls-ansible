@@ -1,4 +1,5 @@
 # Variables
+
 DNS_SERVER1 ?= 10.0.0.71
 DNS_SERVER2 ?= 10.0.0.72
 export DNS_SERVER1
@@ -11,7 +12,8 @@ HOST_GROUPS ?=
 REMOTE_USER ?= sirius
 ASK_FOR_PASS ?= y
 ASK_FOR_VAULT_PASS ?= y
-ANSIBLE_EXTRA_VARS ?=
+TIMESTAMP_TAG ?= $(shell cat /tmp/_ANSIBLE_DEPLOY_TAG_)
+ANSIBLE_EXTRA_VARS ?= "deploy_tag=deploy_$(TIMESTAMP_TAG)"
 
 EXTRA_OPTS =
 ifneq ($(REMOTE_USER),)
@@ -127,31 +129,42 @@ $(test_TARGETS): $(TEST_TARGET)%:
 		molecule test \
 	"
 
+deploy-tag-create:
+	date '+%Y-%m-%d_%H-%M-%S' > /tmp/_ANSIBLE_DEPLOY_TAG_
+
+deploy-tag-ansible:
+	git tag; \
+	git push --tags
+	
 deploy-servers-nfs: playbook-servers-nfs.yml
-	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
+	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
 		playbook-servers-nfs.yml
 
 deploy-servers-web: playbook-servers-web.yml
-	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
+	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
 		playbook-servers-web.yml
 
 deploy-servers-ioc: playbook-servers-ioc.yml
-	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
+	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
 		playbook-servers-ioc.yml
 
 deploy-desktops: playbook-desktops.yml
-	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
+	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
 		playbook-desktops.yml
 
 deploy: playbook-servers-nfs.yml playbook-servers-web.yml playbook-servers-ioc.yml playbook-desktops.yml
-	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
+	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
 		playbook-servers-nfs.yml \
 		playbook-servers-web.yml \
 		playbook-servers-ioc.yml \
 		playbook-desktops.yml
 
+deploy-fac-iocs-image: playbook-fac-services-docker-images.yml
+	ansible-playbook -u sirius -i hosts -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
+		playbook-fac-services-docker-images.yml
+
 deploy-desktops-fac: playbook-desktops.yml
-	ansible-playbook -u sirius -i hosts -l fac --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
+	ansible-playbook -u sirius -i hosts -l fac --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
 		playbook-desktops.yml
 
 deploy-beagles-si-correctors: playbook-bbb-repos-checkout.yml
