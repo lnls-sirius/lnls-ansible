@@ -16,5 +16,3 @@
   tasks:
     - import_role:
         name: lnls-ans-role-clone-install
-
-    
