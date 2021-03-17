@@ -1,10 +1,21 @@
 ---
 
 clone_install_repos:
+  - name: Docker Control System Constants
+    org_url: https://github.com/lnls-sirius
+    repo_name: docker-control-system-constants
+    repo_version: "{{ pkg_version_docker_ctrl_sys_consts | default('master') }}"
+    clone_path: /home/sirius/repos-dev/
+    install_via_makefile: true
+    make_install_target: deploy
+    make_install_opts:
+      FAC_IMG_CSCONSTS_TAG: "{{ deploy_tag }}"
+      FAC_REP_CSCONSTS_VERSION: "{{ pkg_version_ctrl_sys_consts }}
+    force_version: true
   - name: Docker Machine Applications
     org_url: https://github.com/lnls-sirius
     repo_name: docker-machine-applications
-    repo_version: "{{ docker_macapp_version | default('master') }}"
+    repo_version: "{{ pkg_version_docker_machine_applications | default('master') }}"
     clone_path: /home/sirius/repos-dev/
     install_via_makefile: true
     make_install_target: deploy

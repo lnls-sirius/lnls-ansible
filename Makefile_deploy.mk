@@ -1,14 +1,12 @@
 # Deploy Targets
 # ==============
 #
-# Standard deploy steps:
+# Steps of a standard deploy:
 #
-# 1. make deploy-tag-create [create deploy tag with timestamp]
-# 2. make deploy [run deploy playbooks]
-# 3. make deploy-fac-iocs-image [run playbook that creates updated IOC docker image]
-# 4. make deply-tag-lnls-ansible [tag deploy version in ansible]
-#
-# step 3 tags repo 'docker-machine-applications' with same deploy timestamp as 'lnls-ansible'
+# 1. make deploy-tag-create        # [create deploy tag with timestamp]
+# 2. make deploy                   # [run deploy playbooks]
+# 3. make deploy-fac-docker-images # [run playbook that creates updated docker images]
+# 4. make deploy-tag-lnls-ansible  # [tag deploy version in ansible]
 
 # Variables
 
@@ -48,7 +46,7 @@ deploy: playbook-servers-nfs.yml playbook-servers-web.yml playbook-servers-ioc.y
 		playbook-servers-ioc.yml \
 		playbook-desktops.yml
 
-deploy-fac-iocs-image: playbook-fac-services-docker-images.yml
+deploy-fac-docker-images: playbook-fac-services-docker-images.yml
 	ansible-playbook -u sirius -i hosts -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
 		playbook-fac-services-docker-images.yml
 

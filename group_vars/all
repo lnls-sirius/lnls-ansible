@@ -103,8 +103,8 @@ pkg_version_hlacon_conda_siriushlacon: "2.0.13"
 
 # === fac docker services ===
 
-docker_macapp_version: "master"
-# deploy_tag: 2021-03-10
+pkg_version_docker_machine_applications: "master"
+pkg_version_docker_ctrl_sys_consts: "master"
 
 
 # === sirius apps packages ===
