@@ -4,9 +4,19 @@
 # Steps of a standard deploy:
 #
 # 1. make deploy-tag-create        # [create deploy tag with timestamp]
-# 2. make deploy                   # [run deploy playbooks]
-# 3. make deploy-fac-docker-images # [run playbook that creates updated docker images]
-# 4. make deploy-tag-lnls-ansible  # [tag deploy version in ansible]
+# 2. make deploy-tag-show          # [show timestamp deploy tag created]
+# 3. make deploy                   # [run deploy playbooks]
+# 4. make deploy-fac-docker-images # [run playbook that creates updated docker images]
+# 5. make deploy-tag-lnls-ansible  # [tag deploy version in ansible]
+#
+# ps: a) at step 4 docker image files 'fac-apps', 'fac-iocs' and 'fac-csconsts' are
+#        created with deploy tag show in step 2. (e.x.: fac-iocs:2021-03-17_16-01-12) and
+#        pushed into our local docker registry at "dockerregistry.lnls-sirius.com.br/fac/".
+#     b) tag vars in .env files of repos docker-machine-applications and docker-control-system-constants
+#        can be then edited according to deploy target and docker services can be restarted with
+#         1. cd ~/repos-dev/docker-control-system-constants && make service-stop-fac-csconsts && make service-start-fac-csconsts
+#         2. cd ~/repos-dev/docker-machine-applications && make service-stop-highstack-all && make service-start-highstack-all
+#            (fac services in docker-machine-applications can be restarted one-by-one too, instead of all at the same time.)
 
 # Variables
 
