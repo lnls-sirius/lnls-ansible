@@ -10,7 +10,7 @@
 # 5. make deploy-tag-lnls-ansible  # [tag deploy version in ansible]
 #
 # ps: a) at step 4 docker image files 'fac-apps', 'fac-iocs' and 'fac-csconsts' are
-#        created with deploy tag show in step 2. (e.x.: fac-iocs:2021-03-17_16-01-12) and
+#        created with deploy tag shown in step 2. (e.x.: fac-iocs:2021-03-17_16-01-12) and
 #        pushed into our local docker registry at "dockerregistry.lnls-sirius.com.br/fac/".
 #     b) tag vars in .env files of repos docker-machine-applications and docker-control-system-constants
 #        can be then edited according to deploy target and docker services can be restarted with
