@@ -1,4 +1,5 @@
 # Variables
+
 DNS_SERVER1 ?= 10.0.0.71
 DNS_SERVER2 ?= 10.0.0.72
 export DNS_SERVER1
@@ -103,6 +104,7 @@ $(playbook_TARGETS): %: %.yml
 
 -include Makefile_services.mk
 -include Makefile_reboot.mk
+-include Makefile_deploy.mk
 
 tests: tests_stretch tests_buster
 
@@ -126,39 +128,6 @@ $(test_TARGETS): $(TEST_TARGET)%:
 		pip install molecule docker-py && \
 		molecule test \
 	"
-
-deploy-servers-nfs: playbook-servers-nfs.yml
-	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
-		playbook-servers-nfs.yml
-
-deploy-servers-web: playbook-servers-web.yml
-	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
-		playbook-servers-web.yml
-
-deploy-servers-ioc: playbook-servers-ioc.yml
-	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
-		playbook-servers-ioc.yml
-
-deploy-desktops: playbook-desktops.yml
-	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
-		playbook-desktops.yml
-
-deploy: playbook-servers-nfs.yml playbook-servers-web.yml playbook-servers-ioc.yml playbook-desktops.yml
-	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
-		playbook-servers-nfs.yml \
-		playbook-servers-web.yml \
-		playbook-servers-ioc.yml \
-		playbook-desktops.yml
-
-deploy-desktops-fac: playbook-desktops.yml
-	ansible-playbook -u sirius -i hosts -l fac --ask-vault-pass -k --ask-become-pass $(ANSIBLE_EXTRA_VARS) \
-		playbook-desktops.yml
-
-deploy-beagles-si-correctors: playbook-bbb-repos-checkout.yml
-	ansible-playbook -u fac -i hosts -l bbb_si_correctors -k --ask-become-pass playbook-bbb-repos-checkout.yml
-
-deploy-beagles: playbook-bbb-repos-checkout.yml
-	ansible-playbook -u fac -i hosts -l bbb -k --ask-become-pass playbook-bbb-repos-checkout.yml
 
 server-commons-update: playbook-servers/playbook-servers-commons.yml
 	ansible-playbook --user server --inventory hosts --ask-pass --ask-become-pass playbook-servers/playbook-servers-commons.yml

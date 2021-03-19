@@ -66,6 +66,9 @@ lnlsfac-srv2
 [docker_image]
 127.0.0.1
 
+[docker_node]
+10.128.153.88  # CA-RaTim-CO-IOCSrv
+
 [nfs_servers]
 lnlsfac-srv1
 
@@ -79,8 +82,8 @@ lnlsfac-srv1
 [ioc_ps_srv]
 lnlsfac-srv1
 lnlsfac-srv2
-fac-testes-LA.abtlus.org.br
-fac-testes-CA.abtlus.org.br
+#fac-testes-LA.abtlus.org.br
+#fac-testes-CA.abtlus.org.br
 #lnls451-linux
 #lnls449-linux
 #lnls454-linux
