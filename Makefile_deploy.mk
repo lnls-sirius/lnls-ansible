@@ -21,7 +21,7 @@
 # Variables
 
 TIMESTAMP_TAG ?= $(shell cat /tmp/_ANSIBLE_DEPLOY_TAG_)
-ANSIBLE_EXTRA_VARS = "deploy_tag=deploy_$(TIMESTAMP_TAG)"
+ANSIBLE_EXTRA_VARS = "deploy_tag=$(TIMESTAMP_TAG)"
 
 deploy-tag-create:
 	date '+%Y-%m-%d_%H-%M-%S' > /tmp/_ANSIBLE_DEPLOY_TAG_
