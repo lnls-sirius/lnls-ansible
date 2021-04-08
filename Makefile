@@ -129,6 +129,9 @@ $(test_TARGETS): $(TEST_TARGET)%:
 		molecule test \
 	"
 
+control-room-install-glusterfs: playbook-glusterfs.yml
+	                ansible-playbook --user server --inventory hosts --ask-pass --ask-become-pass playbook-glusterfs.yml
+
 server-commons-update: playbook-servers/playbook-servers-commons.yml
 	ansible-playbook --user server --inventory hosts --ask-pass --ask-become-pass playbook-servers/playbook-servers-commons.yml
 
