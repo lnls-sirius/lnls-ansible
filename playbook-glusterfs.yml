@@ -2,7 +2,7 @@
 - hosts: control_room:control_room_tv:linac_opi:control_room_nvidia_false
   remote_user: sirius
   become: true
-  become_method: su
+  become_method: sudo
   become_user: root
 
   pre_tasks:
