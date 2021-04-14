@@ -53,3 +53,4 @@ __python_pip_packages:
   - termcolor
   - wakeonlan
   - xlrd
+  - aiohttp
