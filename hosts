@@ -1,3 +1,9 @@
+[control_room_all:children]
+control_room
+control_room_nvidia_false
+control_room_tv
+linac_opi
+
 [linac_opi]
 linac-opi1
 linac-opi2

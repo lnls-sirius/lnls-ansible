@@ -102,9 +102,11 @@ all: $(playbook_TARGETS)
 $(playbook_TARGETS): %: %.yml
 	ansible-playbook $(EXTRA_OPTS) $<
 
--include Makefile_services.mk
--include Makefile_reboot.mk
+-include Makefile_control_room.mk
 -include Makefile_deploy.mk
+-include Makefile_reboot.mk
+-include Makefile_server.mk
+-include Makefile_services.mk
 
 tests: tests_stretch tests_buster
 
@@ -129,14 +131,3 @@ $(test_TARGETS): $(TEST_TARGET)%:
 		molecule test \
 	"
 
-control-room-install-glusterfs: playbook-glusterfs.yml
-	                ansible-playbook --user server --inventory hosts --ask-pass --ask-become-pass playbook-glusterfs.yml
-
-server-commons-update: playbook-servers/playbook-servers-commons.yml
-	ansible-playbook --user server --inventory hosts --ask-pass --ask-become-pass playbook-servers/playbook-servers-commons.yml
-
-server-gluster-update: playbook-servers/playbook-servers-gluster.yml
-	ansible-playbook --user server --inventory hosts --ask-pass --ask-become-pass playbook-servers/playbook-servers-gluster.yml
-
-server-docker-update: playbook-servers/playbook-servers-docker.yml
-	ansible-playbook --user server --inventory hosts --ask-pass --ask-become-pass playbook-servers/playbook-servers-docker.yml

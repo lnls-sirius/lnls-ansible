@@ -1,5 +1,5 @@
 ---
-- hosts: control_room:control_room_tv:linac_opi:control_room_nvidia_false
+- hosts: control_room_all
   remote_user: sirius
   become: true
   become_method: sudo
@@ -20,25 +20,24 @@
       apt:
         name: "{{ item }}"
       loop:
-        - glusterfs-client
         - glusterfs-common
         - glusterfs-server
 
     - name: "Create gluster brick directory"
       file:
-        path: /data/gluster/shared-brick
+        path: /data/gluster/hdd-01/shared-brick
         state: directory
         mode: "0755"
 
-    - name: "Create common volume mount point directory"
-      file:
-        path: /home/sirius/shared
-        state: directory
-        mode: "0755"
+    - name: Glusterfs service name
+      set_fact:
+        service_glusterfs_server: glusterd
+      when: service_glusterfs_server is not defined
 
     - name: "Gluster Service"
-      ansible.builtin.service:
-        name: glusterd
+      service:
+        name: "{{ service_glusterfs_server }}"
         state: started
         enabled: yes
-
+ roles:
+   - role: lnls-ans-role-nfsclient
