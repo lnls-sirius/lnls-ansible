@@ -1,3 +1,8 @@
 {% for export in nfsclient_autofs %}
 {{ export }}
 {% endfor %}
+{% if nfsclient_autofs_extra is iterable and (nfsclient_autofs_extra is not string and nfsclient_autofs_extra is not mapping) %}
+{% for export in nfsclient_autofs_extra %}
+{{ export }}
+{% endfor %}
+{% endif %}
