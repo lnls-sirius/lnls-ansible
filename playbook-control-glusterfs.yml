@@ -39,5 +39,5 @@
         name: "{{ service_glusterfs_server }}"
         state: started
         enabled: yes
- roles:
-   - role: lnls-ans-role-nfsclient
+  roles:
+    - role: lnls-ans-role-nfsclient
