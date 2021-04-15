@@ -57,4 +57,4 @@ __python_pip_packages:
   - "termcolor{{ (pkg_version_termcolor | length > 0) | ternary('==' + pkg_version_termcolor, '') }}"
   - "wakeonlan{{ (pkg_version_wakeonlan | length > 0) | ternary('==' + pkg_version_wakeonlan, '') }}"
   - "xlrd{{ (pkg_version_xlrd | length > 0) | ternary('==' + pkg_version_xlrd, '') }}"
-  - "aiohttp{{ (pkg_version_aiohttp | length > 0) | ternary('==' + pkg_version_aiohttp, '') }}"
+  - "aiohttp{{ (pkg_version_aiohttp | length > 0) | ternary('>=' + pkg_version_aiohttp, '') }}"
