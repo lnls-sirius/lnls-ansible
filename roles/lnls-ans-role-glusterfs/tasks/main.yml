@@ -1,0 +1,30 @@
+---
+- name: Resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      ignore_errors: true
+      paths:
+        - '{{ role_path }}/vars'
+
+- name: Define GlusterFS Packages
+  set_fact:
+    glusterfs_packages: "{{ __glusterfs_packages | default ([]) }}"
+  when: glusterfs_packages is not defined
+
+- include_tasks: setup-Debian.yml
+  when: ansible_os_family == 'Debian'
+
+- name: Glusterfs service name
+  set_fact:
+    glusterfs_service_server: glusterd
+  when: glusterfs_service_server is not defined
+
+- name: "Gluster Service"
+  service:
+    name: "{{ glusterfs_service_server }}"
+    state: started
+    enabled: yes

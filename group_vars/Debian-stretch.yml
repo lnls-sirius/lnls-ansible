@@ -10,7 +10,7 @@ global_role_desktop_settings: true
 global_role_visual_studio_code: true
 
 # === Services
-service_glusterfs_server: "glusterfs-server"
+glusterfs_service_server: "glusterfs-server"
 
 # === Docker
 

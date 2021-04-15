@@ -1,6 +1,5 @@
 # === NFS Client
-
-nfs_client_packages:
+glusterfs_client_packages:
   - glusterfs-client
   - glusterfs-common
   - glusterfs-server
