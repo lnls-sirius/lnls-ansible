@@ -33,3 +33,12 @@ visual_studio_code_users:
 #    visual_studio_code_extensions_absent: []
 #    visual_studio_code_settings: "{{ visual_studio_code_settings }}"
 #    visual_studio_code_keybindings: "{{ visual_studio_code_keybindings }}"
+
+# === NFS Client
+nfsclient_autofs_glusterfs_server: lnls451-linux
+nfsclient_autofs_glusterfs_backup_server: lnls449-linux
+
+# autofs: auto.sirius
+nfsclient_autofs_extra:
+  - |
+    /home/sirius/shared -fstype=glusterfs,backupvolfile-server={{ nfsclient_autofs_glusterfs_backup_server }},log-level=WARNING,log-file={{ nfsclient_autofs_glusterfs_log_file }},rw {{ nfsclient_autofs_glusterfs_server }}:/shared

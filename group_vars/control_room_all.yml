@@ -5,21 +5,12 @@ nfs_client_packages:
   - glusterfs-common
   - glusterfs-server
 
-nfsclient_autofs_glusterfs_backup_server: lnls452-linux
+nfsclient_autofs_glusterfs_server: localhost
+nfsclient_autofs_glusterfs_backup_server: lnls449-linux
 nfsclient_autofs_glusterfs_log_file: /var/log/gluster.log
 
 # autofs: auto.sirius
-nfsclient_autofs:
+nfsclient_autofs_extra:
   - |
-    /home/opis                         -fstype=nfs,ro {{ nfs_server_control_opi }}:/home/sirius
-  - |
-    {{ nfsclient_autofs_sirius_epics_screens }}   -fstype=nfs,ro {{ nfs_server_control_opi }}:{{ nfsserver_sirius_epics_screens }}
-  - |
-    /home/sirius/repos                 -fstype=nfs,ro {{ nfs_server_control_room }}:/home/nfs-shared/repos-lnls-sirius
-  - |
-    /home/sirius/mounts/lost-and-found -fstype=nfs,rw,v3 {{ nfs_server_control_room }}:/home/nfs-shared/lost-and-found
-  - |
-    /home/sirius/mounts/screens-iocs   -fstype=nfs,rw,v3 {{ nfs_server_control_room }}:/home/nfs-shared/screens-iocs
-  - |
-    /home/sirius/shared                -fstype=glusterfs,backupvolfile-server={{ nfsclient_autofs_glusterfs_backup_server }},log-level=WARNING,log-file={{ nfsclient_autofs_glusterfs_log_file }},rw  localhost:/shared   
+    /home/sirius/shared -fstype=glusterfs,backupvolfile-server={{ nfsclient_autofs_glusterfs_backup_server }},log-level=WARNING,log-file={{ nfsclient_autofs_glusterfs_log_file }},rw {{ nfsclient_autofs_glusterfs_server }}:/shared
 
