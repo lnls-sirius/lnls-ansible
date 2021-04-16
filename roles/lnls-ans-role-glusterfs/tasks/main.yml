@@ -20,7 +20,7 @@
 
 - name: Glusterfs service name
   set_fact:
-    glusterfs_service_server: glusterd
+    glusterfs_service_server: __glusterfs_service_server
   when: glusterfs_service_server is not defined
 
 - name: "Gluster Service"

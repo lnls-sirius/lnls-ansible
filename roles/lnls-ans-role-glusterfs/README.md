@@ -3,7 +3,7 @@ LNLS Ansible Role for glusterfs
 
 References: https://bitbucket.org/europeanspallationsource/ics-ans-role-localusers
 
-This Ansible role configures some defaults users/groups for Sirius Light Source control machines.
+This Ansible role configures GlusterFS
 
 ## Requirements
 
