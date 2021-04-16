@@ -21,6 +21,8 @@
       when: global_network_role | default(true) | bool
     - role: lnls-ans-role-nvidia-driver
       when: global_import_nvidia_driver_role | default(false) | bool
+    - role: lnls-ans-role-glusterfs
+      when: "'control_room_all' in group_names"
     - role: lnls-ans-role-ntp
     - role: lnls-ans-role-nfsclient
     - role: lnls-ans-role-zabbix
