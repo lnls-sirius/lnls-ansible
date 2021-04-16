@@ -398,8 +398,6 @@ nfsclient_autofs:
   - |
     {{ nfsclient_autofs_sirius_epics_screens }}   -fstype=nfs,ro {{ nfs_server_control_opi }}:{{ nfsserver_sirius_epics_screens }}
   - |
-    /home/sirius/cons-opis             -fstype=nfs,ro,v3 {{ nfs_server_control_opi }}:/home/con-srv/cons-opis
-  - |
     /home/sirius/repos                 -fstype=nfs,ro {{ nfs_server_control_room }}:/home/nfs-shared/repos-lnls-sirius
   - |
     /home/sirius/mounts/lost-and-found -fstype=nfs,rw,v3 {{ nfs_server_control_room }}:/home/nfs-shared/lost-and-found
