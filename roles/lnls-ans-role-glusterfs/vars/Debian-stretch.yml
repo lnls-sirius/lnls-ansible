@@ -1,0 +1,7 @@
+---
+__glusterfs_service_server: "glusterfs-server"
+
+__glusterfs_packages:
+  - glusterfs-client
+  - glusterfs-common
+  - glusterfs-server

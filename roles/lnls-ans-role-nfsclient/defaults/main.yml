@@ -4,6 +4,7 @@ pkg_version_nfs_common: ""
 pkg_version_autofs: ""
 
 nfsclient_autofs: ""
+nfsclient_autofs_extra: ""
 
 # Set this to true when using this in a regular,
 # without systemd support.
