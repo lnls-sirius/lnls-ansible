@@ -43,32 +43,6 @@ make deploy-linac-opi-desktops
     - role: lnls-ans-role-nvidia-driver
       when: global_import_nvidia_driver_role | default(false) | bool
     - role: lnls-ans-role-ntp
-    - role: lnls-ans-role-nfsclient
-    - role: lnls-ans-role-zabbix
-    - role: lnls-ans-role-python
-    - role: lnls-ans-role-epics
-    - role: lnls-ans-role-epics7
-    - role: lnls-ans-role-qt
-    - role: lnls-ans-role-java
-      when: global_role_java | default(true) | bool
-    - role: lnls-ans-role-cs-studio
-      when: global_role_cs_studio | default(true) | bool
-    - role: lnls-ans-role-pydm
-    - role: lnls-ans-role-phoebus
-      when: global_role_phoebus | default(true) | bool
-    - role: lnls-ans-role-sirius-bbb
-      when: global_role_sirius_bbb | default(true) | bool
-    - role: lnls-ans-role-octave
-      when: global_role_octave | default(true) | bool
-    - role: lnls-ans-role-epics-mca
-      when: global_role_epics_mca | default(true) | bool
-    - role: lnls-ans-role-sirius-apps
-    - role: lnls-ans-role-sirius-hla
-    - role: lnls-ans-role-desktop-apps
-    - role: lnls-ans-role-desktop-settings
-      when: global_role_desktop_settings | default(true) | bool
-    - role: lnls-ans-role-visual-studio-code
-      when: global_role_visual_studio | default(true) | bool
 ```
 
 ## Example Commmand
