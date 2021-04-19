@@ -102,11 +102,7 @@ all: $(playbook_TARGETS)
 $(playbook_TARGETS): %: %.yml
 	ansible-playbook $(EXTRA_OPTS) $<
 
--include Makefile_control_room.mk
--include Makefile_deploy.mk
--include Makefile_reboot.mk
--include Makefile_server.mk
--include Makefile_services.mk
+-include targets/*.mk
 
 tests: tests_stretch tests_buster
 
