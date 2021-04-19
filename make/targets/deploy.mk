@@ -33,39 +33,39 @@ deploy-tag-lnls-ansible:
 	git tag deploy_$(TIMESTAMP_TAG); \
 	git push --tags
 	
-deploy-servers-nfs: playbook-servers-nfs.yml
+deploy-servers-nfs: playbooks/servers/nfs.yml
 	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
-		playbook-servers-nfs.yml
+		playbooks/servers/nfs.yml
 
-deploy-servers-web: playbook-servers-web.yml
+deploy-servers-web: playbooks/servers/web.yml
 	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
-		playbook-servers-web.yml
+		playbooks/servers/web.yml
 
-deploy-servers-ioc: playbook-servers-ioc.yml
+deploy-servers-ioc: playbooks/servers/ioc.yml
 	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
-		playbook-servers-ioc.yml
+		playbooks/servers/ioc.yml
 
-deploy-desktops: playbook-desktops.yml
+deploy-desktops: playbooks/playbook-desktops.yml
 	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
-		playbook-desktops.yml
+		playbooks/playbook-desktops.yml
 
-deploy: playbook-servers-nfs.yml playbook-servers-web.yml playbook-servers-ioc.yml playbook-desktops.yml
+deploy: playbooks/servers/nfs.yml playbooks/servers/web.yml playbooks/servers/ioc.yml playbooks/playbook-desktops.yml
 	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
-		playbook-servers-nfs.yml \
-		playbook-servers-web.yml \
-		playbook-servers-ioc.yml \
-		playbook-desktops.yml
+		playbooks/servers/nfs.yml \
+		playbooks/servers/web.yml \
+		playbooks/servers/ioc.yml \
+		playbooks/playbook-desktops.yml
 
-deploy-fac-docker-images: playbook-fac-services-docker-images.yml
+deploy-fac-docker-images: playbooks/playbook-fac-services-docker-images.yml
 	ansible-playbook -u sirius -i hosts -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
-		playbook-fac-services-docker-images.yml
+		playbooks/playbook-fac-services-docker-images.yml
 
-deploy-desktops-fac: playbook-desktops.yml
+deploy-desktops-fac: playbooks/playbook-desktops.yml
 	ansible-playbook -u sirius -i hosts -l fac --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
-		playbook-desktops.yml
+		playbooks/playbook-desktops.yml
 
-deploy-beagles-si-correctors: playbook-bbb-repos-checkout.yml
-	ansible-playbook -u fac -i hosts -l bbb_si_correctors -k --ask-become-pass playbook-bbb-repos-checkout.yml
+deploy-beagles-si-correctors: playbooks/playbook-bbb-repos-checkout.yml
+	ansible-playbook -u fac -i hosts -l bbb_si_correctors -k --ask-become-pass playbooks/playbook-bbb-repos-checkout.yml
 
-deploy-beagles: playbook-bbb-repos-checkout.yml
-	ansible-playbook -u fac -i hosts -l bbb -k --ask-become-pass playbook-bbb-repos-checkout.yml
+deploy-beagles: playbooks/playbook-bbb-repos-checkout.yml
+	ansible-playbook -u fac -i hosts -l bbb -k --ask-become-pass playbooks/playbook-bbb-repos-checkout.yml

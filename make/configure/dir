@@ -1,0 +1,2 @@
+ROLES_DIR = $(TOP)/roles
+PLAYBOOKS_DIR = $(TOP)/playbooks
