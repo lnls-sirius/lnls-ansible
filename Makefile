@@ -1,6 +1,6 @@
 TOP = .
 
-include $(TOP)/make/configure/vars
+include $(TOP)/make/configure/dir
 include $(TOP)/make/configure/opts
 include $(TOP)/make/configure/dns
 
