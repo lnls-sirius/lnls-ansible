@@ -91,10 +91,14 @@ To further limit selected hosts to an additional pattern, run:
 
 ### Set SSH RSA/DSA key so you don't need to type the password everytime
 
-In order to do that run the playboob playbook-setup-ssh-keys.yml like:
+In order to do that run the playbook `./playbooks/generic/setup-ssh-key.yml` like:
 
 ```bash
-    ansible-playbook -i ./inventories/sirius -u sirius -k --ask-become-pass ./playbooks/generic/setup-ssh-key.yml
+    ansible-playbook \
+        -i ./inventories/sirius\
+        -i ./inventories/beaglebones\
+        -u sirius -k --ask-become-pass\
+        ./playbooks/generic/setup-ssh-key.yml
 ```
 
 There is also a make target that automates this. So you can run:
