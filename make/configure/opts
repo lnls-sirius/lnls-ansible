@@ -13,15 +13,15 @@ ANSIBLE_EXTRA_VARS ?=
 
 EXTRA_OPTS =
 ifneq ($(REMOTE_USER),)
-	EXTRA_OPTS += -u $(REMOTE_USER)
+	EXTRA_OPTS += --user $(REMOTE_USER)
 else
 	EXTRA_OPTS +=
 endif
 
 ifneq ($(HOST_GROUPS),)
-	EXTRA_OPTS += -i $(ALL_INVENTORIES) -l $(HOST_GROUPS)
+	EXTRA_OPTS += --inventory $(ALL_INVENTORIES) --limit $(HOST_GROUPS)
 else
-	EXTRA_OPTS += -i $(ALL_INVENTORIES)
+	EXTRA_OPTS += --inventory $(ALL_INVENTORIES)
 endif
 
 ASK_FOR_VAULT_PASS_FILTER=$(if $(filter y,${ASK_FOR_VAULT_PASS}),true,false)
@@ -33,7 +33,7 @@ endif
 
 ASK_FOR_PASS_FILTER=$(if $(filter y,${ASK_FOR_PASS}),true,false)
 ifeq ($(ASK_FOR_PASS_FILTER),true)
-	EXTRA_OPTS += -k --ask-become-pass
+	EXTRA_OPTS += --ask-pass --ask-become-pass
 else
 	EXTRA_OPTS +=
 endif
