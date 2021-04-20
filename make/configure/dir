@@ -1,2 +1,3 @@
 ROLES_DIR = $(TOP)/roles
 PLAYBOOKS_DIR = $(TOP)/playbooks
+INVENTORIES_DIR = $(TOP)/inventories
