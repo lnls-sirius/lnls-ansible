@@ -6,6 +6,20 @@ LNLS Ansible
 
 This Ansible roles/playbooks for Sirius Light Source control machines.
 
+## The inventory layout
+
+We are using multiple inventories based on the type of host based. Reference doc at [alternative-directory-layout](https://docs.ansible.com/ansible/2.8/user_guide/playbooks_best_practices.html#alternative-directory-layout) and 
+[using-multiple-inventory-sources](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#using-multiple-inventory-sources).
+
+```
+inventories/
+├── beaglebones
+└── sirius
+    ├── group_vars
+    └── host_vars
+...
+```
+
 
 ## Simple makefile targets:
 
@@ -76,7 +90,7 @@ To further limit selected hosts to an additional pattern, run:
 In order to do that run the playboob playbook-setup-ssh-keys.yml like:
 
 ```bash
-    ansible-playbook -i hosts -u sirius -k --ask-become-pass playbook-setup-ssh-key.yml
+    ansible-playbook -i ./inventories/sirius -u sirius -k --ask-become-pass ./playbooks/generic/setup-ssh-key.yml
 ```
 
 There is also a make target that automates this. So you can run:
