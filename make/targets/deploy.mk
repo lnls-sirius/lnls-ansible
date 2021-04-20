@@ -34,38 +34,38 @@ deploy-tag-lnls-ansible:
 	git push --tags
 	
 deploy-servers-nfs: playbooks/servers/nfs.yml
-	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
+	ansible-playbook -u sirius --inventory $(SIRIUS_INVENTORY) --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
 		playbooks/servers/nfs.yml
 
 deploy-servers-web: playbooks/servers/web.yml
-	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
+	ansible-playbook -u sirius --inventory $(SIRIUS_INVENTORY) --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
 		playbooks/servers/web.yml
 
 deploy-servers-ioc: playbooks/servers/ioc.yml
-	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
+	ansible-playbook -u sirius --inventory $(SIRIUS_INVENTORY) --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
 		playbooks/servers/ioc.yml
 
 deploy-desktops: playbooks/playbook-desktops.yml
-	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
+	ansible-playbook -u sirius --inventory $(SIRIUS_INVENTORY) --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
 		playbooks/playbook-desktops.yml
 
 deploy: playbooks/servers/nfs.yml playbooks/servers/web.yml playbooks/servers/ioc.yml playbooks/playbook-desktops.yml
-	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
+	ansible-playbook -u sirius --inventory $(SIRIUS_INVENTORY) --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
 		playbooks/servers/nfs.yml \
 		playbooks/servers/web.yml \
 		playbooks/servers/ioc.yml \
 		playbooks/playbook-desktops.yml
 
 deploy-fac-docker-images: playbooks/playbook-fac-services-docker-images.yml
-	ansible-playbook -u sirius -i hosts -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
+	ansible-playbook -u sirius --inventory $(SIRIUS_INVENTORY) -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
 		playbooks/playbook-fac-services-docker-images.yml
 
 deploy-desktops-fac: playbooks/playbook-desktops.yml
-	ansible-playbook -u sirius -i hosts -l fac --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
+	ansible-playbook -u sirius --inventory $(SIRIUS_INVENTORY) -l fac --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
 		playbooks/playbook-desktops.yml
 
 deploy-beagles-si-correctors: playbooks/beaglebones/repos-checkout.yml
-	ansible-playbook -u fac -i hosts -l bbb_si_correctors -k --ask-become-pass playbooks/beaglebones/repos-checkout.yml
+	ansible-playbook -u fac --inventory $(BEAGLEBONE_INVENTORY) --inventory $(BEAGLEBONE_INVENTORY) -l bbb_si_correctors -k --ask-become-pass playbooks/beaglebones/repos-checkout.yml
 
 deploy-beagles: playbooks/beaglebones/repos-checkout.yml
-	ansible-playbook -u fac -i hosts -l bbb -k --ask-become-pass playbooks/beaglebones/repos-checkout.yml
+	ansible-playbook -u fac --inventory $(BEAGLEBONE_INVENTORY) --inventory $(BEAGLEBONE_INVENTORY) -l bbb -k --ask-become-pass playbooks/beaglebones/repos-checkout.yml
