@@ -117,7 +117,7 @@ service-ethbridge-as-dclinks-tbts-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_as_dclinks_tbts \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_as_dclinks_tbts \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-as-dclinks-tbts-start:
@@ -125,7 +125,7 @@ service-ethbridge-as-dclinks-tbts-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_as_dclinks_tbts \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_as_dclinks_tbts \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-as-dclinks-ia-stop:
@@ -133,7 +133,7 @@ service-ethbridge-as-dclinks-ia-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_as_dclinks_ia \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_as_dclinks_ia \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-as-dclinks-ia-start:
@@ -141,7 +141,7 @@ service-ethbridge-as-dclinks-ia-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_as_dclinks_ia \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_as_dclinks_ia \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 # --- TB ---
@@ -151,7 +151,7 @@ service-ethbridge-tb-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_tb_ps \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_tb_ps \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-tb-start:
@@ -159,7 +159,7 @@ service-ethbridge-tb-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_tb_ps \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_tb_ps \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-tb-dipoles-stop:
@@ -167,7 +167,7 @@ service-ethbridge-tb-dipoles-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_tb_dipoles \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_tb_dipoles \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-tb-dipoles-start:
@@ -175,7 +175,7 @@ service-ethbridge-tb-dipoles-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_tb_dipoles \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_tb_dipoles \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-tb-quadrupoles-stop:
@@ -183,7 +183,7 @@ service-ethbridge-tb-quadrupoles-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_tb_quadrupoles \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_tb_quadrupoles \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-tb-quadrupoles-start:
@@ -191,7 +191,7 @@ service-ethbridge-tb-quadrupoles-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_tb_quadrupoles \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_tb_quadrupoles \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-tb-correctors-stop:
@@ -199,7 +199,7 @@ service-ethbridge-tb-correctors-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_tb_correctors \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_tb_correctors \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-tb-correctors-start:
@@ -207,7 +207,7 @@ service-ethbridge-tb-correctors-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_tb_correctors \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_tb_correctors \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 # --- BO ---
@@ -217,7 +217,7 @@ service-ethbridge-bo-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_bo \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_bo \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-bo-start:
@@ -225,7 +225,7 @@ service-ethbridge-bo-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_bo \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_bo \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-bo-fams-stop:
@@ -233,7 +233,7 @@ service-ethbridge-bo-fams-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_bo_fams \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_bo_fams \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-bo-fams-start:
@@ -241,7 +241,7 @@ service-ethbridge-bo-fams-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_bo_fams \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_bo_fams \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-bo-correctors-stop:
@@ -249,7 +249,7 @@ service-ethbridge-bo-correctors-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_bo_correctors \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_bo_correctors \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-bo-correctors-start:
@@ -257,7 +257,7 @@ service-ethbridge-bo-correctors-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_bo_correctors \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_bo_correctors \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 # --- TS ---
@@ -267,7 +267,7 @@ service-ethbridge-ts-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_ts \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_ts \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-ts-start:
@@ -275,7 +275,7 @@ service-ethbridge-ts-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_ts \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_ts \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-ts-dipoles-stop:
@@ -283,7 +283,7 @@ service-ethbridge-ts-dipoles-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_ts_dipoles \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_ts_dipoles \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-ts-dipoles-start:
@@ -291,7 +291,7 @@ service-ethbridge-ts-dipoles-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_ts_dipoles \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_ts_dipoles \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-ts-quadrupoles-stop:
@@ -299,7 +299,7 @@ service-ethbridge-ts-quadrupoles-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_ts_quadrupoles \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_ts_quadrupoles \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-ts-quadrupoles-start:
@@ -307,7 +307,7 @@ service-ethbridge-ts-quadrupoles-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_ts_quadrupoles \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_ts_quadrupoles \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-ts-correctors-stop:
@@ -315,7 +315,7 @@ service-ethbridge-ts-correctors-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_ts_correctors \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_ts_correctors \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-ts-correctors-start:
@@ -323,7 +323,7 @@ service-ethbridge-ts-correctors-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_ts_correctors \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_ts_correctors \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 # --- SI ---
@@ -333,7 +333,7 @@ service-ethbridge-si-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_si \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_si \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-si-stop:
@@ -341,7 +341,7 @@ service-ethbridge-si-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_si \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_si \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-si-fams-stop:
@@ -349,7 +349,7 @@ service-ethbridge-si-fams-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_si_fams \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_si_fams \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-si-fams-start:
@@ -357,7 +357,7 @@ service-ethbridge-si-fams-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_si_fams \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_si_fams \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-si-correctors-stop:
@@ -365,7 +365,7 @@ service-ethbridge-si-correctors-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_si_correctors \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_si_correctors \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-si-correctors-start:
@@ -373,7 +373,7 @@ service-ethbridge-si-correctors-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_si_correctors \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_si_correctors \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-si-trims-qs-stop:
@@ -381,7 +381,7 @@ service-ethbridge-si-trims-qs-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_si_trims_qs \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_si_trims_qs \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-ethbridge-si-trims-qs-start:
@@ -389,7 +389,7 @@ service-ethbridge-si-trims-qs-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_si_trims_qs \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_si_trims_qs \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 
@@ -401,7 +401,7 @@ service-cethbridge-si-correctors-stop:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=c-eth-bridge-pru-serial485 ctrl_service_state=stopped" \
-		-l bbb_si_correctors \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_si_correctors \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 service-cethbridge-si-correctors-start:
@@ -409,7 +409,7 @@ service-cethbridge-si-correctors-start:
 	@echo "Please enter password for fac user."
 	ansible-playbook \
 		--extra-vars "ctrl_service_name=c-eth-bridge-pru-serial485 ctrl_service_state=started" \
-		-l bbb_si_correctors \
+		--inventory $(BEAGLEBONE_INVENTORY) -l bbb_si_correctors \
 		-u fac -k --ask-become-pass playbooks/services/ctrl-service.yml
 
 
