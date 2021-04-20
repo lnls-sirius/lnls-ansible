@@ -19,9 +19,9 @@ else
 endif
 
 ifneq ($(HOST_GROUPS),)
-	EXTRA_OPTS += -i hosts -l $(HOST_GROUPS)
+	EXTRA_OPTS += -i $(ALL_INVENTORIES) -l $(HOST_GROUPS)
 else
-	EXTRA_OPTS += -i hosts
+	EXTRA_OPTS += -i $(ALL_INVENTORIES)
 endif
 
 ASK_FOR_VAULT_PASS_FILTER=$(if $(filter y,${ASK_FOR_VAULT_PASS}),true,false)

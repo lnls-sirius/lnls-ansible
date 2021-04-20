@@ -6,6 +6,8 @@ include $(TOP)/make/configure/dns
 
 include $(TOP)/make/targets/test.mk
 
+include $(TOP)/make/targets/generic.mk
+
 include $(TOP)/make/targets/control_room.mk
 include $(TOP)/make/targets/deploy.mk
 include $(TOP)/make/targets/reboot.mk
