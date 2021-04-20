@@ -64,8 +64,8 @@ deploy-desktops-fac: playbooks/playbook-desktops.yml
 	ansible-playbook -u sirius -i hosts -l fac --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
 		playbooks/playbook-desktops.yml
 
-deploy-beagles-si-correctors: playbooks/playbook-bbb-repos-checkout.yml
-	ansible-playbook -u fac -i hosts -l bbb_si_correctors -k --ask-become-pass playbooks/playbook-bbb-repos-checkout.yml
+deploy-beagles-si-correctors: playbooks/beaglebones/repos-checkout.yml
+	ansible-playbook -u fac -i hosts -l bbb_si_correctors -k --ask-become-pass playbooks/beaglebones/repos-checkout.yml
 
-deploy-beagles: playbooks/playbook-bbb-repos-checkout.yml
-	ansible-playbook -u fac -i hosts -l bbb -k --ask-become-pass playbooks/playbook-bbb-repos-checkout.yml
+deploy-beagles: playbooks/beaglebones/repos-checkout.yml
+	ansible-playbook -u fac -i hosts -l bbb -k --ask-become-pass playbooks/beaglebones/repos-checkout.yml
