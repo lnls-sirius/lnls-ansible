@@ -91,7 +91,7 @@ pkg_version_pymodels: "v1.6.0"
 pkg_version_apsuite: "v2.17.1"
 
 pkg_version_linac_ioc_ps: "v1.2.0"
-pkg_version_linac_opi: "v2.1.0"
+pkg_version_linac_opi: "v2.2.0"
 pkg_version_bpm_scripts: "master"
 sirius_bbb_version: "v1.1.0"
 pkg_version_sirius_epics_screens: "master"
