@@ -71,27 +71,27 @@ epics7_base_archive: "{{ epics7_base_url }}/base-{{ epics7_base_version }}.tar.g
 
 # === sirius packages ===
 
-pkg_version_ctrl_sys_consts: "v1.20.0"
+pkg_version_ctrl_sys_consts: "v1.21.0"
 pkg_version_pru_serial: "64bytes"
 pkg_version_ps_firmware_c28: "firmware_update"
 pkg_version_ps_firmware_arm: "firmware_update"
 pkg_version_ethbridge_pru_serial: "v2.6.0"
-pkg_version_siriuspy: "v2.24.1"
+pkg_version_siriuspy: "v2.25.0"
 pkg_version_machine_applications: "v3.21.0"
-pkg_version_siriushla: "v0.45.0"
+pkg_version_siriushla: "v0.46.0"
 pkg_version_siriushlafac: "v0.4.2"
 pkg_sirius_scripts: "v0.8.0"
 pkg_version_lnls_ansible: "master"
 
-pkg_version_mathphys: "v2.1.0"
-pkg_version_trackcpp: "v4.2.0"
-pkg_version_lnls: "v1.0.0"
-pkg_version_pyaccel: "v3.5.0"
+pkg_version_mathphys: "v2.2.0"
+pkg_version_trackcpp: "v4.3.0"
+pkg_version_lnls: "v1.1.0"
+pkg_version_pyaccel: "v3.6.0"
 pkg_version_pymodels: "v1.6.0"
-pkg_version_apsuite: "v2.17.0"
+pkg_version_apsuite: "v2.17.1"
 
 pkg_version_linac_ioc_ps: "v1.2.0"
-pkg_version_linac_opi: "v2.1.0"
+pkg_version_linac_opi: "v2.2.0"
 pkg_version_bpm_scripts: "master"
 sirius_bbb_version: "v1.1.0"
 pkg_version_sirius_epics_screens: "master"
@@ -399,10 +399,10 @@ nfsclient_autofs:
     {{ nfsclient_autofs_sirius_epics_screens }}   -fstype=nfs,ro {{ nfs_server_control_opi }}:{{ nfsserver_sirius_epics_screens }}
   - |
     /home/sirius/repos                 -fstype=nfs,ro {{ nfs_server_control_room }}:/home/nfs-shared/repos-lnls-sirius
-  - |
-    /home/sirius/mounts/lost-and-found -fstype=nfs,rw,v3 {{ nfs_server_control_room }}:/home/nfs-shared/lost-and-found
-  - |
-    /home/sirius/mounts/screens-iocs   -fstype=nfs,rw,v3 {{ nfs_server_control_room }}:/home/nfs-shared/screens-iocs
+#  - |
+#    /home/sirius/mounts/lost-and-found -fstype=nfs,rw,v3 {{ nfs_server_control_room }}:/home/nfs-shared/lost-and-found
+#  - |
+#    /home/sirius/mounts/screens-iocs   -fstype=nfs,rw,v3 {{ nfs_server_control_room }}:/home/nfs-shared/screens-iocs
 
 # Location os the EPICS screens for CS-studio
 desktop_autofs_sirius_epics_screens: "{{ nfsclient_autofs_sirius_epics_screens }}"
