@@ -1,33 +1,33 @@
 # Roles
-TEST_ROLES =\
-	lnls-ans-role-clone-install\
-	lnls-ans-role-epics\
-	lnls-ans-role-nfsclient\
-	lnls-ans-role-pydm\
-	lnls-ans-role-sirius-hla\
-	lnls-ans-role-conda\
-	lnls-ans-role-epics7\
-	lnls-ans-role-nfsserver\
-	lnls-ans-role-python\
-	lnls-ans-role-sirius-hlacon\
-	lnls-ans-role-cs-studio\
-	lnls-ans-role-epics-mca\
-	lnls-ans-role-ntp\
-	lnls-ans-role-qt\
-	lnls-ans-role-users\
-	lnls-ans-role-ctrl-service\
-	lnls-ans-role-glusterfs\
-	lnls-ans-role-nvidia-driver\
-	lnls-ans-role-repositories\
-	lnls-ans-role-visual-studio-code\
-	lnls-ans-role-desktop-apps\
-	lnls-ans-role-java\
-	lnls-ans-role-octave\
-	lnls-ans-role-sirius-apps\
-	lnls-ans-role-zabbix\
-	lnls-ans-role-desktop-settings\
-	lnls-ans-role-network\
-	lnls-ans-role-phoebus\
+TEST_ROLES = \
+	lnls-ans-role-clone-install \
+	lnls-ans-role-epics \
+	lnls-ans-role-nfsclient \
+	lnls-ans-role-pydm \
+	lnls-ans-role-sirius-hla \
+	lnls-ans-role-conda \
+	lnls-ans-role-epics7 \
+	lnls-ans-role-nfsserver \
+	lnls-ans-role-python \
+	lnls-ans-role-sirius-hlacon \
+	lnls-ans-role-cs-studio \
+	lnls-ans-role-epics-mca \
+	lnls-ans-role-ntp \
+	lnls-ans-role-qt \
+	lnls-ans-role-users \
+	lnls-ans-role-ctrl-service \
+	lnls-ans-role-glusterfs \
+	lnls-ans-role-nvidia-driver \
+	lnls-ans-role-repositories \
+	lnls-ans-role-visual-studio-code \
+	lnls-ans-role-desktop-apps \
+	lnls-ans-role-java \
+	lnls-ans-role-octave \
+	lnls-ans-role-sirius-apps \
+	lnls-ans-role-zabbix \
+	lnls-ans-role-desktop-settings \
+	lnls-ans-role-network \
+	lnls-ans-role-phoebus \
 	lnls-ans-role-sirius-bbb
 
 # Test variables

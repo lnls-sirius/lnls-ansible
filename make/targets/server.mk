@@ -1,7 +1,7 @@
-SERVER_OPTS =\
-	--user server\
-	--inventory $(SIRIUS_INVENTORY)\
-	--ask-pass\
+SERVER_OPTS = \
+	--user server \
+	--inventory $(SIRIUS_INVENTORY) \
+	--ask-pass \
 	--ask-become-pass
 
 server-commons-update: playbooks/servers/commons.yml
