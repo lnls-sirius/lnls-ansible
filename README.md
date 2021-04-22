@@ -6,8 +6,26 @@ LNLS Ansible
 
 This Ansible roles/playbooks for Sirius Light Source control machines.
 
+The inventory layout
+--------------------
 
-## Simple makefile targets:
+We are using multiple inventories based on the type of host. Reference documentation at [alternative-directory-layout](https://docs.ansible.com/ansible/2.8/user_guide/playbooks_best_practices.html#alternative-directory-layout) and 
+[using-multiple-inventory-sources](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#using-multiple-inventory-sources).
+
+```
+inventories/
+├── beaglebones
+└── sirius
+    ├── group_vars
+    └── host_vars
+...
+```
+
+Usage
+-----
+For simplicity there are makefile targets for commonly used playbooks.
+
+### Makefile targets:
 
 ```
 make deploy-control-room-desktops
@@ -16,7 +34,7 @@ make deploy-linac-opi-desktops
 ```
 
 
-## Example Playbook
+### Example Playbook
 
 ```yaml
 ---
@@ -43,40 +61,14 @@ make deploy-linac-opi-desktops
     - role: lnls-ans-role-nvidia-driver
       when: global_import_nvidia_driver_role | default(false) | bool
     - role: lnls-ans-role-ntp
-    - role: lnls-ans-role-nfsclient
-    - role: lnls-ans-role-zabbix
-    - role: lnls-ans-role-python
-    - role: lnls-ans-role-epics
-    - role: lnls-ans-role-epics7
-    - role: lnls-ans-role-qt
-    - role: lnls-ans-role-java
-      when: global_role_java | default(true) | bool
-    - role: lnls-ans-role-cs-studio
-      when: global_role_cs_studio | default(true) | bool
-    - role: lnls-ans-role-pydm
-    - role: lnls-ans-role-phoebus
-      when: global_role_phoebus | default(true) | bool
-    - role: lnls-ans-role-sirius-bbb
-      when: global_role_sirius_bbb | default(true) | bool
-    - role: lnls-ans-role-octave
-      when: global_role_octave | default(true) | bool
-    - role: lnls-ans-role-epics-mca
-      when: global_role_epics_mca | default(true) | bool
-    - role: lnls-ans-role-sirius-apps
-    - role: lnls-ans-role-sirius-hla
-    - role: lnls-ans-role-desktop-apps
-    - role: lnls-ans-role-desktop-settings
-      when: global_role_desktop_settings | default(true) | bool
-    - role: lnls-ans-role-visual-studio-code
-      when: global_role_visual_studio | default(true) | bool
 ```
 
-## Example Commmand
+### Example Commmand
 
 ```bash
     ansible-playbook -i host, -u user -k --ask-become-pass <playbook>.yml
 ```
-## Runing Ansible Playbooks
+### Runing Ansible Playbooks
 
 The easiest way to run playbooks on a set of hosts is to use the Makefile:
 
@@ -97,12 +89,16 @@ To further limit selected hosts to an additional pattern, run:
     make playbook-control-room-desktops HOST_GROUPS=<pattern>
 ```
 
-## Set SSH RSA/DSA key so you don't need to type the password everytime
+### Set SSH RSA/DSA key so you don't need to type the password everytime
 
-In order to do that run the playboob playbook-setup-ssh-keys.yml like:
+In order to do that run the playbook `./playbooks/generic/setup-ssh-key.yml` like:
 
 ```bash
-    ansible-playbook -i hosts -u sirius -k --ask-become-pass playbook-setup-ssh-key.yml
+    ansible-playbook \
+        -i ./inventories/sirius\
+        -i ./inventories/beaglebones\
+        -u sirius -k --ask-become-pass\
+        ./playbooks/generic/setup-ssh-key.yml
 ```
 
 There is also a make target that automates this. So you can run:
@@ -113,7 +109,7 @@ There is also a make target that automates this. So you can run:
 
 If asked for the Ansible Vault password, type any word...
 
-## Make variables
+### Make variables
 
 The Makefile contains variables that control how options are passed to ansible.
 
@@ -171,7 +167,8 @@ ASK_FOR_VAULT_PASS ?= y
 Ask for vault password. Options are "y" or "n". Use "y" when
 running a playbook that uses a vault encrypted password.
 
-## Runing Molecule tests locally
+Molecule tests locally
+-----------------------------
 
 To run all tests
 
@@ -203,7 +200,8 @@ Optionally, specify the docker distro to run molecule against
     make test_lnls-ans-role-users MOLECULE_DISTRO=<distro>
 ```
 
-## Installation
+Installation
+------------
 
 To install all roles avaialble at the ansible default directory:
 
@@ -222,7 +220,8 @@ If the role is already installed and you want to force an upgrade:
 ansible-galaxy install -r requirements.yml
 ```
 
-## Troubleshooting
+Troubleshooting
+---------------
 
 If you use a host system with SELinux enabled you might get an error when using
 Ansible like the following:
@@ -246,6 +245,7 @@ On a Fedora 29 system, using python3-7, the following fixes the issue:
 
 Be advised, that the python versions might differ and the library names, as well.
 
-## License
+License
+-------
 
 BSD 2-clause
