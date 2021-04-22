@@ -1,13 +1,9 @@
-TOP = .
+include ./make/common
 
-include $(TOP)/make/configure/dir
-include $(TOP)/make/configure/opts
-include $(TOP)/make/configure/dns
-
-include $(TOP)/make/targets/test.mk
-include $(TOP)/make/targets/generic.mk
-include $(TOP)/make/targets/control_room.mk
-include $(TOP)/make/targets/deploy.mk
-include $(TOP)/make/targets/reboot.mk
-include $(TOP)/make/targets/server.mk
-include $(TOP)/make/targets/services.mk
+include ./make/targets/test.mk
+include ./make/targets/generic.mk
+include ./make/targets/control_room.mk
+include ./make/targets/deploy.mk
+include ./make/targets/reboot.mk
+include ./make/targets/server.mk
+include ./make/targets/services.mk
