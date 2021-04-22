@@ -225,7 +225,7 @@ install:
 
 # Hand off to generated script for each BUILD_TYPE
 script:
-  - ./ci_build.sh
+  - ./.ci_build.sh
 
 # Only execute travis for specific brnch, as our test build spawn multiple
 # jobs and can delay other builds
