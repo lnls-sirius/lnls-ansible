@@ -19,3 +19,15 @@
     - role: lnls-ans-role-glusterfs
     - role: lnls-ans-role-nfsclient
 
+  tasks:
+    - import_role:
+        name: lnls-ans-role-clone-install
+      vars:
+        clone_install_repos: "{{ lookup('vars', 'clone_install_repos_servnfs', default=[]) }}"
+      when: "{{ glusterfs_main_server }} == ansible_host"
+
+    - import_role:
+        name: lnls-ans-role-clone-install
+      vars:
+        clone_install_repos: "{{ lookup('vars', 'clone_install_repos_sirius_screens', default=[]) }}"
+      when: "{{ glusterfs_main_server }} == ansible_host"
