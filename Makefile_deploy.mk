@@ -37,6 +37,10 @@ deploy-servers-nfs: playbook-servers-nfs.yml
 	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
 		playbook-servers-nfs.yml
 
+deploy-servers-glusterfs: playbook-control-room-glusterfs.yml
+	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
+		playbook-control-room-glusterfs.yml
+
 deploy-servers-web: playbook-servers-web.yml
 	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
 		playbook-servers-web.yml
@@ -49,9 +53,9 @@ deploy-desktops: playbook-desktops.yml
 	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
 		playbook-desktops.yml
 
-deploy: playbook-servers-nfs.yml playbook-servers-web.yml playbook-servers-ioc.yml playbook-desktops.yml
+deploy: deploy-servers-glusterfs.yml playbook-servers-web.yml playbook-servers-ioc.yml playbook-desktops.yml
 	ansible-playbook -u sirius -i hosts --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
-		playbook-servers-nfs.yml \
+		playbook-control-room-glusterfs.yml \
 		playbook-servers-web.yml \
 		playbook-servers-ioc.yml \
 		playbook-desktops.yml
