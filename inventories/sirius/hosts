@@ -1,5 +1,5 @@
 # === Control Room ===
-[linac_opi]
+[control_room_linac_opis]
 linac-opi1
 linac-opi2
 
@@ -8,7 +8,7 @@ lnls449-linux
 lnls451-linux
 lnls454-linux
 
-[control_room_nvidia_false]
+[control_room_new_pcs]
 optiplex-7070-sc-1.abtlus.org.br
 optiplex-7070-sc-2.abtlus.org.br
 
@@ -18,9 +18,9 @@ lnls455-linux
 
 [control_room_all:children]
 control_room
-control_room_nvidia_false
+control_room_new_pcs
 control_room_tv
-linac_opi
+control_room_linac_opis
 
 # ---------------------------------------
 
