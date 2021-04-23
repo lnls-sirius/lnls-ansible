@@ -32,7 +32,11 @@ deploy-tag-show:
 deploy-tag-lnls-ansible:
 	git tag deploy_$(TIMESTAMP_TAG); \
 	git push --tags
-	
+
+deploy-servers-glusterfs: playbooks/playbook-control-room-glusterfs.yml
+	ansible-playbook -u sirius --inventory $(SIRIUS_INVENTORY) --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
+		playbooks/playbook-control-room-glusterfs.yml
+
 deploy-servers-nfs: playbooks/servers/nfs.yml
 	ansible-playbook -u sirius --inventory $(SIRIUS_INVENTORY) --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
 		playbooks/servers/nfs.yml
@@ -51,7 +55,7 @@ deploy-desktops: playbooks/playbook-desktops.yml
 
 deploy: playbooks/servers/nfs.yml playbooks/servers/web.yml playbooks/servers/ioc.yml playbooks/playbook-desktops.yml
 	ansible-playbook -u sirius --inventory $(SIRIUS_INVENTORY) --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
-		playbooks/servers/nfs.yml \
+		playbooks/playbook-control-room-glusterfs.yml \
 		playbooks/servers/web.yml \
 		playbooks/servers/ioc.yml \
 		playbooks/playbook-desktops.yml
