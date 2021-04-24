@@ -1,11 +1,13 @@
 # === NFS Client
+glusterfs_main_server: lnls449-linux
+
 glusterfs_client_packages:
   - glusterfs-client
   - glusterfs-common
   - glusterfs-server
 
 nfsclient_autofs_glusterfs_server: localhost
-nfsclient_autofs_glusterfs_backup_server: lnls449-linux
+nfsclient_autofs_glusterfs_backup_server: {{ glusterfs_main_server }}
 nfsclient_autofs_glusterfs_log_file: /var/log/gluster.log
 
 # autofs: auto.sirius
