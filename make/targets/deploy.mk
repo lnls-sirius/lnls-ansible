@@ -56,9 +56,9 @@ deploy-desktops: playbooks/playbook-desktops.yml
 deploy: playbooks/servers/nfs.yml playbooks/servers/web.yml playbooks/servers/ioc.yml playbooks/playbook-desktops.yml
 	ansible-playbook -u sirius --inventory $(SIRIUS_INVENTORY) --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
 		playbooks/playbook-control-room-glusterfs.yml \
-		playbooks/servers/web.yml \
-		playbooks/servers/ioc.yml \
 		playbooks/playbook-desktops.yml
+# 		playbooks/servers/web.yml \
+# 		playbooks/servers/ioc.yml \
 
 deploy-fac-docker-images: playbooks/playbook-fac-services-docker-images.yml
 	ansible-playbook -u sirius --inventory $(SIRIUS_INVENTORY) -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \

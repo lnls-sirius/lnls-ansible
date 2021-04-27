@@ -138,7 +138,7 @@ BUILD_TYPE ?= default
 Molecule build type. Options are "default" or "debug".
 
 ```bash
-HOST_GROUPS ?= linac_opi
+HOST_GROUPS ?= control_room_linac_opis
 ```
 
 Ansible host groups. Check "hosts" file to see all possible
