@@ -3,7 +3,7 @@
 # This is based on CZMQ ci_build.sh script available at:
 # https://github.com/zeromq/czmq/blob/v4.1.1/ci_build.sh
 
-set -e
+set -ex
 
 # Set this to enable verbose profiling
 [ -n "${CI_TIME-}" ] || CI_TIME=""
@@ -28,7 +28,7 @@ case "${BUILD_TYPE}" in
         echo "Running default molecule test" >&2
         ${CI_TIME} \
             mkdir -p roles/${ROLE}/group_vars && \
-            cp group_vars/all roles/${ROLE}/group_vars/all && \
+            cp --verbose inventories/sirius/group_vars/all roles/${ROLE}/group_vars/all && \
             cd roles/${ROLE} && \
             molecule test
         ;;
@@ -36,7 +36,7 @@ case "${BUILD_TYPE}" in
         echo "Running debug molecule test" >&2
         ${CI_TIME} \
             mkdir -p roles/${ROLE}/group_vars && \
-            cp group_vars/all roles/${ROLE}/group_vars/all && \
+            cp --verbose inventories/sirius/group_vars/all roles/${ROLE}/group_vars/all && \
             cd roles/${ROLE} && \
             molecule --debug test
         ;;
