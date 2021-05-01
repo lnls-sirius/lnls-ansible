@@ -28,7 +28,7 @@ case "${BUILD_TYPE}" in
         echo "Running default molecule test" >&2
         ${CI_TIME} \
             mkdir -p roles/${ROLE}/group_vars && \
-            cp group_vars/all roles/${ROLE}/group_vars/all && \
+            cp --verbose inventories/sirius/group_vars/all roles/${ROLE}/group_vars/all && \
             cd roles/${ROLE} && \
             molecule test
         ;;
@@ -36,7 +36,7 @@ case "${BUILD_TYPE}" in
         echo "Running debug molecule test" >&2
         ${CI_TIME} \
             mkdir -p roles/${ROLE}/group_vars && \
-            cp group_vars/all roles/${ROLE}/group_vars/all && \
+            cp --verbose inventories/sirius/group_vars/all roles/${ROLE}/group_vars/all && \
             cd roles/${ROLE} && \
             molecule --debug test
         ;;
