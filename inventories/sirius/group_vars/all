@@ -88,7 +88,7 @@ pkg_version_trackcpp: "v4.3.0"
 pkg_version_lnls: "v1.1.0"
 pkg_version_pyaccel: "v3.6.0"
 pkg_version_pymodels: "v1.6.0"
-pkg_version_apsuite: "v2.18.0"
+pkg_version_apsuite: "v2.19.0"
 
 pkg_version_linac_ioc_ps: "v1.2.0"
 pkg_version_linac_opi: "v2.2.0"
