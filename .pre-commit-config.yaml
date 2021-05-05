@@ -14,7 +14,6 @@ repos:
     rev: v3.4.0
     hooks:
       - id: check-byte-order-marker
-      - id: check-executables-have-shebangs
       - id: check-json
       - id: check-merge-conflict
       - id: check-symlinks
@@ -35,10 +34,10 @@ repos:
         additional_dependencies:
           - flake8-absolute-import
           - flake8-black
-#         - flake8-docstrings
 
-# - repo: https://github.com/pre-commit/mirrors-mypy
-#   rev: master
+# - repo: https://github.com/ansible-community/ansible-lint.git
+#   rev: v5.0.8
 #   hooks:
-#     - id: mypy
-#       args: [--ignore-missing-imports]
+#     - id: ansible-lint
+#       files: \.(yaml|yml)$
+#       args: ["-f", "pep8"]
