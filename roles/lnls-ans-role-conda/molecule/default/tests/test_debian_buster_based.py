@@ -7,11 +7,13 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     os.environ["MOLECULE_INVENTORY_FILE"]
 ).get_hosts("debian_buster_based")
 
+
 @pytest.mark.parametrize("pkg", ["gnupg", "apt-transport-https"])
 def test_default_pkgs(host, pkg):
     package = host.package(pkg)
 
     assert package.is_installed
+
 
 @pytest.mark.parametrize(
     "repo",
