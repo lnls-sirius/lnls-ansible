@@ -1,5 +1,7 @@
 ---
 language: python
+python:
+  - "3.6"
 os: linux
 dist: xenial
 
@@ -221,7 +223,15 @@ before_install:
   - sudo apt-get -qq update
 
 install:
-  - pip install molecule testinfra yamllint ansible-lint flake8 docker-py
+  - >
+      pip install
+      ansible
+      ansible-lint
+      docker-py
+      flake8
+      molecule[docker]
+      testinfra
+      yamllint
 
 # Hand off to generated script for each BUILD_TYPE
 script:
