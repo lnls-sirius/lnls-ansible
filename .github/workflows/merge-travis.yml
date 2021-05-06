@@ -1,5 +1,8 @@
 name: Update Travis Test Branch
 on:
+  # Manual trigger
+  workflow_dispatch:
+
   schedule:
     # scheduled for every night at 03:00am (UTC) or 00:00am (GMT-3)
     - cron: '0 3 * * *'
