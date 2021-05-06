@@ -25,3 +25,5 @@ platforms:
     groups:
       - default_group
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
+    apt_proxy_server: "${APT_PROXY_SERVER}"
+    dns_search: "${DNS_SEARCH}"

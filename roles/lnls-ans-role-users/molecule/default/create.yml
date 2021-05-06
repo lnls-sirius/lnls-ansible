@@ -49,13 +49,6 @@
         - platforms.changed or docker_images.results | map(attribute='images') | select('equalto', []) | list | count >= 0
         - not item.item.pre_build_image | default(false)
 
-    - name: Create docker network(s)
-      docker_network:
-        name: "{{ item }}"
-        docker_host: "{{ item.docker_host | default(lookup('env', 'DOCKER_HOST') or 'unix://var/run/docker.sock') }}"
-        state: present
-      with_items: "{{ molecule_yml.platforms | molecule_get_docker_networks('present', molecule_labels) }}"
-
     - name: Determine the CMD directives
       set_fact:
         command_directives_dict: >-
@@ -84,9 +77,6 @@
         exposed_ports: "{{ item.exposed_ports | default(omit) }}"
         published_ports: "{{ item.published_ports | default(omit) }}"
         ulimits: "{{ item.ulimits | default(omit) }}"
-        networks: "{{ item.networks | default(omit) }}"
-        network_mode: "{{ item.network_mode | default(omit) }}"
-        purge_networks: "{{ item.purge_networks | default(omit) }}"
         dns_servers: "{{ item.dns_servers | default(omit) }}"
         env: "{{ item.env | default(omit) }}"
         restart_policy: "{{ item.restart_policy | default(omit) }}"
