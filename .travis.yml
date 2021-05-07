@@ -224,8 +224,6 @@ before_install:
 
 install:
   - pip install -r requirements-dev.txt
-    # For some reason the package docker is being installed and there is a bug on molecule where docker and docker-py will bug out
-  - pip uninstall docker -y
 
 # Hand off to generated script for each BUILD_TYPE
 script:
