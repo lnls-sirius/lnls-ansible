@@ -6,11 +6,12 @@
   no_log: "{{ not (lookup('env', 'MOLECULE_DEBUG') | bool or molecule_yml.provisioner.log|default(false) | bool) }}"
   tasks:
     - name: Destroy molecule instance(s)
-      docker_container:
+      community.docker.docker_container:
         name: "{{ item.name }}"
         docker_host: "{{ item.docker_host | default(lookup('env', 'DOCKER_HOST') or 'unix://var/run/docker.sock') }}"
         state: absent
         force_kill: "{{ item.force_kill | default(true) }}"
+        container_default_behavior: "compatibility"
       register: server
       with_items: "{{ molecule_yml.platforms }}"
       async: 7200

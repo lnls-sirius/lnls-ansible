@@ -1,6 +1,12 @@
 ---
 dependency:
   name: galaxy
+  collections:
+    - name: community.docker
+      version: 1.5.0
+  options:
+    role-file: requirements.yml
+    collection-file: requirements.yml
 lint: |
   set -e
   yamllint .
