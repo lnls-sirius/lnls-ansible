@@ -28,7 +28,7 @@
       register: platforms
 
     - name: Discover local Docker images
-      docker_image_info:
+      community.docker.docker_image_info:
         name: "molecule_local/{{ item.item.name }}"
         docker_host: "{{ item.item.docker_host | default(lookup('env', 'DOCKER_HOST') or 'unix://var/run/docker.sock') }}"
       with_items: "{{ platforms.results }}"
@@ -36,12 +36,14 @@
       register: docker_images
 
     - name: Build an Ansible compatible image
-      docker_image:
-        path: "{{ molecule_ephemeral_directory }}"
+      community.docker.docker_image:
         name: "molecule_local/{{ item.item.image }}"
+        source: "build"
+        force_source: true
+        build:
+          dockerfile: "{{ item.invocation.module_args.dest }}"
+          path: "{{ molecule_ephemeral_directory }}"
         docker_host: "{{ item.item.docker_host | default(lookup('env', 'DOCKER_HOST') or 'unix://var/run/docker.sock') }}"
-        dockerfile: "{{ item.invocation.module_args.dest }}"
-        force: "{{ item.item.force | default(true) }}"
         pull: "{{ item.item.pull | default(omit) }}"
         buildargs: "{{ item.item.buildargs | default(omit) }}"
       with_items: "{{ platforms.results }}"
@@ -59,7 +61,7 @@
       when: item.override_command | default(true)
 
     - name: Create molecule instance(s)
-      docker_container:
+      community.docker.docker_container:
         name: "{{ item.name }}"
         docker_host: "{{ item.docker_host | default(lookup('env', 'DOCKER_HOST') or 'unix://var/run/docker.sock') }}"
         hostname: "{{ item.hostname | default(item.name) }}"
@@ -81,6 +83,7 @@
         env: "{{ item.env | default(omit) }}"
         restart_policy: "{{ item.restart_policy | default(omit) }}"
         restart_retries: "{{ item.restart_retries | default(omit) }}"
+        container_default_behavior: "compatibility"
       register: server
       with_items: "{{ molecule_yml.platforms }}"
       async: 7200
