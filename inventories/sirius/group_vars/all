@@ -71,14 +71,14 @@ epics7_base_archive: "{{ epics7_base_url }}/base-{{ epics7_base_version }}.tar.g
 
 # === sirius packages ===
 
-pkg_version_ctrl_sys_consts: "v1.22.0"
+pkg_version_ctrl_sys_consts: "v1.23.0"
 pkg_version_pru_serial: "v1.6.0"
 pkg_version_ps_firmware_c28: "firmware_update"
 pkg_version_ps_firmware_arm: "firmware_update"
 pkg_version_ethbridge_pru_serial: "v2.6.0"
-pkg_version_siriuspy: "v2.27.0"
-pkg_version_machine_applications: "v3.22.0"
-pkg_version_siriushla: "v0.47.0"
+pkg_version_siriuspy: "v2.28.0"
+pkg_version_machine_applications: "v3.23.0"
+pkg_version_siriushla: "v0.48.0"
 pkg_version_siriushlafac: "v0.4.2"
 pkg_sirius_scripts: "v0.8.0"
 pkg_version_lnls_ansible: "master"
