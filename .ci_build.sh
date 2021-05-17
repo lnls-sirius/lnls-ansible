@@ -3,7 +3,7 @@
 # This is based on CZMQ ci_build.sh script available at:
 # https://github.com/zeromq/czmq/blob/v4.1.1/ci_build.sh
 
-set -ex
+set -e
 
 # Set this to enable verbose profiling
 [ -n "${CI_TIME-}" ] || CI_TIME=""
