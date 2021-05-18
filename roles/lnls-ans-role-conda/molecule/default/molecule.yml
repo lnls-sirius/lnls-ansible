@@ -1,58 +1,45 @@
 ---
+vars:
+  apt_proxy_server: "${APT_PROXY_SERVER}"
+
 dependency:
   name: galaxy
+  collections:
+    - name: community.docker
+      version: 1.5.0
+  options:
+    role-file: requirements.yml
+    collection-file: requirements.yml
+
+driver:
+  name: docker
+
+lint: |
+  set -x
+  yamllint .
+  ansible-lint
+  flake8
+
+platforms:
+  - name: lnls-ans-role-conda-instance
+    image: "${MOLECULE_DISTRO:-geerlingguy/docker-debian10-ansible}"
+    command: ${MOLECULE_DOCKER_COMMAND:-/lib/systemd/systemd}
+    groups:
+      - default_group
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
+    build_image: false
+    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
+
 provisioner:
   name: ansible
-  lint: |
-    set -e
-    yamllint .
-    ansible-lint
-    flake8
   inventory:
     links:
       group_vars: ../../../../group_vars/
     group_vars:
       default_group:
-      debian_buster_based:
-      debian_stretch_based:
+
 verifier:
   name: testinfra
-  options:
-    verbose: true
-driver:
-  name: docker
-platforms:
-  - name: lnls-ans-role-conda-centos7
-    image: centos:7
-    command: ${MOLECULE_DOCKER_COMMAND:-'bash -c "sleep infinity"'}
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    groups:
-      - default_group
-    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
-  - name: lnls-ans-role-conda-debian-stretch
-    image: debian:stretch
-    command: ${MOLECULE_DOCKER_COMMAND:-'bash -c "sleep infinity"'}
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    groups:
-      - debian_stretch_based
-      - default_group
-    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
-  - name: lnls-ans-role-conda-debian-buster
-    image: debian:buster
-    command: ${MOLECULE_DOCKER_COMMAND:-'bash -c "sleep infinity"'}
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    groups:
-      - debian_buster_based
-      - default_group
-    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
-  - name: lnls-ans-role-conda-instance-generic
-    image: "${MOLECULE_DISTRO:-debian:stretch}"
-    command: ${MOLECULE_DOCKER_COMMAND:-'bash -c "sleep infinity"'}
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    groups:
-      - default_group
-    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
