@@ -2,6 +2,7 @@
 skip_list:
   - unnamed-task
   - role-name
+  - '602'
 
 warn_list:
   - internal-error
