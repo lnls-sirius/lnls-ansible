@@ -1,3 +1,10 @@
+---
 skip_list:
+  - unnamed-task
+  - role-name
+  - '602'
   - '106'
   - '503'
+
+warn_list:
+  - internal-error
