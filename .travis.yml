@@ -17,6 +17,157 @@ env:
     - CI_TIME: false
     - CI_TRACE: false
   jobs:
+    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-users
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-users
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-nfsclient
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-nfsclient
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-zabbix
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-zabbix
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-nfsserver
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-nfsserver
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-ntp
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-ntp
+
+    # lnls-ans-role-repositories already
+    # has Ubuntu and Debian testing by molecule,
+    # as it runs different tests for each distro.
+    # So, we don't need to create builds for each
+    # one of them.
+    - BUILD_TYPE: default
+      ROLE: lnls-ans-role-repositories
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-epics
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-epics
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-epics7
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-epics7
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-epics-mca
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-epics-mca
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-network
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-network
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-octave
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-octave
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-python
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-python
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-pydm
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-pydm
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-java
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-java
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-cs-studio
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-cs-studio
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-phoebus
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-phoebus
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-qt
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-qt
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-sirius-apps
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-sirius-apps
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-sirius-hla
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-sirius-hla
 
     - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
       BUILD_TYPE: default
@@ -29,6 +180,22 @@ env:
     - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
       BUILD_TYPE: default
       ROLE: lnls-ans-role-clone-install
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-desktop-settings
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-visual-studio-code
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-visual-studio-code
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
+      BUILD_TYPE: default
+      ROLE: lnls-ans-role-conda
 
     - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
       BUILD_TYPE: default

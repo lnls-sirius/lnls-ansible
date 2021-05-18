@@ -14,6 +14,7 @@ def test_default_pkgs(host, pkg):
 
     assert package.is_installed
 
+
 @pytest.mark.parametrize(
     "repo",
     [
