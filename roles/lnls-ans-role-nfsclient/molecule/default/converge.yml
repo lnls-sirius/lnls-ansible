@@ -33,7 +33,7 @@
       when: >
           ansible_os_family == 'Debian' and
           molecule_yml.vars.apt_proxy_server is defined and
-          molecule_yml.vars.apt_proxy_server != ""
+          molecule_yml.vars.apt_proxy_server
       vars:
        apt_proxy_server: "{{ molecule_yml.vars.apt_proxy_server }}"
 

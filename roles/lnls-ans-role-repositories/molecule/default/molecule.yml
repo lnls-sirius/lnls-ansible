@@ -21,17 +21,30 @@ lint: |
   flake8
 
 platforms:
-  - name: lnls-ans-role-repositories-instance
-    image: "${MOLECULE_DISTRO:-geerlingguy/docker-debian10-ansible}"
+  - name: lnls-ans-role-repository-debian-stretch-instance
+    image: "${MOLECULE_DISTRO:-geerlingguy/docker-debian9-ansible}"
     command: ${MOLECULE_DOCKER_COMMAND:-/lib/systemd/systemd}
     groups:
+      - debian_stretch_based
       - default_group
+    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
     pre_build_image: true
     build_image: false
+  - name: lnls-ans-role-repository-debian-buster-instance
+    image: "${MOLECULE_DISTRO:-geerlingguy/docker-debian10-ansible}"
+    command: ${MOLECULE_DOCKER_COMMAND:-/lib/systemd/systemd}
+    groups:
+      - debian_buster_based
+      - default_group
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
+    build_image: false
 
 provisioner:
   name: ansible
