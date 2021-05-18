@@ -17,19 +17,20 @@ env:
     - CI_TIME: false
     - CI_TRACE: false
   jobs:
-    - MOLECULE_DISTRO: debian:buster
+
+    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
       BUILD_TYPE: default
       ROLE: lnls-ans-role-users
 
-    - MOLECULE_DISTRO: debian:stretch
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
       BUILD_TYPE: default
       ROLE: lnls-ans-role-users
 
-    - MOLECULE_DISTRO: debian:buster
+    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
       BUILD_TYPE: default
       ROLE: lnls-ans-role-clone-install
 
-    - MOLECULE_DISTRO: debian:stretch
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
       BUILD_TYPE: default
       ROLE: lnls-ans-role-clone-install
 
