@@ -21,8 +21,8 @@ lint: |
 
 platforms:
   - name: lnls-ans-role-clone-install
-    image: "${MOLECULE_DISTRO:-debian:stretch}"
-    command: ${MOLECULE_DOCKER_COMMAND:-'bash -c "while true; do sleep 10000; done"'}
+    image: "${MOLECULE_DISTRO:-geerlingguy/docker-debian10-ansible}"
+    command: ${MOLECULE_DOCKER_COMMAND:-/lib/systemd/systemd}
     groups:
       - default_group
     volumes:
