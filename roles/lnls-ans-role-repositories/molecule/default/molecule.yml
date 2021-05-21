@@ -15,10 +15,10 @@ driver:
   name: docker
 
 lint: |
-  set -x
+  set -xe
   yamllint .
-  ansible-lint
   flake8
+  ansible-lint
 
 platforms:
   - name: lnls-ans-role-repository-debian-stretch-instance
