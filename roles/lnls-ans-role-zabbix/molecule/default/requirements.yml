@@ -1,4 +1,4 @@
 ---
-- scm: git
-  src: git+https://github.com/lnls-sirius/lnls-ansible
-  version: master
+collections:
+  - name: community.docker
+    version: 1.5.0

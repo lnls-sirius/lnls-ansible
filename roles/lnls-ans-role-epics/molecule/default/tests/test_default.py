@@ -32,4 +32,4 @@ def test_default_tools(host, tool):
         cmd = host.find_command(tool)
         print("{} tool found in {}".format(tool, cmd))
     except ValueError:
-        assert False
+        raise AssertionError()

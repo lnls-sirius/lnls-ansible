@@ -1,0 +1,5 @@
+export MOLECULE_DISTRO=geerlingguy/docker-debian10-ansible
+export MOLECULE_DOCKER_COMMAND=/lib/systemd/systemd
+export DNS_SERVER1=8.8.8.8
+export DNS_SERVER2=1.1.1.1
+

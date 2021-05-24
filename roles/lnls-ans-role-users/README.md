@@ -111,6 +111,7 @@ the following variables:
 ```bash
     export DNS_SERVER1="<DNS server 1>"
     export DNS_SERVER2="<DNS server 2>"
+    export APT_PROXY_SERVER="<APT PROXY URL>"
 ```
 
 This can be used, for instance, in hosts that have non-default
