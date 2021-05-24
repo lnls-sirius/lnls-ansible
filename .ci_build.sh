@@ -23,20 +23,26 @@ case "${CI_TRACE}" in
         set -x ;;
 esac
 
+if [ -z "${ANSIBLE_INVENTORY}" ] || [ ! -d "${ANSIBLE_INVENTORY}/group_vars" ]; then
+
+   [ ! -z "${ANSIBLE_INVENTORY}" ] && \
+       echo "group_vars/ not found at \"${ANSIBLE_INVENTORY}\", using default value"
+
+    ANSIBLE_INVENTORY="inventories/sirius"
+fi
+
+ln --verbose --symbolic ${ANSIBLE_INVENTORY}/group_vars .
+
 case "${BUILD_TYPE}" in
     default)
         echo "Running default molecule test" >&2
         ${CI_TIME} \
-            mkdir -p roles/${ROLE}/group_vars && \
-            cp group_vars/all roles/${ROLE}/group_vars/all && \
             cd roles/${ROLE} && \
             molecule test
         ;;
     debug)
         echo "Running debug molecule test" >&2
         ${CI_TIME} \
-            mkdir -p roles/${ROLE}/group_vars && \
-            cp group_vars/all roles/${ROLE}/group_vars/all && \
             cd roles/${ROLE} && \
             molecule --debug test
         ;;
