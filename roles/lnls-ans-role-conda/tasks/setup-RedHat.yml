@@ -40,4 +40,3 @@
     name: "{{ conda_yum_packages }}"
     state: "{{ conda_yum_packages_state }}"
     update_cache: yes
-

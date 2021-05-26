@@ -1,0 +1,8 @@
+ansible==3.3.0
+molecule==3.3.0
+molecule-docker==0.2.4
+testinfra==6.0.0
+yamllint==1.26.1
+ansible-lint==5.0.8
+flake8==3.9.1
+docker==5.0.0
