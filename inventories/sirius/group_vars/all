@@ -71,7 +71,7 @@ epics7_base_archive: "{{ epics7_base_url }}/base-{{ epics7_base_version }}.tar.g
 
 # === sirius packages ===
 
-pkg_version_ctrl_sys_consts: "v1.23.0"
+pkg_version_ctrl_sys_consts: "v1.24.0"
 pkg_version_pru_serial: "v1.6.0"
 pkg_version_ps_firmware_c28: "firmware_update"
 pkg_version_ps_firmware_arm: "firmware_update"
