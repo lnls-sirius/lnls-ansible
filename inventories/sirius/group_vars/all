@@ -93,7 +93,7 @@ pkg_version_apsuite: "v2.20.0"
 pkg_version_linac_ioc_ps: "v1.2.0"
 pkg_version_linac_opi: "v2.2.0"
 pkg_version_bpm_scripts: "master"
-sirius_bbb_version: "v1.1.0"
+sirius_bbb_version: "v1.2.0"
 pkg_version_sirius_epics_screens: "master"
 
 pkg_version_hlacon_conda_qt: "5.12.9"
