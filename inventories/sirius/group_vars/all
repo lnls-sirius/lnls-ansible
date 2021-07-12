@@ -87,7 +87,7 @@ pkg_version_mathphys: "v2.2.0"
 pkg_version_trackcpp: "v4.3.0"
 pkg_version_lnls: "v1.1.0"
 pkg_version_pyaccel: "v3.6.0"
-pkg_version_pymodels: "v1.6.0"
+pkg_version_pymodels: "v1.7.0"
 pkg_version_apsuite: "v2.20.0"
 
 pkg_version_linac_ioc_ps: "v1.2.0"
