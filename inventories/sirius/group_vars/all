@@ -78,7 +78,7 @@ pkg_version_ps_firmware_arm: "master"
 pkg_version_ethbridge_pru_serial: "v2.7.0"
 pkg_version_siriuspy: "v2.32.0"
 pkg_version_machine_applications: "v3.24.0"
-pkg_version_siriushla: "v0.49.0"
+pkg_version_siriushla: "update-rf-window"
 pkg_sirius_scripts: "v0.8.0"
 pkg_version_lnls_ansible: "master"
 
