@@ -31,9 +31,3 @@ csstudio_xulrunner: "https://artifactory.esss.lu.se/artifactory/swi-pkg/xulrunne
 
 epics7_base_url: "https://epics.anl.gov/download/base"
 epics7_base_archive: "{{ epics7_base_url }}/base-{{ epics7_base_version }}.tar.gz"
-
-# === Phoebus ===
-
-phoebus_repository: nightly
-phoebus_base_url: "https://controlssoftware.sns.ornl.gov/css_phoebus"
-phoebus_archive: "{{ phoebus_base_url }}/{{ phoebus_repository }}/phoebus-linux.zip"

@@ -44,11 +44,6 @@ pyqt_src_remote_script: "{{ pyqt_src_dir_name }}.tar.gz"
 pyqt_src_download_url: "{{ srvfile_base_url }}/{{ srvfile_repository }}/{{ pyqt_src_remote_script }}"
 
 # --- CS-Studio ---
-# Overrides the defaults version on Phoebus role
-phoebus_version: "4.6.3"
-
-phoebus_base_url: "{{ srvfile_base_url }}/{{ srvfile_repository }}"
-phoebus_archive: "{{ phoebus_base_url }}/phoebus-{{ phoebus_version }}-linux.zip"
 
 # Overrides the defaults version on CS-Studio role
 csstudio_xulrunner_version: "1.9.2.29pre"
