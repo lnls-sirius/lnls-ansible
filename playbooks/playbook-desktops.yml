@@ -54,4 +54,3 @@
       when: "'control_room_all' in group_names"
     - include_role:
         name: "lnls-ans-role-nfsclient"
-        
