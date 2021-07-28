@@ -19,9 +19,6 @@ global_import_nvidia_driver_role: false
 # Run network Role
 global_network_role: false
 
-# Run phoebus Role
-global_role_phoebus: false
-
 # Run respositories Role
 global_role_users: true
 

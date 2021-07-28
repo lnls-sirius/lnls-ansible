@@ -1,8 +1,0 @@
----
-phoebus_directory: /opt/phoebus-{{ phoebus_version }}
-
-phoebus_runtime_settings_preferences:
-  - regexp: '^(TOP=)'
-    line: '\1"{{ phoebus_directory }}"'
-
-phoebus_ini_settings_preferences: []
