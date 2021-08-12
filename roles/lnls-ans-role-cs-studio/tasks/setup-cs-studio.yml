@@ -47,7 +47,6 @@
     - "{{ csstudio_databrowser_preferences }}"
     - "{{ csstudio_email_preferences }}"
     - "{{ csstudio_diirt_preferences }}"
-    - "{{ csstudio_phoebus_integration_preferences }}"
 
 - name: Overwrite CSS runtime settings
   lineinfile:

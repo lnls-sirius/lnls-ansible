@@ -32,8 +32,6 @@
     - role: lnls-ans-role-cs-studio
       when: global_role_cs_studio | default(true) | bool
     - role: lnls-ans-role-pydm
-    - role: lnls-ans-role-phoebus
-      when: global_role_phoebus | default(true) | bool
     - role: lnls-ans-role-sirius-bbb
       when: global_role_sirius_bbb | default(true) | bool
     - role: lnls-ans-role-octave

@@ -1,4 +1,0 @@
----
-- scm: git
-  src: git+https://github.com/lnls-sirius/lnls-ansible
-  version: master

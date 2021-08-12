@@ -44,11 +44,6 @@ pyqt_src_remote_script: "{{ pyqt_src_dir_name }}.tar.gz"
 pyqt_src_download_url: "{{ srvfile_base_url }}/{{ srvfile_repository }}/{{ pyqt_src_remote_script }}"
 
 # --- CS-Studio ---
-# Overrides the defaults version on Phoebus role
-phoebus_version: "4.6.3"
-
-phoebus_base_url: "{{ srvfile_base_url }}/{{ srvfile_repository }}"
-phoebus_archive: "{{ phoebus_base_url }}/phoebus-{{ phoebus_version }}-linux.zip"
 
 # Overrides the defaults version on CS-Studio role
 csstudio_xulrunner_version: "1.9.2.29pre"
@@ -71,29 +66,29 @@ epics7_base_archive: "{{ epics7_base_url }}/base-{{ epics7_base_version }}.tar.g
 
 # === sirius packages ===
 
-pkg_version_ctrl_sys_consts: "v1.25.0"
+pkg_version_ctrl_sys_consts: "v1.26.0"
 pkg_version_pru_serial: "v1.6.0"
 pkg_version_ps_firmware_c28: "master"
 pkg_version_ps_firmware_arm: "master"
 pkg_version_ethbridge_pru_serial: "v2.7.0"
-pkg_version_siriuspy: "v2.31.0"
+pkg_version_siriuspy: "v2.33.1"
 pkg_version_machine_applications: "v3.24.0"
-pkg_version_siriushla: "v0.49.0"
-pkg_version_siriushlafac: "v0.4.2"
+pkg_version_siriushla: "v0.50.1"
 pkg_sirius_scripts: "v0.8.0"
 pkg_version_lnls_ansible: "master"
 
 pkg_version_mathphys: "v2.2.0"
-pkg_version_trackcpp: "v4.3.0"
+pkg_version_trackcpp: "v4.3.2"
 pkg_version_lnls: "v1.1.0"
-pkg_version_pyaccel: "v3.6.0"
-pkg_version_pymodels: "v1.6.0"
-pkg_version_apsuite: "v2.20.0"
+pkg_version_pyaccel: "v3.6.1"
+pkg_version_pymodels: "v1.7.0"
+pkg_version_apsuite: "v2.21.0"
+pkg_version_siriushlafac: "v0.4.2"
 
 pkg_version_linac_ioc_ps: "v1.2.0"
 pkg_version_linac_opi: "v2.2.0"
 pkg_version_bpm_scripts: "master"
-sirius_bbb_version: "v1.1.0"
+sirius_bbb_version: "v1.2.1"
 pkg_version_sirius_epics_screens: "master"
 
 pkg_version_hlacon_conda_qt: "5.12.9"
