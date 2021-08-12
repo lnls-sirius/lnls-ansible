@@ -1,0 +1,18 @@
+---
+galaxy_info:
+  author: Claudio F. Carneiro
+  description: BbB Docker Stacks
+  company: CNPEM
+  license: BSD
+  min_ansible_version: 2.9
+
+  platforms:
+    - name: EL
+      versions:
+        - 7
+    - name: Debian
+      versions:
+        - buster
+        - stretch
+
+dependencies: []

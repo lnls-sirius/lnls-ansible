@@ -1,0 +1,13 @@
+- name: "Create stack directory"
+  ansible.builtin.file:
+    path: "~/templates/{{ item.STACK_NAME }}"
+    state: directory
+    mode: "0755"
+  with_items: "{{ gas_docker_BbB_settings }}"
+
+- name: "Create docker-compose.yml"
+  template:
+    src: files/docker-compose.yml.j2
+    dest: "{{ gas_docker_BbB_base_template_dir }}/{{ item.STACK_NAME }}/docker-compose.yml"
+    mode: 0644
+  with_items: "{{ gas_docker_BbB_settings }}"

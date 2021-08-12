@@ -1,0 +1,44 @@
+version: "3.4"
+x-defaults: &defaults
+  logging:
+    driver: "json-file"
+    options:
+      max-size: "10m"
+      max-file: "10"
+  networks:
+    - hostnet
+
+x-deploy: &deploy
+  replicas: 1
+  restart_policy:
+    condition: any
+
+networks:
+  hostnet:
+    external:
+      name: "host"
+
+services:
+  {{ item.ARAMP_CONTAINER_NAME }}:
+    <<: *defaults
+    image: {{ item.ARAMP_IMAGE_BASE }}:{{ item.ARAMP_IMAGE_TAG }}
+    container_name: {{ item.ARAMP_CONTAINER_NAME }}-{{ item.ARAMP_INSTANCE }}
+    command: [
+        '-t', '{{ item.ARAMP_TELNET_PORT }}',
+        '-i', '{{ item.ARAMP_IP }}',
+        '-p', '{{ item.ARAMP_PORT }}',
+        '-P', '{{ item.ARAMP_AREA_PREFIX }}',
+        '-R', '{{ item.ARAMP_DEVICE_PREFIX }}',
+        '-d', '{{ item.ARAMP_DEVICE }}',
+    ]
+    volumes:
+      - type: bind
+        source: {{ item.ARAMP_AUTOSAVE_DIR }}
+        target: /opt/epics/startup/ioc/ar-amp-epics-ioc/iocBoot/iocARAmp/autosave
+    deploy:
+      <<: *deploy
+      placement:
+        constraints:
+{% for item in item.ARAMP_PLACEMENT %}
+          - {{ item }}
+{% endfor %}

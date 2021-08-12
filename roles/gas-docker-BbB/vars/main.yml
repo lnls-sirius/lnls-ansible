@@ -1,0 +1,21 @@
+---
+gas_docker_BbB_base_template_dir: ~/templates
+gas_docker_BbB_settings:
+  # AR Amplifier
+  - STACK_NAME: "BbB-Glob-H"
+    ARAMP_AREA_PREFIX: "SI-Glob:"
+    ARAMP_AUTOSAVE_DIR: "/storage/common/autosave/IA-16RaBbB-CO-IOCSrv"
+    ARAMP_CONTAINER_NAME: "ar-amp-epics-ioc"
+    ARAMP_DEVICE: "75250AM2"
+    ARAMP_DEVICE_PREFIX: "DI-BbBAmpH:"
+    ARAMP_IMAGE_BASE: "dockerregistry.lnls-sirius.com.br/lnlsdig/ar-amp-epics-ioc"
+    ARAMP_IMAGE_TAG: "1.0.5-base-3.15-debian-9"
+    ARAMP_INSTANCE: "ARAmp-SI-Glob-DI-BbBAmpH"
+    ARAMP_IP: "IA-16RaBbB-CO-SerEthConv"
+    ARAMP_PORT: "4001"
+    ARAMP_TELNET_PORT: ""
+    ARAMP_PLACEMENT:
+      - node.hostname != CA-RaCtrl-CO-Srv-1
+      - node.hostname != LA-RaCtrl-CO-Srv-1
+      - node.hostname == IA-16RaBbB-CO-IOCSrv
+      - node.hostname != TA-TiRack-CO-FWSrv-1

@@ -64,3 +64,4 @@ include ./make/targets/deploy.mk
 include ./make/targets/reboot.mk
 include ./make/targets/server.mk
 include ./make/targets/services.mk
+include ./make/targets/gas_iocs.mk
