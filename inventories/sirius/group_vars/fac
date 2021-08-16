@@ -87,23 +87,35 @@ users:
     dirs_in_home:
       - "repos"
     state: present
-  - name: alexandre
-    comment: Alexandre B. da Cruz
+  # - name: alexandre
+  #   comment: Alexandre B. da Cruz
+  #   password: "$6$f65yHhg479Mkl$4/t3MqK1jn5NfVKb0CDtyr6wKYnaCBQOIAwV8/DG.q1hIOBehICwkhAAM3pGfpLeoRwSgLJKyHa6R/u2vtBn//"
+  #   update_password: on_create
+  #   uid: 1007
+  #   groups:
+  #     - facs
+  #     - imas
+  #   root: true
+  #   dirs_in_home:
+  #     - "repos"
+  #   state: present
+  # - name: analuisa
+  #   comment: Ana Luisa Ribeiro
+  #   password: "$6$f65yHhg479Mkl$4/t3MqK1jn5NfVKb0CDtyr6wKYnaCBQOIAwV8/DG.q1hIOBehICwkhAAM3pGfpLeoRwSgLJKyHa6R/u2vtBn//"
+  #   update_password: on_create
+  #   uid: 1008
+  #   groups:
+  #     - facs
+  #     - imas
+  #   root: true
+  #   dirs_in_home:
+  #     - "repos"
+  #   state: present
+  - name: jucelio
+    comment: Jucelio Vitor Quentino
     password: "$6$f65yHhg479Mkl$4/t3MqK1jn5NfVKb0CDtyr6wKYnaCBQOIAwV8/DG.q1hIOBehICwkhAAM3pGfpLeoRwSgLJKyHa6R/u2vtBn//"
     update_password: on_create
-    uid: 1007
-    groups:
-      - facs
-      - imas
-    root: true
-    dirs_in_home:
-      - "repos"
-    state: present
-  - name: analuisa
-    comment: Ana Luisa Ribeiro
-    password: "$6$f65yHhg479Mkl$4/t3MqK1jn5NfVKb0CDtyr6wKYnaCBQOIAwV8/DG.q1hIOBehICwkhAAM3pGfpLeoRwSgLJKyHa6R/u2vtBn//"
-    update_password: on_create
-    uid: 1008
+    uid: 1009
     groups:
       - facs
       - imas

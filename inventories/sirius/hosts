@@ -33,14 +33,14 @@ control_room_linac_opis
 #fac-testes-debian10.abtlus.org.br
 
 [fac]
-lnls560-linux  # fac-analuisa
-lnls210-linux  # fac-alexandre
-lnls557-linux  # fac-liulin (10.0.38.44)
+# lnls560-linux  # fac-analuisa
+# lnls210-linux  # fac-alexandre
+# lnls557-linux  # fac-liulin (10.0.38.44)
 # lnls556-linux  # fac-fernando
 # lnls557-linux  # fac-liu
 # lnls558-linux  # fac-murilo
 # lnls559-linux  # fac-ana
-# lnls561-linux  # fac-ximenes
+lnls561-linux  # fac-ximenes
 
 [rfq]
 10.15.0.189  # lnls627-linux (RF laptop)
