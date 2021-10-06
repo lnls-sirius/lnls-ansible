@@ -54,3 +54,4 @@ __python_pip_packages:
   - wakeonlan
   - xlrd
   - aiohttp
+  - pytest
