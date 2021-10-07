@@ -1,7 +1,3 @@
-# === Testes === #
-[teste]
-10.15.1.26
-
 # === Control Room ===
 [control_room_linac_opis]
 linac-opi1
