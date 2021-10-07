@@ -49,9 +49,8 @@ pyqt_src_download_url: "{{ srvfile_base_url }}/{{ srvfile_repository }}/{{ pyqt_
 csstudio_xulrunner_version: "1.9.2.29pre"
 csstudio_fonts_version: "20180222"
 
-csstudio_version: "4.6.1.25"
-csstudio_base_url: "{{ srvfile_base_url }}/{{ srvfile_repository }}"
-csstudio_archive: "{{ csstudio_base_url }}/cs-studio-ess-{{ csstudio_version }}-linux.gtk.x86_64.tar.gz"
+csstudio_version: "4.6.4"
+csstudio_archive: "https://ufpr.dl.sourceforge.net/project/cs-studio/nsls2-release/cs-studio-nsls2-4.6.4-linux.gtk.x86_64.tar.gz"
 csstudio_fonts: "{{ csstudio_base_url }}/cs-studio-fonts-{{ csstudio_fonts_version }}.tgz"
 csstudio_fonts_dir: "/usr/local/share/fonts/ess-{{ csstudio_fonts_version }}"
 csstudio_xulrunner: "{{ csstudio_base_url }}/xulrunner-{{ csstudio_xulrunner_version }}.en-US.linux-x86_64.tar.bz2"

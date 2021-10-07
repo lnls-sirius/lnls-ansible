@@ -1,0 +1,8 @@
+---
+- hosts: teste
+  remote_user: rafael
+  become: true
+
+  roles:
+    - role: lnls-ans-role-cs-studio
+      when: global_role_cs_studio | default(true) | bool

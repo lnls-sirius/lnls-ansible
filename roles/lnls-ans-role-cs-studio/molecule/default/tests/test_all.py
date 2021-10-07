@@ -11,7 +11,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 def test_csstudio_version(host):
     version = host.file("/opt/cs-studio/ess-version.txt").content_string
-    assert version.strip() == "4.6.1.25"
+    assert version.strip() == "4.6.4"
 
 
 def test_csstudio_startup_script(host):
