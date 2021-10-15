@@ -35,8 +35,6 @@ sirius_apps_opis:
     make_install_opts:
       INSTALL_EDM_DIR: "{{ sirius_apps_hla_li_edm_dir }}"
     force_version: true
-    environment:
-      GIT_SSL_NO_VERIFY: true
 
 # Select which categories to install. Defaults to all
 sirius_apps_hla_install_categories:

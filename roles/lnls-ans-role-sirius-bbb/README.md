@@ -49,8 +49,6 @@ sirius_bbb_opis:
       INSTALL_EDM_DIR: "{{ sirius_bbb_edm_dir }}"
       INSTALL_BIN_DIR: "{{ sirius_bbb_bin_dir }}"
     force_version: true
-    environment:
-      GIT_SSL_NO_VERIFY: true
 
 # Select which categories to install. Defaults to all
 sirius_bbb_install_categories:

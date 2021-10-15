@@ -87,8 +87,6 @@ clone_install_repos_servnfs:
     repo_name: linac-ioc-ps
     repo_version: "{{ pkg_version_linac_ioc_ps }}"
     clone_path: /home/sirius/shared/repos-lnls-sirius
-    environment:
-      GIT_SSL_NO_VERIFY: true
   - name: High-Level Applications
     org_url: https://github.com/lnls-sirius
     repo_name: hla
@@ -109,8 +107,6 @@ clone_install_repos_servnfs:
     repo_name: linac-opi
     repo_version: "{{ pkg_version_linac_opi }}"
     clone_path: /home/sirius/shared/repos-lnls-sirius
-    environment:
-      GIT_SSL_NO_VERIFY: true
   - name: FAC Scripts
     org_url: https://github.com/lnls-sirius
     repo_name: scripts
