@@ -195,7 +195,6 @@ sirius_apps_iocs:
     clone_path: /tmp
     install_via_makefile: true
     force_version: true
-    ssl_no_verify: true
 
 sirius_apps_mgmt:
   - name: Scripts
@@ -266,7 +265,6 @@ sirius_apps_hla_opis:
     make_install_opts:
       INSTALL_EDM_DIR: "{{ sirius_apps_hla_li_edm_dir }}"
     force_version: true
-    ssl_no_verify: true
 
 
 # Select which categories to install

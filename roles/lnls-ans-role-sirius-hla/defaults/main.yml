@@ -50,7 +50,6 @@ sirius_apps_hla_designer_dir: /usr/local/share/Qt/designer
 #     make_install_opts:
 #       INSTALL_EDM_DIR: "{{ sirius_apps_hla_li_edm_dir }}"
 #     force_version: true
-#     ssl_no_verify: true
 #
 # sirius_apps_hla_install_categories:
 #   - sirius_apps_hla_packages_group_1

@@ -47,7 +47,6 @@ sirius_apps_iocs:
     clone_path: /tmp
     install_via_makefile: true
     force_version: true
-    ssl_no_verify: true
 
 # Select which categories to install. Defaults to all
 sirius_apps_install_categories:
