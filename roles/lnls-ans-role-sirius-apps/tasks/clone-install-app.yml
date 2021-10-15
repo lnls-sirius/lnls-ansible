@@ -7,6 +7,8 @@
     accept_hostkey: "{{ item.git_accept_hostkey | default(omit) }}"
     ssh_opts: "{{ item.git_ssh_opts | default(omit) }}"
     force: "{{ item.force_version | default(false) }}"
+  environment:
+    GIT_SSL_NO_VERIFY: "{{ item.ssl_no_verify | default(omit) }}"
   register: git_result
   when: item.install_via_makefile is defined and
         (item.install_via_makefile | bool)

@@ -37,6 +37,7 @@ sirius_apps_bpm_tests_dir: /usr/local/share/bpm-tests
 #     clone_path: /tmp
 #     install_via_makefile: true
 #     force_version: true
+#     ssl_no_verify: true
 #
 # sirius_apps_packages_group_2:
 #   - name: Machine Applications
@@ -46,6 +47,7 @@ sirius_apps_bpm_tests_dir: /usr/local/share/bpm-tests
 #     clone_path: /tmp
 #     install_via_makefile: true
 #     force_version: true
+#     ssl_no_verify: true
 #
 # sirius_apps_install_categories:
 #   - sirius_apps_packages_group_1

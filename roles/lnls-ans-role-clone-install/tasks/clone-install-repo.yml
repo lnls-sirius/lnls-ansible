@@ -10,6 +10,8 @@
     accept_hostkey: "{{ item.git_accept_hostkey | default(omit) }}"
     ssh_opts: "{{ item.git_ssh_opts | default(omit) }}"
     force: "{{ item.force_version | default(false) }}"
+  environment:
+    GIT_SSL_NO_VERIFY: "{{ item.ssl_no_verify | default(omit) }}"
   register: git_result
   become_user: "{{ ansible_ssh_user | default(ansible_env.SUDO_USER, true) | default(ansible_env.USER, true) | default(ansible_user_id) }}"
   when: (item.install_via_makefile is defined and
