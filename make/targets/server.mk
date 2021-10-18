@@ -1,6 +1,7 @@
 SERVER_OPTS = \
 	--user server \
 	--inventory $(SIRIUS_INVENTORY) \
+	--extra-vars "inventory=$(SIRIUS_INVENTORY)" \
 	--ask-pass \
 	--ask-become-pass
 

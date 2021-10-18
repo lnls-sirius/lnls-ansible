@@ -21,7 +21,7 @@
 # Variables
 
 TIMESTAMP_TAG ?= $(shell cat /tmp/_ANSIBLE_DEPLOY_TAG_)
-ANSIBLE_EXTRA_VARS = "deploy_tag=$(TIMESTAMP_TAG)"
+ANSIBLE_EXTRA_VARS = "deploy_tag=$(TIMESTAMP_TAG) inventory=$(SIRIUS_INVENTORY)"
 
 deploy-tag-create:
 	date '+%Y-%m-%d_%H-%M-%S' > /tmp/_ANSIBLE_DEPLOY_TAG_
@@ -57,8 +57,6 @@ deploy: playbooks/playbook-control-room-glusterfs.yml playbooks/playbook-desktop
 	ansible-playbook -u sirius --inventory $(SIRIUS_INVENTORY) --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
 		playbooks/playbook-control-room-glusterfs.yml \
 		playbooks/playbook-desktops.yml
-# 		playbooks/servers/web.yml \
-# 		playbooks/servers/ioc.yml \
 
 deploy-fac-docker-images: playbooks/playbook-fac-services-docker-images.yml
 	ansible-playbook -u sirius --inventory $(SIRIUS_INVENTORY) -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
