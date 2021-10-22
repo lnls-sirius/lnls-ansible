@@ -77,3 +77,12 @@ lnlsfac-srv2
 
 [docker_node]
 10.128.153.88  # CA-RaTim-CO-IOCSrv
+<<<<<<< HEAD
+=======
+
+[nfs_servers]
+lnlsfac-srv1
+
+[web_servers]
+lnlsfac-srv1
+>>>>>>> 16a050aa53b35d2e764def3cc1ebdfeccb9a1193

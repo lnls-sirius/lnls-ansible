@@ -104,3 +104,4 @@
     src: "{{ desktop_settings_lnls_ansible_src }}"
     dest: "{{ desktop_settings_lnls_ansible_dest }}"
     state: link
+    force: true
