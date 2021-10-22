@@ -22,6 +22,18 @@ inventories/
 ...
 ```
 
+Development
+-----------
+Clone the repository, install the `pre-commit` package and enable the pre-commit environment.
+
+```bash
+git clone <...>
+pip install pre-commit
+pre-commit install .
+```
+When installed, pre-commit will check the diff and abort the operation on errors.
+
+
 Usage
 -----
 For simplicity there are makefile targets for commonly used playbooks.
