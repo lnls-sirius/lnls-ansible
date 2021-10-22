@@ -32,6 +32,7 @@ pip install pre-commit
 pre-commit install .
 ```
 When installed, pre-commit will check the diff and abort the operation on errors.
+If the checking process is taking too long, consider disabling the ansible-lint part from `.pre-commit-config.yaml` or disabling pre-commit using `pre-commit uninstall`.
 
 
 Usage
