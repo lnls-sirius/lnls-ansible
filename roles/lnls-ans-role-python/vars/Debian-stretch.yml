@@ -57,3 +57,4 @@ __python_pip_packages:
   - "wakeonlan{{ (pkg_version_wakeonlan | length > 0) | ternary('==' + pkg_version_wakeonlan, '') }}"
   - "xlrd{{ (pkg_version_xlrd | length > 0) | ternary('==' + pkg_version_xlrd, '') }}"
   - "aiohttp{{ (pkg_version_aiohttp | length > 0) | ternary('>=' + pkg_version_aiohttp, '') }}"
+  - "pytest{{ (pkg_version_pytest | length > 0) | ternary('>=' + pkg_version_pytest, '') }}"

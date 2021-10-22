@@ -27,7 +27,6 @@ TEST_ROLES = \
 	lnls-ans-role-zabbix \
 	lnls-ans-role-desktop-settings \
 	lnls-ans-role-network \
-	lnls-ans-role-phoebus \
 	lnls-ans-role-sirius-bbb
 
 # Test variables

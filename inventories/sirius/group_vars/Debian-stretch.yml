@@ -2,7 +2,6 @@
 
 global_role_java: true
 global_role_cs_studio: true
-global_role_phoebus: true
 global_role_sirius_bbb: true
 global_role_octave: true
 global_role_epics_mca: true
@@ -177,3 +176,4 @@ pkg_version_pyvisa: "1.10.1"
 pkg_version_pyvisa_py: "0.3.1"
 pkg_version_ansible: "2.9.13"
 pkg_version_aiohttp: "3.7.4"
+pkg_version_pytest: "6.2.4"
