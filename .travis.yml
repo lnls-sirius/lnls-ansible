@@ -27,27 +27,11 @@ env:
 
     - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
       BUILD_TYPE: default
-      ROLE: lnls-ans-role-nfsclient
-
-    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
-      BUILD_TYPE: default
-      ROLE: lnls-ans-role-nfsclient
-
-    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
-      BUILD_TYPE: default
       ROLE: lnls-ans-role-zabbix
 
     - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
       BUILD_TYPE: default
       ROLE: lnls-ans-role-zabbix
-
-    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
-      BUILD_TYPE: default
-      ROLE: lnls-ans-role-nfsserver
-
-    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
-      BUILD_TYPE: default
-      ROLE: lnls-ans-role-nfsserver
 
     - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
       BUILD_TYPE: default

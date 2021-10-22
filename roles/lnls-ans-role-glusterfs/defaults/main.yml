@@ -1,1 +1,17 @@
 ---
+# Package versions for Debian. Leave empty for the latest
+pkg_version_autofs: ""
+
+autofs_extra: ""
+
+# Set this to true when using this in a regular,
+# without systemd support.
+autofs_ignore_systemd_errors: false
+
+autofs_config_files:
+  - name: Autofs file auto.master
+    filename: auto.master
+    pathname: "/etc"
+  - name: Autofs file auto.sirius
+    filename: auto.sirius
+    pathname: "/etc"

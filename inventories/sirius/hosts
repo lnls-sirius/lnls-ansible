@@ -28,8 +28,8 @@ control_room_linac_opis
 10.0.38.56  # elp1-linux
 
 [con]
+10.0.38.20  # fac-testes.abtlus.org.br
 10.0.38.84  # cons-dev-vm
-#fac-testes.abtlus.org.br
 #fac-testes-debian10.abtlus.org.br
 
 [fac]
@@ -77,10 +77,3 @@ lnlsfac-srv2
 
 [docker_node]
 10.128.153.88  # CA-RaTim-CO-IOCSrv
-
-[nfs_servers]
-lnlsfac-srv1
-
-[web_servers]
-lnlsfac-srv1
-

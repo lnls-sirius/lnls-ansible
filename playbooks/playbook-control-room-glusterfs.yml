@@ -1,6 +1,6 @@
 ---
-- hosts: control_room_all
-  remote_user: sirius
+- hosts: control_room_new_pcs
+  remote_user: rafael
   become: true
   become_method: sudo
   become_user: root
@@ -17,13 +17,12 @@
 
   roles:
     - role: lnls-ans-role-glusterfs
-    - role: lnls-ans-role-nfsclient
 
   tasks:
     - import_role:
         name: lnls-ans-role-clone-install
       vars:
-        clone_install_repos: "{{ lookup('vars', 'clone_install_repos_servnfs', default=[]) }}"
+        clone_install_repos: "{{ lookup('vars', 'clone_install_repos_serv_glusterfs', default=[]) }}"
       when: glusterfs_main_server == ansible_host
 
     - import_role:

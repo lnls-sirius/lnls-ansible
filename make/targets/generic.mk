@@ -10,7 +10,5 @@ playbook-playbook-desktops.yml: $(PLAYBOOKS_DIR)/playbook-desktops.yml
 
 playbook-servers-ioc.yml: $(PLAYBOOKS_DIR)/servers/ioc.yml
 	ansible-playbook $(EXTRA_OPTS)
-playbook-servers-nfs.yml: $(PLAYBOOKS_DIR)/servers/nfs.yml
-	ansible-playbook $(EXTRA_OPTS)
 playbook-servers-web.yml: $(PLAYBOOKS_DIR)/servers/web.yml
 	ansible-playbook $(EXTRA_OPTS)
