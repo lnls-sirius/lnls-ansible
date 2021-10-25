@@ -46,14 +46,12 @@ pyqt_src_download_url: "{{ srvfile_base_url }}/{{ srvfile_repository }}/{{ pyqt_
 # --- CS-Studio ---
 
 # Overrides the defaults version on CS-Studio role
-csstudio_xulrunner_version: "1.9.2.29pre"
 csstudio_fonts_version: "20180222"
 
 csstudio_version: "4.6.4"
-csstudio_archive: "https://ufpr.dl.sourceforge.net/project/cs-studio/nsls2-release/cs-studio-nsls2-4.6.4-linux.gtk.x86_64.tar.gz"
-csstudio_fonts: "{{ csstudio_base_url }}/cs-studio-fonts-{{ csstudio_fonts_version }}.tgz"
+csstudio_archive: "http://10.0.38.42/download/CS-Studio/cs-studio-nsls2-4.6.4-linux.gtk.x86_64.tar.gz"
+csstudio_fonts: "http://10.0.38.42/download/CS-Studio/cs-studio-fonts-20180222.tgz"
 csstudio_fonts_dir: "/usr/local/share/fonts/ess-{{ csstudio_fonts_version }}"
-csstudio_xulrunner: "{{ csstudio_base_url }}/xulrunner-{{ csstudio_xulrunner_version }}.en-US.linux-x86_64.tar.bz2"
 
 # --- EPICS 7 ---
 # Overrides the defaults version on EPICS7 role
@@ -326,7 +324,7 @@ desktop_settings_lnls_ansible_dest: /home/sirius/lnls-ansible
 fac_workstation_ip: 10.20.31.28
 
 # Sirius EPICS screens location
-irius_epics_screens: /home/sirius/shared/sirius-epics-screens
+sirius_epics_screens: /home/sirius/shared/sirius-epics-screens
 
 # Sirius EPICS screens location on client
 sirius_epics_screens: /home/sirius/shared/sirius-epics-screens

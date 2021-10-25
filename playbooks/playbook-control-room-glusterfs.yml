@@ -1,6 +1,6 @@
 ---
 - hosts: control_room_new_pcs
-  remote_user: rafael
+  remote_user: sirius
   become: true
   become_method: sudo
   become_user: root

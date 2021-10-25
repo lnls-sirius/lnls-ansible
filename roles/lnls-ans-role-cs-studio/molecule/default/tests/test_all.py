@@ -33,7 +33,3 @@ def test_fonts(host):
     assert "Open Sans" in cmd.stdout
     assert "Roboto" in cmd.stdout
 
-
-def test_xulrunner(host):
-    cmd = host.run("/opt/xulrunner/xulrunner -v 2>&1")
-    assert cmd.stdout.strip() == "Mozilla XULRunner 1.9.2.29pre - 20120513033204"
