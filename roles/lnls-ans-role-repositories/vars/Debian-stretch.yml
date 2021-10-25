@@ -32,7 +32,7 @@ __repository_apt:
     state: present
 
   - name: Debian Stretch VScode
-    baseurl: "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+    baseurl: "deb [arch=amd64] https://packages.microsoft.com/repos/code stable main"
     description: "Debian Stretch VScode"
     file: debian-stretch-vscode
     state: present

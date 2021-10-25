@@ -23,7 +23,7 @@ __repository_apt:
     state: present
 
   - name: Debian Jessie VScode
-    baseurl: "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+    baseurl: "deb [arch=amd64] https://packages.microsoft.com/repos/code stable main"
     description: "Debian Jessie VScode"
     file: debian-jessie-vscode
     state: present
