@@ -15,7 +15,6 @@ def test_settings(host):
     assert settings_file.user == "test_usr"
     assert settings_file.group == "test_usr"
     assert settings_file.mode == 0o600
-    assert settings_file.contains('"Vagrantfile": "ruby"')
 
 
 def test_settings_insiders(host):
@@ -28,4 +27,3 @@ def test_settings_insiders(host):
     assert settings_file.user == "test_usr"
     assert settings_file.group == "test_usr"
     assert settings_file.mode == 0o600
-    assert settings_file.contains('"Vagrantfile": "ruby"')
