@@ -93,10 +93,7 @@ Playbook with extensions installed:
             - ms-python.python
           visual_studio_code_settings: {
             "editor.rulers": [80, 100, 120],
-            "editor.renderWhitespace": true,
-            "files.associations": {
-              "Vagrantfile": "ruby"
-            }
+            "editor.renderWhitespace": true
           }
 ```
 
