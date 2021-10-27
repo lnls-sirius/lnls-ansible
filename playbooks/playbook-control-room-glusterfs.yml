@@ -1,5 +1,5 @@
 ---
-- hosts: control_room_new_pcs
+- hosts: control_room_all
   remote_user: sirius
   become: true
   become_method: sudo

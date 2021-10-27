@@ -5,3 +5,4 @@ playbook-generic-setup-ssh-key.yml: $(PLAYBOOKS_DIR)/generic/setup-ssh-key.yml
 	ansible-playbook $(EXTRA_OPTS)
 
 playbook-servers-ioc.yml: $(PLAYBOOKS_DIR)/servers/ioc.yml
+	ansible-playbook $(EXTRA_OPTS) --extra-vars "inventory=$(SIRIUS_INVENTORY)"
