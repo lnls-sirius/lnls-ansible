@@ -37,10 +37,6 @@ deploy-servers-glusterfs: playbooks/playbook-control-room-glusterfs.yml
 	ansible-playbook -u sirius --inventory $(SIRIUS_INVENTORY) --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
 		playbooks/playbook-control-room-glusterfs.yml
 
-deploy-servers-web: playbooks/servers/web.yml
-	ansible-playbook -u sirius --inventory $(SIRIUS_INVENTORY) --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
-		playbooks/servers/web.yml
-
 deploy-servers-ioc: playbooks/servers/ioc.yml
 	ansible-playbook -u sirius --inventory $(SIRIUS_INVENTORY) --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
 		playbooks/servers/ioc.yml
