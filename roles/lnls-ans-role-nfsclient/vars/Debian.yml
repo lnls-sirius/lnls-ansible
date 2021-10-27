@@ -1,4 +1,0 @@
----
-__nfs_client_packages:
-  - nfs-common
-  - autofs

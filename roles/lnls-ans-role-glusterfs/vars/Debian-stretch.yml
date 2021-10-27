@@ -5,3 +5,4 @@ __glusterfs_packages:
   - glusterfs-client
   - glusterfs-common
   - glusterfs-server
+  - autofs
