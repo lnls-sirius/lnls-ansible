@@ -1,6 +1,5 @@
 ---
 
-global_role_java: true
 global_role_cs_studio: true
 global_role_sirius_bbb: true
 global_role_octave: true

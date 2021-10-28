@@ -27,8 +27,6 @@
     - role: lnls-ans-role-epics
     - role: lnls-ans-role-epics7
     - role: lnls-ans-role-qt
-    - role: lnls-ans-role-java
-      when: global_role_java | default(true) | bool
     - role: lnls-ans-role-cs-studio
       when: global_role_cs_studio | default(true) | bool
     - role: lnls-ans-role-pydm
