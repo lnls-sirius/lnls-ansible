@@ -1,34 +1,7 @@
 ---
 __csstudio_dep_packages:
-  - openjfx
   - bzip2
   # install fonts that have precedence on others to avoid kerning issues
-  - fonts-texgyre
+  #- fonts-texgyre
   - fontconfig
-
-__csstudio_install_oracle_java: false
-
-# APT repositories
-__csstudio_repository_keys:
-  - name: Ubuntu webupd8team PPA key
-    keyserver: keyserver.ubuntu.com
-    id: EEA14886
-
-__csstudio_repository_apt:
-  - name: Oracle Java 8 Ubuntu Xenial repository
-    baseurl: "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main"
-    description: "Oracle Java 8 Ubuntu Xenial repository"
-    file: webupd8team-java
-    state: present
-
-  - name: Oracle Java 8 Ubuntu Xenial repository sources
-    baseurl: "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main"
-    description: "Oracle Java 8 Ubuntu Xenial repository sources"
-    file: webupd8team-java-src
-    state: present
-
-__csstudio_oracle_java_packages:
-  - name: oracle-java8-installer
-    state: present
-
-__csstudio_deb_java_hold_packages: []
+  - openjdk-11-jre

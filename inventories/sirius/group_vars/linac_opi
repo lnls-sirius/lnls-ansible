@@ -13,11 +13,11 @@ sirius_apps_hla_install_categories:
 # Desktop cursor size
 desktop_settings_cursor_size: 24
 
-# === NFS Client
-nfsclient_autofs_glusterfs_server: lnls451-linux
-nfsclient_autofs_glusterfs_backup_server: {{ glusterfs_main_server }}
+# === Glusterfs Client
+autofs_glusterfs_server: lnls451-linux
+autofs_glusterfs_backup_server: {{ glusterfs_main_server }}
 
 # autofs: auto.sirius
-nfsclient_autofs_extra:
+autofs_extra:
   - |
-    /home/sirius/shared -fstype=glusterfs,backupvolfile-server={{ nfsclient_autofs_glusterfs_backup_server }},log-level=WARNING,log-file={{ nfsclient_autofs_glusterfs_log_file }},rw {{ nfsclient_autofs_glusterfs_server }}:/shared
+    /home/sirius/shared -fstype=glusterfs,backupvolfile-server={{ autofs_glusterfs_backup_server }},log-level=WARNING,log-file={{ autofs_glusterfs_log_file }},rw {{ autofs_glusterfs_server }}:/shared

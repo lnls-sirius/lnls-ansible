@@ -1,6 +1,0 @@
----
-- hosts: all
-  become: true
-  tasks:
-  - import_role:
-      name: "{{ playbook_dir }}"

@@ -16,7 +16,7 @@ This Ansible role installs Conda
 repository_installroot: "/"
 ```
 
-The `conda_installroot` variable allows to specify an alternative installroot, e.g. /export/nfsroots/debian9/rootfs
+The `conda_installroot` variable allows to specify an alternative installroot, e.g. /export/glusterfsroots/debian9/rootfs
 
 ## Example Playbook
 
