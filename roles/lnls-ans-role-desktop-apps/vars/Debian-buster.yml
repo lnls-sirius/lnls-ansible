@@ -46,6 +46,7 @@ __desktop_pip_packages:
   - "cairocffi{{ (pkg_version_cairocffi | length > 0) | ternary('==' + pkg_version_cairocffi, '') }}"
   - "matplotlib{{ (pkg_version_matplotlib | length > 0) | ternary('==' + pkg_version_matplotlib, '') }}"
   - "scipy{{ (pkg_version_scipy | length > 0) | ternary('==' + pkg_version_scipy, '') }}"
+  - "pyparsing{{ (pkg_version_pyparsing | length > 0) | ternary('==' + pkg_version_pyparsing, '') }}"
   - "jupyter{{ (pkg_version_jupyter | length > 0) | ternary('==' + pkg_version_jupyter, '') }}"
   - "xlrd{{ (pkg_version_xlrd | length > 0) | ternary('==' + pkg_version_xlrd, '') }}"
   - "ipython{{ (pkg_version_ipython_pip | length > 0) | ternary('==' + pkg_version_ipython_pip, '') }}"
