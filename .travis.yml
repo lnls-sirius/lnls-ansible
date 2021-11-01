@@ -107,14 +107,6 @@ env:
 
     - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
       BUILD_TYPE: default
-      ROLE: lnls-ans-role-java
-
-    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
-      BUILD_TYPE: default
-      ROLE: lnls-ans-role-java
-
-    - MOLECULE_DISTRO: geerlingguy/docker-debian10-ansible
-      BUILD_TYPE: default
       ROLE: lnls-ans-role-cs-studio
 
     - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible
