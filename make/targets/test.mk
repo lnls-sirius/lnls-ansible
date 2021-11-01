@@ -19,7 +19,6 @@ TEST_ROLES = \
 	lnls-ans-role-repositories \
 	lnls-ans-role-visual-studio-code \
 	lnls-ans-role-desktop-apps \
-	lnls-ans-role-java \
 	lnls-ans-role-octave \
 	lnls-ans-role-sirius-apps \
 	lnls-ans-role-zabbix \

@@ -32,4 +32,3 @@ def test_fonts(host):
     cmd = host.run("fc-list")
     assert "Open Sans" in cmd.stdout
     assert "Roboto" in cmd.stdout
-
