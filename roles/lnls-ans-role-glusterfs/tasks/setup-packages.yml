@@ -21,7 +21,7 @@
   with_items:
     - "{{ autofs_config_files }}"
   when: apt_result is success
-  notify: Restart autofs systemd service
+  notify: Restart autofs client systemd service
 
 - name: Enable autofs client systemd service
   systemd:
