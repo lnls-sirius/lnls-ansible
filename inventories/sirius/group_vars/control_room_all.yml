@@ -14,7 +14,7 @@ autofs_glusterfs_log_file: /var/log/gluster.log
 autofs_extra:
   - |
     /home/sirius/shared -fstype=glusterfs,backupvolfile-server={{ autofs_glusterfs_backup_server }},log-level=WARNING,log-file={{ autofs_glusterfs_log_file }},rw {{ autofs_glusterfs_server }}:/shared
-    
+
 clone_install_repos_serv_glusterfs:
 
   - name: Control system constants
