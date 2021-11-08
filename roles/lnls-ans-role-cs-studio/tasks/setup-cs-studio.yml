@@ -1,3 +1,14 @@
+- name: Check if old verson is installed
+  stat:
+    path: "/opt/cs-studio/ESS\ CS-Studio.ini"
+  register: oldcss
+
+- name: Remove old CS-Studio
+  ansible.builtin.file:
+    path: /opt/cs-studio
+    state: absent
+  when: oldcss.stat.exists
+
 - name: Install CS-Studio
   unarchive:
     src: "{{ csstudio_archive }}"

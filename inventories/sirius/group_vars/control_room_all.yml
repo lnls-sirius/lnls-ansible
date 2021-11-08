@@ -6,7 +6,7 @@ glusterfs_client_packages:
   - glusterfs-common
   - glusterfs-server
 
-autofs_glusterfs_server: lnls451-linux
+autofs_glusterfs_server: localhost
 autofs_glusterfs_backup_server: "{{ glusterfs_main_server }}"
 autofs_glusterfs_log_file: /var/log/gluster.log
 
