@@ -67,3 +67,11 @@
 
 # Configure APT pinning
 - include_tasks: apt-pinning-configure.yml
+
+# Configure Apt-Cacher-NG
+- name: Configure APT proxy
+  copy:
+    dest: "/etc/apt/apt.conf.d/proxy"
+    content: |
+      Acquire::http::proxy "{{ proxy_address }}";
+      Acquire::https::proxy "DIRECT";
