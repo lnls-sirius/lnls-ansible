@@ -1,4 +1,7 @@
 ---
+# Proxy APT
+proxy_address: http://10.0.38.42:3142
+
 # APT repositories
 __repository_keys:
   - name: Debian NSLS2 key
