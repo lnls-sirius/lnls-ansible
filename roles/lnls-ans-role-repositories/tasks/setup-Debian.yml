@@ -72,6 +72,7 @@
 - name: Configure APT proxy
   copy:
     dest: "/etc/apt/apt.conf.d/proxy"
+    mode: u=rw,g=r,o=r
     content: |
       Acquire::http::proxy "{{ proxy_address }}";
       Acquire::https::proxy "DIRECT";
