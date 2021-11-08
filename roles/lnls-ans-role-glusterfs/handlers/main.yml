@@ -1,7 +1,7 @@
 ---
-- name: Restart autofs client systemd service
+- name: Restart autofs systemd service
   block:
-    - name: Restart autofs client systemd service
+    - name: Restart autofs systemd service
       systemd:
         name: autofs
         state: restarted
