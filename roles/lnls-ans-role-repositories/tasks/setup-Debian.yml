@@ -68,11 +68,17 @@
 # Configure APT pinning
 - include_tasks: apt-pinning-configure.yml
 
-# Configure Apt-Cacher-NG
 - name: Configure APT proxy
   copy:
     dest: "/etc/apt/apt.conf.d/proxy"
     mode: u=rw,g=r,o=r
     content: |
-      Acquire::http::proxy "{{ proxy_address }}";
+      Acquire::http::proxy "{{ apt_proxy_address }}";
       Acquire::https::proxy "DIRECT";
+  when:  apt_proxy_address is defined and apt_proxy_address != '' and apt_proxy_address != None
+
+- name: Remove APT proxy file
+  file:
+    path: "/etc/apt/apt.conf.d/proxy"
+    state: absent
+  when: apt_proxy_address is not defined or apt_proxy_address == '' or apt_proxy_address == None
