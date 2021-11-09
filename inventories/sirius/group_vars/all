@@ -320,11 +320,7 @@ ntp_servers:
 desktop_settings_lnls_ansible_src: /home/sirius/repos/lnls-ansible
 desktop_settings_lnls_ansible_dest: /home/sirius/lnls-ansible
 
-
 fac_workstation_ip: 10.20.31.28
-
-# Sirius EPICS screens location
-sirius_epics_screens: /home/sirius/shared/sirius-epics-screens
 
 # Sirius EPICS screens location on client
 sirius_epics_screens: /home/sirius/shared/sirius-epics-screens
