@@ -15,7 +15,7 @@ desktop_settings_cursor_size: 24
 
 # === Glusterfs Client
 autofs_glusterfs_server: lnls451-linux
-autofs_glusterfs_backup_server: {{ glusterfs_main_server }}
+autofs_glusterfs_backup_server: "{{ glusterfs_main_server }}"
 
 # autofs: auto.sirius
 autofs_extra:
