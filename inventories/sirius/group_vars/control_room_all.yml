@@ -1,4 +1,4 @@
-# === NFS Client
+# === glusterfs Client
 glusterfs_main_server: lnls449-linux
 
 glusterfs_client_packages:
@@ -6,16 +6,16 @@ glusterfs_client_packages:
   - glusterfs-common
   - glusterfs-server
 
-nfsclient_autofs_glusterfs_server: localhost
-nfsclient_autofs_glusterfs_backup_server: "{{ glusterfs_main_server }}"
-nfsclient_autofs_glusterfs_log_file: /var/log/gluster.log
+autofs_glusterfs_server: localhost
+autofs_glusterfs_backup_server: "{{ glusterfs_main_server }}"
+autofs_glusterfs_log_file: /var/log/gluster.log
 
 # autofs: auto.sirius
-nfsclient_autofs_extra:
+autofs_extra:
   - |
-    /home/sirius/shared -fstype=glusterfs,backupvolfile-server={{ nfsclient_autofs_glusterfs_backup_server }},log-level=WARNING,log-file={{ nfsclient_autofs_glusterfs_log_file }},rw {{ nfsclient_autofs_glusterfs_server }}:/shared
+    /home/sirius/shared -fstype=glusterfs,backupvolfile-server={{ autofs_glusterfs_backup_server }},log-level=WARNING,log-file={{ autofs_glusterfs_log_file }},rw {{ autofs_glusterfs_server }}:/shared
 
-clone_install_repos_servnfs:
+clone_install_repos_serv_glusterfs:
 
   - name: Control system constants
     org_url: https://github.com/lnls-sirius
@@ -134,6 +134,6 @@ clone_install_repos_sirius_screens:
     install_via_makefile: true
     make_install_target: install
     make_install_opts:
-      OPI_DIR: "{{ nfsserver_sirius_epics_screens }}"
+      OPI_DIR: "{{ sirius_epics_screens }}"
     make_install_as_user: "sirius"
     force_version: true

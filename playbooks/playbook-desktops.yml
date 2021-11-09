@@ -27,8 +27,6 @@
     - role: lnls-ans-role-epics
     - role: lnls-ans-role-epics7
     - role: lnls-ans-role-qt
-    - role: lnls-ans-role-java
-      when: global_role_java | default(true) | bool
     - role: lnls-ans-role-cs-studio
       when: global_role_cs_studio | default(true) | bool
     - role: lnls-ans-role-pydm
@@ -47,10 +45,3 @@
       when: global_role_desktop_settings | default(true) | bool
     - role: lnls-ans-role-visual-studio-code
       when: global_role_visual_studio | default(false) | bool
-
-  tasks:
-    - include_role:
-        name: "lnls-ans-role-glusterfs"
-      when: "'control_room_all' in group_names"
-    - include_role:
-        name: "lnls-ans-role-nfsclient"

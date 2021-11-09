@@ -18,6 +18,8 @@
 - include_tasks: setup-Debian.yml
   when: ansible_os_family == 'Debian'
 
+- include_tasks: setup-packages.yml
+
 - name: Glusterfs service name
   set_fact:
     glusterfs_service_server: "{{ __glusterfs_service_server }}"

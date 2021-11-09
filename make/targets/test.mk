@@ -2,12 +2,10 @@
 TEST_ROLES = \
 	lnls-ans-role-clone-install \
 	lnls-ans-role-epics \
-	lnls-ans-role-nfsclient \
 	lnls-ans-role-pydm \
 	lnls-ans-role-sirius-hla \
 	lnls-ans-role-conda \
 	lnls-ans-role-epics7 \
-	lnls-ans-role-nfsserver \
 	lnls-ans-role-python \
 	lnls-ans-role-sirius-hlacon \
 	lnls-ans-role-cs-studio \
@@ -21,7 +19,6 @@ TEST_ROLES = \
 	lnls-ans-role-repositories \
 	lnls-ans-role-visual-studio-code \
 	lnls-ans-role-desktop-apps \
-	lnls-ans-role-java \
 	lnls-ans-role-octave \
 	lnls-ans-role-sirius-apps \
 	lnls-ans-role-zabbix \
