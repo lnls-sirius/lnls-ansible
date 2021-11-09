@@ -2,14 +2,14 @@ LNLS Ansible
 =======================
 
 [![Build Status](https://travis-ci.org/lnls-sirius/lnls-ansible.svg)](https://travis-ci.org/lnls-sirius/lnls-ansible)
-[![Ansible Lint](https://github.com/lnls-sirius/lnls-ansible/workflows/Ansible%20Lint/badge.svg)](https://github.com/lnls-sirius/lnls-ansible/actions?query=workflow%3A%22Ansible+Lint%22)
+[![Lint](https://github.com/lnls-sirius/lnls-ansible/actions/workflows/general-lint.yml/badge.svg)](https://github.com/lnls-sirius/lnls-ansible/actions/workflows/general-lint.yml)
 
 This Ansible roles/playbooks for Sirius Light Source control machines.
 
 The inventory layout
 --------------------
 
-We are using multiple inventories based on the type of host. Reference documentation at [alternative-directory-layout](https://docs.ansible.com/ansible/2.8/user_guide/playbooks_best_practices.html#alternative-directory-layout) and 
+We are using multiple inventories based on the type of host. Reference documentation at [alternative-directory-layout](https://docs.ansible.com/ansible/2.8/user_guide/playbooks_best_practices.html#alternative-directory-layout) and
 [using-multiple-inventory-sources](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#using-multiple-inventory-sources).
 
 ```
@@ -20,6 +20,19 @@ inventories/
     └── host_vars
 ...
 ```
+
+Development
+-----------
+Clone the repository, install the `pre-commit` package and enable the pre-commit environment.
+
+```bash
+git clone <...>
+pip install pre-commit
+pre-commit install .
+```
+When installed, pre-commit will check the diff and abort the operation on errors.
+If the checking process is taking too long, consider disabling the ansible-lint part from `.pre-commit-config.yaml` or disabling pre-commit using `pre-commit uninstall`.
+
 
 Usage
 -----
