@@ -95,8 +95,8 @@ pkg_version_hlacon_conda_siriushlacon: "2.4.1"
 
 # === fac docker services ===
 
-pkg_version_docker_machine_applications: "move-ansible-to-dockerfile"
-pkg_version_docker_ctrl_sys_consts: "new-docker-images"
+pkg_version_docker_machine_applications: "master"
+pkg_version_docker_ctrl_sys_consts: "master"
 
 
 # === sirius apps packages ===
