@@ -20,6 +20,10 @@ csstudio_beast_preferences:
   - regexp: "^org.csstudio.alarm.beast.annunciator/jms_url="
     line: "org.csstudio.alarm.beast.annunciator/jms_url={{ beast_jms_url }}"
 
+csstudio_alarm_colors_preferences:
+  - regexp: '^org.csstudio.opibuilder/color_file=http://32.cs.local/css/color.def'
+    line: 'org.csstudio.opibuilder/color_file={{ csstudio_directory }}/configuration/color.def'
+
 csstudio_ca_datasource_preferences:
   - regexp: '^(\s*addr_list=)'
     line: '\1"{{ csstudio_ca_addr_list }}"'
