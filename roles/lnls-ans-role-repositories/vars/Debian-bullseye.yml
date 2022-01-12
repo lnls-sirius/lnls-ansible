@@ -36,4 +36,3 @@ __repository_apt:
     description: "Debian Stretch Main"
     file: debian-stretch-main
     state: present
-
