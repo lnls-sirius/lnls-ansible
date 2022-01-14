@@ -30,6 +30,12 @@ __repository_apt:
     file: debian-vscode
     state: present
 
+  - name: Debian Bullseye-Backports Main
+    baseurl: "deb http://deb.debian.org/debian bullseye-backports main"
+    description: "Debian Bullseye-Backports Main"
+    file: debian-bullseye-backports-main
+    state: present
+
    # Contains dependencies for the edm-dev package which are not present in the bullseye repositorires
   - name: Debian Stretch Main
     baseurl: "deb http://deb.debian.org/debian stretch main"
