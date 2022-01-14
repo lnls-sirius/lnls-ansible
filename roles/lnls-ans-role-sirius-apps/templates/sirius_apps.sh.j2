@@ -33,25 +33,19 @@ IP_CLP_KYMA_UNDU="\
 "
 
 # Mobile radiation meters
-# 10.31.74.49 = Thermo 1
+# 10.31.74.17 = Thermo 1
 # 10.0.38.31 = Thermo 6
 # 10.0.38.36 = Thermo 12
 # 10.31.33.20 = Thermo 16
 
 IP_RAD="\
-10.31.74.49 \
+10.31.74.17 \
 10.0.38.31 \
 10.0.38.36 \
 10.31.33.20 \
 "
 
 export EPICS_CA_ADDR_LIST="\
-${EPICS_CA_ADDR_LIST} \
-${IP_IOCS_LI} \
-${IP_CLP_KYMA_UNDU} \
-${IP_RAD} \
-"
-export EPICS_PV_ADDR_LIST="\
 ${EPICS_CA_ADDR_LIST} \
 ${IP_IOCS_LI} \
 ${IP_CLP_KYMA_UNDU} \
