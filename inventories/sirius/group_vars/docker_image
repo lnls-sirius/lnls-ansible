@@ -16,10 +16,7 @@ sirius_apps_dev_packages:
     repo_version: "{{ pkg_version_ethbridge_pru_serial }}"
     clone_path: /tmp
     install_chdir: client
-    install_via_setup: true
-    setup_extra_args: "--no-deps"
-    setup_state: forcereinstall
-    repo_cvs: git+
+    install_via_makefile: true
     force_version: true
 
   - name: Development Packages
