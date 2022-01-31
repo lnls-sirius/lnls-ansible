@@ -1,0 +1,25 @@
+---
+- name: Resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      ignore_errors: true
+      paths:
+        - '{{ role_path }}/vars'
+
+- name: Include platform specific tasks
+  include_tasks: '{{ item }}'
+  with_first_found:
+    - files:
+        - 'task-{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - 'task-{{ ansible_distribution }}.yml'
+        - 'task-{{ ansible_os_family }}.yml'
+      ignore_errors: true
+      paths:
+        - '{{ role_path }}/tasks'
+
+- name: Hello Facts
+  setup:

@@ -1,0 +1,19 @@
+---
+galaxy_info:
+  author: Claudio F. Carneiro
+  description: Install packages into a conda environment
+  company: CNPEM
+  license: BSD
+  min_ansible_version: 5.2.0
+
+  platforms:
+    - name: EL
+      versions:
+        - 7
+    - name: Debian
+      versions:
+        - buster
+        - stretch
+        - bullseye
+
+dependencies: []
