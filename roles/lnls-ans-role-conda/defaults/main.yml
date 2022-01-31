@@ -1,1 +1,6 @@
 ---
+conda_install_path: '/opt/conda'
+
+conda_executable: /opt/conda/bin/conda
+
+conda_profile: /opt/conda/etc/profile.d/conda.sh
