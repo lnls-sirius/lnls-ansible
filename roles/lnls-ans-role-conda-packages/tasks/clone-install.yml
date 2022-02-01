@@ -1,0 +1,32 @@
+- name: Create Git repositories path
+  file:
+    state: directory
+    path: "{{ conda_repos_path }}"
+
+- name: Ensure Git is installed
+  package:
+    name: git
+    state: present
+
+- name: Clone Git repositories
+  git:
+    dest: '{{ conda_repos_path }}/{{ item.repo.split("/")[-1].replace(".git", "") }}'
+    clone: yes
+    repo: '{{ item.repo }}'
+    version: "{{ item.branch | default('master') }}"
+    ssh_opts: "{{ item.git_ssh_opts | default(omit) }}"
+    force: "{{ item.force_version | default(false) }}"
+  register: _git_result
+  with_items: "{{ conda_clone_install_make }}"
+
+- name: Ensure Make is installed
+  package:
+    name: make
+    state: present
+
+- name: Install git using make
+  include_tasks: make.yml
+  loop: "{{ conda_clone_install_make }}"
+  loop_control:
+    loop_var: dependency
+  when: '"targets" in dependency'

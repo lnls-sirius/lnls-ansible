@@ -3,7 +3,7 @@
 Install packages into a conda environment
 
 ## Requirements
-
+Python packages:
 ```command
 pip install \
     ansible==5.2.0 \
@@ -11,6 +11,20 @@ pip install \
     ansible-lint==5.3.2 \
     molecule==3.5.2 \
     molecule-docker==1.1.0
+```
+
+Ansible roles:
+
+```command
+ansible-galaxy install -r requirements.yml
+```
+
+```yml
+---
+- src: https://github.com/evandam/evandam.conda.git
+  scm: git
+  version: v1.2.0
+  name: conda
 ```
 
 ## Example Playbook

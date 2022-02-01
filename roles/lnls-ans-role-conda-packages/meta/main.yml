@@ -16,4 +16,8 @@ galaxy_info:
         - stretch
         - bullseye
 
-dependencies: []
+dependencies:
+  - role: lnls-ans-role-conda
+
+  - role: conda
+    version: v1.2.0

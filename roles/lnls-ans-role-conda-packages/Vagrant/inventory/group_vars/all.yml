@@ -1,0 +1,107 @@
+conda_channels:
+  - name: conda-forge
+    priority: flexible
+
+conda_group: conda
+
+# We need to export this as CONDA_PREFIX environment variable
+conda_executable: /opt/conda/bin/conda
+
+conda_prefix: '/opt/conda/envs/sirius'
+conda_python_executable: "{{ conda_prefix }}/bin/python"
+conda_python_pip_executable: "{{ conda_prefix }}/bin/pip"
+conda_python_version: '3.9.2'
+conda_repos_path: "{{ conda_prefix }}/repos"
+
+# conda_environments:
+#   - prefix: /opt/conda/envs/sirius
+#     python_version: 3.9.2
+
+conda_packages:
+# conda install -c conda-forge -y jupyter notebook
+# conda install -c conda-forge -y jupyter_contrib_nbextensions=0.5.1
+# printf_blue "Adding conda environment to Jupyter kernels\n"
+# python -m ipykernel install --name=conda_sirius
+  - pyqt=5.12.3 # brings qt
+  - pyparsing=2.4.2
+  - bottleneck=1.3.2
+  - aiohttp=3.7.4
+  - pyqtgraph=0.11.0
+  - QtAwesome=0.7.2
+  - matplotlib=3.5.1
+  - pytest=6.2.4
+  - pyvisa=1.10.1
+  - pyvisa-py=0.3.1
+
+conda_pip_packages:
+  - pyepics==3.4.0
+# - pcaspy==0.7.3
+  - pydm==1.10.3
+  - timechart
+
+conda_activate_templates:
+  - src: sirius-activate.sh.j2
+    dest: sirius-activate.sh
+
+conda_deactivate_templates:
+  - src: sirius-deactivate.sh.j2
+    dest: sirius-deactivate.sh
+
+conda_clone_install_make:
+  - repo: "https://github.com/lnls-fac/mathphys.git"
+    branch: "improve-install"
+    targets: "install"
+    force_version: true
+
+  - repo: "https://github.com/lnls-sirius/dev-packages.git"
+    branch: "improve-install"
+    targets: "install"
+    force_version: true
+
+  - repo: "https://github.com/lnls-fac/lnls.git"
+    branch: "improve-install"
+    targets: "install"
+    force_version: true
+
+  - repo: "https://github.com/lnls-fac/trackcpp.git"
+    branch: "improve-install"
+    force_version: true
+    targets: 
+      - clean
+      - install"
+
+  - repo: "https://github.com/lnls-fac/pyaccel.git"
+    branch: "improve-install"
+    targets: "install"
+    force_version: true
+
+  - repo: "https://github.com/lnls-fac/pymodels.git"
+    branch: "improve-install"
+    targets: "install"
+    force_version: true
+
+  - repo: "https://github.com/lnls-fac/apsuite.git"
+    branch: "improve-install"
+    targets: "install"
+    force_version: true
+
+  - repo: "https://github.com/lnls-sirius/hla.git"
+    branch: "improve-install"
+    targets: "install"
+    force_version: true
+
+  - repo: "https://github.com/lnls-fac/hlafac.git"
+    branch: "improve-install"
+    targets: "install"
+    force_version: true
+
+  - repo: "https://github.com/lnls-sirius/eth-bridge-pru-serial485.git"
+    branch: "v2.7.1"
+    targets: "install" # pip install --no-deps --compile ./"
+    force_version: true
+
+  - repo: "https://github.com/lnls-sirius/machine-applications.git"
+    branch: "improve-install"
+    targets: "install"
+    force_version: true
+
