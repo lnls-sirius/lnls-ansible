@@ -3,7 +3,9 @@
 Install packages into a conda environment
 
 ## Requirements
+
 Python packages:
+
 ```command
 pip install \
     ansible==5.2.0 \
@@ -35,6 +37,18 @@ ansible-galaxy install -r requirements.yml
   tasks:
   - import_role:
       name: "{{ playbook_dir }}"
+```
+
+One can override variables when including this role, this allows for multiple conda environments
+
+```yaml
+- include_role: lnls-ans-role-conda-packages
+  vars:
+    conda_prefix: "{{ fac_conda_prefix }}"
+    conda_python_executable: "{{ fac_conda_python_executable }}"
+    conda_python_pip_executable: "{{ fac_conda_python_pip_executable }}"
+    conda_python_version: "{{ fac_conda_python_version }}"
+    conda_repos_path: "{{ fac_conda_repos_path }}"
 ```
 
 ## Example Commmand
