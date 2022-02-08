@@ -96,7 +96,7 @@ conda_clone_install_make:
     targets: "install"
     force_version: true
 
-  - repo: "https://github.com/carneirofc/eth-bridge-pru-serial485.git"
+  - repo: "https://github.com/lnls-sirius/eth-bridge-pru-serial485.git"
     branch: master
     targets: install-workstation
     force_version: true
