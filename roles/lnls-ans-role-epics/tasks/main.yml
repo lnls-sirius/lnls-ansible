@@ -20,6 +20,19 @@
     epics_packages: "{{ epics_packages | list + epics_packages_extra | list }}"
   when: epics_packages_extra is defined
 
+- name: Define EPICS python packages
+  set_fact:
+    epics_packages_python: "{{ __epics_packages_python | default([]) }}"
+  when: epics_packages_python is not defined
+
+- name: Include EPICS python packages into the install packages list
+  set_fact:
+    epics_packages: "{{ epics_packages | list + epics_packages_python | list }}"
+  when:
+    - __epics_packages_python is defined
+    - epics_install_python_packages is defined
+    - epics_install_python_packages is true
+
 - name: Define EPICS missing packages
   set_fact:
     epics_missing_packages: "{{ __epics_missing_packages | list }}"
@@ -29,21 +42,6 @@
   set_fact:
     epics_missing_packages: []
   when: epics_missing_packages is not defined
-
-- name: Define PIP packages
-  set_fact:
-    epics_pip_packages: "{{ __epics_pip_packages | default([]) }}"
-  when: epics_pip_packages is not defined
-
-- name: Define PIP executable
-  set_fact:
-    pip_executable: "{{ __pip_executable | default(omit) }}"
-  when: pip_executable is not defined
-
-- name: Define PIP Python2 executable
-  set_fact:
-    pip2_executable: "{{ __pip2_executable | default(omit) }}"
-  when: pip2_executable is not defined
 
 
 # Setup/install tasks
@@ -55,3 +53,15 @@
 - include_tasks: install-from-source.yml
   when:
     - ansible_os_family != 'Debian'
+
+- name: "Include role lnls-ans-role-python"
+  include_role: lnls-ans-role-python
+  when:
+    - epics_install_python_packages is defined
+    - epics_install_python_packages is true
+
+- name: "Install epics related python packages into {{ pip_executable }} and {{ pip2_executable }}"
+  include_tasks: install-python-packages.yml
+  when:
+    - epics_install_python_packages is defined
+    - epics_install_python_packages is true

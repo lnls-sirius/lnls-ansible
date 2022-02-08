@@ -2,6 +2,8 @@
 __epics_packages:
   - epics-dev
   - epics-pcas-dev
+
+__epics_packages_python:
   - python-pip
 
 __epics_pip_packages:
