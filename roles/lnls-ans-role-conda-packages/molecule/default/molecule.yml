@@ -7,9 +7,6 @@ dependency:
   collections:
     - name: community.docker
       version: 2.0.2
-  options:
-    role-file: requirements.yml
-    collection-file: requirements.yml
 
 driver:
   name: docker
@@ -20,8 +17,20 @@ lint: |
   ansible-lint
 
 platforms:
-  - name: lnls-ans-role-conda-packages
+  - name: lnls-ans-role-conda-packages-debian11
     image: "${MOLECULE_DISTRO:-geerlingguy/docker-debian11-ansible}"
+    command: ${MOLECULE_DOCKER_COMMAND:-/lib/systemd/systemd}
+    groups:
+      - default_group
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
+    build_image: false
+    dns_servers: ["${DNS_SERVER1:-8.8.8.8}", "${DNS_SERVER2:-8.8.4.4}"]
+
+  - name: lnls-ans-role-conda-packages-debian9
+    image: "${MOLECULE_DISTRO:-geerlingguy/docker-debian9-ansible}"
     command: ${MOLECULE_DOCKER_COMMAND:-/lib/systemd/systemd}
     groups:
       - default_group
@@ -34,11 +43,11 @@ platforms:
 
 provisioner:
   name: ansible
-# inventory:
-#   links:
-#     group_vars: ../../../../group_vars/
-#   group_vars:
-#     default_group:
+  inventory:
+    links:
+      group_vars: ../../Vagrant/inventory/group_vars/
+    group_vars:
+      default_group:
 
 verifier:
   name: ansible
