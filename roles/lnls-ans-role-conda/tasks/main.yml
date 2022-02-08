@@ -31,3 +31,9 @@
     group: conda
     path: "{{ conda_install_path }}"
     recurse: yes
+
+- name: Install conda profile
+  template:
+    src: conda-profile.sh.j2
+    dest: /etc/profile.d/conda-profile.sh
+    mode: 'u=rwx,g=rx,o=rx'
