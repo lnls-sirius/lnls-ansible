@@ -10,6 +10,11 @@
       paths:
         - '{{ role_path }}/vars'
 
+- name: Set default value for conda_packages_dependencies
+  set_fact:
+    conda_packages_dependencies: "{{ __conda_packages_dependencies | default([]) }}"
+  when: "conda_packages_dependencies is not defined"
+
 - name: Include platform specific tasks
   include_tasks: '{{ item }}'
   with_first_found:
@@ -21,72 +26,5 @@
       paths:
         - '{{ role_path }}/tasks'
 
-- name: Conda environment
-  block:
-
-  - name: Create environment
-    conda:
-      name: python
-      version: "{{ conda_python_version }}"
-      environment: "{{ conda_prefix }}"
-      state: present
-      executable: "{{ conda_executable }}"
-
-  - name: Install Conda packages
-    conda:
-      name: "{{ conda_packages }}"
-      channels: conda-forge
-      environment: "{{ conda_prefix }}"
-      state: present
-      executable: "{{ conda_executable }}"
-    register: _conda_packages_result
-    until: _conda_packages_result is success
-    retries: 5
-    delay: 2
-
-  - name: Install PIP packages
-    pip:
-      name: "{{ conda_pip_packages }}"
-      state: "present"
-      executable: "{{ conda_python_pip_executable | default(omit) }}"
-    become: true
-    register: _conda_pip_dep_packages_result
-    until: _conda_pip_dep_packages_result is success
-    retries: 5
-    delay: 2
-
-  - name: Clone and install Git repositories
-    include_tasks: clone-install.yml
-
-  - name: Create environment activate/deactivate repos
-    files:
-      state: director
-      path: "{{ item }}"
-    with_items:
-      - "{{ conda_prefix }}/etc/conda/activate.d/"
-      - "{{ conda_prefix }}/etc/conda/deactivate.d/"
-
-  - name: Template activate.d/
-    template:
-      src: "{{ item.src }}"
-      dest: "{{ conda_prefix }}/etc/conda/activate.d/{{ item.dest }}"
-      owner: "{{ ansible_user | default(omit) }}"
-      group: "{{ conda_group | default(omit) }}"
-      mode: '0775'
-    with_items: "{{ conda_activate_templates }}"
-
-  - name: Template deactivate.d/
-    template:
-      src: "{{ item.src }}"
-      dest: "{{ conda_prefix }}/etc/conda/deactivate.d/{{ item.dest }}"
-      owner: "{{ ansible_user  | default(omit) }}"
-      group: "{{ conda_group | default(omit) }}"
-      mode: '0775'
-    with_items: "{{ conda_deactivate_templates }}"
-
-# Create conda group
-# Add users to conda group
-# Add channel conda forge
-# Install conda packages
-# Install python packages
-#
+- name: Include conda environment setup tasks
+  include_tasks: "conda-environment.yml"

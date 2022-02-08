@@ -2,6 +2,7 @@
   file:
     state: directory
     path: "{{ conda_repos_path }}"
+    mode: "0755"
 
 - name: Ensure Git is installed
   package:
