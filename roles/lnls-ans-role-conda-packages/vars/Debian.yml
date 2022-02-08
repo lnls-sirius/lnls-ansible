@@ -1,1 +1,4 @@
 ---
+__conda_packages_dependencies:
+  - gnupg
+  - apt-transport-https
