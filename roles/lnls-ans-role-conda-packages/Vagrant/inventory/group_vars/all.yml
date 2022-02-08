@@ -1,11 +1,13 @@
-conda_channels:
-  - name: conda-forge
-    priority: flexible
 
+# This will disable EPICS python from lnls-ans-role-epics
+epics_install_python_packages: false
+
+# Conda group name
 conda_group: conda
 
-# We need to export this as CONDA_PREFIX environment variable
+conda_path: /opt/conda
 conda_executable: /opt/conda/bin/conda
+conda_profile: /opt/conda/etc/profile.d/conda.sh
 
 conda_prefix: '/opt/conda/envs/sirius'
 conda_python_executable: "{{ conda_prefix }}/bin/python"
@@ -13,29 +15,26 @@ conda_python_pip_executable: "{{ conda_prefix }}/bin/pip"
 conda_python_version: '3.9.2'
 conda_repos_path: "{{ conda_prefix }}/repos"
 
-# conda_environments:
-#   - prefix: /opt/conda/envs/sirius
-#     python_version: 3.9.2
-
 conda_packages:
 # conda install -c conda-forge -y jupyter notebook
 # conda install -c conda-forge -y jupyter_contrib_nbextensions=0.5.1
 # printf_blue "Adding conda environment to Jupyter kernels\n"
 # python -m ipykernel install --name=conda_sirius
-  - pyqt=5.12.3 # brings qt
-  - pyparsing=2.4.2
-  - bottleneck=1.3.2
   - aiohttp=3.7.4
-  - pyqtgraph=0.11.0
-  - QtAwesome=0.7.2
+  - bottleneck=1.3.2
   - matplotlib=3.5.1
+  - pyparsing=2.4.2
+  - pyqt=5.12.3 # brings qt
+  - pyqtgraph=0.11.0
   - pytest=6.2.4
-  - pyvisa=1.10.1
   - pyvisa-py=0.3.1
+  - pyvisa=1.10.1
+  - QtAwesome=0.7.2
+  - swig
 
 conda_pip_packages:
   - pyepics==3.4.0
-# - pcaspy==0.7.3
+  - pcaspy==0.7.3
   - pydm==1.10.3
   - timechart
 
@@ -49,59 +48,74 @@ conda_deactivate_templates:
 
 conda_clone_install_make:
   - repo: "https://github.com/lnls-fac/mathphys.git"
-    branch: "improve-install"
+    branch: overwrite-make-variable
     targets: "install"
     force_version: true
 
   - repo: "https://github.com/lnls-sirius/dev-packages.git"
-    branch: "improve-install"
+    branch: "master"
     targets: "install"
     force_version: true
+    cd: siriuspy
 
   - repo: "https://github.com/lnls-fac/lnls.git"
-    branch: "improve-install"
+    branch: "master"
     targets: "install"
     force_version: true
 
   - repo: "https://github.com/lnls-fac/trackcpp.git"
-    branch: "improve-install"
+    branch: "master"
     force_version: true
-    targets: 
+    targets:
       - clean
       - install"
 
   - repo: "https://github.com/lnls-fac/pyaccel.git"
-    branch: "improve-install"
+    branch: "master"
     targets: "install"
     force_version: true
 
   - repo: "https://github.com/lnls-fac/pymodels.git"
-    branch: "improve-install"
+    branch: "master"
     targets: "install"
     force_version: true
 
   - repo: "https://github.com/lnls-fac/apsuite.git"
-    branch: "improve-install"
+    branch: "master"
     targets: "install"
     force_version: true
 
   - repo: "https://github.com/lnls-sirius/hla.git"
-    branch: "improve-install"
+    branch: "master"
     targets: "install"
     force_version: true
+    cd: pyqt-apps
 
   - repo: "https://github.com/lnls-fac/hlafac.git"
-    branch: "improve-install"
+    branch: "master"
     targets: "install"
     force_version: true
 
-  - repo: "https://github.com/lnls-sirius/eth-bridge-pru-serial485.git"
-    branch: "v2.7.1"
-    targets: "install" # pip install --no-deps --compile ./"
+  - repo: "https://github.com/carneirofc/eth-bridge-pru-serial485.git"
+    branch: master
+    targets: install-workstation
     force_version: true
+    cd: client
 
   - repo: "https://github.com/lnls-sirius/machine-applications.git"
-    branch: "improve-install"
+    branch: "master"
     targets: "install"
     force_version: true
 
+conda_app_executables:
+  - name: jupyter-sirius
+    command: jupyter notebook
+
+  - name: ipython-sirius
+    command: ipython
+
+  - name: designer-sirius
+    command: designer
+
+  - name: sirius-hla-as-ap-launcher
+    command: sirius-hla-as-ap-launcher.py
