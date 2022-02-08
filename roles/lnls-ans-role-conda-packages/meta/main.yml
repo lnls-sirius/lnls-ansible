@@ -19,5 +19,8 @@ galaxy_info:
 dependencies:
   - role: lnls-ans-role-conda
 
+    # required for pcaspy
+  - role: lnls-ans-role-epics
+
   - role: conda
     version: v1.2.0
