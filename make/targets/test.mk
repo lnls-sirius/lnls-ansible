@@ -6,12 +6,10 @@ TEST_ROLES = \
 	lnls-ans-role-sirius-hla \
 	lnls-ans-role-conda \
 	lnls-ans-role-epics7 \
-	lnls-ans-role-python \
 	lnls-ans-role-sirius-hlacon \
 	lnls-ans-role-cs-studio \
 	lnls-ans-role-epics-mca \
 	lnls-ans-role-ntp \
-	lnls-ans-role-qt \
 	lnls-ans-role-users \
 	lnls-ans-role-ctrl-service \
 	lnls-ans-role-glusterfs \
