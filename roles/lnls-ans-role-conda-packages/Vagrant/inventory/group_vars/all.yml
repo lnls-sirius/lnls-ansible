@@ -9,10 +9,7 @@ conda_executable: /opt/conda/bin/conda
 conda_profile: /opt/conda/etc/profile.d/conda.sh
 
 conda_prefix: /opt/conda/envs/sirius
-conda_python_executable: "{{ conda_prefix }}/bin/python"
-conda_python_pip_executable: "{{ conda_prefix }}/bin/pip"
 conda_python_version: '3.9.2'
-conda_repos_path: "{{ conda_prefix }}/repos"
 
 conda_packages:
   - aiohttp=3.7.4

@@ -26,5 +26,11 @@
       paths:
         - '{{ role_path }}/tasks'
 
+- name: "Define conda variables relative to {{ conda_prefix }}"
+  set_fact:
+    conda_python_executable: "{{ conda_prefix }}/bin/python"
+    conda_python_pip_executable: "{{ conda_prefix }}/bin/pip"
+    conda_repos_path: "{{ conda_prefix }}/repos"
+
 - name: Include conda environment setup tasks
   include_tasks: "conda-environment.yml"
