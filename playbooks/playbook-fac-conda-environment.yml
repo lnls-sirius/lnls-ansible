@@ -1,6 +1,5 @@
 ---
-# DEPRECATED PLAYBOOK
-- hosts: ioc_servers
+- hosts: all
   remote_user: sirius
   become: true
 
@@ -13,12 +12,8 @@
           - "../{{ inventory }}/group_vars/{{ ansible_distribution }}.yml"
           - "../{{ inventory }}/group_vars/{{ ansible_os_family }}.yml"
       loop: "{{ q('first_found', possible_var_files, errors='ignore') }}"
-
-  roles:
-    - role: lnls-ans-role-repositories
-    - role: lnls-ans-role-users
-      when: global_repositories_role | default(true) | bool
-    - role: lnls-ans-role-ntp
-    - role: lnls-ans-role-epics
-    - role: lnls-ans-role-epics7
-    - role: lnls-ans-role-sirius-apps
+  
+  tasks:
+    - name: Call lnls-ans-role-conda-packages passing down variables for each environment
+      include_tasks:
+        name: task-setup-conda-environment.yml

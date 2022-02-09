@@ -1,0 +1,15 @@
+---
+# recursevelly call lnls-ans-role-conda-packages so we can easily setup multiple conda environments
+- name: Setup conda environment
+  include_roles: lnls-ans-role-conda-packages
+  vars:
+    conda_prefix: "{{ 'conda_prefix' in item | ternary(item.conda_prefix, default(omit)) }}"
+    conda_python_version: "{{ 'conda_python_version' in item | ternary(item.conda_python_version, default(omit)) }}"
+    conda_packages: "{{ 'conda_packages' in item.conda_packages | ternary(item.conda_packages, default(omit)) }}"
+    conda_pip_packages: "{{ 'conda_pip_packages' in item.conda_pip_packages | ternary(item.conda_pip_packages, default(omit)) }}"
+    conda_activate_templates: "{{ 'conda_activate_templates' in item.conda_activate_templates | ternary(item.conda_activate_templates, default(omit)) }}"
+    conda_deactivate_templates: "{{ 'conda_deactivate_templates' in item.conda_deactivate_templates | ternary(item.conda_deactivate_templates, default(omit)) }}"
+    conda_conda_clone_install_make: "{{ 'conda_conda_clone_install_make' in item.conda_conda_clone_install_make | ternary(item.conda_conda_clone_install_make, default(omit)) }}"
+    conda_conda_app_executables: "{{ 'conda_conda_app_executables' in item.conda_conda_app_executables | ternary(item.conda_conda_app_executables, default(omit)) }}"
+
+  with_items: "{{ conda_environments }}"

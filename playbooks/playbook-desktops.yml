@@ -13,35 +13,84 @@
           - "../{{ inventory }}/group_vars/{{ ansible_os_family }}.yml"
       loop: "{{ q('first_found', possible_var_files, errors='ignore') }}"
 
-  roles:
-    - role: lnls-ans-role-repositories
-    - role: lnls-ans-role-users
+  tasks:
+    - name: Include role lnls-ans-role-users
+      include_role:
+        name: lnls-ans-role-users
       when: global_role_users | default(true) | bool
-    - role: lnls-ans-role-network
+
+    - name: Include role lnls-ans-role-network
+      include_role:
+        name: lnls-ans-role-network
       when: global_network_role | default(true) | bool
-    - role: lnls-ans-role-nvidia-driver
+
+    - name: Include role lnls-ans-role-nvidia-driver
+      include_role:
+        name: lnls-ans-role-nvidia-driver
       when: global_import_nvidia_driver_role | default(false) | bool
-    - role: lnls-ans-role-ntp
-    - role: lnls-ans-role-zabbix
-    - role: lnls-ans-role-python
-    - role: lnls-ans-role-epics
-    - role: lnls-ans-role-epics7
-    - role: lnls-ans-role-qt
-    - role: lnls-ans-role-cs-studio
+
+    - name: Include role lnls-ans-role-ntp
+      include_role:
+        name: lnls-ans-role-ntp
+
+    - name: Include role lnls-ans-role-zabbix
+      include_role:
+        name: lnls-ans-role-zabbix
+
+    - name: Include role lnls-ans-role-epics
+      include_role:
+        name: lnls-ans-role-epics
+
+    - name: Include role lnls-ans-role-epics7
+      include_role:
+        name: lnls-ans-role-epics7
+
+    - name: Include role lnls-ans-role-cs-studio
+      include_role:
+        name: lnls-ans-role-cs-studio
       when: global_role_cs_studio | default(true) | bool
-    - role: lnls-ans-role-pydm
-    - role: lnls-ans-role-sirius-bbb
+
+    - name: Include role lnls-ans-role-sirius-bbb
+      include_role:
+        name: lnls-ans-role-sirius-bbb
       when: global_role_sirius_bbb | default(true) | bool
-    - role: lnls-ans-role-octave
+
+    - name: Include role lnls-ans-role-octave
+      include_role:
+        name: lnls-ans-role-octave
       when: global_role_octave | default(true) | bool
-    - role: lnls-ans-role-epics-mca
+
+    - name: Include role lnls-ans-role-epics-mca
+      include_role:
+        name: lnls-ans-role-epics-mca
       when: global_role_epics_mca | default(true) | bool
-    - role: lnls-ans-role-conda
-    - role: lnls-ans-role-sirius-hlacon
-    - role: lnls-ans-role-sirius-apps
-    - role: lnls-ans-role-sirius-hla
-    - role: lnls-ans-role-desktop-apps
-    - role: lnls-ans-role-desktop-settings
+
+    - name: Call lnls-ans-role-conda-packages passing down variables for each environment
+      include_tasks:
+        name: task-setup-conda-environment.yml
+
+    - name: Include role lnls-ans-role-hlacon
+      include_role:
+        name: lnls-ans-role-hlacon
+
+    - name: Include role lnls-ans-role-apps
+      include_role:
+        name: lnls-ans-role-apps
+
+    - name: Include role lnls-ans-role-sirius-hla
+      include_role:
+        name: lnls-ans-role-hla
+
+    - name: Include role lnls-ans-role-desktop-apps
+      include_role:
+        name: lnls-ans-role-desktop-apps
+
+    - name: Include role lnls-ans-role-desktop-settings
+      include_role:
+        name: lnls-ans-role-desktop-settings
       when: global_role_desktop_settings | default(true) | bool
-    - role: lnls-ans-role-visual-studio-code
+
+    - name: Include role lnls-ans-role-visual-studio-code
+      include_role:
+        name: lnls-ans-role-apps
       when: global_role_visual_studio | default(false) | bool
