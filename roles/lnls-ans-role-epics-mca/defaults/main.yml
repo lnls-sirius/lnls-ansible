@@ -8,8 +8,6 @@ pkg_version_autoconf: ""
 pkg_version_make: ""
 pkg_version_libtool: ""
 pkg_version_gplusplus: ""
-pkg_version_epics_dev: ""
-pkg_version_epics_pcas_dev: ""
 
 # epics_mca_core_tag:
 
