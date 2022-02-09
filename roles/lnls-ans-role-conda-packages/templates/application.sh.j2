@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # {{ item.name }}
-bash -c "source {{ conda_profile }} && conda activate {{ conda_prefix }} && {{ item.command }}"
+bash -c "source {{ conda_profile }} && conda activate {{ conda_prefix }} && {{ item.command }} $@"
