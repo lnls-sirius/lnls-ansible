@@ -1,4 +1,3 @@
-
 # This will disable EPICS python from lnls-ans-role-epics
 epics_install_python_packages: false
 
@@ -68,7 +67,7 @@ conda_clone_install_make:
     force_version: true
     targets:
       - clean
-      - install"
+      - install
 
   - repo: "https://github.com/lnls-fac/pyaccel.git"
     branch: "master"
