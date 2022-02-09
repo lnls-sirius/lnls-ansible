@@ -5,7 +5,7 @@ csstudio_fonts: "http://10.0.38.42/download/CS-Studio/cs-studio-fonts-20180222.t
 csstudio_fonts_dir: /usr/local/share/fonts/ess-20180222
 
 # ":" separated list of addresses
-csstudio_ca_addr_list: localhost
+csstudio_ca_addr_list: 10.128.1.12:5064 10.128.1.12:5070 10.128.1.13:5064 10.128.1.13:5068 10.128.1.13:5070 10.128.1.54 10.128.1.55 10.0.38.29 10.0.38.37 10.0.38.39 10.0.38.52 10.0.38.93 10.31.74.17 10.0.38.31 10.0.38.36 10.31.33.20
 # Max array bytes
 csstudio_ca_max_array_bytes: 10000000
 
