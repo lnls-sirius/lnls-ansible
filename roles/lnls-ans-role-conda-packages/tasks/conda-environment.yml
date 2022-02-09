@@ -35,7 +35,7 @@
     CONDA_PREFIX: "{{ conda_prefix }}"
     EPICS_BASE: "{{ epics_base_dir | default(omit) }}"
     EPICS_HOST_ARCH: "{{ epics_host_arch | default(omit) }}"
-    PATH: "/opt/conda/envs/sirius/bin:{{ ansible_env.PATH }}"
+    PATH: "{{ conda_prefix }}/bin:{{ ansible_env.PATH }}"
   become: true
   register: _conda_pip_dep_packages_result
   until: _conda_pip_dep_packages_result is success

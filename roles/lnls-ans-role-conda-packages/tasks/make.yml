@@ -7,4 +7,4 @@
     CONDA_PREFIX: "{{ conda_prefix }}"
     PIP: "{{ conda_python_pip_executable }}"
     PYTHON: "{{ conda_python_executable }}"
-    PATH: "/opt/conda/envs/sirius/bin:{{ ansible_env.PATH }}"
+    PATH: "{{ conda_prefix }}/bin:{{ ansible_env.PATH }}"
