@@ -8,20 +8,20 @@ conda_path: /opt/conda
 conda_executable: /opt/conda/bin/conda
 conda_profile: /opt/conda/etc/profile.d/conda.sh
 
-conda_prefix: '/opt/conda/envs/sirius'
+conda_prefix: /opt/conda/envs/sirius
 conda_python_executable: "{{ conda_prefix }}/bin/python"
 conda_python_pip_executable: "{{ conda_prefix }}/bin/pip"
 conda_python_version: '3.9.2'
 conda_repos_path: "{{ conda_prefix }}/repos"
 
 conda_packages:
-# conda install -c conda-forge -y jupyter notebook
-# conda install -c conda-forge -y jupyter_contrib_nbextensions=0.5.1
-# printf_blue "Adding conda environment to Jupyter kernels\n"
-# python -m ipykernel install --name=conda_sirius
   - aiohttp=3.7.4
   - bottleneck=1.3.2
+  - jupyter=1.0.0
+  - jupyterlab=1.0.10
+  - jupyter_contrib_nbextensions=0.5.1
   - matplotlib=3.5.1
+  - notebook=6.4.6
   - pyparsing=2.4.2
   - pyqt=5.12.3 # brings qt
   - pyqtgraph=0.11.0
@@ -29,7 +29,6 @@ conda_packages:
   - pyvisa-py=0.3.1
   - pyvisa=1.10.1
   - QtAwesome=0.7.2
-  - swig
 
 conda_pip_packages:
   - pyepics==3.4.0
@@ -47,63 +46,61 @@ conda_deactivate_templates:
 
 conda_clone_install_make:
   - repo: "https://github.com/lnls-fac/mathphys.git"
-    branch: overwrite-make-variable
-    targets: "install"
+    version: overwrite-make-variable
+    targets: install
     force_version: true
 
   - repo: "https://github.com/lnls-sirius/dev-packages.git"
-    branch: "master"
-    targets: "install"
+    version: master
+    targets: install
     force_version: true
     cd: siriuspy
 
   - repo: "https://github.com/lnls-fac/lnls.git"
-    branch: "master"
-    targets: "install"
+    version: master
+    targets: install
     force_version: true
 
   - repo: "https://github.com/lnls-fac/trackcpp.git"
-    branch: "master"
+    version: master
     force_version: true
-    targets:
-      - clean
-      - install
+    targets: [ clean, install ]
 
   - repo: "https://github.com/lnls-fac/pyaccel.git"
-    branch: "master"
-    targets: "install"
+    version: master
+    targets: install
     force_version: true
 
   - repo: "https://github.com/lnls-fac/pymodels.git"
-    branch: "master"
-    targets: "install"
+    version: master
+    targets: install
     force_version: true
 
   - repo: "https://github.com/lnls-fac/apsuite.git"
-    branch: "master"
-    targets: "install"
+    version: master
+    targets: install
     force_version: true
 
   - repo: "https://github.com/lnls-sirius/hla.git"
-    branch: "master"
-    targets: "install"
+    version: master
+    targets: install
     force_version: true
     cd: pyqt-apps
 
   - repo: "https://github.com/lnls-fac/hlafac.git"
-    branch: "master"
-    targets: "install"
+    version: master
+    targets: install
     force_version: true
 
   - repo: "https://github.com/lnls-sirius/eth-bridge-pru-serial485.git"
-    branch: master
-    targets: install-workstation
+    version: master
+    targets: install
     force_version: true
     cd: client
 
   - repo: "https://github.com/lnls-sirius/machine-applications.git"
-    branch: "master"
-    targets: "install"
+    version: master
+    targets: install
     force_version: true
 
 conda_app_executables:

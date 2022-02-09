@@ -14,7 +14,7 @@
     dest: '{{ conda_repos_path }}/{{ item.repo.split("/")[-1].replace(".git", "") }}'
     clone: yes
     repo: '{{ item.repo }}'
-    version: "{{ item.branch | default('master') }}"
+    version: "{{ item.version | default('master') }}"
     ssh_opts: "{{ item.git_ssh_opts | default(omit) }}"
     force: "{{ item.force_version | default(false) }}"
   register: _git_result
