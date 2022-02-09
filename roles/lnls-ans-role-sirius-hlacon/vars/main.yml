@@ -4,9 +4,9 @@ __sirius_apps_hlacon_pip_dep_packages:
 
 __sirius_apps_hlacon_pip_dep_packages_state: present
 
-__python_executable: python-sirius
+__python_executable: python3
 
-__pip_executable: pip-sirius
+__pip_executable: pip3
 
 __conda_executable: /opt/conda/bin/conda
 
