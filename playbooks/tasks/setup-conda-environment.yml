@@ -1,7 +1,7 @@
----
 # recursevelly call lnls-ans-role-conda-packages so we can easily setup multiple conda environments
 - name: Setup conda environment
-  include_roles: lnls-ans-role-conda-packages
+  include_role:
+    name: lnls-ans-role-conda-packages
   vars:
     conda_prefix: "{{ 'conda_prefix' in item | ternary(item.conda_prefix, default(omit)) }}"
     conda_python_version: "{{ 'conda_python_version' in item | ternary(item.conda_python_version, default(omit)) }}"

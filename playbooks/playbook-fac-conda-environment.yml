@@ -15,5 +15,4 @@
   
   tasks:
     - name: Call lnls-ans-role-conda-packages passing down variables for each environment
-      include_tasks:
-        name: task-setup-conda-environment.yml
+      include_tasks: tasks/setup-conda-environment.yml
