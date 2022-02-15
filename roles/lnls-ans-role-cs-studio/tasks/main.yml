@@ -15,10 +15,6 @@
     csstudio_dep_packages: "{{ __csstudio_dep_packages | default ([]) }}"
   when: csstudio_dep_packages is not defined
 
-- name: Debug
-  debug:
-    msg: "pkg_version_ntp: {{ pkg_version_ntp }}"
-
 # Setup/install tasks
 - include_tasks: setup-Debian.yml
   when:
