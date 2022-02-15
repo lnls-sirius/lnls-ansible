@@ -9,6 +9,11 @@
   retries: 5
   delay: 2
 
+- name: Install dependencies (rsync)
+  apt:
+    name: rsync
+    state: present
+
 - name: Ensure Sirius BbB packages are installed
   apt:
     name: "{{ sirius_bbb_packages }}"
