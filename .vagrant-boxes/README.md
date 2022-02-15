@@ -4,7 +4,7 @@ This Vagrant directory contains the necessary infrastructure to test
 ansible roles in Vagrant boxes.
 
 Four environments are provided: Debian Stretch, Debian Jessie, Ubuntu Trusty
-and Ubuntu Xenial.
+and Ubuntu Xenial. It is recommended to use the virtualbox provider `--provider=virtualbox` but other options are available.
 
 ## Instructions
 
@@ -22,7 +22,7 @@ Or by selecting only one of them:
 
 debugging
 ```bash
-VAGRANT_LOG=debug vagrant up --provider=libvirt
+VAGRANT_LOG=debug vagrant up --provider=<provider-name>
 ```
 
 Run a basic ansible playbook to configure the SSH keys on the vagrant box:

@@ -1,6 +1,12 @@
 # -*- mode: yaml -*-
 # vi: set ft=yaml :
 ---
+
+# Ansible related variables
+ansible_user: vagrant
+ansible_connection: ssh
+ansible_ssh_private_key_file: .vagrant-boxes/.vagrant/machines/{{ inventory_hostname }}/virtualbox/private_key
+
 # Select which categories to install
 sirius_apps_install_categories:
   - sirius_apps_dev_packages
