@@ -1,3 +1,10 @@
+[vagrant]
+debian.bullseye ansible_host=192.168.33.10 # Debian 11
+debian.stretch  ansible_host=192.168.33.11 # Debian 9
+
+[vagrant:vars]
+ansible_ssh_private_key_file=.vagrant-boxes/.vagrant/machines/{{ inventory_hostname }}/virtualbox/private_key
+
 # === Control Room ===
 [control_room_linac_opis]
 linac-opi1
