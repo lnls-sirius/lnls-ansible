@@ -30,6 +30,16 @@ test_TARGETS = $(addprefix $(TEST_TARGET), $(TEST_ROLES))
 
 tests: tests_stretch tests_buster
 
+tests_vagrant_deploy:
+		ansible-playbook \
+			--extra-vars inventory=$(SIRIUS_INVENTORY) \
+			--inventory $(SIRIUS_INVENTORY) \
+			--limit vagrant \
+			--user vagrant \
+			--ask-become-pass \
+			--diff \
+			./playbooks/playbook-desktop.yml
+
 tests_stretch:
 	$(MAKE) tests_all_roles MOLECULE_DISTRO=debian:stretch
 
