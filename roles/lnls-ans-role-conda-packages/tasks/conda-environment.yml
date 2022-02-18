@@ -4,7 +4,7 @@
     version: "{{ conda_python_version }}"
     environment: "{{ conda_prefix }}"
     state: present
-    executable: "{{ conda_executable }}"
+    executable: "{{ conda_mamba_executable }}"
 
 - name: "Install basic compile packages"
   package:
@@ -20,7 +20,7 @@
     channels: conda-forge
     environment: "{{ conda_prefix }}"
     state: present
-    executable: "{{ conda_executable }}"
+    executable: "{{ conda_mamba_executable }}"
   register: _conda_packages_result
   until: _conda_packages_result is success
   retries: 5
@@ -31,6 +31,8 @@
     name: "{{ conda_pip_packages }}"
     state: "present"
     executable: "{{ conda_python_pip_executable | default(omit) }}"
+  vars:
+    ansible_python_interpreter: "{{ conda_python_executable }}"
   environment:
     CONDA_PREFIX: "{{ conda_prefix }}"
     EPICS_BASE: "{{ epics_base_dir | default(omit) }}"
@@ -58,27 +60,33 @@
 
     - name: Generate activate.d/ scripts
       template:
-        src: "{{ item.src }}"
-        dest: "{{ conda_prefix }}/etc/conda/activate.d/{{ item.dest }}"
+        src: "{{ template.src }}"
+        dest: "{{ conda_prefix }}/etc/conda/activate.d/{{ template.dest }}"
         owner: "{{ ansible_user | default(omit) }}"
         group: "{{ conda_group | default(omit) }}"
         mode: '0775'
       with_items: "{{ conda_activate_templates }}"
+      loop_control:
+        loop_var: template
 
     - name: Generate deactivate.d/ scripts
       template:
-        src: "{{ item.src }}"
-        dest: "{{ conda_prefix }}/etc/conda/deactivate.d/{{ item.dest }}"
+        src: "{{ template.src }}"
+        dest: "{{ conda_prefix }}/etc/conda/deactivate.d/{{ template.dest }}"
         owner: "{{ ansible_user  | default(omit) }}"
         group: "{{ conda_group | default(omit) }}"
         mode: '0775'
       with_items: "{{ conda_deactivate_templates }}"
+      loop_control:
+        loop_var: template
 
     - name: Install system wide shell scripts
       template:
         src: application.sh.j2
-        dest: "/usr/local/bin/{{ item.name }}"
+        dest: "/usr/local/bin/{{ ex.name }}"
         owner: "{{ ansible_user  | default(omit) }}"
         group: "{{ conda_group | default(omit) }}"
         mode: '0775'
       with_items: "{{ conda_app_executables }}"
+      loop_control:
+        loop_var: ex
