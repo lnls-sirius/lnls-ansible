@@ -1,13 +1,11 @@
-LNLS Ansible
-=======================
+# LNLS Ansible
 
 [![Build Status](https://travis-ci.org/lnls-sirius/lnls-ansible.svg)](https://travis-ci.org/lnls-sirius/lnls-ansible)
 [![Lint](https://github.com/lnls-sirius/lnls-ansible/actions/workflows/general-lint.yml/badge.svg)](https://github.com/lnls-sirius/lnls-ansible/actions/workflows/general-lint.yml)
 
 This Ansible roles/playbooks for Sirius Light Source control machines.
 
-The inventory layout
---------------------
+## The inventory layout
 
 We are using multiple inventories based on the type of host. Reference documentation at [alternative-directory-layout](https://docs.ansible.com/ansible/2.8/user_guide/playbooks_best_practices.html#alternative-directory-layout) and
 [using-multiple-inventory-sources](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#using-multiple-inventory-sources).
@@ -21,21 +19,37 @@ inventories/
 ...
 ```
 
-Development
------------
-Clone the repository, install the `pre-commit` package and enable the pre-commit environment.
+## Development
+Clone this repository and prepare the python environment:
 
+Using virtualenv (because of problems with conda+molecule+ansible)
 ```bash
-git clone <...>
-pip install pre-commit
+# Assume Python 3.6+ and Debian based
+sudo apt install python3 python3-pip python3-venv
+
+# Create a virtualenv
+python3 -m venv <environment_name>
+
+# Activate the virtualenv
+source ./<environment_name>/bin/activate
+
+# Upgrade pip
+pip install -U pip
+
+# Install and activate pre-commit for development purposes
+
+pip install -U pre-commit
 pre-commit install .
+
+# Install dependencies
+pip install --user -r requirements.txt
 ```
+
 When installed, pre-commit will check the diff and abort the operation on errors.
 If the checking process is taking too long, consider disabling the ansible-lint part from `.pre-commit-config.yaml` or disabling pre-commit using `pre-commit uninstall`.
 
+## Usage
 
-Usage
------
 For simplicity there are makefile targets for commonly used playbooks.
 
 ### Makefile targets:
@@ -45,7 +59,6 @@ make deploy-control-room-desktops
 make deploy-fac-desktops
 make deploy-linac-opi-desktops
 ```
-
 
 ### Example Playbook
 
@@ -81,6 +94,7 @@ make deploy-linac-opi-desktops
 ```bash
     ansible-playbook -i host, -u user -k --ask-become-pass <playbook>.yml
 ```
+
 ### Runing Ansible Playbooks
 
 The easiest way to run playbooks on a set of hosts is to use the Makefile:
@@ -157,13 +171,11 @@ HOST_GROUPS ?= control_room_linac_opis
 Ansible host groups. Check "hosts" file to see all possible
 host groups.
 
-
 ```bash
 REMOTE_USER ?= sirius
 ```
 
 Ansible remote SSH user to log in in remote host.
-
 
 ```bash
 ASK_FOR_PASS ?= y
@@ -180,8 +192,7 @@ ASK_FOR_VAULT_PASS ?= y
 Ask for vault password. Options are "y" or "n". Use "y" when
 running a playbook that uses a vault encrypted password.
 
-Molecule tests locally
------------------------------
+## Molecule tests locally
 
 To run all tests
 
@@ -213,8 +224,7 @@ Optionally, specify the docker distro to run molecule against
     make test_lnls-ans-role-users MOLECULE_DISTRO=<distro>
 ```
 
-Installation
-------------
+## Installation
 
 To install all roles avaialble at the ansible default directory:
 
@@ -224,17 +234,17 @@ To install all roles avaialble at the ansible default directory:
 
 If the role is already installed and you want to force an upgrade:
 
-
 ```bash
     ansible-galaxy install -f git+https://github.com/lnls-sirius/lnls-ansible,master
 ```
+
 ### Dependencies
+
 ```bash
 ansible-galaxy install -r requirements.yml
 ```
 
-Troubleshooting
----------------
+## Troubleshooting
 
 If you use a host system with SELinux enabled you might get an error when using
 Ansible like the following:
@@ -258,7 +268,6 @@ On a Fedora 29 system, using python3-7, the following fixes the issue:
 
 Be advised, that the python versions might differ and the library names, as well.
 
-License
--------
+## License
 
 BSD 2-clause
