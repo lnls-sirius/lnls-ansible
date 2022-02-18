@@ -5,7 +5,7 @@
     version: "{{ sirius_apps_hlacon_conda_python_version }}"
     environment: "{{ sirius_apps_hlacon_conda_environment_path }}"
     state: present
-    executable: "{{ conda_executable }}"
+    executable: "{{ conda_mamba_executable }}"
 
 - name: Install conda dependencies
   conda:
@@ -13,7 +13,7 @@
     channels: conda-forge
     environment: "{{ sirius_apps_hlacon_conda_environment_path }}"
     state: present
-    executable: "{{ conda_executable }}"
+    executable: "{{ conda_mamba_executable }}"
   register: hlacon_conda_packages_result
   until: hlacon_conda_packages_result is success
   retries: 5
@@ -23,7 +23,9 @@
   pip:
     name: "{{ sirius_apps_hlacon_pip_dep_packages }}"
     state: "{{ sirius_apps_hlacon_pip_dep_packages_state }}"
-    executable: "{{ pip_executable | default(omit) }}"
+    executable: "{{ conda_python_pip_executable }}"
+  vars:
+    ansible_python_interpreter: "{{ conda_python_pip_executable }}"
   become: true
   register: hlacon_pip_dep_packages_result
   until: hlacon_pip_dep_packages_result is success

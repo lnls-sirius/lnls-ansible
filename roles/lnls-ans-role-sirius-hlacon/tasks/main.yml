@@ -14,6 +14,11 @@
     conda_executable: "{{ __conda_executable | default('/opt/conda/bin/conda') }}"
   when: conda_executable is not defined
 
+- name: Define mamba executable path
+  set_fact:
+    conda_mamba_executable: "{{ __conda_mamba_executable | default('/opt/conda/bin/mamba') }}"
+  when: conda_mamba_executable is not defined
+
 - name: Define conda profile path
   set_fact:
     conda_profile: "{{ __conda_profile | default('/opt/conda/etc/profile.d/conda.sh') }}"
