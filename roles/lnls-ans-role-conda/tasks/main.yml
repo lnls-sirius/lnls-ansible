@@ -37,3 +37,12 @@
     src: conda-profile.sh.j2
     dest: /etc/profile.d/conda-profile.sh
     mode: 'u=rwx,g=rx,o=rx'
+
+- name: Install Mamba in base env using standard conda
+  conda:
+   environment: base
+   name: mamba
+   state: latest
+   channels:
+     - conda-forge
+   executable: "{{ conda_executable }}"
