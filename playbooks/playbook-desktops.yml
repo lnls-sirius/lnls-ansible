@@ -2,6 +2,9 @@
 - hosts: control_room:control_room_tv:control_room_linac_opis:control_room_new_pcs:con:elp
   remote_user: sirius
   become: true
+  gather_facts: true
+  vars:
+    install_terminfo_kitty: false
 
   pre_tasks:
     - name: Include distribution-dependent variables
@@ -13,7 +16,18 @@
           - "../{{ inventory }}/group_vars/{{ ansible_os_family }}.yml"
       loop: "{{ q('first_found', possible_var_files, errors='ignore') }}"
 
+    - name: Update and upgrade apt packages
+      apt:
+        upgrade: yes
+        update_cache: true
+        cache_valid_time: 3600
+      when: ansible_os_family == 'Debian'
+
   tasks:
+    - name: Install Kitty terminfo
+      include_tasks: tasks/setup-kitty.yml
+      when: install_terminfo_kitty
+
     - name: Include role lnls-ans-role-users
       include_role:
         name: lnls-ans-role-users
@@ -68,9 +82,9 @@
     - name: Call lnls-ans-role-conda-packages passing down variables for each environment
       include_tasks: tasks/setup-conda-environment.yml
 
-    - name: Include role lnls-ans-role-hlacon
+    - name: Include role lnls-ans-role-sirius-hlacon
       include_role:
-        name: lnls-ans-role-hlacon
+        name: lnls-ans-role-sirius-hlacon
 
     - name: Include role lnls-ans-role-apps
       include_role:
