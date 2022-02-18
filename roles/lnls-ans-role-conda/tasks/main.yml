@@ -1,4 +1,7 @@
 ---
+- name: Gather facts
+  gather_facts:
+
 - name: Resolve platform specific vars
   include_vars: '{{ item }}'
   with_first_found:
@@ -6,9 +9,9 @@
         - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
         - '{{ ansible_distribution }}.yml'
         - '{{ ansible_os_family }}.yml'
-      ignore_errors: true
       paths:
         - '{{ role_path }}/vars'
+      skip: true
 
 # Setup
 - include_tasks: setup-Debian.yml
