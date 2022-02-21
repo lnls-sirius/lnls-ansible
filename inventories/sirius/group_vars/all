@@ -95,20 +95,73 @@ pkg_version_bpm_scripts: "master"
 sirius_bbb_version: "v1.2.1"
 pkg_version_sirius_epics_screens: "master"
 
-pkg_version_hlacon_conda_qt: "5.12.9"
-pkg_version_hlacon_conda_pyqt: "5.12.3"
-pkg_version_hlacon_conda_pydm: "1.10.4"
-pkg_version_hlacon_conda_siriushlacon: "2.4.1"
-
 # === fac docker services ===
 
 pkg_version_docker_machine_applications: "v1.1.0"
 pkg_version_docker_ctrl_sys_consts: "v1.0.0"
 
-# === fac conda environment ===
-fac_conda_prefix: /opt/conda/envs/sirius
+# === conda environments ===
 
 conda_environments:
+  - name: GAS Conda Environment
+
+    conda_prefix: /opt/conda/envs/gas
+    conda_python_version: '3.9.2'
+
+    conda_packages:
+      - qt=5.12.9
+      - pyqt=5.12.3
+      - pydm=1.10.4
+
+    conda_pip_packages:
+      - siriushlacon==2.4.1
+
+    conda_activate_templates: []
+
+    conda_deactivate_templates: []
+
+    conda_clone_install_make: []
+
+    conda_app_executables:
+      - name:          sirius-hla-as-ap-bbb-monitor
+        executable:    sirius-hla-as-ap-bbb-monitor
+      - name:          sirius-hla-as-ap-conlauncher
+        executable:    sirius-hla-as-ap-conlauncher
+      - name:          sirius-hla-as-ap-countingpru
+        executable:    sirius-hla-as-ap-countingpru
+      - name:          sirius-hla-as-ap-mbtemp
+        executable:    sirius-hla-as-ap-mbtemp
+      - name:          sirius-hla-as-ap-pctrl
+        executable:    sirius-hla-as-ap-pctrl
+      - name:          sirius-hla-as-ps-regatron
+        executable:    sirius-hla-as-ps-regatron
+      - name:          sirius-hla-as-ps-regatron-individual
+        executable:    sirius-hla-as-ps-regatron-individual
+      - name:          sirius-hla-as-pu-spixconv
+        executable:    sirius-hla-as-pu-spixconv
+      - name:          sirius-hla-as-va-agilent4uhv
+        executable:    sirius-hla-as-va-agilent4uhv
+      - name:          sirius-hla-as-va-agilent4uhv-device
+        executable:    sirius-hla-as-va-agilent4uhv-device
+      - name:          sirius-hla-as-va-mks937b
+        executable:    sirius-hla-as-va-mks937b
+      - name:          sirius-hla-bo-va-agilent4uhv-overview
+        executable:    sirius-hla-bo-va-agilent4uhv-overview
+      - name:          sirius-hla-bo-va-mks937b-overview
+        executable:    sirius-hla-bo-va-mks937b-overview
+      - name:          sirius-hla-si-va-agilent4uhv-overview
+        executable:    sirius-hla-si-va-agilent4uhv-overview
+      - name:          sirius-hla-si-va-mks937b-overview
+        executable:    sirius-hla-si-va-mks937b-overview
+      - name:          sirius-hla-tb-va-agilent4uhv-overview
+        executable:    sirius-hla-tb-va-agilent4uhv-overview
+      - name:          sirius-hla-tb-va-mks937b-overview
+        executable:    sirius-hla-tb-va-mks937b-overview
+      - name:          sirius-hla-ts-va-agilent4uhv-overview
+        executable:    sirius-hla-ts-va-agilent4uhv-overview
+      - name:          sirius-hla-ts-va-mks937b-overview
+        executable:    sirius-hla-ts-va-mks937b-overview
+
   - name: FAC Conda environment - Python2
 
     conda_prefix: /opt/conda/envs/py27
@@ -122,13 +175,13 @@ conda_environments:
 
     conda_deactivate_templates: []
 
-    conda_clone_install_make: []
+    conda_clone_install_make:
     #   TODO: Update Makefile so we can ovewrite PIP and PYTHON
-    # - name: Linac PS IOCs
-    #   repo: https://gitlab.cnpem.br/FACS/linac-ioc-ps.git
-    #   targets: install
-    #   version: "{{ pkg_version_linac_ioc_ps }}"
-    #   force_version: true
+      - name: Linac PS IOCs
+        repo: https://gitlab.cnpem.br/FACS/linac-ioc-ps.git
+        targets: install
+        version: "{{ pkg_version_linac_ioc_ps }}"
+        force_version: true
 
     conda_app_executables: []
 
@@ -168,15 +221,15 @@ conda_environments:
         dest: sirius-deactivate.sh
 
     conda_clone_install_make:
-    # TODO: Check if the really need this
-    # - name: Scripts
-    #   org_url: https://github.com/lnls-sirius
-    #   repo_name: scripts
-    #   repo_version: "{{ pkg_sirius_scripts }}"
-    #   clone_path: /tmp
-    #   install_via_makefile: true
-    #   make_install_target: install-ansible
-    #   force_version: true
+      # TODO: Check if the really need this
+      - name: Scripts
+        org_url: https://github.com/lnls-sirius
+        repo_name: scripts
+        repo_version: "{{ pkg_sirius_scripts }}"
+        clone_path: /tmp
+        install_via_makefile: true
+        make_install_target: install-ansible
+        force_version: true
 
       - repo: "https://github.com/lnls-fac/mathphys.git"
         version: overwrite-make-variable
@@ -310,39 +363,6 @@ sirius_apps_hla_opis:
 sirius_apps_hla_install_categories:
   - sirius_apps_hla_apps
   - sirius_apps_hla_opis
-
-
-# === Sirius HLA CON packages ===
-sirus_apps_hlacon_remove_from_system: true
-
-sirius_apps_hlacon_conda_packages:
-  - "qt{{ (pkg_version_hlacon_conda_qt | length > 0) | ternary('==' + pkg_version_hlacon_conda_qt, '') }}"
-  - "pyqt{{ (pkg_version_hlacon_conda_pyqt | length > 0) | ternary('==' + pkg_version_hlacon_conda_pyqt, '') }}"
-  - "pydm{{ (pkg_version_hlacon_conda_pydm | length > 0) | ternary('==' + pkg_version_hlacon_conda_pydm, '') }}"
-
-sirius_apps_hlacon_pip_packages:
-  - "siriushlacon{{ (pkg_version_hlacon_conda_siriushlacon | length > 0) | ternary('==' + pkg_version_hlacon_conda_siriushlacon, '') }}"
-
-sirius_apps_hlacon_executables:
-  - sirius-hla-as-ap-bbb-monitor
-  - sirius-hla-as-ap-conlauncher
-  - sirius-hla-as-ap-countingpru
-  - sirius-hla-as-ap-mbtemp
-  - sirius-hla-as-ap-pctrl
-  - sirius-hla-as-ps-regatron
-  - sirius-hla-as-ps-regatron-individual
-  - sirius-hla-as-pu-spixconv
-  - sirius-hla-as-va-agilent4uhv
-  - sirius-hla-as-va-agilent4uhv-device
-  - sirius-hla-as-va-mks937b
-  - sirius-hla-bo-va-agilent4uhv-overview
-  - sirius-hla-bo-va-mks937b-overview
-  - sirius-hla-si-va-agilent4uhv-overview
-  - sirius-hla-si-va-mks937b-overview
-  - sirius-hla-tb-va-agilent4uhv-overview
-  - sirius-hla-tb-va-mks937b-overview
-  - sirius-hla-ts-va-agilent4uhv-overview
-  - sirius-hla-ts-va-mks937b-overview
 
 # === VNC ===
 
