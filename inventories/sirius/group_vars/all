@@ -130,12 +130,12 @@ conda_environments:
       - QtAwesome=0.7.2
 
     conda_pip_packages:
-      - jupyterlab
       - jupyter_contrib_nbextensions
+      - jupyterlab
       - notebook
-      - pyepics==3.4.0
       - pcaspy==0.7.3
       - pydm==1.10.3
+      - pyepics==3.4.0
       - timechart
 
     conda_activate_templates:
@@ -404,11 +404,11 @@ sirius_apps_hlacon_executables:
   - sirius-hla-as-ap-countingpru
   - sirius-hla-as-ap-mbtemp
   - sirius-hla-as-ap-pctrl
-  - sirius-hla-as-ps-regatron-individual
   - sirius-hla-as-ps-regatron
+  - sirius-hla-as-ps-regatron-individual
   - sirius-hla-as-pu-spixconv
-  - sirius-hla-as-va-agilent4uhv-device
   - sirius-hla-as-va-agilent4uhv
+  - sirius-hla-as-va-agilent4uhv-device
   - sirius-hla-as-va-mks937b
   - sirius-hla-bo-va-agilent4uhv-overview
   - sirius-hla-bo-va-mks937b-overview
@@ -463,36 +463,36 @@ visual_studio_code_extensions:
   - zhoufeng.pyqt-integration
 
 visual_studio_code_settings:
-  "editor.fontSize": 12
-  "markdown.preview.fontSize": 12
-  "terminal.integrated.fontSize": 12
   "debug.console.fontSize": 12
+  "diffEditor.ignoreTrimWhitespace": false
+  "editor.fontSize": 12
+  "editor.wordWrap": "wordWrapColumn"
   "files.insertFinalNewline": true
   "files.trimFinalNewlines": true
   "files.trimTrailingWhitespace": true
-  "workbench.settings.openDefaultSettings": true
-  "workbench.settings.editor": "json"
-  "workbench.settings.useSplitJSON": true
-  "window.doubleClickIconToClose": true
-  "search.showLineNumbers": true
   "git.autofetch": true
   "git.fetchOnPull": true
+  "git.inputValidationSubjectLength": 70
+  "markdown.preview.fontSize": 12
   "python.linting.pep8Enabled": true
   "python.linting.pydocstyleEnabled": true
   "python.linting.pylamaEnabled": true
-  "editor.wordWrap": "wordWrapColumn"
-  "diffEditor.ignoreTrimWhitespace": false
-  "git.inputValidationSubjectLength": 70
   "python.linting.pylintArgs":
     - "--extension-pkg-whitelist=PyQt5"
-  "editor.wrappingIndent": "indent"
-  "workbench.panel.defaultLocation": "right"
-  "editor.wordWrapColumn": 79
+  "search.showLineNumbers": true
+  "terminal.integrated.fontSize": 12
+  "window.doubleClickIconToClose": true
+  "workbench.settings.editor": "json"
+  "workbench.settings.openDefaultSettings": true
+  "workbench.settings.useSplitJSON": true
   "breadcrumbs.enabled": true
+  "editor.wordWrapColumn": 79
+  "editor.wrappingIndent": "indent"
   "explorer.confirmDelete": false
-  "window.zoomLevel": 0
-  "matlab.mlintpath": "/usr/local/MATLAB/R2016b/bin/glnxa64/mlint"
   "makefileCommandRunner.makefilePath": "/usr/bin/make"
+  "matlab.mlintpath": "/usr/local/MATLAB/R2016b/bin/glnxa64/mlint"
+  "window.zoomLevel": 0
+  "workbench.panel.defaultLocation": "right"
 
 visual_studio_code_keybindings:
   - "key": "ctrl+alt+t"
