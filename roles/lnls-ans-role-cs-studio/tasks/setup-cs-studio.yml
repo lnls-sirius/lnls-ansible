@@ -33,9 +33,7 @@
     regexp: "{{ item.regexp }}"
     line: "{{ item.line }}"
   with_items:
-    - "{{ csstudio_beast_preferences }}"
     - "{{ csstudio_databrowser_preferences }}"
-    - "{{ csstudio_email_preferences }}"
     - "{{ csstudio_diirt_preferences }}"
     - "{{ csstudio_alarm_colors_preferences }}"
 
