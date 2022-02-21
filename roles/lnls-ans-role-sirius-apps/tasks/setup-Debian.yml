@@ -20,14 +20,15 @@
   retries: 5
   delay: 2
 
-- name: Ensure Sirius Apps Python packages are installed
-  pip:
-    name: "{{ sirius_apps_pip_packages }}"
-    state: "{{ sirius_apps_pip_packages_state }}"
-    executable: "{{ pip_executable }}"
-  become: true
-  register: epics_pip_packages_result
-  when: sirius_apps_pip_packages | length > 0
-  until: epics_pip_packages_result is success
-  retries: 5
-  delay: 2
+# DEPRECATED: Use a conda environment instead
+# - name: Ensure Sirius Apps Python packages are installed
+#   pip:
+#     name: "{{ sirius_apps_pip_packages }}"
+#     state: "{{ sirius_apps_pip_packages_state }}"
+#     executable: "{{ pip_executable }}"
+#   become: true
+#   register: epics_pip_packages_result
+#   when: sirius_apps_pip_packages | length > 0
+#   until: epics_pip_packages_result is success
+#   retries: 5
+#   delay: 2
