@@ -1,4 +1,78 @@
 ---
-- name: Install EPICS base source
-  fail:
-    msg: "Installing EPICS from source is not current available. Use a supported distribution"
+- name: Install build dependencies for Debian
+  apt:
+    name:
+      - build-essential
+      - libpcre3-dev
+      - libreadline-dev
+      - re2c
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: Set epics_base_dir for source builds
+  set_fact:
+    epics_base_dir: "/opt/epics-{{ epics_base_version }}/base"
+  when:
+    - epics_base_dir is not defined
+    - epics_base_dir != '/usr/lib/epics' # if this is the case, we install the source build at '/opt/...' to avoid conflicts with nsls packages
+
+- name: Check if EPICS scripts are present
+  stat:
+    path: "{{ epics_base_dir }}/startup/EpicsHostArch"
+  register: epics_host_arch_script_result
+
+- name: Download and extract EPICS base
+  block:
+    - name: Download EPICS Base
+      get_url:
+        url: "{{ epics_base_git_url }}/archive/refs/tags/{{ epics_base_version }}.tar.gz"
+        dest: /tmp/epics{{ epics_base_version }}.tar.gz
+
+    - name: Extract epics base content
+      unarchive:
+        src: "/tmp/epics{{ epics_base_version }}.tar.gz"
+        dest: "{{ epics_base_dir }}"
+
+    - name: Remove downloaded content
+      file:
+        state: absent
+        path: "/tmp/epics{{ epics_base_version }}.tar.gz"
+
+  when: not epics_host_arch_result.exists
+
+- name: Get EPICS Host Arch
+  command: "{{ epics_base_dir }}/startup/EpicsHostArch"
+  register: epics_host_arch_result
+  changed_when: false
+
+- name: Defined EPICS Host Arch
+  set_fact:
+    epics_host_arch: "{{ epics_host_arch_result.stdout.strip() }}"
+
+- name: Check executables
+  stat:
+    path: "{{ epics_base_dir }}/bin/{{ epics_host_arch }}/caget"
+  register: epics_caget_stat
+
+- name: Build and Link
+  block:
+    - name: Build EPICS base
+      make:
+        chdir: "{{ epics_base_dir }"
+
+    - name: Link EPICS base
+      file:
+        state: link
+        src: "/opt/epics-{{ epics_base_version }}"
+        dest: "/opt/epics"
+
+    - name: Check executables
+      stat:
+        path: "{{ epics_base_dir }}/bin/{{ epics_host_arch }}/caget"
+      register: epics_caget_stat
+
+    - assert:
+        that: epics_caget_stat.exists
+  when: not epics_caget_stat.exists
+
+# TODO: Install EDM from source !!!!

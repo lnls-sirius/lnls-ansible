@@ -7,6 +7,11 @@ pkg_version_setuptools: ""
 pkg_version_pyepics: ""
 pkg_version_pcaspy: ""
 
+epics_base_version: R3.15.9
+epics_base_git_url: https://github.com/epics-base/epics-base
+
+epics_install_from_source: false
+
 # EPICS base directory
 epics_base_dir: /usr/lib/epics
 

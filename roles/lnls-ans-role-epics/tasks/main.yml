@@ -43,16 +43,27 @@
     epics_missing_packages: []
   when: epics_missing_packages is not defined
 
-
 # Setup/install tasks
 - include_tasks: setup-Debian.yml
   when:
     - ansible_os_family == 'Debian'
+    - not epics_install_from_source
 
 # Install EPICS from source when it's not Debian.
 - include_tasks: install-from-source.yml
   when:
-    - ansible_os_family != 'Debian'
+    - ansible_os_family != 'Debian' or epics_install_from_source
+
+- name: Ensure EPICS environment is installed
+  template:
+    src: "{{ item.filename }}.j2"
+    dest: "{{ item.pathname }}/{{ item.filename }}"
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+  with_items:
+    - "{{ epics_config_files }}"
 
 - name: "Include role lnls-ans-role-python"
   include_role:
