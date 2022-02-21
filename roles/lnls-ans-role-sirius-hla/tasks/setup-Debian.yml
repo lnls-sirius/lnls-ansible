@@ -12,7 +12,7 @@
 - name: Ensure Sirius HLA Apps packages are installed
   apt:
     name: "{{ sirius_apps_hla_packages }}"
-    state: "{{ sirius_apps_hla_packages_state }}"
+    state: "{{ sirius_apps_hla_packages_state | default('present') }}"
     install_recommends: "{{ sirius_apps_hla_install_recommends }}"
   become: true
   register: apt_packages_result
