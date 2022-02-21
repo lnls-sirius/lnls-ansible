@@ -20,9 +20,11 @@ inventories/
 ```
 
 ## Development
+
 Clone this repository and prepare the python environment:
 
 Using virtualenv (because of problems with conda+molecule+ansible)
+
 ```bash
 # Assume Python 3.6+ and Debian based
 sudo apt install python3 python3-pip python3-venv
@@ -222,6 +224,12 @@ Optionally, specify the docker distro to run molecule against
 
 ```bash
     make test_lnls-ans-role-users MOLECULE_DISTRO=<distro>
+```
+
+## Vagrant Test - workstation deploy
+
+```bash
+ ansible-playbook -e inventory=inventory -i inventories/sirius -l vagrant --diff playbooks/playbook-desktops.yml -vv
 ```
 
 ## Installation
