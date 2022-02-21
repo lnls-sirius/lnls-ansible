@@ -25,7 +25,7 @@
     state: "{{ sirius_apps_hlacon_pip_dep_packages_state }}"
     executable: "{{ conda_python_pip_executable }}"
   vars:
-    ansible_python_interpreter: "{{ conda_python_pip_executable }}"
+    ansible_python_interpreter: "{{ conda_python_executable }}"
   become: true
   register: hlacon_pip_dep_packages_result
   until: hlacon_pip_dep_packages_result is success
