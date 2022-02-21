@@ -26,7 +26,6 @@
     executable: "{{ conda_python_pip_executable }}"
   vars:
     ansible_python_interpreter: "{{ conda_python_executable }}"
-  become: true
   register: hlacon_pip_dep_packages_result
   until: hlacon_pip_dep_packages_result is success
   retries: 5
@@ -37,6 +36,8 @@
     name: "{{ sirius_apps_hlacon_pip_packages }}"
     state: present
     executable: "{{ sirius_apps_hlacon_conda_environment_path }}/bin/pip"
+  vars:
+    ansible_python_interpreter: "{{ conda_python_executable }}"
   register: hlacon_pip_packages_result
   until: hlacon_pip_packages_result is success
   retries: 5

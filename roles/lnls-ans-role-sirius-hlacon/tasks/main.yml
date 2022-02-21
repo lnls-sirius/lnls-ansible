@@ -1,38 +1,42 @@
 ---
-- name: Define Python executable
-  set_fact:
-    python_executable: "{{ __python_executable | default('python') }}"
-  when: python_executable is not defined
+- name: Basic definitions for the environment
+  block:
+    - name: Define conda executable path
+      set_fact:
+        conda_executable: "{{ __conda_executable | default('/opt/conda/bin/conda') }}"
+      when: conda_executable is not defined
 
-- name: Define PIP executable
-  set_fact:
-    pip_executable: "{{ __pip_executable | default(omit) }}"
-  when: pip_executable is not defined
+    - name: Define mamba executable path
+      set_fact:
+        conda_mamba_executable: "{{ __conda_mamba_executable | default('/opt/conda/bin/mamba') }}"
+      when: conda_mamba_executable is not defined
 
-- name: Define conda executable path
-  set_fact:
-    conda_executable: "{{ __conda_executable | default('/opt/conda/bin/conda') }}"
-  when: conda_executable is not defined
+    - name: Define conda profile path
+      set_fact:
+        conda_profile: "{{ __conda_profile | default('/opt/conda/etc/profile.d/conda.sh') }}"
+      when: conda_profile is not defined
 
-- name: Define mamba executable path
-  set_fact:
-    conda_mamba_executable: "{{ __conda_mamba_executable | default('/opt/conda/bin/mamba') }}"
-  when: conda_mamba_executable is not defined
+    - name: "Define conda_prefix variable to {{ sirius_apps_hlacon_conda_environment_path }}"
+      set_fact:
+        conda_prefix: "{{ sirius_apps_hlacon_conda_environment_path }}"
 
-- name: Define conda profile path
-  set_fact:
-    conda_profile: "{{ __conda_profile | default('/opt/conda/etc/profile.d/conda.sh') }}"
-  when: conda_profile is not defined
+    - name: "Define conda variables relative to {{ conda_prefix }}"
+      set_fact:
+        conda_python_executable: "{{ conda_prefix }}/bin/python"
+        conda_python_pip_executable: "{{ conda_prefix }}/bin/pip"
+        conda_repos_path: "{{ conda_prefix }}/repos" # where we clone and install external repositories
 
-- name: Define conda PIP packages
-  set_fact:
-    sirius_apps_hlacon_pip_dep_packages: "{{ __sirius_apps_hlacon_pip_dep_packages | default([]) }}"
-  when: sirius_apps_hlacon_pip_dep_packages is not defined
+- name: Packages and apps definitions
+  block:
+    - name: Define conda PIP packages
+      set_fact:
+        sirius_apps_hlacon_pip_dep_packages: "{{ __sirius_apps_hlacon_pip_dep_packages | default([]) }}"
+      when: sirius_apps_hlacon_pip_dep_packages is not defined
 
-- name: Define conda PIP packages state
-  set_fact:
-    sirius_apps_hlacon_pip_dep_packages_state: "{{ __sirius_apps_hlacon_pip_dep_packages_state | default(present) }}"
-  when: sirius_apps_hlacon_pip_dep_packages_state is not defined
+    - name: Define conda PIP packages state
+      set_fact:
+        sirius_apps_hlacon_pip_dep_packages_state: "{{ __sirius_apps_hlacon_pip_dep_packages_state | default(present) }}"
+      when: sirius_apps_hlacon_pip_dep_packages_state is not defined
 
 # Remove HLACON package from system if requested
 - include_tasks: remove-hlacon-from-system.yml
