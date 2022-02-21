@@ -1,0 +1,9 @@
+---
+__csstudio_dep_packages:
+  - openjfx
+  - bzip2
+  # install fonts that have precedence on others to avoid kerning issues
+  - fonts-texgyre
+  - fontconfig
+  - openjdk-11-jre
+
