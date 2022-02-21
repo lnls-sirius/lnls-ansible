@@ -34,3 +34,11 @@
 
 - name: Include conda environment setup tasks
   include_tasks: "conda-environment.yml"
+
+  # TODO: We are using for compatibilty reasons (python shebang)
+- name: Link the environment executable to python-sirius
+  file:
+    state: link
+    src: python
+    dest: "{{ conda_prefix }}/bin/python-sirius"
+    group: "{{ conda_group | default(omit) }}"
