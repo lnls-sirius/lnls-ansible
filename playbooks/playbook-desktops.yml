@@ -86,13 +86,13 @@
       include_role:
         name: lnls-ans-role-sirius-hlacon
 
-    - name: Include role lnls-ans-role-apps
+    - name: Include role lnls-ans-role-sirius-apps
       include_role:
-        name: lnls-ans-role-apps
+        name: lnls-ans-role-sirius-apps
 
     - name: Include role lnls-ans-role-sirius-hla
       include_role:
-        name: lnls-ans-role-hla
+        name: lnls-ans-role-sirius-hla
 
     - name: Include role lnls-ans-role-desktop-apps
       include_role:
@@ -105,5 +105,5 @@
 
     - name: Include role lnls-ans-role-visual-studio-code
       include_role:
-        name: lnls-ans-role-apps
+        name: lnls-ans-role-visual-studio-code
       when: global_role_visual_studio | default(false) | bool
