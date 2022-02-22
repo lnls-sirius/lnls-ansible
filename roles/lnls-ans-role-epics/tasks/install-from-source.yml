@@ -1,78 +1,87 @@
 ---
-- name: Install build dependencies for Debian
-  apt:
-    name:
-      - build-essential
-      - libpcre3-dev
-      - libreadline-dev
-      - re2c
+- name: Install build dependencies
+  package:
+    name: "{{ epics_build_dependencies | default([]) }}"
     state: present
-  when: ansible_os_family == "Debian"
 
-- name: Set epics_base_dir for source builds
-  set_fact:
-    epics_base_dir: "/opt/epics-{{ epics_base_version }}/base"
-  when:
-    - epics_base_dir is not defined
-    - epics_base_dir != '/usr/lib/epics' # if this is the case, we install the source build at '/opt/...' to avoid conflicts with nsls packages
+- name: EPICS Base dir
+  debug:
+    msg: "Installing EPICS into {{ epics_base_dir }}"
 
 - name: Check if EPICS scripts are present
   stat:
     path: "{{ epics_base_dir }}/startup/EpicsHostArch"
-  register: epics_host_arch_script_result
+  register: epics_host_arch_script_stat
 
 - name: Download and extract EPICS base
   block:
+    - name: Create tempdir
+      tempfile:
+        state: directory
+      register: epics_tempdir
+      run_once: True
+      delegate_to: localhost
+      connection: local
+      become: false
+
     - name: Download EPICS Base
       get_url:
         url: "{{ epics_base_git_url }}/archive/refs/tags/{{ epics_base_version }}.tar.gz"
-        dest: /tmp/epics{{ epics_base_version }}.tar.gz
+        dest: "{{ epics_tempdir.path }}/epics{{ epics_base_version }}.tar.gz"
+      run_once: True
+      delegate_to: localhost
+      connection: local
+      become: false
 
-    - name: Extract epics base content
-      unarchive:
-        src: "/tmp/epics{{ epics_base_version }}.tar.gz"
-        dest: "{{ epics_base_dir }}"
-
-    - name: Remove downloaded content
+    - name: Create EPICS base directory
       file:
+        state: directory
+        path: "{{ epics_base_dir }}"
+
+    - name: Extract EPICS base content
+      unarchive:
+        src: "{{ epics_tempdir.path }}/epics{{ epics_base_version }}.tar.gz"
+        dest: "{{ epics_base_dir }}"
+        extra_opts: [--strip-components=1]
+
+    - name: Delete tempdir
+      file:
+        path: "{{ epics_tempdir.path }}"
         state: absent
-        path: "/tmp/epics{{ epics_base_version }}.tar.gz"
+      run_once: True
+      connection: local
+      become: false
+      delegate_to: localhost
 
-  when: not epics_host_arch_result.exists
+  when: not epics_host_arch_script_stat.stat.exists
 
-- name: Get EPICS Host Arch
-  command: "{{ epics_base_dir }}/startup/EpicsHostArch"
-  register: epics_host_arch_result
-  changed_when: false
+- name: Define EPICS Host Arch
+  block:
+    - name: Get arch from startup script
+      command: "{{ epics_base_dir }}/startup/EpicsHostArch"
+      register: epics_host_arch_result
+      changed_when: false
 
-- name: Defined EPICS Host Arch
-  set_fact:
-    epics_host_arch: "{{ epics_host_arch_result.stdout.strip() }}"
+    - name: Define fact
+      set_fact:
+        epics_host_arch: "{{ epics_host_arch_result.stdout.strip() }}"
 
 - name: Check executables
   stat:
     path: "{{ epics_base_dir }}/bin/{{ epics_host_arch }}/caget"
   register: epics_caget_stat
 
-- name: Build and Link
+- name: Build
   block:
     - name: Build EPICS base
       make:
-        chdir: "{{ epics_base_dir }"
-
-    - name: Link EPICS base
-      file:
-        state: link
-        src: "/opt/epics-{{ epics_base_version }}"
-        dest: "/opt/epics"
+        chdir: "{{ epics_base_dir }}"
 
     - name: Check executables
       stat:
         path: "{{ epics_base_dir }}/bin/{{ epics_host_arch }}/caget"
       register: epics_caget_stat
 
-    - assert:
-        that: epics_caget_stat.exists
-  when: not epics_caget_stat.exists
+  when: not epics_caget_stat.stat.exists
 
 # TODO: Install EDM from source !!!!

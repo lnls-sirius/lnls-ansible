@@ -229,7 +229,7 @@ Optionally, specify the docker distro to run molecule against
 ## Vagrant Test - workstation deploy
 
 ```bash
- ansible-playbook -e inventory=inventory -i inventories/sirius -l vagrant --diff playbooks/playbook-desktops.yml -vv
+ansible-playbook -e inventory=inventories/sirius -i inventories/sirius -l vagrant --diff playbooks/<playbook_name> -v
 ```
 
 ## Installation

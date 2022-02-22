@@ -4,7 +4,7 @@ galaxy_info:
   description: Ansible role to install EPICS base and extra packages
   company: CNPEM - LNLS
   license: BSD
-  min_ansible_version: 2.9
+  min_ansible_version: 4.0
 
   platforms:
     - name: Debian
@@ -12,10 +12,10 @@ galaxy_info:
         - buster
         - stretch
         - jessie
+        - bullseye
     - name: Ubuntu
       versions:
         - xenial
         - trusty
 
-dependencies:
-  - lnls-ans-role-repositories
+dependencies: []

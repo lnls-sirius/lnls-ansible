@@ -2,11 +2,10 @@
 TEST_ROLES = \
 	lnls-ans-role-clone-install \
 	lnls-ans-role-epics \
-	lnls-ans-role-pydm \
-	lnls-ans-role-sirius-hla \
-	lnls-ans-role-conda \
 	lnls-ans-role-epics7 \
-	lnls-ans-role-sirius-hlacon \
+	lnls-ans-role-conda \
+	lnls-ans-role-conda-packages \
+	lnls-ans-role-sirius-hla \
 	lnls-ans-role-cs-studio \
 	lnls-ans-role-epics-mca \
 	lnls-ans-role-ntp \
