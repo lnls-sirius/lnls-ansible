@@ -1,24 +1,5 @@
 ---
 csstudio_directory: /opt/cs-studio
-csstudio_beast_preferences:
-  - regexp: "^org.csstudio.alarm.beast/root_component="
-    line: "org.csstudio.alarm.beast/root_component={{ csstudio_beast_root_component }}"
-  - regexp: "^org.csstudio.alarm.beast/rdb_url="
-    line: "org.csstudio.alarm.beast/rdb_url={{ beast_rdb_url }}"
-  - regexp: "^org.csstudio.alarm.beast/rdb_user="
-    line: "org.csstudio.alarm.beast/rdb_user={{ beast_rdb_user }}"
-  - regexp: "^org.csstudio.alarm.beast/rdb_password="
-    line: "org.csstudio.alarm.beast/rdb_password={{ beast_rdb_password }}"
-  - regexp: "^org.csstudio.alarm.beast/jms_url="
-    line: "org.csstudio.alarm.beast/jms_url={{ beast_jms_url }}"
-  - regexp: "^org.csstudio.alarm.beast/jms_user="
-    line: "org.csstudio.alarm.beast/jms_user={{ beast_jms_user }}"
-  - regexp: "^org.csstudio.alarm.beast/jms_password="
-    line: "org.csstudio.alarm.beast/jms_password={{ beast_jms_password }}"
-  - regexp: "^org.csstudio.alarm.beast.annunciator/jms_topic="
-    line: "org.csstudio.alarm.beast.annunciator/jms_topic={{ csstudio_annunciator_jms_topic }}"
-  - regexp: "^org.csstudio.alarm.beast.annunciator/jms_url="
-    line: "org.csstudio.alarm.beast.annunciator/jms_url={{ beast_jms_url }}"
 
 csstudio_alarm_colors_preferences:
   - regexp: '^org.csstudio.opibuilder/color_file=http://32.cs.local/css/color.def'
@@ -41,10 +22,6 @@ csstudio_databrowser_preferences:
     line: "org.csstudio.trends.databrowser3/archive_rescale={{ databrowser_archiver_archive_rescale }}"
   - regexp: "^org.csstudio.trends.databrowser3/archives="
     line: "org.csstudio.trends.databrowser3/archives={{ databrowser_archiver_archives }}"
-
-csstudio_email_preferences:
-  - regexp: "^org.csstudio.email/smtp_host="
-    line: "org.csstudio.email/smtp_host={{ email_smtp_host }}"
 
 csstudio_diirt_preferences:
   - regexp: "^org.csstudio.diirt.util.core.preferences/diirt.ca.pure.java="
