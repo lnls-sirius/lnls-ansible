@@ -124,43 +124,61 @@ conda_environments:
 
     conda_app_executables:
       - name:          sirius-hla-as-ap-bbb-monitor
-        executable:    sirius-hla-as-ap-bbb-monitor
+        executable:    sirius-hla-as-ap-bbb-monitor.py
+        
       - name:          sirius-hla-as-ap-conlauncher
-        executable:    sirius-hla-as-ap-conlauncher
+        executable:    sirius-hla-as-ap-conlauncher.py
+        
       - name:          sirius-hla-as-ap-countingpru
-        executable:    sirius-hla-as-ap-countingpru
+        executable:    sirius-hla-as-ap-countingpru.py
+        
       - name:          sirius-hla-as-ap-mbtemp
-        executable:    sirius-hla-as-ap-mbtemp
+        executable:    sirius-hla-as-ap-mbtemp.py
+        
       - name:          sirius-hla-as-ap-pctrl
-        executable:    sirius-hla-as-ap-pctrl
+        executable:    sirius-hla-as-ap-pctrl.py
+        
       - name:          sirius-hla-as-ps-regatron
-        executable:    sirius-hla-as-ps-regatron
+        executable:    sirius-hla-as-ps-regatron.py
+        
       - name:          sirius-hla-as-ps-regatron-individual
-        executable:    sirius-hla-as-ps-regatron-individual
+        executable:    sirius-hla-as-ps-regatron-individual.py
+        
       - name:          sirius-hla-as-pu-spixconv
-        executable:    sirius-hla-as-pu-spixconv
+        executable:    sirius-hla-as-pu-spixconv.py
+        
       - name:          sirius-hla-as-va-agilent4uhv
-        executable:    sirius-hla-as-va-agilent4uhv
+        executable:    sirius-hla-as-va-agilent4uhv.py
+        
       - name:          sirius-hla-as-va-agilent4uhv-device
-        executable:    sirius-hla-as-va-agilent4uhv-device
+        executable:    sirius-hla-as-va-agilent4uhv-device.py
+        
       - name:          sirius-hla-as-va-mks937b
-        executable:    sirius-hla-as-va-mks937b
+        executable:    sirius-hla-as-va-mks937b.py
+        
       - name:          sirius-hla-bo-va-agilent4uhv-overview
-        executable:    sirius-hla-bo-va-agilent4uhv-overview
+        executable:    sirius-hla-bo-va-agilent4uhv-overview.py
+        
       - name:          sirius-hla-bo-va-mks937b-overview
-        executable:    sirius-hla-bo-va-mks937b-overview
+        executable:    sirius-hla-bo-va-mks937b-overview.py
+        
       - name:          sirius-hla-si-va-agilent4uhv-overview
-        executable:    sirius-hla-si-va-agilent4uhv-overview
+        executable:    sirius-hla-si-va-agilent4uhv-overview.py
+        
       - name:          sirius-hla-si-va-mks937b-overview
-        executable:    sirius-hla-si-va-mks937b-overview
+        executable:    sirius-hla-si-va-mks937b-overview.py
+        
       - name:          sirius-hla-tb-va-agilent4uhv-overview
-        executable:    sirius-hla-tb-va-agilent4uhv-overview
+        executable:    sirius-hla-tb-va-agilent4uhv-overview.py
+        
       - name:          sirius-hla-tb-va-mks937b-overview
-        executable:    sirius-hla-tb-va-mks937b-overview
+        executable:    sirius-hla-tb-va-mks937b-overview.py
+        
       - name:          sirius-hla-ts-va-agilent4uhv-overview
-        executable:    sirius-hla-ts-va-agilent4uhv-overview
+        executable:    sirius-hla-ts-va-agilent4uhv-overview.py
+        
       - name:          sirius-hla-ts-va-mks937b-overview
-        executable:    sirius-hla-ts-va-mks937b-overview
+        executable:    sirius-hla-ts-va-mks937b-overview.py
 
   - name: FAC Conda environment - Python2
 
