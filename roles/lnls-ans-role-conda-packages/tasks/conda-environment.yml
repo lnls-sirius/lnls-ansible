@@ -1,6 +1,7 @@
 - name: "Create conda environment {{ conda_prefix }}"
   conda:
     name: python
+    channels: conda-forge
     version: "{{ conda_python_version }}"
     environment: "{{ conda_prefix }}"
     state: present
