@@ -15,9 +15,6 @@
           skip: true
 
   tasks:
-    - debug:
-        msg: "{{ epics_install_from_source | default('') }}"
-
     - name: Include role lnls-ans-role-epics
       include_role:
         name: lnls-ans-role-epics

@@ -82,10 +82,6 @@
     - name: Call lnls-ans-role-conda-packages passing down variables for each environment
       include_tasks: tasks/setup-conda-environment.yml
 
-    - name: Include role lnls-ans-role-sirius-hlacon
-      include_role:
-        name: lnls-ans-role-sirius-hlacon
-
     - name: Include role lnls-ans-role-sirius-apps
       include_role:
         name: lnls-ans-role-sirius-apps
