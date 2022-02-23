@@ -1,10 +1,6 @@
 ---
 # APT repositories
 __repository_keys:
-  - name: Debian NSLS2 key
-    url: https://epicsdeb.bnl.gov/debian/repo-key.pub
-    keyring: /etc/apt/trusted.gpg.d/nsls2-epics-debian.gpg
-
   - name: Debian VSCode key
     url: https://packages.microsoft.com/keys/microsoft.asc
     keyring: /etc/apt/trusted.gpg.d/vscode-debian.gpg
