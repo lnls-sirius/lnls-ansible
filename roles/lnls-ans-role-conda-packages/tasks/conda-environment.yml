@@ -54,7 +54,7 @@
       file:
         state: directory
         path: "{{ item }}"
-        mode: "0755"
+        mode: "0775"
       with_items:
         - "{{ conda_prefix }}/etc/conda/activate.d/"
         - "{{ conda_prefix }}/etc/conda/deactivate.d/"
