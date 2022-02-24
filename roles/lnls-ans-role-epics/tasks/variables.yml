@@ -22,7 +22,7 @@
   when:
      - epics_base_dir is not defined or epics_base_dir.startswith('/usr/lib/epics')
      - ansible_os_family != 'Debian' or epics_install_from_source
-     
+
 
 - name: Define EPICS build from source dependencies
   set_fact:

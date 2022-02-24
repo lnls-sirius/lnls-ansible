@@ -5,7 +5,7 @@
 - name: Install EPICS using NSLS2 deb packages
   block:
     - name: Include repositories
-      include_role: 
+      include_role:
         name: lnls-ans-role-repositories
 
     - include_tasks: setup-Debian.yml
