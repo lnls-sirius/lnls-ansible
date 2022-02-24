@@ -28,7 +28,4 @@ galaxy_info:
 dependencies:
   - lnls-ans-role-repositories
   - lnls-ans-role-users
-# - lnls-ans-role-python
   - lnls-ans-role-epics
-# - lnls-ans-role-qt
-# - lnls-ans-role-pydm
