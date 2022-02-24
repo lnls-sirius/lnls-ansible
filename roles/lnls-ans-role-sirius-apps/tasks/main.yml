@@ -15,20 +15,10 @@
     python_executable: "{{ __python_executable | default('python') }}"
   when: python_executable is not defined
 
-- name: Define PIP executable
-  set_fact:
-    pip_executable: "{{ __pip_executable | default(omit) }}"
-  when: pip_executable is not defined
-
 - name: Define sirius packages
   set_fact:
     sirius_apps_packages: "{{ __sirius_apps_packages | list }}"
   when: sirius_apps_packages is not defined
-
-- name: Define sirius pip packages
-  set_fact:
-    sirius_apps_pip_packages: "{{ __sirius_apps_pip_packages | list }}"
-  when: sirius_apps_pip_packages is not defined
 
 # Combine apps to install
 - name: Create list of dict apps to install

@@ -22,8 +22,10 @@
 
 - name: Define PIP executable
   set_fact:
-    pip_executable: "{{ __pip_executable | default(omit) }}"
-  when: pip_executable is not defined
+    pip_executable: "{{ __pip_executable }}"
+  when:
+    - pip_executable is not defined
+    - __pip_executable is defined # https://github.com/ansible/ansible/issues/74851
 
 - name: Define default repositorires for APT
   set_fact:
@@ -51,9 +53,9 @@
 - include_tasks: setup-apps.yml
 
 - include_tasks: setup-pip-packages.yml
+  when: desktop_pip_packages # Include only if not empty
 
 # Uninstall packages
-
 - name: Uninstall evolution
   apt:
     name: evolution

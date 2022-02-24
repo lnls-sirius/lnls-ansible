@@ -35,6 +35,13 @@
     path: "{{ conda_install_path }}"
     recurse: yes
 
+- name: Create envs base dir
+  file:
+    path: "{{ conda_install_path }}/envs"
+    mode: 'u=rwx,g=rwx,o=rx'
+    group: conda
+    state: directory
+
 - name: Install conda profile
   template:
     src: conda-profile.sh.j2

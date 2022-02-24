@@ -1,6 +1,8 @@
+localhost ansible_connection=local ansible_python_interpreter="/usr/bin/env python3"
+
 [vagrant]
-debian.bullseye ansible_host=192.168.56.10 # Debian 11
-debian.stretch  ansible_host=192.168.56.11 # Debian 9
+debian.bullseye ansible_connection=ssh ansible_user=vagrant ansible_host=192.168.56.10 # Debian 11
+debian.stretch  ansible_connection=ssh ansible_user=vagrant ansible_host=192.168.56.11 # Debian 9
 
 # === Control Room ===
 [control_room_linac_opis]
