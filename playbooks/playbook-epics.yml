@@ -1,18 +1,11 @@
 ---
-- hosts: vagrant
-  remote_user: sirius
+- hosts: all
   become: true
   gather_facts: true
 
   pre_tasks:
     - name: Include distribution-dependent variables
-      include_vars: "{{ item }}"
-      with_first_found:
-        - files:
-          - "../{{ inventory }}/group_vars/{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml"
-          - "../{{ inventory }}/group_vars/{{ ansible_distribution }}.yml"
-          - "../{{ inventory }}/group_vars/{{ ansible_os_family }}.yml"
-          skip: true
+      include_tasks: tasks/variables.yml
 
   tasks:
     - name: Include role lnls-ans-role-epics
