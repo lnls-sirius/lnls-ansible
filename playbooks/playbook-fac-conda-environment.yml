@@ -12,7 +12,7 @@
           - "../{{ inventory }}/group_vars/{{ ansible_distribution }}.yml"
           - "../{{ inventory }}/group_vars/{{ ansible_os_family }}.yml"
       loop: "{{ q('first_found', possible_var_files, errors='ignore') }}"
-  
+
   tasks:
     - name: Call lnls-ans-role-conda-packages passing down variables for each environment
       include_tasks: tasks/setup-conda-environment.yml
