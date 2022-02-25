@@ -61,6 +61,25 @@ make deploy-control-room-desktops
 make deploy-fac-desktops
 make deploy-linac-opi-desktops
 ```
+### Real world Usage
+
+Install EPICS base in a subset of machines (rfq for demo purposes):
+
+```bash
+ansible-playbook \
+    --diff \
+    -e inventory=inventories/sirius \
+    -i inventories/sirius \
+    -l rfq \
+    -vv \
+    -k \
+    -K \
+    playbooks/playbook-epics.yml
+```
+
+*-e* so we can inline define an extra variable callid `inventories`
+*-i* point where the current inventory is
+*-l* additional filter, include only hosts belonging to this group
 
 ### Example Playbook
 
