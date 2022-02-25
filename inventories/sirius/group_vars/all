@@ -100,8 +100,11 @@ pkg_version_sirius_epics_screens: "master"
 pkg_version_docker_machine_applications: "v1.1.0"
 pkg_version_docker_ctrl_sys_consts: "v1.0.0"
 
-# === conda environments ===
+pkg_fac_conda_python_version: "3.6.11"
+pkg_fac_conda_python2_version: "2.7.18"
 
+
+# === conda environments ===
 conda_environments:
   - name: GAS Conda Environment
 
@@ -183,7 +186,7 @@ conda_environments:
   - name: FAC Conda environment - Python2
 
     conda_prefix: /opt/conda/envs/py27
-    conda_python_version: '2.7.18'
+    conda_python_version: "{{ pkg_fac_conda_python2_version }}"
 
     conda_packages: []
 
@@ -206,12 +209,14 @@ conda_environments:
   - name: FAC Conda environment
 
     conda_prefix: /opt/conda/envs/sirius
-    conda_python_version: '3.6.8'
+
+    conda_python_version: "{{ pkg_fac_conda_python_version }}"
 
     conda_packages:
+      - "python=={{ pkg_fac_conda_python_version }}"
       - aiohttp=3.7.4
       - bottleneck=1.3.2
-      - matplotlib=3.5.1
+      - matplotlib=3.3.4 # downversion from 3.5.1 ->  3.3.4 due to Python 3.6
       - pyparsing=2.4.2
       - pyqt=5.12.3 # brings qt
       - pyqtgraph=0.11.0

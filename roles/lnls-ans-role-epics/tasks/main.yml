@@ -1,5 +1,6 @@
 ---
-- include_tasks: variables.yml
+- name: Define dynasmic variables
+  include_tasks: variables.yml
 
 # Install using NLSL2 deb packages
 - name: Install EPICS using NSLS2 deb packages
@@ -29,6 +30,17 @@
   become: true
   with_items:
     - "{{ epics_config_files }}"
+
+- name: EPICS_BASE stat
+  stat:
+    path: "{{ epics_base_dir }}"
+  register: epics_base_dir_stat
+
+- name: Check if the required variable epics_base_dir is valid and defined
+  assert:
+    that:
+      - epics_base_dir is defined
+      - epics_base_dir_stat.stat.isdir
 
 # Prepare the legacy python-sirius environment
 - name: Install Legacy python-sirius environment
