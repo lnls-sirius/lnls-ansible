@@ -77,9 +77,9 @@ ansible-playbook \
     playbooks/playbook-epics.yml
 ```
 
-*-e* so we can inline define an extra variable callid `inventories`
-*-i* point where the current inventory is
-*-l* additional filter, include only hosts belonging to this group
+* -e so we can inline define an extra variable callid `inventories`
+* -i point where the current inventory is
+* -l additional filter, include only hosts belonging to this group
 
 ### Example Playbook
 
