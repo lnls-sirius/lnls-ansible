@@ -27,11 +27,8 @@ jobs:
         # [optional]
         # Arguments to override a package and its version to be set explicitly.
         # Must follow the example syntax.
-        #override-deps: |
-        #  ansible-compat==1.0.0
-        #  ansible-core==2.11.8
-        #  ansible==4.10.0
-        #
+        override-deps: |
+          ansible-lint==5.3.2
         # [optional]
         # Arguments to be passed to the ansible-lint
 
