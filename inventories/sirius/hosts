@@ -49,7 +49,7 @@ lnls557-linux  # fac-liulin (10.0.38.44)
 # lnls561-linux  # fac-ximenes
 
 [rfq]
-10.15.0.189  # lnls627-linux (RF laptop)
+s-rfq03-l ansible_user=rfq ansible_connection=ssh ansible_python_interpreter="/usr/bin/env python3"
 
 [docker_servers]
 CA-RaTim-CO-IOCSrv

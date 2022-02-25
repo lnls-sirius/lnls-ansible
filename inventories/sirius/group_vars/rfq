@@ -1,4 +1,10 @@
 ---
+# This will disable EPICS python from lnls-ans-role-epics
+epics_install_python_packages: false
+
+# Ignore deb packages and install EPICS from source
+epics_install_from_source: true
+
 # Select which categories to install
 sirius_apps_install_categories:
   - sirius_apps_dev_packages
