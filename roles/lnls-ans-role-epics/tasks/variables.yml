@@ -1,0 +1,59 @@
+- name: Resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      ignore_errors: true
+      paths:
+        - '{{ role_path }}/vars'
+
+- name: Define EPICS packages
+  set_fact:
+    epics_packages: "{{ __epics_packages | list }}"
+  when: epics_packages is not defined
+
+- name: Define epics_base_dir for source builds
+  set_fact:
+    epics_base_dir: "/opt/epics-{{ epics_base_version }}/base"
+
+  # we install the source build at '/opt/...' to avoid conflicts
+  when:
+     - epics_base_dir is not defined or epics_base_dir.startswith('/usr/lib/epics')
+     - ansible_os_family != 'Debian' or epics_install_from_source
+
+
+- name: Define EPICS build from source dependencies
+  set_fact:
+    epics_build_dependencies: "{{ __epics_build_dependencies | default([]) }}"
+  when: epics_build_dependencies is not defined
+
+- name: Define EPICS extra packages
+  set_fact:
+    epics_packages: "{{ epics_packages | list + epics_packages_extra | list }}"
+  when: epics_packages_extra is defined
+
+- name: Define EPICS python packages
+  set_fact:
+    epics_packages_python: "{{ __epics_packages_python | default([]) }}"
+  when: epics_packages_python is not defined
+
+- name: Include EPICS python packages into the install packages list
+  set_fact:
+    epics_packages: "{{ epics_packages | list + epics_packages_python | list }}"
+  when:
+    - __epics_packages_python is defined
+    - epics_install_python_packages is defined
+    - epics_install_python_packages is true
+
+- name: Define EPICS missing packages
+  set_fact:
+    epics_missing_packages: "{{ __epics_missing_packages | list }}"
+  when: epics_missing_packages is not defined and __epics_missing_packages is defined
+
+- name: Default EPICS missing packages
+  set_fact:
+    epics_missing_packages: []
+  when: epics_missing_packages is not defined
+

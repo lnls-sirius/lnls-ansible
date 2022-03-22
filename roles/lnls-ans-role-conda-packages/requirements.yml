@@ -1,0 +1,5 @@
+---
+- src: https://github.com/evandam/evandam.conda.git
+  scm: git
+  version: v1.2.0
+  name: conda

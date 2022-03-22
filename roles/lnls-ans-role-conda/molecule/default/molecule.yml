@@ -18,11 +18,22 @@ lint: |
   set -xe
   yamllint .
   ansible-lint
-  flake8
 
 platforms:
-  - name: lnls-ans-role-conda-instance
-    image: "${MOLECULE_DISTRO:-geerlingguy/docker-debian10-ansible}"
+  - name: lnls-ans-role-conda-instance-debian9
+    image: "geerlingguy/docker-debian9-ansible"
+    command: ${MOLECULE_DOCKER_COMMAND:-/lib/systemd/systemd}
+    groups:
+      - default_group
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
+    build_image: false
+    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
+
+  - name: lnls-ans-role-conda-instance-debian11
+    image: "geerlingguy/docker-debian11-ansible"
     command: ${MOLECULE_DOCKER_COMMAND:-/lib/systemd/systemd}
     groups:
       - default_group
@@ -35,11 +46,6 @@ platforms:
 
 provisioner:
   name: ansible
-  inventory:
-    links:
-      group_vars: ../../../../group_vars/
-    group_vars:
-      default_group:
 
 verifier:
-  name: testinfra
+  name: ansible
