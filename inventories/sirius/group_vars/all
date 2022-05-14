@@ -63,14 +63,14 @@ epics7_base_archive: "{{ epics7_base_url }}/base-{{ epics7_base_version }}.tar.g
 
 # === sirius packages ===
 
-pkg_version_ctrl_sys_consts: "v1.34.0"
+pkg_version_ctrl_sys_consts: "v1.35.0"
 pkg_version_pru_serial: "v1.6.0"
 pkg_version_ps_firmware_c28: "master"
 pkg_version_ps_firmware_arm: "master"
 pkg_version_ethbridge_pru_serial: "v2.8.1"
-pkg_version_siriuspy: "v2.46.0"
-pkg_version_machine_applications: "v3.26.1"
-pkg_version_siriushla: "v0.62.0"
+pkg_version_siriuspy: "v2.47.0"
+pkg_version_machine_applications: "v3.27.0"
+pkg_version_siriushla: "v0.63.0"
 pkg_sirius_scripts: "v0.10.0"
 pkg_version_lnls_ansible: "master"
 
@@ -79,7 +79,7 @@ pkg_version_trackcpp: "v4.7.0"
 pkg_version_lnls: "v1.3.1"
 pkg_version_pyaccel: "v3.14.0"
 pkg_version_pymodels: "v1.10.0"
-pkg_version_apsuite: "v2.32.0"
+pkg_version_apsuite: "v2.33.0"
 pkg_version_siriushlafac: "v0.8.1"
 
 pkg_version_linac_ioc_ps: "v1.3.0"
@@ -95,7 +95,7 @@ pkg_version_hlacon_conda_siriushlacon: "2.6.0"
 
 # === fac docker services ===
 
-pkg_version_docker_machine_applications: "v1.1.0"
+pkg_version_docker_machine_applications: "v1.2.0"
 pkg_version_docker_ctrl_sys_consts: "v1.0.0"
 
 
