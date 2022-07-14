@@ -79,7 +79,7 @@ pkg_version_trackcpp: "v4.7.0"
 pkg_version_lnls: "v1.4.0"
 pkg_version_pyaccel: "v3.15.0"
 pkg_version_pymodels: "v1.11.0"
-pkg_version_apsuite: "v2.33.0"
+pkg_version_apsuite: "v2.34.0"
 pkg_version_siriushlafac: "v0.8.1"
 
 pkg_version_linac_ioc_ps: "v1.3.0"
