@@ -386,4 +386,5 @@ visual_studio_code_keybindings:
     "command": "workbench.action.terminal.focus"
 
 # === APT-Cacher-NG Address ===
-apt_proxy_address: http://10.0.38.42:3142
+#apt_proxy_address: http://10.0.38.42:3142
+apt_proxy_address: ""
