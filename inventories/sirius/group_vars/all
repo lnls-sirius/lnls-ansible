@@ -95,7 +95,7 @@ pkg_version_hlacon_conda_siriushlacon: "2.6.0"
 
 # === fac docker services ===
 
-pkg_version_docker_machine_applications: "v1.5.0"
+pkg_version_docker_machine_applications: "v1.6.0"
 pkg_version_docker_ctrl_sys_consts: "v1.0.0"
 
 
