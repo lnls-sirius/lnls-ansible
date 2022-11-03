@@ -28,6 +28,7 @@ control_room_linac_opis
 
 [con]
 10.0.38.84  # cons-dev-vm
+isp-opi-2.abtlus.org.br
 # fac-testes.abtlus.org.br
 # fac-testes-debian10.abtlus.org.br
 # 10.20.31.26  # lnls210-linux
