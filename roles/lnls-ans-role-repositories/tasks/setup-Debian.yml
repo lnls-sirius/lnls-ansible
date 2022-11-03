@@ -56,11 +56,15 @@
     repo: "{{ item.baseurl }}"
     state: "{{ item.state }}"
     filename: "{{ item.file }}"
-    update_cache: true
+    update_cache: no
   with_items:
     - "{{ repository_apt }}"
   notify: Delete APT pinning configuration
   become: true
+
+- name: Update apt cache
+  command:
+    cmd: apt-get update
 
 - name: Force handlers to run at this point
   meta: flush_handlers

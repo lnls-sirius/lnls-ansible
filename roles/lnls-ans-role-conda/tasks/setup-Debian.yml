@@ -74,14 +74,22 @@
     repo: "{{ item.baseurl }}"
     state: "{{ item.state }}"
     filename: "{{ item.file }}"
-    update_cache: true
+    update_cache: no
   with_items:
     - "{{ conda_apt_repositories }}"
   become: true
+
+- name: Update apt cache
+  command:
+    cmd: apt-get update
 
 - name: Install packages
   apt:
     name: "{{ conda_apt_packages }}"
     state: "{{ conda_apt_packages_state }}"
-    update_cache: true
+    allow_unauthenticated: true
   become: true
+  register: apt_result
+  until: apt_result is success
+  retries: 5
+  delay: 2
