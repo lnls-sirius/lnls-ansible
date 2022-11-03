@@ -63,9 +63,8 @@
   become: true
 
 - name: Update apt cache
-  command:
-    cmd: apt-get update
-    changed_when: false
+  command: apt-get update
+  changed_when: false
 
 - name: Force handlers to run at this point
   meta: flush_handlers

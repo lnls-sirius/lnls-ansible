@@ -80,9 +80,8 @@
   become: true
 
 - name: Update apt cache
-  command:
-    cmd: apt-get update
-    changed_when: false
+  command: apt-get update
+  changed_when: false
 
 - name: Install packages
   apt:
