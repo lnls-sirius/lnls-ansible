@@ -324,9 +324,6 @@ fac_workstation_ip: 10.20.31.28
 # Sirius EPICS screens location
 sirius_epics_screens: /home/sirius/shared/sirius-epics-screens
 
-# Sirius EPICS screens location on client
-sirius_epics_screens: /home/sirius/shared/sirius-epics-screens
-
 # Location os the EPICS screens for CS-studio
 desktop_autofs_sirius_epics_screens: "{{ sirius_epics_screens }}"
 
