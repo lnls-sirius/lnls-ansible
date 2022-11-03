@@ -6,10 +6,10 @@ docker_package: "docker-{{ docker_edition }}"
 
 docker_registry_ssl_crt_path: "/home/digs/Repos/docker-registry-composed/foreign/docker-registry-certs/certs/domain.crt"
 docker_registry_server: "dockerregistry.lnls-sirius.com.br"
-docker_swarm_join_node: "10.128.255.5"
+docker_swarm_join_node: "10.0.38.46"
 
 srvfile_repository: lnls-ansible
-srvfile_base_url: "http://10.128.255.5/download"
+srvfile_base_url: "http://10.0.38.46/download"
 
 # === src packages versions ===
 
@@ -309,8 +309,8 @@ desktop_vnc_ignore_systemd_errors: true
 
 # === NTP servers ===
 ntp_servers:
-   - "10.128.255.3 iburst minpoll 3 maxpoll 3"
-   - "10.128.255.4 iburst minpoll 3 maxpoll 3"
+   - "10.0.38.46 iburst minpoll 3 maxpoll 3"
+   - "10.0.38.59 iburst minpoll 3 maxpoll 3"
 
 
 # === Desktop-settings ===

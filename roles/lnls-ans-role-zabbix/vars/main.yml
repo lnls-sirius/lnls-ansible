@@ -1,11 +1,11 @@
 ---
 zabbix_server_ips:
-  - 10.128.255.3
-  - 10.128.255.4
+  - 10.0.38.46
+  - 10.0.38.59
 
 zabbix_server_active_ips:
-  - 10.128.255.3
-  - 10.128.255.4
+  - 10.0.38.46
+  - 10.0.38.59
 
 zabbix_config_file_preferences:
   - path: /etc/zabbix/zabbix_agentd.conf
