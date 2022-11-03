@@ -1,3 +1,4 @@
+csstudio_version: "4.6.4"
 csstudio_archive: "http://10.0.38.42/download/CS-Studio/cs-studio-nsls2-4.6.4-linux.gtk.x86_64.tar.gz"
 # When changing the fonts, don't forget to remove
 # the previous directories!
