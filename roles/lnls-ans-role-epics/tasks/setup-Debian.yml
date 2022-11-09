@@ -13,6 +13,7 @@
   apt:
     deb: "{{ item.url }}"
     state: "{{ item.state }}"
+    allow_unauthenticated: true
   with_items:
     - "{{ epics_missing_packages }}"
   become: true
@@ -26,6 +27,7 @@
     name: "{{ epics_packages }}"
     state: "{{ epics_packages_state }}"
     install_recommends: "{{ epics_install_recommends }}"
+    allow_unauthenticated: true
   become: true
   register: apt_packages_result
   until: apt_packages_result is success
