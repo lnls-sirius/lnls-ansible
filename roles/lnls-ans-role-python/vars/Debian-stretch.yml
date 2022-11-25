@@ -59,3 +59,7 @@ __python_pip_packages:
   - "xlrd{{ (pkg_version_xlrd | length > 0) | ternary('==' + pkg_version_xlrd, '') }}"
   - "aiohttp{{ (pkg_version_aiohttp | length > 0) | ternary('>=' + pkg_version_aiohttp, '') }}"
   - "pytest{{ (pkg_version_pytest | length > 0) | ternary('>=' + pkg_version_pytest, '') }}"
+  - "paramz{{ (pkg_version_paramz | length > 0) | ternary('>=' + pkg_version_paramz, '') }}"
+  - "Cython{{ (pkg_version_cython | length > 0) | ternary('>=' + pkg_version_cython, '') }}"
+  - "GPy{{ (pkg_version_gpy | length > 0) | ternary('>=' + pkg_version_gpy, '') }}"
+  - "PyYAML{{ (pkg_version_pyyaml | length > 0) | ternary('>=' + pkg_version_pyyaml, '') }}"
