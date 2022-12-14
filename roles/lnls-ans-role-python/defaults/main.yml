@@ -44,6 +44,16 @@ pkg_version_wakeonlan: ""
 pkg_version_xlrd: ""
 pkg_version_aiohttp: ""
 pkg_version_pytest: ""
+pkg_version_paramz: ""
+pkg_version_cython: ""
+pkg_version_gpy: ""
+pkg_version_pyyaml: ""
+pkg_version_tifffile: ""
+pkg_version_imageio: ""
+pkg_version_pywt: ""
+pkg_version_networkx: ""
+pkg_version_scikitimage: ""
+pkg_version_scikitlearn: ""
 
 # python symlink dest
 python_symlink: /usr/local/bin/python-sirius
