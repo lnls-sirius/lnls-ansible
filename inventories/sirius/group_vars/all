@@ -63,14 +63,14 @@ epics7_base_archive: "{{ epics7_base_url }}/base-{{ epics7_base_version }}.tar.g
 
 # === sirius packages ===
 
-pkg_version_ctrl_sys_consts: "v1.42.0"
+pkg_version_ctrl_sys_consts: "v1.43.0"
 pkg_version_pru_serial: "v1.6.0"
 pkg_version_ps_firmware_c28: "master"
 pkg_version_ps_firmware_arm: "master"
 pkg_version_ethbridge_pru_serial: "v2.9.0"
-pkg_version_siriuspy: "v2.61.0"
+pkg_version_siriuspy: "v2.62.0"
 pkg_version_machine_applications: "v3.31.2"
-pkg_version_siriushla: "v0.77.1"
+pkg_version_siriushla: "v0.78.0"
 pkg_sirius_scripts: "v0.11.0"
 pkg_version_lnls_ansible: "master"
 
@@ -330,6 +330,8 @@ desktop_autofs_sirius_epics_screens: "{{ sirius_epics_screens }}"
 
 # === Visual Studio Extensions ===
 
+visual_studio_code_version: "1.73.1-1667967334"
+
 visual_studio_code_extensions:
   - coolbear.systemd-unit-file
   - eamodio.gitlens
@@ -339,10 +341,10 @@ visual_studio_code_extensions:
   - ms-python.python
   - ms-vscode.cpptools
   - nsd.vscode-epics
+  - redhat.ansible
   - redhat.vscode-yaml
   - Slaier.matlab-complete
   - vkbo.madx
-  - vscoss.vscode-ansible
   - waderyan.gitblame
   - zhoufeng.pyqt-integration
 
