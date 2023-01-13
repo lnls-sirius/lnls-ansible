@@ -70,3 +70,4 @@ __python_pip_packages:
   - "networkx{{ (pkg_version_networkx | length > 0) | ternary('>=' + pkg_version_networkx, '') }}"
   - "scikit_image{{ (pkg_version_scikitimage | length > 0) | ternary('>=' + pkg_version_scikitimage, '') }}"
   - "scikit-learn{{ (pkg_version_scikitlearn | length > 0) | ternary('>=' + pkg_version_scikitlearn, '') }}"
+  - "fpdf{{ (pkg_version_fpdf | length > 0) | ternary('>=' + pkg_version_fpdf, '') }}"
