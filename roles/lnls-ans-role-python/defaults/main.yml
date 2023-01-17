@@ -54,6 +54,7 @@ pkg_version_pywt: ""
 pkg_version_networkx: ""
 pkg_version_scikitimage: ""
 pkg_version_scikitlearn: ""
+pkg_version_fpdf: ""
 
 # python symlink dest
 python_symlink: /usr/local/bin/python-sirius
