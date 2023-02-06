@@ -79,8 +79,7 @@ def run_module():
         name=dict(type="str", required=True),
     )
 
-    module = AnsibleModule(
-        argument_spec=module_args, supports_check_mode=False)
+    module = AnsibleModule(argument_spec=module_args, supports_check_mode=False)
 
     executable = module.params["executable"]
     if executable != "code-insiders":
