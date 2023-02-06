@@ -74,7 +74,7 @@ pkg_version_siriushla: "v0.81.0"
 pkg_sirius_scripts: "v0.12.0"
 pkg_version_lnls_ansible: "master"
 
-pkg_version_mathphys: "v2.6.0"
+pkg_version_mathphys: "v2.7.0"
 pkg_version_trackcpp: "v4.10.0"
 pkg_version_lnls: "v1.4.2"
 pkg_version_pyaccel: "v3.17.1"
