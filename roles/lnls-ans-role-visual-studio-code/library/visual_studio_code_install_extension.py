@@ -69,7 +69,6 @@ def install_extension(module, executable, name):
 
 
 def run_module():
-
     module_args = dict(
         executable=dict(
             type="str",
