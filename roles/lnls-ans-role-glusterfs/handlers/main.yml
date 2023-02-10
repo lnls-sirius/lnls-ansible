@@ -1,1 +1,15 @@
 ---
+- name: Restart autofs systemd service
+  block:
+    - name: Restart autofs systemd service
+      systemd:
+        name: autofs
+        state: restarted
+  become: true
+  ignore_errors: "{{ autofs_ignore_systemd_errors }}"
+  rescue:
+    - name: Show warning to user if systemd fails
+      pause:
+        seconds: 1
+        echo: false
+        prompt: "Could not reload autofs systemd service. Probably running in Docker? Continuing anyway ..."

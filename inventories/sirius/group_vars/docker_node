@@ -9,8 +9,8 @@ clone_install_repos:
     install_via_makefile: true
     make_install_target: deploy
     make_install_opts:
-      FAC_IMG_CSCONSTS_TAG: "{{ deploy_tag }}"
-      FAC_REP_CSCONSTS_VERSION: "{{ pkg_version_ctrl_sys_consts }}"
+      DEPLOY_TAG: "{{ deploy_tag }}"
+      REP_CSCONSTS_VERSION: "{{ pkg_version_ctrl_sys_consts }}"
     force_version: true
   - name: Docker Machine Applications
     org_url: https://github.com/lnls-sirius
@@ -20,5 +20,5 @@ clone_install_repos:
     install_via_makefile: true
     make_install_target: deploy
     make_install_opts:
-      FAC_IMG_IOCS_TAG: "{{ deploy_tag }}"
+      DEPLOY_TAG: "{{ deploy_tag }}"
     force_version: true

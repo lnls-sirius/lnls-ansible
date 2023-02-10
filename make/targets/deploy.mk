@@ -5,9 +5,10 @@
 #
 # 1. make deploy-tag-create        # [create deploy tag with timestamp]
 # 2. make deploy-tag-show          # [show timestamp deploy tag created]
-# 3. make deploy                   # [run deploy playbooks]
-# 4. make deploy-fac-docker-images # [run playbook that creates updated docker images]
-# 5. make deploy-tag-lnls-ansible  # [tag deploy version in ansible]
+# 3. make deploy-desktops          # [run deploy playbook]
+# 4. make deploy-servers-glusterfs # [run glusterfs playbook]
+# 5. make deploy-fac-docker-images # [run playbook that creates updated docker images]
+# 6. make deploy-tag-lnls-ansible  # [tag deploy version in ansible]
 #
 # ps: a) at step 4 docker image files 'fac-apps', 'fac-iocs' and 'fac-csconsts' are
 #        created with deploy tag shown in step 2. (e.x.: fac-iocs:2021-03-17_16-01-12) and
@@ -21,7 +22,7 @@
 # Variables
 
 TIMESTAMP_TAG ?= $(shell cat /tmp/_ANSIBLE_DEPLOY_TAG_)
-ANSIBLE_EXTRA_VARS = "deploy_tag=$(TIMESTAMP_TAG)"
+ANSIBLE_EXTRA_VARS = "deploy_tag=$(TIMESTAMP_TAG) inventory=$(SIRIUS_INVENTORY)"
 
 deploy-tag-create:
 	date '+%Y-%m-%d_%H-%M-%S' > /tmp/_ANSIBLE_DEPLOY_TAG_
@@ -37,14 +38,6 @@ deploy-servers-glusterfs: playbooks/playbook-control-room-glusterfs.yml
 	ansible-playbook -u sirius --inventory $(SIRIUS_INVENTORY) --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
 		playbooks/playbook-control-room-glusterfs.yml
 
-deploy-servers-nfs: playbooks/servers/nfs.yml
-	ansible-playbook -u sirius --inventory $(SIRIUS_INVENTORY) --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
-		playbooks/servers/nfs.yml
-
-deploy-servers-web: playbooks/servers/web.yml
-	ansible-playbook -u sirius --inventory $(SIRIUS_INVENTORY) --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
-		playbooks/servers/web.yml
-
 deploy-servers-ioc: playbooks/servers/ioc.yml
 	ansible-playbook -u sirius --inventory $(SIRIUS_INVENTORY) --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
 		playbooks/servers/ioc.yml
@@ -52,13 +45,6 @@ deploy-servers-ioc: playbooks/servers/ioc.yml
 deploy-desktops: playbooks/playbook-desktops.yml
 	ansible-playbook -u sirius --inventory $(SIRIUS_INVENTORY) --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
 		playbooks/playbook-desktops.yml
-
-deploy: playbooks/playbook-control-room-glusterfs.yml playbooks/playbook-desktops.yml
-	ansible-playbook -u sirius --inventory $(SIRIUS_INVENTORY) --ask-vault-pass -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \
-		playbooks/playbook-control-room-glusterfs.yml \
-		playbooks/playbook-desktops.yml
-# 		playbooks/servers/web.yml \
-# 		playbooks/servers/ioc.yml \
 
 deploy-fac-docker-images: playbooks/playbook-fac-services-docker-images.yml
 	ansible-playbook -u sirius --inventory $(SIRIUS_INVENTORY) -k --ask-become-pass --extra-vars $(ANSIBLE_EXTRA_VARS) \

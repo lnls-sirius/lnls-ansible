@@ -1,9 +1,13 @@
 ---
 skip_list:
   - '602'
+  - experimental  # all rules tagged as experimental
   - no-handler
   - role-name
   - unnamed-task
+  - var-naming  # All variables should be named using only lowercase and underscores
+  - command-instead-of-module
 
 warn_list:
+  - ignore-errors
   - internal-error

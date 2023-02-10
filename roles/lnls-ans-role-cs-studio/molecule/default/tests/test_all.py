@@ -11,7 +11,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 def test_csstudio_version(host):
     version = host.file("/opt/cs-studio/ess-version.txt").content_string
-    assert version.strip() == "4.6.1.25"
+    assert version.strip() == "4.6.4"
 
 
 def test_csstudio_startup_script(host):
@@ -32,8 +32,3 @@ def test_fonts(host):
     cmd = host.run("fc-list")
     assert "Open Sans" in cmd.stdout
     assert "Roboto" in cmd.stdout
-
-
-def test_xulrunner(host):
-    cmd = host.run("/opt/xulrunner/xulrunner -v 2>&1")
-    assert cmd.stdout.strip() == "Mozilla XULRunner 1.9.2.29pre - 20120513033204"

@@ -1,6 +1,5 @@
 ---
 # ----
-global_role_java: false
 global_role_cs_studio: false
 global_role_sirius_bbb: false
 global_role_octave: false
@@ -77,8 +76,6 @@ pkg_version_libreadline_dev: "7.0*"
 pkg_version_libsqlite3_dev: "3.27.2*"
 pkg_version_libssl_dev: "1.1.1*"
 pkg_version_libxss1: "1:1.2.3*"
-pkg_version_nfs_common: "1:1.3.4*"
-#pkg_version_nfs_kernel_server: "1:1.3.4*"
 pkg_version_nmap: "7.70*"
 pkg_version_ntp: "1:4.2.8*"
 #pkg_version_nvidia_driver: "390.116*"
@@ -137,9 +134,10 @@ pkg_version_libgbm1: "18.3.6*"
 
 # === pip packages ===
 
-pkg_version_pip: "20.1.1"
+pkg_version_pip: "21.3.1"
 pkg_version_python_dateutil: "2.8.1"
 pkg_version_cairocffi: "1.1.0"
+pkg_version_pyparsing: "2.4.2"
 pkg_version_jupyter: "1.0.0"
 pkg_version_jupyter_nbextensions: "0.5.1"
 pkg_version_ipython_pip: "7.15.0"
@@ -151,7 +149,7 @@ pkg_version_pep8: "1.7.1"
 pkg_version_autopep8: "1.5.4"
 pkg_version_pydocstyle: "5.1.0"
 pkg_version_pylint: "2.6.0"
-pkg_version_matplotlib: "3.2.1"
+pkg_version_matplotlib: "3.3.4"
 pkg_version_pandas: " 1.1.1"
 pkg_version_pcaspy: "0.7.3"
 pkg_version_psutil: "5.7.2"
@@ -174,3 +172,15 @@ pkg_version_pyvisa: "1.10.1"
 pkg_version_pyvisa_py: "0.4.1"
 pkg_version_ansible: "2.9.13"
 pkg_version_aiohttp: "3.7.4"
+pkg_version_pytest: "6.2.4"
+pkg_version_paramz: "0.9.5"
+pkg_version_cython: "0.29.32"
+pkg_version_gpy: "1.10.0"
+pkg_version_pyyaml: "5.1.2"
+pkg_version_tifffile: "2019.7.26"
+pkg_version_imageio: "2.15.0"
+pkg_version_pywt: "1.1.1"
+pkg_version_networkx: "2.5.1"
+pkg_version_scikitimage: "0.17.2"
+pkg_version_scikitlearn: "0.24.2"
+pkg_version_fpdf: "1.7.2"

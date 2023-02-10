@@ -12,6 +12,7 @@ galaxy_info:
         - jessie
         - stretch
         - buster
+        - bullseye
     - name: Ubuntu
       versions:
         - precise
@@ -21,5 +22,4 @@ galaxy_info:
 
 dependencies:
   - lnls-ans-role-repositories
-  - lnls-ans-role-java
 # - lnls-ans-role-python

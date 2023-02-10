@@ -1,5 +1,5 @@
 ---
-- name: Install depedency packages
+- name: Install dependency packages
   apt:
     name: "{{ pre_python_packages }}"
     state: present

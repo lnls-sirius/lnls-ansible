@@ -45,10 +45,7 @@
             - wholroyd.jinja
           visual_studio_code_settings: {
             "editor.rulers": [80, 100, 120],
-            "editor.renderWhitespace": true,
-            "files.associations": {
-              "Vagrantfile": "ruby"
-            }
+            "editor.renderWhitespace": true
           }
         - username: test_usr2
           visual_studio_code_extensions: []

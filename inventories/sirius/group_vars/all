@@ -6,10 +6,10 @@ docker_package: "docker-{{ docker_edition }}"
 
 docker_registry_ssl_crt_path: "/home/digs/Repos/docker-registry-composed/foreign/docker-registry-certs/certs/domain.crt"
 docker_registry_server: "dockerregistry.lnls-sirius.com.br"
-docker_swarm_join_node: "10.128.255.5"
+docker_swarm_join_node: "10.0.38.46"
 
 srvfile_repository: lnls-ansible
-srvfile_base_url: "http://10.128.255.5/download"
+srvfile_base_url: "http://10.0.38.46/download"
 
 # === src packages versions ===
 
@@ -46,15 +46,12 @@ pyqt_src_download_url: "{{ srvfile_base_url }}/{{ srvfile_repository }}/{{ pyqt_
 # --- CS-Studio ---
 
 # Overrides the defaults version on CS-Studio role
-csstudio_xulrunner_version: "1.9.2.29pre"
 csstudio_fonts_version: "20180222"
 
-csstudio_version: "4.6.1.25"
-csstudio_base_url: "{{ srvfile_base_url }}/{{ srvfile_repository }}"
-csstudio_archive: "{{ csstudio_base_url }}/cs-studio-ess-{{ csstudio_version }}-linux.gtk.x86_64.tar.gz"
-csstudio_fonts: "{{ csstudio_base_url }}/cs-studio-fonts-{{ csstudio_fonts_version }}.tgz"
+csstudio_version: "4.6.4"
+csstudio_archive: "http://10.0.38.42/download/CS-Studio/cs-studio-nsls2-4.6.4-linux.gtk.x86_64.tar.gz"
+csstudio_fonts: "http://10.0.38.42/download/CS-Studio/cs-studio-fonts-20180222.tgz"
 csstudio_fonts_dir: "/usr/local/share/fonts/ess-{{ csstudio_fonts_version }}"
-csstudio_xulrunner: "{{ csstudio_base_url }}/xulrunner-{{ csstudio_xulrunner_version }}.en-US.linux-x86_64.tar.bz2"
 
 # --- EPICS 7 ---
 # Overrides the defaults version on EPICS7 role
@@ -66,26 +63,26 @@ epics7_base_archive: "{{ epics7_base_url }}/base-{{ epics7_base_version }}.tar.g
 
 # === sirius packages ===
 
-pkg_version_ctrl_sys_consts: "v1.26.0"
+pkg_version_ctrl_sys_consts: "v1.45.0"
 pkg_version_pru_serial: "v1.6.0"
 pkg_version_ps_firmware_c28: "master"
 pkg_version_ps_firmware_arm: "master"
-pkg_version_ethbridge_pru_serial: "v2.7.0"
-pkg_version_siriuspy: "v2.33.1"
-pkg_version_machine_applications: "v3.24.0"
-pkg_version_siriushla: "v0.50.1"
-pkg_sirius_scripts: "v0.8.0"
+pkg_version_ethbridge_pru_serial: "v2.9.0"
+pkg_version_siriuspy: "v2.66.0"
+pkg_version_machine_applications: "v3.33.0"
+pkg_version_siriushla: "v0.81.1"
+pkg_sirius_scripts: "v0.12.0"
 pkg_version_lnls_ansible: "master"
 
-pkg_version_mathphys: "v2.2.0"
-pkg_version_trackcpp: "v4.3.2"
-pkg_version_lnls: "v1.1.0"
-pkg_version_pyaccel: "v3.6.1"
-pkg_version_pymodels: "v1.7.0"
-pkg_version_apsuite: "v2.21.0"
-pkg_version_siriushlafac: "v0.4.2"
+pkg_version_mathphys: "v2.7.0"
+pkg_version_trackcpp: "v4.10.0"
+pkg_version_lnls: "v1.4.2"
+pkg_version_pyaccel: "v3.17.1"
+pkg_version_pymodels: "v1.14.0"
+pkg_version_apsuite: "v2.40.0"
+pkg_version_siriushlafac: "v0.9.1"
 
-pkg_version_linac_ioc_ps: "v1.2.0"
+pkg_version_linac_ioc_ps: "v1.3.0"
 pkg_version_linac_opi: "v2.2.0"
 pkg_version_bpm_scripts: "master"
 sirius_bbb_version: "v1.2.1"
@@ -94,12 +91,12 @@ pkg_version_sirius_epics_screens: "master"
 pkg_version_hlacon_conda_qt: "5.12.9"
 pkg_version_hlacon_conda_pyqt: "5.12.3"
 pkg_version_hlacon_conda_pydm: "1.10.4"
-pkg_version_hlacon_conda_siriushlacon: "2.1.1"
+pkg_version_hlacon_conda_siriushlacon: "2.6.0"
 
 # === fac docker services ===
 
-pkg_version_docker_machine_applications: "master"
-pkg_version_docker_ctrl_sys_consts: "master"
+pkg_version_docker_machine_applications: "v1.11.0"
+pkg_version_docker_ctrl_sys_consts: "v1.0.0"
 
 
 # === sirius apps packages ===
@@ -123,10 +120,7 @@ sirius_apps_dev_packages:
     repo_version: "{{ pkg_version_ethbridge_pru_serial }}"
     clone_path: /tmp
     install_chdir: client
-    install_via_setup: true
-    setup_extra_args: "--no-deps"
-    setup_state: forcereinstall
-    repo_cvs: git+
+    install_via_makefile: true
     force_version: true
 
   - name: Development Packages
@@ -305,6 +299,7 @@ sirius_apps_hlacon_executables:
   - sirius-hla-tb-va-mks937b-overview
   - sirius-hla-ts-va-agilent4uhv-overview
   - sirius-hla-ts-va-mks937b-overview
+  - sirius-hla-it-va-mks937b-overview
 
 # === VNC ===
 
@@ -314,8 +309,8 @@ desktop_vnc_ignore_systemd_errors: true
 
 # === NTP servers ===
 ntp_servers:
-   - "10.128.255.3 iburst minpoll 3 maxpoll 3"
-   - "10.128.255.4 iburst minpoll 3 maxpoll 3"
+   - "10.0.38.46 iburst minpoll 3 maxpoll 3"
+   - "10.0.38.59 iburst minpoll 3 maxpoll 3"
 
 
 # === Desktop-settings ===
@@ -323,87 +318,19 @@ ntp_servers:
 desktop_settings_lnls_ansible_src: /home/sirius/repos/lnls-ansible
 desktop_settings_lnls_ansible_dest: /home/sirius/lnls-ansible
 
-# === NFS configuration ===
-
-nfs_server_control_room: 10.128.255.9
-nfs_server_control_opi: 10.128.255.9
-
-nfs_clients_auto_backup_ta_ti_rack_ip: 10.128.255.5
-nfs_clients_auto_backup_ca_ra_ctrl_ip: 10.128.255.4
-nfs_clients_auto_backup_la_ra_ctrl_ip: 10.128.255.3
-nfs_clients_servers_subnet: 10.128.255.0/24
-nfs_clients_cons_subnet: 10.128.124.0/24
-nfs_clients_control_room_subnet: 10.128.254.0/24
-nfs_clients_cnpem_sirius_subnet: 10.0.38.0/24
-nfs_clients_cons2_subnet: 10.128.10.0/24
-
 
 fac_workstation_ip: 10.20.31.28
 
 # Sirius EPICS screens location
-nfsserver_sirius_epics_screens: /home/sirius/shared/sirius-epics-screens
-
-# Sirius EPICS screens location on client
-nfsclient_autofs_sirius_epics_screens: /home/sirius/shared/sirius-epics-screens
-
-# NFS server list of directories. The "|" operator will leave the string as is chomp the text back into
-# a single line, joining newlines with spaces, and keeping the last newline
-nfsserver_exports:
-  - |
-    /home/nfs-shared/con-srv/AutoBackup_TA-TiRack-CO-FWSrv-1 {{ nfs_clients_auto_backup_ta_ti_rack_ip }}(rw,sync,no_root_squash)\
-                                                             *(ro,sync,root_squash)
-  - |
-    /home/nfs-shared/con-srv/AutoBackup_CA-RaCtrl-CO-Srv-1   {{ nfs_clients_auto_backup_ca_ra_ctrl_ip }}(rw,sync,no_root_squash)\
-                                                             *(ro,sync,root_squash)
-  - |
-    /home/nfs-shared/con-srv/AutoBackup_LA-RaCtrl-CO-Srv-1   {{ nfs_clients_auto_backup_la_ra_ctrl_ip }}(rw,sync,no_root_squash)\
-                                                             *(ro,sync,root_squash)
-  - |
-    /home/con-srv/cons-opis                       {{ nfs_clients_servers_subnet }}(rw,sync,all_squash,anonuid=1002,anongid=1002)\
-                                                  {{ nfs_clients_cons_subnet }}(rw,sync,all_squash,anonuid=1002,anongid=1002)\
-                                                  {{ nfs_clients_cons2_subnet }}(rw,sync,all_squash,anonuid=1002,anongid=1002)\
-                                                  {{ nfs_clients_control_room_subnet }}(rw,sync,all_squash,anonuid=1002,anongid=1002)\
-                                                  *(ro,sync,root_squash)
-  - |
-    /home/nfs-shared/repos-lnls-sirius  {{ nfs_clients_control_room_subnet }}(ro,sync,no_subtree_check,no_root_squash,insecure)\
-                                        {{ nfs_clients_servers_subnet }}(ro,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
-                                        {{ nfs_clients_cons2_subnet }}(ro,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
-                                        {{ nfs_clients_cnpem_sirius_subnet }}(ro,sync,no_subtree_check,no_root_squash,insecure)
-  - |
-    /home/nfs-shared/lost-and-found     {{ nfs_clients_control_room_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
-                                        {{ nfs_clients_cnpem_sirius_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001) \
-                                        {{ nfs_clients_cons2_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)
-  - |
-    /home/nfs-shared/screens-iocs       {{ nfs_clients_control_room_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
-                                        {{ nfs_clients_cons2_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
-                                        {{ nfs_clients_cnpem_sirius_subnet }}(rw,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)
-  - |
-    /home/nfs-shared/backups            {{ fac_workstation_ip }}(rw,sync,no_subtree_check,no_root_squash,insecure)
-  - |
-    {{ nfsserver_sirius_epics_screens }}        {{ nfs_clients_control_room_subnet }}(ro,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
-                                                {{ nfs_clients_cnpem_sirius_subnet }}(ro,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
-                                                {{ nfs_clients_cons2_subnet }}(ro,sync,no_subtree_check,all_squash,insecure,anonuid=1001,anongid=1001)\
-                                                *(ro,sync,no_subtree_check,all_squash,insecure)
-
-# NFS autofs client server list of directories. The "|" operator will leave the string as is chomp the text back into
-# a single line, joining newlines with spaces, and keeping the last newline
-nfsclient_autofs:
-  - |
-    /home/opis                         -fstype=nfs,ro {{ nfs_server_control_opi }}:/home/sirius
-  - |
-    {{ nfsclient_autofs_sirius_epics_screens }}   -fstype=nfs,ro {{ nfs_server_control_opi }}:{{ nfsserver_sirius_epics_screens }}
-  - |
-    /home/sirius/repos                 -fstype=nfs,ro {{ nfs_server_control_room }}:/home/nfs-shared/repos-lnls-sirius
-#  - |
-#    /home/sirius/mounts/lost-and-found -fstype=nfs,rw,v3 {{ nfs_server_control_room }}:/home/nfs-shared/lost-and-found
-#  - |
-#    /home/sirius/mounts/screens-iocs   -fstype=nfs,rw,v3 {{ nfs_server_control_room }}:/home/nfs-shared/screens-iocs
+sirius_epics_screens: /home/sirius/shared/sirius-epics-screens
 
 # Location os the EPICS screens for CS-studio
-desktop_autofs_sirius_epics_screens: "{{ nfsclient_autofs_sirius_epics_screens }}"
+desktop_autofs_sirius_epics_screens: "{{ sirius_epics_screens }}"
 
 
 # === Visual Studio Extensions ===
+
+visual_studio_code_version: "1.73.1-1667967334"
 
 visual_studio_code_extensions:
   - coolbear.systemd-unit-file
@@ -414,10 +341,10 @@ visual_studio_code_extensions:
   - ms-python.python
   - ms-vscode.cpptools
   - nsd.vscode-epics
+  - redhat.ansible
   - redhat.vscode-yaml
   - Slaier.matlab-complete
   - vkbo.madx
-  - vscoss.vscode-ansible
   - waderyan.gitblame
   - zhoufeng.pyqt-integration
 
@@ -456,3 +383,7 @@ visual_studio_code_settings:
 visual_studio_code_keybindings:
   - "key": "ctrl+alt+t"
     "command": "workbench.action.terminal.focus"
+
+# === APT-Cacher-NG Address ===
+#apt_proxy_address: http://10.0.38.42:3142
+apt_proxy_address: ""

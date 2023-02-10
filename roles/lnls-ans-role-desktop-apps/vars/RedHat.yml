@@ -15,6 +15,7 @@ __desktop_pip_packages:
   - cairocffi
   - matplotlib
   - scipy
+  - pyparsing
   - jupyter
   - xlrd
 
