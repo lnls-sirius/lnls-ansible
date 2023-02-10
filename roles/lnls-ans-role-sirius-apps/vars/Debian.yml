@@ -10,9 +10,7 @@ __sirius_apps_packages:
   - rsync
   - htop
 
-__sirius_apps_pip_packages:
-  - pyvisa
-  - pyvisa-py
+__sirius_apps_pip_packages: []
 
 __python_executable: python-sirius
 

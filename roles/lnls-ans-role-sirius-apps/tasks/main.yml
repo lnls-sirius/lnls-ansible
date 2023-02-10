@@ -40,7 +40,7 @@
 
 - name: Default variable to empty
   set_fact:
-    sirius_apps: "[]"
+    sirius_apps: []
   when:
     - sirius_apps is not defined
 
