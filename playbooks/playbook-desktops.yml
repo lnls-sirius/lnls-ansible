@@ -19,8 +19,8 @@
       when: global_role_users | default(true) | bool
     - role: lnls-ans-role-network
       when: global_network_role | default(true) | bool
-    - role: lnls-ans-role-nvidia-driver
-      when: global_import_nvidia_driver_role | default(false) | bool
+    # - role: lnls-ans-role-nvidia-driver
+    #   when: global_import_nvidia_driver_role | default(false) | bool
     - role: lnls-ans-role-ntp
     - role: lnls-ans-role-zabbix
     - role: lnls-ans-role-python
@@ -44,4 +44,4 @@
     - role: lnls-ans-role-desktop-settings
       when: global_role_desktop_settings | default(true) | bool
     - role: lnls-ans-role-visual-studio-code
-      when: global_role_visual_studio | default(false) | bool
+      when: global_role_visual_studio_code | default(false) | bool

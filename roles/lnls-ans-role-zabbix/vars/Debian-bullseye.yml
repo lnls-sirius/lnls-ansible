@@ -1,0 +1,4 @@
+__zabbix_packages:
+  - zabbix-agent
+
+__zabbix_default_release: bullseye-backports

@@ -1,0 +1,10 @@
+---
+# NTP daemon package name
+ntp_daemon: "ntp{{ (pkg_version_ntp | length > 0) | ternary('=' + pkg_version_ntp, '') }}"
+
+# This is left unversioned as this package is updated
+# periodically to reflect changes made by political bodies
+# to time zone boundaries
+ntp_tzdata_package: tzdata
+
+ntp_driftfile: /var/lib/ntp/drift

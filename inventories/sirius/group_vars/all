@@ -6,10 +6,10 @@ docker_package: "docker-{{ docker_edition }}"
 
 docker_registry_ssl_crt_path: "/home/digs/Repos/docker-registry-composed/foreign/docker-registry-certs/certs/domain.crt"
 docker_registry_server: "dockerregistry.lnls-sirius.com.br"
-docker_swarm_join_node: "10.128.255.5"
+docker_swarm_join_node: "10.0.38.46"
 
 srvfile_repository: lnls-ansible
-srvfile_base_url: "http://10.128.255.5/download"
+srvfile_base_url: "http://10.0.38.46/download"
 
 # === src packages versions ===
 
@@ -63,26 +63,26 @@ epics7_base_archive: "{{ epics7_base_url }}/base-{{ epics7_base_version }}.tar.g
 
 # === sirius packages ===
 
-pkg_version_ctrl_sys_consts: "v1.28.0"
+pkg_version_ctrl_sys_consts: "v1.45.0"
 pkg_version_pru_serial: "v1.6.0"
 pkg_version_ps_firmware_c28: "master"
 pkg_version_ps_firmware_arm: "master"
-pkg_version_ethbridge_pru_serial: "v2.7.1"
-pkg_version_siriuspy: "v2.39.0"
-pkg_version_machine_applications: "v3.24.0"
-pkg_version_siriushla: "v0.55.0"
-pkg_sirius_scripts: "v0.9.0"
+pkg_version_ethbridge_pru_serial: "v2.9.0"
+pkg_version_siriuspy: "v2.66.0"
+pkg_version_machine_applications: "v3.33.0"
+pkg_version_siriushla: "v0.81.1"
+pkg_sirius_scripts: "v0.12.0"
 pkg_version_lnls_ansible: "master"
 
-pkg_version_mathphys: "v2.3.0"
-pkg_version_trackcpp: "v4.4.2"
-pkg_version_lnls: "v1.1.0"
-pkg_version_pyaccel: "v3.9.0"
-pkg_version_pymodels: "v1.7.3"
-pkg_version_apsuite: "v2.25.0"
-pkg_version_siriushlafac: "v0.6.0"
+pkg_version_mathphys: "v2.7.0"
+pkg_version_trackcpp: "v4.10.0"
+pkg_version_lnls: "v1.4.2"
+pkg_version_pyaccel: "v3.17.1"
+pkg_version_pymodels: "v1.14.0"
+pkg_version_apsuite: "v2.40.0"
+pkg_version_siriushlafac: "v0.9.1"
 
-pkg_version_linac_ioc_ps: "v1.2.0"
+pkg_version_linac_ioc_ps: "v1.3.0"
 pkg_version_linac_opi: "v2.2.0"
 pkg_version_bpm_scripts: "master"
 sirius_bbb_version: "v1.2.1"
@@ -91,12 +91,12 @@ pkg_version_sirius_epics_screens: "master"
 pkg_version_hlacon_conda_qt: "5.12.9"
 pkg_version_hlacon_conda_pyqt: "5.12.3"
 pkg_version_hlacon_conda_pydm: "1.10.4"
-pkg_version_hlacon_conda_siriushlacon: "2.4.1"
+pkg_version_hlacon_conda_siriushlacon: "2.6.0"
 
 # === fac docker services ===
 
-pkg_version_docker_machine_applications: "master"
-pkg_version_docker_ctrl_sys_consts: "master"
+pkg_version_docker_machine_applications: "v1.11.0"
+pkg_version_docker_ctrl_sys_consts: "v1.0.0"
 
 
 # === sirius apps packages ===
@@ -120,10 +120,7 @@ sirius_apps_dev_packages:
     repo_version: "{{ pkg_version_ethbridge_pru_serial }}"
     clone_path: /tmp
     install_chdir: client
-    install_via_setup: true
-    setup_extra_args: "--no-deps"
-    setup_state: forcereinstall
-    repo_cvs: git+
+    install_via_makefile: true
     force_version: true
 
   - name: Development Packages
@@ -302,6 +299,7 @@ sirius_apps_hlacon_executables:
   - sirius-hla-tb-va-mks937b-overview
   - sirius-hla-ts-va-agilent4uhv-overview
   - sirius-hla-ts-va-mks937b-overview
+  - sirius-hla-it-va-mks937b-overview
 
 # === VNC ===
 
@@ -311,8 +309,8 @@ desktop_vnc_ignore_systemd_errors: true
 
 # === NTP servers ===
 ntp_servers:
-   - "10.128.255.3 iburst minpoll 3 maxpoll 3"
-   - "10.128.255.4 iburst minpoll 3 maxpoll 3"
+   - "10.0.38.46 iburst minpoll 3 maxpoll 3"
+   - "10.0.38.59 iburst minpoll 3 maxpoll 3"
 
 
 # === Desktop-settings ===
@@ -322,7 +320,7 @@ desktop_settings_lnls_ansible_dest: /home/sirius/lnls-ansible
 
 fac_workstation_ip: 10.20.31.28
 
-# Sirius EPICS screens location on client
+# Sirius EPICS screens location
 sirius_epics_screens: /home/sirius/shared/sirius-epics-screens
 
 # Location os the EPICS screens for CS-studio
@@ -330,6 +328,8 @@ desktop_autofs_sirius_epics_screens: "{{ sirius_epics_screens }}"
 
 
 # === Visual Studio Extensions ===
+
+visual_studio_code_version: "1.73.1-1667967334"
 
 visual_studio_code_extensions:
   - coolbear.systemd-unit-file
@@ -340,10 +340,10 @@ visual_studio_code_extensions:
   - ms-python.python
   - ms-vscode.cpptools
   - nsd.vscode-epics
+  - redhat.ansible
   - redhat.vscode-yaml
   - Slaier.matlab-complete
   - vkbo.madx
-  - vscoss.vscode-ansible
   - waderyan.gitblame
   - zhoufeng.pyqt-integration
 
@@ -382,3 +382,7 @@ visual_studio_code_settings:
 visual_studio_code_keybindings:
   - "key": "ctrl+alt+t"
     "command": "workbench.action.terminal.focus"
+
+# === APT-Cacher-NG Address ===
+#apt_proxy_address: http://10.0.38.42:3142
+apt_proxy_address: ""

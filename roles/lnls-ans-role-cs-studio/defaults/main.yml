@@ -1,3 +1,4 @@
+csstudio_version: "4.6.4"
 csstudio_archive: "http://10.0.38.42/download/CS-Studio/cs-studio-nsls2-4.6.4-linux.gtk.x86_64.tar.gz"
 # When changing the fonts, don't forget to remove
 # the previous directories!
@@ -5,21 +6,9 @@ csstudio_fonts: "http://10.0.38.42/download/CS-Studio/cs-studio-fonts-20180222.t
 csstudio_fonts_dir: /usr/local/share/fonts/ess-20180222
 
 # ":" separated list of addresses
-csstudio_ca_addr_list: localhost
+csstudio_ca_addr_list: 10.128.1.12:5064 10.128.1.12:5070 10.128.1.13:5064 10.128.1.13:5068 10.128.1.13:5070 10.128.1.54 10.128.1.55 10.0.38.29 10.0.38.37 10.0.38.39 10.0.38.52 10.0.38.93 10.0.38.31 10.0.38.36 10.31.33.25 10.31.74.16 10.0.38.83
 # Max array bytes
 csstudio_ca_max_array_bytes: 10000000
-
-# root components defined in beast playbook
-csstudio_beast_root_component: LNLS_Alarms
-csstudio_annunciator_jms_topic: ALARM
-
-# Beast Settings
-beast_rdb_url: jdbc:postgresql://10.0.38.42:5432/lnls_alarms
-beast_rdb_user: lnls_alarm_user
-beast_rdb_password: controle
-beast_jms_url: failover:(tcp://10.0.38.42:61616)
-beast_jms_user: admin
-beast_jms_password: admin
 
 # Archiver Settings
 databrowser_archiver_url: pbraw://10.0.38.42/retrieval|LNLS Archiver
@@ -27,9 +16,6 @@ databrowser_archiver_use_default_archives: "true"
 databrowser_archiver_automatic_history_refresh: "true"
 databrowser_archiver_archive_rescale: NONE
 databrowser_archiver_archives: LNLS Archiver|1|pbraw://10.0.38.42/retrieval
-
-# SMTP
-email_smtp_host: 10.0.38.42:25
 
 # DIIRT
 diirt_ca_pure_java: "true"

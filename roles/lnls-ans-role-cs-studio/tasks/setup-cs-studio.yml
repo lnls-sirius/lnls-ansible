@@ -19,6 +19,13 @@
     mode: 0755
     creates: "{{ csstudio_directory }}"
 
+- name: Create color.def file
+  copy:
+    dest: "{{ csstudio_directory }}/configuration/color.def"
+    content: |
+      Minor = 245, 242, 86
+      Major = 161, 54, 54
+
 - name: Customize CSS preference settings
   lineinfile:
     state: present
@@ -26,10 +33,9 @@
     regexp: "{{ item.regexp }}"
     line: "{{ item.line }}"
   with_items:
-    - "{{ csstudio_beast_preferences }}"
     - "{{ csstudio_databrowser_preferences }}"
-    - "{{ csstudio_email_preferences }}"
     - "{{ csstudio_diirt_preferences }}"
+    - "{{ csstudio_alarm_colors_preferences }}"
 
 - name: Overwrite CSS runtime settings
   lineinfile:
