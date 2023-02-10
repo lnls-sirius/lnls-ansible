@@ -1,11 +1,11 @@
-LNLS Ansible Role Servweb
-=========================
+LNLS Ansible Role Clone And Install Repos
+=========================================
 
 This Ansible role clone and install repositores.
 
 ## Requirements
 
-- ansible >= 2.6
+- ansible >= 2.9
 - molecule >= 3.0
 
 ## Role Variables

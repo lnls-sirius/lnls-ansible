@@ -1,0 +1,42 @@
+---
+- name: Define Repository keys
+  set_fact:
+    conda_rpm_keys: "{{ __conda_rpm_keys | list }}"
+  when: conda_rpm_keys is not defined
+
+- name: Define yum repositories
+  set_fact:
+    conda_yum_repositories: "{{ __conda_yum_repositories | list }}"
+  when: conda_yum_repositories is not defined
+
+- name: Define yum packages
+  set_fact:
+    conda_yum_packages: "{{ __conda_yum_packages | list }}"
+  when: conda_yum_packages is not defined
+
+- name: Define yum packages state
+  set_fact:
+    conda_yum_packages_state: "{{ __conda_yum_packages_state | default('present') }}"
+  when: conda_yum_packages_state is not defined
+
+- name: Conda RPM Keys
+  rpm_key:
+    state: present
+    key: "{{ item.url }}"
+  with_items: "{{ conda_rpm_keys }}"
+
+- name: Conda Repositories
+  yum_repository:
+    name: "{{ item.name }}"
+    description: "{{ item.description }}"
+    enabled: "{{ item.enabled }}"
+    gpgcheck: "{{ item.gpgcheck }}"
+    gpgkey: "{{ item.gpgkey }}"
+    baseurl: "{{ item.baseurl }}"
+  with_items: "{{ conda_yum_repositories }}"
+
+- name: Conda packages
+  yum:
+    name: "{{ conda_yum_packages }}"
+    state: "{{ conda_yum_packages_state }}"
+    update_cache: yes

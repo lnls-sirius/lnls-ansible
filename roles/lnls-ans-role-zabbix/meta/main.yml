@@ -4,7 +4,7 @@ galaxy_info:
   description: Ansible role to install Zabbix agent
   company: CNPEM - LNLS
   license: BSD
-  min_ansible_version: 2.6
+  min_ansible_version: 2.9
 
   platforms:
     - name: Debian
@@ -12,6 +12,7 @@ galaxy_info:
         - jessie
         - stretch
         - buster
+        - bullseye
     - name: Ubuntu
       versions:
         - precise

@@ -20,12 +20,18 @@
 - name: install VS Code repo (apt)
   become: true
   apt_repository:
-    repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
+    repo: deb [arch=amd64,arm64,armhf] https://packages.microsoft.com/repos/code stable main
     filename: vscode
     state: present
+    update_cache: no
+
+- name: Update apt cache
+  command: apt-get update
+  changed_when: false
 
 - name: install VS Code (apt)
   become: true
   apt:
     name: "{{ visual_studio_code_package }}{{ (visual_studio_code_version | length > 0) | ternary('=' + visual_studio_code_version, '') }}"
     state: present
+    allow_unauthenticated: true

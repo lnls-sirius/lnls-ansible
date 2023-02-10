@@ -1,0 +1,30 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: check-byte-order-marker
+      - id: check-json
+      - id: check-symlinks
+      - id: mixed-line-ending
+      - id: trailing-whitespace
+
+  - repo: https://github.com/psf/black
+    rev: 22.3.0
+    hooks:
+      - id: black
+        language_version: python3
+        args: ["--config", ".black"]
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 4.0.1
+    hooks:
+      - id: flake8
+        additional_dependencies:
+          - flake8-absolute-import
+          - flake8-black
+
+  - repo: https://github.com/ansible-community/ansible-lint.git
+    rev: v5.3.2
+    hooks:
+      - id: ansible-lint
+        files: \.(yaml|yml)$

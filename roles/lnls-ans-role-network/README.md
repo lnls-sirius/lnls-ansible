@@ -5,7 +5,7 @@ This Ansible role configures some network parameters for Sirius Light Source con
 
 ## Requirements
 
-- ansible >= 2.6
+- ansible >= 2.9
 - molecule >= 3.0
 
 ## Role Variables
@@ -33,7 +33,7 @@ network_interfaces:
   - name: TIC
     ignore_auto_dns: "true"
 
-  - name: CONS
+  - name: GCO
     ignore_auto_dns: "false"
 
 ```

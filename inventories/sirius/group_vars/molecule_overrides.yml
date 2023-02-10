@@ -1,0 +1,30 @@
+---
+
+# === Python ===
+
+python_src_download_pkg_name: "Python-{{ python_src_version }}"
+python_src_download_url: "https://www.python.org/ftp/python/{{ python_src_version }}/{{ python_src_download_pkg_name }}.tgz"
+
+# === Qt ===
+
+qt_src_remote_script: "qt-opensource-linux-x64-{{ qt_src_version }}.run"
+qt_src_download_url: "https://download.qt.io/archive/qt/{{ qt_src_version_reduced }}/{{ qt_src_version }}/{{ qt_src_remote_script }}"
+
+pyqt_sip_src_dir_name: "sip-{{ pyqt_sip_src_version }}"
+pyqt_sip_src_remote_script: "{{ pyqt_sip_src_dir_name }}.tar.gz"
+pyqt_sip_src_download_url: "https://files.kde.org/krita/build/dependencies/{{ pyqt_sip_src_remote_script }}"
+
+pyqt_src_dir_name: "PyQt5_gpl-{{pyqt_src_version }}"
+pyqt_src_remote_script: "{{ pyqt_src_dir_name }}.tar.gz"
+pyqt_src_download_url: "https://files.kde.org/krita/build/dependencies/{{ pyqt_src_remote_script }}"
+
+# === CS Studio ===
+
+csstudio_archive: "http://10.0.38.42/download/CS-Studio/cs-studio-nsls2-4.6.4-linux.gtk.x86_64.tar.gz"
+csstudio_fonts: "http://10.0.38.42/download/CS-Studio/cs-studio-fonts-20180222.tgz"
+csstudio_fonts_dir: /usr/local/share/fonts/ess-20180222
+
+# === EPICS 7 ===
+
+epics7_base_url: "https://epics.anl.gov/download/base"
+epics7_base_archive: "{{ epics7_base_url }}/base-{{ epics7_base_version }}.tar.gz"

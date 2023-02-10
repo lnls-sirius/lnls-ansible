@@ -1,0 +1,34 @@
+---
+# Select which categories to install
+sirius_apps_install_categories:
+  - sirius_apps_dev_packages
+  - sirius_apps_iocs
+  - sirius_apps_mgmt
+
+sirius_apps_hla_install_categories:
+  - sirius_apps_hla_apps
+  - sirius_apps_hla_opis
+
+
+# Desktop cursor size
+desktop_settings_cursor_size: 24
+
+# Import Nvidia Role
+global_import_nvidia_driver_role: false
+
+# Visual Studio Extensions
+visual_studio_code_users:
+  - username: sirius
+    visual_studio_code_extensions: "{{ visual_studio_code_extensions }}"
+    visual_studio_code_extensions_absent: []
+    visual_studio_code_settings: "{{ visual_studio_code_settings }}"
+    visual_studio_code_keybindings: "{{ visual_studio_code_keybindings }}"
+
+# === glusterfs Client
+autofs_glusterfs_server: lnls451-linux
+autofs_glusterfs_backup_server: "{{ glusterfs_main_server }}"
+
+# autofs: auto.sirius
+autofs_extra:
+  - |
+    /home/sirius/shared -fstype=glusterfs,backupvolfile-server={{ autofs_glusterfs_backup_server }},log-level=WARNING,log-file={{ autofs_glusterfs_log_file }},rw {{ autofs_glusterfs_server }}:/shared

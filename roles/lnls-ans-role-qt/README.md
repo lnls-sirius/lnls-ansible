@@ -5,7 +5,7 @@ This Ansible role configures some defaults Qt configurations for Sirius Light So
 
 ## Requirements
 
-- ansible >= 2.6
+- ansible >= 2.9
 - molecule >= 3.0
 
 ## Role Variables

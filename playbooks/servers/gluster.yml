@@ -1,0 +1,43 @@
+---
+- hosts: gluster_servers
+  remote_user: server
+  become: true
+  become_method: su
+  become_user: root
+
+  pre_tasks:
+    - name: Include distribution-dependent variables
+      include_vars: "{{ item }}"
+      vars:
+        possible_var_files:
+          - "../{{ inventory }}/group_vars/{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml"
+          - "../{{ inventory }}/group_vars/{{ ansible_distribution }}.yml"
+          - "../{{ inventory }}/group_vars/{{ ansible_os_family }}.yml"
+      loop: "{{ q('first_found', possible_var_files, errors='ignore') }}"
+
+  tasks:
+    - name: "Gluster packages"
+      apt:
+        name: "{{ item }}"
+      loop:
+        - glusterfs-client
+        - glusterfs-common
+        - glusterfs-server
+
+    - name: "Create gluster common-brick directory"
+      file:
+        path: /data/gluster/common-brick
+        state: directory
+        mode: "0755"
+
+    - name: "Create common volume mount point directory"
+      file:
+        path: /storage/common/
+        state: directory
+        mode: "0755"
+
+    - name: "Gluster Service"
+      ansible.builtin.service:
+        name: glusterd
+        state: started
+        enabled: yes

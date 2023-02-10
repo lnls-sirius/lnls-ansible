@@ -1,9 +1,9 @@
 [Desktop Entry]
 Type=Application
 Encoding=UTF-8
-Comment=CONS PyDM Operator Displays
-Name=CONS PyDM OPIs
-Exec=sirius-hla-as-ap-conlauncher.py
+Comment=GCO PyDM Operator Displays
+Name=GCO PyDM OPIs
+Exec=sirius-hla-as-ap-conlauncher
 Icon=lnls-logo.png
 StartupNotify=true
 Terminal=false

@@ -1,0 +1,5 @@
+{% if autofs_extra is iterable and (autofs_extra is not string and autofs_extra is not mapping) %}
+{% for export in autofs_extra %}
+{{ export }}
+{% endfor %}
+{% endif %}

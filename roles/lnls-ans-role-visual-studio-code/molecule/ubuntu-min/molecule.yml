@@ -18,7 +18,7 @@ provisioner:
     converge: ../default/playbook.yml
   inventory:
     links:
-      group_vars: ../../../../group_vars/
+      group_vars: ../inventory/group_vars/
 verifier:
   name: testinfra
   directory: ../default/tests

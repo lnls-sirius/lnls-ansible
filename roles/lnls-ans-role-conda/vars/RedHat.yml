@@ -1,0 +1,17 @@
+---
+__conda_rpm_keys:
+  - name: Conda GPG public key
+    url: https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc
+
+__conda_yum_repositories:
+  - name: Conda
+    description: Conda
+    baseurl: https://repo.anaconda.com/pkgs/misc/rpmrepo/conda
+    enabled: yes
+    gpgcheck: yes
+    gpgkey: https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc
+
+__conda_yum_packages_sate: present
+
+__conda_yum_packages:
+  - conda

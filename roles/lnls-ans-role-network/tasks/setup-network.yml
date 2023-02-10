@@ -2,7 +2,7 @@
 # Check if the interfaces are already using auto DNS
 - name: Check value of ignore-auto-dns for interface {{ item.name }}
   lineinfile:
-    path: "/etc/NetworkManager/system-connections/{{ item.name }}"
+    path: "/etc/NetworkManager/system-connections/{{ item.name }}.nmconnection"
     line: "ignore-auto-dns={{ item.ignore_auto_dns }}"
     state: present
   check_mode: true
