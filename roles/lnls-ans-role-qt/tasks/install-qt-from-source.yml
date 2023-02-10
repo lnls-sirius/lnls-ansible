@@ -3,18 +3,19 @@
   file:
     path: "{{ qt_src_dir_path }}"
     state: directory
+    mode: 0755
 
 - name: Download Qt installation script
   get_url:
     url: "{{ qt_src_download_url }}"
     dest: "{{ qt_src_dir_path }}/{{ qt_src_remote_script }}"
     checksum: "{{ qt_src_checksum }}"
-    mode: '0744'
+    mode: 0744
   notify: "Install Qt from source"
 
 - name: Check Qt installed installed version
   debug:
-    msg: "Qt version installed: {{ qt_check_result.stdout }}"
+    msg: "Qt version is installed: {{ qt_check_result.stdout }}"
   changed_when: qt_check_result.stdout != qt_src_version
   notify: "Install Qt from source"
 
@@ -22,6 +23,7 @@
   template:
     src: "{{ item.filename }}.j2"
     dest: "{{ item.pathname }}/{{ item.filename }}"
+    mode: preserve
   with_items:
     - "{{ qt_src_support_install_files }}"
 

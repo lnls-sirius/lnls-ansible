@@ -3,45 +3,70 @@
 __python_install_from_src: true
 
 __basic_packages:
-  - git=1:2.11.0*
-  - build-essential=12.3*
+  - "git{{ (pkg_version_git | length > 0) | ternary('=' + pkg_version_git, '') }}"
+  - "build-essential{{ (pkg_version_build_essential | length > 0) | ternary('=' + pkg_version_build_essential, '') }}"
 
 __python_dep_packages:
-  - libreadline5=5.2*
-  - libreadline-dev=7.0-3*
-  - libncursesw5-dev=6.0+20161126-1*
-  - libssl-dev=1.1.0k-1*
-  - libsqlite3-dev=3.16.2-5*
-  - tk-dev=8.6.0+9*
-  - libgdbm-dev=1.8.3-14*
-  - libc6-dev=2.24-11*
-  - libbz2-dev=1.0.6-8.1*
+  - "libreadline5{{ (pkg_version_libreadline5 | length > 0) | ternary('=' + pkg_version_libreadline5, '') }}"
+  - "libreadline-dev{{ (pkg_version_libreadline_dev | length > 0) | ternary('=' + pkg_version_libreadline_dev, '') }}"
+  - "libncursesw5-dev{{ (pkg_version_libncursesw5_dev | length > 0) | ternary('=' + pkg_version_libncursesw5_dev, '') }}"
+  - "libssl-dev{{ (pkg_version_libssl_dev | length > 0) | ternary('=' + pkg_version_libssl_dev, '') }}"
+  - "libsqlite3-dev{{ (pkg_version_libsqlite3_dev | length > 0) | ternary('=' + pkg_version_libsqlite3_dev, '') }}"
+  - "tk-dev{{ (pkg_version_tk_dev | length > 0) | ternary('=' + pkg_version_tk_dev, '') }}"
+  - "libgdbm-dev{{ (pkg_version_libgdbm_dev | length > 0) | ternary('=' + pkg_version_libgdbm_dev, '') }}"
+  - "libc6-dev{{ (pkg_version_libc6_dev | length > 0) | ternary('=' + pkg_version_libc6_dev, '') }}"
+  - "libbz2-dev{{ (pkg_version_libbz2_dev | length > 0) | ternary('=' + pkg_version_libbz2_dev, '') }}"
 
 __python_base_packages:
-  - python3-dev=3.5.3-1*
+  - "python3-dev{{ (pkg_version_python3_dev | length > 0) | ternary('=' + pkg_version_python3_dev, '') }}"
 
 # We may need to install python2 setuptools because of ansible issue:
 # https://github.com/ansible/ansible/issues/47361
 __python_packages:
-  - python3-pip=9.0.1-2*
-  - python3-tk=3.5.3*
-  - python-setuptools=33.1.1-1*
-  - swig=3.0.10*
+  - "python3-pip{{ (pkg_version_python3_pip | length > 0) | ternary('=' + pkg_version_python3_pip, '') }}"
+  - "python3-tk{{ (pkg_version_python3_tk | length > 0) | ternary('=' + pkg_version_python3_tk, '') }}"
+  - "python-setuptools{{ (pkg_version_apt_setuptools | length > 0) | ternary('=' + pkg_version_apt_setuptools, '') }}"
+  - "swig{{ (pkg_version_swig | length > 0) | ternary('=' + pkg_version_swig, '') }}"
 
 __pip_executable: pip-sirius
 
 __python_pip_packages:
-  - cairocffi==1.0.2
-  - jupyter==1.0.0
-  - setuptools==41.2.0
-  - matplotlib==3.0.2
-  - pandas==0.24.1
-  - psutil==5.5.0
-  - pyqtgraph==0.10.0
-  - python-nmap==0.6.1
-  - requests==2.21.0
-  - scipy==1.2.1
-  - sh==1.12.14
-  - termcolor==1.1.0
-  - wakeonlan==1.1.6
-  - xlrd==1.2.0
+  - "pip{{ (pkg_version_pip | length > 0) | ternary('==' + pkg_version_pip, '') }}"
+  - "python-dateutil{{ (pkg_version_python_dateutil | length > 0) | ternary('==' + pkg_version_python_dateutil, '') }}"
+  - "cairocffi{{ (pkg_version_cairocffi | length > 0) | ternary('==' + pkg_version_cairocffi, '') }}"
+  - "pyparsing{{ (pkg_version_pyparsing | length > 0) | ternary('==' + pkg_version_pyparsing, '') }}"
+  - "jupyter{{ (pkg_version_jupyter | length > 0) | ternary('==' + pkg_version_jupyter, '') }}"
+  - "jupyter-contrib-nbextensions{{ (pkg_version_jupyter_nbextensions | length > 0) | ternary('==' + pkg_version_jupyter_nbextensions, '') }}"
+  - "numpy{{ (pkg_version_numpy | length > 0) | ternary('==' + pkg_version_numpy, '') }}"
+  - "bottleneck{{ (pkg_version_bottleneck | length > 0) | ternary('==' + pkg_version_bottleneck, '') }}"
+  - "six{{ (pkg_version_six | length > 0) | ternary('==' + pkg_version_six, '') }}"
+  - "pylama{{ (pkg_version_pylama | length > 0) | ternary('==' + pkg_version_pylama, '') }}"
+  - "pep8{{ (pkg_version_pep8 | length > 0) | ternary('==' + pkg_version_pep8, '') }}"
+  - "autopep8{{ (pkg_version_autopep8 | length > 0) | ternary('==' + pkg_version_autopep8, '') }}"
+  - "pydocstyle{{ (pkg_version_pydocstyle | length > 0) | ternary('==' + pkg_version_pydocstyle, '') }}"
+  - "pylint{{ (pkg_version_pylint | length > 0) | ternary('==' + pkg_version_pylint, '') }}"
+  - "setuptools{{ (pkg_version_setuptools | length > 0) | ternary('==' + pkg_version_setuptools, '') }}"
+  - "matplotlib{{ (pkg_version_matplotlib | length > 0) | ternary('==' + pkg_version_matplotlib, '') }}"
+  - "pandas{{ (pkg_version_pandas | length > 0) | ternary('==' + pkg_version_pandas, '') }}"
+  - "psutil{{ (pkg_version_psutil | length > 0) | ternary('==' + pkg_version_psutil, '') }}"
+  - "pyqtgraph{{ (pkg_version_pyqtgraph | length > 0) | ternary('==' + pkg_version_pyqtgraph, '') }}"
+  - "python-nmap{{ (pkg_version_python_nmap | length > 0) | ternary('==' + pkg_version_python_nmap, '') }}"
+  - "requests{{ (pkg_version_requests | length > 0) | ternary('==' + pkg_version_requests, '') }}"
+  - "scipy{{ (pkg_version_scipy | length > 0) | ternary('==' + pkg_version_scipy, '') }}"
+  - "sh{{ (pkg_version_sh | length > 0) | ternary('==' + pkg_version_sh, '') }}"
+  - "termcolor{{ (pkg_version_termcolor | length > 0) | ternary('==' + pkg_version_termcolor, '') }}"
+  - "wakeonlan{{ (pkg_version_wakeonlan | length > 0) | ternary('==' + pkg_version_wakeonlan, '') }}"
+  - "xlrd{{ (pkg_version_xlrd | length > 0) | ternary('==' + pkg_version_xlrd, '') }}"
+  - "aiohttp{{ (pkg_version_aiohttp | length > 0) | ternary('>=' + pkg_version_aiohttp, '') }}"
+  - "pytest{{ (pkg_version_pytest | length > 0) | ternary('>=' + pkg_version_pytest, '') }}"
+  - "paramz{{ (pkg_version_paramz | length > 0) | ternary('>=' + pkg_version_paramz, '') }}"
+  - "Cython{{ (pkg_version_cython | length > 0) | ternary('>=' + pkg_version_cython, '') }}"
+  - "GPy{{ (pkg_version_gpy | length > 0) | ternary('>=' + pkg_version_gpy, '') }}"
+  - "PyYAML{{ (pkg_version_pyyaml | length > 0) | ternary('>=' + pkg_version_pyyaml, '') }}"
+  - "tifffile{{ (pkg_version_tifffile | length > 0) | ternary('>=' + pkg_version_tifffile, '') }}"
+  - "imageio{{ (pkg_version_imageio | length > 0) | ternary('>=' + pkg_version_imageio, '') }}"
+  - "PyWavelets{{ (pkg_version_pywt | length > 0) | ternary('>=' + pkg_version_pywt, '') }}"
+  - "networkx{{ (pkg_version_networkx | length > 0) | ternary('>=' + pkg_version_networkx, '') }}"
+  - "scikit_image{{ (pkg_version_scikitimage | length > 0) | ternary('>=' + pkg_version_scikitimage, '') }}"
+  - "scikit-learn{{ (pkg_version_scikitlearn | length > 0) | ternary('>=' + pkg_version_scikitlearn, '') }}"
+  - "fpdf{{ (pkg_version_fpdf | length > 0) | ternary('>=' + pkg_version_fpdf, '') }}"

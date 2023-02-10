@@ -1,0 +1,17 @@
+---
+- hosts: ioc_si_ap_sofb_srv
+  remote_user: sirius
+
+  vars:
+    role_to_run: lnls-ans-role-ctrl-service
+    services_to_run:
+      - sirius-ioc-si-ap-sofb.service
+
+  tasks:
+    - name: "Run {{ role_to_run }} role"
+      include_role:
+        name: "{{ role_to_run }}"
+      vars:
+        ctrl_service_name: "{{ item }}"
+      with_items:
+        - "{{ services_to_run }}"

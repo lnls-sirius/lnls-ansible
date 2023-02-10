@@ -2,11 +2,43 @@ LNLS Ansible
 =======================
 
 [![Build Status](https://travis-ci.org/lnls-sirius/lnls-ansible.svg)](https://travis-ci.org/lnls-sirius/lnls-ansible)
+[![Lint](https://github.com/lnls-sirius/lnls-ansible/actions/workflows/general-lint.yml/badge.svg)](https://github.com/lnls-sirius/lnls-ansible/actions/workflows/general-lint.yml)
 
 This Ansible roles/playbooks for Sirius Light Source control machines.
 
+The inventory layout
+--------------------
 
-## Simple makefile targets:
+We are using multiple inventories based on the type of host. Reference documentation at [alternative-directory-layout](https://docs.ansible.com/ansible/2.8/user_guide/playbooks_best_practices.html#alternative-directory-layout) and
+[using-multiple-inventory-sources](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#using-multiple-inventory-sources).
+
+```
+inventories/
+├── beaglebones
+└── sirius
+    ├── group_vars
+    └── host_vars
+...
+```
+
+Development
+-----------
+Clone the repository, install the `pre-commit` package and enable the pre-commit environment.
+
+```bash
+git clone <...>
+pip install pre-commit
+pre-commit install .
+```
+When installed, pre-commit will check the diff and abort the operation on errors.
+If the checking process is taking too long, consider disabling the ansible-lint part from `.pre-commit-config.yaml` or disabling pre-commit using `pre-commit uninstall`.
+
+
+Usage
+-----
+For simplicity there are makefile targets for commonly used playbooks.
+
+### Makefile targets:
 
 ```
 make deploy-control-room-desktops
@@ -15,47 +47,41 @@ make deploy-linac-opi-desktops
 ```
 
 
-## Example Playbook
+### Example Playbook
 
 ```yaml
 ---
 - hosts: all
+  remote_user: sirius
   become: true
-  tasks:
-  - import_role:
-      name: lnls-ans-role-users
-  - import_role:
-      name: lnls-ans-role-ntp
-  - import_role:
-      name: lnls-ans-role-repositories
-  - import_role:
-      name: lnls-ans-role-nfsclient
-  - import_role:
-      name: lnls-ans-role-python
-  - import_role:
-      name: lnls-ans-role-qt
-  - import_role:
-      name: lnls-ans-role-epics
-  - import_role:
-      name: lnls-ans-role-java
-  - import_role:
-      name: lnls-ans-role-cs-studio
-  - import_role:
-      name: lnls-ans-role-phoebus
-  - import_role:
-      name: lnls-ans-role-sirius-apps
-  - import_role:
-      name: lnls-ans-role-desktop-apps
-  - import_role:
-      name: lnls-ans-role-desktop-settings
+
+  pre_tasks:
+    - name: Include distribution-dependent variables
+      include_vars: "{{ item }}"
+      vars:
+        possible_var_files:
+          - "group_vars/{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml"
+          - "group_vars/{{ ansible_distribution }}.yml"
+          - "group_vars/{{ ansible_os_family }}.yml"
+      loop: "{{ q('first_found', possible_var_files, errors='ignore') }}"
+
+  roles:
+    - role: lnls-ans-role-repositories
+    - role: lnls-ans-role-users
+      when: global_role_users | default(true) | bool
+    - role: lnls-ans-role-network
+      when: global_network_role | default(true) | bool
+    - role: lnls-ans-role-nvidia-driver
+      when: global_import_nvidia_driver_role | default(false) | bool
+    - role: lnls-ans-role-ntp
 ```
 
-## Example Commmand
+### Example Commmand
 
 ```bash
     ansible-playbook -i host, -u user -k --ask-become-pass <playbook>.yml
 ```
-## Runing Ansible Playbooks
+### Runing Ansible Playbooks
 
 The easiest way to run playbooks on a set of hosts is to use the Makefile:
 
@@ -76,12 +102,16 @@ To further limit selected hosts to an additional pattern, run:
     make playbook-control-room-desktops HOST_GROUPS=<pattern>
 ```
 
-## Set SSH RSA/DSA key so you don't need to type the password everytime
+### Set SSH RSA/DSA key so you don't need to type the password everytime
 
-In order to do that run the playboob playbook-setup-ssh-keys.yml like:
+In order to do that run the playbook `./playbooks/generic/setup-ssh-key.yml` like:
 
 ```bash
-    ansible-playbook -i hosts -u sirius -k --ask-become-pass playbook-setup-ssh-key.yml
+    ansible-playbook \
+        -i ./inventories/sirius\
+        -i ./inventories/beaglebones\
+        -u sirius -k --ask-become-pass\
+        ./playbooks/generic/setup-ssh-key.yml
 ```
 
 There is also a make target that automates this. So you can run:
@@ -92,7 +122,7 @@ There is also a make target that automates this. So you can run:
 
 If asked for the Ansible Vault password, type any word...
 
-## Make variables
+### Make variables
 
 The Makefile contains variables that control how options are passed to ansible.
 
@@ -121,7 +151,7 @@ BUILD_TYPE ?= default
 Molecule build type. Options are "default" or "debug".
 
 ```bash
-HOST_GROUPS ?= linac_opi
+HOST_GROUPS ?= control_room_linac_opis
 ```
 
 Ansible host groups. Check "hosts" file to see all possible
@@ -150,7 +180,8 @@ ASK_FOR_VAULT_PASS ?= y
 Ask for vault password. Options are "y" or "n". Use "y" when
 running a playbook that uses a vault encrypted password.
 
-## Runing Molecule tests locally
+Molecule tests locally
+-----------------------------
 
 To run all tests
 
@@ -182,7 +213,8 @@ Optionally, specify the docker distro to run molecule against
     make test_lnls-ans-role-users MOLECULE_DISTRO=<distro>
 ```
 
-## Installation
+Installation
+------------
 
 To install all roles avaialble at the ansible default directory:
 
@@ -196,8 +228,13 @@ If the role is already installed and you want to force an upgrade:
 ```bash
     ansible-galaxy install -f git+https://github.com/lnls-sirius/lnls-ansible,master
 ```
+### Dependencies
+```bash
+ansible-galaxy install -r requirements.yml
+```
 
-## Troubleshooting
+Troubleshooting
+---------------
 
 If you use a host system with SELinux enabled you might get an error when using
 Ansible like the following:
@@ -221,6 +258,7 @@ On a Fedora 29 system, using python3-7, the following fixes the issue:
 
 Be advised, that the python versions might differ and the library names, as well.
 
-## License
+License
+-------
 
 BSD 2-clause

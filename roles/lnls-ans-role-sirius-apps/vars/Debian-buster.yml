@@ -1,11 +1,18 @@
 ---
-__sirius_apps_epics_packages:
-  - xpra=2.4.3*
-  # - winswitch
-  - xvfb=2:1.20.4*
-  - bc=1.07.1*
+__sirius_apps_packages:
+  # Still not available
+  # - "epics-extensions-dev{{ (pkg_version_epics_extensions_dev | length > 0) | ternary('=' + pkg_version_epics_extensions_dev, '') }}"
+  # - "winswitch{{ (pkg_version_winswitch | length > 0) | ternary('=' + pkg_version_winswitch, '') }}"
+  - "bc{{ (pkg_version_bc | length > 0) | ternary('=' + pkg_version_bc, '') }}"
+  - "libblas-dev{{ (pkg_version_libblas_dev | length > 0) | ternary('=' + pkg_version_libblas_dev, '') }}"
+  - "liblapack-dev{{ (pkg_version_liblapack_dev | length > 0) | ternary('=' + pkg_version_liblapack_dev, '') }}"
+  - "libgsl-dev{{ (pkg_version_libgsl_dev | length > 0) | ternary('=' + pkg_version_libgsl_dev, '') }}"
+  - "rsync{{ (pkg_version_rsync | length > 0) | ternary('=' + pkg_version_rsync, '') }}"
+  - "htop{{ (pkg_version_htop | length > 0) | ternary('=' + pkg_version_htop, '') }}"
 
-__sirius_apps_epics_pip_packages: []
+__sirius_apps_pip_packages:
+  - "pyvisa{{ (pkg_version_pyvisa | length > 0) | ternary('==' + pkg_version_pyvisa, '') }}"
+  - "pyvisa-py{{ (pkg_version_pyvisa_py | length > 0) | ternary('==' + pkg_version_pyvisa_py, '') }}"
 
 __python_executable: python-sirius
 

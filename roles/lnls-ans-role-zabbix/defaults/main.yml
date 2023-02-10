@@ -1,0 +1,7 @@
+---
+# Package versions for Debian. Leave empty for the latest
+pkg_version_zabbix_agent: ""
+
+# Set this to true when using this in a regular,
+# without systemd support.
+zabbix_ignore_systemd_errors: false

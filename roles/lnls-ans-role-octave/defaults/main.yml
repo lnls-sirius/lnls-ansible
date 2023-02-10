@@ -1,0 +1,8 @@
+---
+# Package versions for Debian. Leave empty for the latest
+pkg_version_octave: ""
+pkg_version_liboctave_dev: ""
+pkg_version_epstool: ""
+
+# Additional Octave packages
+octave_packages_extra: []

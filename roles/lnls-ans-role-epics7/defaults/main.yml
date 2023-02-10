@@ -1,0 +1,58 @@
+---
+# Package versions for Debian. Leave empty for the latest
+pkg_version_bzip2: ""
+pkg_version_binutils: ""
+pkg_version_git: ""
+pkg_version_re2c: ""
+pkg_version_automake: ""
+pkg_version_autoconf: ""
+pkg_version_make: ""
+pkg_version_libtool: ""
+pkg_version_curl: ""
+pkg_version_gplusplus: ""
+pkg_version_libglib2_0_0: ""
+pkg_version_libglib2_0_dev: ""
+pkg_version_uuid_dev: ""
+pkg_version_libreadline7: ""
+pkg_version_libreadline8: ""
+pkg_version_libreadline_dev: ""
+pkg_version_libusb_1_0_0_dev: ""
+pkg_version_libbz2_dev: ""
+pkg_version_libxml2_dev: ""
+pkg_version_perl: ""
+pkg_version_libextutils_cchecker_perl: ""
+pkg_version_libextutils_f77_perl: ""
+pkg_version_libextutils_libbuilder_perl: ""
+pkg_version_libextutils_pkgconfig_perl: ""
+pkg_version_libextutils_xsbuilder_perl: ""
+pkg_version_libextutils_xspp_perl: ""
+
+epics7_base_version: 7.0.4.1
+epics7_base_version_name: R7.0.4.1
+epics7_base_arch: linux-x86_64
+epics7_base_url: "https://epics.anl.gov/download/base"
+epics7_base_archive: "{{ epics7_base_url }}/base-{{ epics7_base_version }}.tar.gz"
+
+# Add EPICS 7 to system wide PATH variable and ldconfig (/etc/ld.so.conf.d).
+# This can cause trouble if you have older version of EPICS, in the sense that
+# the system can link to EPICS 7 libraries and use EPICS 7 binaries depending
+# on the precedence.
+epics7_add_to_system_paths: false
+
+# Force removal of EPICS 7 system path files.
+epics7_force_remove_system_paths: true
+
+# Make options
+epics7_base_make_target: "-j{{ ansible_processor_vcpus | default(8) }}"
+
+epics7_base_make_opts:
+  EPICS_HOST_ARCH: "{{ epics7_base_arch }}"
+
+epics7_config_files:
+  - name: EPICS 7 environment variables
+    filename: epics7.sh
+    pathname: "/etc/profile.d"
+
+  - name: EPICS 7 ldconfig paths
+    filename: epics7.conf
+    pathname: "/etc/ld.so.conf.d"

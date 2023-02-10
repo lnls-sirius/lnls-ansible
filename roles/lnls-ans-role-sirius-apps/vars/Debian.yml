@@ -1,13 +1,18 @@
 ---
-__sirius_apps_epics_packages:
+__sirius_apps_packages:
   - epics-extensions-dev
-  - edm-dev
-  - xpra
   - winswitch
   - xvfb
   - bc
+  - libblas-dev
+  - liblapack-dev
+  - libgsl-dev
+  - rsync
+  - htop
 
-__sirius_apps_epics_pip_packages: []
+__sirius_apps_pip_packages:
+  - pyvisa
+  - pyvisa-py
 
 __python_executable: python-sirius
 

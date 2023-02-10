@@ -15,39 +15,10 @@
     csstudio_dep_packages: "{{ __csstudio_dep_packages | default ([]) }}"
   when: csstudio_dep_packages is not defined
 
-- name: Define Java 8 install
-  set_fact:
-    csstudio_install_oracle_java: "{{ __csstudio_install_oracle_java | default (false) }}"
-  when: csstudio_install_oracle_java is not defined
-
-- name: Define Java oracle 8 keyservers/keys
-  set_fact:
-    csstudio_repository_keys: "{{ __csstudio_repository_keys | default ([]) }}"
-  when: csstudio_repository_keys is not defined
-
-- name: Define Java oracle 8 repositories
-  set_fact:
-    csstudio_repository_apt: "{{ __csstudio_repository_apt | default ([]) }}"
-  when: csstudio_repository_apt is not defined
-
-- name: Define Java oracle packages
-  set_fact:
-    csstudio_oracle_java_packages: "{{ __csstudio_oracle_java_packages | default ([]) }}"
-  when: csstudio_oracle_java_packages is not defined
-
-- name: Define Java hold packages
-  set_fact:
-    csstudio_deb_java_hold_packages: "{{ __csstudio_deb_java_hold_packages | default ([]) }}"
-  when: csstudio_deb_java_hold_packages is not defined
-
 # Setup/install tasks
 - include_tasks: setup-Debian.yml
   when:
     - ansible_os_family == 'Debian'
-
-- include_tasks: install-oracle-java.yml
-  when:
-    - csstudio_install_oracle_java
 
 - include_tasks: setup-RedHat.yml
   when:

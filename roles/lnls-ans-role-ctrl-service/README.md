@@ -5,8 +5,8 @@ This Ansible role configures services for Sirius Light Source control machines.
 
 ## Requirements
 
-- ansible >= 2.4
-- molecule >= 2.20
+- ansible >= 2.9
+- molecule >= 3.0
 
 ## Role Variables
 
@@ -22,7 +22,7 @@ ctrl_service_state: started
 - hosts: all
   tasks:
   - import_role:
-      name: '{{playbook_dir}}'
+      name: "{{ playbook_dir }}"
 ```
 
 ## Example Commmand
@@ -41,7 +41,8 @@ Tests are performed using Molecule. To run them with python virtualenv, issue:
         virtualenv env --python python3 && \
         source env/bin/activate && \
         cd lnls-ans-role-ctrl-service && \
-        pip install molecule docker-py && \
+        pip install molecule testinfra \
+            yamllint ansible-lint flake8 docker-py && \
         molecule test"
 ```
 

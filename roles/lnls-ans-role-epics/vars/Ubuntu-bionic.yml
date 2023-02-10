@@ -1,0 +1,13 @@
+---
+__epics_packages:
+  - "epics-dev{{ (pkg_version_epics_dev | length > 0) | ternary('=' + pkg_version_epics_dev, '') }}"
+  - "epics-pcas-dev{{ (pkg_version_epics_pcas_dev | length > 0) | ternary('=' + pkg_version_epics_pcas_dev, '') }}"
+
+__epics_pip_packages:
+  - setuptools
+  - pyepics
+  - pcaspy
+
+__pip_executable: pip-sirius
+
+__pip2_executable: pip

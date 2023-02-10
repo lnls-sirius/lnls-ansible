@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=TB-PU-Osc-InjBO
+Icon=/usr/share/icons/Adwaita/48x48/devices/audio-card.png
+Exec=/bin/bash -l -c "gvncviewer TB-PU-Osc-InjBO"
+StartupNotify=true
+Terminal=false

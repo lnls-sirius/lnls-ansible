@@ -11,12 +11,15 @@ __repository_keys:
 
 __repository_apt:
   - name: NSLS2 EPICS debian repository
+    # expiration date: 2022-07-07
     baseurl: "deb https://epicsdeb.bnl.gov/debian stretch main contrib"
     description: "NSLS-II Debian EPICS repository"
     file: nsls2-epics-debian
     state: present
 
+
   - name: NSLS2 EPICS debian repository sources
+    # expiration date: 2022-07-07
     baseurl: "deb-src https://epicsdeb.bnl.gov/debian stretch main contrib"
     description: "NSLS-II Debian EPICS repository"
     file: nsls2-epics-debian-src
@@ -29,7 +32,7 @@ __repository_apt:
     state: present
 
   - name: Debian Stretch VScode
-    baseurl: "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+    baseurl: "deb [arch=amd64] https://packages.microsoft.com/repos/code stable main"
     description: "Debian Stretch VScode"
     file: debian-stretch-vscode
     state: present

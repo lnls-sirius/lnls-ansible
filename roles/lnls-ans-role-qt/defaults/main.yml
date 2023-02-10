@@ -1,4 +1,25 @@
 ---
+# Package versions for Debian. Leave empty for the latest
+pkg_version_liblapack_dev: ""
+pkg_version_libdbus_1_3: ""
+pkg_version_libglu1_mesa_dev: ""
+pkg_version_libffi6: ""
+pkg_version_libffi_dev: ""
+pkg_version_libfreetype6: ""
+pkg_version_libfreetype6_dev: ""
+pkg_version_libfontconfig1: ""
+pkg_version_libxkbcommon_dev: ""
+pkg_version_libxkbcommon_x11_dev: ""
+pkg_version_qt5_default: ""
+pkg_version_qttools5_dev_tools: ""
+pkg_version_sip_dev: ""
+pkg_version_python3_pyqt5_qtsvg: ""
+pkg_version_libqt5opengl5_dev: ""
+pkg_version_qt5_qmake: ""
+pkg_version_qtbase5_dev: ""
+pkg_version_PyQt5: ""
+pkg_version_PyQt5_sip: ""
+
 # PIP package state; use 'present' to make sure it's installed, or 'latest' if
 # you want to upgrade or switch versions using a new repo.
 qt_pip_packages_state: present
@@ -12,10 +33,10 @@ qt_pip_packages_state: present
 qt_src_force_install: false
 
 # Qt source version when installing from source
-qt_src_version: 5.11.3
+qt_src_version: 5.13.1
 
 # Qt script checksum. Extracted from website
-qt_src_checksum: md5:a9219194938e3e4ebe999a853a379a3f
+qt_src_checksum: md5:21c3b16f851697fa8da8009f73694373
 
 # Qt source script name
 qt_src_remote_script: "qt-opensource-linux-x64-{{ qt_src_version }}.run"
@@ -50,7 +71,7 @@ qt_src_config_files:
 #############################
 
 # PyQt SIP source version when installing from source
-pyqt_sip_src_version: 4.19.13
+pyqt_sip_src_version: 4.19.19
 
 pyqt_sip_src_dir_name: "sip-{{ pyqt_sip_src_version }}"
 
@@ -72,7 +93,7 @@ pyqt_sip_src_dir: "{{ pyqt_sip_src_dir_path }}/{{ pyqt_sip_src_dir_name }}"
 pyqt_src_force_install: false
 
 # pyQt source version when installing from source
-pyqt_src_version: 5.11.3
+pyqt_src_version: 5.13.1
 
 # pyQt source script name
 pyqt_src_dir_name: "PyQt5_gpl-{{pyqt_src_version }}"
@@ -92,19 +113,20 @@ pyqt_src_dir: "{{ pyqt_src_dir_path }}/{{ pyqt_src_dir_name }}"
 #############################
 
 pyqt_apps:
-  - name: "PyQT SIP"
+  - name: "PyQt SIP"
     download_url: "{{ pyqt_sip_src_download_url }}"
     src_dir_path: "{{ pyqt_sip_src_dir_path }}"
     src_dir: "{{ pyqt_sip_src_dir }}"
     cfg_command: >-
       {{ python_executable }} configure.py
       --sip-module=PyQt5.sip
-    make_build_target: -j4
+    cfg_force: true
+    make_build_target: "-j{{ ansible_processor_vcpus | default(8) }}"
     make_build_opts: {}
     make_install_target: install
     make_install_opts: {}
 
-  - name: "PyQT"
+  - name: "PyQt"
     download_url: "{{ pyqt_src_download_url }}"
     src_dir_path: "{{ pyqt_src_dir_path }}"
     src_dir: "{{ pyqt_src_dir }}"
@@ -116,7 +138,8 @@ pyqt_apps:
         --qml-plugindir={{ qt_src_plugin_dir }}/PyQt5
         --confirm-license
         --assume-shared
-    make_build_target: -j4
+    cfg_force: false
+    make_build_target: "-j{{ ansible_processor_vcpus | default(8) }}"
     make_build_opts: {}
     make_install_target: install
     make_install_opts: {}

@@ -5,19 +5,29 @@ __repository_keys:
     url: https://epicsdeb.bnl.gov/debian/repo-key.pub
     keyring: /etc/apt/trusted.gpg.d/nsls2-epics-debian.gpg
 
+  - name: Debian Buster 1 key
+    keyserver: keyserver.ubuntu.com
+    id: 04EE7237B7D453EC
+
+  - name: Debian Buster 2 key
+    keyserver: keyserver.ubuntu.com
+    id: 648ACFD622F3D138
+
   - name: Debian VSCode key
     url: https://packages.microsoft.com/keys/microsoft.asc
     keyring: /etc/apt/trusted.gpg.d/vscode-debian.gpg
 
+# Use stretch repositories for now as buster doesn't have all of the
+# EPICS packages.
 __repository_apt:
   - name: NSLS2 EPICS debian repository
-    baseurl: "deb https://epicsdeb.bnl.gov/debian buster/staging main contrib"
+    baseurl: "deb https://epicsdeb.bnl.gov/debian stretch main contrib"
     description: "NSLS-II Debian EPICS repository"
     file: nsls2-epics-debian
     state: present
 
   - name: NSLS2 EPICS debian repository sources
-    baseurl: "deb-src https://epicsdeb.bnl.gov/debian buster/staging main contrib"
+    baseurl: "deb-src https://epicsdeb.bnl.gov/debian stretch main contrib"
     description: "NSLS-II Debian EPICS repository"
     file: nsls2-epics-debian-src
     state: present
@@ -29,7 +39,7 @@ __repository_apt:
     state: present
 
   - name: Debian Buster VScode
-    baseurl: "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+    baseurl: "deb [arch=amd64] https://packages.microsoft.com/repos/code stable main"
     description: "Debian Buster VScode"
     file: debian-buster-vscode
     state: present

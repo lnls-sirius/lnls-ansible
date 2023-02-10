@@ -1,0 +1,49 @@
+---
+- name: Create cons environment
+  conda:
+    name: python
+    version: "{{ sirius_apps_hlacon_conda_python_version }}"
+    environment: "{{ sirius_apps_hlacon_conda_environment_path }}"
+    state: present
+    executable: "{{ conda_executable }}"
+
+- name: Install conda dependencies
+  conda:
+    name: "{{ sirius_apps_hlacon_conda_packages }}"
+    channels: conda-forge
+    environment: "{{ sirius_apps_hlacon_conda_environment_path }}"
+    state: present
+    executable: "{{ conda_executable }}"
+  register: hlacon_conda_packages_result
+  until: hlacon_conda_packages_result is success
+  retries: 5
+  delay: 2
+
+- name: Install conda dependency PIP packages
+  pip:
+    name: "{{ sirius_apps_hlacon_pip_dep_packages }}"
+    state: "{{ sirius_apps_hlacon_pip_dep_packages_state }}"
+    executable: "{{ pip_executable | default(omit) }}"
+  become: true
+  register: hlacon_pip_dep_packages_result
+  until: hlacon_pip_dep_packages_result is success
+  retries: 5
+  delay: 2
+
+- name: Clone and install pip packages within cons conda environment
+  pip:
+    name: "{{ sirius_apps_hlacon_pip_packages }}"
+    state: present
+    executable: "{{ sirius_apps_hlacon_conda_environment_path }}/bin/pip"
+  register: hlacon_pip_packages_result
+  until: hlacon_pip_packages_result is success
+  retries: 5
+  delay: 2
+
+- name: Create siriushlacon shell executables
+  template:
+    src: siriushlacon.j2
+    dest: "/usr/bin/{{ item }}"
+    mode: 0755
+  with_items:
+      - "{{ sirius_apps_hlacon_executables }}"

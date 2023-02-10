@@ -1,4 +1,54 @@
 ---
+# Package versions for Debian. Leave empty for the latest
+pkg_version_rdesktop: ""
+pkg_version_htop: ""
+pkg_version_vim: ""
+pkg_version_ipython3: ""
+pkg_version_remmina: ""
+pkg_version_remmina_plugin_rdp: ""
+pkg_version_remmina_plugin_secret: ""
+pkg_version_tightvncserver: ""
+pkg_version_gvncviewer: ""
+pkg_version_xfce4: ""
+pkg_version_xfce4_goodies: ""
+pkg_version_wmctrl: ""
+pkg_version_cups: ""
+pkg_version_ca_certificates: ""
+pkg_version_gconf2: ""
+pkg_version_libasound2: ""
+pkg_version_libgtk2_0_0: ""
+pkg_version_libxss1: ""
+pkg_version_libffi6: ""
+pkg_version_libffi_dev: ""
+pkg_version_libfreetype6: ""
+pkg_version_libfreetype6_dev: ""
+pkg_version_nmap: ""
+pkg_version_sshpass: ""
+pkg_version_wait_for_it: ""
+pkg_version_libgsl_dev: ""
+pkg_version_texlive_latex_recommended: ""
+pkg_version_dvipng: ""
+pkg_version_ghostscript: ""
+pkg_version_python_nmap: ""
+pkg_version_wakeonlan: ""
+pkg_version_requests: ""
+pkg_version_pyqtgraph: ""
+pkg_version_pandas: ""
+pkg_version_psutil: ""
+pkg_version_termcolor: ""
+pkg_version_sh: ""
+pkg_version_cairocffi: ""
+pkg_version_matplotlib: ""
+pkg_version_scipy: ""
+pkg_version_pyparsing: ""
+pkg_version_jupyter: ""
+pkg_version_xlrd: ""
+pkg_version_ipython_pip: ""
+
+# Paths to lnls-ansible
+desktop_settings_lnls_ansible_src: /home/sirius/repos/lnls-ansible
+desktop_settings_lnls_ansible_dest: /home/sirius/lnls-ansible
+
 # Desktop packages state
 desktop_packages_state: present
 
@@ -14,6 +64,9 @@ desktop_vnc_ignore_systemd_errors: false
 
 # Create VNC password from encrypted password
 desktop_vnc_passwd_create: true
+
+# Location of Sirius EPICS screens
+desktop_autofs_sirius_epics_screens: ""
 
 # Ansible vault password:
 # ansible-vault encrypt_string --vault-id prod@prompt --stdin-name 'pass'

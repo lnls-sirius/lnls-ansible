@@ -1,12 +1,72 @@
 ---
+# Package versions for Debian. Leave empty for the latest
+pkg_version_git: ""
+pkg_version_build_essential: ""
+pkg_version_libreadline5: ""
+pkg_version_libreadline_dev: ""
+pkg_version_libncursesw5_dev: ""
+pkg_version_libssl_dev: ""
+pkg_version_libsqlite3_dev: ""
+pkg_version_tk_dev: ""
+pkg_version_libgdbm_dev: ""
+pkg_version_libc6_dev: ""
+pkg_version_libbz2_dev: ""
+pkg_version_python3_dev: ""
+pkg_version_python3_pip: ""
+pkg_version_python3_tk: ""
+pkg_version_apt_setuptools: ""
+pkg_version_swig: ""
+pkg_version_pip: ""
+pkg_version_python_dateutil: ""
+pkg_version_cairocffi: ""
+pkg_version_pyparsing: ""
+pkg_version_jupyter: ""
+pkg_version_jupyter_nbextensions: ""
+pkg_version_numpy: ""
+pkg_version_bottleneck: ""
+pkg_version_six: ""
+pkg_version_pylama: ""
+pkg_version_pep8: ""
+pkg_version_autopep8: ""
+pkg_version_pydocstyle: ""
+pkg_version_pylint: ""
+pkg_version_setuptools: ""
+pkg_version_matplotlib: ""
+pkg_version_pandas: ""
+pkg_version_psutil: ""
+pkg_version_pyqtgraph: ""
+pkg_version_python_nmap: ""
+pkg_version_requests: ""
+pkg_version_scipy: ""
+pkg_version_sh: ""
+pkg_version_termcolor: ""
+pkg_version_wakeonlan: ""
+pkg_version_xlrd: ""
+pkg_version_aiohttp: ""
+pkg_version_pytest: ""
+pkg_version_paramz: ""
+pkg_version_cython: ""
+pkg_version_gpy: ""
+pkg_version_pyyaml: ""
+pkg_version_tifffile: ""
+pkg_version_imageio: ""
+pkg_version_pywt: ""
+pkg_version_networkx: ""
+pkg_version_scikitimage: ""
+pkg_version_scikitlearn: ""
+pkg_version_fpdf: ""
+
 # python symlink dest
 python_symlink: /usr/local/bin/python-sirius
+
+# python-config symlink
+python_config_symlink: /usr/local/bin/python-sirius-config
 
 # pip symlink dest
 pip_symlink: /usr/local/bin/pip-sirius
 
 # Python source variables
-python_src_version: 3.6.8
+python_src_version: "{{ python_src_version }}"
 
 python_src_download_pkg_name: "Python-{{ python_src_version }}"
 
@@ -18,7 +78,7 @@ python_src_dir_path: "{{ python_src_dir }}/{{ python_src_download_pkg_name }}"
 
 python_src_configure_opts: --enable-shared --with-ensurepip=install
 
-python_src_build_target: -j4
+python_src_build_target: "-j{{ ansible_processor_vcpus | default(8) }}"
 
 # python_src_make_build_opts:
 

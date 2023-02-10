@@ -3,6 +3,7 @@
   file:
     path: "{{ item.src_dir_path }}"
     state: directory
+    mode: 0755
 
 - name: "Download {{ item.name }}"
   unarchive:
@@ -11,6 +12,7 @@
     remote_src: true
     owner: root
     group: root
+    mode: 0755
     creates: "{{ item.src_dir }}"
   register: download_item_result
   become: true
@@ -19,6 +21,7 @@
   file:
     path: "{{ item.cfg_create_paths }}"
     state: directory
+    mode: 0755
   when:
     - item.cfg_create_paths is defined and
       item.cfg_create_paths | length > 0
@@ -27,8 +30,10 @@
   command: "{{ item.cfg_command }}"
   args:
     chdir: "{{ item.src_dir }}"
-  when:
-    - download_item_result.changed
+  when: >-
+    download_item_result.changed or
+      (item.cfg_force is defined and
+      item.cfg_force | bool)
 
 - name: "Build {{ item.name }} via Makefile"
   make:

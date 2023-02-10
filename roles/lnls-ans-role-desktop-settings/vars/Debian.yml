@@ -1,5 +1,6 @@
 ---
 __desktop_settings_packages:
+  - x11-common
   - xcursor-themes
   - dmz-cursor-theme
   - dconf-cli
@@ -7,5 +8,6 @@ __desktop_settings_packages:
 
 __desktop_settings_pip_packages:
   - psutil
+  - ansible
 
 __pip_executable: pip-sirius

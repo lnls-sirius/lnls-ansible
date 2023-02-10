@@ -1,0 +1,25 @@
+---
+# Package versions for Debian. Leave empty for the latest
+pkg_version_network_manager: ""
+pkg_version_python_dbus: ""
+pkg_version_python3_dbus: ""
+pkg_version_libnm_glib_dev: ""
+pkg_version_libnm0: ""
+
+# Package versions for Fedora-like. Leave empty for the latest
+pkg_version_network_manager_glib: ""
+pkg_version_libnm_qt_devel: ""
+pkg_version_nm_connection_editor: ""
+pkg_version_libsemanage_python: ""
+pkg_version_policycoreutils_python: ""
+
+# Set this to true when using this in a regular,
+# without systemd support.
+network_ignore_systemd_errors: false
+
+network_interfaces:
+  - name: TIC
+    ignore_auto_dns: "true"
+
+  - name: GCO
+    ignore_auto_dns: "false"

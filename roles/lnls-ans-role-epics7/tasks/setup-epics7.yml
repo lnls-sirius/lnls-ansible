@@ -1,0 +1,26 @@
+---
+- name: Ensure EPICS 7 destination path exists
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+  become: true
+  with_items:
+    - "{{ epics7_base_dest }}"
+
+- name: Unpack EPICS 7
+  unarchive:
+    src: "{{ epics7_base_archive }}"
+    dest: "{{ epics7_base_dest }}"
+    remote_src: true
+    owner: root
+    group: root
+    creates: "{{ epics7_base_directory }}"
+    mode: 0755
+  become: true
+  notify: "Install EPICS7 from source"
+
+- name: Force handlers to run at this point
+  meta: flush_handlers

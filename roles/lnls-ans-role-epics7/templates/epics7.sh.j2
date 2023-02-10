@@ -1,0 +1,15 @@
+# EPICS 7 default variables
+# =======================
+
+export EPICS_HOST_ARCH=linux-x86_64
+export EPICS7_FOLDER="{{ epics7_base_directory }}"
+export EPICS7_BASE=${EPICS7_FOLDER}
+export EPICS7_BIN=${EPICS7_FOLDER}/bin/${EPICS_HOST_ARCH}
+export EPICS_CA_ADDR_LIST=
+export EPICS_PVA_ADDR_LIST=
+export EPICS_CA_AUTO_ADDR_LIST="YES"
+export EPICS_PVA_AUTO_ADDR_LIST="YES"
+
+export EPICS_CA_MAX_ARRAY_BYTES=10000000
+
+export PATH=${PATH}:${EPICS7_BIN}

@@ -1,0 +1,19 @@
+---
+__epics7_dep_packages:
+  - which
+  - wget
+  # Build tools
+  - gcc-c++
+  - glib2
+  - glib2-devel
+  - uuid-devel
+  - readline
+  - readline-devel
+  - libusb-devel
+  - bzip2-devel
+  - libxml2-devel
+  # Perl dependencies
+  - perl
+  - perl-devel
+  - perl-ExtUtils*
+  - perl-Pod-Checker

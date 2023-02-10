@@ -1,0 +1,80 @@
+# === Control Room ===
+[control_room_linac_opis]
+linac-opi1
+linac-opi2
+
+[control_room]
+lnls449-linux
+lnls451-linux
+lnls454-linux
+
+[control_room_new_pcs]
+optiplex-7070-sc-1.abtlus.org.br
+optiplex-7070-sc-2.abtlus.org.br
+
+[control_room_tv]
+lnls455-linux
+
+[control_room_all:children]
+control_room
+control_room_new_pcs
+control_room_tv
+control_room_linac_opis
+
+# ---------------------------------------
+
+[elp]
+10.0.38.56  # elp1-linux
+
+[con]
+10.0.38.84  # cons-dev-vm
+isp-opi-2.abtlus.org.br
+# fac-testes.abtlus.org.br
+# fac-testes-debian10.abtlus.org.br
+# 10.20.31.26  # lnls210-linux
+
+[fac]
+lnls560-linux  # fac-analuisa
+lnls210-linux  # fac-alexandre
+lnls557-linux  # fac-liulin (10.0.38.44)
+# lnls556-linux  # fac-fernando
+# lnls557-linux  # fac-liu
+# lnls558-linux  # fac-murilo
+# lnls559-linux  # fac-ana
+# lnls561-linux  # fac-ximenes
+
+[rfq]
+10.15.0.189  # lnls627-linux (RF laptop)
+
+[docker_servers]
+CA-RaTim-CO-IOCSrv
+IA-14RaDiag03-CO-IOCSrv
+IA-16RaBbB-CO-IOCSrv
+IA-18RaDiag04-CO-IOCSrv
+IA-20RaDiag01-CO-IOCSrv-1
+IA-20RaDiag01-CO-IOCSrv-2
+IA-20RaDiag02-CO-IOCSrv-1
+IA-20RaDiag02-CO-IOCSrv-2
+
+[gluster_servers]
+CA-RaTim-CO-IOCSrv
+IA-14RaDiag03-CO-IOCSrv
+IA-16RaBbB-CO-IOCSrv
+IA-18RaDiag04-CO-IOCSrv
+IA-20RaDiag01-CO-IOCSrv-1
+IA-20RaDiag01-CO-IOCSrv-2
+IA-20RaDiag02-CO-IOCSrv-1
+IA-20RaDiag02-CO-IOCSrv-2
+
+[ioc_servers]
+#grace.lnls.br:16122
+lnlsfac-srv1
+lnlsfac-srv2
+#fac-testes-LA.abtlus.org.br
+#fac-testes-CA.abtlus.org.br
+
+[docker_image]
+127.0.0.1
+
+[docker_node]
+10.128.153.88  # CA-RaTim-CO-IOCSrv

@@ -15,15 +15,31 @@ Available variables are listed below, along with default values (see `defaults/m
 
     ntp_enabled: true
 
-Whether to start the ntpd service and enable it at system boot. On many virtual machines that run inside a container (like OpenVZ or VirtualBox), it's recommended you don't run the NTP daemon, since the host itself should be set to synchronize time for all it's child VMs.
+Whether to start the ntpd service and enable it at system boot. On many virtual machines that run inside a container (like OpenVZ or VirtualBox), it's recommended you don't run the NTP daemon, since the host itself should be set to synchronize time for all its child VMs.
 
-    ntp_timezone: Etc/UTC
+    ntp_timezone: America/Sao_Paulo
 
 Set the timezone for your server.
+
+    ntp_package: ntp
+
+The package to install which provides NTP functionality. The default is `ntp` for most platforms, or `chrony` on RHEL/CentOS 7 and later.
+
+    ntp_daemon: [various]
+
+The default NTP daemon should be correct for your distribution, but there are some cases where you may want to override the default, e.g. if you're running `ntp` on newer versions of RHEL/CentOS.
+
+    ntp_config_file: /etc/ntp.conf
+
+The path to the NTP configuration file. The default is `/etc/ntp.conf` for most platforms, or `/etc/chrony.conf` on RHEL/CentOS 7 and later.
 
     ntp_manage_config: false
 
 Set to true to allow this role to manage the NTP configuration file (`/etc/ntp.conf`).
+
+    ntp_driftfile: [various]
+
+The default NTP driftfile should be correct for your distribution, but there are some cases where you may want to override the default.
 
     ntp_area: ''
 
@@ -43,6 +59,14 @@ Specify the NTP servers you'd like to use. Only takes effect if you allow this r
 
 Restrict NTP access to these hosts; loopback only, by default.
 
+    ntp_cron_handler_enabled: false
+
+Whether to restart the cron daemon after the timezone has changed.
+
+    ntp_tinker_panic: true
+
+Enable tinker panic, which is useful when running NTP in a VM.
+
 ## Dependencies
 
 None.
@@ -54,7 +78,7 @@ None.
 - hosts: all
   tasks:
   - import_role:
-      name: '{{playbook_dir}}'
+      name: "{{ playbook_dir }}"
 ```
 
 ## Example Commmand
@@ -73,7 +97,8 @@ Tests are performed using Molecule. To run them with python virtualenv, issue:
         virtualenv env --python python3 && \
         source env/bin/activate && \
         cd lnls-ans-role-ntp && \
-        pip install molecule docker-py && \
+        pip install molecule testinfra \
+            yamllint ansible-lint flake8 docker-py && \
         molecule test"
 ```
 

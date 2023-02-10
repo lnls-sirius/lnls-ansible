@@ -5,8 +5,8 @@ This Ansible role configures Desktop applications for Sirius Light Source contro
 
 ## Requirements
 
-- ansible >= 2.4
-- molecule >= 2.20
+- ansible >= 2.9
+- molecule >= 3.0
 
 ## Role Variables
 
@@ -25,7 +25,7 @@ desktop_install_recommends: true
 - hosts: all
   tasks:
   - import_role:
-      name: '{{playbook_dir}}'
+      name: "{{ playbook_dir }}"
 ```
 
 ## Example Commmand
@@ -44,7 +44,8 @@ Tests are performed using Molecule. To run them with python virtualenv, issue:
         virtualenv env --python python3 && \
         source env/bin/activate && \
         cd lnls-ans-role-desktop-apps && \
-        pip install molecule docker-py && \
+        pip install molecule testinfra \
+            yamllint ansible-lint flake8 docker-py && \
         molecule test"
 ```
 

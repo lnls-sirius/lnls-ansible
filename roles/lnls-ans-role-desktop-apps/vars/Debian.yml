@@ -7,11 +7,11 @@ __desktop_packages:
   - remmina
   - remmina-plugin-rdp
   - remmina-plugin-secret
-  - code
   - tightvncserver
   - gvncviewer
   - xfce4
   - xfce4-goodies
+  - cups
   - ca-certificates
   - gconf2
   - libasound2
@@ -22,9 +22,14 @@ __desktop_packages:
   - libfreetype6
   - libfreetype6-dev
   - nmap
-  - dvipng
   - sshpass
   - wait-for-it
+  - libblas-dev
+  - liblapack-dev
+  - libgsl-dev
+  - texlive-latex-recommended
+  - dvipng
+  - ghostscript
 
 __desktop_pip_packages:
   - python-nmap
@@ -38,6 +43,7 @@ __desktop_pip_packages:
   - cairocffi
   - matplotlib
   - scipy
+  - pyparsing
   - jupyter
   - xlrd
 

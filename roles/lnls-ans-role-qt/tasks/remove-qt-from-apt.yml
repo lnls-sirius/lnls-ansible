@@ -1,8 +1,32 @@
 ---
+# Construct a list of only the installed packages, as
+# apt will not support looping soon.
+- name: Gather package facts for Qt
+  package_facts:
+    manager: apt
+
+- name: Create list of Qt packages to be removed
+  set_fact:
+    qt_distro_packages_to_remove: "{{ qt_distro_packages_to_remove | default([]) |
+            list + [ item | regex_replace('=.*$', '') ] }}"
+  with_items:
+    - "{{ qt_distro_packages | default([]) | list }}"
+  when: "item | regex_replace('=.*$', '') in ansible_facts.packages"
+
+- name: Default Qt packages to remove variable to empty
+  set_fact:
+    qt_distro_packages_to_remove: []
+  when:
+    - qt_distro_packages_to_remove is not defined
+
+- name: Qt distro packages to be removed
+  debug:
+    msg: "qt_distro_packages_to_remove: {{ qt_distro_packages_to_remove }}"
+
 # Use a loop here, as we might fail if some package is missing
 - name: Ensure no Qt system versions are installed
   apt:
-    name: "{{ item | regex_replace('=.*$', '') }}"
+    name: "{{ qt_distro_packages_to_remove }}"
     state: absent
     purge: true
   become: true
@@ -11,5 +35,3 @@
   until: apt_result is success
   retries: 5
   delay: 2
-  with_items:
-    - "{{ qt_distro_packages }}"

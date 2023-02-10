@@ -25,6 +25,16 @@
   with_items:
     - "{{ users }}"
 
+# Copy all template files to all users
+- name: Ensure templates are copied to each user's home
+  template:
+    src: "{{ item.1 }}"
+    dest: "/home/{{ item.0.name }}/Desktop/{{ item.1 | basename | regex_replace('.j2','') }}"
+    mode: preserve
+  with_nested:
+    - "{{ users }}"
+    - "{{ lookup('fileglob', '../templates/skel/Desktop/*.j2').split(',') }}"
+
 - name: Install VNC server config files
   template:
     src: "{{ item.filename }}.j2"

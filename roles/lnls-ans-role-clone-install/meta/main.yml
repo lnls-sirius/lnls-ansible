@@ -1,0 +1,26 @@
+---
+galaxy_info:
+  author: Lucas Russo
+  description: Ansible role to clone and install repositories
+  company: CNPEM - LNLS
+  license: BSD
+  min_ansible_version: 2.9
+
+  platforms:
+    - name: EL
+      versions:
+        - 6
+        - 7
+    - name: Fedora
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - jessie
+        - stretch
+    - name: Ubuntu
+      versions:
+        - precise
+        - trusty
+        - xenial
+        - bionic

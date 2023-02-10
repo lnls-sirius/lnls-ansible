@@ -7,8 +7,8 @@ This Ansible role configures some defaults users/groups for Sirius Light Source 
 
 ## Requirements
 
-- ansible >= 2.4
-- molecule >= 2.20
+- ansible >= 2.9
+- molecule >= 3.0
 
 ## Role Variables
 
@@ -79,7 +79,7 @@ users_ssh_keys:
 - hosts: all
   tasks:
   - import_role:
-      name: '{{playbook_dir}}'
+      name: "{{ playbook_dir }}"
 ```
 
 ## Example Commmand
@@ -98,7 +98,8 @@ Tests are performed using Molecule. To run them with python virtualenv, issue:
         virtualenv env --python python3 && \
         source env/bin/activate && \
         cd lnls-ans-role-users && \
-        pip install molecule docker-py && \
+        pip install molecule testinfra \
+            yamllint ansible-lint flake8 docker-py && \
         molecule test"
 ```
 
@@ -110,6 +111,7 @@ the following variables:
 ```bash
     export DNS_SERVER1="<DNS server 1>"
     export DNS_SERVER2="<DNS server 2>"
+    export APT_PROXY_SERVER="<APT PROXY URL>"
 ```
 
 This can be used, for instance, in hosts that have non-default

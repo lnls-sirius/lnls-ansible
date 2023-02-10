@@ -1,6 +1,6 @@
 ---
 # Install from source
-__python_install_from_src: false
+__python_install_from_src: true
 
 __basic_packages:
   - git
@@ -29,8 +29,19 @@ __python_packages:
 __pip_executable: pip-sirius
 
 __python_pip_packages:
+  - pip
   - cairocffi
+  - pyparsing
   - jupyter
+  - jupyter-contrib-nbextensions
+  - numpy
+  - bottleneck
+  - six
+  - pylama
+  - pep8
+  - autopep8
+  - pydocstyle
+  - pylint
   - setuptools
   - matplotlib
   - pandas
@@ -43,3 +54,5 @@ __python_pip_packages:
   - termcolor
   - wakeonlan
   - xlrd
+  - aiohttp
+  - pytest

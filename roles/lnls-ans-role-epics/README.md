@@ -7,8 +7,8 @@ This Ansible role install EPICS packages.
 
 ## Requirements
 
-- ansible >= 2.4
-- molecule >= 2.20
+- ansible >= 2.9
+- molecule >= 3.0
 
 ## Role Variables
 
@@ -60,7 +60,7 @@ A list of extra EPICS packages to install without overriding the default list.
   become: true
   tasks:
   - import_role:
-      name: '{{playbook_dir}}'
+      name: "{{ playbook_dir }}"
 
 ```
 
@@ -74,7 +74,8 @@ Tests are performed using Molecule. To run them with python virtualenv, issue:
         virtualenv env --python python3 && \
         source env/bin/activate && \
         cd lnls-ans-role-epics && \
-        pip install molecule docker-py && \
+        pip install molecule testinfra \
+            yamllint ansible-lint flake8 docker-py && \
         molecule test"
 ```
 

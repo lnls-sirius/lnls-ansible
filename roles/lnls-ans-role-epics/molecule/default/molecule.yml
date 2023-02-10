@@ -1,28 +1,45 @@
 ---
+vars:
+  apt_proxy_server: "${APT_PROXY_SERVER}"
+
 dependency:
   name: galaxy
-lint:
-  name: yamllint
-provisioner:
-  name: ansible
-  lint:
-    name: ansible-lint
-  inventory:
-    group_vars:
-      default_group:
-scenario:
-  name: default
-verifier:
-  name: testinfra
+  collections:
+    - name: community.docker
+      version: 1.5.0
   options:
-    verbose: true
-  lint:
-    name: flake8
+    role-file: requirements.yml
+    collection-file: requirements.yml
+
 driver:
   name: docker
+
+lint: |
+  set -xe
+  yamllint .
+  ansible-lint
+  flake8
+
 platforms:
   - name: lnls-ans-role-epics-instance
-    image: "${MOLECULE_DISTRO:-debian:stretch}"
+    image: "${MOLECULE_DISTRO:-geerlingguy/docker-debian10-ansible}"
+    command: ${MOLECULE_DOCKER_COMMAND:-/lib/systemd/systemd}
     groups:
       - default_group
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
+    build_image: false
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
+
+provisioner:
+  name: ansible
+  inventory:
+    links:
+      group_vars: ../../../../group_vars/
+    group_vars:
+      default_group:
+
+verifier:
+  name: testinfra

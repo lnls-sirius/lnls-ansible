@@ -15,7 +15,7 @@
     desktop_settings_packages: "{{ __desktop_settings_packages | list }}"
   when: desktop_settings_packages is not defined
 
-- name: Define Desktop Settings Pip packages
+- name: Define Desktop Settings PIP packages
   set_fact:
     desktop_settings_pip_packages: "{{ __desktop_settings_pip_packages | list }}"
   when: desktop_settings_pip_packages is not defined

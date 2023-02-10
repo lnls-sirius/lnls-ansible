@@ -1,8 +1,0 @@
----
-# JDK version options include:
-#   - java
-#   - openjdk-8-jdk
-__java_packages:
-  - openjdk-11-jdk
-  - openjdk-11-jre
-  - openjfx

@@ -7,8 +7,8 @@ This Ansible role enables the Debian NSLS-II repositories.
 
 ## Requirements
 
-- ansible >= 2.4
-- molecule >= 2.20
+- ansible >= 2.9
+- molecule >= 3.0
 
 ## Role Variables
 
@@ -16,7 +16,7 @@ This Ansible role enables the Debian NSLS-II repositories.
 repository_installroot: "/"
 ```
 
-The `repository_installroot` variable allows to specify an alternative installroot, e.g. /export/nfsroots/debian9/rootfs
+The `repository_installroot` variable allows to specify an alternative installroot, e.g. /export/glusterfsroots/debian9/rootfs
 
 ## Example Playbook
 
@@ -25,7 +25,7 @@ The `repository_installroot` variable allows to specify an alternative installro
 - hosts: all
   tasks:
   - import_role:
-      name: '{{playbook_dir}}'
+      name: "{{ playbook_dir }}"
 ```
 
 ## Tests
@@ -38,7 +38,8 @@ Tests are performed using Molecule. To run them with python virtualenv, issue:
         virtualenv env --python python3 && \
         source env/bin/activate && \
         cd lnls-ans-role-repositories && \
-        pip install molecule docker-py && \
+        pip install molecule testinfra \
+            yamllint ansible-lint flake8 docker-py && \
         molecule test"
 ```
 

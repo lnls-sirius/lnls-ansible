@@ -1,30 +1,13 @@
----
-- name: Check CS-Studio current version
-  command: "cat {{ csstudio_version_file }}"
-  register: csstudio_current_version
-  failed_when: false
-  changed_when: false
-  check_mode: false
+- name: Check if old verson is installed
+  stat:
+    path: "/opt/cs-studio/ESS\ CS-Studio.ini"
+  register: oldcss
 
-- name: Current CS-Studio version
-  debug:
-    msg: "CS-Studio current version: {{ csstudio_current_version.stdout }}"
-
-- name: Remove previous backup if it exists
-  file:
-    path: "{{ csstudio_directory }}-{{ csstudio_current_version.stdout }}"
+- name: Remove old CS-Studio
+  ansible.builtin.file:
+    path: /opt/cs-studio
     state: absent
-  when:
-    - csstudio_current_version.stdout|length > 0
-    - csstudio_current_version.stdout != csstudio_version
-
-- name: Backup current version
-  command: "mv {{ csstudio_directory }} {{ csstudio_directory }}-{{ csstudio_current_version.stdout }}"
-  args:
-    creates: "{{ csstudio_directory }}-{{ csstudio_current_version.stdout }}"
-  when:
-    - csstudio_current_version.stdout|length > 0
-    - csstudio_current_version.stdout != csstudio_version
+  when: oldcss.stat.exists
 
 - name: Install CS-Studio
   unarchive:
@@ -33,7 +16,15 @@
     remote_src: true
     owner: root
     group: root
+    mode: 0755
     creates: "{{ csstudio_directory }}"
+
+- name: Create color.def file
+  copy:
+    dest: "{{ csstudio_directory }}/configuration/color.def"
+    content: |
+      Minor = 245, 242, 86
+      Major = 161, 54, 54
 
 - name: Customize CSS preference settings
   lineinfile:
@@ -42,26 +33,24 @@
     regexp: "{{ item.regexp }}"
     line: "{{ item.line }}"
   with_items:
-    - "{{ csstudio_beast_preferences }}"
     - "{{ csstudio_databrowser_preferences }}"
-    - "{{ csstudio_email_preferences }}"
     - "{{ csstudio_diirt_preferences }}"
-    - "{{ csstudio_phoebus_integration_preferences }}"
+    - "{{ csstudio_alarm_colors_preferences }}"
 
 - name: Overwrite CSS runtime settings
   lineinfile:
     state: present
-    path: "/opt/cs-studio/ESS\ CS-Studio.ini"
+    path: "/opt/cs-studio/cs-studio.ini"
     line: "{{ item }}"
     insertbefore: '^--launcher\.library'
   with_items:
     - '-vm'
-    - '/usr/lib/jvm/java-8-openjdk-amd64/jre/bin'
+    - '/usr/lib/jvm/java-11-openjdk-amd64/bin'
 
 - name: Remove default CSS workspace
   lineinfile:
     state: absent
-    path: "/opt/cs-studio/ESS\ CS-Studio.ini"
+    path: "/opt/cs-studio/cs-studio.ini"
     regex: "{{ item }}"
   with_items:
     - 'data$'
@@ -70,7 +59,7 @@
 - name: Customize channel access address list
   lineinfile:
     state: present
-    path: /opt/cs-studio/configuration/diirt/datasources/ca/ca.xml
+    path: /opt/cs-studio/configuration/diirt/support/ca/ca.xml
     regexp: "{{ item.regexp }}"
     line: "{{ item.line }}"
     backrefs: true
@@ -110,38 +99,3 @@
     owner: root
     group: root
     mode: 0644
-
-- name: Install xulrunner
-  unarchive:
-    src: "{{ csstudio_xulrunner }}"
-    dest: /opt
-    remote_src: true
-    owner: root
-    group: root
-
-- name: Create the CS-Studio fonts directory
-  file:
-    path: "{{ csstudio_fonts_dir }}"
-    state: directory
-    owner: root
-    group: root
-    mode: 0755
-
-# When changing the fonts, don't forget to remove
-# the previous directories!
-- name: Remove old CS-Studio fonts
-  file:
-    path: "{{ item }}"
-    state: absent
-  with_items:
-    - "/usr/share/fonts/ess"
-    - "/usr/local/share/fonts/ess"
-
-- name: Install CS-Studio fonts
-  unarchive:
-    src: "{{ csstudio_fonts }}"
-    dest: "{{ csstudio_fonts_dir }}"
-    remote_src: true
-    owner: root
-    group: root
-  notify: Update font cache

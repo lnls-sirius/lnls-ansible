@@ -4,22 +4,31 @@ __qt_install_from_src: true
 __pyqt_install_from_src: true
 
 __pyqt_dep_packages:
-  - liblapack-dev=3.7.0*
-  - libdbus-1-3=1.10.28*
-  - libglu1-mesa-dev=9.0.0*
+  - "liblapack-dev{{ (pkg_version_liblapack_dev | length > 0) | ternary('=' + pkg_version_liblapack_dev, '') }}"
+  - "libdbus-1-3{{ (pkg_version_libdbus_1_3 | length > 0) | ternary('=' + pkg_version_libdbus_1_3, '') }}"
+  - "libglu1-mesa-dev{{ (pkg_version_libglu1_mesa_dev | length > 0) | ternary('=' + pkg_version_libglu1_mesa_dev, '') }}"
+
+__qt_dep_packages:
+  - "libffi6{{ (pkg_version_libffi6 | length > 0) | ternary('=' + pkg_version_libffi6, '') }}"
+  - "libffi-dev{{ (pkg_version_libffi_dev | length > 0) | ternary('=' + pkg_version_libffi_dev, '') }}"
+  - "libfreetype6{{ (pkg_version_libfreetype6 | length > 0) | ternary('=' + pkg_version_libfreetype6, '') }}"
+  - "libfreetype6-dev{{ (pkg_version_libfreetype6_dev | length > 0) | ternary('=' + pkg_version_libfreetype6_dev, '') }}"
+  - "libfontconfig1{{ (pkg_version_libfontconfig1 | length > 0) | ternary('=' + pkg_version_libfontconfig1, '') }}"
+  - "libxkbcommon-dev{{ (pkg_version_libxkbcommon_dev | length > 0) | ternary('=' + pkg_version_libxkbcommon_dev, '') }}"
+  - "libxkbcommon-x11-dev{{ (pkg_version_libxkbcommon_x11_dev | length > 0) | ternary('=' + pkg_version_libxkbcommon_x11_dev, '') }}"
 
 __qt_distro_packages:
-  - qt5-default=5.7.1*
-  - qttools5-dev-tools=5.7.1*
-  - sip-dev=4.18.1*
-  - python3-pyqt5.qtsvg=5.7*
-  - libqt5opengl5-dev=5.7.1*
-  - qt5-qmake=5.7.1*
-  - qtbase5-dev=5.7.1*
+  - "qt5-default{{ (pkg_version_qt5_default | length > 0) | ternary('=' + pkg_version_qt5_default, '') }}"
+  - "qttools5-dev-tools{{ (pkg_version_qttools5_dev_tools | length > 0) | ternary('=' + pkg_version_qttools5_dev_tools, '') }}"
+  - "sip-dev{{ (pkg_version_sip_dev | length > 0) | ternary('=' + pkg_version_sip_dev, '') }}"
+  - "python3-pyqt5.qtsvg{{ (pkg_version_python3_pyqt5_qtsvg | length > 0) | ternary('=' + pkg_version_python3_pyqt5_qtsvg, '') }}"
+  - "libqt5opengl5-dev{{ (pkg_version_libqt5opengl5_dev | length > 0) | ternary('=' + pkg_version_libqt5opengl5_dev, '') }}"
+  - "qt5-qmake{{ (pkg_version_qt5_qmake | length > 0) | ternary('=' + pkg_version_qt5_qmake, '') }}"
+  - "qtbase5-dev{{ (pkg_version_qtbase5_dev | length > 0) | ternary('=' + pkg_version_qtbase5_dev, '') }}"
 
 __qt_pip_packages:
-  - PyQt5==5.13.0
-  - PyQt5-sip==4.19.18
+  - "PyQt5{{ (pkg_version_PyQt5 | length > 0) | ternary('==' + pkg_version_PyQt5, '') }}"
+  - "PyQt5-sip{{ (pkg_version_PyQt5_sip | length > 0) | ternary('==' + pkg_version_PyQt5_sip, '') }}"
 
 __python_executable: python-sirius
 

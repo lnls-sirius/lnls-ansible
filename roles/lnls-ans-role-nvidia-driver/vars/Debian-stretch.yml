@@ -16,5 +16,5 @@ __nvidia_repository_apt:
     state: present
 
 __nvidia_packages:
-  - nvidia-driver=390.116*
-  - nvidia-kernel-dkms=390.116*
+  - "nvidia-driver{{ (pkg_version_nvidia_driver | length > 0) | ternary('=' + pkg_version_nvidia_driver, '') }}"
+  - "nvidia-kernel-dkms{{ (pkg_version_nvidia_kernel_dkms | length > 0) | ternary('=' + pkg_version_nvidia_kernel_dkms, '') }}"

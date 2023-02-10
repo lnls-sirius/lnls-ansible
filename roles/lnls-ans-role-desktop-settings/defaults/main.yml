@@ -1,4 +1,13 @@
 ---
+# Package versions for Debian. Leave empty for the latest
+pkg_version_x11_common: ""
+pkg_version_xcursor_themes: ""
+pkg_version_dmz_cursor_theme: ""
+pkg_version_dconf_cli: ""
+pkg_version_python_pip: ""
+pkg_version_psutil: ""
+pkg_version_ansible: ""
+
 # Desktop cursor size
 desktop_settings_cursor_size: 48
 
@@ -12,7 +21,10 @@ desktop_settings_packages_state: present
 # Desktop install recommends
 desktop_settings_install_recommends: true
 
-# Pip packages state
+# Ignore systemd-resolved errors
+desktop_settings_ignore_systemd_resolved_errors: true
+
+# PIP packages state
 desktop_settings_pip_packages_state: present
 
 # Desktop User

@@ -1,10 +1,10 @@
 ---
 galaxy_info:
   author: Lucas Russo
-  description: Ansible role to install Desktop Applicatios
+  description: Ansible role to install Desktop Applications
   company: CNPEM - LNLS
   license: BSD
-  min_ansible_version: 2.4
+  min_ansible_version: 2.9
 
   platforms:
     - name: EL

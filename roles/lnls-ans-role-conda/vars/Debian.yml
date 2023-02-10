@@ -1,0 +1,17 @@
+---
+__conda_apt_keys:
+  - name: Conda key
+    url: https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc
+    keyring: /etc/apt/trusted.gpg.d/conda-archive-keyring.gpg
+
+__conda_apt_repositories:
+  - name: Conda - Debian Repository
+    baseurl: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/conda-archive-keyring.gpg] https://repo.anaconda.com/pkgs/misc/debrepo/conda stable main"
+    description: "Debian Conda - Repository"
+    file: conda
+    state: present
+
+__conda_apt_packages_state: present
+
+__conda_apt_packages:
+  - conda

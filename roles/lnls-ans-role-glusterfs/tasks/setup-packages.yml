@@ -1,0 +1,40 @@
+---
+- name: Ensure directories to mount exist
+  file:
+    path: "{{ item.strip().split()[0] }}"
+    state: directory
+    owner: "{{ ansible_ssh_user | default(ansible_env.SUDO_USER, true) | default(ansible_env.USER, true) | default(ansible_user_id) }}"
+    group: "{{ ansible_ssh_user | default(ansible_env.SUDO_USER, true) | default(ansible_env.USER, true) | default(ansible_user_id) }}"
+    mode: 0755
+  ignore_errors: true
+  with_items: "{{ autofs_extra }}"
+
+- name: Install autofs config files
+  template:
+    src: "{{ item.filename }}.j2"
+    dest: "{{ item.pathname }}/{{ item.filename }}"
+    owner: root
+    group: root
+    force: true
+    mode: 0644
+  become: true
+  with_items:
+    - "{{ autofs_config_files }}"
+  when: apt_result is success
+  notify: Restart autofs systemd service
+
+- name: Enable autofs client systemd service
+  systemd:
+    name: autofs
+    state: started
+    enabled: true
+  become: true
+  register: systemd_enable
+  ignore_errors: "{{ autofs_ignore_systemd_errors }}"
+
+- name: Show warning to user if systemd fails
+  pause:
+    seconds: 1
+    echo: false
+    prompt: "Could not enable autofs systemd service. Probably running in Docker? Continuing anyway ..."
+  when: systemd_enable is failed

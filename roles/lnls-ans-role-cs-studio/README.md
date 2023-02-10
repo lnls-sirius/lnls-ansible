@@ -7,24 +7,17 @@ This Ansible role configures CS-Studio for Sirius Light Source control machines.
 
 ## Requirements
 
-- ansible >= 2.4
-- molecule >= 2.20
+- ansible >= 2.9
+- molecule >= 3.0
 
 ## Role Variables
 
 ```yaml
-csstudio_version: 4.6.1.25
-csstudio_repository: production
-csstudio_base_url: "https://artifactory.esss.lu.se/artifactory/CS-Studio"
-csstudio_archive: "{{ csstudio_base_url }}/{{ csstudio_repository }}/{{ csstudio_version }}/cs-studio-ess-{{ csstudio_version }}-linux.gtk.x86_64.tar.gz"
+csstudio_archive: "http://10.0.38.42/download/CS-Studio/cs-studio-nsls2-4.6.4-linux.gtk.x86_64.tar.gz"
 # When changing the fonts, don't forget to remove
 # the previous directories!
-csstudio_fonts: https://artifactory.esss.lu.se/artifactory/swi-pkg/fonts/cs-studio-fonts-20180222.tgz
+csstudio_fonts: "http://10.0.38.42/download/CS-Studio/cs-studio-fonts-20180222.tgz"
 csstudio_fonts_dir: /usr/share/fonts/ess-20180222
-# xulrunner downloaded from http://releases.mozilla.org/pub/xulrunner/nightly/2012/05/2012-05-13-03-32-04-mozilla-1.9.2/
-# x86_64 version only available in nightly (not in releases)
-csstudio_xulrunner_version: 1.9.2.29pre
-csstudio_xulrunner: https://artifactory.esss.lu.se/artifactory/swi-pkg/xulrunner/xulrunner-{{ csstudio_xulrunner_version }}.en-US.linux-x86_64.tar.bz2
 
 # ":" separated list of addresses
 csstudio_ca_addr_list: localhost
@@ -39,7 +32,7 @@ csstudio_ca_max_array_bytes: 10000000
 - hosts: all
   tasks:
   - import_role:
-      name: '{{playbook_dir}}'
+      name: "{{ playbook_dir }}"
 ```
 
 ## Example Commmand
@@ -58,7 +51,8 @@ Tests are performed using Molecule. To run them with python virtualenv, issue:
         virtualenv env --python python3 && \
         source env/bin/activate && \
         cd lnls-ans-role-cs-studio && \
-        pip install molecule docker-py && \
+        pip install molecule testinfra \
+            yamllint ansible-lint flake8 docker-py && \
         molecule test"
 ```
 

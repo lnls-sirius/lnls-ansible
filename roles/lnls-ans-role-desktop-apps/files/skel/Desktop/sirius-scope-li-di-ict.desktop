@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=LI-DI-Osc-ICT
+Icon=/usr/share/icons/Adwaita/48x48/devices/audio-card.png
+Exec=/bin/bash -l -c "gvncviewer li-di-ictosc"
+StartupNotify=true
+Terminal=false

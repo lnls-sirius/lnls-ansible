@@ -1,0 +1,9 @@
+---
+__sirius_apps_hla_packages: []
+
+__sirius_apps_hla_pip_packages:
+  - "QtAwesome{{ (pkg_version_qtawesome | length > 0) | ternary('==' + pkg_version_qtawesome, '') }}"
+
+__python_executable: python-sirius
+
+__pip_executable: pip-sirius

@@ -4,7 +4,7 @@ galaxy_info:
   description: Ansible role to install Control System Studio
   company: CNPEM - LNLS
   license: BSD
-  min_ansible_version: 2.4
+  min_ansible_version: 2.9
 
   platforms:
     - name: Debian
@@ -12,6 +12,7 @@ galaxy_info:
         - jessie
         - stretch
         - buster
+        - bullseye
     - name: Ubuntu
       versions:
         - precise
@@ -20,6 +21,5 @@ galaxy_info:
         - bionic
 
 dependencies:
-  - lnls-ans-role-java
-  - lnls-ans-role-python
-  - lnls-ans-role-phoebus
+  - lnls-ans-role-repositories
+# - lnls-ans-role-python

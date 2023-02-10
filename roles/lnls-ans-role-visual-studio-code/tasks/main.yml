@@ -1,0 +1,28 @@
+---
+- name: Resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      ignore_errors: true
+      paths:
+        - '{{ role_path }}/vars'
+
+- name: Define Visual Studio packages
+  set_fact:
+    visual_studio_packages: "{{ __visual_studio_packages | default ([]) }}"
+  when: visual_studio_packages is not defined
+
+- include_tasks: setup-RedHat.yml
+  when: ansible_os_family == 'RedHat'
+
+- include_tasks: setup-Debian.yml
+  when: ansible_os_family == 'Debian'
+
+- import_tasks: install.yml
+
+- import_tasks: install-extensions.yml
+
+- import_tasks: write-settings.yml

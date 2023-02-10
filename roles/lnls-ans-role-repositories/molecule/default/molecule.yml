@@ -1,61 +1,58 @@
 ---
+vars:
+  apt_proxy_server: "${APT_PROXY_SERVER}"
+
 dependency:
   name: galaxy
-lint:
-  name: yamllint
-provisioner:
-  name: ansible
-  lint:
-    name: ansible-lint
-  inventory:
-    group_vars:
-      default_group:
-      debian_buster_based:
-      debian_stretch_based:
-      debian_jessie_based:
-scenario:
-  name: default
-verifier:
-  name: testinfra
+  collections:
+    - name: community.docker
+      version: 1.5.0
   options:
-    verbose: true
-  lint:
-    name: flake8
+    role-file: requirements.yml
+    collection-file: requirements.yml
+
 driver:
   name: docker
+
+lint: |
+  set -xe
+  yamllint .
+  flake8
+  ansible-lint
+
 platforms:
-  - name: lnls-ans-role-repository-debian-jessie
-    image: debian:jessie
-    groups:
-      - debian_jessie_based
-      - default_group
-    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
-  - name: lnls-ans-role-repository-debian-stretch
-    image: debian:stretch
+  - name: lnls-ans-role-repository-debian-stretch-instance
+    image: "${MOLECULE_DISTRO:-geerlingguy/docker-debian9-ansible}"
+    command: ${MOLECULE_DOCKER_COMMAND:-/lib/systemd/systemd}
     groups:
       - debian_stretch_based
       - default_group
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
-  - name: lnls-ans-role-repository-debian-buster
-    image: debian:buster
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
+    build_image: false
+  - name: lnls-ans-role-repository-debian-buster-instance
+    image: "${MOLECULE_DISTRO:-geerlingguy/docker-debian10-ansible}"
+    command: ${MOLECULE_DOCKER_COMMAND:-/lib/systemd/systemd}
     groups:
       - debian_buster_based
       - default_group
     dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
-  - name: lnls-ans-role-repository-ubuntu-trusty
-    image: ubuntu:trusty
-    groups:
-      - debian_ubuntu_trusty_based
-      - default_group
-    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
-  - name: lnls-ans-role-repository-ubuntu-xenial
-    image: ubuntu:xenial
-    groups:
-      - debian_ubuntu_xenial_based
-      - default_group
-    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
-  - name: lnls-ans-role-repositories-instance-generic
-    image: "${MOLECULE_DISTRO:-debian:stretch}"
-    groups:
-      - default_group
-    dns_servers: ["${DNS_SERVER1}", "${DNS_SERVER2}"]
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
+    build_image: false
+
+provisioner:
+  name: ansible
+  inventory:
+    links:
+      group_vars: ../../../../group_vars/
+    group_vars:
+      default_group:
+
+verifier:
+  name: testinfra

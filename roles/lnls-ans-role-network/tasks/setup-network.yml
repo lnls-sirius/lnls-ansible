@@ -1,0 +1,52 @@
+---
+# Check if the interfaces are already using auto DNS
+- name: Check value of ignore-auto-dns for interface {{ item.name }}
+  lineinfile:
+    path: "/etc/NetworkManager/system-connections/{{ item.name }}.nmconnection"
+    line: "ignore-auto-dns={{ item.ignore_auto_dns }}"
+    state: present
+  check_mode: true
+  become: true
+  register: conn_ignore_auto_dns_rc
+  ignore_errors: true
+  changed_when: "item.ignore_auto_dns == 'true' and conn_ignore_auto_dns_rc.changed"
+  with_items:
+    - "{{ network_interfaces }}"
+
+# Filter conn_ignore_auto_dns to get a list of {interface_names, value to be changed, ignore_auto_dns value}
+- name: Create dict of names,ignore_auto_dns from checked files
+  set_fact:
+    conn_ignore_auto_dns: "{{ conn_ignore_auto_dns|default([]) +
+        [ {'name': item.item.name,
+           'to_be_changed': item.changed,
+           'value': item.item.ignore_auto_dns} ] }}"
+  when:
+    - item is not failed | bool
+  with_items: "{{ conn_ignore_auto_dns_rc.results }}"
+
+- name: Create empty dict of names,ignore_auto_dns if not yet defined
+  set_fact:
+    conn_ignore_auto_dns: []
+  when:
+    - conn_ignore_auto_dns is not defined
+
+- name: Disable auto DNS for ipv4
+  command: nmcli con mod {{ item.name }} ipv4.ignore-auto-dns {{ item.value }}
+  become: true
+  with_items:
+    - "{{ conn_ignore_auto_dns }}"
+  when:
+    - item.to_be_changed | bool and item.value == "true"
+  notify: Restart Network Manager systemd service
+
+- name: Disable auto DNS for ipv6
+  command: nmcli con mod {{ item.name }} ipv6.ignore-auto-dns {{ item.value }}
+  become: true
+  with_items:
+    - "{{ conn_ignore_auto_dns }}"
+  when:
+    - item.to_be_changed | bool and item.value == "true"
+  notify: Restart Network Manager systemd service
+
+- name: Force handlers to run at this point
+  meta: flush_handlers

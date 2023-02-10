@@ -1,0 +1,28 @@
+---
+- hosts: ioc_as_ti_srv
+  remote_user: sirius
+
+  vars:
+    role_to_run: lnls-ans-role-ctrl-service
+    services_to_run:
+      - sirius-ioc-as-ti-trig.service
+      - sirius-ioc-li-ti-trig.service
+      - sirius-ioc-tb-ti-trig.service
+      - sirius-ioc-bo-ti-trig.service
+      - sirius-ioc-bo-ti-trig-bpms.service
+      - sirius-ioc-bo-ti-trig-corrs.service
+      - sirius-ioc-ts-ti-trig.service
+      - sirius-ioc-si-ti-trig.service
+      - sirius-ioc-si-ti-trig-bpms.service
+      - sirius-ioc-si-ti-trig-corrs.service
+      - sirius-ioc-si-ti-trig-qtrims.service
+      - sirius-ioc-si-ti-trig-skews.service
+
+  tasks:
+    - name: "Run {{ role_to_run }} role"
+      include_role:
+        name: "{{ role_to_run }}"
+      vars:
+        ctrl_service_name: "{{ item }}"
+      with_items:
+        - "{{ services_to_run }}"

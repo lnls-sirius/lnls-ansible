@@ -9,15 +9,21 @@
   retries: 5
   delay: 2
 
-- name: Check which python version installed
+- name: Check which python version is installed
   command: "which {{ python_exec }}"
   register: python_check_result
   changed_when: false
   check_mode: false
 
-- name: Check which pip version installed
+- name: Check which pip version is installed
   command: "which {{ pip_exec }}"
   register: pip_check_result
+  changed_when: false
+  check_mode: false
+
+- name: Check which python-config version is installed
+  command: "which {{ python_config_exec }}"
+  register: python_config_check_result
   changed_when: false
   check_mode: false
 
@@ -28,10 +34,17 @@
     state: link
   become: true
 
-- name: Install pip symlink
+- name: Install PIP symlink
   file:
     src: "{{ pip_check_result.stdout }}"
     dest: "{{ pip_symlink }}"
+    state: link
+  become: true
+
+- name: Install python-config symlink
+  file:
+    src: "{{ python_config_check_result.stdout }}"
+    dest: "{{ python_config_symlink }}"
     state: link
   become: true
 
@@ -45,3 +58,12 @@
   until: python_pip_packages_result is success
   retries: 5
   delay: 2
+
+- name: Check if NBExtensions is installed
+  stat:
+    path: /usr/local/share/jupyter/nbextensions/init_cell
+  register: nbextensions_package
+
+- name: Install Jupyter NBExtensions
+  command: "jupyter contrib nbextension install --system"
+  when: not nbextensions_package.stat.exists

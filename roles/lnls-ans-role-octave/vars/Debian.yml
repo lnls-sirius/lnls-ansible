@@ -1,0 +1,5 @@
+---
+__octave_packages:
+  - "octave"
+  - "liboctave-dev"
+  - "epstool"

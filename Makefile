@@ -1,28 +1,39 @@
-# Variables
+# Directories
+ROLES_DIR = ./roles
+PLAYBOOKS_DIR = ./playbooks
+INVENTORIES_DIR = ./inventories
+
+# DNS Setttings
 DNS_SERVER1 ?= 10.0.0.71
 DNS_SERVER2 ?= 10.0.0.72
 export DNS_SERVER1
 export DNS_SERVER2
-MOLECULE_DISTRO ?= debian:buster
-export MOLECULE_DISTRO
-BUILD_TYPE ?= default
-export BUILD_TYPE
-HOST_GROUPS ?= control_room:linac_opi
+
+# Settings
+BEAGLEBONE_INVENTORY = $(INVENTORIES_DIR)/beaglebones
+SIRIUS_INVENTORY = $(INVENTORIES_DIR)/sirius
+
+ALL_INVENTORIES =\
+    $(BEAGLEBONE_INVENTORY)\
+    $(SIRIUS_INVENTORY)
+
+HOST_GROUPS ?=
 REMOTE_USER ?= sirius
 ASK_FOR_PASS ?= y
 ASK_FOR_VAULT_PASS ?= y
+ANSIBLE_EXTRA_VARS ?=
 
 EXTRA_OPTS =
 ifneq ($(REMOTE_USER),)
-	EXTRA_OPTS += -u $(REMOTE_USER)
+	EXTRA_OPTS += --user $(REMOTE_USER)
 else
 	EXTRA_OPTS +=
 endif
 
 ifneq ($(HOST_GROUPS),)
-	EXTRA_OPTS += -i hosts -l $(HOST_GROUPS)
+	EXTRA_OPTS += --inventory $(ALL_INVENTORIES) --limit $(HOST_GROUPS)
 else
-	EXTRA_OPTS += -i hosts
+	EXTRA_OPTS += --inventory $(ALL_INVENTORIES)
 endif
 
 ASK_FOR_VAULT_PASS_FILTER=$(if $(filter y,${ASK_FOR_VAULT_PASS}),true,false)
@@ -34,86 +45,22 @@ endif
 
 ASK_FOR_PASS_FILTER=$(if $(filter y,${ASK_FOR_PASS}),true,false)
 ifeq ($(ASK_FOR_PASS_FILTER),true)
-	EXTRA_OPTS += -k --ask-become-pass
+	EXTRA_OPTS += --ask-pass --ask-become-pass
 else
 	EXTRA_OPTS +=
 endif
 
-ROLES_DIR = roles
+ifneq ($(ANSIBLE_VARS),)
+	EXTRA_OPTS += --extra-vars "$(ANSIBLE_VARS)"
+else
+	EXTRA_OPTS +=
+endif
 
-# Roles
-ROLES = lnls-ans-role-cs-studio \
-	lnls-ans-role-phoebus \
-	lnls-ans-role-ctrl-service \
-	lnls-ans-role-ntp \
-	lnls-ans-role-nvidia-driver \
-	lnls-ans-role-desktop-apps \
-	lnls-ans-role-desktop-settings \
-	lnls-ans-role-epics \
-	lnls-ans-role-java \
-	lnls-ans-role-nfsclient \
-	lnls-ans-role-nfsserver \
-	lnls-ans-role-python \
-	lnls-ans-role-qt \
-	lnls-ans-role-repositories \
-	lnls-ans-role-sirius-apps \
-	lnls-ans-role-users
-
-# Playbooks
-PLAYBOOKS = playbook-control-room-desktops.yml \
-    playbook-linac-opi-desktops.yml \
-	playbook-fac-desktops.yml \
-	playbook-ctrl-service.yml \
-	playbook-nfs-servers.yml \
-	playbook-service-iocma.yml \
-	playbook-service-iocps-linac.yml \
-	playbook-service-iocps.yml \
-	playbook-setup-ssh-key.yml
-
-# Test variables
-TEST_TARGET = test_
-test_TARGETS = $(addprefix $(TEST_TARGET), $(ROLES))
-
-# Playbook variables
-playbook_TARGETS = $(basename $(PLAYBOOKS))
-
-all: $(playbook_TARGETS)
-
-$(playbook_TARGETS): %: %.yml
-	ansible-playbook $(EXTRA_OPTS) $<
-
--include Makefile_services.mk
-
-tests: tests_stretch tests_buster
-
-tests_stretch:
-	$(MAKE) tests_all_roles MOLECULE_DISTRO=debian:stretch
-
-tests_buster:
-	$(MAKE) tests_all_roles MOLECULE_DISTRO=debian:buster
-
-tests_all_roles: $(test_TARGETS)
-
-$(test_TARGETS): $(TEST_TARGET)%:
-	bash -c "\
-		echo \"Using distro: \" ${MOLECULE_DISTRO} && \
-		echo \"Using DNS server 1: \" ${DNS_SERVER1} && \
-		echo \"Using DNS server 2: \" ${DNS_SERVER2} && \
-		cd $(ROLES_DIR) && \
-		virtualenv env --python python3 && \
-		source env/bin/activate && \
-		cd $* && \
-		pip install molecule docker-py && \
-		molecule test \
-	"
-
-# targets for dummies (myself & others)
-
-deploy-fac-desktops: playbook-fac-desktops.yml
-	ansible-playbook -u sirius -i hosts -l fac --ask-vault-pass -k --ask-become-pass playbook-fac-desktops.yml
-
-deploy-control-room-desktops: playbook-control-room-desktops.yml
-	ansible-playbook -u sirius -i hosts -l control_room --ask-vault-pass -k --ask-become-pass playbook-control-room-desktops.yml
-
-deploy-linac-opi-desktops: playbook-linac-opi-desktops.yml
-	ansible-playbook -u sirius -i hosts -l linac_opi --ask-vault-pass -k --ask-become-pass playbook-linac-opi-desktops.yml
+# Targets
+include ./make/targets/test.mk
+include ./make/targets/generic.mk
+include ./make/targets/control_room.mk
+include ./make/targets/deploy.mk
+include ./make/targets/reboot.mk
+include ./make/targets/server.mk
+include ./make/targets/services.mk
