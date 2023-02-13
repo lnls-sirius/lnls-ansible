@@ -10,9 +10,7 @@ __sirius_apps_packages:
   - "rsync{{ (pkg_version_rsync | length > 0) | ternary('=' + pkg_version_rsync, '') }}"
   - "htop{{ (pkg_version_htop | length > 0) | ternary('=' + pkg_version_htop, '') }}"
 
-__sirius_apps_pip_packages:
-  - "pyvisa{{ (pkg_version_pyvisa | length > 0) | ternary('==' + pkg_version_pyvisa, '') }}"
-  - "pyvisa-py{{ (pkg_version_pyvisa_py | length > 0) | ternary('==' + pkg_version_pyvisa_py, '') }}"
+__sirius_apps_pip_packages: []
 
 __python_executable: python-sirius
 

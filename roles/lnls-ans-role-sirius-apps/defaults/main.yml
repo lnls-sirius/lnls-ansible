@@ -7,8 +7,6 @@ pkg_version_libgsl2: ""
 pkg_version_libblas_dev: ""
 pkg_version_liblapack_dev: ""
 pkg_version_libgsl_dev: ""
-pkg_version_pyvisa: ""
-pkg_version_pyvisa_py: ""
 pkg_version_rsync: ""
 pkg_version_htop: ""
 
