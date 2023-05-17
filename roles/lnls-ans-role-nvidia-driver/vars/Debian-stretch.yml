@@ -1,17 +1,17 @@
 ---
 __nvidia_repository_apt:
   - name: Debian contrib/non-free repository
-    baseurl: "deb http://deb.debian.org/debian stretch main contrib non-free"
+    baseurl: "deb http://archive.debian.org/debian stretch main contrib non-free"
     description: "Debian contrib/non-free repository"
     state: present
 
   - name: Debian contrib/non-free updates repository
-    baseurl: "deb http://deb.debian.org/debian stretch-updates main contrib non-free"
+    baseurl: "deb http://archive.debian.org/debian stretch-proposed-updates main contrib non-free"
     description: "Debian contrib/non-free updates repository"
     state: present
 
   - name: Debian contrib/non-free volatile repository
-    baseurl: "deb http://deb.debian.org/debian-security stretch/updates main contrib non-free"
+    baseurl: "deb http://archive.debian.org/debian-security stretch/updates main contrib non-free"
     description: "Debian contrib/non-free volatile repository"
     state: present
 
