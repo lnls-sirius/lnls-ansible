@@ -330,7 +330,7 @@ desktop_autofs_sirius_epics_screens: "{{ sirius_epics_screens }}"
 
 # === Visual Studio Extensions ===
 
-visual_studio_code_version: "1.73.1-1667967334"
+visual_studio_code_version: "1.75.1-1675893397"
 
 visual_studio_code_extensions:
   - coolbear.systemd-unit-file
