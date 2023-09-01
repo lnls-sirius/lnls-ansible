@@ -59,10 +59,14 @@ IP_BEAMLINES="\
 "
 
 # Beamline hosts
-# 10.10.10.124 = IOCs cranes
+# 10.10.10.124 = CAX IOCs
 
 IP_FACILITIES="\
 10.10.10.124 \
+"
+
+IP_INTLK="\
+10.0.28.64 \
 "
 
 export EPICS_CA_ADDR_LIST="\
@@ -72,6 +76,7 @@ ${IP_CLP_KYMA_UNDU} \
 ${IP_RAD} \
 ${IP_BEAMLINES} \
 ${IP_FACILITIES} \
+${IP_INTLK} \
 "
 
 export EPICS_PVA_ADDR_LIST="\
@@ -81,6 +86,7 @@ ${IP_CLP_KYMA_UNDU} \
 ${IP_RAD} \
 ${IP_BEAMLINES} \
 ${IP_FACILITIES} \
+${IP_INTLK} \
 "
 
 # EPICS Support Application Machines
