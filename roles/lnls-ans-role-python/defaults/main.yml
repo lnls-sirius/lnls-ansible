@@ -55,6 +55,7 @@ pkg_version_networkx: ""
 pkg_version_scikitimage: ""
 pkg_version_scikitlearn: ""
 pkg_version_fpdf: ""
+pkg_version_h5py: ""
 
 # python symlink dest
 python_symlink: /usr/local/bin/python-sirius
