@@ -70,7 +70,7 @@ pkg_version_ps_firmware_arm: "master"
 pkg_version_ethbridge_pru_serial: "v2.9.0"
 pkg_version_siriuspy: "v2.84.0"
 pkg_version_machine_applications: "v3.46.0"
-pkg_version_siriushla: "v0.99.0"
+pkg_version_siriushla: "update-version"
 pkg_sirius_scripts: "v0.15.0"
 pkg_version_lnls_ansible: "master"
 
