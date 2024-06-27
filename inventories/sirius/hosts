@@ -27,7 +27,6 @@ control_room_linac_opis
 10.0.38.56  # elp1-linux
 
 [con]
-10.0.38.84  # cons-dev-vm
 isp-opi-2.abtlus.org.br
 # fac-testes.abtlus.org.br
 # fac-testes-debian10.abtlus.org.br
