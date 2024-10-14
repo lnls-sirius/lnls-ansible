@@ -26,6 +26,6 @@
   when: apt_pinning_paths is not defined
 
 # Setup
-- include_tasks: setup-Debian.yml
-  when:
-    - ansible_os_family == 'Debian'
+# - include_tasks: setup-Debian.yml
+#   when:
+#     - ansible_os_family == 'Debian'
