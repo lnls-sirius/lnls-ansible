@@ -1,6 +1,6 @@
 ---
 # - hosts: control_room:control_room_tv:control_room_linac_opis:control_room_new_pcs:con:elp
-- hosts: control_room
+- hosts: control_room:control_room_tv:control_room_linac_opis:control_room_new_pcs:elp
   remote_user: sirius
   become: true
 
@@ -38,7 +38,7 @@
     - role: lnls-ans-role-epics-mca
       when: global_role_epics_mca | default(true) | bool
     - role: lnls-ans-role-conda
-    - role: lnls-ans-role-sirius-hlacon
+    # - role: lnls-ans-role-sirius-hlacon # did not work for optiplex-7070-sc-2.abtlus.org.br
     - role: lnls-ans-role-sirius-apps
     - role: lnls-ans-role-sirius-hla
     - role: lnls-ans-role-desktop-apps
