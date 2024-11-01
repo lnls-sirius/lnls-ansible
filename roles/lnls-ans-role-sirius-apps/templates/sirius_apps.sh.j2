@@ -23,6 +23,7 @@ IP_IOCS_LI="\
 # 10.0.38.39 = Manacá (SI-09SA:ID-APU22, 1991b-ccu)
 # 10.0.38.52 = Ema (SI-08SB:ID-APU22, 1991d-ccu)
 # 10.0.38.93 = Carnaúba (SI-06SB:ID-APU22, 1991c-ccu)
+# 10.0.38.143 = Sapucaia (SI-17SA:ID-APU22, 1991-d)
 
 IP_CLP_KYMA_UNDU="\
 10.0.38.29  \
@@ -30,11 +31,20 @@ IP_CLP_KYMA_UNDU="\
 10.0.38.39 \
 10.0.38.52 \
 10.0.38.93 \
+10.0.38.143 \
+"
+
+# IVU18 undulators
+# 10.0.38.31 = Ema (SI-08SB:ID-IVU18, ivu18-2)
+# 10.0.38.150 = Paineira (SI-14SB:ID-IVU18, ivu18-1)
+
+IP_CLP_IVU18_UNDU="\
+10.0.38.31 \
+10.0.38.150 \
 "
 
 # Mobile radiation meters
 # 10.31.74.16 = Thermo 1
-# 10.0.38.31 = Thermo 6
 # 10.0.38.83 = Thermo 12
 # 10.0.38.72 = Thermo 14
 # 10.0.38.149 = Thermo 16
@@ -42,7 +52,6 @@ IP_CLP_KYMA_UNDU="\
 
 IP_RAD="\
 10.31.74.16 \
-10.0.38.31 \
 10.0.38.83 \
 10.0.38.72 \
 10.0.38.149 \
@@ -74,6 +83,7 @@ export EPICS_CA_ADDR_LIST="\
 ${EPICS_CA_ADDR_LIST} \
 ${IP_IOCS_LI} \
 ${IP_CLP_KYMA_UNDU} \
+${IP_CLP_IVU18_UNDU} \
 ${IP_RAD} \
 ${IP_BEAMLINES} \
 ${IP_FACILITIES} \
@@ -84,6 +94,7 @@ export EPICS_PVA_ADDR_LIST="\
 ${EPICS_PVA_ADDR_LIST} \
 ${IP_IOCS_LI} \
 ${IP_CLP_KYMA_UNDU} \
+${IP_CLP_IVU18_UNDU} \
 ${IP_RAD} \
 ${IP_BEAMLINES} \
 ${IP_FACILITIES} \
