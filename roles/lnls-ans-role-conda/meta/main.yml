@@ -12,6 +12,7 @@ galaxy_info:
         - stretch
         - jessie
         - buster
+        - bullseye
     - name: Ubuntu
       versions:
         - xenial

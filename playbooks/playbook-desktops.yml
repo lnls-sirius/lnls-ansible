@@ -37,31 +37,15 @@
       include_role:
         name: lnls-ans-role-network
       when: global_network_role | default(true) | bool
-
-    - name: Include role lnls-ans-role-nvidia-driver
-      include_role:
-        name: lnls-ans-role-nvidia-driver
-      when: global_import_nvidia_driver_role | default(false) | bool
-
-    - name: Include role lnls-ans-role-ntp
-      include_role:
-        name: lnls-ans-role-ntp
-
-    - name: Include role lnls-ans-role-zabbix
-      include_role:
-        name: lnls-ans-role-zabbix
-
-    - name: Include role lnls-ans-role-epics
-      include_role:
-        name: lnls-ans-role-epics
-
-    - name: Include role lnls-ans-role-epics7
-      include_role:
-        name: lnls-ans-role-epics7
-
-    - name: Include role lnls-ans-role-cs-studio
-      include_role:
-        name: lnls-ans-role-cs-studio
+    # - role: lnls-ans-role-nvidia-driver
+    #   when: global_import_nvidia_driver_role | default(false) | bool
+    - role: lnls-ans-role-ntp
+    - role: lnls-ans-role-zabbix
+    - role: lnls-ans-role-python
+    - role: lnls-ans-role-epics
+    - role: lnls-ans-role-epics7
+    - role: lnls-ans-role-qt
+    - role: lnls-ans-role-cs-studio
       when: global_role_cs_studio | default(true) | bool
 
     - name: Include role lnls-ans-role-sirius-bbb
@@ -98,8 +82,5 @@
       include_role:
         name: lnls-ans-role-desktop-settings
       when: global_role_desktop_settings | default(true) | bool
-
-    - name: Include role lnls-ans-role-visual-studio-code
-      include_role:
-        name: lnls-ans-role-visual-studio-code
-      when: global_role_visual_studio | default(false) | bool
+    - role: lnls-ans-role-visual-studio-code
+      when: global_role_visual_studio_code | default(false) | bool

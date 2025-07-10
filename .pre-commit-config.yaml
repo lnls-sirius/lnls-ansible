@@ -9,13 +9,13 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/psf/black
-    rev: 21.9b0
+    rev: 22.3.0
     hooks:
       - id: black
         language_version: python3
         args: ["--config", ".black"]
 
-  - repo: https://gitlab.com/pycqa/flake8
+  - repo: https://github.com/pycqa/flake8
     rev: 4.0.1
     hooks:
       - id: flake8

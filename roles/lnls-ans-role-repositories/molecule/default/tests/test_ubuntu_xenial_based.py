@@ -12,8 +12,8 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     "repo",
     [
         "https://epicsdeb.bnl.gov/debian stretch/main",
-        "http://deb.debian.org/debian stretch/main",
-        "http://security.debian.org/debian-security stretch/updates/main",
+        "http://archive.debian.org/debian stretch/main",
+        "http://archive.debian.org/debian-security stretch/updates/main",
     ],
 )
 def test_repos(host, repo):

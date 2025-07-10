@@ -20,7 +20,6 @@ optiplex-7070-sc-1.abtlus.org.br
 optiplex-7070-sc-2.abtlus.org.br
 
 [control_room_tv]
-lnls452-linux
 lnls455-linux
 
 [control_room_all:children]
@@ -35,9 +34,10 @@ control_room_linac_opis
 10.0.38.56  # elp1-linux
 
 [con]
-10.0.38.20  # fac-testes.abtlus.org.br
-10.0.38.84  # cons-dev-vm
-#fac-testes-debian10.abtlus.org.br
+isp-opi-2.abtlus.org.br
+# fac-testes.abtlus.org.br
+# fac-testes-debian10.abtlus.org.br
+# 10.20.31.26  # lnls210-linux
 
 [fac]
 lnls560-linux  # fac-analuisa

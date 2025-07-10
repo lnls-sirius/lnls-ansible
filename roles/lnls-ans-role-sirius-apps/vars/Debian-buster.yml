@@ -9,3 +9,9 @@ __sirius_apps_packages:
   - "libgsl-dev{{ (pkg_version_libgsl_dev | length > 0) | ternary('=' + pkg_version_libgsl_dev, '') }}"
   - "rsync{{ (pkg_version_rsync | length > 0) | ternary('=' + pkg_version_rsync, '') }}"
   - "htop{{ (pkg_version_htop | length > 0) | ternary('=' + pkg_version_htop, '') }}"
+
+__sirius_apps_pip_packages: []
+
+__python_executable: python-sirius
+
+__pip_executable: pip-sirius

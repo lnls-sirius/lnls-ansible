@@ -1,0 +1,18 @@
+---
+- hosts: control_room:control_room_tv:control_room_linac_opis:control_room_new_pcs:con:elp
+  remote_user: sirius
+  become: true
+
+  pre_tasks:
+    - name: Include distribution-dependent variables
+      include_vars: "{{ item }}"
+      vars:
+        possible_var_files:
+          - "../{{ inventory }}/group_vars/{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml"
+          - "../{{ inventory }}/group_vars/{{ ansible_distribution }}.yml"
+          - "../{{ inventory }}/group_vars/{{ ansible_os_family }}.yml"
+      loop: "{{ q('first_found', possible_var_files, errors='ignore') }}"
+
+  roles:
+    - role: lnls-ans-role-sirius-apps
+    - role: lnls-ans-role-sirius-hla

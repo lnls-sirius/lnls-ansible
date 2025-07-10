@@ -26,7 +26,10 @@ galaxy_info:
         - xenial
         - bionic
 
-dependencies:
-  - lnls-ans-role-repositories
-  - lnls-ans-role-users
-  - lnls-ans-role-epics
+# dependencies:
+#   - lnls-ans-role-repositories
+#   - lnls-ans-role-users
+#   - lnls-ans-role-python
+#   - lnls-ans-role-epics
+#   - lnls-ans-role-qt
+#   - lnls-ans-role-pydm

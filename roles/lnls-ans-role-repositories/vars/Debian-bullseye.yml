@@ -11,3 +11,9 @@ __repository_apt:
     description: "Debian Stretch VScode"
     file: debian-vscode
     state: present
+
+  - name: Debian Bullseye-Backports Main
+    baseurl: "deb http://deb.debian.org/debian bullseye-backports main"
+    description: "Debian Bullseye-Backports Main"
+    file: debian-bullseye-backports-main
+    state: present

@@ -35,25 +35,25 @@ __repository_apt:
     state: present
 
   - name: Debian Stretch repository
-    baseurl: "deb http://deb.debian.org/debian stretch main"
+    baseurl: "deb http://archive.debian.org/debian stretch main"
     description: "Debian Stretch repository"
     file: debian-stretch-main
     state: present
 
   - name: Debian Stretch repository sources
-    baseurl: "deb-src http://deb.debian.org/debian stretch main"
+    baseurl: "deb-src http://archive.debian.org/debian stretch main"
     description: "Debian Stretch repository"
     file: debian-stretch-main-src
     state: present
 
   - name: Debian Stretch security repository
-    baseurl: "deb http://security.debian.org/debian-security stretch/updates main"
+    baseurl: "deb http://archive.debian.org/debian-security stretch/updates main"
     description: "Debian Stretch security repository"
     file: debian-stretch-updates
     state: present
 
   - name: Debian Stretch security repository sources
-    baseurl: "deb-src http://security.debian.org/debian-security stretch/updates main"
+    baseurl: "deb-src http://archive.debian.org/debian-security stretch/updates main"
     description: "Debian Stretch security repository"
     file: debian-stretch-updates-src
     state: present
