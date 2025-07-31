@@ -1,4 +1,7 @@
 ---
+- name: Gather facts
+  gather_facts:
+
 - name: Resolve platform specific vars
   include_vars: '{{ item }}'
   with_first_found:
@@ -6,9 +9,9 @@
         - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
         - '{{ ansible_distribution }}.yml'
         - '{{ ansible_os_family }}.yml'
-      ignore_errors: true
       paths:
         - '{{ role_path }}/vars'
+      skip: true
 
 # Setup
 - include_tasks: setup-Debian.yml
@@ -18,3 +21,38 @@
 - include_tasks: setup-RedHat.yml
   when:
     - ansible_os_family == 'RedHat'
+
+- name: Create conda group for multi user access
+  group:
+    name: conda
+    state: present
+    system: yes
+
+- name: Update conda permissions
+  file:
+    mode: 'u=rwx,g=rwx,o=rx'
+    group: conda
+    path: "{{ conda_install_path }}"
+    recurse: yes
+
+- name: Create envs base dir
+  file:
+    path: "{{ conda_install_path }}/envs"
+    mode: 'u=rwx,g=rwx,o=rx'
+    group: conda
+    state: directory
+
+- name: Install conda profile
+  template:
+    src: conda-profile.sh.j2
+    dest: /etc/profile.d/conda-profile.sh
+    mode: 'u=rwx,g=rx,o=rx'
+
+- name: Install Mamba in base env using standard conda
+  conda:
+   environment: base
+   name: mamba
+   state: latest
+   channels:
+     - conda-forge
+   executable: "{{ conda_executable }}"

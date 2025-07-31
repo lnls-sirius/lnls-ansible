@@ -1,0 +1,5 @@
+---
+__sirius_apps_hla_packages:
+  - xpra
+  - xvfb
+  - gnome-terminal

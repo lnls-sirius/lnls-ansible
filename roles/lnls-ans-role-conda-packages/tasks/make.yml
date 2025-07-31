@@ -1,0 +1,10 @@
+- name: Run make targets
+  make:
+    chdir: '{{ conda_repos_path }}/{{ dependency.repo.split("/")[-1].replace(".git", "") }}/{{ dependency.cd | default("") }}'
+    target: "{{ item }}"
+  with_items: "{{ dependency.targets }}"
+  environment:
+    CONDA_PREFIX: "{{ conda_prefix }}"
+    PIP: "{{ conda_python_pip_executable }}"
+    PYTHON: "{{ conda_python_executable }}"
+    PATH: "{{ conda_prefix }}/bin:{{ ansible_env.PATH }}"

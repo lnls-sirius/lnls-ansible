@@ -1,1 +1,8 @@
 ---
+conda_install_path: "/opt/conda"
+
+conda_executable: "{{ conda_install_path }}/bin/conda"
+
+conda_mamba_executable: "{{ conda_install_path }}/bin/mamba"
+
+conda_profile: "{{ conda_install_path }}/etc/profile.d/conda.sh"

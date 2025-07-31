@@ -1,0 +1,47 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+#
+# https://www.vagrantup.com/docs/boxes/base
+
+
+VAGRANTFILE_API_VERSION = "2"
+
+hosts = {
+  "debian.bullseye" => "192.168.56.10", # Debian 11
+  "debian.stretch"  => "192.168.56.11",  # Debian 9
+}
+
+BOX_MEMORY = 2024 # 2GB
+BOX_CPUS = 2
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  hosts.each do |name, ip|
+    config.vm.define name do |machine|
+
+      # Box providers
+      config.vm.provider :libvirt do |vb|
+         vb.memory = BOX_MEMORY
+         vb.cpus = BOX_CPUS
+      end
+
+      machine.vm.provider "virtualbox" do |vb|
+         vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
+         vb.gui = false
+         vb.name = name
+         vb.memory = BOX_MEMORY
+         vb.cpus = BOX_CPUS
+      end
+
+      # Configure vagrant box
+      if name.eql? "debian.bullseye" then
+        machine.vm.box = "debian/bullseye64"
+      elsif name.eql? "debian.stretch" then
+        machine.vm.box = "debian/stretch64"
+      end
+
+      # Box network settings
+      machine.vm.hostname = "%s" % name
+      machine.vm.network :private_network, ip: ip
+    end
+  end
+end

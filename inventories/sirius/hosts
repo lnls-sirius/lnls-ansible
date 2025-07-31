@@ -1,3 +1,10 @@
+[localhost]
+localhost ansible_connection=local ansible_python_interpreter="/usr/bin/env python3"
+
+[vagrant]
+debian.bullseye ansible_connection=ssh ansible_user=vagrant ansible_host=192.168.56.10 # Debian 11
+debian.stretch  ansible_connection=ssh ansible_user=vagrant ansible_host=192.168.56.11 # Debian 9
+
 # === Control Room ===
 [control_room_linac_opis]
 linac-opi1
@@ -43,7 +50,7 @@ lnls557-linux  # fac-liulin (10.0.38.44)
 # lnls561-linux  # fac-ximenes
 
 [rfq]
-10.15.0.189  # lnls627-linux (RF laptop)
+s-rfq03-l ansible_user=rfq ansible_connection=ssh ansible_python_interpreter="/usr/bin/env python3"
 
 [docker_servers]
 CA-RaTim-CO-IOCSrv

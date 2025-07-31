@@ -1,3 +1,5 @@
+# -*- mode: yaml -*-
+# vi: set ft=yaml :
 ---
 # === Docker ===
 docker_edition: "ce"
@@ -53,6 +55,11 @@ csstudio_archive: "http://10.0.38.42/download/CS-Studio/cs-studio-nsls2-4.6.4-li
 csstudio_fonts: "http://10.0.38.42/download/CS-Studio/cs-studio-fonts-20180222.tgz"
 csstudio_fonts_dir: "/usr/local/share/fonts/ess-{{ csstudio_fonts_version }}"
 
+# --- EPICS ---
+# This will disable EPICS python from lnls-ans-role-epics
+# by default the role lnls-ans-role-epics requires pip-sirius and pip
+epics_install_python_packages: false
+
 # --- EPICS 7 ---
 # Overrides the defaults version on EPICS7 role
 epics7_base_version: "7.0.4.1"
@@ -98,6 +105,241 @@ pkg_version_hlacon_conda_siriushlacon: "2.7.2"
 pkg_version_docker_machine_applications: "v1.26.0"
 pkg_version_docker_ctrl_sys_consts: "v1.1.0"
 
+pkg_fac_conda_python_version: "3.6.11"
+pkg_fac_conda_python2_version: "2.7.18"
+
+
+# === conda environments ===
+conda_environments:
+  - name: GAS Conda Environment
+
+    conda_prefix: /opt/conda/envs/gas
+    conda_python_version: '3.9.2'
+
+    conda_packages:
+      - qt=5.12.9
+      - pyqt=5.12.3
+      - pydm=1.10.4
+
+    conda_pip_packages:
+      - siriushlacon==2.4.1
+
+    conda_activate_templates: []
+
+    conda_deactivate_templates: []
+
+    conda_clone_install_make: []
+
+    conda_app_executables:
+      - name:          sirius-hla-as-ap-bbb-monitor
+        executable:    sirius-hla-as-ap-bbb-monitor.py
+
+      - name:          sirius-hla-as-ap-conlauncher
+        executable:    sirius-hla-as-ap-conlauncher.py
+
+      - name:          sirius-hla-as-ap-countingpru
+        executable:    sirius-hla-as-ap-countingpru.py
+
+      - name:          sirius-hla-as-ap-mbtemp
+        executable:    sirius-hla-as-ap-mbtemp.py
+
+      - name:          sirius-hla-as-ap-pctrl
+        executable:    sirius-hla-as-ap-pctrl.py
+
+      - name:          sirius-hla-as-ps-regatron
+        executable:    sirius-hla-as-ps-regatron.py
+
+      - name:          sirius-hla-as-ps-regatron-individual
+        executable:    sirius-hla-as-ps-regatron-individual.py
+
+      - name:          sirius-hla-as-pu-spixconv
+        executable:    sirius-hla-as-pu-spixconv.py
+
+      - name:          sirius-hla-as-va-agilent4uhv
+        executable:    sirius-hla-as-va-agilent4uhv.py
+
+      - name:          sirius-hla-as-va-agilent4uhv-device
+        executable:    sirius-hla-as-va-agilent4uhv-device.py
+
+      - name:          sirius-hla-as-va-mks937b
+        executable:    sirius-hla-as-va-mks937b.py
+
+      - name:          sirius-hla-bo-va-agilent4uhv-overview
+        executable:    sirius-hla-bo-va-agilent4uhv-overview.py
+
+      - name:          sirius-hla-bo-va-mks937b-overview
+        executable:    sirius-hla-bo-va-mks937b-overview.py
+
+      - name:          sirius-hla-si-va-agilent4uhv-overview
+        executable:    sirius-hla-si-va-agilent4uhv-overview.py
+
+      - name:          sirius-hla-si-va-mks937b-overview
+        executable:    sirius-hla-si-va-mks937b-overview.py
+
+      - name:          sirius-hla-tb-va-agilent4uhv-overview
+        executable:    sirius-hla-tb-va-agilent4uhv-overview.py
+
+      - name:          sirius-hla-tb-va-mks937b-overview
+        executable:    sirius-hla-tb-va-mks937b-overview.py
+
+      - name:          sirius-hla-ts-va-agilent4uhv-overview
+        executable:    sirius-hla-ts-va-agilent4uhv-overview.py
+
+      - name:          sirius-hla-ts-va-mks937b-overview
+        executable:    sirius-hla-ts-va-mks937b-overview.py
+
+  - name: FAC Conda environment - Python2
+
+    conda_prefix: /opt/conda/envs/py27
+    conda_python_version: "{{ pkg_fac_conda_python2_version }}"
+
+    conda_packages: []
+
+    conda_pip_packages: []
+
+    conda_activate_templates: []
+
+    conda_deactivate_templates: []
+
+    conda_clone_install_make:
+    #   TODO: Update Makefile so we can ovewrite PIP and PYTHON
+      - name: Linac PS IOCs
+        repo: https://gitlab.cnpem.br/FACS/linac-ioc-ps.git
+        targets: install
+        version: "{{ pkg_version_linac_ioc_ps }}"
+        force_version: true
+
+    conda_app_executables: []
+
+  - name: FAC Conda environment
+
+    conda_prefix: /opt/conda/envs/sirius
+
+    conda_python_version: "{{ pkg_fac_conda_python_version }}"
+
+    conda_packages:
+      - "python=={{ pkg_fac_conda_python_version }}"
+      - aiohttp=3.7.4
+      - bottleneck=1.3.2
+      - matplotlib=3.3.4 # downversion from 3.5.1 ->  3.3.4 due to Python 3.6
+      - pyparsing=2.4.2
+      - pyqt=5.12.3 # brings qt
+      - pyqtgraph=0.11.0
+      - pytest=6.2.4
+      - pyvisa-py=0.3.1
+      - pyvisa=1.10.1
+      - QtAwesome=0.7.2
+
+    conda_pip_packages:
+      - cairocffi
+      - ipython
+      - jupyter
+      - jupyter_contrib_nbextensions
+      - jupyterlab
+      - notebook
+      - pandas
+      - pcaspy==0.7.3
+      - psutil
+      - pydm==1.10.3
+      - pyepics==3.4.0
+      - python-nmap
+      - requests
+      - scipy
+      - sh
+      - termcolor
+      - timechart
+      - wakeonlan
+      - xlrd
+
+    conda_activate_templates:
+      - src: sirius-activate.sh.j2
+        dest: sirius-activate.sh
+
+    conda_deactivate_templates:
+      - src: sirius-deactivate.sh.j2
+        dest: sirius-deactivate.sh
+
+    conda_clone_install_make:
+      # TODO: Check if the really need this
+      - name: Scripts
+        org_url: https://github.com/lnls-sirius
+        repo_name: scripts
+        repo_version: "{{ pkg_sirius_scripts }}"
+        clone_path: /tmp
+        install_via_makefile: true
+        make_install_target: install-ansible
+        force_version: true
+
+      - repo: "https://github.com/lnls-fac/mathphys.git"
+        version: overwrite-make-variable
+        targets: install
+        force_version: true
+
+      - repo: "https://github.com/lnls-sirius/dev-packages.git"
+        version: master
+        targets: install
+        force_version: true
+        cd: siriuspy
+
+      - repo: "https://github.com/lnls-fac/lnls.git"
+        version: master
+        targets: install
+        force_version: true
+
+      - repo: "https://github.com/lnls-fac/trackcpp.git"
+        version: master
+        force_version: true
+        targets: [ clean, install ]
+
+      - repo: "https://github.com/lnls-fac/pyaccel.git"
+        version: master
+        targets: install
+        force_version: true
+
+      - repo: "https://github.com/lnls-fac/pymodels.git"
+        version: master
+        targets: install
+        force_version: true
+
+      - repo: "https://github.com/lnls-fac/apsuite.git"
+        version: master
+        targets: install
+        force_version: true
+
+      - repo: "https://github.com/lnls-sirius/hla.git"
+        version: master
+        targets: install
+        force_version: true
+        cd: pyqt-apps
+
+      - repo: "https://github.com/lnls-fac/hlafac.git"
+        version: master
+        targets: install
+        force_version: true
+
+      - repo: "https://github.com/lnls-sirius/eth-bridge-pru-serial485.git"
+        version: master
+        targets: install
+        force_version: true
+        cd: client
+
+      - repo: "https://github.com/lnls-sirius/machine-applications.git"
+        version: master
+        targets: install
+        force_version: true
+
+    conda_app_executables:
+      - name: jupyter-sirius
+        command: jupyter notebook
+
+      - name: ipython-sirius
+        command: ipython
+
+      - name: designer-sirius
+        command: designer
+
+      - name: sirius-hla-as-ap-launcher
+        command: sirius-hla-as-ap-launcher.py
 
 # === sirius apps packages ===
 
@@ -105,101 +347,14 @@ pkg_version_docker_ctrl_sys_consts: "v1.1.0"
 sirius_apps_bpm_tests_dir: /usr/local/share/bpm-tests
 
 # Groups of packages
-sirius_apps_dev_packages:
-  - name: Math Phys
-    org_url: https://github.com/lnls-fac
-    repo_name: mathphys
-    repo_version: "{{ pkg_version_mathphys }}"
-    clone_path: /tmp
-    install_via_makefile: true
-    force_version: true
+# DEPRECATED: Use the conda environment instead
+sirius_apps_dev_packages: []
 
-  - name: Ethernet PRU-Serial 485 Application
-    org_url: https://github.com/lnls-sirius
-    repo_name: eth-bridge-pru-serial485
-    repo_version: "{{ pkg_version_ethbridge_pru_serial }}"
-    clone_path: /tmp
-    install_chdir: client
-    install_via_makefile: true
-    force_version: true
-
-  - name: Development Packages
-    org_url: https://github.com/lnls-sirius
-    repo_name: dev-packages
-    repo_version: "{{ pkg_version_siriuspy }}"
-    clone_path: /tmp
-    install_chdir: siriuspy
-    install_via_makefile: true
-    force_version: true
-
-  - name: TrackC++ Package
-    org_url: https://github.com/lnls-fac
-    repo_name: trackcpp
-    repo_version: "{{ pkg_version_trackcpp }}"
-    clone_path: /tmp
-    install_via_makefile: true
-    force_version: true
-
-  - name: LNLS Package
-    org_url: https://github.com/lnls-fac
-    repo_name: lnls
-    repo_version: "{{ pkg_version_lnls }}"
-    clone_path: /tmp
-    install_via_makefile: true
-    force_version: true
-
-  - name: Pyaccel Package
-    org_url: https://github.com/lnls-fac
-    repo_name: pyaccel
-    repo_version: "{{ pkg_version_pyaccel }}"
-    clone_path: /tmp
-    install_via_makefile: true
-    force_version: true
-
-  - name: Pymodels Package
-    org_url: https://github.com/lnls-fac
-    repo_name: pymodels
-    repo_version: "{{ pkg_version_pymodels }}"
-    clone_path: /tmp
-    install_via_makefile: true
-    force_version: true
-
-  - name: ApSuite Package
-    org_url: https://github.com/lnls-fac
-    repo_name: apsuite
-    repo_version: "{{ pkg_version_apsuite }}"
-    clone_path: /tmp
-    install_via_makefile: true
-    force_version: true
-
-
-sirius_apps_iocs:
-  - name: Machine Applications
-    org_url: https://github.com/lnls-sirius
-    repo_name: machine-applications
-    repo_version: "{{ pkg_version_machine_applications }}"
-    clone_path: /tmp
-    install_via_makefile: true
-    force_version: true
-
-  - name: Linac PS IOCs
-    org_url: https://gitlab.cnpem.br/FACS
-    repo_name: linac-ioc-ps
-    repo_version: "{{ pkg_version_linac_ioc_ps }}"
-    clone_path: /tmp
-    install_via_makefile: true
-    force_version: true
+# DEPRECATED: Use the conda environment instead
+sirius_apps_iocs: []
 
 sirius_apps_mgmt:
-  - name: Scripts
-    org_url: https://github.com/lnls-sirius
-    repo_name: scripts
-    repo_version: "{{ pkg_sirius_scripts }}"
-    clone_path: /tmp
-    install_via_makefile: true
-    make_install_target: install-ansible
-    force_version: true
-
+  # Matlab scripts
   - name: BPM Scripts
     org_url: https://github.com/lnls-dig
     repo_name: bpm-tests
@@ -217,7 +372,6 @@ sirius_apps_install_categories:
   - sirius_apps_iocs
   - sirius_apps_mgmt
 
-
 # === sirius apps HLA packages ===
 
 # Sirius Linac EDM screens
@@ -227,28 +381,11 @@ sirius_apps_hla_li_edm_dir: /usr/local/share/edm/data
 sirius_apps_hla_designer_dir: /usr/local/share/Qt/designer
 
 # Groups of packages
-sirius_apps_hla_apps:
-  - name: High-Level Applications
-    org_url: https://github.com/lnls-sirius
-    repo_name: hla
-    repo_version: "{{ pkg_version_siriushla }}"
-    clone_path: /tmp
-    install_chdir: pyqt-apps
-    install_via_makefile: true
-    make_install_target: install-all
-    make_install_opts:
-      INSTALL_DESIGNER_DIR: "{{ sirius_apps_hla_designer_dir }}"
-    force_version: true
-
-  - name: FAC High-Level Applications
-    org_url: https://github.com/lnls-fac
-    repo_name: hlafac
-    repo_version: "{{ pkg_version_siriushlafac }}"
-    clone_path: /tmp
-    install_via_makefile: true
-    force_version: true
+# DEPRECATED: Use the conda environment instead
+sirius_apps_hla_apps: []
 
 sirius_apps_hla_opis:
+  # EDM OPIs
   - name: OPIs
     org_url: https://gitlab.cnpem.br/FACS
     repo_name: linac-opi
@@ -312,12 +449,10 @@ ntp_servers:
    - "10.0.38.46 iburst minpoll 3 maxpoll 3"
    - "10.0.38.59 iburst minpoll 3 maxpoll 3"
 
-
 # === Desktop-settings ===
 
 desktop_settings_lnls_ansible_src: /home/sirius/repos/lnls-ansible
 desktop_settings_lnls_ansible_dest: /home/sirius/lnls-ansible
-
 
 fac_workstation_ip: 10.20.31.28
 
@@ -349,36 +484,36 @@ visual_studio_code_extensions:
   - zhoufeng.pyqt-integration
 
 visual_studio_code_settings:
-  "editor.fontSize": 12
-  "markdown.preview.fontSize": 12
-  "terminal.integrated.fontSize": 12
   "debug.console.fontSize": 12
+  "diffEditor.ignoreTrimWhitespace": false
+  "editor.fontSize": 12
+  "editor.wordWrap": "wordWrapColumn"
   "files.insertFinalNewline": true
   "files.trimFinalNewlines": true
   "files.trimTrailingWhitespace": true
-  "workbench.settings.openDefaultSettings": true
-  "workbench.settings.editor": "json"
-  "workbench.settings.useSplitJSON": true
-  "window.doubleClickIconToClose": true
-  "search.showLineNumbers": true
   "git.autofetch": true
   "git.fetchOnPull": true
+  "git.inputValidationSubjectLength": 70
+  "markdown.preview.fontSize": 12
   "python.linting.pep8Enabled": true
   "python.linting.pydocstyleEnabled": true
   "python.linting.pylamaEnabled": true
-  "editor.wordWrap": "wordWrapColumn"
-  "diffEditor.ignoreTrimWhitespace": false
-  "git.inputValidationSubjectLength": 70
   "python.linting.pylintArgs":
     - "--extension-pkg-whitelist=PyQt5"
-  "editor.wrappingIndent": "indent"
-  "workbench.panel.defaultLocation": "right"
-  "editor.wordWrapColumn": 79
+  "search.showLineNumbers": true
+  "terminal.integrated.fontSize": 12
+  "window.doubleClickIconToClose": true
+  "workbench.settings.editor": "json"
+  "workbench.settings.openDefaultSettings": true
+  "workbench.settings.useSplitJSON": true
   "breadcrumbs.enabled": true
+  "editor.wordWrapColumn": 79
+  "editor.wrappingIndent": "indent"
   "explorer.confirmDelete": false
-  "window.zoomLevel": 0
-  "matlab.mlintpath": "/usr/local/MATLAB/R2016b/bin/glnxa64/mlint"
   "makefileCommandRunner.makefilePath": "/usr/bin/make"
+  "matlab.mlintpath": "/usr/local/MATLAB/R2016b/bin/glnxa64/mlint"
+  "window.zoomLevel": 0
+  "workbench.panel.defaultLocation": "right"
 
 visual_studio_code_keybindings:
   - "key": "ctrl+alt+t"

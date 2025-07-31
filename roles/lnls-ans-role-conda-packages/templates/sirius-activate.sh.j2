@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# PyDM
+# ====
+export PYDM_DESIGNER_ONLINE=True
+export PYDM_DEFAULT_PROTOCOL="ca://"
+export PYDM_EPICS_LIB="PYEPICS"  # PYEPICS, PYCA, CAPROTO
+export LC_NUMERIC="en_US.UTF-8"
+
+# PyQt
+# ====
+export PYQTDESIGNERPATH={{ conda_prefix }}/repos/hla/pyqt-apps

@@ -113,6 +113,9 @@ users:
     state: present
 
 users_groups:
+  - name: conda
+    system: true
+    gid: 21000
   - name: sirius
     system: true
     state: present

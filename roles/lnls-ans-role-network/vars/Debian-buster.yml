@@ -1,6 +1,5 @@
 ---
 __network_packages:
   - "network-manager{{ (pkg_version_network_manager | length > 0) | ternary('=' + pkg_version_network_manager, '') }}"
-  - "python-dbus{{ (pkg_version_python_dbus | length > 0) | ternary('=' + pkg_version_python_dbus, '') }}"
   - "python3-dbus{{ (pkg_version_python3_dbus | length > 0) | ternary('=' + pkg_version_python3_dbus, '') }}"
   - "libnm0{{ (pkg_version_libnm0  | length > 0) | ternary('=' + pkg_version_libnm0, '') }}"

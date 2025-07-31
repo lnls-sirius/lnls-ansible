@@ -18,4 +18,6 @@ galaxy_info:
         - xenial
         - trusty
 
-dependencies: []
+dependencies:
+  - role: conda
+    version: v1.2.0
