@@ -1,0 +1,42 @@
+- name: Define PIP packages
+  set_fact:
+    epics_pip_packages: "{{ __epics_pip_packages | default([]) }}"
+  when: epics_pip_packages is not defined
+
+- name: Define PIP executable
+  set_fact:
+    pip_executable: "{{ __pip_executable | default(omit) }}"
+  when: pip_executable is not defined
+
+- name: Define PIP Python2 executable
+  set_fact:
+    pip2_executable: "{{ __pip2_executable | default(omit) }}"
+  when: pip2_executable is not defined
+
+- name: Ensure Python EPICS packages are installed
+  pip:
+    name: "{{ epics_pip_packages }}"
+    state: "{{ epics_pip_packages_state }}"
+    executable: "{{ pip_executable }}"
+  environment:
+    EPICS_BASE: "{{ epics_base_dir }}"
+    EPICS_HOST_ARCH: "{{ epics_host_arch }}"
+  become: true
+  register: epics_pip_packages_result
+  until: epics_pip_packages_result is success
+  retries: 5
+  delay: 2
+
+- name: Ensure Python2 EPICS packages are installed
+  pip:
+    name: "{{ epics_pip_packages }}"
+    state: "{{ epics_pip_packages_state }}"
+    executable: "{{ pip2_executable }}"
+  environment:
+    EPICS_BASE: "{{ epics_base_dir }}"
+    EPICS_HOST_ARCH: "{{ epics_host_arch }}"
+  become: true
+  register: epics_pip_packages_result
+  until: epics_pip_packages_result is success
+  retries: 5
+  delay: 2

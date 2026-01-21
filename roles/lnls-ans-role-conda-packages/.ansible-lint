@@ -1,0 +1,9 @@
+---
+skip_list:
+  - '602'
+  - no-handler
+  - role-name
+  - unnamed-task
+
+warn_list:
+  - internal-error

@@ -1,0 +1,93 @@
+- name: "Create conda environment {{ conda_prefix }}"
+  conda:
+    name: python
+    channels: conda-forge
+    version: "{{ conda_python_version }}"
+    environment: "{{ conda_prefix }}"
+    state: present
+    executable: "{{ conda_mamba_executable }}"
+
+- name: "Install basic compile packages"
+  package:
+    name:
+      - gcc
+      - swig
+      - g++
+    state: present
+
+- name: "Install conda packages into {{ conda_prefix }}"
+  conda:
+    name: "{{ conda_packages }}"
+    channels: conda-forge
+    environment: "{{ conda_prefix }}"
+    state: present
+    executable: "{{ conda_mamba_executable }}"
+  register: _conda_packages_result
+  until: _conda_packages_result is success
+  retries: 5
+  delay: 2
+
+- name: "Install PIP packages using {{ conda_python_pip_executable | default('default pip') }}"
+  pip:
+    name: "{{ conda_pip_packages }}"
+    state: "present"
+    executable: "{{ conda_python_pip_executable | default(omit) }}"
+  vars:
+    ansible_python_interpreter: "{{ conda_python_executable }}"
+  environment:
+    CONDA_PREFIX: "{{ conda_prefix }}"
+    EPICS_BASE: "{{ epics_base_dir | default(omit) }}"
+    EPICS_HOST_ARCH: "{{ epics_host_arch | default(omit) }}"
+    PATH: "{{ conda_prefix }}/bin:{{ ansible_env.PATH }}"
+  become: true
+  register: _conda_pip_dep_packages_result
+  until: _conda_pip_dep_packages_result is success
+  retries: 5
+  delay: 2
+
+- name: Include tasks "clone and install Git repositories"
+  include_tasks: clone-install.yml
+
+- name: "Prepare {{ conda_prefix }} activate/deactivate scripts"
+  block:
+    - name: Create activate/deactivate directories
+      file:
+        state: directory
+        path: "{{ item }}"
+        mode: "0775"
+      with_items:
+        - "{{ conda_prefix }}/etc/conda/activate.d/"
+        - "{{ conda_prefix }}/etc/conda/deactivate.d/"
+
+    - name: Generate activate.d/ scripts
+      template:
+        src: "{{ template.src }}"
+        dest: "{{ conda_prefix }}/etc/conda/activate.d/{{ template.dest }}"
+        owner: "{{ ansible_user | default(omit) }}"
+        group: "{{ conda_group | default(omit) }}"
+        mode: '0775'
+      with_items: "{{ conda_activate_templates }}"
+      loop_control:
+        loop_var: template
+
+    - name: Generate deactivate.d/ scripts
+      template:
+        src: "{{ template.src }}"
+        dest: "{{ conda_prefix }}/etc/conda/deactivate.d/{{ template.dest }}"
+        owner: "{{ ansible_user  | default(omit) }}"
+        group: "{{ conda_group | default(omit) }}"
+        mode: '0775'
+      with_items: "{{ conda_deactivate_templates }}"
+      loop_control:
+        loop_var: template
+
+    - name: Install system wide shell scripts
+      template:
+        src: application.sh.j2
+        dest: "/usr/local/bin/{{ ex.name }}"
+        owner: "{{ ansible_user  | default(omit) }}"
+        group: "{{ conda_group | default(omit) }}"
+        mode: '0775'
+      with_items: "{{ conda_app_executables }}"
+      loop_control:
+        loop_var: ex

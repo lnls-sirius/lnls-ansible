@@ -1,0 +1,74 @@
+# -*- mode: yaml -*-
+# vi: set ft=yaml :
+---
+
+# Ansible related variables
+ansible_user: vagrant
+ansible_connection: ssh
+ansible_ssh_private_key_file: .vagrant-boxes/.vagrant/machines/{{ inventory_hostname }}/virtualbox/private_key
+
+# Select which categories to install
+sirius_apps_install_categories:
+  - sirius_apps_dev_packages
+  - sirius_apps_iocs
+  - sirius_apps_mgmt
+
+sirius_apps_hla_install_categories:
+  - sirius_apps_hla_apps
+  - sirius_apps_hla_opis
+
+
+# Desktop cursor size
+desktop_settings_cursor_size: 24
+
+# Lists of users to create or delete
+users:
+  - name: sirius
+    password: "$6$f65yHhg479Mkl$4/t3MqK1jn5NfVKb0CDtyr6wKYnaCBQOIAwV8/DG.q1hIOBehICwkhAAM3pGfpLeoRwSgLJKyHa6R/u2vtBn//"
+    # how to generate: ansible all -i localhost, -m debug -a "msg={{ 'mypassword' | password_hash('sha512', 'mysecretsalt') }}"
+    update_password: always
+    comment: Sirius
+    uid: 1001
+    groups:
+      - facs
+      - imas
+      - conda
+    root: true
+    dirs_in_home:
+      - "iocs-log"
+    state: present
+
+users_groups:
+  - name: conda
+    system: true
+    gid: 21000
+
+  - name: sirius
+    system: true
+    state: present
+
+  - name: facs
+    system: true
+    state: present
+
+  - name: imas
+    system: true
+    state: present
+
+# Visual Studio Extensions
+visual_studio_code_users:
+  - username: sirius
+    visual_studio_code_extensions: "{{ visual_studio_code_extensions }}"
+    visual_studio_code_extensions_absent: []
+    visual_studio_code_settings: "{{ visual_studio_code_settings }}"
+    visual_studio_code_keybindings: "{{ visual_studio_code_keybindings }}"
+  - username: fernando
+    visual_studio_code_extensions: "{{ visual_studio_code_extensions }}"
+    visual_studio_code_extensions_absent: []
+    visual_studio_code_settings: "{{ visual_studio_code_settings }}"
+    visual_studio_code_keybindings: "{{ visual_studio_code_keybindings }}"
+  - username: ximenes
+    visual_studio_code_extensions: "{{ visual_studio_code_extensions }}"
+    visual_studio_code_extensions_absent: []
+    visual_studio_code_settings: "{{ visual_studio_code_settings }}"
+    visual_studio_code_keybindings: "{{ visual_studio_code_keybindings }}"

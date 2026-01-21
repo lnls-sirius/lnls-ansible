@@ -3,20 +3,6 @@ __desktop_packages:
   - freerdp
   - vim
 
-__desktop_pip_packages:
-  - python-nmap
-  - wakeonlan
-  - requests
-  - pyqtgraph
-  - pandas
-  - psutil
-  - termcolor
-  - sh
-  - cairocffi
-  - matplotlib
-  - scipy
-  - pyparsing
-  - jupyter
-  - xlrd
+__desktop_pip_packages: []
 
-__pip_executable: pip-sirius
+__pip_executable: pip3

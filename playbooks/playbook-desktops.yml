@@ -2,6 +2,9 @@
 - hosts: control_room:control_room_tv:control_room_linac_opis:control_room_new_pcs:con:elp
   remote_user: sirius
   become: true
+  gather_facts: true
+  vars:
+    install_terminfo_kitty: false
 
   pre_tasks:
     - name: Include distribution-dependent variables
@@ -13,11 +16,26 @@
           - "../{{ inventory }}/group_vars/{{ ansible_os_family }}.yml"
       loop: "{{ q('first_found', possible_var_files, errors='ignore') }}"
 
-  roles:
-    - role: lnls-ans-role-repositories
-    - role: lnls-ans-role-users
+    - name: Update and upgrade apt packages
+      apt:
+        upgrade: yes
+        update_cache: true
+        cache_valid_time: 3600
+      when: ansible_os_family == 'Debian'
+
+  tasks:
+    - name: Install Kitty terminfo
+      include_tasks: tasks/setup-kitty.yml
+      when: install_terminfo_kitty
+
+    - name: Include role lnls-ans-role-users
+      include_role:
+        name: lnls-ans-role-users
       when: global_role_users | default(true) | bool
-    - role: lnls-ans-role-network
+
+    - name: Include role lnls-ans-role-network
+      include_role:
+        name: lnls-ans-role-network
       when: global_network_role | default(true) | bool
     # - role: lnls-ans-role-nvidia-driver
     #   when: global_import_nvidia_driver_role | default(false) | bool
@@ -29,19 +47,40 @@
     - role: lnls-ans-role-qt
     - role: lnls-ans-role-cs-studio
       when: global_role_cs_studio | default(true) | bool
-    - role: lnls-ans-role-pydm
-    - role: lnls-ans-role-sirius-bbb
+
+    - name: Include role lnls-ans-role-sirius-bbb
+      include_role:
+        name: lnls-ans-role-sirius-bbb
       when: global_role_sirius_bbb | default(true) | bool
-    - role: lnls-ans-role-octave
+
+    - name: Include role lnls-ans-role-octave
+      include_role:
+        name: lnls-ans-role-octave
       when: global_role_octave | default(true) | bool
-    - role: lnls-ans-role-epics-mca
+
+    - name: Include role lnls-ans-role-epics-mca
+      include_role:
+        name: lnls-ans-role-epics-mca
       when: global_role_epics_mca | default(true) | bool
-    - role: lnls-ans-role-conda
-    - role: lnls-ans-role-sirius-hlacon
-    - role: lnls-ans-role-sirius-apps
-    - role: lnls-ans-role-sirius-hla
-    - role: lnls-ans-role-desktop-apps
-    - role: lnls-ans-role-desktop-settings
+
+    - name: Call lnls-ans-role-conda-packages passing down variables for each environment
+      include_tasks: tasks/setup-conda-environment.yml
+
+    - name: Include role lnls-ans-role-sirius-apps
+      include_role:
+        name: lnls-ans-role-sirius-apps
+
+    - name: Include role lnls-ans-role-sirius-hla
+      include_role:
+        name: lnls-ans-role-sirius-hla
+
+    - name: Include role lnls-ans-role-desktop-apps
+      include_role:
+        name: lnls-ans-role-desktop-apps
+
+    - name: Include role lnls-ans-role-desktop-settings
+      include_role:
+        name: lnls-ans-role-desktop-settings
       when: global_role_desktop_settings | default(true) | bool
     - role: lnls-ans-role-visual-studio-code
       when: global_role_visual_studio_code | default(false) | bool
