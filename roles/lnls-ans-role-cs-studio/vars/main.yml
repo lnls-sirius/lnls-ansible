@@ -31,6 +31,10 @@ csstudio_diirt_preferences:
   - regexp: "^org.csstudio.diirt.util.core.preferences/diirt.datasource.delimiter="
     line: "org.csstudio.diirt.util.core.preferences/diirt.datasource.delimiter={{ diirt_datasource_delimeter }}"
 
+csstudio_diirt_extra_preferences:
+  - line: "org.csstudio.diirt.util.core.preferences/diirt.ca.max.array.size={{ csstudio_ca_max_array_bytes }}"
+    insertafter: "^org.csstudio.diirt.util.core.preferences"
+
 csstudio_icons_splash_dir: "{{ csstudio_directory }}/configuration/org.eclipse.equinox.launcher/se.ess.ics.csstudio.product_{{ csstudio_version }}"
 csstudio_icons:
   - file: icon.png
