@@ -23,9 +23,6 @@ control_room_linac_opis
 
 # ---------------------------------------
 
-[elp]
-10.0.38.56  # elp1-linux
-
 [con]
 isp-opi-2.abtlus.org.br
 # fac-testes.abtlus.org.br
