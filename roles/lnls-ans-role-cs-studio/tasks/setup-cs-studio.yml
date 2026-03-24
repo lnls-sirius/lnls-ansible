@@ -37,6 +37,15 @@
     - "{{ csstudio_diirt_preferences }}"
     - "{{ csstudio_alarm_colors_preferences }}"
 
+- name: Add extra CSS preference settings
+  lineinfile:
+    state: present
+    path: /opt/cs-studio/configuration/plugin_customization.ini
+    line: "{{ item.line }}"
+    insertafter: "{{ item.insertafter }}"
+  with_items:
+    - "{{ csstudio_diirt_extra_preferences }}"
+
 - name: Overwrite CSS runtime settings
   lineinfile:
     state: present
