@@ -7,6 +7,11 @@ pkg_version_setuptools: ""
 pkg_version_pyepics: ""
 pkg_version_pcaspy: ""
 
+epics_base_version: R3.15.9
+epics_base_git_url: https://github.com/epics-base/epics-base
+
+epics_install_from_source: false
+
 # EPICS base directory
 epics_base_dir: /usr/lib/epics
 
@@ -23,6 +28,9 @@ epics_pip_packages_state: present
 
 # Whether to install recommended packages. Used only for Debian/Ubuntu.
 epics_install_recommends: true
+
+# Whether to install epics python packages for backwards compatibility
+epics_install_python_packages: true
 
 # Additional EPICS packages
 epics_packages_extra: []

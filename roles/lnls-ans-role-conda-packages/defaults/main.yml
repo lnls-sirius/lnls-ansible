@@ -1,0 +1,45 @@
+---
+# Conda group name
+conda_group: conda
+
+conda_path: /opt/conda
+conda_executable: "{{ conda_path }}/bin/conda"
+conda_profile: "{{ conda_path }}/etc/profile.d/conda.sh"
+
+# We use conda --prefix instead of --name so we have better control
+conda_prefix: "{{ conda_path }}" # the default prefix 'base' is the root path
+
+# Python and pip binaries
+conda_python_version: '3.9.2'
+
+conda_packages: []
+
+conda_pip_packages: []
+
+# env activate/deactivate scripts
+#
+# conda_activate_templates:
+#   - src: sirius-activate.sh.j2
+#     dest: sirius-activate.sh
+#
+# conda_deactivate_templates: []
+#   - src: sirius-deactivate.sh.j2
+#     dest: sirius-deactivate.sh
+conda_activate_templates: []
+conda_deactivate_templates: []
+
+
+# Clone and use make to install git repositories
+#
+# conda_clone_install_make:
+#   - repo: "https://github.com/lnls-fac/mathphys.git"
+#     branch: "improve-install"
+#     targets: "install"
+#     force_version: true
+conda_clone_install_make: []
+
+# System wide executables that  activate the conda environment
+#  conda_app_executables:
+#   - name: jupyter-sirius
+#     command: jupyter notebook
+conda_app_executables: []

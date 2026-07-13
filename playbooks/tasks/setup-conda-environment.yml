@@ -1,0 +1,16 @@
+# recursevelly call lnls-ans-role-conda-packages so we can easily setup multiple conda environments
+- name: Setup conda environment
+  include_role:
+    name: lnls-ans-role-conda-packages
+  vars:
+    conda_prefix: "{{ conda_env_item.conda_prefix }}"
+    conda_python_version: "{{ conda_env_item.conda_python_version }}"
+    conda_packages: "{{ conda_env_item.conda_packages }}"
+    conda_pip_packages: "{{ conda_env_item.conda_pip_packages }}"
+    conda_activate_templates: "{{ conda_env_item.conda_activate_templates }}"
+    conda_deactivate_templates: "{{ conda_env_item.conda_deactivate_templates }}"
+    conda_conda_clone_install_make: "{{ conda_env_item.conda_conda_clone_install_make }}"
+    conda_conda_app_executables: "{{ conda_env_item.conda_conda_app_executables }}"
+  with_items: "{{ conda_environments }}"
+  loop_control:
+    loop_var: conda_env_item

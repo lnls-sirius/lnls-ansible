@@ -1,0 +1,46 @@
+---
+- name: Create tempdir
+  tempfile:
+    state: directory
+  register: kitty_tempdir
+  run_once: True
+  delegate_to: localhost
+  connection: local
+  become: false
+
+- name: Download kitty terminfo
+  get_url:
+    url: "https://github.com/kovidgoyal/kitty/blob/master/terminfo/x/xterm-kitty?raw=true"
+    dest: "{{ kitty_tempdir.path }}/xterm-kitty"
+  run_once: True
+  delegate_to: localhost
+  connection: local
+  become: false
+
+- name: "(Block) Install terminfo dir and file"
+  block:
+    - name: Create terminfo dir
+      file:
+        path: /usr/share/terminfo/x/
+        state: directory
+        owner: root
+        group: root
+        mode: "0755"
+        force: False
+
+    - name: Copy terminfo
+      copy:
+        src: "{{ kitty_tempdir.path }}/xterm-kitty"
+        dest: "/usr/share/terminfo/x/xterm-kitty"
+        owner: root
+        group: root
+        mode: 0644
+
+- name: Delete tempdir
+  file:
+    path: "{{ kitty_tempdir.path }}"
+    state: absent
+  run_once: True
+  connection: local
+  become: false
+  delegate_to: localhost

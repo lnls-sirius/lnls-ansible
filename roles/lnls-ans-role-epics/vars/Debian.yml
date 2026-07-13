@@ -1,7 +1,15 @@
 ---
+__epics_build_dependencies:
+  - build-essential
+  - libpcre3-dev
+  - libreadline-dev
+  - re2c
+
 __epics_packages:
   - epics-dev
   - epics-pcas-dev
+
+__epics_packages_python:
   - python-pip
 
 __epics_pip_packages:

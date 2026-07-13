@@ -22,8 +22,9 @@
   pip:
     name: "{{ sirius_apps_hlacon_pip_packages_to_remove }}"
     state: absent
-    executable: "{{ pip_executable | default(omit) }}"
-  become: true
+    executable: "{{ conda_python_pip_executable | default(omit) }}"
+  vars:
+    ansible_python_interpreter: "{{ conda_python_executable }}"
   register: hlacon_pip_packages_result
   until: hlacon_pip_packages_result is success
   retries: 5

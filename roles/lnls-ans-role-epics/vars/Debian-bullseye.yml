@@ -1,0 +1,10 @@
+---
+__epics_packages: []
+
+__epics_packages_python: []
+
+__epics_pip_packages: []
+
+__pip_executable: pip3
+
+__pip2_executable: pip2

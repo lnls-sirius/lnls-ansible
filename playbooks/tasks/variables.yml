@@ -1,0 +1,19 @@
+---
+- stat:
+    path: "{{ item }}"
+  register: inventory_s
+  changed_when: false
+
+- assert:
+    that:
+      - inventory is defined and inventory_s.stat.isdir
+  when: skip_not_found is not defined or not skip_not_found
+
+- name: Include distribution-dependent variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - files:
+      - "../{{ inventory }}/group_vars/{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml"
+      - "../{{ inventory }}/group_vars/{{ ansible_distribution }}.yml"
+      - "../{{ inventory }}/group_vars/{{ ansible_os_family }}.yml"
+      skip: "{{ skip_not_found | default(true) }}"

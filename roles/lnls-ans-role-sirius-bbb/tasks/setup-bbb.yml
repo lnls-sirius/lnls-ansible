@@ -14,7 +14,7 @@
     owner: root
     group: root
     force: true
-    mode: "{{ item.mode | default(0644) }}"
+    mode: "{{ item.mode | default('0644') }}"
   become: true
   with_items:
     - "{{ sirius_bbb_config_files }}"

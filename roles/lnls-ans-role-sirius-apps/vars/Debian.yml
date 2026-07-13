@@ -1,7 +1,7 @@
 ---
 __sirius_apps_packages:
   - epics-extensions-dev
-  - winswitch
+  # DEPRECATED: dead project not available on Debian 11+, we should not use this - winswitch
   - xvfb
   - bc
   - libblas-dev
