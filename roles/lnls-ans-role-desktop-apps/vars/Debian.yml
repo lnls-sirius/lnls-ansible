@@ -31,20 +31,7 @@ __desktop_packages:
   - dvipng
   - ghostscript
 
-__desktop_pip_packages:
-  - python-nmap
-  - wakeonlan
-  - requests
-  - pyqtgraph
-  - pandas
-  - psutil
-  - termcolor
-  - sh
-  - cairocffi
-  - matplotlib
-  - scipy
-  - pyparsing
-  - jupyter
-  - xlrd
+# system level python packages
+__desktop_pip_packages: []
 
-__pip_executable: pip-sirius
+__pip_executable: pip3

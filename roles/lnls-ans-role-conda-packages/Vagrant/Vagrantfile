@@ -1,0 +1,31 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+hosts = {
+  "debian.bullseye"  => "192.168.33.10",
+  "debian.buster"  => "192.168.33.11",
+  "debian.stretch" => "192.168.33.12",
+  "centos.7"  => "192.168.33.13",
+}
+
+Vagrant.configure("2") do |config|
+  hosts.each do |name, ip|
+    config.vm.define name do |machine|
+      if name.eql? "debian.bullseye" then
+        machine.vm.box = "debian/bullseye64"
+      elsif name.eql? "debian.stretch" then
+        machine.vm.box = "debian/stretch64"
+      elsif name.eql? "debian.buster" then
+        machine.vm.box = "debian/buster64"
+      elsif name.eql? "centos.7" then
+        machine.vm.box = "centos/7"
+      end
+      machine.vm.hostname = "%s" % name
+      machine.vm.network :private_network, ip: ip
+      machine.vm.provider "virtualbox" do |v|
+          v.name = name
+          v.customize ["modifyvm", :id, "--memory", 256]
+      end
+    end
+  end
+end

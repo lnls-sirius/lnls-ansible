@@ -2,16 +2,13 @@
 TEST_ROLES = \
 	lnls-ans-role-clone-install \
 	lnls-ans-role-epics \
-	lnls-ans-role-pydm \
-	lnls-ans-role-sirius-hla \
-	lnls-ans-role-conda \
 	lnls-ans-role-epics7 \
-	lnls-ans-role-python \
-	lnls-ans-role-sirius-hlacon \
+	lnls-ans-role-conda \
+	lnls-ans-role-conda-packages \
+	lnls-ans-role-sirius-hla \
 	lnls-ans-role-cs-studio \
 	lnls-ans-role-epics-mca \
 	lnls-ans-role-ntp \
-	lnls-ans-role-qt \
 	lnls-ans-role-users \
 	lnls-ans-role-ctrl-service \
 	lnls-ans-role-glusterfs \
@@ -31,6 +28,16 @@ TEST_TARGET = test_
 test_TARGETS = $(addprefix $(TEST_TARGET), $(TEST_ROLES))
 
 tests: tests_stretch tests_buster
+
+tests_vagrant_deploy:
+		ansible-playbook \
+			--extra-vars inventory=$(SIRIUS_INVENTORY) \
+			--inventory $(SIRIUS_INVENTORY) \
+			--limit vagrant \
+			--user vagrant \
+			--ask-become-pass \
+			--diff \
+			./playbooks/playbook-desktop.yml
 
 tests_stretch:
 	$(MAKE) tests_all_roles MOLECULE_DISTRO=debian:stretch

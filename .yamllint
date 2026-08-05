@@ -1,3 +1,5 @@
+# -*- mode: yaml -*-
+# vi: set ft=yaml :
 ---
 # Based on ansible-lint config
 extends: default
