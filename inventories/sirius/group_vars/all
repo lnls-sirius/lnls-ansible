@@ -72,7 +72,7 @@ pkg_version_siriuspy: "v2.105.0"
 pkg_version_machine_applications: "v3.53.1"
 pkg_version_siriushla: "v1.21.0"
 pkg_sirius_scripts: "v0.25.0"
-pkg_version_lnls_ansible: "master"
+pkg_version_lnls_ansible: "deploy-2026-08-31"
 
 pkg_version_mathphys: "v2.11.1"
 pkg_version_trackcpp: "v5.1.0"
